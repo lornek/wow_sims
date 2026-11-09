@@ -1,6 +1,6 @@
 import {createPull} from './engine.mjs';
 import {catalog, ranks} from './shaman-data.mjs';
-import {loadouts, buffs, buildProfile} from './profile.mjs';
+import {loadouts, buffs, talents, applyTalents, buildProfile} from './profile.mjs';
 
 const root = document.querySelector('#healing');
 const find = selector => root.querySelector(selector);
@@ -60,6 +60,7 @@ let selected = 0;
 let pull;
 let currentSpells;
 let enabled = new Set();
+let inspected = null;
 let last = performance.now();
 
 function icon(name) {
@@ -74,6 +75,7 @@ function icon(name) {
 for (const [index, [key, name, binding]] of slots.entries()) {
   const button = document.createElement('button');
   button.type = 'button';
+  button.setAttribute('aria-haspopup', 'dialog');
   const art = document.createElement('span');
   art.className = 'spell-art';
   const timer = document.createElement('span');
@@ -95,6 +97,15 @@ for (const [index, [key, name, binding]] of slots.entries()) {
     } else selected = index;
     render();
   };
+  button.oncontextmenu = event => {
+    event.preventDefault();
+    openInspector(index);
+  };
+  button.onkeydown = event => {
+    if (event.key !== 'ContextMenu' && !(event.shiftKey && event.key === 'F10')) return;
+    event.preventDefault();
+    openInspector(index);
+  };
   find('.heal-spells').append(button);
   spellButtons.push({button, timer, cooldown, key});
 
@@ -105,8 +116,7 @@ for (const [index, [key, name, binding]] of slots.entries()) {
   select.selectedIndex = rows.length - 1;
   const setting = document.createElement('label');
   setting.append(name, select);
-  if (!utility[key]) find('[data-ranks]').append(setting);
-  selects.push({select, rows, key, name});
+  selects.push({select, rows, key, name, setting});
 }
 
 for (const [index, unit] of encounter.party.entries()) {
@@ -142,13 +152,19 @@ function attempt(event, index, right) {
   render();
 }
 
-function reset(start = false) {
-  currentSpells = Object.fromEntries(selects.map(({select, rows, key, name}) =>
-    [key, spellFor(key, name, rows[select.selectedIndex])]));
+function configuredSpells() {
+  const points = Object.fromEntries(talentFields.map(({key, input}) => [key, Number(input.value)]));
   const power = find('[data-power]');
   enabled = new Set([...root.querySelectorAll('[data-buff]:checked')].map(input => input.value));
-  profile = buildProfile(find('[data-loadout]').value, enabled, power.validity.valid ? Number(power.value) : 0);
+  profile = buildProfile(gear.value, enabled, power.validity.valid ? Number(power.value) : 0, points);
+  currentSpells = Object.fromEntries(selects.map(({select, rows, key, name}) =>
+    [key, applyTalents(spellFor(key, name, rows[select.selectedIndex]), points)]));
   if (!enabled.has('potion')) delete currentSpells.potion;
+  find('[data-talent-points]').textContent = Object.values(points).reduce((a, b) => a + b, 0) + ' modeled points allocated';
+}
+
+function reset(start = false) {
+  configuredSpells();
   const party = encounter.party.map((unit, index) => index === encounter.party.length - 1 ? {...unit, max: profile.health} : unit);
   pull = createPull(profile, currentSpells, {...encounter, party}, Math.random, showHeal);
   updateSheet();
@@ -202,13 +218,14 @@ function render() {
     cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
       base ? countdown(base) + ' cooldown' : '';
     button.setAttribute('aria-pressed', selected === index);
-    if (spell) button.title = describeSpell(spell);
   });
   selects.forEach(({select}) => select.disabled = active);
   find('[data-power]').disabled = active;
   find('[data-loadout]').disabled = active;
   for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
+  for (const {input} of talentFields) input.disabled = active;
   renderMeters(s);
+  if (inspected !== null) updateInspectorMeter(s);
   const result = find('[data-result]');
   const score = ended ? s.survivors + '/5 survived · ' + whole(s.healing) + ' effective healing · ' +
     whole(s.healing / s.endedAt) + ' HPS · ' + whole(s.overheal) + ' overhealing · ' +
@@ -223,24 +240,49 @@ const equipment = {
 };
 const gear = find('[data-loadout]');
 for (const name of Object.keys(loadouts)) gear.add(new Option(name));
-for (const [key, name, description] of buffs) {
+for (const [key, name, description, iconFile] of buffs) {
   const label = document.createElement('label');
   const input = document.createElement('input');
   input.type = 'checkbox';
   input.value = key;
   input.dataset.buff = '';
-  label.append(input, name + ' · ' + description);
+  const image = document.createElement('img');
+  image.src = new URL('./icons/' + iconFile + '.jpg', import.meta.url);
+  image.alt = '';
+  image.width = image.height = 24;
+  label.append(input, image, name + ' · ' + description);
   find('[data-buffs]').append(label);
 }
+const talentFields = talents.map(([key, name, max, description]) => {
+  const label = document.createElement('label');
+  const text = document.createElement('span');
+  text.textContent = name;
+  const detail = document.createElement('small');
+  detail.textContent = description;
+  text.append(detail);
+  const input = document.createElement('select');
+  input.setAttribute('aria-label', name + ' talent rank');
+  for (let rank = 0; rank <= max; rank++) input.add(new Option(rank + ' / ' + max, rank));
+  label.append(text, input);
+  find('[data-talents]').append(label);
+  return {key, input};
+});
+const gearSlots = {};
 for (const [group, names] of Object.entries(equipment)) {
   for (const name of names) {
     const image = document.createElement('img');
     const slot = name.toLowerCase().replace(/ [12]$/, '').replaceAll(' ', '');
     const file = {back: 'empty', chest: 'empty', tabard: 'empty'}[slot] ?? slot;
-    image.src = new URL('./slots/' + file + '.jpg', import.meta.url);
-    image.alt = image.title = name + ' · Empty';
+    const slotButton = document.createElement('button');
+    slotButton.type = 'button';
+    slotButton.className = 'equipment-slot';
+    image.alt = '';
     image.width = image.height = 36;
-    find('[data-equipment="' + group + '"]').append(image);
+    const tip = document.createElement('span');
+    tip.className = 'equipment-tooltip';
+    slotButton.append(image, tip);
+    gearSlots[name] = {image, slotButton, tip, file};
+    find('[data-equipment="' + group + '"]').append(slotButton);
   }
 }
 const statGroups = {
@@ -266,16 +308,50 @@ for (const [name, stats] of Object.entries(statGroups)) {
 }
 function updateSheet() {
   find('[data-loadout-label]').textContent = gear.value;
+  const kit = loadouts[gear.value];
+  const sources = [...new Set(Object.values(kit).map(item => item.source))];
+  find('[data-gear-source]').textContent = sources.length ? 'Item data · ' + sources.join(' / ') : '';
+  const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
+    spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor'};
+  for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {
+    const item = kit[name];
+    image.src = new URL(item ? './icons/' + item.icon + '.jpg' : './slots/' + file + '.jpg', import.meta.url);
+    slotButton.dataset.quality = item?.quality ?? '';
+    slotButton.setAttribute('aria-label', name + ' · ' + (item?.name ?? 'Empty'));
+    tip.replaceChildren();
+    const title = document.createElement('strong');
+    title.textContent = item?.name ?? name + ' · Empty';
+    tip.append(title);
+    if (!item) continue;
+    const info = document.createElement('span');
+    info.textContent = [name, item.ilvl ? 'Item level ' + item.ilvl : '', item.source].filter(Boolean).join(' · ');
+    tip.append(info);
+    for (const [key, value] of Object.entries(item.stats)) {
+      const line = document.createElement('span');
+      line.textContent = '+' + value + (key === 'crit' ? '% ' : ' ') + labels[key];
+      tip.append(line);
+    }
+    const linkText = document.createElement('span');
+    linkText.textContent = 'Item ID ' + item.id;
+    tip.append(linkText);
+  }
   for (const [key, field] of Object.entries(sheet)) {
     field.textContent = key === 'crit' ? (100 * profile.crit).toFixed(2) + '%' :
-      key === 'resting' ? (profile.mp5 + 5 * profile.regen).toFixed(1) : whole(profile[key]);
+      key === 'resting' ? (profile.mp5 + 5 * profile.regen).toFixed(1) :
+        key === 'mp5' ? (profile.mp5 + 5 * profile.regen * profile.castingRegen).toFixed(1) : whole(profile[key]);
   }
 }
 find('[data-power]').oninput = () => reset();
 gear.onchange = () => reset();
 find('[data-buffs]').onchange = () => reset();
+find('[data-talents]').onchange = () => reset();
 find('[data-start]').onclick = () => reset(true);
-for (const {select} of selects) select.onchange = () => { if (pull.state.phase === 'ready') reset(); };
+for (const {select} of selects) select.onchange = () => {
+  if (pull.state.phase === 'active') return;
+  if (pull.state.phase === 'ready') reset();
+  else configuredSpells();
+  renderInspector();
+};
 
 const cards = Object.entries(catalog).sort(([a], [b]) => a.localeCompare(b)).map(([name, entry]) => {
   const card = document.createElement('details');
@@ -300,24 +376,82 @@ find('[data-filter]').oninput = event => {
   for (const {card, name} of cards) card.hidden = !name.toLowerCase().includes(query);
 };
 
-function describeSpell(spell) {
-  const line = [spell.name + (spell.rank ? ' · ' + spell.rank : ''), spell.cost + ' mana',
-    spell.cast ? spell.cast + ' sec cast' : 'Instant'];
-  if (spell.cooldown) line.push(spell.cooldown + ' sec cooldown');
+const inspector = find('.spell-inspector');
+inspector.addEventListener('close', () => { inspected = null; });
+function openInspector(index) {
+  if (!currentSpells[slots[index][0]]) return;
+  inspected = index;
+  renderInspector();
+  if (!inspector.open) inspector.showModal();
+}
+
+function renderInspector() {
+  const {key, name, rows, setting} = selects[inspected];
+  const spell = currentSpells[key];
+  find('#inspect-title').replaceChildren(icon(name), document.createTextNode(name));
+  find('[data-inspect-rank]').replaceChildren(...(rows.length > 1 ? [setting] : []));
+  const list = document.createElement('dl');
+  const add = (label, value) => {
+    const term = document.createElement('dt');
+    const description = document.createElement('dd');
+    term.textContent = label;
+    description.textContent = value;
+    list.append(term, description);
+  };
+  add('Mana cost', whole(spell.cost));
+  add('Cast time', spell.cast ? spell.cast + ' sec' : 'Instant');
+  add('Global cooldown', spell.gcd + ' sec');
+  if (spell.cooldown) add('Cooldown', spell.cooldown + ' sec');
   if (spell.low) {
     const bonus = spell.coefficient * profile.power;
-    const range = (factor = 1) => whole(Math.round((spell.low + bonus) * factor)) + '–' +
-      whole(Math.round((spell.high + bonus) * factor));
-    line.push(range() + (spell.period ? ' healing per tick (' + Math.floor(spell.duration / spell.period) + ' ticks)' : ' healing on primary'));
-    if (spell.chain > 1) line.push('Jumps: ' + range(spell.falloff) + ' / ' + range(spell.falloff ** 2));
-    line.push((100 * spell.coefficient).toFixed(1) + '% bonus-healing coefficient' + (spell.period ? ' per tick' : ''));
+    const low = (spell.low + bonus) * spell.multiplier;
+    const high = (spell.high + bonus) * spell.multiplier;
+    const ticks = spell.period ? Math.floor(spell.duration / spell.period) : 1;
+    const crit = spell.period ? 0 : profile.crit;
+    const average = (low + high) / 2 * (1 + .5 * crit);
+    const range = (factor = 1) => whole(Math.round(low * factor)) + '–' + whole(Math.round(high * factor));
+    const hpm = factor => spell.cost ? (average * factor / spell.cost).toFixed(2) : '—';
+    add(spell.period ? 'Non-crit healing per tick' : 'Non-crit primary heal', range());
+    if (spell.period) add('Ticks per target', ticks + ' × every ' + spell.period + ' sec');
+    add('Base coefficient', (spell.coefficient * 100).toFixed(1) + '%' + (spell.period ? ' per tick' : ''));
+    add('Healing crit chance', (crit * 100).toFixed(2) + '%');
+    add('Expected healing per mana', hpm(ticks) + (spell.party ? ' per party member' : ' on primary'));
+    const chain = find('[data-inspect-chain]');
+    chain.replaceChildren();
+    if (spell.chain > 1) {
+      const table = document.createElement('table');
+      table.className = 'table table-sm';
+      table.innerHTML = '<caption>Chain Heal before overhealing. HPM includes crits. Riptide boosts the primary hit only.</caption><thead><tr><th>Targets hit</th><th>Normal healing</th><th>HPM</th><th>Riptide healing</th><th>HPM</th></tr></thead><tbody></tbody>';
+      let total = 0;
+      for (let targets = 1; targets <= spell.chain; targets++) {
+        total += spell.falloff ** (targets - 1);
+        const row = table.tBodies[0].insertRow();
+        for (const value of [targets === 1 ? '1 · primary' : targets + ' · ' + (targets - 1) + ' jumps',
+          range(total), hpm(total), range(total + .25), hpm(total + .25)]) row.insertCell().textContent = value;
+      }
+      chain.append(table);
+    }
+  } else {
+    find('[data-inspect-chain]').replaceChildren();
+    if (spell.rez) add('Resurrection', spell.rez + ' health after combat');
+    if (spell.dispel) add('Dispel', 'Removes one poison');
+    if (spell.swiftness) add('Effect', 'Makes your next cast-time Nature heal instant');
+    if (spell.manaTick) add('Mana restored', spell.manaTick + ' every ' + spell.period + ' sec for ' + spell.duration + ' sec');
+    if (spell.manaRange) add('Mana restored', spell.manaRange.map(whole).join('–'));
   }
-  if (spell.rez) line.push('Restores ' + spell.rez + ' health after combat');
-  if (spell.dispel) line.push('Removes one poison');
-  if (spell.swiftness) line.push('Makes your next cast-time Nature heal instant');
-  if (spell.manaTick) line.push(spell.manaTick + ' mana every ' + spell.period + ' sec for ' + spell.duration + ' sec');
-  if (spell.manaRange) line.push(spell.manaRange.map(whole).join('–') + ' mana restored');
-  return line.join('\n');
+  find('[data-inspect-stats]').replaceChildren(list);
+  updateInspectorMeter(pull.state);
+}
+
+function updateInspectorMeter(state) {
+  const stats = state.meters[slots[inspected][0]];
+  const raw = (stats?.effective ?? 0) + (stats?.overheal ?? 0);
+  const field = find('[data-inspect-meter]');
+  const value = raw ? 'This pull · ' + whole(stats.effective) + ' effective healing · ' +
+    (100 * stats.effective / raw).toFixed(1) + '% effective · ' +
+    (stats.mana ? (stats.effective / stats.mana).toFixed(2) + ' effective healing per mana' : 'no mana spent') :
+    'This pull · No healing recorded for this spell.';
+  if (field.textContent !== value) field.textContent = value;
 }
 
 const meterRows = new Map();

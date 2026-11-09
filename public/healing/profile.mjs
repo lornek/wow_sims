@@ -1,25 +1,45 @@
-export const naked = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99, baseMana: 1520};
+import {equipmentSets} from './gear.mjs';
 
-// Aggregate scenario inputs, independent of individual items and set bonuses.
-export const loadouts = {
-  'Ungeared': {},
-  'Fresh 60': {stamina: 45, intellect: 60, spirit: 35, power: 150, mp5: 8, crit: .01},
-  'Level 60 dungeon': {stamina: 70, intellect: 95, spirit: 50, power: 300, mp5: 20, crit: .02},
-  'Tier 1 raid': {stamina: 95, intellect: 120, spirit: 65, power: 440, mp5: 34, crit: .03},
-  'Tier 2 raid': {stamina: 125, intellect: 150, spirit: 80, power: 600, mp5: 48, crit: .04}
-};
+export const naked = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99, baseMana: 1520};
+export const loadouts = equipmentSets;
 export const buffs = [
-  ['wisdom', 'Blessing of Wisdom', '+40 mana / 5 sec'],
-  ['spirit', 'Divine Spirit', '+40 Spirit'],
-  ['kings', 'Blessing of Kings', '+10% attributes'],
-  ['intellect', 'Arcane Intellect', '+31 Intellect'],
-  ['flask', 'Flask of Distilled Wisdom', '+2,000 mana'],
-  ['mageblood', 'Mageblood Elixir', '+12 mana / 5 sec'],
-  ['potion', 'Major Mana Potion', '1,350–2,250 mana on use']
+  ['wisdom', 'Blessing of Wisdom', '+40 mana / 5 sec', 'spell_holy_sealofwisdom'],
+  ['spirit', 'Divine Spirit', '+40 Spirit', 'spell_holy_divinespirit'],
+  ['kings', 'Blessing of Kings', '+10% attributes', 'spell_magic_magearmor'],
+  ['intellect', 'Arcane Intellect', '+31 Intellect', 'spell_holy_magicalsentry'],
+  ['flask', 'Flask of Distilled Wisdom', '+2,000 mana', 'inv_potion_97'],
+  ['mageblood', 'Mageblood Elixir', '+12 mana / 5 sec', 'inv_potion_45'],
+  ['potion', 'Major Mana Potion', '1,350–2,250 mana on use', 'inv_potion_76']
 ];
 
-export function buildProfile(loadout, enabled, bonusHealing) {
-  const gear = loadouts[loadout];
+export const talents = [
+  ['wave', 'Improved Healing Wave', 5, '−0.1 sec cast time per rank'],
+  ['focus', 'Tidal Focus', 5, '−1% mana cost per rank for direct heals and Riptide'],
+  ['mindfulness', 'Mindfulness', 3, '17% / 33% / 50% Spirit regeneration inside the five-second rule'],
+  ['totemic', 'Totemic Focus', 5, '−5% mana cost per rank for totems'],
+  ['crit', 'Tidal Mastery', 5, '+1 percentage point of healing crit per rank'],
+  ['stream', 'Restorative Totems', 5, '+10% Healing Stream healing per rank'],
+  ['way', 'Healing Way', 3, '+8% / 17% / 25% Healing Wave healing'],
+  ['purification', 'Purification', 5, '+2% healing per rank for direct heals and Riptide']
+];
+
+export function applyTalents(spell, points) {
+  const direct = ['wave', 'lesser', 'chain', 'riptide'].includes(spell.key);
+  const totem = ['stream', 'tide'].includes(spell.key);
+  const multiplier = (direct ? 1 + .02 * points.purification : 1) *
+    (spell.key === 'wave' ? [1, 1.08, 1.17, 1.25][points.way] : 1) *
+    (spell.key === 'stream' ? 1 + .10 * points.stream : 1);
+  return {...spell,
+    cast: spell.key === 'wave' ? Math.round((spell.cast - .1 * points.wave) * 100) / 100 : spell.cast,
+    cost: Math.round(spell.cost * (direct ? 1 - .01 * points.focus : totem ? 1 - .05 * points.totemic : 1)),
+    multiplier};
+}
+
+export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
+  const gear = {};
+  for (const item of Object.values(loadouts[loadout])) {
+    for (const [key, value] of Object.entries(item.stats)) gear[key] = (gear[key] ?? 0) + value;
+  }
   const stat = (key, extra = 0) => Math.floor((naked[key] + (gear[key] ?? 0) + extra) * (enabled.has('kings') ? 1.1 : 1));
   const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0);
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
@@ -27,7 +47,8 @@ export function buildProfile(loadout, enabled, bonusHealing) {
   return {strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
     baseMana: naked.baseMana, health: 1280 + 10 * stamina,
     mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
-    crit: (2.3 + intellect * .0169) / 100 + (gear.crit ?? 0),
+    crit: (2.3 + intellect * .0169 + (gear.crit ?? 0) + (points.crit ?? 0)) / 100,
+    castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
     regen: 6.25 + spirit / 8, power: (gear.power ?? 0) + bonusHealing,
     mp5: (gear.mp5 ?? 0) + (enabled.has('wisdom') ? 40 : 0) + (enabled.has('mageblood') ? 12 : 0)};
 }

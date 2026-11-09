@@ -13,6 +13,7 @@
     <div class="heal-bar cast-bar"><span data-cast-fill></span><strong data-cast></strong></div>
     <p class="heal-message" data-message aria-live="polite"></p>
     <div class="heal-spells" aria-label="Select a spell"></div>
+    <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
     <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
     <p data-result aria-live="polite"></p>
   </div>
@@ -22,7 +23,7 @@
     <p data-meter-empty>No healing recorded yet.</p>
     <div data-meter></div>
   </section>
-  <p>Mana-per-five effects work throughout the pull. Spirit regeneration resumes after five seconds without spending mana. Set a lower spell rank before pulling to practice downranking.</p>
+  <p>Mana-per-five effects work throughout the pull. Mindfulness keeps a portion of Spirit regeneration active inside the five-second rule.</p>
   <section class="character-sheet" aria-labelledby="character-title">
     <header><img src="../assets/shaman.jpg" alt="" width="44" height="44"><div>
       <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · <span data-loadout-label>Ungeared</span></p>
@@ -42,14 +43,27 @@
   <section class="heal-settings">
     <h2>Loadout and buffs</h2>
     <label>Gear preset <select data-loadout></select></label>
-    <p>Geared presets use illustrative stat totals. Equipment slots show individual items when an itemized loadout is available.</p>
+    <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
+    <p data-gear-source></p>
     <div data-buffs></div>
   </section>
   <details class="heal-settings">
-    <summary>Spell ranks and bonus healing</summary>
-    <label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label>
-    <div data-ranks></div>
+    <summary>Restoration talent builder</summary>
+    <p>Allocate ranks for the talents modeled in this encounter. This practice builder lets you test each talent independently of tree prerequisites.</p>
+    <div data-talents></div>
+    <p data-talent-points></p>
   </details>
+  <details class="heal-settings">
+    <summary>Bonus healing override</summary>
+    <label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label>
+  </details>
+  <dialog class="spell-inspector" aria-labelledby="inspect-title">
+    <header><h2 id="inspect-title"></h2><form method="dialog"><button aria-label="Close spell inspector">Close</button></form></header>
+    <div data-inspect-rank></div>
+    <div data-inspect-stats></div>
+    <div data-inspect-chain></div>
+    <p data-inspect-meter></p>
+  </dialog>
   <details class="heal-settings">
     <summary>Shaman spellbook and coefficients</summary>
     <p>Client effect coefficients are shown per hit or tick. The spellbook includes abilities outside the practice action bar.</p>

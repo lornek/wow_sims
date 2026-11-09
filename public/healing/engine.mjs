@@ -6,7 +6,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     nextPoison: 7, nextFlurry: encounter.firstFlurry, nextMana: 2, swiftness: 0, meters: {}};
 
   function meter(key) {
-    return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0};
+    return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0, mana: 0};
   }
 
   function restoreMana(amount) {
@@ -30,8 +30,8 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function resolve(spell, unit) {
-    const amount = () => (spell.low ?? 0) + random() * ((spell.high ?? spell.low ?? 0) - (spell.low ?? 0)) +
-      (spell.coefficient ?? 0) * profile.power;
+    const amount = () => ((spell.low ?? 0) + random() * ((spell.high ?? spell.low ?? 0) - (spell.low ?? 0)) +
+      (spell.coefficient ?? 0) * profile.power) * (spell.multiplier ?? 1);
     if (spell.swiftness) {
       state.swiftness = Infinity;
     } else if (spell.manaRange) {
@@ -96,6 +96,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     state.manaSpent += spell.cost;
     state.cooldowns[spell.key] = state.time + spell.cooldown;
     meter(spell.key).casts++;
+    meter(spell.key).mana += spell.cost;
     resolve(spell, unit);
   }
 
@@ -109,7 +110,8 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (state.cast && state.time >= state.cast.end) finishCast();
     if (state.time >= state.nextMana) {
       state.nextMana += 2;
-      restoreMana((profile.mp5 ?? 0) * .4 + (state.time - state.lastSpend >= 5 ? profile.regen * 2 : 0));
+      const spiritFraction = state.time - state.lastSpend >= 5 ? 1 : profile.castingRegen ?? 0;
+      restoreMana((profile.mp5 ?? 0) * .4 + profile.regen * 2 * spiritFraction);
     }
     if (state.phase !== 'active') return;
     for (const effect of state.effects) {
