@@ -61,6 +61,7 @@ export const equipmentSets = {
       "stats": {
         "intellect": 5,
         "spirit": 11,
+        "power": 68,
         "armor": 89
       }
     },
@@ -90,6 +91,7 @@ export const equipmentSets = {
       "stats": {
         "intellect": 13,
         "spirit": 12,
+        "power": 33,
         "armor": 52
       }
     },
@@ -104,6 +106,7 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 11,
         "power": 12,
+        "spellDamage": 12,
         "armor": 43
       }
     },
@@ -170,7 +173,8 @@ export const equipmentSets = {
       "ilvl": 60,
       "quality": 3,
       "stats": {
-        "power": 29
+        "power": 29,
+        "spellDamage": 29
       }
     },
     "Trinket 2": {
@@ -206,7 +210,8 @@ export const equipmentSets = {
       "stats": {
         "stamina": 5,
         "intellect": 5,
-        "spirit": 10
+        "spirit": 10,
+        "power": 22
       }
     },
     "Relic": {
@@ -288,6 +293,7 @@ export const equipmentSets = {
       "stats": {
         "intellect": 5,
         "spirit": 11,
+        "power": 68,
         "armor": 89
       }
     },
@@ -317,6 +323,7 @@ export const equipmentSets = {
       "stats": {
         "intellect": 13,
         "spirit": 12,
+        "power": 33,
         "armor": 52
       }
     },
@@ -331,6 +338,7 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 11,
         "power": 12,
+        "spellDamage": 12,
         "armor": 43
       }
     },
@@ -397,7 +405,8 @@ export const equipmentSets = {
       "ilvl": 60,
       "quality": 3,
       "stats": {
-        "power": 29
+        "power": 29,
+        "spellDamage": 29
       }
     },
     "Trinket 2": {
@@ -433,7 +442,8 @@ export const equipmentSets = {
       "stats": {
         "stamina": 5,
         "intellect": 5,
-        "spirit": 10
+        "spirit": 10,
+        "power": 22
       }
     },
     "Relic": {
@@ -448,17 +458,17 @@ export const equipmentSets = {
   },
   "Tier 1 raid": {
     "Head": {
-      "id": 226612,
-      "name": "Earthfury Helmet",
-      "icon": "inv_helmet_09",
+      "id": 228385,
+      "name": "Crystal Adorned Crown",
+      "icon": "inv_crown_01",
       "source": "Season of Discovery",
-      "ilvl": 66,
+      "ilvl": 68,
       "quality": 4,
       "stats": {
-        "stamina": 19,
-        "intellect": 21,
-        "crit": 1,
-        "armor": 343
+        "intellect": 14,
+        "spirit": 13,
+        "power": 92,
+        "armor": 85
       }
     },
     "Neck": {
@@ -471,21 +481,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "spirit": 11
+        "spirit": 11,
+        "power": 37
       }
     },
     "Shoulders": {
-      "id": 226611,
-      "name": "Earthfury Epaulets",
-      "icon": "inv_shoulder_29",
+      "id": 228283,
+      "name": "Wild Growth Spaulders",
+      "icon": "inv_shoulder_18",
       "source": "Season of Discovery",
-      "ilvl": 66,
+      "ilvl": 71,
       "quality": 4,
       "stats": {
-        "stamina": 12,
-        "intellect": 15,
-        "crit": 1,
-        "armor": 317
+        "stamina": 11,
+        "intellect": 12,
+        "power": 62,
+        "armor": 159
       }
     },
     "Back": {
@@ -498,77 +509,77 @@ export const equipmentSets = {
       "stats": {
         "stamina": 8,
         "intellect": 10,
+        "power": 42,
         "armor": 48
       }
     },
     "Chest": {
-      "id": 226617,
-      "name": "Earthfury Vestments",
-      "icon": "inv_chest_chain_11",
+      "id": 15047,
+      "name": "Red Dragonscale Breastplate",
+      "icon": "inv_chest_chain_06",
       "source": "Season of Discovery",
-      "ilvl": 66,
-      "quality": 4,
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 12,
-        "intellect": 23,
-        "crit": 1,
-        "armor": 422
+        "power": 66,
+        "armor": 360
       }
     },
     "Wrists": {
-      "id": 226618,
-      "name": "Earthfury Bracers",
+      "id": 13969,
+      "name": "Loomguard Armbraces",
       "icon": "inv_bracer_16",
       "source": "Season of Discovery",
-      "ilvl": 66,
-      "quality": 4,
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 9,
-        "intellect": 10,
-        "crit": 1,
-        "armor": 185
+        "stamina": 6,
+        "intellect": 7,
+        "power": 33,
+        "armor": 157
       }
     },
     "Hands": {
-      "id": 226615,
-      "name": "Earthfury Gauntlets",
-      "icon": "inv_gauntlets_11",
+      "id": 18527,
+      "name": "Harmonious Gauntlets",
+      "icon": "inv_gauntlets_10",
       "source": "Season of Discovery",
-      "ilvl": 66,
-      "quality": 4,
+      "ilvl": 63,
+      "quality": 3,
       "stats": {
-        "stamina": 12,
-        "intellect": 17,
-        "crit": 1,
-        "armor": 264
+        "stamina": 5,
+        "intellect": 5,
+        "spirit": 5,
+        "power": 51,
+        "armor": 231
       }
     },
     "Waist": {
-      "id": 226616,
-      "name": "Earthfury Belt",
-      "icon": "inv_belt_14",
+      "id": 19162,
+      "name": "Corehound Belt",
+      "icon": "inv_belt_24",
       "source": "Season of Discovery",
-      "ilvl": 66,
+      "ilvl": 70,
       "quality": 4,
       "stats": {
-        "stamina": 12,
-        "intellect": 15,
-        "crit": 1,
-        "armor": 237
+        "intellect": 16,
+        "power": 62,
+        "armor": 118
       }
     },
     "Legs": {
-      "id": 226614,
-      "name": "Earthfury Legguards",
-      "icon": "inv_pants_03",
+      "id": 228245,
+      "name": "Salamander Scale Pants",
+      "icon": "inv_pants_12",
       "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 19,
-        "intellect": 23,
-        "crit": 1,
-        "armor": 369
+        "stamina": 14,
+        "intellect": 14,
+        "power": 51,
+        "mp5": 9,
+        "armor": 175
       }
     },
     "Feet": {
@@ -581,6 +592,7 @@ export const equipmentSets = {
       "stats": {
         "stamina": 14,
         "intellect": 15,
+        "power": 37,
         "crit": 1,
         "armor": 290
       }
@@ -594,7 +606,8 @@ export const equipmentSets = {
       "quality": 4,
       "stats": {
         "stamina": 9,
-        "intellect": 12
+        "intellect": 12,
+        "power": 46
       }
     },
     "Finger 2": {
@@ -606,7 +619,8 @@ export const equipmentSets = {
       "quality": 3,
       "stats": {
         "stamina": 4,
-        "intellect": 5
+        "intellect": 5,
+        "power": 37
       }
     },
     "Trinket 1": {
@@ -628,7 +642,8 @@ export const equipmentSets = {
       "ilvl": 60,
       "quality": 3,
       "stats": {
-        "power": 29
+        "power": 29,
+        "spellDamage": 29
       }
     },
     "Main hand": {
@@ -641,6 +656,7 @@ export const equipmentSets = {
       "stats": {
         "stamina": 10,
         "intellect": 10,
+        "power": 62,
         "mp5": 4
       }
     },
@@ -654,6 +670,7 @@ export const equipmentSets = {
       "stats": {
         "stamina": 9,
         "intellect": 12,
+        "power": 42,
         "mp5": 5,
         "armor": 2893
       }
@@ -680,6 +697,7 @@ export const equipmentSets = {
         "stamina": 15,
         "intellect": 20,
         "power": 26,
+        "spellDamage": 26,
         "crit": 1,
         "armor": 392
       }
@@ -695,7 +713,8 @@ export const equipmentSets = {
         "stamina": 6,
         "intellect": 11,
         "spirit": 7,
-        "power": 15
+        "power": 15,
+        "spellDamage": 15
       }
     },
     "Shoulders": {
@@ -709,6 +728,7 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 11,
         "power": 19,
+        "spellDamage": 19,
         "crit": 1,
         "armor": 362
       }
@@ -724,6 +744,7 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 10,
         "power": 12,
+        "spellDamage": 12,
         "crit": 1,
         "armor": 57
       }
@@ -739,6 +760,7 @@ export const equipmentSets = {
         "stamina": 17,
         "intellect": 14,
         "power": 19,
+        "spellDamage": 19,
         "crit": 2,
         "armor": 482
       }
@@ -754,6 +776,7 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 16,
         "power": 13,
+        "spellDamage": 13,
         "armor": 211
       }
     },
@@ -768,6 +791,7 @@ export const equipmentSets = {
         "stamina": 18,
         "intellect": 20,
         "power": 19,
+        "spellDamage": 19,
         "armor": 301
       }
     },
@@ -782,6 +806,7 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 14,
         "power": 15,
+        "spellDamage": 15,
         "crit": 1,
         "armor": 271
       }
@@ -797,6 +822,7 @@ export const equipmentSets = {
         "stamina": 20,
         "intellect": 20,
         "power": 22,
+        "spellDamage": 22,
         "crit": 1,
         "armor": 422
       }
@@ -812,6 +838,7 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 12,
         "power": 17,
+        "spellDamage": 17,
         "crit": 1,
         "armor": 332
       }
@@ -827,7 +854,8 @@ export const equipmentSets = {
         "stamina": 9,
         "intellect": 11,
         "spirit": 11,
-        "power": 18
+        "power": 18,
+        "spellDamage": 18
       }
     },
     "Finger 2": {
@@ -839,7 +867,8 @@ export const equipmentSets = {
       "quality": 4,
       "stats": {
         "stamina": 9,
-        "intellect": 12
+        "intellect": 12,
+        "power": 46
       }
     },
     "Trinket 1": {
@@ -851,6 +880,7 @@ export const equipmentSets = {
       "quality": 4,
       "stats": {
         "power": 22,
+        "spellDamage": 22,
         "mp5": 9
       }
     },
@@ -874,7 +904,8 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 18,
         "spirit": 8,
-        "power": 86
+        "power": 86,
+        "spellDamage": 86
       }
     },
     "Off hand": {
@@ -885,6 +916,7 @@ export const equipmentSets = {
       "ilvl": 65,
       "quality": 4,
       "stats": {
+        "power": 53,
         "mp5": 3
       }
     },
@@ -910,6 +942,7 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 14,
         "power": 27,
+        "spellDamage": 27,
         "crit": 2,
         "armor": 449
       }
@@ -924,7 +957,8 @@ export const equipmentSets = {
       "stats": {
         "intellect": 14,
         "spirit": 13,
-        "power": 18
+        "power": 18,
+        "spellDamage": 18
       }
     },
     "Shoulders": {
@@ -938,6 +972,7 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 11,
         "power": 20,
+        "spellDamage": 20,
         "crit": 1,
         "armor": 406
       }
@@ -953,6 +988,7 @@ export const equipmentSets = {
         "intellect": 5,
         "spirit": 5,
         "power": 21,
+        "spellDamage": 21,
         "armor": 63
       }
     },
@@ -967,6 +1003,7 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 15,
         "power": 30,
+        "spellDamage": 30,
         "crit": 2,
         "armor": 576
       }
@@ -982,6 +1019,7 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 10,
         "power": 8,
+        "spellDamage": 8,
         "crit": 1,
         "armor": 242
       }
@@ -997,6 +1035,7 @@ export const equipmentSets = {
         "stamina": 11,
         "intellect": 12,
         "power": 20,
+        "spellDamage": 20,
         "crit": 1,
         "armor": 346
       }
@@ -1012,6 +1051,7 @@ export const equipmentSets = {
         "stamina": 13,
         "intellect": 14,
         "power": 17,
+        "spellDamage": 17,
         "crit": 1,
         "armor": 311
       }
@@ -1027,6 +1067,7 @@ export const equipmentSets = {
         "stamina": 12,
         "intellect": 19,
         "power": 24,
+        "spellDamage": 24,
         "crit": 2,
         "armor": 484
       }
@@ -1042,6 +1083,7 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 11,
         "power": 20,
+        "spellDamage": 20,
         "crit": 1,
         "armor": 372
       }
@@ -1055,6 +1097,7 @@ export const equipmentSets = {
       "quality": 4,
       "stats": {
         "power": 16,
+        "spellDamage": 16,
         "crit": 1
       }
     },
@@ -1069,6 +1112,7 @@ export const equipmentSets = {
         "stamina": 8,
         "intellect": 8,
         "power": 18,
+        "spellDamage": 18,
         "crit": 1
       }
     },
@@ -1080,7 +1124,8 @@ export const equipmentSets = {
       "ilvl": 90,
       "quality": 4,
       "stats": {
-        "power": 26
+        "power": 26,
+        "spellDamage": 26
       }
     },
     "Trinket 2": {
@@ -1102,7 +1147,8 @@ export const equipmentSets = {
       "stats": {
         "stamina": 8,
         "intellect": 11,
-        "power": 80
+        "power": 80,
+        "spellDamage": 80
       }
     },
     "Off hand": {
@@ -1116,6 +1162,7 @@ export const equipmentSets = {
         "stamina": 8,
         "intellect": 8,
         "power": 15,
+        "spellDamage": 15,
         "crit": 1,
         "armor": 3106
       }
@@ -1142,6 +1189,7 @@ export const equipmentSets = {
         "stamina": 16,
         "intellect": 17,
         "power": 34,
+        "spellDamage": 34,
         "crit": 3,
         "armor": 496
       }
@@ -1157,6 +1205,7 @@ export const equipmentSets = {
         "stamina": 9,
         "intellect": 8,
         "power": 25,
+        "spellDamage": 25,
         "crit": 1
       }
     },
@@ -1171,6 +1220,7 @@ export const equipmentSets = {
         "stamina": 12,
         "intellect": 15,
         "power": 22,
+        "spellDamage": 22,
         "armor": 458
       }
     },
@@ -1185,6 +1235,7 @@ export const equipmentSets = {
         "stamina": 8,
         "intellect": 10,
         "power": 25,
+        "spellDamage": 25,
         "crit": 1,
         "armor": 70
       }
@@ -1200,6 +1251,7 @@ export const equipmentSets = {
         "stamina": 19,
         "intellect": 20,
         "power": 37,
+        "spellDamage": 37,
         "crit": 1,
         "armor": 611
       }
@@ -1215,6 +1267,7 @@ export const equipmentSets = {
         "stamina": 13,
         "intellect": 13,
         "power": 22,
+        "spellDamage": 22,
         "armor": 267
       }
     },
@@ -1229,6 +1282,7 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 15,
         "power": 23,
+        "spellDamage": 23,
         "crit": 2,
         "armor": 382
       }
@@ -1244,6 +1298,7 @@ export const equipmentSets = {
         "stamina": 15,
         "intellect": 18,
         "power": 22,
+        "spellDamage": 22,
         "crit": 2,
         "armor": 343
       }
@@ -1259,6 +1314,7 @@ export const equipmentSets = {
         "stamina": 10,
         "intellect": 15,
         "power": 38,
+        "spellDamage": 38,
         "armor": 534
       }
     },
@@ -1273,6 +1329,7 @@ export const equipmentSets = {
         "stamina": 13,
         "intellect": 14,
         "power": 30,
+        "spellDamage": 30,
         "armor": 420
       }
     },
@@ -1285,6 +1342,7 @@ export const equipmentSets = {
       "quality": 4,
       "stats": {
         "power": 16,
+        "spellDamage": 16,
         "crit": 1
       }
     },
@@ -1296,7 +1354,8 @@ export const equipmentSets = {
       "ilvl": 98,
       "quality": 4,
       "stats": {
-        "power": 28
+        "power": 28,
+        "spellDamage": 28
       }
     },
     "Trinket 1": {
@@ -1309,7 +1368,8 @@ export const equipmentSets = {
       "stats": {
         "intellect": 10,
         "spirit": 10,
-        "power": 30
+        "power": 30,
+        "spellDamage": 30
       }
     },
     "Trinket 2": {
@@ -1320,7 +1380,8 @@ export const equipmentSets = {
       "ilvl": 90,
       "quality": 4,
       "stats": {
-        "power": 26
+        "power": 26,
+        "spellDamage": 26
       }
     },
     "Main hand": {
@@ -1334,6 +1395,7 @@ export const equipmentSets = {
         "stamina": 9,
         "intellect": 17,
         "power": 169,
+        "spellDamage": 169,
         "crit": 1
       }
     },
@@ -1348,6 +1410,7 @@ export const equipmentSets = {
         "stamina": 9,
         "intellect": 9,
         "power": 20,
+        "spellDamage": 20,
         "crit": 1,
         "armor": 3425
       }
