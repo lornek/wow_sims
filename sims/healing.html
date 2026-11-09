@@ -13,12 +13,19 @@
     <div class="heal-bar cast-bar"><span data-cast-fill></span><strong data-cast></strong></div>
     <p class="heal-message" data-message aria-live="polite"></p>
     <div class="heal-spells" aria-label="Select a spell"></div>
+    <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
     <p data-result aria-live="polite"></p>
   </div>
-  <p>Mana regenerates from Spirit after five seconds without spending mana. Shaman slots default to the highest listed rank. Set a lower rank before pulling to practice downranking.</p>
+  <section class="heal-meter" aria-labelledby="meter-title">
+    <h2 id="meter-title">Healing done</h2>
+    <p>Hover or expand a spell for casts, hits, crits, and overhealing.</p>
+    <p data-meter-empty>No healing recorded yet.</p>
+    <div data-meter></div>
+  </section>
+  <p>Mana-per-five effects work throughout the pull. Spirit regeneration resumes after five seconds without spending mana. Set a lower spell rank before pulling to practice downranking.</p>
   <section class="character-sheet" aria-labelledby="character-title">
     <header><img src="../assets/shaman.jpg" alt="" width="44" height="44"><div>
-      <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · Ungeared</p>
+      <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · <span data-loadout-label>Ungeared</span></p>
     </div></header>
     <div class="character-body">
       <div class="paper-doll" aria-label="Equipment">
@@ -31,6 +38,12 @@
       </div>
       <div class="character-stats" data-profile></div>
     </div>
+  </section>
+  <section class="heal-settings">
+    <h2>Loadout and buffs</h2>
+    <label>Gear preset <select data-loadout></select></label>
+    <p>Geared presets use illustrative stat totals. Equipment slots show individual items when an itemized loadout is available.</p>
+    <div data-buffs></div>
   </section>
   <details class="heal-settings">
     <summary>Spell ranks and bonus healing</summary>

@@ -1,41 +1,62 @@
-export function createPull(profile, spells, encounter, random = Math.random) {
+export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}) {
   const party = encounter.party.map(unit => ({...unit, hp: unit.max, poison: 0}));
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2,
-    nextPoison: 7, nextFlurry: encounter.firstFlurry, nextMana: 2};
+    nextPoison: 7, nextFlurry: encounter.firstFlurry, nextMana: 2, swiftness: 0, meters: {}};
 
-  function heal(unit, raw, crit = false) {
+  function meter(key) {
+    return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0};
+  }
+
+  function restoreMana(amount) {
+    state.mana = Math.min(profile.mana, state.mana + amount);
+  }
+
+  function heal(key, unit, raw, canCrit = false, from = null, bounce = 0) {
     if (!unit.hp) return;
-    const amount = Math.round(raw * (crit && random() < profile.crit ? 1.5 : 1));
+    const crit = canCrit && random() < profile.crit;
+    const amount = Math.round(raw * (crit ? 1.5 : 1));
     const effective = Math.min(unit.max - unit.hp, amount);
     unit.hp += effective;
     state.healing += effective;
     state.overheal += amount - effective;
+    const stats = meter(key);
+    stats.hits++;
+    stats.crits += Number(crit);
+    stats.effective += effective;
+    stats.overheal += amount - effective;
+    onHeal({key, target: party.indexOf(unit), from: from ? party.indexOf(from) : null, bounce, amount, effective, crit});
   }
 
   function resolve(spell, unit) {
     const amount = () => (spell.low ?? 0) + random() * ((spell.high ?? spell.low ?? 0) - (spell.low ?? 0)) +
       (spell.coefficient ?? 0) * profile.power;
-    if (spell.rez) {
+    if (spell.swiftness) {
+      state.swiftness = Infinity;
+    } else if (spell.manaRange) {
+      restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]));
+    } else if (spell.rez) {
       unit.hp = Math.min(unit.max, spell.rez);
     } else if (spell.dispel) {
       unit.poison = 0;
     } else if (spell.period) {
       const target = spell.party ? null : unit;
-      state.effects = state.effects.filter(e => e.key !== spell.key || e.target !== target);
+      state.effects = state.effects.filter(e => (e.key !== spell.key || e.target !== target) &&
+        (!spell.waterTotem || !e.waterTotem));
       state.effects.push({key: spell.key, target, next: state.time + spell.period, period: spell.period,
         expires: state.time + spell.duration, left: Math.floor(spell.duration / spell.period),
-        amount: amount(), directChainBonus: spell.directChainBonus ?? 0});
+        amount: amount(), manaTick: spell.manaTick, waterTotem: spell.waterTotem,
+        directChainBonus: spell.directChainBonus ?? 0});
     } else {
       const raw = amount();
       const bonus = spell.chain > 1 ? state.effects.reduce((sum, effect) =>
         sum + (effect.target === unit ? effect.directChainBonus : 0), 0) : 0;
-      heal(unit, raw * (1 + bonus), true);
+      heal(spell.key, unit, raw * (1 + bonus), true);
       const others = party.filter(member => member !== unit && member.hp > 0)
         .sort((a, b) => (b.max - b.hp) - (a.max - a.hp));
       for (let i = 0; i < Math.min((spell.chain ?? 1) - 1, others.length); i++) {
-        heal(others[i], raw * spell.falloff ** (i + 1), true);
+        heal(spell.key, others[i], raw * spell.falloff ** (i + 1), true, i ? others[i - 1] : unit, i + 1);
       }
     }
   }
@@ -48,7 +69,7 @@ export function createPull(profile, spells, encounter, random = Math.random) {
       state.message = spell.rez ? 'Resurrection requires a fallen ally after combat.' : 'Choose a living ally during the pull.';
       return;
     }
-    if (state.cast || state.time < state.gcd) return;
+    if (state.cast || (!spell.offGcd && state.time < state.gcd)) return;
     if (state.time < (state.cooldowns[key] ?? 0)) {
       state.message = 'That spell is on cooldown.';
       return;
@@ -57,10 +78,13 @@ export function createPull(profile, spells, encounter, random = Math.random) {
       state.message = 'Not enough mana.';
       return;
     }
-    state.gcd = state.time + spell.gcd;
-    state.cast = {spell, unit, end: state.time + spell.cast};
+    const instant = spell.cast > 0 && !spell.rez && state.swiftness > state.time;
+    if (instant) state.swiftness = 0;
+    if (!spell.offGcd) state.gcd = state.time + spell.gcd;
+    const castTime = instant ? 0 : spell.cast;
+    state.cast = {spell, unit, end: state.time + castTime};
     state.message = spell.name + ' → ' + unit.name;
-    if (!spell.cast) finishCast();
+    if (!castTime) finishCast();
   }
 
   function finishCast() {
@@ -68,9 +92,10 @@ export function createPull(profile, spells, encounter, random = Math.random) {
     state.cast = null;
     if (!unit.hp && !spell.rez) return;
     state.mana -= spell.cost;
-    state.lastSpend = state.time;
+    if (spell.cost) state.lastSpend = state.time;
     state.manaSpent += spell.cost;
     state.cooldowns[spell.key] = state.time + spell.cooldown;
+    meter(spell.key).casts++;
     resolve(spell, unit);
   }
 
@@ -84,12 +109,13 @@ export function createPull(profile, spells, encounter, random = Math.random) {
     if (state.cast && state.time >= state.cast.end) finishCast();
     if (state.time >= state.nextMana) {
       state.nextMana += 2;
-      if (state.time - state.lastSpend >= 5) state.mana = Math.min(profile.mana, state.mana + profile.regen * 2);
+      restoreMana((profile.mp5 ?? 0) * .4 + (state.time - state.lastSpend >= 5 ? profile.regen * 2 : 0));
     }
     if (state.phase !== 'active') return;
     for (const effect of state.effects) {
       if (state.time < effect.next) continue;
-      for (const unit of effect.target ? [effect.target] : party) heal(unit, effect.amount);
+      if (effect.manaTick) restoreMana(effect.manaTick);
+      else for (const unit of effect.target ? [effect.target] : party) heal(effect.key, unit, effect.amount);
       effect.next += effect.period;
       effect.left--;
     }
@@ -117,6 +143,7 @@ export function createPull(profile, spells, encounter, random = Math.random) {
       state.phase = !state.boss && party.at(-1).hp ? 'won' : 'lost';
       state.cast = null;
       state.effects = [];
+      state.swiftness = 0;
       for (const unit of party) unit.poison = 0;
       state.endedAt = state.time;
       state.survivors = party.filter(unit => unit.hp).length;
