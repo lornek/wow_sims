@@ -448,46 +448,43 @@ export const equipmentSets = {
   },
   "Tier 1 raid": {
     "Head": {
-      "id": 16842,
+      "id": 226612,
       "name": "Earthfury Helmet",
       "icon": "inv_helmet_09",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 24,
-        "intellect": 23,
-        "spirit": 13,
-        "mp5": 6,
+        "stamina": 19,
+        "intellect": 21,
+        "crit": 1,
         "armor": 343
       }
     },
     "Neck": {
-      "id": 17109,
-      "name": "Choker of Enlightenment",
-      "icon": "inv_jewelry_necklace_10",
-      "source": "Classic Era",
-      "ilvl": 65,
+      "id": 228137,
+      "name": "Heart of Golemagg",
+      "icon": "inv_jewelry_necklace_05",
+      "source": "Season of Discovery",
+      "ilvl": 71,
       "quality": 4,
       "stats": {
         "stamina": 9,
-        "intellect": 10,
-        "spirit": 10,
-        "power": 18
+        "intellect": 12,
+        "spirit": 11
       }
     },
     "Shoulders": {
-      "id": 16844,
+      "id": 226611,
       "name": "Earthfury Epaulets",
       "icon": "inv_shoulder_29",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 17,
-        "intellect": 18,
-        "spirit": 10,
-        "mp5": 4,
+        "stamina": 12,
+        "intellect": 15,
+        "crit": 1,
         "armor": 317
       }
     },
@@ -495,197 +492,185 @@ export const equipmentSets = {
       "id": 18510,
       "name": "Hide of the Wild",
       "icon": "inv_misc_cape_01",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 62,
       "quality": 4,
       "stats": {
         "stamina": 8,
         "intellect": 10,
-        "power": 42,
-        "armor": 48,
-        "spellDamage": 14
+        "armor": 48
       }
     },
     "Chest": {
-      "id": 16841,
+      "id": 226617,
       "name": "Earthfury Vestments",
       "icon": "inv_chest_chain_11",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 17,
-        "intellect": 27,
-        "spirit": 13,
+        "stamina": 12,
+        "intellect": 23,
         "crit": 1,
         "armor": 422
       }
     },
     "Wrists": {
-      "id": 16840,
+      "id": 226618,
       "name": "Earthfury Bracers",
       "icon": "inv_bracer_16",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 10,
-        "intellect": 17,
-        "spirit": 11,
-        "power": 6,
+        "stamina": 9,
+        "intellect": 10,
+        "crit": 1,
         "armor": 185
       }
     },
     "Hands": {
-      "id": 16839,
+      "id": 226615,
       "name": "Earthfury Gauntlets",
       "icon": "inv_gauntlets_11",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 14,
-        "intellect": 13,
-        "spirit": 15,
-        "power": 9,
+        "stamina": 12,
+        "intellect": 17,
         "crit": 1,
         "armor": 264
       }
     },
     "Waist": {
-      "id": 16838,
+      "id": 226616,
       "name": "Earthfury Belt",
       "icon": "inv_belt_14",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
         "stamina": 12,
-        "intellect": 21,
-        "spirit": 7,
-        "mp5": 4,
+        "intellect": 15,
+        "crit": 1,
         "armor": 237
       }
     },
     "Legs": {
-      "id": 16843,
+      "id": 226614,
       "name": "Earthfury Legguards",
       "icon": "inv_pants_03",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 18,
-        "intellect": 19,
-        "spirit": 21,
-        "power": 12,
-        "mp5": 6,
+        "stamina": 19,
+        "intellect": 23,
+        "crit": 1,
         "armor": 369
       }
     },
     "Feet": {
-      "id": 16837,
+      "id": 226613,
       "name": "Earthfury Boots",
       "icon": "inv_boots_plate_06",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 66,
       "quality": 4,
       "stats": {
-        "stamina": 15,
-        "intellect": 10,
-        "spirit": 22,
+        "stamina": 14,
+        "intellect": 15,
+        "crit": 1,
         "armor": 290
       }
     },
     "Finger 1": {
-      "id": 19140,
+      "id": 228274,
       "name": "Cauterizing Band",
       "icon": "inv_jewelry_ring_39",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 71,
       "quality": 4,
       "stats": {
         "stamina": 9,
-        "intellect": 12,
-        "power": 46,
-        "spellDamage": 15
+        "intellect": 12
       }
     },
     "Finger 2": {
-      "id": 13283,
-      "name": "Magus Ring",
-      "icon": "spell_holy_innerfire",
-      "source": "Classic Era",
-      "ilvl": 59,
+      "id": 16058,
+      "name": "Fordring's Seal",
+      "icon": "inv_jewelry_ring_19",
+      "source": "Season of Discovery",
+      "ilvl": 63,
       "quality": 3,
       "stats": {
-        "stamina": 8,
-        "intellect": 12,
-        "spirit": 7
+        "stamina": 4,
+        "intellect": 5
       }
     },
     "Trinket 1": {
-      "id": 17064,
+      "id": 228298,
       "name": "Shard of the Scale",
       "icon": "inv_misc_monsterscales_15",
-      "source": "Classic Era",
-      "ilvl": 71,
+      "source": "Season of Discovery",
+      "ilvl": 77,
       "quality": 4,
       "stats": {
         "mp5": 16
       }
     },
     "Trinket 2": {
-      "id": 13968,
-      "name": "Eye of the Beast",
-      "icon": "inv_jewelry_talisman_08",
-      "source": "Classic Era",
-      "ilvl": 63,
+      "id": 12930,
+      "name": "Briarwood Reed",
+      "icon": "inv_misc_root_02",
+      "source": "Season of Discovery",
+      "ilvl": 60,
       "quality": 3,
       "stats": {
-        "crit": 2
+        "power": 29
       }
     },
     "Main hand": {
-      "id": 17105,
+      "id": 228462,
       "name": "Aurastone Hammer",
       "icon": "inv_hammer_05",
-      "source": "Classic Era",
-      "ilvl": 69,
+      "source": "Season of Discovery",
+      "ilvl": 68,
       "quality": 4,
       "stats": {
         "stamina": 10,
         "intellect": 10,
-        "power": 25,
-        "mp5": 5
+        "mp5": 4
       }
     },
     "Off hand": {
-      "id": 11928,
-      "name": "Thaurissan's Royal Scepter",
-      "icon": "inv_mace_13",
-      "source": "Classic Era",
-      "ilvl": 60,
-      "quality": 3,
+      "id": 228294,
+      "name": "Malistar's Defender",
+      "icon": "inv_shield_08",
+      "source": "Season of Discovery",
+      "ilvl": 77,
+      "quality": 4,
       "stats": {
-        "stamina": 5,
-        "intellect": 5,
-        "spirit": 10
+        "stamina": 9,
+        "intellect": 12,
+        "mp5": 5,
+        "armor": 2893
       }
     },
     "Relic": {
-      "id": 22396,
-      "name": "Totem of Life",
+      "id": 23200,
+      "name": "Totem of Sustaining",
       "icon": "inv_relics_totemoflife",
-      "source": "Classic Era",
-      "ilvl": 78,
-      "quality": 4,
+      "source": "Season of Discovery",
+      "ilvl": 65,
+      "quality": 3,
       "stats": {}
     }
   },
   "Tier 2 raid": {
     "Head": {
-      "id": 231203,
+      "id": 232211,
       "name": "Helmet of Ten Storms",
       "icon": "inv_helmet_69",
       "source": "Season of Discovery",
@@ -700,20 +685,21 @@ export const equipmentSets = {
       }
     },
     "Neck": {
-      "id": 19371,
-      "name": "Pendant of the Fallen Dragon",
-      "icon": "inv_jewelry_necklace_12",
-      "source": "Forever",
-      "ilvl": 74,
+      "id": 231003,
+      "name": "Jin'do's Evil Eye",
+      "icon": "inv_jewelry_ring_45",
+      "source": "Season of Discovery",
+      "ilvl": 68,
       "quality": 4,
       "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "mp5": 9
+        "stamina": 6,
+        "intellect": 11,
+        "spirit": 7,
+        "power": 15
       }
     },
     "Shoulders": {
-      "id": 231201,
+      "id": 232209,
       "name": "Epaulets of Ten Storms",
       "icon": "inv_shoulder_33",
       "source": "Season of Discovery",
@@ -728,21 +714,22 @@ export const equipmentSets = {
       }
     },
     "Back": {
-      "id": 19378,
-      "name": "Cloak of the Brood Lord",
-      "icon": "inv_misc_cape_20",
-      "source": "Classic Era",
-      "ilvl": 83,
+      "id": 230733,
+      "name": "Shroud of Pure Thought",
+      "icon": "inv_misc_cape_16",
+      "source": "Season of Discovery",
+      "ilvl": 75,
       "quality": 4,
       "stats": {
         "stamina": 10,
-        "intellect": 14,
-        "power": 28,
-        "armor": 63
+        "intellect": 10,
+        "power": 12,
+        "crit": 1,
+        "armor": 57
       }
     },
     "Chest": {
-      "id": 231205,
+      "id": 232214,
       "name": "Breastplate of Ten Storms",
       "icon": "inv_chest_chain_11",
       "source": "Season of Discovery",
@@ -757,7 +744,7 @@ export const equipmentSets = {
       }
     },
     "Wrists": {
-      "id": 231199,
+      "id": 232207,
       "name": "Bracers of Ten Storms",
       "icon": "inv_bracer_16",
       "source": "Season of Discovery",
@@ -771,7 +758,7 @@ export const equipmentSets = {
       }
     },
     "Hands": {
-      "id": 231198,
+      "id": 232212,
       "name": "Gauntlets of Ten Storms",
       "icon": "inv_gauntlets_11",
       "source": "Season of Discovery",
@@ -785,7 +772,7 @@ export const equipmentSets = {
       }
     },
     "Waist": {
-      "id": 231200,
+      "id": 232208,
       "name": "Belt of Ten Storms",
       "icon": "inv_belt_14",
       "source": "Season of Discovery",
@@ -800,7 +787,7 @@ export const equipmentSets = {
       }
     },
     "Legs": {
-      "id": 231202,
+      "id": 232210,
       "name": "Legplates of Ten Storms",
       "icon": "inv_pants_03",
       "source": "Season of Discovery",
@@ -815,7 +802,7 @@ export const equipmentSets = {
       }
     },
     "Feet": {
-      "id": 231204,
+      "id": 232213,
       "name": "Greaves of Ten Storms",
       "icon": "inv_boots_plate_06",
       "source": "Season of Discovery",
@@ -830,324 +817,315 @@ export const equipmentSets = {
       }
     },
     "Finger 1": {
-      "id": 19382,
+      "id": 230811,
       "name": "Pure Elementium Band",
       "icon": "inv_jewelry_ring_42",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 83,
       "quality": 4,
       "stats": {
         "stamina": 9,
-        "intellect": 10,
-        "spirit": 10,
-        "power": 53
+        "intellect": 11,
+        "spirit": 11,
+        "power": 18
       }
     },
     "Finger 2": {
-      "id": 13283,
-      "name": "Magus Ring",
-      "icon": "spell_holy_innerfire",
-      "source": "Classic Era",
-      "ilvl": 59,
-      "quality": 3,
+      "id": 228274,
+      "name": "Cauterizing Band",
+      "icon": "inv_jewelry_ring_39",
+      "source": "Season of Discovery",
+      "ilvl": 71,
+      "quality": 4,
       "stats": {
-        "stamina": 8,
-        "intellect": 12,
-        "spirit": 7
+        "stamina": 9,
+        "intellect": 12
       }
     },
     "Trinket 1": {
-      "id": 12930,
-      "name": "Briarwood Reed",
-      "icon": "inv_misc_root_02",
-      "source": "Classic Era",
-      "ilvl": 60,
-      "quality": 3,
+      "id": 230269,
+      "name": "Rejuvenating Gem",
+      "icon": "inv_misc_gem_topaz_02",
+      "source": "Season of Discovery",
+      "ilvl": 75,
+      "quality": 4,
       "stats": {
-        "power": 29
+        "power": 22,
+        "mp5": 9
       }
     },
     "Trinket 2": {
-      "id": 13968,
-      "name": "Eye of the Beast",
-      "icon": "inv_jewelry_talisman_08",
-      "source": "Classic Era",
-      "ilvl": 63,
-      "quality": 3,
-      "stats": {
-        "crit": 2
-      }
+      "id": 19950,
+      "name": "Zandalarian Hero Charm",
+      "icon": "inv_jewelry_necklace_13",
+      "source": "Season of Discovery",
+      "ilvl": 68,
+      "quality": 4,
+      "stats": {}
     },
     "Main hand": {
-      "id": 19360,
+      "id": 232552,
       "name": "Lok'amir il Romathis",
       "icon": "inv_mace_06",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 81,
       "quality": 4,
       "stats": {
         "stamina": 10,
         "intellect": 18,
         "spirit": 8,
-        "power": 84
+        "power": 86
       }
     },
     "Off hand": {
       "id": 19312,
       "name": "Lei of the Lifegiver",
       "icon": "inv_misc_flower_04",
-      "source": "Forever",
-      "ilvl": 60,
+      "source": "Season of Discovery",
+      "ilvl": 65,
       "quality": 4,
       "stats": {
-        "stamina": 11,
-        "power": 37,
-        "mp5": 5,
-        "spellDamage": 12
+        "mp5": 3
       }
     },
     "Relic": {
-      "id": 22396,
-      "name": "Totem of Life",
+      "id": 23200,
+      "name": "Totem of Sustaining",
       "icon": "inv_relics_totemoflife",
-      "source": "Classic Era",
-      "ilvl": 78,
-      "quality": 4,
+      "source": "Season of Discovery",
+      "ilvl": 65,
+      "quality": 3,
       "stats": {}
     }
   },
   "Tier 3 raid": {
     "Head": {
-      "id": 22466,
+      "id": 236144,
       "name": "Earthshatter Headpiece",
       "icon": "inv_helmet_15",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 88,
       "quality": 4,
       "stats": {
-        "stamina": 26,
-        "intellect": 30,
-        "power": 68,
-        "mp5": 8,
+        "stamina": 14,
+        "intellect": 14,
+        "power": 27,
+        "crit": 2,
         "armor": 449
       }
     },
     "Neck": {
-      "id": 23057,
-      "name": "Gem of Trapped Innocents",
-      "icon": "inv_jewelry_necklace_29naxxramas",
-      "source": "Forever",
-      "ilvl": 92,
+      "id": 236266,
+      "name": "Pendant of Forgotten Names",
+      "icon": "inv_jewelry_necklace_28naxxramas",
+      "source": "Season of Discovery",
+      "ilvl": 85,
       "quality": 4,
       "stats": {
-        "stamina": 9,
-        "intellect": 7,
-        "power": 15,
-        "crit": 28,
-        "spellDamage": 15
+        "intellect": 14,
+        "spirit": 13,
+        "power": 18
       }
     },
     "Shoulders": {
-      "id": 22467,
+      "id": 236145,
       "name": "Earthshatter Spaulders",
       "icon": "inv_shoulder_14",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 86,
       "quality": 4,
       "stats": {
-        "stamina": 24,
-        "intellect": 19,
-        "power": 42,
-        "mp5": 6,
+        "stamina": 10,
+        "intellect": 11,
+        "power": 20,
+        "crit": 1,
         "armor": 406
       }
     },
     "Back": {
-      "id": 18510,
-      "name": "Hide of the Wild",
-      "icon": "inv_misc_cape_01",
-      "source": "Forever",
-      "ilvl": 62,
+      "id": 236289,
+      "name": "Cloak of Suturing",
+      "icon": "inv_misc_cape_naxxramas_02",
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "quality": 4,
       "stats": {
-        "stamina": 8,
-        "intellect": 10,
-        "power": 42,
-        "armor": 48,
-        "spellDamage": 14
+        "intellect": 5,
+        "spirit": 5,
+        "power": 21,
+        "armor": 63
       }
     },
     "Chest": {
-      "id": 22464,
+      "id": 236147,
       "name": "Earthshatter Tunic",
       "icon": "inv_chest_chain_15",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 92,
       "quality": 4,
       "stats": {
-        "stamina": 26,
-        "intellect": 32,
-        "power": 59,
-        "mp5": 12,
+        "stamina": 14,
+        "intellect": 15,
+        "power": 30,
+        "crit": 2,
         "armor": 576
       }
     },
     "Wrists": {
-      "id": 22471,
+      "id": 236149,
       "name": "Earthshatter Wristguards",
       "icon": "inv_bracer_02",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 88,
       "quality": 4,
       "stats": {
-        "stamina": 17,
-        "intellect": 18,
-        "power": 33,
-        "mp5": 4,
+        "stamina": 10,
+        "intellect": 10,
+        "power": 8,
+        "crit": 1,
         "armor": 242
       }
     },
     "Hands": {
-      "id": 22469,
+      "id": 236142,
       "name": "Earthshatter Handguards",
       "icon": "inv_gauntlets_25",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 88,
       "quality": 4,
       "stats": {
-        "stamina": 21,
-        "intellect": 28,
-        "power": 35,
-        "mp5": 6,
+        "stamina": 11,
+        "intellect": 12,
+        "power": 20,
+        "crit": 1,
         "armor": 346
       }
     },
     "Waist": {
-      "id": 22470,
+      "id": 236148,
       "name": "Earthshatter Girdle",
       "icon": "inv_belt_22",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 88,
       "quality": 4,
       "stats": {
-        "stamina": 18,
-        "intellect": 25,
-        "power": 42,
-        "mp5": 7,
+        "stamina": 13,
+        "intellect": 14,
+        "power": 17,
+        "crit": 1,
         "armor": 311
       }
     },
     "Legs": {
-      "id": 22465,
+      "id": 236143,
       "name": "Earthshatter Legguards",
       "icon": "inv_pants_mail_15",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 88,
       "quality": 4,
       "stats": {
-        "stamina": 28,
-        "intellect": 30,
-        "power": 59,
-        "mp5": 9,
+        "stamina": 12,
+        "intellect": 19,
+        "power": 24,
+        "crit": 2,
         "armor": 484
       }
     },
     "Feet": {
-      "id": 22468,
+      "id": 236146,
       "name": "Earthshatter Boots",
       "icon": "inv_boots_chain_05",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 86,
       "quality": 4,
       "stats": {
-        "stamina": 20,
-        "intellect": 25,
-        "power": 37,
-        "mp5": 6,
+        "stamina": 10,
+        "intellect": 11,
+        "power": 20,
+        "crit": 1,
         "armor": 372
       }
     },
     "Finger 1": {
-      "id": 23065,
+      "id": 236150,
       "name": "Ring of the Earthshatterer",
       "icon": "inv_jewelry_ring_51naxxramas",
-      "source": "Forever",
+      "source": "Season of Discovery",
       "ilvl": 92,
       "quality": 4,
       "stats": {
-        "stamina": 16,
-        "intellect": 16,
-        "power": 37,
-        "mp5": 6
+        "power": 16,
+        "crit": 1
       }
     },
     "Finger 2": {
-      "id": 13283,
-      "name": "Magus Ring",
-      "icon": "spell_holy_innerfire",
-      "source": "Classic Era",
-      "ilvl": 59,
-      "quality": 3,
+      "id": 236283,
+      "name": "Ring of Spiritual Fervor",
+      "icon": "inv_jewelry_ring_52naxxramas",
+      "source": "Season of Discovery",
+      "ilvl": 85,
+      "quality": 4,
       "stats": {
         "stamina": 8,
-        "intellect": 12,
-        "spirit": 7
+        "intellect": 8,
+        "power": 18,
+        "crit": 1
       }
     },
     "Trinket 1": {
-      "id": 12930,
-      "name": "Briarwood Reed",
-      "icon": "inv_misc_root_02",
-      "source": "Classic Era",
-      "ilvl": 60,
-      "quality": 3,
+      "id": 236329,
+      "name": "Eye of the Dead",
+      "icon": "inv_trinket_naxxramas01",
+      "source": "Season of Discovery",
+      "ilvl": 90,
+      "quality": 4,
       "stats": {
-        "power": 29
+        "power": 26
       }
     },
     "Trinket 2": {
-      "id": 13968,
-      "name": "Eye of the Beast",
-      "icon": "inv_jewelry_talisman_08",
-      "source": "Classic Era",
-      "ilvl": 63,
-      "quality": 3,
-      "stats": {
-        "crit": 2
-      }
+      "id": 230273,
+      "name": "Natural Alignment Crystal",
+      "icon": "inv_misc_gem_03",
+      "source": "Season of Discovery",
+      "ilvl": 76,
+      "quality": 4,
+      "stats": {}
     },
     "Main hand": {
-      "id": 23056,
+      "id": 236348,
       "name": "Hammer of the Twisting Nether",
       "icon": "inv_mace_27",
-      "source": "Classic Era",
+      "source": "Season of Discovery",
       "ilvl": 89,
       "quality": 4,
       "stats": {
         "stamina": 8,
         "intellect": 11,
-        "mp5": 8
+        "power": 80
       }
     },
     "Off hand": {
-      "id": 23048,
-      "name": "Sapphiron's Right Eye",
-      "icon": "inv_offhand_naxxramas_02",
-      "source": "Classic Era",
-      "ilvl": 90,
+      "id": 236296,
+      "name": "Death's Bargain",
+      "icon": "inv_armor_shield_naxxramas_d_01",
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "quality": 4,
       "stats": {
-        "stamina": 9,
-        "intellect": 10,
-        "mp5": 4
+        "stamina": 8,
+        "intellect": 8,
+        "power": 15,
+        "crit": 1,
+        "armor": 3106
       }
     },
     "Relic": {
-      "id": 22396,
-      "name": "Totem of Life",
+      "id": 236276,
+      "name": "Totem of Flowing Water",
       "icon": "inv_relics_totemoflife",
-      "source": "Classic Era",
-      "ilvl": 78,
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "quality": 4,
       "stats": {}
     }
@@ -1271,17 +1249,16 @@ export const equipmentSets = {
       }
     },
     "Legs": {
-      "id": 240097,
-      "name": "Soulcrusher Legguards",
+      "id": 241181,
+      "name": "Dawnworn Chain Leggings",
       "icon": "inv_pants_mail_15",
       "source": "Season of Discovery",
       "ilvl": 98,
       "quality": 4,
       "stats": {
-        "stamina": 17,
-        "intellect": 24,
-        "power": 31,
-        "crit": 2,
+        "stamina": 10,
+        "intellect": 15,
+        "power": 38,
         "armor": 534
       }
     },
@@ -1300,84 +1277,87 @@ export const equipmentSets = {
       }
     },
     "Finger 1": {
-      "id": 13096,
-      "name": "Band of the Hierophant",
-      "icon": "inv_jewelry_ring_17",
-      "source": "Forever",
-      "ilvl": 60,
-      "quality": 3,
+      "id": 236150,
+      "name": "Ring of the Earthshatterer",
+      "icon": "inv_jewelry_ring_51naxxramas",
+      "source": "Season of Discovery",
+      "ilvl": 92,
+      "quality": 4,
       "stats": {
-        "stamina": 7,
-        "intellect": 10,
-        "spirit": 11
+        "power": 16,
+        "crit": 1
       }
     },
     "Finger 2": {
-      "id": 13283,
-      "name": "Magus Ring",
-      "icon": "spell_holy_innerfire",
-      "source": "Classic Era",
-      "ilvl": 59,
-      "quality": 3,
-      "stats": {
-        "stamina": 8,
-        "intellect": 12,
-        "spirit": 7
-      }
-    },
-    "Trinket 1": {
-      "id": 12930,
-      "name": "Briarwood Reed",
-      "icon": "inv_misc_root_02",
-      "source": "Classic Era",
-      "ilvl": 60,
-      "quality": 3,
-      "stats": {
-        "power": 29
-      }
-    },
-    "Trinket 2": {
-      "id": 13968,
-      "name": "Eye of the Beast",
-      "icon": "inv_jewelry_talisman_08",
-      "source": "Classic Era",
-      "ilvl": 63,
-      "quality": 3,
-      "stats": {
-        "crit": 2
-      }
-    },
-    "Main hand": {
-      "id": 11923,
-      "name": "The Hammer of Grace",
-      "icon": "inv_hammer_07",
-      "source": "Forever",
-      "ilvl": 57,
-      "quality": 3,
-      "stats": {
-        "power": 124,
-        "spellDamage": 41
-      }
-    },
-    "Off hand": {
-      "id": 241015,
-      "name": "Aegis of the Scarlet Bastion",
-      "icon": "inv_shield_1h_scarletcrusade_b_01",
+      "id": 241032,
+      "name": "Ring of Resurrection",
+      "icon": "inv_jewelry_ring_72",
       "source": "Season of Discovery",
       "ilvl": 98,
       "quality": 4,
       "stats": {
-        "strength": 10,
-        "stamina": 20,
-        "armor": 3637
+        "power": 28
+      }
+    },
+    "Trinket 1": {
+      "id": 241068,
+      "name": "Stiltz's Standard",
+      "icon": "inv_misc_token_scarletcrusade",
+      "source": "Season of Discovery",
+      "ilvl": 94,
+      "quality": 4,
+      "stats": {
+        "intellect": 10,
+        "spirit": 10,
+        "power": 30
+      }
+    },
+    "Trinket 2": {
+      "id": 236329,
+      "name": "Eye of the Dead",
+      "icon": "inv_trinket_naxxramas01",
+      "source": "Season of Discovery",
+      "ilvl": 90,
+      "quality": 4,
+      "stats": {
+        "power": 26
+      }
+    },
+    "Main hand": {
+      "id": 241001,
+      "name": "Tyr's Fall",
+      "icon": "inv_mace_82",
+      "source": "Season of Discovery",
+      "ilvl": 96,
+      "quality": 4,
+      "stats": {
+        "stamina": 9,
+        "intellect": 17,
+        "power": 169,
+        "crit": 1
+      }
+    },
+    "Off hand": {
+      "id": 241018,
+      "name": "Nathrezim Heart",
+      "icon": "inv_shield_39",
+      "source": "Season of Discovery",
+      "ilvl": 92,
+      "quality": 4,
+      "stats": {
+        "stamina": 9,
+        "intellect": 9,
+        "power": 20,
+        "crit": 1,
+        "armor": 3425
       }
     },
     "Relic": {
-      "id": 22396,
-      "name": "Totem of Life",
+      "id": 236276,
+      "name": "Totem of Flowing Water",
       "icon": "inv_relics_totemoflife",
-      "source": "Classic Era",
-      "ilvl": 78,
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "quality": 4,
       "stats": {}
     }

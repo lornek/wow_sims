@@ -91,9 +91,6 @@
 .equipment-slot[data-quality="3"] .equipment-tooltip strong { color:#8db9ff; }
 .equipment-slot[data-quality="4"] .equipment-tooltip strong { color:#d4a5ff; }
 [data-buffs] img { border:1px solid var(--border); border-radius:3px; }
-[data-talents] { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr)); gap:6px; margin-block:8px; }
-.healing [data-talents] label { margin:0; justify-content:space-between; border:1px solid #3d2f14; padding:8px; }
-[data-talents] small { display:block; color:var(--muted); }
 .spell-inspector { width:min(650px, calc(100% - 24px)); max-height:calc(100% - 24px); color:var(--text); background:#18110b; border:1px solid var(--border); border-radius:5px; padding:16px; }
 .spell-inspector::backdrop { background:#000a; }
 .spell-inspector header, .spell-inspector h2 { display:flex; align-items:center; gap:10px; }
@@ -104,3 +101,25 @@
 .spell-inspector caption { color:var(--muted); text-align:left; margin-bottom:6px; }
 .spell-inspector table { font-size:.88rem; }
 .spell-inspector [data-inspect-meter] { margin-top:12px; color:var(--gold); }
+
+.talent-toolbar { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-block:10px; color:var(--gold); }
+.talent-board { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); gap:10px; }
+.talent-tree { border:1px solid var(--border); border-radius:4px; overflow:hidden; background:#17110c; }
+.talent-tree header { display:flex; align-items:center; gap:7px; padding:7px; background:linear-gradient(#312416,#1a130e); border-bottom:1px solid var(--border); }
+.talent-tree h3 { margin:0 auto 0 0; color:var(--gold); font:1rem var(--ui); }
+.talent-tree output { color:var(--gold); }
+.talent-tree header button { font:.85rem var(--ui); }
+.talent-grid { position:relative; isolation:isolate; display:grid; grid-template:repeat(7,52px) / repeat(4,1fr); place-items:center; background-size:cover; background-position:center; }
+.talent-grid.elemental { background-image:linear-gradient(#08060478,#080604a8),url(elemental-tree.jpg); }
+.talent-grid.enhancement { background-image:linear-gradient(#08060478,#080604a8),url(enhancement-tree.jpg); }
+.talent-grid.restoration { background-image:linear-gradient(#08060478,#080604a8),url(restoration-tree.jpg); }
+.talent-grid svg { position:absolute; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+.talent-grid path { stroke:#c3a560; stroke-width:3; fill:none; vector-effect:non-scaling-stroke; }
+.healing .talent-node { position:relative; padding:0; width:40px; height:40px; border-width:2px; }
+.talent-node img { display:block; width:100%; height:100%; object-fit:cover; border-radius:2px; }
+.talent-node span { position:absolute; right:-4px; bottom:-5px; padding:1px 3px; color:#e9dbc3; background:#100b09; border-radius:2px; font:700 .72rem var(--ui); }
+.talent-node[data-state=locked] img { filter:grayscale(1) brightness(.55); }
+.healing .talent-node[data-state=available],.healing .talent-node[data-state=spent] { border-color:#6bab4e; }
+.healing .talent-node[data-state=max] { border-color:#f2cf6a; }
+.talent-node[data-state=max] span { color:#f2cf6a; }
+.talent-node[data-state=spent] span { color:#a2d87a; }

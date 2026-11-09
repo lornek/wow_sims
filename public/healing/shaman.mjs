@@ -1,6 +1,17 @@
 import {createPull} from './engine.mjs';
 import {catalog, ranks} from './shaman-data.mjs';
 import {loadouts, buffs, talents, applyTalents, buildProfile} from './profile.mjs';
+import {mountTalentTree} from './talent-tree.mjs';
+
+const settingsKey = 'wow-forever-sims.shaman.v1';
+function readSettings() {
+  try {
+    return JSON.parse(localStorage.getItem(settingsKey)) ?? {};
+  } catch {
+    return {};
+  }
+}
+const saved = readSettings();
 
 const root = document.querySelector('#healing');
 const find = selector => root.querySelector(selector);
@@ -94,7 +105,10 @@ for (const [index, [key, name, binding]] of slots.entries()) {
       const previous = pull.state.meters[key]?.casts;
       pull.cast(key, encounter.party.length - 1);
       if (pull.state.meters[key]?.casts !== previous) playHealSound(false, 0);
-    } else selected = index;
+    } else {
+      selected = index;
+      saveSettings();
+    }
     render();
   };
   button.oncontextmenu = event => {
@@ -114,6 +128,7 @@ for (const [index, [key, name, binding]] of slots.entries()) {
   const select = document.createElement('select');
   for (const row of rows) select.add(new Option(row.rank || 'Default', row.id));
   select.selectedIndex = rows.length - 1;
+  if ([...select.options].some(option => option.value === saved.ranks?.[key])) select.value = saved.ranks[key];
   const setting = document.createElement('label');
   setting.append(name, select);
   selects.push({select, rows, key, name, setting});
@@ -153,23 +168,27 @@ function attempt(event, index, right) {
 }
 
 function configuredSpells() {
-  const points = Object.fromEntries(talentFields.map(({key, input}) => [key, Number(input.value)]));
+  const points = Object.fromEntries(talents.map(([key, name]) => [key, talentTree.build[name] ?? 0]));
   const power = find('[data-power]');
   enabled = new Set([...root.querySelectorAll('[data-buff]:checked')].map(input => input.value));
   profile = buildProfile(gear.value, enabled, power.validity.valid ? Number(power.value) : 0, points);
   currentSpells = Object.fromEntries(selects.map(({select, rows, key, name}) =>
     [key, applyTalents(spellFor(key, name, rows[select.selectedIndex]), points)]));
   if (!enabled.has('potion')) delete currentSpells.potion;
-  find('[data-talent-points]').textContent = Object.values(points).reduce((a, b) => a + b, 0) + ' modeled points allocated';
+  for (const [key, name] of [['riptide', 'Riptide'], ['swiftness', "Nature's Swiftness"], ['tide', 'Mana Tide Totem']]) {
+    if (!talentTree.build[name]) delete currentSpells[key];
+  }
+  if (!currentSpells[slots[selected][0]]) selected = 0;
 }
 
-function reset(start = false) {
+function reset(start = false, persist = true) {
   configuredSpells();
   const party = encounter.party.map((unit, index) => index === encounter.party.length - 1 ? {...unit, max: profile.health} : unit);
   pull = createPull(profile, currentSpells, {...encounter, party}, Math.random, showHeal);
   updateSheet();
   if (start) pull.start();
   render();
+  if (persist) saveSettings();
 }
 
 function render() {
@@ -223,7 +242,7 @@ function render() {
   find('[data-power]').disabled = active;
   find('[data-loadout]').disabled = active;
   for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
-  for (const {input} of talentFields) input.disabled = active;
+  talentTree.setLocked(active);
   renderMeters(s);
   if (inspected !== null) updateInspectorMeter(s);
   const result = find('[data-result]');
@@ -240,12 +259,14 @@ const equipment = {
 };
 const gear = find('[data-loadout]');
 for (const name of Object.keys(loadouts)) gear.add(new Option(name));
+if (Object.hasOwn(loadouts, saved.loadout)) gear.value = saved.loadout;
 for (const [key, name, description, iconFile] of buffs) {
   const label = document.createElement('label');
   const input = document.createElement('input');
   input.type = 'checkbox';
   input.value = key;
   input.dataset.buff = '';
+  input.checked = Array.isArray(saved.buffs) && saved.buffs.includes(key);
   const image = document.createElement('img');
   image.src = new URL('./icons/' + iconFile + '.jpg', import.meta.url);
   image.alt = '';
@@ -253,20 +274,27 @@ for (const [key, name, description, iconFile] of buffs) {
   label.append(input, image, name + ' · ' + description);
   find('[data-buffs]').append(label);
 }
-const talentFields = talents.map(([key, name, max, description]) => {
-  const label = document.createElement('label');
-  const text = document.createElement('span');
-  text.textContent = name;
-  const detail = document.createElement('small');
-  detail.textContent = description;
-  text.append(detail);
-  const input = document.createElement('select');
-  input.setAttribute('aria-label', name + ' talent rank');
-  for (let rank = 0; rank <= max; rank++) input.add(new Option(rank + ' / ' + max, rank));
-  label.append(text, input);
-  find('[data-talents]').append(label);
-  return {key, input};
-});
+const talentTree = mountTalentTree(find('[data-talents]'), saved.talents, () => reset());
+if (Number.isInteger(saved.power) && saved.power >= 0 && saved.power <= 5000) find('[data-power]').value = saved.power;
+if (Number.isInteger(saved.selected) && saved.selected >= 0 && saved.selected < slots.length && !utility[slots[saved.selected][0]]) selected = saved.selected;
+find('[data-sound]').checked = saved.sound === true;
+
+function saveSettings() {
+  const power = find('[data-power]');
+  try {
+    localStorage.setItem(settingsKey, JSON.stringify({
+      loadout: gear.value,
+      buffs: [...enabled],
+      power: power.validity.valid ? Number(power.value) : 0,
+      sound: find('[data-sound]').checked,
+      selected,
+      talents: talentTree.build,
+      ranks: Object.fromEntries(selects.map(({key, select}) => [key, select.value]))
+    }));
+  } catch {
+    // The simulator can still run when the browser blocks local storage.
+  }
+}
 const gearSlots = {};
 for (const [group, names] of Object.entries(equipment)) {
   for (const name of names) {
@@ -349,7 +377,10 @@ find('[data-start]').onclick = () => reset(true);
 for (const {select} of selects) select.onchange = () => {
   if (pull.state.phase === 'active') return;
   if (pull.state.phase === 'ready') reset();
-  else configuredSpells();
+  else {
+    configuredSpells();
+    saveSettings();
+  }
   renderInspector();
 };
 
@@ -487,14 +518,18 @@ function renderMeters(state) {
 }
 
 let audio;
-find('[data-sound]').onchange = event => {
-  if (!event.target.checked) return;
+function enableAudio() {
+  if (!find('[data-sound]').checked) return;
   if (!window.AudioContext) {
-    event.target.checked = false;
+    find('[data-sound]').checked = false;
     return;
   }
   audio ??= new AudioContext();
   audio.resume().catch(() => {});
+}
+find('[data-sound]').onchange = () => {
+  enableAudio();
+  saveSettings();
 };
 function playHealSound(crit, bounce) {
   if (audio?.state !== 'running' || !find('[data-sound]').checked) return;
@@ -512,7 +547,7 @@ function playHealSound(crit, bounce) {
 }
 
 let visualPull = 0;
-find('[data-start]').addEventListener('click', () => { visualPull++; });
+find('[data-start]').addEventListener('click', () => { visualPull++; enableAudio(); });
 function showHeal(event) {
   const pullId = visualPull;
   const draw = () => {
@@ -551,7 +586,7 @@ function showHeal(event) {
   else draw();
 }
 
-reset();
+reset(false, false);
 function frame(now) {
   const delta = Math.min(.1, (now - last) / 1000);
   last = now;
