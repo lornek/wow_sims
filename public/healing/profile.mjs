@@ -13,6 +13,8 @@ export const buffs = [
 ];
 
 export const talents = [
+  ['thundering', 'Thundering Strikes', 5, '+1 percentage point of spell crit per rank'],
+  ['ancestral', 'Ancestral Knowledge', 5, '+2% Intellect per rank'],
   ['wave', 'Improved Healing Wave', 5, '−0.1 sec cast time per rank'],
   ['focus', 'Tidal Focus', 5, '−1% mana cost per rank for direct heals and Riptide'],
   ['mindfulness', 'Mindfulness', 3, '17% / 33% / 50% Spirit regeneration inside the five-second rule'],
@@ -40,14 +42,14 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   for (const item of Object.values(loadouts[loadout])) {
     for (const [key, value] of Object.entries(item.stats)) gear[key] = (gear[key] ?? 0) + value;
   }
-  const stat = (key, extra = 0) => Math.floor((naked[key] + (gear[key] ?? 0) + extra) * (enabled.has('kings') ? 1.1 : 1));
-  const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0);
+  const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra) * multiplier * (enabled.has('kings') ? 1.1 : 1));
+  const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0, 1 + .02 * (points.ancestral ?? 0));
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
   const stamina = stat('stamina');
   return {strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
     baseMana: naked.baseMana, health: 1280 + 10 * stamina,
     mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
-    crit: (2.3 + intellect * .0169 + (gear.crit ?? 0) + (points.crit ?? 0)) / 100,
+    crit: (2.3 + intellect * .0169 + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
     regen: 6.25 + spirit / 8, power: (gear.power ?? 0) + bonusHealing,
     mp5: (gear.mp5 ?? 0) + (enabled.has('wisdom') ? 40 : 0) + (enabled.has('mageblood') ? 12 : 0)};
