@@ -29,6 +29,15 @@ const encounter = {health: 12500, limit: 75, swing: 225, firstFlurry: 17, flurry
     {name: 'Caster', role: 'Mage', max: 2200, dps: 86, color: '#356981'},
     {name: 'You', role: 'Shaman', max: profile.health, dps: 0, color: '#34588d'}
   ]};
+let currentEncounter = encounter;
+const difficulty = find('[data-difficulty]');
+const stamina = find('[data-stamina]');
+if (Number.isInteger(saved.difficulty) && saved.difficulty >= 0 && saved.difficulty <= 3) difficulty.value = saved.difficulty;
+if (typeof saved.stamina === 'number') {
+  stamina.value = saved.stamina;
+  if (!stamina.validity.valid) stamina.value = '1';
+}
+const staminaMultiplier = () => stamina.validity.valid && stamina.value !== '' ? Number(stamina.value) : 1;
 const slots = [
   ['lesser', 'Lesser Healing Wave', 'Left click'],
   ['wave', 'Healing Wave', 'Right click'],
@@ -189,8 +198,20 @@ function configuredSpells() {
 
 function reset(start = false, persist = true) {
   configuredSpells();
-  const party = encounter.party.map((unit, index) => index === encounter.party.length - 1 ? {...unit, max: profile.health} : unit);
-  pull = createPull(profile, currentSpells, {...encounter, party}, Math.random, showHeal);
+  const level = Number(difficulty.value);
+  const damage = 1.15 ** level;
+  const health = 1.3 ** level;
+  const staminaScale = staminaMultiplier();
+  const party = encounter.party.map((unit, index) => ({
+    ...unit,
+    max: Math.round((index === encounter.party.length - 1 ? profile.health : unit.max) * staminaScale)
+  }));
+  currentEncounter = {...encounter, party, health: Math.round(encounter.health * health), limit: encounter.limit * health,
+    swing: Math.round(encounter.swing * damage), flurry: Math.round(encounter.flurry * damage),
+    poisonTick: Math.round(encounter.poisonTick * damage)};
+  find('[data-encounter-preview]').textContent = whole(currentEncounter.health) + ' boss HP · ×' +
+    damage.toFixed(3).replace(/\.?0+$/, '') + ' boss damage · ×' + staminaScale + ' max HP for all five party members';
+  pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal);
   updateSheet();
   if (start) pull.start();
   render();
@@ -204,8 +225,8 @@ function render() {
   find('[data-start]').textContent = active ? 'Restart pull' : ended ? 'Pull again' : 'Start pull';
   find('[data-phase]').textContent = active ? whole(s.time) + ' sec · In combat' :
     s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : 'Ready to pull';
-  fill(find('[data-boss-fill]'), s.boss / encounter.health);
-  find('[data-boss]').textContent = Math.ceil(s.boss / encounter.health * 100) + '%';
+  fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
+  find('[data-boss]').textContent = Math.ceil(s.boss / currentEncounter.health * 100) + '%';
   const flurry = active && s.nextFlurry - s.time <= 2;
   fill(find('[data-boss-cast-fill]'), flurry ? 1 - (s.nextFlurry - s.time) / 2 : 0);
   find('[data-boss-cast]').textContent = flurry ? 'Blade Flurry' : '';
@@ -247,6 +268,7 @@ function render() {
   selects.forEach(({select}) => select.disabled = active);
   find('[data-power]').disabled = active;
   find('[data-loadout]').disabled = active;
+  difficulty.disabled = stamina.disabled = active;
   for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
   talentTree.setLocked(active);
   renderMeters(s);
@@ -290,6 +312,8 @@ function saveSettings() {
   try {
     localStorage.setItem(settingsKey, JSON.stringify({
       loadout: gear.value,
+      difficulty: Number(difficulty.value),
+      stamina: staminaMultiplier(),
       buffs: [...enabled],
       power: power.validity.valid ? Number(power.value) : 0,
       sound: find('[data-sound]').checked,
@@ -380,6 +404,11 @@ gear.onchange = () => reset();
 find('[data-buffs]').onchange = () => reset();
 find('[data-talents]').onchange = () => reset();
 find('[data-start]').onclick = () => reset(true);
+difficulty.onchange = () => reset();
+stamina.onchange = () => {
+  stamina.value = staminaMultiplier();
+  reset();
+};
 for (const {select} of selects) select.onchange = () => {
   if (pull.state.phase === 'active') return;
   if (pull.state.phase === 'ready') reset();

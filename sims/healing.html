@@ -1,6 +1,18 @@
 <section class="panel healing" id="healing">
   <h2>Healing practice · Edwin VanCleef</h2>
   <p>Keep the party alive through the pull. Click a party frame with the spell’s mouse binding, or select a spell and then select a party member.</p>
+  <div class="heal-settings encounter-settings">
+    <label>VanCleef difficulty
+      <select data-difficulty>
+        <option value="0">Normal</option>
+        <option value="1">Difficulty +1</option>
+        <option value="2">Difficulty +2</option>
+        <option value="3">Difficulty +3</option>
+      </select>
+    </label>
+    <label>Party stamina multiplier <input type="number" min="1" max="10" step="0.05" value="1" data-stamina></label>
+    <p data-encounter-preview></p>
+  </div>
   <div class="heal-stage">
     <div class="heal-top"><strong data-phase>Ready to pull</strong><button type="button" data-start>Start pull</button></div>
     <div class="heal-boss">
