@@ -179,6 +179,12 @@ function configuredSpells() {
     if (!talentTree.build[name]) delete currentSpells[key];
   }
   if (!currentSpells[slots[selected][0]]) selected = 0;
+  for (const {field, row} of streamPreviews) {
+    const spell = applyTalents(spellFor('stream', 'Healing Stream Totem', row), points);
+    const amount = (spell.low + spell.coefficient * profile.power) * spell.multiplier;
+    field.textContent = 'Your build · ' + whole(Math.round(amount)) + ' healing per tick · ' +
+      healingMultiplier(spell) + ' from Restorative Totems';
+  }
 }
 
 function reset(start = false, persist = true) {
@@ -384,6 +390,11 @@ for (const {select} of selects) select.onchange = () => {
   renderInspector();
 };
 
+function healingMultiplier(spell) {
+  return '+' + Math.round((spell.multiplier - 1) * 100) + '%';
+}
+
+const streamPreviews = [];
 const cards = Object.entries(catalog).sort(([a], [b]) => a.localeCompare(b)).map(([name, entry]) => {
   const card = document.createElement('details');
   const title = document.createElement('summary');
@@ -398,6 +409,12 @@ const cards = Object.entries(catalog).sort(([a], [b]) => a.localeCompare(b)).map
     line.textContent = [rank.rank, rank.details, rank.description,
       coefficients.length ? 'Coefficient ' + coefficients.join(' / ') : ''].filter(Boolean).join(' · ');
     card.append(line);
+    if (name === 'Healing Stream Totem' && row) {
+      const field = document.createElement('p');
+      field.className = 'heal-credit';
+      streamPreviews.push({field, row});
+      card.append(field);
+    }
   }
   find('[data-catalog]').append(card);
   return {card, name};
@@ -445,6 +462,10 @@ function renderInspector() {
     add(spell.period ? 'Non-crit healing per tick' : 'Non-crit primary heal', range());
     if (spell.period) add('Ticks per target', ticks + ' × every ' + spell.period + ' sec');
     add('Base coefficient', (spell.coefficient * 100).toFixed(1) + '%' + (spell.period ? ' per tick' : ''));
+    if (key === 'stream') {
+      add('Restorative Totems', healingMultiplier(spell));
+      add('Effective coefficient', (spell.coefficient * spell.multiplier * 100).toFixed(2) + '% per tick');
+    }
     add('Healing crit chance', (crit * 100).toFixed(2) + '%');
     add('Expected healing per mana', hpm(ticks) + (spell.party ? ' per party member' : ' on primary'));
     const chain = find('[data-inspect-chain]');
