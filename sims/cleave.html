@@ -1,0 +1,83 @@
+<section id="cleave-efficiency">
+<h1>Cleave rage efficiency</h1>
+<div class="viz-controls">
+  <label class="form-label">Weapon A speed (sec)<input class="form-control" name="a" type="number" min="0.5" max="8" step="0.1" value="2"></label>
+  <label class="form-label">Weapon B speed (sec)<input class="form-control" name="b" type="number" min="0.5" max="8" step="0.1" value="3.6"></label>
+  <label class="form-label">Weapon DPS<input class="form-control" name="dps" type="number" min="0" max="10000" step="any" value="50"></label>
+  <label class="form-label">Attack power<input class="form-control" name="ap" type="number" min="0" max="100000" step="any" value="500"></label>
+  <label class="form-label">Cleave bonus per target<input class="form-control" name="bonus" type="number" min="0" max="10000" step="any" value="50"></label>
+  <label class="form-label">Cleave rage cost<input class="form-control" name="cost" type="number" min="1" max="100" step="any" value="20"></label>
+  <label class="form-label">White rage per weapon-second<input class="form-control" name="rage" type="number" min="0" max="100" step="any" value="4.5"></label>
+  <label class="form-label">Targets<select class="form-select" name="targets"><option value="2">2 targets</option><option value="1">1 target</option></select></label>
+</div>
+<div role="alert" class="text-destructive" data-error></div>
+<div data-results aria-live="polite">
+  <h2>Extra damage per effective rage</h2>
+  <div data-bars></div>
+  <h2>Extra DPS when every swing cleaves</h2>
+  <div data-bars data-dps></div>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th scope="col">Per queued swing</th><th scope="col">Weapon A</th><th scope="col">Weapon B</th></tr></thead>
+    <tbody data-details></tbody>
+  </table>
+</div>
+</section>
+<style>
+#cleave-efficiency { display:grid; gap:var(--font-size-base); }
+#cleave-efficiency [data-error]:empty {display:none}
+#cleave-efficiency [data-bars] {display:grid; gap:0.5em; margin:0.5em 0 1em;}
+#cleave-efficiency .progress-bar {background:var(--viz-series-1);}
+#cleave-efficiency [data-bars] > div:nth-child(2) .progress-bar {background:var(--viz-series-2);}
+</style>
+<script>
+(() => {
+  const root = document.getElementById('cleave-efficiency');
+  const fields = Array.from(root.querySelectorAll('input, select'));
+  const results = root.querySelector('[data-results]');
+  const error = root.querySelector('[data-error]');
+  const format = n => n.toFixed(2);
+
+  function update() {
+    const invalid = fields.some(field => !field.validity.valid || field.value === '');
+    error.textContent = invalid ? 'Enter a value within the allowed range in each field.' : '';
+    results.hidden = invalid;
+    if (invalid) return;
+
+    const {a, b, dps, ap, bonus, cost, rage, targets} = Object.fromEntries(
+      fields.map(field => [field.name, Number(field.value)])
+    );
+    const weapons = [a, b].map(speed => {
+      const white = (dps + ap / 14) * speed;
+      const secondary = (targets - 1) * (white + bonus);
+      const extra = bonus + secondary;
+      const lost = rage * speed;
+      const effective = cost + lost;
+      return {speed, white, bonus, secondary, extra, cost, lost, effective,
+        efficiency: extra / effective, ceiling: extra / speed, budget: effective / speed};
+    });
+    for (const [selector, metric, unit] of [
+      ['[data-bars]', 'efficiency', 'damage/rage'],
+      ['[data-dps]', 'ceiling', 'extra DPS']
+    ]) {
+      const scale = Math.max(...weapons.map(weapon => weapon[metric])) || 1;
+      root.querySelector(selector).innerHTML = weapons.map((weapon, index) => {
+        const label = `Weapon ${index ? 'B' : 'A'} · ${format(weapon.speed)} sec · ${format(weapon[metric])} ${unit}`;
+        return `<div><span class="tabular-nums">${label}</span><div class="progress" aria-hidden="true"><div class="progress-bar" style="width:${100 * weapon[metric] / scale}%"></div></div></div>`;
+      }).join('');
+    }
+    const rows = [
+      ['White swing damage', 'white'], ['Extra damage to primary', 'bonus'],
+      ['Damage to second target', 'secondary'], ['Total extra damage', 'extra'],
+      ['Rage spent', 'cost'], ['White rage forgone', 'lost'],
+      ['Effective rage cost', 'effective'],
+      ['Extra DPS if every swing cleaves', 'ceiling'],
+      ['Effective rage/sec at that pace', 'budget']
+    ];
+    root.querySelector('[data-details]').innerHTML = rows.map(([label, key]) =>
+      `<tr><th scope="row">${label}</th>${weapons.map(weapon => `<td>${format(weapon[key])}</td>`).join('')}</tr>`
+    ).join('');
+  }
+  root.addEventListener('input', update);
+  update();
+})();
+</script>
