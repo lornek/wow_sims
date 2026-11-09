@@ -1,0 +1,39 @@
+.healing { display: grid; gap: 14px; }
+.healing p { margin: 0; }
+.heal-stage { display: grid; gap: 10px; padding: clamp(8px, 2vw, 20px); background: radial-gradient(ellipse at top,#342317,#120d09 68%); border: 1px solid var(--border); border-radius: 4px; }
+.heal-top { display:flex; justify-content:space-between; align-items:center; gap:8px; color:var(--gold); }
+.healing button, .healing input, .healing select { font: inherit; color: var(--text); background: #1a130d; border: 1px solid var(--border); border-radius:4px; padding: 5px 9px; }
+.healing button { cursor:pointer; }
+.healing button:hover, .healing button[aria-pressed=true] { border-color:var(--gold); }
+.heal-boss { width:min(440px,100%); margin:0 auto; }
+.heal-bar, .regen-track, .heal-frame { position:relative; isolation:isolate; overflow:hidden; background:#15100c; border:1px solid var(--border); border-radius:3px; }
+.heal-bar > span, .regen-track > span, .unit-fill { position:absolute; inset:0 auto 0 0; z-index:-1; background:#873426; }
+.heal-bar strong { display:block; min-height:1.45em; padding-inline:8px; text-shadow:0 1px 2px black; }
+.heal-bar output { float:right; }
+.heal-party { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; }
+.healing .heal-frame { min-height:100px; padding:5px; text-align:center; text-shadow:0 1px 2px black; touch-action:manipulation; overflow-wrap:anywhere; }
+.heal-frame strong, .heal-frame small, .unit-status { display:block; }
+.heal-frame .unit-fill { background:linear-gradient(var(--unit),#16100c); }
+.unit-status { min-height:1.4em; color:#fff0aa; font-size:.85rem; }
+.mana-bar > span { background:#1d487b; }
+.cast-bar > span { background:#775827; }
+.regen-track { height:5px; }
+.regen-track > span { background:var(--gold); }
+.heal-spells { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:6px; }
+.heal-spells button { display:flex; align-items:center; text-align:left; gap:8px; min-height:52px; font: .95rem var(--ui); }
+.heal-spells small { display:block; color:var(--muted); margin-top:3px; }
+.heal-spells img,.spellbook img { border-radius:4px; border:1px solid var(--border); }
+.heal-message { min-height:1.4em; color:var(--gold); }
+.heal-settings { border-top:1px solid var(--border); padding-top:8px; }
+.heal-settings summary { color:var(--gold); cursor:pointer; }
+.heal-settings label { display:inline-flex; align-items:center; gap:8px; margin:6px 12px 6px 0; }
+.heal-settings input { max-width:140px; }
+.spellbook { display:grid; gap:6px; }
+.spellbook details { background:#18110b; padding:5px 10px; }
+.spellbook img { vertical-align:middle; margin:0 8px; }
+.spellbook p { margin:7px 0 7px 16px; }
+.heal-credit { color:var(--muted); font-size:.9rem; }
+@media(max-width:650px) {
+  .heal-party { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .healing .heal-frame { min-height:70px; }
+}

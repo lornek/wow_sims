@@ -47,11 +47,13 @@ ${content}
 }
 
 const cleave = fs.readFileSync(path.join(__dirname, 'sims', 'cleave.html'), 'utf8');
-fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a><p>Compare two weapon speeds by damage per rage and extra DPS when every swing cleaves.</p></section>'));
+const healing = fs.readFileSync(path.join(__dirname, 'sims', 'healing.html'), 'utf8');
+const classSims = {warrior: cleave, shaman: healing};
+fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./shaman/#healing">Shaman · Healing practice</a></p></section>'));
 for (const [name] of classes) {
   const slug = name.toLowerCase();
   const directory = path.join(output, slug);
   fs.mkdirSync(directory, {recursive: true});
-  const content = slug === 'warrior' ? cleave : `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
+  const content = classSims[slug] ?? `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
   fs.writeFileSync(path.join(directory, 'index.html'), page(`${name} Sims`, '../', slug, content));
 }
