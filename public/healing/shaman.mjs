@@ -7,6 +7,7 @@ const byName = name => ranks.filter(row => row.name === name && row.level <= 60)
 const whole = number => Math.floor(number).toLocaleString('en-US');
 const clamp = number => Math.min(1, Math.max(0, number));
 const fill = (element, fraction) => element.style.width = (100 * clamp(fraction)) + '%';
+const countdown = seconds => seconds >= 60 ? Math.ceil(seconds / 60) + 'm' : Math.ceil(seconds) + 's';
 const profile = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99,
   health: 2260, baseMana: 1520, mana: 2575, crit: (2.3 + 89 * .0169) / 100,
   regen: 6.25 + 99 / 8, power: 0};
@@ -62,19 +63,25 @@ function icon(name) {
 for (const [index, [key, name, binding]] of slots.entries()) {
   const button = document.createElement('button');
   button.type = 'button';
-  button.append(icon(name));
+  const art = document.createElement('span');
+  art.className = 'spell-art';
+  const timer = document.createElement('span');
+  timer.className = 'spell-timer';
+  art.append(icon(name), timer);
+  button.append(art);
   const label = document.createElement('span');
   label.textContent = name;
   const shortcut = document.createElement('small');
   shortcut.textContent = binding;
-  label.append(shortcut);
+  const cooldown = document.createElement('small');
+  label.append(shortcut, cooldown);
   button.append(label);
   button.onclick = () => {
     selected = index;
     render();
   };
   find('.heal-spells').append(button);
-  spellButtons.push(button);
+  spellButtons.push({button, timer, cooldown, key});
 
   const rows = byName(name).sort((a, b) => a.level - b.level || a.id - b.id);
   const select = document.createElement('select');
@@ -98,8 +105,17 @@ for (const [index, unit] of encounter.party.entries()) {
     attempt(event, index, true);
   };
   find('.heal-party').append(frame);
-  frames.push({frame, fill: frame.firstElementChild, label: frame.querySelector('strong'),
-    health: frame.querySelector('small'), status: frame.lastElementChild});
+  const auras = [['riptide', 'Riptide'], ['stream', 'Healing Stream Totem'], ['poison', 'Poisoned Blade']]
+    .map(([key, name]) => {
+      const badge = document.createElement('span');
+      badge.className = 'unit-aura ' + key;
+      const timer = document.createElement('span');
+      badge.append(icon(key === 'poison' ? 'Cure Poison' : name), timer);
+      frame.lastElementChild.append(badge);
+      return {key, name, badge, timer};
+    });
+  frames.push({fill: frame.firstElementChild, label: frame.querySelector('strong'),
+    health: frame.querySelector('small'), auras});
 }
 
 function attempt(event, index, right) {
@@ -136,8 +152,15 @@ function render() {
     fill(frame.fill, unit.hp / unit.max);
     frame.label.textContent = unit.name + ' · ' + unit.role;
     frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
-    const hot = s.effects.some(effect => effect.target === unit);
-    frame.status.textContent = [unit.poison > s.time ? 'Poison' : '', hot ? 'Riptide' : ''].filter(Boolean).join(' · ');
+    for (const {key, name, badge, timer} of frame.auras) {
+      const expires = key === 'poison' ? unit.poison :
+        s.effects.find(effect => effect.key === key && (!effect.target || effect.target === unit))?.expires ?? 0;
+      badge.hidden = !unit.hp || expires <= s.time;
+      if (!badge.hidden) {
+        timer.textContent = countdown(expires - s.time);
+        badge.title = name + ' · ' + timer.textContent;
+      }
+    }
   });
   fill(find('[data-mana-fill]'), s.mana / profile.mana);
   find('[data-mana]').textContent = whole(s.mana) + ' / ' + whole(profile.mana) + ' mana';
@@ -146,7 +169,16 @@ function render() {
   find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';
   const message = find('[data-message]');
   if (message.textContent !== s.message) message.textContent = s.message;
-  spellButtons.forEach((button, index) => button.setAttribute('aria-pressed', selected === index));
+  spellButtons.forEach(({button, timer, cooldown, key}, index) => {
+    const {select, rows} = selects[index];
+    const base = rows[select.selectedIndex].cooldown;
+    const remaining = Math.max(0, (s.cooldowns[key] ?? 0) - s.time);
+    const gcd = active ? Math.max(0, s.gcd - s.time) : 0;
+    timer.textContent = remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
+    cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
+      base ? countdown(base) + ' cooldown' : '';
+    button.setAttribute('aria-pressed', selected === index);
+  });
   selects.forEach(({select}) => select.disabled = active);
   find('[data-power]').disabled = active;
   const result = find('[data-result]');
@@ -156,10 +188,46 @@ function render() {
   if (result.textContent !== score) result.textContent = score;
 }
 
-find('[data-profile]').textContent = 'Level 60 · Dwarf Shaman · ' + profile.health + ' health · ' +
-  profile.mana + ' mana (' + profile.baseMana + ' base) · ' + profile.strength + ' Str · ' +
-  profile.agility + ' Agi · ' + profile.stamina + ' Sta · ' + profile.intellect + ' Int · ' +
-  profile.spirit + ' Spi · ' + (100 * profile.crit).toFixed(2) + '% spell crit';
+const equipment = {
+  left: ['Head', 'Neck', 'Shoulders', 'Back', 'Chest', 'Shirt', 'Tabard', 'Wrists'],
+  right: ['Hands', 'Waist', 'Legs', 'Feet', 'Finger 1', 'Finger 2', 'Trinket 1', 'Trinket 2'],
+  weapons: ['Main hand', 'Off hand', 'Relic']
+};
+for (const [group, names] of Object.entries(equipment)) {
+  for (const name of names) {
+    const image = document.createElement('img');
+    const slot = name.toLowerCase().replace(/ [12]$/, '').replaceAll(' ', '');
+    const file = {back: 'empty', chest: 'empty', tabard: 'empty'}[slot] ?? slot;
+    image.src = new URL('./slots/' + file + '.jpg', import.meta.url);
+    image.alt = image.title = name + ' · Empty';
+    image.width = image.height = 36;
+    find('[data-equipment="' + group + '"]').append(image);
+  }
+}
+const statGroups = {
+  Resources: {Health: whole(profile.health), Mana: whole(profile.mana), 'Base mana': whole(profile.baseMana)},
+  Attributes: {Strength: profile.strength, Agility: profile.agility, Stamina: profile.stamina,
+    Intellect: profile.intellect, Spirit: profile.spirit},
+  Spell: {'Bonus healing': '0', 'Spell crit': (100 * profile.crit).toFixed(2) + '%',
+    'Spirit mana regen / 5 sec': (profile.regen * 5).toFixed(1)}
+};
+for (const [name, stats] of Object.entries(statGroups)) {
+  const heading = document.createElement('h3');
+  heading.textContent = name;
+  const list = document.createElement('dl');
+  for (const [label, value] of Object.entries(stats)) {
+    const term = document.createElement('dt');
+    const description = document.createElement('dd');
+    term.textContent = label;
+    description.textContent = value;
+    if (label === 'Bonus healing') description.dataset.sheetPower = '';
+    list.append(term, description);
+  }
+  find('[data-profile]').append(heading, list);
+}
+find('[data-power]').oninput = event => {
+  find('[data-sheet-power]').textContent = whole(event.target.validity.valid ? Number(event.target.value) : 0);
+};
 find('[data-start]').onclick = () => reset(true);
 for (const {select} of selects) select.onchange = () => { if (pull.state.phase === 'ready') reset(); };
 

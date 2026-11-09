@@ -37,3 +37,29 @@
   .heal-party { grid-template-columns:repeat(3,minmax(0,1fr)); }
   .healing .heal-frame { min-height:70px; }
 }
+
+.spell-art { position:relative; flex:none; display:grid; }
+.spell-timer:not(:empty) { position:absolute; inset:0; display:grid; place-items:center; background:#100b08b3; color:#fff0aa; font-weight:700; border-radius:4px; }
+.healing .unit-status { display:flex; justify-content:center; gap:3px; min-height:25px; }
+.unit-aura { position:relative; display:inline-grid; flex:none; }
+.unit-aura[hidden] { display:none; }
+.unit-aura img { width:23px; height:23px; border:1px solid #e8c470; border-radius:3px; }
+.unit-aura.poison img { border-color:#86c96e; }
+.unit-aura span { position:absolute; inset:auto 0 0; background:#110d08bd; font:700 .72rem var(--ui); }
+.character-sheet { border:1px solid var(--border); border-radius:4px; background:#160f0a; }
+.character-sheet header { display:flex; align-items:center; gap:12px; padding:12px; border-bottom:1px solid var(--border); background:linear-gradient(#312214,#1a130d); }
+.character-sheet header img { border:1px solid var(--border); border-radius:50%; }
+.character-sheet header h2 { margin:0; }
+.character-sheet header p { color:var(--muted); }
+.character-body { display:grid; grid-template-columns:minmax(215px, 1fr) minmax(190px,1fr); gap:16px; padding:12px; }
+.paper-doll { display:grid; grid-template-columns:auto 1fr auto; gap:8px; align-items:stretch; background:radial-gradient(ellipse,#403a2b,#100d09 70%); border:1px solid #3d2f14; padding:8px; }
+.paper-doll [data-equipment] { display:grid; gap:4px; align-content:start; }
+.paper-doll [data-equipment=weapons] { grid-column:1 / -1; grid-auto-flow:column; justify-content:center; }
+.paper-doll img { border:1px solid var(--border); border-radius:3px; }
+.doll-preview { display:grid; place-items:center; }
+.doll-preview svg { width:min(100%,170px); fill:#74634c; filter:drop-shadow(0 3px 12px #000); }
+.doll-preview .doll-beard { fill:#453529; }
+.character-stats h3 { margin:0; font:700 1rem var(--ui); color:var(--gold); background:#24180e; padding:5px 8px; }
+.character-stats dl { display:grid; grid-template-columns:1fr auto; gap:4px 8px; margin:0; padding:8px; }
+.character-stats dd { margin:0; color:#fff0c5; font-variant-numeric:tabular-nums; text-align:right; }
+@media(max-width:540px) { .character-body { grid-template-columns:1fr; } }

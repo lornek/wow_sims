@@ -25,7 +25,8 @@ export function createPull(profile, spells, encounter, random = Math.random) {
       const target = spell.party ? null : unit;
       state.effects = state.effects.filter(e => e.key !== spell.key || e.target !== target);
       state.effects.push({key: spell.key, target, next: state.time + spell.period, period: spell.period,
-        left: Math.floor(spell.duration / spell.period), amount: amount(), directChainBonus: spell.directChainBonus ?? 0});
+        expires: state.time + spell.duration, left: Math.floor(spell.duration / spell.period),
+        amount: amount(), directChainBonus: spell.directChainBonus ?? 0});
     } else {
       const raw = amount();
       const bonus = spell.chain > 1 ? state.effects.reduce((sum, effect) =>
@@ -115,6 +116,8 @@ export function createPull(profile, spells, encounter, random = Math.random) {
     if (!party.at(-1).hp || state.time >= encounter.limit || !state.boss) {
       state.phase = !state.boss && party.at(-1).hp ? 'won' : 'lost';
       state.cast = null;
+      state.effects = [];
+      for (const unit of party) unit.poison = 0;
       state.endedAt = state.time;
       state.survivors = party.filter(unit => unit.hp).length;
       state.manaAtEnd = state.mana;

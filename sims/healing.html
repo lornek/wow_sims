@@ -16,9 +16,24 @@
     <p data-result aria-live="polite"></p>
   </div>
   <p>Mana regenerates from Spirit after five seconds without spending mana. Shaman slots default to the highest listed rank. Set a lower rank before pulling to practice downranking.</p>
+  <section class="character-sheet" aria-labelledby="character-title">
+    <header><img src="../assets/shaman.jpg" alt="" width="44" height="44"><div>
+      <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · Ungeared</p>
+    </div></header>
+    <div class="character-body">
+      <div class="paper-doll" aria-label="Equipment">
+        <div data-equipment="left"></div>
+        <div class="doll-preview" aria-hidden="true">
+          <svg viewBox="0 0 160 220"><path d="M58 49c0-19 11-31 22-31s22 12 22 31l6 14-11 9 17 12 21 13 12 47-17 13-13-13-7-27-4 44 10 35-27 7-9-26-9 26-27-7 10-35-4-44-7 27-13 13-17-13 12-47 21-13 17-12-11-9z"/><path class="doll-beard" d="m58 59 22 13 22-13-6 28-16 18-16-18z"/></svg>
+        </div>
+        <div data-equipment="right"></div>
+        <div data-equipment="weapons"></div>
+      </div>
+      <div class="character-stats" data-profile></div>
+    </div>
+  </section>
   <details class="heal-settings">
-    <summary>Dwarf Shaman stats and spell ranks</summary>
-    <p data-profile></p>
+    <summary>Spell ranks and bonus healing</summary>
     <label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label>
     <div data-ranks></div>
   </details>
