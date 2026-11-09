@@ -384,6 +384,11 @@ function updateSheet() {
     const info = document.createElement('span');
     info.textContent = [name, item.ilvl ? 'Item level ' + item.ilvl : '', item.source].filter(Boolean).join(' · ');
     tip.append(info);
+    if (item.acquisition) {
+      const acquisition = document.createElement('span');
+      acquisition.textContent = item.acquisition;
+      tip.append(acquisition);
+    }
     for (const [key, value] of Object.entries(item.stats)) {
       const line = document.createElement('span');
       line.textContent = '+' + value + (key === 'crit' ? '% ' : ' ') + labels[key];
