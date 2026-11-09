@@ -48,8 +48,9 @@ ${content}
 
 const cleave = fs.readFileSync(path.join(__dirname, 'sims', 'cleave.html'), 'utf8');
 const healing = fs.readFileSync(path.join(__dirname, 'sims', 'healing.html'), 'utf8');
-const classSims = {warrior: cleave, shaman: healing};
-fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./shaman/#healing">Shaman · Healing practice</a></p></section>'));
+const sunder = fs.readFileSync(path.join(__dirname, 'sims', 'sunder-armor.html'), 'utf8');
+const classSims = {warrior: sunder + cleave, shaman: healing};
+fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#sunder-armor">Warrior · Sunder Armor DPS</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./shaman/#healing">Shaman · Healing practice</a></p></section>'));
 for (const [name] of classes) {
   const slug = name.toLowerCase();
   const directory = path.join(output, slug);

@@ -91,3 +91,13 @@ footer { padding-block: 16px 28px; border-top: 1px solid #3d2f14; font-size: .9r
   .hero-logo { width: min(120px, 28vw); }
   .class-picker { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
 }
+
+.sunder-title { display: flex; align-items: center; gap: 10px; }
+.sunder-title img { border-radius: 4px; border: 1px solid var(--border); }
+.sunder-controls { margin-block: 14px; }
+#sunder-level { width: 100%; accent-color: var(--gold); }
+#sunder-level-value, #sunder-summary { color: var(--gold); }
+#sunder-armor .progress { margin-top: 4px; }
+#sunder-armor .progress-bar { background: var(--viz-series-1); }
+#sunder-armor details { margin-top: 12px; }
+#sunder-armor summary { color: var(--gold); cursor: pointer; }
