@@ -123,3 +123,25 @@
 .healing .talent-node[data-state=max] { border-color:#f2cf6a; }
 .talent-node[data-state=max] span { color:#f2cf6a; }
 .talent-node[data-state=spent] span { color:#a2d87a; }
+
+.heal-menu { border:1px solid var(--border); border-radius:4px; background:#160f0a; }
+.heal-tabs { display:flex; gap:5px; flex-wrap:wrap; padding:8px; background:linear-gradient(#312416,#1a130e); }
+.heal-tabs [aria-selected=true], .book-controls [aria-pressed=true] { color:var(--gold); border-color:var(--gold); background:#302310; }
+.heal-tab-panel { padding:12px; }
+.heal-tab-panel[hidden], .game-tooltip[hidden] { display:none; }
+.heal-tab-panel .character-sheet { margin-top:10px; }
+.book-controls, .book-controls nav { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.book-controls nav { flex-basis:100%; }
+.book-controls nav button, .book-spell summary { display:flex; gap:8px; align-items:center; }
+.book-controls nav img { width:22px; height:22px; }
+.book-controls [data-book-level] { width:70px; }
+.spellbook { grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:8px; }
+.spellbook .book-spell { border:1px solid #584420; border-radius:4px; background:linear-gradient(#251a10,#110d08); padding:6px; }
+.book-spell summary { font:600 .95rem var(--ui); }
+.book-spell small { display:block; color:var(--muted); font-weight:400; }
+.book-spell > div { font-size:.9rem; padding:6px; }
+.game-tooltip { position:fixed; z-index:1000; pointer-events:none; width:max-content; max-width:min(330px,calc(100vw - 16px)); padding:10px 12px; background:#100e10; border:1px solid #8e723a; border-radius:5px; box-shadow:0 5px 18px #000b; color:#e9dfc7; font: .93rem/1.35 Georgia,serif; }
+.game-tooltip-title { color:#ffdf82; font-size:1.06em; font-weight:bold; }
+.game-tooltip-description { color:#fff1bb; margin-top:6px; }
+.game-tooltip-good { color:#96d86e; margin-top:5px; }
+.game-tooltip-locked { color:#ed8268; margin-top:5px; }
