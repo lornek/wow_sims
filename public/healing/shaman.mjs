@@ -21,6 +21,7 @@ const slots = [
   ['potion', 'Major Mana Potion', 'Activate']
 ];
 const utility = {
+  stream: {self:true},
   waterShield: {waterShield:true},
   swiftness: {offGcd: true, swiftness: true},
   tide: {party: true, waterTotem: true, period: 3, duration: 12, manaTick: 290},
