@@ -10,7 +10,7 @@ const slots = [
   ['shield','Power Word: Shield','Ctrl + Left'],
   ['prayer','Prayer of Healing','Alt + Left'],['penance','Penance','Ctrl + Right'],
   ['mending','Prayer of Mending','Ctrl + Right'],['heal','Heal','Select target'],
-  ['nova','Holy Nova','Select target'],['desperate','Desperate Prayer','Activate'],
+  ['nova','Holy Nova','Activate'],['desperate','Desperate Prayer','Activate'],
   ['focus','Inner Focus','Activate'],['pi','Power Infusion','Activate'],['potion','Major Mana Potion','Activate']
 ];
 const common = {'Twin Disciplines':5,'Mental Strength':5,'Mental Agility':3,'Inner Focus':1,'Improved Power Word: Shield':3,Meditation:3};
@@ -20,7 +20,7 @@ const presets = {
   Holy:{...common,'Twilight Focus':3,'Improved Renew':3,'Holy Specialization':5,'Divine Fury':5,'Improved Healing':2,'Holy Nova':1,
     'Holy Binding':1,'Litany of Light':2,'Spirit of Redemption':1,'Spiritual Guidance':4,'Spiritual Healing':3,'Prayer of Mending':1}
 };
-const utility = {desperate:{self:true},focus:{offGcd:true,activateBuff:'innerFocus'},pi:{offGcd:true,activateBuff:'powerInfusion'},
+const utility = {nova:{self:true},desperate:{self:true},focus:{offGcd:true,activateBuff:'innerFocus'},pi:{offGcd:true,activateBuff:'powerInfusion'},
   potion:{offGcd:true,manaRange:[1350,2250]}};
 const spellGroups = describeTalentSpells(catalog,trees,{holy:slots.map(([,name]) => name),
   discipline:['Power Word: Shield','Power Word: Fortitude','Penance','Power Infusion','Inner Focus','Divine Spirit'],
