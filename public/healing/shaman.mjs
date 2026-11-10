@@ -451,6 +451,10 @@ function renderHealingBreakdown(tip, name, row) {
   }
   tooltipLine(tip, 'With talents (×' + Number(spell.multiplier.toFixed(3)) + ') · ' +
     range(profile.power, spell.multiplier), 'game-tooltip-good');
+  if (key === 'chain') {
+    tooltipLine(tip, 'With Riptide (+25% first hit) · ' +
+      range(profile.power, spell.multiplier * 1.25), 'game-tooltip-good');
+  }
 }
 const schools = ['Enhancement', 'Restoration', 'Elemental Combat'];
 let selectedSchool = 'Enhancement';
