@@ -149,7 +149,7 @@ export function mountTalentTree(container, initial, onChange, treeList = trees) 
     onChange();
   }
   render();
-  return {get build() { return build; }, setLocked(value) {
+  return {get build() { return build; }, load(preset) { if (!locked) setBuild(restoreBuild(preset, treeList)); }, setLocked(value) {
     if (locked === value) return;
     locked = value;
     render();

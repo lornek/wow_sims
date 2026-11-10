@@ -17,6 +17,7 @@ const slots = [
   ['potion', 'Major Mana Potion', 'Activate']
 ];
 const utility = {
+  riptide: {periodicCrit: true},
   swiftness: {offGcd: true, swiftness: true},
   tide: {party: true, waterTotem: true, period: 3, duration: 12, manaTick: 290},
   potion: {offGcd: true, manaRange: [1350, 2250]}

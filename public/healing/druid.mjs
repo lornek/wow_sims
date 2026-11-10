@@ -27,7 +27,7 @@ const slots = [
   ['potion', 'Major Mana Potion', 'Activate']
 ];
 const utility = {
-  tranquility: {party: true, channel: true},
+  tranquility: {party: true, channel: true, periodicCrit: true},
   swiftness: {offGcd: true, swiftness: true},
   innervate: {innervate: true},
   potion: {offGcd: true, manaRange: [1350, 2250]}

@@ -4,7 +4,7 @@ import {mountTalentTree} from './talent-tree.mjs';
 
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
-  configureSpell = spell => spell, extraMeters = []}) {
+  configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison'}) {
   const settingsKey = 'wow-forever-sims.' + className + '.v1';
   function readSettings() {
     try {
@@ -49,7 +49,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const percent = tooltip?.details?.match(/(\d+)% of base mana/);
     const parsed = index => Number(range[index].replaceAll(',', ''));
     return configureSpell({...row, key, name,
-      cost: percent ? Math.floor(profile.baseMana * Number(percent[1]) / 100) : row.cost,
+      cost: percent || row.costPct ? Math.floor(profile.baseMana * (percent ? Number(percent[1]) : row.costPct) / 100) : row.cost,
       low: range ? parsed(1) : effect?.base ?? 0, high: range ? parsed(2) : effect?.base ?? 0,
       coefficient: effect?.coefficient ?? 0, period: effect?.period, chain: effect?.chain,
       falloff: effect?.falloff, party: key === 'stream', waterTotem: key === 'stream', dispel: key === 'poison',
@@ -147,7 +147,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     };
     find('.heal-party').append(frame);
     const badges = [...auras,
-      ['swiftness', "Nature's Swiftness"], ['poison', 'Poisoned Blade']]
+      ['swiftness', "Nature's Swiftness"], ['poison', hazard === 'disease' ? 'Infected Blade' : 'Poisoned Blade']]
       .map(([key, name]) => {
         const badge = document.createElement('span');
         badge.className = 'unit-aura ' + key;
@@ -192,7 +192,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       ...unit,
       max: Math.round((index === encounter.party.length - 1 ? profile.health : unit.max) * staminaScale)
     }));
-    currentEncounter = {...encounter, party, health: Math.round(encounter.health * health), limit: encounter.limit * health,
+    currentEncounter = {...encounter, party, hazard, health: Math.round(encounter.health * health), limit: encounter.limit * health,
       swing: Math.round(encounter.swing * damage), flurry: Math.round(encounter.flurry * damage),
       poisonTick: Math.round(encounter.poisonTick * damage)};
     find('[data-encounter-preview]').textContent = whole(currentEncounter.health) + ' boss HP · ×' +
@@ -228,6 +228,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         const expires = key === 'swiftness' ? (i === frames.length - 1 ? s.swiftness : 0) :
           key === 'poison' ? unit.poison :
           key === 'innervate' && unit === s.party[4] ? s.innervateUntil :
+          unit[key]?.expires && (unit[key].amount === undefined || unit[key].amount > 0) ? unit[key].expires :
+          key === 'weakened' ? unit.weakened ?? 0 :
+          s[key]?.target === unit ? s[key].expires :
+          typeof s[key] === 'number' && i === frames.length - 1 ? s[key] :
           s.effects.find(effect => effect.key === key && (!effect.target || effect.target === unit))?.expires ?? 0;
         badge.hidden = !unit.hp || expires <= s.time;
         if (!badge.hidden) {
@@ -245,7 +249,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (message.textContent !== s.message) message.textContent = s.message;
     spellButtons.forEach(({button, timer, cooldown, key}, index) => {
       const {select, rows} = selects[index];
-      const base = rows[select.selectedIndex].cooldown;
+      const base = currentSpells[key]?.cooldown ?? rows[select.selectedIndex].cooldown;
       const remaining = Math.max(0, (s.cooldowns[key] ?? 0) - s.time);
       const spell = currentSpells[key];
       const gcd = active && !spell?.offGcd ? Math.max(0, s.gcd - s.time) : 0;
@@ -302,6 +306,18 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-buffs]').append(label);
   }
   const talentTree = mountTalentTree(find('[data-talents]'), saved.talents ?? defaultTalents, () => reset(), trees);
+  if (presets) {
+    const label = document.createElement('label');
+    const select = document.createElement('select');
+    select.add(new Option('Choose a build', ''));
+    for (const name of Object.keys(presets)) select.add(new Option(name, name));
+    select.onchange = () => {
+      if (presets[select.value]) talentTree.load(presets[select.value]);
+      select.value = '';
+    };
+    label.append('Talent preset ', select);
+    find('[data-talents]').before(label);
+  }
   if (Number.isInteger(saved.power) && saved.power >= 0 && saved.power <= 5000) find('[data-power]').value = saved.power;
   if (Number.isInteger(saved.selected) && saved.selected >= 0 && saved.selected < slots.length && !utility[slots[saved.selected][0]]) selected = saved.selected;
   find('[data-sound]').checked = saved.sound === true;
@@ -442,8 +458,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     };
     tooltipLine(tip, 'Base healing · ' + range(0));
     tooltipLine(tip, 'With gear (+' + whole(profile.gearPower) + ' healing) · ' + range(profile.gearPower));
-    if (profile.power !== profile.gearPower) {
-      tooltipLine(tip, 'With Custom bonus · ' + range(profile.power));
+    const talentPower = profile.talentPower ?? 0;
+    if (profile.power !== profile.gearPower + talentPower) {
+      tooltipLine(tip, 'With Custom bonus · ' + range(profile.power - talentPower));
     }
     tooltipLine(tip, 'With talents (×' + Number(spell.multiplier.toFixed(3)) + ') · ' +
       range(profile.power, spell.multiplier), 'game-tooltip-good');
@@ -554,15 +571,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const bonus = spell.coefficient * profile.power;
       const low = (spell.low + bonus) * spell.multiplier;
       const high = (spell.high + bonus) * spell.multiplier;
-      const ticks = spell.period ? Math.floor(spell.duration / spell.period) : 1;
+      const ticks = spell.period ? Math.floor(spell.duration / spell.period) + Number(!!spell.immediateTick) : 1;
       const crit = spell.period && !spell.periodicCrit ? 0 : Math.min(1, profile.crit + (spell.bonusCrit ?? 0));
-      const average = (low + high) / 2 * (1 + .5 * crit);
+      const average = (low + high) / 2 * (1 + (.5 + (profile.critHealingBonus ?? 0)) * crit);
       const range = (factor = 1) => whole(Math.round(low * factor)) + '–' + whole(Math.round(high * factor));
       const hotTick = spell.hot ? (spell.hot.low + spell.hot.coefficient * profile.power) * spell.hot.multiplier : 0;
       const hotTicks = spell.hot ? Math.floor(spell.duration / spell.hot.period) : 0;
       const hpm = factor => spell.cost ? ((average * factor + hotTick * hotTicks * (1 + .5 * crit)) / spell.cost).toFixed(2) : '—';
       add(spell.period ? 'Non-crit healing per tick' : 'Non-crit primary heal', range());
       if (spell.period) add('Ticks per target', ticks + ' × every ' + spell.period + ' sec');
+      if (spell.mark === 'vigil') add('Trigger', 'Holy Shock on the marked ally · 30 sec mark · no Holy Shock cooldown');
       add('Base coefficient', (spell.coefficient * 100).toFixed(1) + '%' + (spell.period ? ' per tick' : ''));
       if (spell.hot) {
         add('Non-crit periodic healing', whole(Math.round(hotTick)) + ' × ' + hotTicks + ' ticks');
@@ -592,7 +610,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     } else {
       find('[data-inspect-chain]').replaceChildren();
       if (spell.rez) add('Resurrection', spell.rez + ' health' + (spell.combatRez ? ', usable during combat' : ' after combat'));
-      if (spell.dispel) add('Dispel', spell.abolishPoison ? 'Removes one poison now and every 2 sec for 8 sec' : 'Removes one poison');
+      if (spell.dispel) add('Dispel', spell.abolishPoison ? 'Removes one poison now and every 2 sec for 8 sec' : 'Removes one ' + hazard + ' effect');
+      if (spell.shield) add('Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)) +
+        ' damage · ' + spell.duration + ' sec · 15 sec Weakened Soul before talents');
       if (spell.swiftmend) add('Effect', 'Heals for the full value of your active Rejuvenation or Regrowth HoT and leaves it active');
       if (spell.innervate) add('Effect', '500% of normal Spirit mana regeneration for 20 sec, including while casting');
       if (spell.swiftness) add('Effect', 'Makes your next cast-time Nature heal instant');

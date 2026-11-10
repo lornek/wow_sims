@@ -52,8 +52,15 @@ const sunder = fs.readFileSync(path.join(__dirname, 'sims', 'sunder-armor.html')
 const druidHealing = healing.replaceAll('Shaman', 'Druid').replace('Dwarf Druid', 'Night Elf Druid')
   .replace('Mindfulness', 'Reflection').replace('../assets/shaman.jpg', '../assets/druid.jpg')
   .replace('/abilities/shaman/', '/abilities/druid/').replace('../healing/shaman.mjs', '../healing/druid.mjs');
-const classSims = {warrior: sunder + cleave, shaman: healing, druid: druidHealing};
-fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#sunder-armor">Warrior · Sunder Armor DPS</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./shaman/#healing">Shaman · Healing practice</a></p><p><a href="./druid/#healing">Druid · Healing practice</a></p></section>'));
+function humanHealing(name, regenTalent) {
+  const slug = name.toLowerCase();
+  return healing.replaceAll('Shaman', name).replace('Dwarf ' + name, 'Human ' + name)
+    .replace('Mindfulness', regenTalent).replace('../assets/shaman.jpg', '../assets/' + slug + '.jpg')
+    .replace('/abilities/shaman/', '/abilities/' + slug + '/')
+    .replace('../healing/shaman.mjs', '../healing/' + slug + '.mjs');
+}
+const classSims = {warrior: sunder + cleave, shaman: healing, druid: druidHealing, paladin: humanHealing('Paladin', 'Reverence'), priest: humanHealing('Priest', 'Meditation')};
+fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#sunder-armor">Warrior · Sunder Armor DPS</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./shaman/#healing">Shaman · Healing practice</a></p><p><a href="./druid/#healing">Druid · Healing practice</a></p><p><a href="./paladin/#healing">Paladin · Healing practice</a></p><p><a href="./priest/#healing">Priest · Healing practice</a></p></section>'));
 for (const [name] of classes) {
   const slug = name.toLowerCase();
   const directory = path.join(output, slug);
