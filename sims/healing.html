@@ -36,6 +36,9 @@
     <div data-meter></div>
   </section>
   <p>Mana-per-five effects work throughout the pull. Mindfulness keeps a portion of Spirit regeneration active inside the five-second rule.</p>
+<section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Shaman settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-buffs" aria-controls="panel-buffs">Buffs</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
+    <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
+    <p data-gear-source></p>
   <section class="character-sheet" aria-labelledby="character-title">
     <header><img src="../assets/shaman.jpg" alt="" width="44" height="44"><div>
       <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · <span data-loadout-label>Ungeared</span></p>
@@ -52,22 +55,7 @@
       <div class="character-stats" data-profile></div>
     </div>
   </section>
-  <section class="heal-settings">
-    <h2>Loadout and buffs</h2>
-    <label>Gear preset <select data-loadout></select></label>
-    <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
-    <p data-gear-source></p>
-    <div data-buffs></div>
-  </section>
-  <details class="heal-settings">
-    <summary>Shaman talent trees</summary>
-    <p>Click to spend a point, right-click or press Delete to remove one, and Shift-click to fill a talent. The sim uses the modeled healing talents and unlocks Riptide, Nature’s Swiftness, and Mana Tide from your build.</p>
-    <div data-talents></div>
-  </details>
-  <details class="heal-settings">
-    <summary>Bonus healing override</summary>
-    <label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label>
-  </details>
+</section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-talents" aria-labelledby="tab-talents" hidden><p>Click to spend a point, right-click or press Delete to remove one, and Shift-click to fill a talent.</p><div data-talents></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-buffs" aria-labelledby="tab-buffs" hidden><div data-buffs></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-spellbook" aria-labelledby="tab-spellbook" hidden><div class="book-controls"><nav data-schools aria-label="Spell schools"></nav><label><input type="checkbox" data-all-ranks> Show all spell ranks</label><label>Search spells <input type="search" data-filter></label><label>Level <input type="number" min="1" max="60" value="60" data-book-level></label></div><div class="spellbook" data-catalog></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-custom" aria-labelledby="tab-custom" hidden><label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label></section></section>
   <dialog class="spell-inspector" aria-labelledby="inspect-title">
     <header><h2 id="inspect-title"></h2><form method="dialog"><button aria-label="Close spell inspector">Close</button></form></header>
     <div data-inspect-rank></div>
@@ -75,12 +63,6 @@
     <div data-inspect-chain></div>
     <p data-inspect-meter></p>
   </dialog>
-  <details class="heal-settings">
-    <summary>Shaman spellbook and coefficients</summary>
-    <p>Client effect coefficients are shown per hit or tick. The spellbook includes abilities outside the practice action bar.</p>
-    <label>Filter spells <input type="search" data-filter></label>
-    <div class="spellbook" data-catalog></div>
-  </details>
   <p class="heal-credit">Practice encounter inspired by <a href="https://healkit.gg/#try">HealKit</a>. Spell and base-stat inputs from <a href="https://github.com/wowsims/forever">WoWSims Forever</a> and the <a href="https://wowforevertalents.com/abilities/shaman/">Forever spellbook</a>.</p>
   <noscript>Enable JavaScript to run the healing practice.</noscript>
 </section>

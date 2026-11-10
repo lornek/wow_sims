@@ -1,3 +1,5 @@
+import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
+import {spellGroups} from './book-groups.mjs';
 import {createPull} from './engine.mjs';
 import {catalog, ranks} from './shaman-data.mjs';
 import {loadouts, buffs, talents, applyTalents, buildProfile} from './profile.mjs';
@@ -435,34 +437,75 @@ function healingMultiplier(spell) {
 }
 
 const streamPreviews = [];
-const cards = Object.entries(catalog).sort(([a], [b]) => a.localeCompare(b)).map(([name, entry]) => {
-  const card = document.createElement('details');
-  const title = document.createElement('summary');
-  title.append(icon(name), name);
-  card.append(title);
-  for (const rank of entry.ranks) {
-    const line = document.createElement('p');
+const schools = ['Enhancement', 'Restoration', 'Elemental Combat'];
+let selectedSchool = 'Enhancement';
+const allRanks = find('[data-all-ranks]');
+const bookLevel = find('[data-book-level]');
+const bookSearch = find('[data-filter]');
+const schoolButtons = schools.map((school, index) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.append(icon(['Lightning Shield', 'Healing Wave', 'Lightning Bolt'][index]), school);
+  button.onclick = () => { selectedSchool = school; renderBook(); };
+  find('[data-schools]').append(button);
+  return button;
+});
+const bookRows = Object.entries(catalog).map(([name, entry]) => {
+  const [school, status] = spellGroups[name] ?? ['enhancement', ''];
+  return {name, school, status, ranks: entry.ranks.map(rank => {
     const row = byName(name).find(candidate => candidate.rank === rank.rank);
     const effects = row?.effects.filter(effect => effect.coefficient) ?? [];
     const coefficients = effects.map(effect => (effect.coefficient * 100).toFixed(1) + '%' +
       (effect.period ? ' per ' + effect.period + ' sec' : ''));
-    line.textContent = [rank.rank, rank.details, rank.description,
-      coefficients.length ? 'Coefficient ' + coefficients.join(' / ') : ''].filter(Boolean).join(' · ');
-    card.append(line);
-    if (name === 'Healing Stream Totem' && row) {
-      const field = document.createElement('p');
-      field.className = 'heal-credit';
-      streamPreviews.push({field, row});
-      card.append(field);
+    const field = document.createElement('span');
+    if (name === 'Healing Stream Totem' && row) streamPreviews.push({field, row});
+    return {rank, coefficients, field};
+  })};
+});
+
+function renderBook() {
+  const grid = find('[data-catalog]');
+  grid.replaceChildren();
+  schoolButtons.forEach((button, index) => button.setAttribute('aria-pressed', schools[index] === selectedSchool));
+  const level = bookLevel.valueAsNumber || 60;
+  const query = bookSearch.value.trim().toLowerCase();
+  for (const {name, school, status, ranks: entries} of bookRows) {
+    if ((!query && school !== selectedSchool.toLowerCase()) || !name.toLowerCase().includes(query)) continue;
+    const available = entries.filter(({rank}) => rank.level <= level);
+    const shown = allRanks.checked ? available : available.slice(-1);
+    for (const {rank, coefficients, field} of shown) {
+      const cell = document.createElement('details');
+      cell.className = 'book-spell';
+      const button = document.createElement('summary');
+      const label = document.createElement('span');
+      label.textContent = name + (status === 'changed' ? ' ◆' : status === 'new' ? ' ★' : '');
+      const sub = document.createElement('small');
+      sub.textContent = [rank.rank, 'Level ' + rank.level].filter(Boolean).join(' · ');
+      label.append(sub);
+      button.append(icon(name), label);
+      const render = tip => {
+        tip.replaceChildren();
+        tooltipLine(tip, name, 'game-tooltip-title');
+        tooltipLine(tip, [rank.rank, 'Level ' + rank.level].filter(Boolean).join(' · '));
+        tooltipLine(tip, rank.details || '');
+        tooltipLine(tip, rank.description || '', 'game-tooltip-description');
+        if (coefficients.length) tooltipLine(tip, 'Coefficient · ' + coefficients.join(' / '));
+        if (field.textContent) tooltipLine(tip, field.textContent, 'game-tooltip-good');
+      };
+      const detail = document.createElement('div');
+      const tooltip = attachGameTooltip(button, render);
+      cell.ontoggle = () => {
+        if (cell.open) { tooltip.hide(); render(detail); }
+      };
+      cell.append(button, detail);
+      grid.append(cell);
     }
   }
-  find('[data-catalog]').append(card);
-  return {card, name};
-});
-find('[data-filter]').oninput = event => {
-  const query = event.target.value.trim().toLowerCase();
-  for (const {card, name} of cards) card.hidden = !name.toLowerCase().includes(query);
-};
+  if (!grid.childElementCount) grid.textContent = 'No spells match your filters.';
+}
+allRanks.onchange = bookLevel.oninput = bookSearch.oninput = renderBook;
+mountTabs(find('.heal-menu'));
+renderBook();
 
 const inspector = find('.spell-inspector');
 inspector.addEventListener('close', () => { inspected = null; });

@@ -1,3 +1,4 @@
+import {attachGameTooltip, tooltipLine} from './game-ui.mjs';
 import {trees} from './talent-data.mjs';
 
 export const pointCap = 51;
@@ -103,8 +104,18 @@ export function mountTalentTree(container, initial, onChange) {
           change(-1);
         }
       };
+      const tooltip = attachGameTooltip(button, tip => {
+        tip.replaceChildren();
+        tooltipLine(tip, node.name, 'game-tooltip-title');
+        tooltipLine(tip, 'Rank ' + (build[node.name] ?? 0) + ' / ' + node.max);
+        for (const description of node.description) tooltipLine(tip, description, 'game-tooltip-description');
+        if (node.row > 1) tooltipLine(tip, 'Requires ' + ((node.row - 1) * 5) + ' points in ' + tree.name,
+          unlocked(build, tree, node) ? '' : 'game-tooltip-locked');
+        if (node.requires) tooltipLine(tip, 'Requires max rank in ' + node.requires);
+        tooltipLine(tip, 'Click to learn · Right-click to remove', 'game-tooltip-good');
+      });
       grid.append(button);
-      return {node, button, badge};
+      return {node, button, badge, tooltip};
     });
     card.append(header, grid);
     board.append(card);
@@ -120,15 +131,13 @@ export function mountTalentTree(container, initial, onChange) {
       const used = totalPoints(build, tree.nodes);
       count.textContent = used;
       resetTree.disabled = locked || !used;
-      for (const {node, button, badge} of nodes) {
+      for (const {node, button, badge, tooltip} of nodes) {
         const rank = build[node.name] ?? 0;
         const available = unlocked(build, tree, node);
         badge.textContent = rank + '/' + node.max;
         button.dataset.state = rank === node.max ? 'max' : rank ? 'spent' : available ? 'available' : 'locked';
         button.setAttribute('aria-label', node.name + ', ' + rank + ' of ' + node.max);
-        button.title = [node.name + ' · ' + rank + '/' + node.max,
-          ...node.description, ...(node.row > 1 ? ['Requires ' + ((node.row - 1) * 5) + ' points in earlier rows'] : []),
-          ...(node.requires ? ['Requires max rank in ' + node.requires] : [])].join('\n');
+        tooltip.refresh();
       }
     }
   }
