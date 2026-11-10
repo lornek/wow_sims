@@ -140,8 +140,9 @@
 .book-spell summary { font:600 .95rem var(--ui); }
 .book-spell small { display:block; color:var(--muted); font-weight:400; }
 .book-spell > div { font-size:.9rem; padding:6px; }
-.game-tooltip { position:fixed; z-index:1000; pointer-events:none; width:max-content; max-width:min(330px,calc(100vw - 16px)); padding:10px 12px; background:#100e10; border:1px solid #8e723a; border-radius:5px; box-shadow:0 5px 18px #000b; color:#e9dfc7; font: .93rem/1.35 Georgia,serif; }
+.game-tooltip { position:fixed; z-index:1000; pointer-events:none; width:max-content; max-width:min(330px,calc(100vw - 16px)); padding:10px 12px; background:#100e10; border:1px solid #8e723a; border-radius:5px; box-shadow:0 5px 18px #000b; color:#e9dfc7; font:.93rem/1.35 var(--ui); }
 .game-tooltip-title { color:#ffdf82; font-size:1.06em; font-weight:bold; }
 .game-tooltip-description { color:#fff1bb; margin-top:6px; }
 .game-tooltip-good { color:#96d86e; margin-top:5px; }
 .game-tooltip-locked { color:#ed8268; margin-top:5px; }
+body:has(#healing) { font-family:var(--ui); }
