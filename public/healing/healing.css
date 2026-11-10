@@ -153,3 +153,9 @@
 .game-tooltip-good { color:#96d86e; margin-top:5px; }
 .game-tooltip-locked { color:#ed8268; margin-top:5px; }
 body:has(#healing) { font-family:var(--ui); }
+[data-healer-class="paladin"] .talent-grid.holy { background-image:linear-gradient(#08060478,#080604a8),url(paladin-holy-tree.jpg); }
+[data-healer-class="paladin"] .talent-grid.protection { background-image:linear-gradient(#08060478,#080604a8),url(paladin-protection-tree.jpg); }
+[data-healer-class="paladin"] .talent-grid.retribution { background-image:linear-gradient(#08060478,#080604a8),url(paladin-retribution-tree.jpg); }
+[data-healer-class="priest"] .talent-grid.holy { background-image:linear-gradient(#08060478,#080604a8),url(priest-holy-tree.jpg); }
+[data-healer-class="priest"] .talent-grid.discipline { background-image:linear-gradient(#08060478,#080604a8),url(priest-discipline-tree.jpg); }
+[data-healer-class="priest"] .talent-grid.shadow { background-image:linear-gradient(#08060478,#080604a8),url(priest-shadow-tree.jpg); }
