@@ -198,7 +198,10 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     const instant = spell.cast > 0 && !spell.rez && state.swiftness > state.time;
     if (instant) state.swiftness = 0;
     const speed = state.graceUntil > state.time ? 1.1 : 1;
-    if (!spell.offGcd) state.gcd = state.time + spell.gcd / speed;
+    if (!spell.offGcd) {
+      state.gcdDuration = spell.gcd / speed;
+      state.gcd = state.time + state.gcdDuration;
+    }
     const infused = key === 'holyLight' && state.infusion > state.time;
     if (infused) state.infusion = 0;
     if (focus) state.innerFocus = 0;

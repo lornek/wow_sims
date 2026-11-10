@@ -23,6 +23,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const clamp = number => Math.min(1, Math.max(0, number));
   const fill = (element, fraction) => element.style.width = (100 * clamp(fraction)) + '%';
   const countdown = seconds => seconds >= 60 ? Math.ceil(seconds / 60) + 'm' : Math.ceil(seconds) + 's';
+  const sweep = (icon, fraction) => icon.style.setProperty('--cooldown-sweep', (100 * clamp(fraction)) + '%');
   let profile = buildProfile('Ungeared', new Set(), 0);
   const encounter = {health: 12500, limit: 75, swing: 225, firstFlurry: 17, flurry: 265, poisonTick: 100,
     party: [
@@ -115,7 +116,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       openInspector(index);
     };
     find('.heal-spells').append(button);
-    spellButtons.push({button, timer, cooldown, key});
+    spellButtons.push({button, art, timer, cooldown, key});
 
     const rows = key === 'potion' ? [{rank: '', cast: 0, gcd: 0, cooldown: 60, cost: 0, effects: []}] :
       byName(name).sort((a, b) => a.level - b.level || a.id - b.id).filter(row => key !== 'tide' || row.rank === 'Rank 4');
@@ -225,6 +226,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       frame.label.textContent = unit.name;
       frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
       for (const {key, name, badge, timer} of frame.auras) {
+        const effect = s.effects.find(effect => effect.key === key && (!effect.target || effect.target === unit));
         const expires = key === 'swiftness' ? (i === frames.length - 1 ? s.swiftness : 0) :
           key === 'poison' ? unit.poison :
           key === 'innervate' && unit === s.party[4] ? s.innervateUntil :
@@ -232,9 +234,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           key === 'weakened' ? unit.weakened ?? 0 :
           s[key]?.target === unit ? s[key].expires :
           typeof s[key] === 'number' && i === frames.length - 1 ? s[key] :
-          s.effects.find(effect => effect.key === key && (!effect.target || effect.target === unit))?.expires ?? 0;
+          effect?.expires ?? 0;
         badge.hidden = !unit.hp || expires <= s.time;
         if (!badge.hidden) {
+          const duration = {poison:10, weakened:15, aegis:12, inspiration:15, mending:30,
+            innervate:currentSpells.innervate?.duration, powerInfusion:currentSpells.pi?.duration}[key] ??
+            s[key]?.spell?.duration ?? currentSpells[key]?.duration ?? (key === 'abolish' ? currentSpells.poison?.duration : 0);
+          sweep(badge, Number.isFinite(expires) && duration > 0 ? 1 - (expires - s.time) / duration : 0);
           timer.textContent = Number.isFinite(expires) ? countdown(expires - s.time) : '✓';
           badge.title = name + ' · ' + timer.textContent;
         }
@@ -247,13 +253,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';
     const message = find('[data-message]');
     if (message.textContent !== s.message) message.textContent = s.message;
-    spellButtons.forEach(({button, timer, cooldown, key}, index) => {
+    spellButtons.forEach(({button, art, timer, cooldown, key}, index) => {
       const {select, rows} = selects[index];
       const base = currentSpells[key]?.cooldown ?? rows[select.selectedIndex].cooldown;
       const remaining = Math.max(0, (s.cooldowns[key] ?? 0) - s.time);
       const spell = currentSpells[key];
       const gcd = active && !spell?.offGcd ? Math.max(0, s.gcd - s.time) : 0;
       button.hidden = !spell;
+      sweep(art, remaining && base ? 1 - remaining / base : gcd ? 1 - gcd / s.gcdDuration : 0);
       timer.textContent = remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
       cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
         base ? countdown(base) + ' cooldown' : '';

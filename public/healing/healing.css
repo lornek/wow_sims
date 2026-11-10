@@ -43,13 +43,14 @@
 }
 
 .spell-art { position:relative; flex:none; display:grid; }
-.spell-timer:not(:empty) { position:absolute; inset:0; display:grid; place-items:center; background:#100b08b3; color:#fff0aa; font-weight:700; border-radius:4px; }
+.spell-art::after, .unit-aura::after { content:""; position:absolute; inset:0; border-radius:4px; pointer-events:none; background:conic-gradient(#100b08bd 0 var(--cooldown-sweep, 0%), transparent 0); }
+.spell-timer:not(:empty) { position:absolute; inset:0; z-index:1; display:grid; place-items:center; color:#fff0aa; text-shadow:0 1px 3px #000, 0 0 3px #000; font-weight:700; }
 .healing .unit-status { display:flex; justify-content:center; gap:3px; min-height:25px; }
 .unit-aura { position:relative; display:inline-grid; flex:none; }
 .unit-aura[hidden] { display:none; }
 .unit-aura img { width:23px; height:23px; border:1px solid #e8c470; border-radius:3px; }
 .unit-aura.poison img { border-color:#86c96e; }
-.unit-aura span { position:absolute; inset:auto 0 0; background:#110d08bd; font:700 .72rem var(--ui); }
+.unit-aura span { position:absolute; inset:auto 0 0; z-index:1; background:#110d08bd; font:700 .72rem var(--ui); }
 .character-sheet { border:1px solid var(--border); border-radius:4px; background:#160f0a; }
 .character-sheet header { display:flex; align-items:center; gap:12px; padding:12px; border-bottom:1px solid var(--border); background:linear-gradient(#312214,#1a130d); }
 .character-sheet header img { border:1px solid var(--border); border-radius:50%; }
