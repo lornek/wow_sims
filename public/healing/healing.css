@@ -20,6 +20,8 @@
 .unit-incoming { position:absolute; inset:0 auto 0 0; z-index:-1; background:#79db8160; pointer-events:none; }
 .unit-status { min-height:1.4em; color:#fff0aa; font-size:.85rem; }
 .mana-bar > span { background:#1d487b; }
+.mana-bar strong { display:grid; grid-template-columns:7ch max-content 1fr; gap:.4em; font-variant-numeric:tabular-nums; }
+.mana-bar [data-mana-current] { text-align:right; }
 .cast-bar > span { background:#775827; }
 .regen-track { height:5px; }
 .regen-track > span { background:var(--gold); }
