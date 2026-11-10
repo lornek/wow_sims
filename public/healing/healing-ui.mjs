@@ -271,7 +271,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const regenResult = find('[data-regen-result]');
     regenResult.hidden = !ended;
     if (ended) {
-      const comparison = s.manaPerSpirit.toFixed(2) + ' mana per +1 raw Spirit · ' +
+      const comparison = 'Mana gained this pull · ' + s.manaPerSpirit.toFixed(2) + ' mana per +1 raw Spirit · ' +
         s.manaPerMp5.toFixed(2) + ' mana per +1 mana / 5 sec';
       if (regenResult.textContent !== comparison) regenResult.textContent = comparison;
       regenResult.title = 'Extra mana usable on the observed regen ticks, after the mana cap. ' +
