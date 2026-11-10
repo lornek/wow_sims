@@ -4,6 +4,10 @@ import {catalog, ranks} from './shaman-data.mjs';
 import {loadouts, buffs, talents, applyTalents, buildProfile} from './profile.mjs';
 import {trees} from './talent-data.mjs';
 
+catalog['Water Shield'] = {icon:'ability_shaman_watershield.jpg', ranks:[{rank:'', level:20, details:'Instant',
+  description:'Three charges. A hit or critical heal restores 2% maximum mana, at most once every 3.5 seconds.'}]};
+spellGroups['Water Shield'] = ['restoration'];
+
 const slots = [
   ['lesser', 'Lesser Healing Wave', 'Left click'],
   ['wave', 'Healing Wave', 'Right click'],
@@ -13,9 +17,11 @@ const slots = [
   ['stream', 'Healing Stream Totem', 'Alt + Left'],
   ['swiftness', "Nature's Swiftness", 'Activate'],
   ['tide', 'Mana Tide Totem', 'Activate'],
+  ['waterShield', 'Water Shield', 'Activate'],
   ['potion', 'Major Mana Potion', 'Activate']
 ];
 const utility = {
+  waterShield: {waterShield:true},
   riptide: {periodicCrit: true},
   swiftness: {offGcd: true, swiftness: true},
   tide: {party: true, waterTotem: true, period: 3, duration: 12, manaTick: 290},
@@ -30,11 +36,11 @@ const defaultTalents = {
 };
 
 mountHealing({
-  className: 'shaman', healer: 'Thrall', healerColor: '#2868cc', catalog, ranks, spellGroups,
+  className: 'shaman', healer: 'Thrall', healerColor: '#2868cc', catalog, ranks: ranks.filter(row => row.name !== 'Water Shield' || row.id === 408510), spellGroups,
   loadouts, buffs, talents, applyTalents, buildProfile, trees, slots, utility, defaultTalents,
   schools: ['Enhancement', 'Restoration', 'Elemental Combat'],
   schoolIcons: ['Lightning Shield', 'Healing Wave', 'Lightning Bolt'],
-  unlocks: ['riptide', 'swiftness', 'tide'],
+  unlocks: ['riptide', 'swiftness', 'tide', 'waterShield'],
   auras: [['riptide', 'Riptide'], ['stream', 'Healing Stream Totem'], ['tide', 'Mana Tide Totem']],
   healingKeys: ['wave', 'lesser', 'chain', 'riptide', 'stream']
 });

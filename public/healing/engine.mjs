@@ -14,10 +14,24 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     state.mana = Math.min(profile.mana, state.mana + amount);
   }
 
+  function applyWaterShield() {
+    state.waterShield = {charges: 3, expires: state.time + spells.waterShield.duration};
+  }
+  if (encounter.startWaterShield && spells.waterShield) applyWaterShield();
+
+  function triggerWaterShield() {
+    const shield = state.waterShield;
+    if (!shield?.charges || shield.expires <= state.time || state.time < (state.waterShieldNext ?? 0)) return;
+    shield.charges--;
+    state.waterShieldNext = state.time + 3.5;
+    restoreMana(profile.mana * .02);
+  }
+
   function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key]) {
     if (!unit.hp) return;
     const weakened = spell?.renewedHope && unit.weakened > state.time;
     const crit = canCrit && random() < profile.crit + bonusCrit + (weakened ? .02 * spell.renewedHope : 0);
+    if (crit) triggerWaterShield();
     if (weakened && !spell.channel) unit.weakened = Math.max(state.time, unit.weakened - spell.renewedHope);
     if (crit && !periodic && profile.grace) state.graceUntil = state.time + 3;
     const amount = Math.round(raw * (state.powerInfusion > state.time ? 1.2 : 1) * (crit ? 1.5 + (profile.critHealingBonus ?? 0) : 1));
@@ -96,7 +110,9 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function resolve(spell, unit) {
-    if (spell.shield) {
+    if (spell.waterShield) {
+      applyWaterShield();
+    } else if (spell.shield) {
       unit.shield = {amount: Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier), expires: state.time + spell.duration};
       unit.weakened = state.time + 15;
     } else if (spell.mark) {
@@ -231,6 +247,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       const armor = unit.role === 'Tank' ? 4500 : 1500;
       amount *= (5500 + armor) / (5500 + armor * (1 + profile.inspiration));
     }
+    if (amount > 0 && unit === party.at(-1)) triggerWaterShield();
     for (const key of ['shield', 'aegis']) {
       const absorb = unit[key];
       if (!(absorb?.amount > 0 && absorb.expires > state.time)) continue;

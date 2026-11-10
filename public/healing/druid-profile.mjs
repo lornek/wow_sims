@@ -20,7 +20,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   for (const item of Object.values(loadouts[loadout])) {
     for (const [key, value] of Object.entries(item.stats)) gear[key] = (gear[key] ?? 0) + value;
   }
-  const stat = (key, base, multiplier = 1) => Math.floor((base + (gear[key] ?? 0)) * multiplier * (buffs.has('kings') ? 1.1 : 1));
+  const stat = (key, base, multiplier = 1) => Math.floor((base + (gear[key] ?? 0) + (buffs.has('mark') ? 16 : 0)) * multiplier * (buffs.has('kings') ? 1.1 : 1));
   const intellect = stat('intellect', 100 + (buffs.has('intellect') ? 31 : 0), 1 + .02 * (talents['Heart of the Wild'] ?? 0));
   const livingSpirit = 1 + .05 * (talents['Living Spirit'] ?? 0);
   const spirit = stat('spirit', 110 + (buffs.has('spirit') ? 40 : 0), livingSpirit);

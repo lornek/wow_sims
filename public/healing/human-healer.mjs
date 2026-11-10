@@ -15,7 +15,7 @@ export function humanProfile(className, loadouts) {
       for (const [stat, value] of Object.entries(item.stats)) gear[stat] = (gear[stat] ?? 0) + value;
     }
     const kings = buffs.has('kings') ? 1.1 : 1;
-    const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra) * multiplier * kings);
+    const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra + (buffs.has('mark') ? 16 : 0)) * multiplier * kings);
     const intellect = stat('intellect', buffs.has('intellect') ? 31 : 0, 1 + .02 * (rank('Mental Strength') + rank('Divine Intellect')));
     const spirit = stat('spirit', buffs.has('spirit') ? 40 : 0, 1.1);
     const stamina = stat('stamina');

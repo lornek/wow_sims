@@ -3,6 +3,7 @@ import {equipmentSets} from './gear.mjs';
 export const naked = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99, baseMana: 1520};
 export const loadouts = equipmentSets;
 export const buffs = [
+  ['mark', 'Mark of the Wild', '+16 to all attributes', 'spell_nature_regeneration'],
   ['wisdom', 'Blessing of Wisdom', '+40 mana / 5 sec', 'spell_holy_sealofwisdom'],
   ['spirit', 'Divine Spirit', '+40 Spirit', 'spell_holy_divinespirit'],
   ['kings', 'Blessing of Kings', '+10% attributes', 'spell_magic_magearmor'],
@@ -42,7 +43,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   for (const item of Object.values(loadouts[loadout])) {
     for (const [key, value] of Object.entries(item.stats)) gear[key] = (gear[key] ?? 0) + value;
   }
-  const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra) * multiplier * (enabled.has('kings') ? 1.1 : 1));
+  const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra + (enabled.has('mark') ? 16 : 0)) * multiplier * (enabled.has('kings') ? 1.1 : 1));
   const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0, 1 + .02 * (points.ancestral ?? 0));
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
   const stamina = stat('stamina');
