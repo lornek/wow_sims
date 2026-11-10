@@ -7,7 +7,7 @@ import {buffs, humanProfile, describeTalentSpells} from './human-healer.mjs';
 const slots = [
   ['flash', 'Flash of Light', 'Left click'], ['holyLight', 'Holy Light', 'Right click'],
   ['shock', 'Holy Shock', 'Shift + Left'], ['poison', 'Cleanse', 'Shift + Right'],
-  ['vigil', "Light's Vigil", 'Ctrl + Left'], ['rez', 'Redemption', 'Ctrl + Right'],
+  ['vigil', "Light's Vigil", 'Ctrl + Left'],
   ['oath', 'Oath of Light', 'Alt + Left'], ['hands', 'Lay on Hands', 'Select target'],
   ['favor', 'Divine Favor', 'Activate'], ['potion', 'Major Mana Potion', 'Activate']
 ];

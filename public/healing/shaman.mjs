@@ -10,7 +10,6 @@ const slots = [
   ['riptide', 'Riptide', 'Shift + Left'],
   ['poison', 'Cure Poison', 'Shift + Right'],
   ['chain', 'Chain Heal', 'Ctrl + Left'],
-  ['rez', 'Ancestral Spirit', 'Ctrl + Right'],
   ['stream', 'Healing Stream Totem', 'Alt + Left'],
   ['swiftness', "Nature's Swiftness", 'Activate'],
   ['tide', 'Mana Tide Totem', 'Activate'],
