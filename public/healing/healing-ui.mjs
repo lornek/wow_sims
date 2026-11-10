@@ -62,6 +62,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const selects = [];
   const frames = [];
   let selected = 0;
+  let pendingTargetSpell = null;
   let pull;
   let currentSpells;
   let enabled = new Set();
@@ -101,6 +102,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         if (pull.state.meters[key]?.casts !== previous) playHealSound(false, 0);
       } else {
         selected = index;
+        pendingTargetSpell = key;
         saveSettings();
       }
       render();
@@ -161,6 +163,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function attempt(event, index, right) {
+    if (!right && pendingTargetSpell && currentSpells[pendingTargetSpell]) {
+      const key = pendingTargetSpell;
+      pendingTargetSpell = null;
+      pull.cast(key, index);
+      render();
+      return;
+    }
+    pendingTargetSpell = null;
     const button = right ? 'Right' : 'Left';
     const binding = event.altKey && !right ? 'Alt + Left' : event.ctrlKey ? 'Ctrl + ' + button :
       event.shiftKey ? 'Shift + ' + button : right ? 'Right click' : '';
