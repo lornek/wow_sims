@@ -312,24 +312,32 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       if (!effect.left && effect.swiftmendable && profile.bloom) heal('bloom', effect.target, profile.bloom);
     }
     state.effects = state.effects.filter(effect => effect.left > 0);
+    const bossSpeed = state.enraged ? 1.2 : 1;
     if (state.time >= state.nextSwing) {
-      state.nextSwing += 2;
+      state.nextSwing += 2 / bossSpeed;
       const living = party.filter(unit => unit.hp);
       if (living.length) damage(living[0], encounter.swing);
       for (const unit of living) if (unit.poison > state.time) damage(unit, encounter.poisonTick, false);
     }
     if (state.time >= state.nextPoison) {
-      state.nextPoison += 11;
+      state.nextPoison += 11 / bossSpeed;
       const living = party.filter(unit => unit.hp);
       if (living.length) living[Math.floor(random() * living.length)].poison = state.time + 10;
       state.message = (encounter.hazard === 'disease' ? 'Infected Blade' : 'Poisoned Blade') + ' · dispel the marked player';
     }
     if (state.time >= state.nextFlurry) {
-      state.nextFlurry += 9;
+      state.nextFlurry += 9 / bossSpeed;
       for (const unit of party) damage(unit, encounter.flurry);
       state.message = 'Blade Flurry hit the party!';
     }
     state.boss = Math.max(0, state.boss - party.reduce((sum, unit) => sum + (unit.hp ? unit.dps : 0), 0) * dt);
+    if (!state.enraged && state.boss > 0 && state.boss <= encounter.health * .35) {
+      state.enraged = true;
+      for (const timer of ['nextSwing', 'nextPoison', 'nextFlurry']) {
+        state[timer] = state.time + Math.max(0, state[timer] - state.time) / 1.2;
+      }
+      state.message = 'Rend Blackhand enrages!';
+    }
     if (!party.at(-1).hp || state.time >= encounter.limit || !state.boss) {
       state.phase = !state.boss && party.at(-1).hp ? 'won' : 'lost';
       state.cast = null;

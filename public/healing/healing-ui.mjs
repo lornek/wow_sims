@@ -214,18 +214,20 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     touchTarget = null;
     configuredSpells();
     const level = Number(difficulty.value);
-    const damage = 1.15 ** level;
+    const damage = 1.1 * (1.15 * 1.1) ** level;
     const health = 1.3 ** level;
     const staminaScale = staminaMultiplier();
+    const allyHealth = staminaScale * 1.1 ** level;
+    const tankHealth = staminaScale * 1.16 ** level;
     const party = encounter.party.map((unit, index) => ({
       ...unit,
-      max: Math.round((index === encounter.party.length - 1 ? profile.health : unit.max) * staminaScale)
+      max: Math.round(index === encounter.party.length - 1 ? profile.health : unit.max * (unit.role === 'Tank' ? tankHealth : allyHealth))
     }));
     currentEncounter = {...encounter, party, hazard, startWaterShield: enabled.has('waterShield'), health: Math.round(encounter.health * health), limit: encounter.limit * health,
       swing: Math.round(encounter.swing * damage), flurry: Math.round(encounter.flurry * damage),
       poisonTick: Math.round(encounter.poisonTick * damage)};
     find('[data-encounter-preview]').textContent = whole(currentEncounter.health) + ' boss HP · ×' +
-      damage.toFixed(3).replace(/\.?0+$/, '') + ' boss damage · ×' + staminaScale + ' max HP for all five party members';
+      damage.toFixed(3).replace(/\.?0+$/, '') + ' boss damage · ×' + tankHealth.toFixed(2) + ' tank HP · ×' + allyHealth.toFixed(2) + ' other ally HP';
     pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal);
     updateSheet();
     if (start) pull.start();
@@ -243,7 +245,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const active = s.phase === 'active';
     const ended = ['won', 'lost'].includes(s.phase);
     find('[data-start]').textContent = active ? 'Restart pull' : ended ? 'Pull again' : 'Start pull';
-    find('[data-phase]').textContent = active ? whole(s.time) + ' sec · In combat' :
+    find('[data-phase]').textContent = active ? whole(s.time) + ' sec · ' + (s.enraged ? 'Enraged' : 'In combat') :
       s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : 'Ready to pull';
     fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
     find('[data-boss]').textContent = Math.ceil(s.boss / currentEncounter.health * 100) + '%';
