@@ -3,6 +3,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
+    manaPerSpirit: 0, manaPerMp5: 0,
     nextPoison: 7, nextFlurry: encounter.firstFlurry, nextMana: 2, swiftness: 0, meters: {}};
 
   function meter(key) {
@@ -181,7 +182,13 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (state.time >= state.nextMana) {
       state.nextMana += 2;
       const spiritFraction = state.innervateUntil > state.time ? 5 : state.time - state.lastSpend >= 5 ? 1 : profile.castingRegen ?? 0;
-      restoreMana((profile.mp5 ?? 0) * .4 + profile.regen * 2 * spiritFraction);
+      const regen = (profile.mp5 ?? 0) * .4 + profile.regen * 2 * spiritFraction;
+      if (state.phase === 'active') {
+        const headroom = Math.max(0, profile.mana - state.mana - regen);
+        state.manaPerSpirit += Math.min(headroom, (profile.spiritPerRawPoint ?? 1) * spiritFraction / 4);
+        state.manaPerMp5 += Math.min(headroom, .4);
+      }
+      restoreMana(regen);
     }
     if (state.phase !== 'active') return;
     for (const effect of state.effects) {

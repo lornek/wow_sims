@@ -268,6 +268,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       whole(s.healing / s.endedAt) + ' HPS · ' + whole(s.overheal) + ' overhealing · ' +
       whole(s.manaAtEnd) + ' mana left' : '';
     if (result.textContent !== score) result.textContent = score;
+    const regenResult = find('[data-regen-result]');
+    regenResult.hidden = !ended;
+    if (ended) {
+      const comparison = s.manaPerSpirit.toFixed(2) + ' mana per +1 raw Spirit · ' +
+        s.manaPerMp5.toFixed(2) + ' mana per +1 mana / 5 sec';
+      if (regenResult.textContent !== comparison) regenResult.textContent = comparison;
+      regenResult.title = 'Extra mana usable on the observed regen ticks, after the mana cap. ' +
+        'Raw Spirit includes multipliers from talents and buffs, averaged across stat rounding.';
+    }
   }
 
   const equipment = {
