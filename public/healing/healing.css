@@ -117,6 +117,9 @@
 .talent-grid.elemental { background-image:linear-gradient(#08060478,#080604a8),url(elemental-tree.jpg); }
 .talent-grid.enhancement { background-image:linear-gradient(#08060478,#080604a8),url(enhancement-tree.jpg); }
 .talent-grid.restoration { background-image:linear-gradient(#08060478,#080604a8),url(restoration-tree.jpg); }
+[data-healer-class="druid"] .talent-grid.restoration { background-image:linear-gradient(#08060478,#080604a8),url(druid-restoration-tree.jpg); }
+[data-healer-class="druid"] .talent-grid.balance { background-image:linear-gradient(#08060478,#080604a8),url(druid-balance-tree.jpg); }
+[data-healer-class="druid"] .talent-grid.feral-combat { background-image:linear-gradient(#08060478,#080604a8),url(druid-feral-combat-tree.jpg); }
 .talent-grid svg { position:absolute; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
 .talent-grid path { stroke:#c3a560; stroke-width:3; fill:none; vector-effect:non-scaling-stroke; }
 .healing .talent-node { position:relative; padding:0; width:40px; height:40px; border-width:2px; }
