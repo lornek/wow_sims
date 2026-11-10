@@ -13,7 +13,10 @@
 .heal-party { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; }
 .healing .heal-frame { min-height:100px; padding:5px; text-align:center; text-shadow:0 1px 2px black; touch-action:manipulation; overflow-wrap:anywhere; }
 .heal-frame strong, .heal-frame small, .unit-status { display:block; }
-.heal-frame .unit-fill { background:linear-gradient(var(--unit),#16100c); }
+.healing .heal-frame { border:3px solid #a98449; background:#201916; }
+.heal-frame .unit-fill { background:var(--unit); }
+.heal-frame strong { display:flex; align-items:center; justify-content:center; gap:5px; flex-wrap:wrap; }
+.unit-role { width:16px; height:16px; fill:currentColor; filter:drop-shadow(0 1px 1px #000); }
 .unit-incoming { position:absolute; inset:0 auto 0 0; z-index:-1; background:#79db8160; pointer-events:none; }
 .unit-status { min-height:1.4em; color:#fff0aa; font-size:.85rem; }
 .mana-bar > span { background:#1d487b; }
