@@ -265,7 +265,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
     });
     fill(find('[data-mana-fill]'), s.mana / profile.mana);
-    find('[data-mana]').textContent = whole(s.mana) + ' / ' + whole(profile.mana) + ' mana';
+    find('[data-mana-current]').textContent = whole(s.mana);
+    find('[data-mana-max]').textContent = whole(profile.mana) + ' mana';
     fill(find('[data-regen]'), (s.time - s.lastSpend) / 5);
     fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : 0);
     find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';
