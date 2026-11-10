@@ -2,161 +2,177 @@ export const equipmentSets = {
   "Ungeared": {},
   "Fresh 60": {
     "Head": {
-      "id": 9534,
-      "name": "Engineer's Guild Headpiece",
-      "icon": "inv_helmet_33",
-      "source": "Forever",
-      "acquisition": "Quest · Divino-matic Rod",
-      "ilvl": 49,
-      "quality": 3,
-      "stats": {
-        "spirit": 22,
-        "power": 29,
-        "spellDamage": 10,
-        "armor": 117
-      }
-    },
-    "Neck": {
-      "id": 17773,
-      "name": "Prodigious Shadowshard Pendant",
-      "icon": "inv_jewelry_necklace_06",
-      "source": "Forever",
-      "acquisition": "Quest · Shadowshard Fragments",
-      "ilvl": 44,
-      "quality": 2,
-      "stats": {
-        "power": 9,
-        "spellDamage": 9
-      }
-    },
-    "Shoulders": {
-      "id": 15061,
-      "name": "Living Shoulders",
-      "icon": "inv_shoulder_18",
+      "id": 14140,
+      "name": "Mooncloth Circlet",
+      "icon": "inv_misc_bandana_01",
       "source": "Forever",
       "acquisition": "Crafted",
-      "ilvl": 54,
-      "quality": 3,
-      "stats": {
-        "stamina": 8,
-        "spirit": 13,
-        "power": 31,
-        "spellDamage": 10,
-        "armor": 117
-      }
-    },
-    "Back": {
-      "id": 11623,
-      "name": "Spritecaster Cape",
-      "icon": "inv_misc_cape_20",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Depths",
-      "ilvl": 52,
-      "quality": 3,
-      "stats": {
-        "stamina": 5,
-        "intellect": 6,
-        "spirit": 6,
-        "power": 14,
-        "spellDamage": 14,
-        "armor": 37
-      }
-    },
-    "Chest": {
-      "id": 9469,
-      "name": "Gahz'rilla Scale Armor",
-      "icon": "inv_chest_chain_06",
-      "source": "Forever",
-      "acquisition": "Dungeon · Zul'Farrak",
-      "ilvl": 48,
-      "quality": 3,
-      "stats": {
-        "stamina": 10,
-        "spirit": 16,
-        "power": 33,
-        "spellDamage": 11,
-        "armor": 290
-      }
-    },
-    "Wrists": {
-      "id": 11962,
-      "name": "Manacle Cuffs",
-      "icon": "inv_bracer_13",
-      "source": "Forever",
-      "acquisition": "Quest · The Love Potion",
-      "ilvl": 55,
-      "quality": 3,
-      "stats": {
-        "intellect": 15,
-        "power": 7,
-        "spellDamage": 7,
-        "armor": 34
-      }
-    },
-    "Hands": {
-      "id": 18309,
-      "name": "Gloves of Restoration",
-      "icon": "inv_gauntlets_20",
-      "source": "Forever",
-      "acquisition": "Dungeon · Dire Maul",
-      "ilvl": 59,
+      "ilvl": 62,
       "quality": 3,
       "stats": {
         "stamina": 13,
-        "intellect": 12,
-        "power": 31,
-        "spellDamage": 10,
-        "armor": 105
-      }
-    },
-    "Waist": {
-      "id": 12083,
-      "name": "Valconian Sash",
-      "icon": "inv_belt_11",
-      "source": "Forever",
-      "acquisition": "Quest · A Taste of Flame",
-      "ilvl": 58,
-      "quality": 2,
-      "stats": {
-        "stamina": 6,
-        "power": 17,
+        "spirit": 15,
+        "power": 51,
         "spellDamage": 17,
-        "armor": 42
+        "armor": 71
       }
     },
-    "Legs": {
-      "id": 9474,
-      "name": "Jinxed Hoodoo Kilt",
-      "icon": "inv_pants_05",
+    "Neck": {
+      "id": 18723,
+      "name": "Animated Chain Necklace",
+      "icon": "inv_jewelry_necklace_01",
       "source": "Forever",
-      "acquisition": "Dungeon · Zul'Farrak",
-      "ilvl": 49,
+      "acquisition": "Dungeon · Stratholme",
+      "ilvl": 62,
       "quality": 3,
       "stats": {
-        "intellect": 10,
-        "spirit": 19,
-        "power": 24,
-        "spellDamage": 8,
-        "armor": 126
+        "stamina": 8,
+        "spirit": 7,
+        "power": 33,
+        "spellDamage": 11
       }
     },
-    "Feet": {
-      "id": 15802,
-      "name": "Mooncloth Boots",
-      "icon": "inv_boots_05",
+    "Shoulders": {
+      "id": 14139,
+      "name": "Mooncloth Shoulders",
+      "icon": "inv_shoulder_02",
+      "source": "Forever",
+      "acquisition": "Crafted",
+      "ilvl": 61,
+      "quality": 3,
+      "stats": {
+        "stamina": 9,
+        "spirit": 11,
+        "power": 37,
+        "spellDamage": 13,
+        "armor": 65
+      }
+    },
+    "Back": {
+      "id": 18389,
+      "name": "Cloak of the Cosmos",
+      "icon": "inv_misc_cape_01",
+      "source": "Forever",
+      "acquisition": "Dungeon · Dire Maul",
+      "ilvl": 62,
+      "quality": 3,
+      "stats": {
+        "stamina": 7,
+        "intellect": 14,
+        "power": 20,
+        "spellDamage": 7,
+        "armor": 44
+      }
+    },
+    "Chest": {
+      "id": 15047,
+      "name": "Red Dragonscale Breastplate",
+      "icon": "inv_chest_chain_06",
+      "source": "Forever",
+      "acquisition": "Crafted",
+      "ilvl": 61,
+      "quality": 3,
+      "stats": {
+        "power": 57,
+        "spellDamage": 19,
+        "armor": 360
+      }
+    },
+    "Wrists": {
+      "id": 13969,
+      "name": "Loomguard Armbraces",
+      "icon": "inv_bracer_16",
+      "source": "Forever",
+      "acquisition": "Dungeon · Scholomance",
+      "ilvl": 61,
+      "quality": 3,
+      "stats": {
+        "stamina": 6,
+        "intellect": 7,
+        "power": 29,
+        "spellDamage": 10,
+        "mp5": 3,
+        "armor": 157
+      }
+    },
+    "Hands": {
+      "id": 20296,
+      "name": "Green Dragonscale Gauntlets",
+      "icon": "inv_gauntlets_12",
       "source": "Forever",
       "acquisition": "Crafted",
       "ilvl": 56,
       "quality": 3,
       "stats": {
+        "stamina": 5,
+        "power": 40,
+        "spellDamage": 14,
+        "armor": 208
+      }
+    },
+    "Waist": {
+      "id": 19047,
+      "name": "Wisdom of the Timbermaw",
+      "icon": "inv_belt_09",
+      "source": "Forever",
+      "acquisition": "Crafted",
+      "ilvl": 58,
+      "quality": 3,
+      "stats": {
         "intellect": 14,
-        "spirit": 13,
-        "power": 24,
-        "spellDamage": 8,
-        "armor": 55
+        "spirit": 9,
+        "power": 31,
+        "spellDamage": 11,
+        "armor": 46
+      }
+    },
+    "Legs": {
+      "id": 11841,
+      "name": "Senior Designer's Pantaloons",
+      "icon": "inv_pants_09",
+      "source": "Forever",
+      "acquisition": "Dungeon · Blackrock Depths",
+      "ilvl": 55,
+      "quality": 3,
+      "stats": {
+        "stamina": 8,
+        "intellect": 7,
+        "spirit": 18,
+        "power": 37,
+        "spellDamage": 12,
+        "armor": 69
+      }
+    },
+    "Feet": {
+      "id": 13954,
+      "name": "Verdant Footpads",
+      "icon": "inv_boots_08",
+      "source": "Forever",
+      "acquisition": "Dungeon · Stratholme",
+      "ilvl": 62,
+      "quality": 3,
+      "stats": {
+        "power": 38,
+        "spellDamage": 12,
+        "mp5": 5,
+        "armor": 120
       }
     },
     "Finger 1": {
+      "id": 13178,
+      "name": "Rosewine Circle",
+      "icon": "inv_jewelry_ring_22",
+      "source": "Forever",
+      "acquisition": "Dungeon · Blackrock Spire",
+      "ilvl": 60,
+      "quality": 3,
+      "stats": {
+        "power": 24,
+        "spellDamage": 8,
+        "mp5": 6
+      }
+    },
+    "Finger 2": {
       "id": 6440,
       "name": "Brainlash",
       "icon": "inv_belt_30",
@@ -171,21 +187,20 @@ export const equipmentSets = {
         "spellDamage": 11
       }
     },
-    "Finger 2": {
-      "id": 17768,
-      "name": "Woodseed Hoop",
-      "icon": "inv_jewelry_ring_18",
+    "Trinket 1": {
+      "id": 11819,
+      "name": "Second Wind",
+      "icon": "inv_jewelry_talisman_06",
       "source": "Forever",
-      "acquisition": "Quest · Vyletongue Corruption",
-      "ilvl": 49,
-      "quality": 2,
+      "acquisition": "Dungeon · Blackrock Depths",
+      "ilvl": 59,
+      "quality": 3,
       "stats": {
-        "intellect": 10,
-        "power": 6,
-        "spellDamage": 6
+        "power": 15,
+        "spellDamage": 5
       }
     },
-    "Trinket 1": {
+    "Trinket 2": {
       "id": 18951,
       "name": "Evonice's Landin' Pilla",
       "icon": "inv_misc_armorkit_18",
@@ -197,44 +212,32 @@ export const equipmentSets = {
         "spirit": 10
       }
     },
-    "Trinket 2": {
-      "id": 11832,
-      "name": "Burst of Knowledge",
-      "icon": "inv_jewelry_amulet_07",
+    "Main hand": {
+      "id": 280605,
+      "name": "Tidebringer's Claw",
+      "icon": "inv_weapon_hand_15",
       "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Depths",
-      "ilvl": 58,
+      "acquisition": "Shaman quest · The Tempest’s Weapons (level 30)",
+      "ilvl": 40,
       "quality": 3,
       "stats": {
-        "mp5": 8
-      }
-    },
-    "Main hand": {
-      "id": 15863,
-      "name": "Grave Scepter",
-      "icon": "inv_mace_07",
-      "source": "Forever",
-      "acquisition": "Quest · Return to Tinkee",
-      "ilvl": 54,
-      "quality": 2,
-      "stats": {
-        "intellect": 8,
-        "spirit": 5,
-        "power": 46,
-        "spellDamage": 46
+        "stamina": 5,
+        "power": 86,
+        "spellDamage": 28
       }
     },
     "Off hand": {
-      "id": 11904,
-      "name": "Spirit of Aquementas",
-      "icon": "inv_ore_arcanite_02",
+      "id": 18523,
+      "name": "Brightly Glowing Stone",
+      "icon": "inv_misc_orb_01",
       "source": "Forever",
-      "acquisition": "Quest · It's Dangerous to Go Alone",
-      "ilvl": 56,
+      "acquisition": "Dungeon · Dire Maul",
+      "ilvl": 63,
       "quality": 3,
       "stats": {
-        "power": 21,
-        "spellDamage": 21
+        "stamina": 14,
+        "power": 29,
+        "spellDamage": 10
       }
     },
     "Relic": {
