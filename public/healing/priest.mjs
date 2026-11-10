@@ -20,7 +20,7 @@ const presets = {
   Holy:{...common,'Twilight Focus':3,'Improved Renew':3,'Holy Specialization':5,'Divine Fury':5,'Improved Healing':2,'Holy Nova':1,
     'Holy Binding':1,'Litany of Light':2,'Spirit of Redemption':1,'Spiritual Guidance':4,'Spiritual Healing':3,'Prayer of Mending':1}
 };
-const utility = {nova:{self:true},desperate:{self:true},focus:{offGcd:true,activateBuff:'innerFocus'},pi:{offGcd:true,activateBuff:'powerInfusion'},
+const utility = {prayer:{self:true},nova:{self:true},desperate:{self:true},focus:{offGcd:true,activateBuff:'innerFocus'},pi:{offGcd:true,activateBuff:'powerInfusion'},
   potion:{offGcd:true,manaRange:[1350,2250]}};
 const spellGroups = describeTalentSpells(catalog,trees,{holy:slots.map(([,name]) => name),
   discipline:['Power Word: Shield','Power Word: Fortitude','Penance','Power Infusion','Inner Focus','Divine Spirit'],
