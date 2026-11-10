@@ -296,6 +296,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const result = find('[data-result]');
     const score = ended ? s.survivors + '/5 survived · ' + whole(s.healing) + ' effective healing · ' +
       whole(s.healing / s.endedAt) + ' HPS · ' + whole(s.overheal) + ' overhealing · ' +
+      (s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) + ' effective healing per mana · ' : '') +
       whole(s.manaAtEnd) + ' mana left' : '';
     if (result.textContent !== score) result.textContent = score;
     const regenResult = find('[data-regen-result]');
@@ -703,7 +704,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       summary.style.setProperty('--share', share);
       breakdown.textContent = stats.casts + ' casts · ' + stats.hits + ' healing events · ' +
         (stats.hits - stats.crits) + ' normal · ' + stats.crits + ' crits (' + percent(stats.crits, stats.hits) +
-        ') · ' + whole(stats.overheal) + ' overhealing (' + percent(stats.overheal, raw) + ')';
+        ') · ' + whole(stats.overheal) + ' overhealing (' + percent(stats.overheal, raw) + ') · ' +
+        (stats.mana ? (stats.effective / stats.mana).toFixed(2) + ' effective healing per mana' : 'no mana spent');
       summary.title = breakdown.textContent;
     }
   }
