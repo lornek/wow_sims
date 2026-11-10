@@ -178,8 +178,9 @@ function attempt(event, index, right) {
   render();
 }
 
+let talentPoints;
 function configuredSpells() {
-  const points = Object.fromEntries(talents.map(([key, name]) => [key, talentTree.build[name] ?? 0]));
+  const points = talentPoints = Object.fromEntries(talents.map(([key, name]) => [key, talentTree.build[name] ?? 0]));
   const power = find('[data-power]');
   enabled = new Set([...root.querySelectorAll('[data-buff]:checked')].map(input => input.value));
   profile = buildProfile(gear.value, enabled, power.validity.valid ? Number(power.value) : 0, points);
@@ -190,12 +191,6 @@ function configuredSpells() {
     if (!talentTree.build[name]) delete currentSpells[key];
   }
   if (!currentSpells[slots[selected][0]]) selected = 0;
-  for (const {field, row} of streamPreviews) {
-    const spell = applyTalents(spellFor('stream', 'Healing Stream Totem', row), points);
-    const amount = (spell.low + spell.coefficient * profile.power) * spell.multiplier;
-    field.textContent = 'Your build · ' + whole(Math.round(amount)) + ' healing per tick · ' +
-      healingMultiplier(spell) + ' from Restorative Totems';
-  }
 }
 
 function reset(start = false, persist = true) {
@@ -436,7 +431,27 @@ function healingMultiplier(spell) {
   return '+' + Math.round((spell.multiplier - 1) * 100) + '%';
 }
 
-const streamPreviews = [];
+const healingKeys = new Map(slots.filter(([key]) => ['wave', 'lesser', 'chain', 'riptide', 'stream'].includes(key))
+  .map(([key, name]) => [name, key]));
+function renderHealingBreakdown(tip, name, row) {
+  const key = healingKeys.get(name);
+  if (!key || !row) return;
+  const spell = applyTalents(spellFor(key, name, row), talentPoints);
+  const unit = spell.period ? ' per tick per target' : spell.chain > 1 ? ' on the primary target' : '';
+  const range = (power, multiplier = 1) => {
+    const bonus = power * spell.coefficient;
+    const low = whole(Math.round((spell.low + bonus) * multiplier));
+    const high = whole(Math.round((spell.high + bonus) * multiplier));
+    return (low === high ? low : low + '–' + high) + unit;
+  };
+  tooltipLine(tip, 'Base healing · ' + range(0));
+  tooltipLine(tip, 'With gear (+' + whole(profile.gearPower) + ' healing) · ' + range(profile.gearPower));
+  if (profile.power !== profile.gearPower) {
+    tooltipLine(tip, 'With Custom bonus · ' + range(profile.power));
+  }
+  tooltipLine(tip, 'With talents (×' + Number(spell.multiplier.toFixed(3)) + ') · ' +
+    range(profile.power, spell.multiplier), 'game-tooltip-good');
+}
 const schools = ['Enhancement', 'Restoration', 'Elemental Combat'];
 let selectedSchool = 'Enhancement';
 const allRanks = find('[data-all-ranks]');
@@ -457,9 +472,7 @@ const bookRows = Object.entries(catalog).map(([name, entry]) => {
     const effects = row?.effects.filter(effect => effect.coefficient) ?? [];
     const coefficients = effects.map(effect => (effect.coefficient * 100).toFixed(1) + '%' +
       (effect.period ? ' per ' + effect.period + ' sec' : ''));
-    const field = document.createElement('span');
-    if (name === 'Healing Stream Totem' && row) streamPreviews.push({field, row});
-    return {rank, coefficients, field};
+    return {rank, coefficients, row};
   })};
 });
 
@@ -473,7 +486,7 @@ function renderBook() {
     if ((!query && school !== selectedSchool.toLowerCase()) || !name.toLowerCase().includes(query)) continue;
     const available = entries.filter(({rank}) => rank.level <= level);
     const shown = allRanks.checked ? available : available.slice(-1);
-    for (const {rank, coefficients, field} of shown) {
+    for (const {rank, coefficients, row} of shown) {
       const cell = document.createElement('details');
       cell.className = 'book-spell';
       const button = document.createElement('summary');
@@ -490,7 +503,7 @@ function renderBook() {
         tooltipLine(tip, rank.details || '');
         tooltipLine(tip, rank.description || '', 'game-tooltip-description');
         if (coefficients.length) tooltipLine(tip, 'Coefficient · ' + coefficients.join(' / '));
-        if (field.textContent) tooltipLine(tip, field.textContent, 'game-tooltip-good');
+        renderHealingBreakdown(tip, name, row);
       };
       const detail = document.createElement('div');
       const tooltip = attachGameTooltip(button, render);
