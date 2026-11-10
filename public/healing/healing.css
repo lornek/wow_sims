@@ -14,6 +14,7 @@
 .healing .heal-frame { min-height:100px; padding:5px; text-align:center; text-shadow:0 1px 2px black; touch-action:manipulation; overflow-wrap:anywhere; }
 .heal-frame strong, .heal-frame small, .unit-status { display:block; }
 .heal-frame .unit-fill { background:linear-gradient(var(--unit),#16100c); }
+.unit-incoming { position:absolute; inset:0 auto 0 0; z-index:-1; background:#79db8160; pointer-events:none; }
 .unit-status { min-height:1.4em; color:#fff0aa; font-size:.85rem; }
 .mana-bar > span { background:#1d487b; }
 .cast-bar > span { background:#775827; }

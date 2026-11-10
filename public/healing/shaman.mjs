@@ -150,7 +150,7 @@ for (const [index, unit] of encounter.party.entries()) {
   frame.type = 'button';
   frame.className = 'heal-frame';
   frame.style.setProperty('--unit', unit.color);
-  frame.innerHTML = '<span class="unit-fill"></span><strong></strong><small></small><span class="unit-status"></span>';
+  frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span><strong></strong><small></small><span class="unit-status"></span>';
   frame.onclick = event => attempt(event, index, false);
   frame.oncontextmenu = event => {
     event.preventDefault();
@@ -167,7 +167,7 @@ for (const [index, unit] of encounter.party.entries()) {
       frame.lastElementChild.append(badge);
       return {key, name, badge, timer};
     });
-  frames.push({frame, fill: frame.firstElementChild, label: frame.querySelector('strong'),
+  frames.push({frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('strong'),
     health: frame.querySelector('small'), auras});
 }
 
@@ -227,9 +227,12 @@ function render() {
   const flurry = active && s.nextFlurry - s.time <= 2;
   fill(find('[data-boss-cast-fill]'), flurry ? 1 - (s.nextFlurry - s.time) / 2 : 0);
   find('[data-boss-cast]').textContent = flurry ? 'Blade Flurry' : '';
+  const incoming = pull.incomingHealing();
   s.party.forEach((unit, i) => {
     const frame = frames[i];
     fill(frame.fill, unit.hp / unit.max);
+    frame.incoming.style.left = (100 * unit.hp / unit.max) + '%';
+    fill(frame.incoming, incoming[i] / unit.max);
     frame.label.textContent = unit.name + ' · ' + unit.role;
     frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
     for (const {key, name, badge, timer} of frame.auras) {

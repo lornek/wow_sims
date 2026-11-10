@@ -29,9 +29,37 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     onHeal({key, target: party.indexOf(unit), from: from ? party.indexOf(from) : null, bounce, amount, effective, crit});
   }
 
-  function resolve(spell, unit) {
-    const amount = () => ((spell.low ?? 0) + random() * ((spell.high ?? spell.low ?? 0) - (spell.low ?? 0)) +
+  function healingAmount(spell, roll) {
+    return ((spell.low ?? 0) + roll * ((spell.high ?? spell.low ?? 0) - (spell.low ?? 0)) +
       (spell.coefficient ?? 0) * profile.power) * (spell.multiplier ?? 1);
+  }
+
+  function directTargets(spell, unit, time) {
+    const bonus = spell.chain > 1 ? state.effects.reduce((sum, effect) =>
+      sum + (effect.target === unit && effect.expires >= time ? effect.directChainBonus : 0), 0) : 0;
+    const others = spell.chain > 1 ? party.filter(member => member !== unit && member.hp > 0)
+      .sort((a, b) => (b.max - b.hp) - (a.max - a.hp)).slice(0, spell.chain - 1) : [];
+    return [{unit, factor: 1 + bonus}, ...others.map((target, index) =>
+      ({unit: target, factor: spell.falloff ** (index + 1)}))];
+  }
+
+  function incomingHealing() {
+    const pending = new Map(party.map(unit => [unit, 0]));
+    const add = (unit, amount) => {
+      if (unit.hp) pending.set(unit, pending.get(unit) + Math.round(amount));
+    };
+    for (const effect of state.effects) {
+      if (effect.key !== 'riptide' && effect.key !== 'stream') continue;
+      for (const unit of effect.target ? [effect.target] : party) add(unit, effect.amount);
+    }
+    if (state.cast?.spell.low && !state.cast.spell.period && state.cast.unit.hp) {
+      const {spell, unit, end} = state.cast;
+      for (const target of directTargets(spell, unit, end)) add(target.unit, healingAmount(spell, .5) * target.factor);
+    }
+    return party.map(unit => Math.min(unit.max - unit.hp, pending.get(unit)));
+  }
+
+  function resolve(spell, unit) {
     if (spell.swiftness) {
       state.swiftness = Infinity;
     } else if (spell.manaRange) {
@@ -46,18 +74,12 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
         (!spell.waterTotem || !e.waterTotem));
       state.effects.push({key: spell.key, target, next: state.time + spell.period, period: spell.period,
         expires: state.time + spell.duration, left: Math.floor(spell.duration / spell.period),
-        amount: amount(), manaTick: spell.manaTick, waterTotem: spell.waterTotem,
+        amount: healingAmount(spell, random()), manaTick: spell.manaTick, waterTotem: spell.waterTotem,
         directChainBonus: spell.directChainBonus ?? 0});
     } else {
-      const raw = amount();
-      const bonus = spell.chain > 1 ? state.effects.reduce((sum, effect) =>
-        sum + (effect.target === unit ? effect.directChainBonus : 0), 0) : 0;
-      heal(spell.key, unit, raw * (1 + bonus), true);
-      const others = party.filter(member => member !== unit && member.hp > 0)
-        .sort((a, b) => (b.max - b.hp) - (a.max - a.hp));
-      for (let i = 0; i < Math.min((spell.chain ?? 1) - 1, others.length); i++) {
-        heal(spell.key, others[i], raw * spell.falloff ** (i + 1), true, i ? others[i - 1] : unit, i + 1);
-      }
+      const raw = healingAmount(spell, random());
+      const targets = directTargets(spell, unit, state.time);
+      targets.forEach((target, i) => heal(spell.key, target.unit, raw * target.factor, true, targets[i - 1]?.unit, i));
     }
   }
 
@@ -152,5 +174,5 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.manaAtEnd = state.mana;
     }
   }
-  return {state, cast, step, start() { if (state.phase === 'ready') state.phase = 'active'; }};
+  return {state, cast, step, incomingHealing, start() { if (state.phase === 'ready') state.phase = 'active'; }};
 }
