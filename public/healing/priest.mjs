@@ -61,7 +61,7 @@ function applyTalents(spell, points) {
 mountHealing({className:'priest',healer:'Anduin',healerColor:'#d2d7e8',catalog,ranks:castRanks,spellGroups,loadouts,buffs,
   talents:trees.flatMap(t => t.nodes.map(n => [n.name,n.name])),defaultTalents:presets.Discipline,presets,applyTalents,configureSpell,
   buildProfile:humanProfile('priest',loadouts),trees,slots,utility,schools:['Holy','Discipline','Shadow'],
-  schoolIcons:['Renew','Power Word: Shield','Shadow Word: Pain'],unlocks:['penance','mending','focus','nova'],
+  schoolIcons:['Renew','Power Word: Shield','Shadow Word: Pain'],unlocks:['penance','mending','focus','nova','pi'],
   auras:[['renew','Renew'],['shield','Power Word: Shield'],['weakened','Weakened Soul'],['aegis','Divine Aegis'],
     ['mending','Prayer of Mending'],['powerInfusion','Power Infusion'],['innerFocus','Inner Focus'],['inspiration','Inspiration']],
   healingKeys:['flash','greater','heal','renew','prayer','penance','mending','nova','desperate'],
