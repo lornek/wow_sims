@@ -303,7 +303,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const comparison = 'Mana gained this pull · ' + s.manaPerSpirit.toFixed(2) + ' mana per +1 raw Spirit · ' +
         s.manaPerMp5.toFixed(2) + ' mana per +1 mana / 5 sec';
       if (regenResult.textContent !== comparison) regenResult.textContent = comparison;
-      regenResult.title = 'Extra mana usable on the observed regen ticks, after the mana cap. ' +
+      regenResult.title = 'Extra mana usable during the observed pull, after the mana cap. ' +
         'Raw Spirit includes multipliers from talents and buffs, averaged across stat rounding.';
     }
   }
