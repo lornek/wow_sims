@@ -51,6 +51,6 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
     mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
     crit: (2.3 + intellect * .0169 + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
-    regen: 6.25 + spirit / 8, power: (gear.power ?? 0) + bonusHealing,
+    regen: 6.25 + spirit / 8, gearPower: gear.power ?? 0, power: (gear.power ?? 0) + bonusHealing,
     mp5: (gear.mp5 ?? 0) + (enabled.has('wisdom') ? 40 : 0) + (enabled.has('mageblood') ? 12 : 0)};
 }
