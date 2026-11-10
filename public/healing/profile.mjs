@@ -47,6 +47,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
   const stamina = stat('stamina');
   return {strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
+    spiritPerRawPoint: enabled.has('kings') ? 1.1 : 1,
     baseMana: naked.baseMana, health: 1280 + 10 * stamina,
     mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
     crit: (2.3 + intellect * .0169 + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,

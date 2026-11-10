@@ -22,10 +22,12 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   }
   const stat = (key, base, multiplier = 1) => Math.floor((base + (gear[key] ?? 0)) * multiplier * (buffs.has('kings') ? 1.1 : 1));
   const intellect = stat('intellect', 100 + (buffs.has('intellect') ? 31 : 0), 1 + .02 * (talents['Heart of the Wild'] ?? 0));
-  const spirit = stat('spirit', 110 + (buffs.has('spirit') ? 40 : 0), 1 + .05 * (talents['Living Spirit'] ?? 0));
+  const livingSpirit = 1 + .05 * (talents['Living Spirit'] ?? 0);
+  const spirit = stat('spirit', 110 + (buffs.has('spirit') ? 40 : 0), livingSpirit);
   const stamina = stat('stamina', 69);
   const gearPower = gear.power ?? 0;
   return {strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
+    spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),
     health: 1483 + 10 * stamina, baseMana: 1244, mana: 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
     crit: (1.8 + intellect * .0167 + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][talents.Reflection ?? 0],
