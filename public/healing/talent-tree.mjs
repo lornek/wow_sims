@@ -12,28 +12,28 @@ function unlocked(build, tree, node) {
     (!parent || build[parent.name] === parent.max);
 }
 
-export function changeTalent(build, tree, node, delta) {
+export function changeTalent(build, tree, node, delta, treeList = trees) {
   const current = build[node.name] ?? 0;
   if (delta > 0 && !unlocked(build, tree, node)) return build;
-  const rank = Math.min(node.max, Math.max(0, current + delta), current + pointCap - totalPoints(build));
+  const rank = Math.min(node.max, Math.max(0, current + delta), current + pointCap - totalPoints(build, treeList.flatMap(entry => entry.nodes)));
   if (rank === current) return build;
   const next = {...build, [node.name]: rank};
   return tree.nodes.every(other => !next[other.name] || unlocked(next, tree, other)) ? next : build;
 }
 
-export function restoreBuild(saved) {
+export function restoreBuild(saved, treeList = trees) {
   let build = {};
-  for (const tree of trees) {
+  for (const tree of treeList) {
     for (const node of [...tree.nodes].sort((a, b) => a.row - b.row)) {
       const rank = saved?.[node.name];
-      if (Number.isInteger(rank) && rank > 0) build = changeTalent(build, tree, node, rank);
+      if (Number.isInteger(rank) && rank > 0) build = changeTalent(build, tree, node, rank, treeList);
     }
   }
   return build;
 }
 
-export function mountTalentTree(container, initial, onChange) {
-  let build = restoreBuild(initial);
+export function mountTalentTree(container, initial, onChange, treeList = trees) {
+  let build = restoreBuild(initial, treeList);
   let locked = false;
   const toolbar = document.createElement('div');
   toolbar.className = 'talent-toolbar';
@@ -46,7 +46,7 @@ export function mountTalentTree(container, initial, onChange) {
   toolbar.append(total, reset);
   const board = document.createElement('div');
   board.className = 'talent-board';
-  const cards = trees.map(tree => {
+  const cards = treeList.map(tree => {
     const card = document.createElement('section');
     card.className = 'talent-tree';
     const header = document.createElement('header');
@@ -94,7 +94,7 @@ export function mountTalentTree(container, initial, onChange) {
       const badge = document.createElement('span');
       button.append(image, badge);
       const change = delta => {
-        if (!locked) setBuild(changeTalent(build, tree, node, delta));
+        if (!locked) setBuild(changeTalent(build, tree, node, delta, treeList));
       };
       button.onclick = event => change(event.shiftKey ? node.max : 1);
       button.oncontextmenu = event => { event.preventDefault(); change(-1); };
@@ -124,7 +124,7 @@ export function mountTalentTree(container, initial, onChange) {
   container.replaceChildren(toolbar, board);
 
   function render() {
-    const spent = totalPoints(build);
+    const spent = totalPoints(build, treeList.flatMap(entry => entry.nodes));
     total.textContent = (pointCap - spent) + ' points left · ' + cards.map(({tree}) => totalPoints(build, tree.nodes)).join(' / ');
     reset.disabled = locked || !spent;
     for (const {tree, count, resetTree, nodes} of cards) {
