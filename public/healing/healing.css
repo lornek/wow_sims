@@ -22,6 +22,13 @@
 .mana-bar > span { background:#1d487b; }
 .mana-bar strong { display:grid; grid-template-columns:7ch max-content 1fr; gap:.4em; font-variant-numeric:tabular-nums; }
 .mana-bar [data-mana-current] { text-align:right; }
+.heal-frame.touch-target { outline:2px solid #ffe08b; outline-offset:2px; }
+.heal-touch-help { display:none; }
+.heal-frame, .heal-spells button { touch-action:manipulation; }
+@media (pointer:coarse) {
+  .heal-touch-help { display:block; }
+  .heal-mouse-help { display:none; }
+}
 .cast-bar > span { background:#775827; }
 .regen-track { height:5px; }
 .regen-track > span { background:var(--gold); }

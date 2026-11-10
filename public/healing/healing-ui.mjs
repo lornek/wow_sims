@@ -62,6 +62,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const selects = [];
   const frames = [];
   let selected = 0;
+  let touchTarget = null;
+  const touchInput = event => event.pointerType === 'touch' ||
+    (!event.pointerType && matchMedia('(pointer: coarse)').matches);
   let pendingTargetSpell = null;
   let pull;
   let currentSpells;
@@ -95,11 +98,17 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const cooldown = document.createElement('small');
     label.append(shortcut, cooldown);
     button.append(label);
-    button.onclick = () => {
+    button.onclick = event => {
       if (utility[key]) {
         const previous = pull.state.meters[key]?.casts;
         pull.cast(key, encounter.party.length - 1);
         if (pull.state.meters[key]?.casts !== previous) playHealSound(false, 0);
+      } else if (touchInput(event)) {
+        if (touchTarget === null || !pull.state.party[touchTarget].hp) {
+          pull.state.message = 'Tap a living party member first.';
+        } else {
+          pull.cast(key, touchTarget);
+        }
       } else {
         selected = index;
         pendingTargetSpell = key;
@@ -142,7 +151,12 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       '<strong><svg class="unit-role" viewBox="0 0 24 24" role="img" aria-label="' + unit.role +
       '"><title>' + unit.role + '</title><path d="' + roleSymbols[unit.role] +
       '"/></svg><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
-    frame.onclick = event => attempt(event, index, false);
+    frame.onclick = event => {
+      if (!touchInput(event)) return attempt(event, index, false);
+      if (!pull.state.party[index].hp) return;
+      touchTarget = index;
+      render();
+    };
     frame.oncontextmenu = event => {
       event.preventDefault();
       attempt(event, index, true);
@@ -197,6 +211,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function reset(start = false, persist = true) {
+    touchTarget = null;
     configuredSpells();
     const level = Number(difficulty.value);
     const damage = 1.15 ** level;
@@ -242,6 +257,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       frame.incoming.style.left = (100 * unit.hp / unit.max) + '%';
       fill(frame.incoming, incoming[i] / unit.max);
       frame.label.textContent = unit.name;
+      frame.frame.classList.toggle('touch-target', i === touchTarget && !!unit.hp);
       frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
       for (const {key, name, badge, timer} of frame.auras) {
         const effect = s.effects.find(effect => effect.key === key && (!effect.target || effect.target === unit));
