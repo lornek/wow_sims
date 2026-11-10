@@ -4,7 +4,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
     manaPerSpirit: 0, manaPerMp5: 0,
-    nextPoison: 7, nextFlurry: encounter.firstFlurry, nextMana: 2, swiftness: 0, meters: {}};
+    nextPoison: 7, nextFlurry: encounter.firstFlurry, swiftness: 0, meters: {}};
 
   function meter(key) {
     return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0, mana: 0};
@@ -270,24 +270,36 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     }
   }
 
+  function regenerate(from, to) {
+    while (from < to) {
+      const innervated = from < state.innervateUntil;
+      const restricted = from < state.lastSpend + 5;
+      const end = Math.min(to, innervated ? state.innervateUntil : restricted ? state.lastSpend + 5 : to);
+      const seconds = end - from;
+      const spiritFraction = innervated ? 5 : restricted ? (profile.castingRegen ?? 0) : 1;
+      const regen = ((profile.mp5 ?? 0) / 5 + profile.regen * spiritFraction) * seconds;
+      if (state.phase === 'active') {
+        const headroom = Math.max(0, profile.mana - state.mana - regen);
+        state.manaPerSpirit += Math.min(headroom, (profile.spiritPerRawPoint ?? 1) * spiritFraction * seconds * (profile.spiritRegenCoefficient ?? .125));
+        state.manaPerMp5 += Math.min(headroom, seconds / 5);
+      }
+      restoreMana(regen);
+      from = end;
+    }
+  }
+
   function step(dt) {
     if (state.phase === 'ready') return;
-    state.time += dt;
-    if (state.cast && state.time >= state.cast.end) {
+    const end = state.time + dt;
+    if (state.cast && end >= state.cast.end) {
+      const castEnd = Math.max(state.time, state.cast.end);
+      regenerate(state.time, castEnd);
+      state.time = castEnd;
       if (state.cast.channel) state.cast = null;
       else finishCast();
     }
-    if (state.time >= state.nextMana) {
-      state.nextMana += 2;
-      const spiritFraction = state.innervateUntil > state.time ? 5 : state.time - state.lastSpend >= 5 ? 1 : profile.castingRegen ?? 0;
-      const regen = (profile.mp5 ?? 0) * .4 + profile.regen * 2 * spiritFraction;
-      if (state.phase === 'active') {
-        const headroom = Math.max(0, profile.mana - state.mana - regen);
-        state.manaPerSpirit += Math.min(headroom, (profile.spiritPerRawPoint ?? 1) * spiritFraction * 2 * (profile.spiritRegenCoefficient ?? .125));
-        state.manaPerMp5 += Math.min(headroom, .4);
-      }
-      restoreMana(regen);
-    }
+    regenerate(state.time, end);
+    state.time = end;
     if (state.phase !== 'active') return;
     for (const effect of state.effects) {
       if (state.time < effect.next) continue;
