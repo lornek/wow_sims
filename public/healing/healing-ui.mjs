@@ -206,7 +206,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       ...unit,
       max: Math.round((index === encounter.party.length - 1 ? profile.health : unit.max) * staminaScale)
     }));
-    currentEncounter = {...encounter, party, hazard, health: Math.round(encounter.health * health), limit: encounter.limit * health,
+    currentEncounter = {...encounter, party, hazard, startWaterShield: enabled.has('waterShield'), health: Math.round(encounter.health * health), limit: encounter.limit * health,
       swing: Math.round(encounter.swing * damage), flurry: Math.round(encounter.flurry * damage),
       poisonTick: Math.round(encounter.poisonTick * damage)};
     find('[data-encounter-preview]').textContent = whole(currentEncounter.health) + ' boss HP · ×' +
@@ -220,6 +220,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function render() {
     const s = pull.state;
+    const charges = s.waterShield?.expires > s.time ? s.waterShield.charges : 0;
+    if (waterBuff) {
+      waterBuff.label.classList.toggle('buff-live', !!charges);
+      waterBuff.count.textContent = currentSpells.waterShield ? charges : '';
+    }
     const active = s.phase === 'active';
     const ended = ['won', 'lost'].includes(s.phase);
     find('[data-start]').textContent = active ? 'Restart pull' : ended ? 'Pull again' : 'Start pull';
@@ -310,19 +315,31 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   };
   const gear = find('[data-loadout]');
   for (const name of Object.keys(loadouts)) gear.add(new Option(name));
-  if (Object.hasOwn(loadouts, saved.loadout)) gear.value = saved.loadout;
-  for (const [key, name, description, iconFile] of buffs) {
+  gear.value = Object.hasOwn(loadouts, saved.loadout) ? saved.loadout : 'Level 60 dungeon';
+  const defaultBuff = {priest:'spirit', paladin:'wisdom', druid:'mark', shaman:'waterShield'}[className];
+  const buffList = className === 'shaman' ? [...buffs,
+    ['waterShield','Water Shield','Start with three charges. Recast from the action bar.','ability_shaman_watershield']] : buffs;
+  let waterBuff;
+  for (const [key, name, description, iconFile] of buffList) {
     const label = document.createElement('label');
     const input = document.createElement('input');
     input.type = 'checkbox';
     input.value = key;
     input.dataset.buff = '';
-    input.checked = Array.isArray(saved.buffs) && saved.buffs.includes(key);
+    input.checked = Array.isArray(saved.buffs) && (key !== defaultBuff || saved.buffDefaults) ? saved.buffs.includes(key) : key === defaultBuff;
     const image = document.createElement('img');
     image.src = new URL('./icons/' + iconFile + '.jpg', import.meta.url);
     image.alt = '';
     image.width = image.height = 24;
-    label.append(input, image, name + ' · ' + description);
+    label.title = name + ' · ' + description;
+    input.setAttribute('aria-label', name);
+    label.append(input, image);
+    if (key === 'waterShield') {
+      const count = document.createElement('small');
+      label.append(count);
+      waterBuff = {label, count};
+      label.classList.add('water-buff');
+    }
     find('[data-buffs]').append(label);
   }
   const talentTree = mountTalentTree(find('[data-talents]'), saved.talents ?? defaultTalents, () => reset(), trees);
@@ -342,7 +359,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const savedSlot = typeof saved.selected === 'string' ? slots.findIndex(([key]) => key === saved.selected) :
     Number.isInteger(saved.selected) && saved.selected !== 5 ? saved.selected - Number(saved.selected > 5) : -1;
   if (slots[savedSlot] && !utility[slots[savedSlot][0]]) selected = savedSlot;
-  find('[data-sound]').checked = saved.sound === true;
+  find('[data-sound]').checked = saved.sound !== false;
 
   function saveSettings() {
     const power = find('[data-power]');
@@ -352,6 +369,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         difficulty: Number(difficulty.value),
         stamina: staminaMultiplier(),
         buffs: [...enabled],
+        buffDefaults: true,
         power: power.validity.valid ? Number(power.value) : 0,
         sound: find('[data-sound]').checked,
         selected: slots[selected][0],
@@ -632,6 +650,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
     } else {
       find('[data-inspect-chain]').replaceChildren();
+      if (spell.waterShield) add('Effect', '3 charges · 2% maximum mana per proc · 3.5 sec between procs');
       if (spell.dispel) add('Dispel', spell.abolishPoison ? 'Removes one poison now and every 2 sec for 8 sec' : 'Removes one ' + hazard + ' effect');
       if (spell.shield) add('Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)) +
         ' damage · ' + spell.duration + ' sec · 15 sec Weakened Soul before talents');

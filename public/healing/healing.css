@@ -160,3 +160,10 @@ body:has(#healing) { font-family:var(--ui); }
 [data-healer-class="priest"] .talent-grid.holy { background-image:linear-gradient(#08060478,#080604a8),url(priest-holy-tree.jpg); }
 [data-healer-class="priest"] .talent-grid.discipline { background-image:linear-gradient(#08060478,#080604a8),url(priest-discipline-tree.jpg); }
 [data-healer-class="priest"] .talent-grid.shadow { background-image:linear-gradient(#08060478,#080604a8),url(priest-shadow-tree.jpg); }
+.combat-buffs { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:5px; margin-bottom:8px; }
+.combat-buffs label { position:relative; display:grid; cursor:pointer; border:1px solid #8b6b3f; border-radius:4px; }
+.combat-buffs img { border-radius:3px; }
+.combat-buffs input { position:absolute; opacity:0; }
+.combat-buffs input:focus-visible + img { outline:2px solid #ffe08b; outline-offset:2px; }
+.combat-buffs label:not(:has(input:checked)) img, .combat-buffs .water-buff:not(.buff-live) img { filter:grayscale(1) brightness(.55); }
+.combat-buffs small { position:absolute; right:1px; bottom:0; color:#fff; font-weight:bold; text-shadow:0 1px 2px #000, 0 0 3px #000; }

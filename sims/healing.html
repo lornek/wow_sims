@@ -14,6 +14,7 @@
     <p data-encounter-preview></p>
   </div>
   <div class="heal-stage">
+    <div class="combat-buffs" data-buffs aria-label="Buffs"></div>
     <div class="heal-top"><strong data-phase>Ready to pull</strong><button type="button" data-start>Start pull</button></div>
     <div class="heal-boss">
       <div class="heal-bar"><span data-boss-fill></span><strong>Edwin VanCleef <output data-boss>100%</output></strong></div>
@@ -37,7 +38,7 @@
     <div data-meter></div>
   </section>
   <p>Mana-per-five effects work throughout the pull. Mindfulness keeps a portion of Spirit regeneration active inside the five-second rule.</p>
-<section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Shaman settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-buffs" aria-controls="panel-buffs">Buffs</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
+<section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Shaman settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
     <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
     <p data-gear-source></p>
   <section class="character-sheet" aria-labelledby="character-title">
@@ -56,7 +57,7 @@
       <div class="character-stats" data-profile></div>
     </div>
   </section>
-</section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-talents" aria-labelledby="tab-talents" hidden><p>Click to spend a point, right-click or press Delete to remove one, and Shift-click to fill a talent.</p><div data-talents></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-buffs" aria-labelledby="tab-buffs" hidden><div data-buffs></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-spellbook" aria-labelledby="tab-spellbook" hidden><div class="book-controls"><nav data-schools aria-label="Spell schools"></nav><label><input type="checkbox" data-all-ranks> Show all spell ranks</label><label>Search spells <input type="search" data-filter></label><label>Level <input type="number" min="1" max="60" value="60" data-book-level></label></div><div class="spellbook" data-catalog></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-custom" aria-labelledby="tab-custom" hidden><label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label></section></section>
+</section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-talents" aria-labelledby="tab-talents" hidden><p>Click to spend a point, right-click or press Delete to remove one, and Shift-click to fill a talent.</p><div data-talents></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-spellbook" aria-labelledby="tab-spellbook" hidden><div class="book-controls"><nav data-schools aria-label="Spell schools"></nav><label><input type="checkbox" data-all-ranks> Show all spell ranks</label><label>Search spells <input type="search" data-filter></label><label>Level <input type="number" min="1" max="60" value="60" data-book-level></label></div><div class="spellbook" data-catalog></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-custom" aria-labelledby="tab-custom" hidden><label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label></section></section>
   <dialog class="spell-inspector" aria-labelledby="inspect-title">
     <header><h2 id="inspect-title"></h2><form method="dialog"><button aria-label="Close spell inspector">Close</button></form></header>
     <div data-inspect-rank></div>
