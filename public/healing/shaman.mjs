@@ -302,7 +302,13 @@ for (const [key, name, description, iconFile] of buffs) {
   label.append(input, image, name + ' · ' + description);
   find('[data-buffs]').append(label);
 }
-const talentTree = mountTalentTree(find('[data-talents]'), saved.talents, () => reset());
+const defaultTalents = {
+  'Thundering Strikes': 5, 'Ancestral Knowledge': 5,
+  'Improved Healing Wave': 5, 'Tidal Focus': 5, Mindfulness: 3, 'Natural Grace': 3,
+  'Healing Focus': 3, 'Water Shield': 1, 'Tidal Mastery': 5, 'Restorative Totems': 5,
+  'Mana Tide Totem': 1, 'Healing Way': 3, "Nature's Swiftness": 1, Purification: 5, Riptide: 1
+};
+const talentTree = mountTalentTree(find('[data-talents]'), saved.talents ?? defaultTalents, () => reset());
 if (Number.isInteger(saved.power) && saved.power >= 0 && saved.power <= 5000) find('[data-power]').value = saved.power;
 if (Number.isInteger(saved.selected) && saved.selected >= 0 && saved.selected < slots.length && !utility[slots[saved.selected][0]]) selected = saved.selected;
 find('[data-sound]').checked = saved.sound === true;
