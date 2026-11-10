@@ -25,11 +25,11 @@ const countdown = seconds => seconds >= 60 ? Math.ceil(seconds / 60) + 'm' : Mat
 let profile = buildProfile('Ungeared', new Set(), 0);
 const encounter = {health: 12500, limit: 75, swing: 225, firstFlurry: 17, flurry: 265, poisonTick: 100,
   party: [
-    {name: 'Tank', role: 'Warrior', max: 3200, dps: 22, color: '#986946'},
-    {name: 'Melee', role: 'Rogue', max: 2450, dps: 92, color: '#918239'},
-    {name: 'Ranged', role: 'Hunter', max: 2350, dps: 86, color: '#59763f'},
-    {name: 'Caster', role: 'Mage', max: 2200, dps: 86, color: '#356981'},
-    {name: 'You', role: 'Shaman', max: profile.health, dps: 0, color: '#34588d'}
+    {name: 'Cairne', role: 'Tank', max: 3200, dps: 22, color: '#a97043'},
+    {name: 'Illidan', role: 'Damage', max: 2450, dps: 92, color: '#9a50be'},
+    {name: 'Sylvanas', role: 'Damage', max: 2350, dps: 86, color: '#548e30'},
+    {name: 'Jaina', role: 'Damage', max: 2200, dps: 86, color: '#247fa3'},
+    {name: 'Thrall', role: 'Healer', max: profile.health, dps: 0, color: '#2868cc'}
   ]};
 let currentEncounter = encounter;
 const difficulty = find('[data-difficulty]');
@@ -145,12 +145,18 @@ for (const [index, [key, name, binding]] of slots.entries()) {
   selects.push({select, rows, key, name, setting});
 }
 
+const roleSymbols = {Tank: 'M12 2 3 6v6c0 5 5 9 9 11 4-2 9-6 9-11V6z',
+  Damage: 'm21 2-2 7-9 9-2-2 9-9 4-5zM3 17l2-2 6 6-2 2zM2 22l4-4 2 2-4 4z',
+  Healer: 'M9 2h6v7h7v6h-7v7H9v-7H2V9h7z'};
 for (const [index, unit] of encounter.party.entries()) {
   const frame = document.createElement('button');
   frame.type = 'button';
   frame.className = 'heal-frame';
   frame.style.setProperty('--unit', unit.color);
-  frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span><strong></strong><small></small><span class="unit-status"></span>';
+  frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
+    '<strong><svg class="unit-role" viewBox="0 0 24 24" role="img" aria-label="' + unit.role +
+    '"><title>' + unit.role + '</title><path d="' + roleSymbols[unit.role] +
+    '"/></svg><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
   frame.onclick = event => attempt(event, index, false);
   frame.oncontextmenu = event => {
     event.preventDefault();
@@ -167,7 +173,7 @@ for (const [index, unit] of encounter.party.entries()) {
       frame.lastElementChild.append(badge);
       return {key, name, badge, timer};
     });
-  frames.push({frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('strong'),
+  frames.push({frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('.unit-name'),
     health: frame.querySelector('small'), auras});
 }
 
@@ -233,7 +239,7 @@ function render() {
     fill(frame.fill, unit.hp / unit.max);
     frame.incoming.style.left = (100 * unit.hp / unit.max) + '%';
     fill(frame.incoming, incoming[i] / unit.max);
-    frame.label.textContent = unit.name + ' · ' + unit.role;
+    frame.label.textContent = unit.name;
     frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
     for (const {key, name, badge, timer} of frame.auras) {
       const expires = key === 'swiftness' ? (i === frames.length - 1 ? s.swiftness : 0) :
