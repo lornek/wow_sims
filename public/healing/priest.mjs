@@ -7,9 +7,9 @@ import {buffs, humanProfile, describeTalentSpells} from './human-healer.mjs';
 const slots = [
   ['flash','Flash Heal','Left click'],['greater','Greater Heal','Right click'],
   ['renew','Renew','Shift + Left'],['poison','Abolish Disease','Shift + Right'],
-  ['shield','Power Word: Shield','Ctrl + Left'],['rez','Resurrection','Ctrl + Right'],
-  ['prayer','Prayer of Healing','Alt + Left'],['penance','Penance','Select target'],
-  ['mending','Prayer of Mending','Select target'],['heal','Heal','Select target'],
+  ['shield','Power Word: Shield','Ctrl + Left'],
+  ['prayer','Prayer of Healing','Alt + Left'],['penance','Penance','Ctrl + Right'],
+  ['mending','Prayer of Mending','Ctrl + Right'],['heal','Heal','Select target'],
   ['nova','Holy Nova','Select target'],['desperate','Desperate Prayer','Activate'],
   ['focus','Inner Focus','Activate'],['pi','Power Infusion','Activate'],['potion','Major Mana Potion','Activate']
 ];

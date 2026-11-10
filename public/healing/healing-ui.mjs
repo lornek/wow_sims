@@ -55,8 +55,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       coefficient: effect?.coefficient ?? 0, period: effect?.period, chain: effect?.chain,
       falloff: effect?.falloff, party: key === 'stream', waterTotem: key === 'stream', dispel: key === 'poison',
       ...utility[key],
-      directChainBonus: key === 'riptide' ? .25 : 0,
-      rez: key === 'rez' ? Number(tooltip?.description?.match(/with (\d+) health/)?.[1] ?? 600) : 0}, row, tooltip, profile);
+      directChainBonus: key === 'riptide' ? .25 : 0}, row, tooltip, profile);
   }
 
   const spellButtons = [];
@@ -162,9 +161,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function attempt(event, index, right) {
-    const slot = event.altKey && !right ? 6 : event.ctrlKey ? (right ? 5 : 4) :
-      event.shiftKey ? (right ? 3 : 2) : right ? 1 : selected;
-    pull.cast(slots[slot][0], index);
+    const button = right ? 'Right' : 'Left';
+    const binding = event.altKey && !right ? 'Alt + Left' : event.ctrlKey ? 'Ctrl + ' + button :
+      event.shiftKey ? 'Shift + ' + button : right ? 'Right click' : '';
+    const active = slots[selected];
+    const key = !binding || (active[2] === binding && currentSpells[active[0]]) ? active[0] :
+      slots.find(([key, , shortcut]) => shortcut === binding && currentSpells[key])?.[0];
+    if (key) pull.cast(key, index);
     render();
   }
 
@@ -326,7 +329,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-talents]').before(label);
   }
   if (Number.isInteger(saved.power) && saved.power >= 0 && saved.power <= 5000) find('[data-power]').value = saved.power;
-  if (Number.isInteger(saved.selected) && saved.selected >= 0 && saved.selected < slots.length && !utility[slots[saved.selected][0]]) selected = saved.selected;
+  const savedSlot = typeof saved.selected === 'string' ? slots.findIndex(([key]) => key === saved.selected) :
+    Number.isInteger(saved.selected) && saved.selected !== 5 ? saved.selected - Number(saved.selected > 5) : -1;
+  if (slots[savedSlot] && !utility[slots[savedSlot][0]]) selected = savedSlot;
   find('[data-sound]').checked = saved.sound === true;
 
   function saveSettings() {
@@ -339,7 +344,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         buffs: [...enabled],
         power: power.validity.valid ? Number(power.value) : 0,
         sound: find('[data-sound]').checked,
-        selected,
+        selected: slots[selected][0],
         talents: talentTree.build,
         ranks: Object.fromEntries(selects.map(({key, select}) => [key, select.value]))
       }));
@@ -493,7 +498,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-schools]').append(button);
     return button;
   });
-  const bookRows = Object.entries(catalog).map(([name, entry]) => {
+  const resurrection = new Set(['Ancestral Spirit', 'Rebirth', 'Redemption', 'Resurrection']);
+  const bookRows = Object.entries(catalog).filter(([name]) => !resurrection.has(name)).map(([name, entry]) => {
     const [school, status] = spellGroups[name] ?? ['enhancement', ''];
     return {name, school, status, ranks: entry.ranks.map(rank => {
       const row = byName(name).find(candidate => candidate.rank === rank.rank);
@@ -616,7 +622,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
     } else {
       find('[data-inspect-chain]').replaceChildren();
-      if (spell.rez) add('Resurrection', spell.rez + ' health' + (spell.combatRez ? ', usable during combat' : ' after combat'));
       if (spell.dispel) add('Dispel', spell.abolishPoison ? 'Removes one poison now and every 2 sec for 8 sec' : 'Removes one ' + hazard + ' effect');
       if (spell.shield) add('Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)) +
         ' damage · ' + spell.duration + ' sec · 15 sec Weakened Soul before talents');

@@ -118,8 +118,6 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       if (effect) heal(spell.key, unit, effect.amount * effect.ticks, true);
     } else if (spell.manaRange) {
       restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]));
-    } else if (spell.rez) {
-      unit.hp = Math.min(unit.max, spell.rez);
     } else if (spell.dispel) {
       unit.poison = 0;
       if (spell.abolishPoison) {
@@ -170,10 +168,8 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     const spell = spells[key];
     const unit = spell?.self ? party.at(-1) : party[index];
     if (!spell || !unit) return;
-    const canResurrect = state.phase === 'active' ? spell.combatRez : ['won', 'lost'].includes(state.phase);
-    if (spell.rez ? !canResurrect || unit.hp : state.phase !== 'active' || !unit.hp) {
-      state.message = spell.rez ? (spell.combatRez ? 'Choose a fallen ally.' : 'Resurrection requires a fallen ally after combat.') :
-        'Choose a living ally during the pull.';
+    if (state.phase !== 'active' || !unit.hp) {
+      state.message = 'Choose a living ally during the pull.';
       return;
     }
     if (state.cast || (!spell.offGcd && state.time < state.gcd)) return;
@@ -195,7 +191,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.message = 'Not enough mana.';
       return;
     }
-    const instant = spell.cast > 0 && !spell.rez && state.swiftness > state.time;
+    const instant = spell.cast > 0 && state.swiftness > state.time;
     if (instant) state.swiftness = 0;
     const speed = state.graceUntil > state.time ? 1.1 : 1;
     if (!spell.offGcd) {
@@ -215,7 +211,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   function finishCast() {
     const {spell, unit, usesVigil} = state.cast;
     state.cast = null;
-    if (!unit.hp && !spell.rez) return;
+    if (!unit.hp) return;
     state.mana -= spell.cost;
     if (spell.cost) state.lastSpend = state.time;
     state.manaSpent += spell.cost;

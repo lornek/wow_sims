@@ -19,7 +19,6 @@ const slots = [
   ['rejuvenation', 'Rejuvenation', 'Shift + Left'],
   ['poison', 'Abolish Poison', 'Shift + Right'],
   ['swiftmend', 'Swiftmend', 'Ctrl + Left'],
-  ['rez', 'Rebirth', 'Ctrl + Right'],
   ['growth', 'Wild Growth', 'Alt + Left'],
   ['tranquility', 'Tranquility', 'Activate'],
   ['swiftness', "Nature's Swiftness", 'Activate'],
@@ -34,7 +33,6 @@ const utility = {
 };
 function configureSpell(spell, row, tooltip, profile) {
   if (spell.key === 'swiftmend') return {...spell, cost: Math.floor(.2 * profile.baseMana), swiftmend: true, low: 0};
-  if (spell.key === 'rez') return {...spell, combatRez: true, rez: row.effects[0]?.base ?? 0};
   if (spell.key === 'poison') return {...spell, abolishPoison: true};
   if (spell.key === 'growth') return {...spell, party: true, decay: true, periodicCrit: true};
   if (spell.key === 'rejuvenation') return {...spell, swiftmendable: true, periodicCrit: true};
