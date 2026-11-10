@@ -26,6 +26,7 @@
 .heal-touch-help { display:none; }
 .heal-frame, .heal-spells button { touch-action:manipulation; }
 @media (pointer:coarse) {
+  .heal-spells .spell-shortcut { display:none; }
   .heal-touch-help { display:block; }
   .heal-mouse-help { display:none; }
 }

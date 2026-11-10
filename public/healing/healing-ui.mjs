@@ -94,6 +94,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const label = document.createElement('span');
     label.textContent = name;
     const shortcut = document.createElement('small');
+    shortcut.className = 'spell-shortcut';
     shortcut.textContent = binding;
     const cooldown = document.createElement('small');
     label.append(shortcut, cooldown);

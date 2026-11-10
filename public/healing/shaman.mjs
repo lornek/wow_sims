@@ -22,7 +22,6 @@ const slots = [
 ];
 const utility = {
   waterShield: {waterShield:true},
-  riptide: {periodicCrit: true},
   swiftness: {offGcd: true, swiftness: true},
   tide: {party: true, waterTotem: true, period: 3, duration: 12, manaTick: 290},
   potion: {offGcd: true, manaRange: [1350, 2250]}
@@ -41,6 +40,7 @@ mountHealing({
   schools: ['Enhancement', 'Restoration', 'Elemental Combat'],
   schoolIcons: ['Lightning Shield', 'Healing Wave', 'Lightning Bolt'],
   unlocks: ['riptide', 'swiftness', 'tide', 'waterShield'],
+  configureSpell: spell => spell.key === 'riptide' ? {...spell, periodicCrit: true} : spell,
   auras: [['riptide', 'Riptide'], ['stream', 'Healing Stream Totem'], ['tide', 'Mana Tide Totem']],
   healingKeys: ['wave', 'lesser', 'chain', 'riptide', 'stream']
 });
