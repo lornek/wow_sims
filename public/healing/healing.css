@@ -30,7 +30,7 @@
 }
 .healing .boss-actions button:hover, .healing .boss-actions button:focus-visible { outline:2px solid #ffe09a; }
 .healing .boss-actions .is-enraged { box-shadow:0 0 8px 2px #f56b31; }
-.boss-actions .spell-art { width:36px; height:36px; }
+.boss-actions .spell-art { width:47px; height:47px; }
 .boss-actions img { display:block; width:100%; height:100%; border-radius:3px; }
 .boss-actions small {
   position:absolute; inset:auto 0 1px; z-index:1; color:white;
@@ -74,8 +74,8 @@
   .combat-damage .meter-row summary { padding:3px; gap:2px; flex-wrap:wrap; }
   .combat-damage .meter-row p { overflow-wrap:anywhere; font-size:.7rem; }
   .combat-sidebar .combat-buffs { gap:3px; }
-  .combat-sidebar .combat-buffs img { width:clamp(12px,3.4vw,20px); height:auto; }
-  .boss-actions .spell-art { width:clamp(18px,5vw,30px); height:auto; aspect-ratio:1; }
+  .combat-sidebar .combat-buffs img { width:clamp(24px,7vw,32px); height:auto; }
+  .boss-actions .spell-art { width:clamp(23px,6.5vw,39px); height:auto; aspect-ratio:1; }
 }
 .heal-bar, .regen-track, .heal-frame { position:relative; isolation:isolate; overflow:hidden; background:#15100c; border:1px solid var(--border); border-radius:3px; }
 .heal-bar > span, .regen-track > span, .unit-fill { position:absolute; inset:0 auto 0 0; z-index:-1; background:#873426; }
@@ -120,7 +120,13 @@
 .spellbook p { margin:7px 0 7px 16px; }
 .heal-credit { color:var(--muted); font-size:.9rem; }
 @media(max-width:650px) {
-  .heal-party { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .heal-party { gap:3px; }
+  .healing .heal-frame { min-width:0; padding-inline:2px; font-size:.72rem; }
+  .heal-frame .unit-status { flex-wrap:wrap; }
+  .heal-frame .healer-resource small { font-size:.58rem; gap:0; }
+  .heal-spells { grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px; }
+  .healing .heal-spells button { min-width:0; padding:4px; gap:3px; font-size:.68rem; overflow-wrap:anywhere; }
+  .heal-spells img { width:22px; height:22px; }
   .healing .heal-frame { min-height:70px; }
 }
 
@@ -259,3 +265,8 @@ body:has(#healing) { font-family:var(--ui); }
 .party-resource.rage > span { background:#d84d45; }
 .party-resource.energy > span { background:#e5bf44; }
 [data-damage-meter] .meter-row p { white-space:pre-line; }
+
+.heal-stage > .combat-damage { grid-column:2; }
+.encounter-settings { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.encounter-settings label { margin:0; }
+.healing [data-start] { color:#ffe5a2; font-weight:700; border-color:#b98b46; }
