@@ -19,7 +19,6 @@ const damageIcons = {
   'Fireball': 'spell_fire_flamebolt',
   'Fire Blast': 'spell_fire_fireball',
   'Scorch': 'spell_fire_soulburn',
-  'Pyroblast': 'spell_fire_fireball02',
   'Ignite': 'spell_fire_incinerate',
   'Ice Lance': 'spell_frost_frostblast',
   'Arcane Shot': 'ability_impalingbolt',
