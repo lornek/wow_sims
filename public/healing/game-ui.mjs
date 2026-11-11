@@ -38,6 +38,7 @@ export function attachGameTooltip(button, render) {
     activeTooltip?.hide();
     activeTooltip = handle;
     document.body.append(tip);
+    tip.replaceChildren();
     render(tip);
     tip.hidden = false;
     const rect = button.getBoundingClientRect();
