@@ -121,6 +121,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     label.append(shortcut, cooldown);
     button.append(label);
     button.onclick = event => {
+      if (pull.state.phase === 'ready' && touchInput(event)) {
+        openInspector(index);
+        return;
+      }
       if (utility[key]) {
         const previous = pull.state.meters[key]?.casts;
         pull.cast(key, encounter.party.length - 1);
@@ -403,6 +407,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
               entry.lines.set(name, line);
             }
             line.element.style.setProperty('--damage-hue', (index % 5 * (unit.name === 'Jaina' ? -10 : 7)) + 'deg');
+            line.element.style.setProperty('--ability-share', (100 * damage / damaging[0][1]) + '%');
             line.element.style.setProperty('--damage-tint', (28 + index % 5 * 7) + '%');
             line.numbers.textContent = whole(damage) + ' · ' + whole(damage / (s.endedAt || s.time || 1)) + ' DPS';
             const current = breakdown.children[index];

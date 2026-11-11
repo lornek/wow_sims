@@ -306,7 +306,7 @@ body:has(#healing) { font-family:var(--ui); }
   isolation:isolate; position:relative; font-size:.72rem; font-variant-numeric:tabular-nums;
 }
 .damage-breakdown > div::before {
-  content:""; position:absolute; inset:0; z-index:-1; border-radius:2px;
+  content:""; position:absolute; inset:0 auto 0 0; width:var(--ability-share, 0%); z-index:-1; border-radius:2px;
   background:color-mix(in srgb,var(--damage-class) var(--damage-tint),#171219);
   filter:hue-rotate(var(--damage-hue));
 }
