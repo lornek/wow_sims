@@ -1,10 +1,14 @@
+import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-combat.mjs';
+
 export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}) {
   const party = encounter.party.map(unit => ({...unit, hp: unit.max, poison: 0}));
+  if (encounter.id) setupPartyCombat(party);
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
     manaPerSpirit: 0, manaPerMp5: 0,
-    nextPoison: 7, nextFlurry: encounter.firstFlurry, swiftness: 0, meters: {}};
+    encounterId: encounter.id, nextPoison: encounter.id && encounter.id !== 'rend' ? Infinity : 7,
+    nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}};
 
   function meter(key) {
     return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0, mana: 0};
@@ -34,7 +38,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (crit) triggerWaterShield();
     if (weakened && !spell.channel) unit.weakened = Math.max(state.time, unit.weakened - spell.renewedHope);
     if (crit && !periodic && profile.grace) state.graceUntil = state.time + 3;
-    const amount = Math.round(raw * (state.powerInfusion > state.time ? 1.2 : 1) * (crit ? 1.5 + (profile.critHealingBonus ?? 0) : 1));
+    const amount = Math.round(raw * (party.at(-1).powerInfusion?.expires > state.time ? 1.2 : 1) * (crit ? 1.5 + (profile.critHealingBonus ?? 0) : 1));
     const effective = Math.min(unit.max - unit.hp, amount);
     unit.hp += effective;
     state.healing += effective;
@@ -119,6 +123,9 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state[spell.mark] = {target: unit, expires: state.time + spell.duration, spell};
     } else if (spell.mending) {
       state.mending = {target: unit, expires: state.time + 30, amount: healingAmount(spell, .5), left: 5};
+    } else if (spell.powerInfusion) {
+      for (const ally of party) delete ally.powerInfusion;
+      unit.powerInfusion = {expires:state.time + spell.duration};
     } else if (spell.activateBuff) {
       state[spell.activateBuff] = spell.duration > 0 ? state.time + spell.duration : Infinity;
     } else if (spell.layOnHands) {
@@ -247,6 +254,10 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       const armor = unit.role === 'Tank' ? 4500 : 1500;
       amount *= (5500 + armor) / (5500 + armor * (1 + profile.inspiration));
     }
+    if (physical && unit.resource?.type === 'Rage' && random() < .25) {
+      amount = Math.max(0, amount - 45);
+      unit.rotation.revengeUntil = state.time + 5;
+    }
     if (amount > 0 && unit === party.at(-1)) triggerWaterShield();
     for (const key of ['shield', 'aegis']) {
       const absorb = unit[key];
@@ -259,6 +270,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       if (consumed) stats.hits++;
       state.healing += consumed;
     }
+    gainDamageRage(unit, Math.min(unit.hp, amount));
     unit.hp = Math.max(0, unit.hp - amount);
     if (amount > 0) triggerMending(unit);
     const cast = state.cast;
@@ -330,8 +342,19 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       for (const unit of party) damage(unit, encounter.flurry);
       state.message = 'Blade Flurry hit the party!';
     }
-    state.boss = Math.max(0, state.boss - party.reduce((sum, unit) => sum + (unit.hp ? unit.dps : 0), 0) * dt);
-    if (!state.enraged && state.boss > 0 && state.boss <= encounter.health * .35) {
+    if (state.time >= state.nextSpecial && encounter.id === 'patchwerk') {
+      state.nextSpecial += 3;
+      const target = party[1].hp ? party[1] : party.find(unit => unit.hp);
+      if (target) damage(target, encounter.strike);
+      state.message = 'Hateful Strike hits ' + (target?.name ?? 'the party') + '!';
+    }
+    if (state.time >= state.nextSpecial && encounter.id === 'sapphiron') {
+      state.nextSpecial += 2;
+      for (const unit of party) if (unit.hp) damage(unit, encounter.frost, false);
+    }
+    if (encounter.id) advancePartyCombat(state, dt, random);
+    else state.boss = Math.max(0, state.boss - party.reduce((sum, unit) => sum + (unit.hp ? unit.dps : 0), 0) * dt);
+    if ((!encounter.id || encounter.id === 'rend') && !state.enraged && state.boss > 0 && state.boss <= encounter.health * .35) {
       state.enraged = true;
       for (const timer of ['nextSwing', 'nextPoison', 'nextFlurry']) {
         state[timer] = state.time + Math.max(0, state[timer] - state.time) / 1.2;

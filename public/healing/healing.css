@@ -177,3 +177,8 @@ body:has(#healing) { font-family:var(--ui); }
 .combat-buffs input:focus-visible + img { outline:2px solid #ffe08b; outline-offset:2px; }
 .combat-buffs label:not(:has(input:checked)) img, .combat-buffs .water-buff:not(.buff-live) img { filter:grayscale(1) brightness(.55); }
 .combat-buffs small { position:absolute; right:1px; bottom:0; color:#fff; font-weight:bold; text-shadow:0 1px 2px #000, 0 0 3px #000; }
+.party-resource { display:block; width:100%; height:5px; margin-block:4px; background:#1a1514; border-radius:2px; overflow:hidden; }
+.party-resource > span { display:block; height:100%; background:#448cdd; }
+.party-resource.rage > span { background:#d84d45; }
+.party-resource.energy > span { background:#e5bf44; }
+[data-damage-meter] .meter-row p { white-space:pre-line; }
