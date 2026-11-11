@@ -82,7 +82,11 @@ export function advancePartyCombat(state, dt, random) {
       meter.crits += Number(crit);
       meter.total += damage;
       state.boss -= damage;
-      if (grantsRage) gain(unit, 3.46 * stats.speed * (crit ? 2 : 1));
+      if (grantsRage) {
+        const before = unit.resource.value;
+        gain(unit, 3.46 * stats.speed * (crit ? 2 : 1));
+        rotation.swingRage += unit.resource.value - before;
+      }
       return damage;
     }
     function spend(spell, cost, cooldown = 0, gcd = 1.5) {
@@ -93,8 +97,16 @@ export function advancePartyCombat(state, dt, random) {
     if (unit.name === 'Cairne') {
       if (rotation.opened === undefined) {
         rotation.opened = true;
+        rotation.swingRage = 0;
+        rotation.bloodrageTick = now + 1;
+        rotation.bloodrageTicksLeft = 10;
         // The encounter starts with pooled Rage plus Charge and Bloodrage.
         gain(unit, 5 * sunderCost);
+      }
+      if (rotation.bloodrageTicksLeft && now >= rotation.bloodrageTick) {
+        gain(unit, 1);
+        rotation.bloodrageTicksLeft--;
+        rotation.bloodrageTick++;
       }
       const stacking = state.sunderStacks < 5;
       const sunderNeeded = stacking || state.sunderUntil - now <= 3;
@@ -109,7 +121,8 @@ export function advancePartyCombat(state, dt, random) {
       }
       if (now >= rotation.swing) {
         rotation.swing += stats.swingInterval;
-        const heroic = !stacking && unit.resource.value >= 35;
+        // Queue Heroic Strike only with surplus rage. It replaces a rage-generating swing.
+        const heroic = !stacking && unit.resource.value >= 60;
         if (heroic) unit.resource.value -= 12;
         const bonus = stats.ap * stats.speed / 14 + (heroic ? 157 : 0);
         const low = stats.weaponMin + bonus;
