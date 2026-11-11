@@ -81,6 +81,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const button = document.createElement('button');
     button.type = 'button';
     button.setAttribute('aria-haspopup', 'dialog');
+    button.setAttribute('aria-label', name);
     const art = document.createElement('span');
     art.className = 'spell-art';
     const timer = document.createElement('span');
@@ -88,6 +89,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     art.append(icon(name), timer);
     button.append(art);
     const label = document.createElement('span');
+    label.className = 'spell-label';
     label.textContent = name;
     const shortcut = document.createElement('small');
     shortcut.className = 'spell-shortcut';
@@ -217,8 +219,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       label.textContent = unit.name;
       damageRows[index] = {row, value, breakdown};
     } else {
-      frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana healer-resource"><span data-mana-fill></span>' +
-        '<small><span data-mana-current></span><span> / </span><span data-mana-max></span></small></span>');
+      frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana"><span data-mana-fill></span></span>');
     }
     frame.onclick = event => {
       if (!touchInput(event)) return attempt(event, index, false);
@@ -334,6 +335,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       ability.timer.textContent = active ? (ability.clock ? countdown(remaining) : s.enraged ? 'Active' : '35%') : '';
       ability.button.classList.toggle('is-enraged', !ability.clock && !!s.enraged);
     }
+    find('[data-boss-percent]').textContent = Math.ceil(100 * s.boss / currentEncounter.health) + '%';
     const specialAt = currentEncounter.id === 'patchwerk' ? s.nextSpecial : s.nextFlurry;
     const flurry = active && specialAt - s.time <= 2;
     fill(find('[data-boss-cast-fill]'), flurry ? 1 - (specialAt - s.time) / 2 : 0);
@@ -355,11 +357,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         entry.dps = total / (s.endedAt || s.time || 1);
         value.textContent = whole(total) + ' · ' + whole(entry.dps) + ' DPS';
         if (row.open) {
-          const stats = combatants[unit.name];
-          const stat = stats.power ? stats.power + ' spell power' : stats.ap + ' attack power';
-          const rage = unit.resource.type === 'Rage' ? [whole(unit.rotation.swingRage ?? 0) + ' Rage gained from auto-attacks'] : [];
-          breakdown.textContent = [stat + ' · ' + Math.round(stats.crit * 100) + '% crit · ' + Math.round(stats.hit * 100) + '% special hit', ...rage, ...abilities.map(([name, data]) =>
-          name + ' · ' + whole(data.total) + ' damage · ' + data.hits + '/' + data.attempts + ' hits · ' + data.crits + ' crits')].join('\n');
+          breakdown.textContent = abilities.filter(([, data]) => data.total > 0).map(([name, data]) =>
+            name + ' · ' + whole(data.total) + ' damage · ' + whole(data.total / (s.endedAt || s.time || 1)) + ' DPS').join('\n');
         }
       }
       frame.frame.classList.toggle('touch-target', i === touchTarget && !!unit.hp);
@@ -395,6 +394,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const field of root.querySelectorAll('[data-mana-fill]')) fill(field, s.mana / profile.mana);
     for (const field of root.querySelectorAll('[data-mana-current]')) field.textContent = whole(s.mana);
     for (const field of root.querySelectorAll('[data-mana-max]')) field.textContent = whole(profile.mana);
+    find('[data-mana-rate]').textContent = '+' + pull.manaRegenRate().toFixed(1) + ' mana/sec';
     fill(find('[data-regen]'), (s.time - s.lastSpend) / 5);
     fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : 0);
     find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';

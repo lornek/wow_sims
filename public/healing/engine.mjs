@@ -282,14 +282,23 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     }
   }
 
+  function spiritRegenFraction(time) {
+    if (time < state.innervateUntil) return 5;
+    return time < state.lastSpend + 5 ? (profile.castingRegen ?? 0) : 1;
+  }
+
+  function manaRegenRate(time = state.time) {
+    return (profile.mp5 ?? 0) / 5 + profile.regen * spiritRegenFraction(time);
+  }
+
   function regenerate(from, to) {
     while (from < to) {
       const innervated = from < state.innervateUntil;
       const restricted = from < state.lastSpend + 5;
       const end = Math.min(to, innervated ? state.innervateUntil : restricted ? state.lastSpend + 5 : to);
       const seconds = end - from;
-      const spiritFraction = innervated ? 5 : restricted ? (profile.castingRegen ?? 0) : 1;
-      const regen = ((profile.mp5 ?? 0) / 5 + profile.regen * spiritFraction) * seconds;
+      const spiritFraction = spiritRegenFraction(from);
+      const regen = manaRegenRate(from) * seconds;
       if (state.phase === 'active') {
         const headroom = Math.max(0, profile.mana - state.mana - regen);
         state.manaPerSpirit += Math.min(headroom, (profile.spiritPerRawPoint ?? 1) * spiritFraction * seconds * (profile.spiritRegenCoefficient ?? .125));
@@ -372,5 +381,5 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.manaAtEnd = state.mana;
     }
   }
-  return {state, cast, step, incomingHealing, start() { if (state.phase === 'ready') state.phase = 'active'; }};
+  return {state, cast, step, incomingHealing, manaRegenRate, start() { if (state.phase === 'ready') state.phase = 'active'; }};
 }

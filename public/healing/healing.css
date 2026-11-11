@@ -30,7 +30,7 @@
 }
 .healing .boss-actions button:hover, .healing .boss-actions button:focus-visible { outline:2px solid #ffe09a; }
 .healing .boss-actions .is-enraged { box-shadow:0 0 8px 2px #f56b31; }
-.boss-actions .spell-art { width:47px; height:47px; }
+.boss-actions .spell-art { width:61px; height:61px; }
 .boss-actions img { display:block; width:100%; height:100%; border-radius:3px; }
 .boss-actions small {
   position:absolute; inset:auto 0 1px; z-index:1; color:white;
@@ -39,10 +39,10 @@
 .heal-boss > strong { color:#ffe1a2; text-shadow:0 2px 3px #000; }
 .heal-bar.boss-health {
   margin-top:4px; min-height:1.6em; display:grid; place-items:center; text-shadow:0 1px 2px #000;
-  border:3px solid #d6a849; box-shadow:0 0 0 1px #56311a;
+  border:1px solid #d6a849; box-shadow:0 4px 12px #000d;
 }
 .heal-bar.boss-health > span { background:linear-gradient(#a54a2c,#732119); }
-.heal-bar.main-mana { min-height:27px; border:3px solid #d6a849; }
+.heal-bar.main-mana { min-height:27px; border:1px solid #d6a849; box-shadow:0 4px 12px #000d; }
 .heal-bar.main-mana > span {
   overflow:hidden; background:linear-gradient(#4c9bf0,#164787 68%,#102f62);
   box-shadow:inset 0 1px 3px #b4e8ff, 0 0 8px #68bdff;
@@ -75,7 +75,7 @@
   .combat-damage .meter-row p { overflow-wrap:anywhere; font-size:.7rem; }
   .combat-sidebar .combat-buffs { gap:3px; }
   .combat-sidebar .combat-buffs img { width:clamp(24px,7vw,32px); height:auto; }
-  .boss-actions .spell-art { width:clamp(23px,6.5vw,39px); height:auto; aspect-ratio:1; }
+  .boss-actions .spell-art { width:clamp(30px,8.45vw,51px); height:auto; aspect-ratio:1; }
 }
 .heal-bar, .regen-track, .heal-frame { position:relative; isolation:isolate; overflow:hidden; background:#15100c; border:1px solid var(--border); border-radius:3px; }
 .heal-bar > span, .regen-track > span, .unit-fill { position:absolute; inset:0 auto 0 0; z-index:-1; background:#873426; }
@@ -84,8 +84,8 @@
 .heal-party { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; }
 .healing .heal-frame { min-height:100px; padding:5px; text-align:center; text-shadow:0 1px 2px black; touch-action:manipulation; overflow-wrap:anywhere; }
 .heal-frame strong, .heal-frame small, .unit-status { display:block; }
-.healing .heal-frame { border:3px solid #a98449; background:#201916; }
-.heal-frame .unit-fill { background:var(--unit); }
+.healing .heal-frame { border:1px solid #a98449; background:#201916; box-shadow:0 4px 10px #000c; }
+.heal-frame .unit-fill { background:linear-gradient(#fff2,transparent 48%,#0004),var(--unit); }
 .heal-frame strong { display:flex; align-items:center; justify-content:center; gap:5px; flex-wrap:wrap; }
 .unit-role { width:16px; height:16px; fill:currentColor; filter:drop-shadow(0 1px 1px #000); }
 .unit-incoming { position:absolute; inset:0 auto 0 0; z-index:-1; background:#79db8160; pointer-events:none; }
@@ -123,7 +123,6 @@
   .heal-party { gap:3px; }
   .healing .heal-frame { min-width:0; padding-inline:2px; font-size:.72rem; }
   .heal-frame .unit-status { flex-wrap:wrap; }
-  .heal-frame .healer-resource small { font-size:.58rem; gap:0; }
   .heal-spells { grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px; }
   .healing .heal-spells button { min-width:0; padding:4px; gap:3px; font-size:.68rem; overflow-wrap:anywhere; }
   .heal-spells img { width:22px; height:22px; }
@@ -257,16 +256,29 @@ body:has(#healing) { font-family:var(--ui); }
 .combat-buffs small { position:absolute; right:1px; bottom:0; color:#fff; font-weight:bold; text-shadow:0 1px 2px #000, 0 0 3px #000; }
 .healing .heal-frame { padding-bottom:18px; }
 .party-resource { position:absolute; inset:auto 0 0; display:block; height:10px; background:#1a1514; overflow:hidden; }
-.party-resource > span { display:block; height:100%; background:#448cdd; }
-.party-resource.healer-resource { height:20px; }
-.heal-frame .healer-resource small { position:absolute; inset:0; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:.35em; font-size:.72rem; }
-.healer-resource small span:first-child { text-align:right; }
-.healer-resource small span:last-child { text-align:left; }
-.party-resource.rage > span { background:#d84d45; }
-.party-resource.energy > span { background:#e5bf44; }
+.party-resource > span { display:block; height:100%; background:linear-gradient(#fff4,#0004),var(--resource-color,#448cdd); }
+.party-resource.rage { --resource-color:#d84d45; }
+.party-resource.energy { --resource-color:#e5bf44; }
 [data-damage-meter] .meter-row p { white-space:pre-line; }
 
-.heal-stage > .combat-damage { grid-column:2; grid-row:2; align-self:end; }
+.heal-stage > .heal-boss { grid-column:1 / -1; grid-row:2; }
+.heal-stage > .combat-damage { grid-column:2; grid-row:2; align-self:center; justify-self:end; z-index:2; width:min(100%,230px); }
+.combat-damage .meter-row { margin-top:3px; }
+.combat-damage .meter-row summary { padding-block:2px; }
+[data-boss-percent] { position:absolute; right:7px; top:50%; transform:translateY(-50%); font:800 .88rem var(--ui); }
+.main-mana strong { display:flex; justify-content:center; flex-wrap:wrap; gap:.45ch; }
+[data-mana-rate] { color:#d2eeff; margin-inline-start:1em; font:700 .82rem var(--ui); }
+.heal-spells .spell-art img { width:42px; height:42px; }
+@media(max-width:650px), (pointer:coarse) {
+  .heal-spells { grid-template-columns:repeat(auto-fit,minmax(48px,1fr)); }
+  .healing .heal-spells button { padding:2px; justify-content:center; }
+  .heal-spells .spell-label { display:none; }
+  .heal-spells .spell-art { width:100%; max-width:58px; }
+  .heal-spells .spell-art img { width:100%; height:auto; aspect-ratio:1; }
+  .heal-stage > .heal-boss { width:min(440px,74%); }
+  .heal-stage > .combat-damage { width:min(100%,128px); }
+}
+
 .encounter-settings { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
 .encounter-settings label { margin:0; }
 .healing [data-start] { color:#ffe5a2; font-weight:700; border-color:#b98b46; }
