@@ -1,4 +1,5 @@
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
+import {encounters, combatants} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
@@ -25,8 +26,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const countdown = seconds => seconds >= 60 ? Math.ceil(seconds / 60) + 'm' : Math.ceil(seconds) + 's';
   const sweep = (icon, fraction) => icon.style.setProperty('--cooldown-sweep', (100 * clamp(fraction)) + '%');
   let profile = buildProfile('Ungeared', new Set(), 0);
-  const encounter = {health: 12500, limit: 75, swing: 225, firstFlurry: 17, flurry: 265, poisonTick: 100,
-    party: [
+  const encounter = {party: [
       {name: 'Cairne', role: 'Tank', max: 3200, dps: 22, color: '#a97043'},
       {name: 'Illidan', role: 'Damage', max: 2450, dps: 92, color: '#9a50be'},
       {name: 'Sylvanas', role: 'Damage', max: 2350, dps: 86, color: '#548e30'},
@@ -35,6 +35,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     ]};
   let currentEncounter = encounter;
   const difficulty = find('[data-difficulty]');
+  const encounterSelect = find('[data-encounter]');
+  if (Object.hasOwn(encounters, saved.encounter)) encounterSelect.value = saved.encounter;
   const stamina = find('[data-stamina]');
   if (Number.isInteger(saved.difficulty) && saved.difficulty >= 0 && saved.difficulty <= 3) difficulty.value = saved.difficulty;
   if (typeof saved.stamina === 'number') {
@@ -143,6 +145,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const roleSymbols = {Tank: 'M12 2 3 6v6c0 5 5 9 9 11 4-2 9-6 9-11V6z',
     Damage: 'm21 2-2 7-9 9-2-2 9-9 4-5zM3 17l2-2 6 6-2 2zM2 22l4-4 2 2-4 4z',
     Healer: 'M9 2h6v7h7v6h-7v7H9v-7H2V9h7z'};
+  const damageRows = [];
   for (const [index, unit] of encounter.party.entries()) {
     const frame = document.createElement('button');
     frame.type = 'button';
@@ -152,6 +155,21 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       '<strong><svg class="unit-role" viewBox="0 0 24 24" role="img" aria-label="' + unit.role +
       '"><title>' + unit.role + '</title><path d="' + roleSymbols[unit.role] +
       '"/></svg><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
+    let resource;
+    if (combatants[unit.name]) {
+      const track = document.createElement('span');
+      track.className = 'party-resource ' + combatants[unit.name].resource.toLowerCase();
+      resource = document.createElement('span');
+      track.append(resource);
+      frame.insertBefore(track, frame.lastElementChild);
+      const row = document.createElement('details');
+      row.className = 'meter-row';
+      const summary = document.createElement('summary');
+      const breakdown = document.createElement('p');
+      row.append(summary, breakdown);
+      find('[data-damage-meter]').append(row);
+      damageRows[index] = {row, summary, breakdown};
+    }
     frame.onclick = event => {
       if (!touchInput(event)) return attempt(event, index, false);
       if (!pull.state.party[index].hp) return;
@@ -174,7 +192,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         return {key, name, badge, timer};
       });
     frames.push({frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('.unit-name'),
-      health: frame.querySelector('small'), auras: badges});
+      health: frame.querySelector('small'), resource, auras: badges});
   }
 
   function attempt(event, index, right) {
@@ -215,6 +233,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     touchTarget = null;
     configuredSpells();
     const level = Number(difficulty.value);
+    const id = encounterSelect.value;
+    const boss = encounters[id];
     const damage = 1.1 * (1.15 * 1.1) ** level;
     const health = 1.3 ** level;
     const staminaScale = staminaMultiplier();
@@ -222,13 +242,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const tankHealth = staminaScale * 1.16 ** level;
     const party = encounter.party.map((unit, index) => ({
       ...unit,
-      max: Math.round(index === encounter.party.length - 1 ? profile.health : unit.max * (unit.role === 'Tank' ? tankHealth : allyHealth))
+      max: Math.round(index === encounter.party.length - 1 ? profile.health : unit.max * (unit.role === 'Tank' || id === 'patchwerk' && index === 1 ? tankHealth : allyHealth) * (id === 'patchwerk' && index === 1 ? 1.3 : 1))
     }));
-    currentEncounter = {...encounter, party, hazard, startWaterShield: enabled.has('waterShield'), health: Math.round(encounter.health * health), limit: encounter.limit * health,
-      swing: Math.round(encounter.swing * damage), flurry: Math.round(encounter.flurry * damage),
-      poisonTick: Math.round(encounter.poisonTick * damage)};
+    currentEncounter = {...boss, id, party, hazard, startWaterShield: enabled.has('waterShield'),
+      health: Math.round(boss.health * health), limit: boss.limit * health};
+    for (const key of ['swing', 'flurry', 'poisonTick', 'strike', 'frost']) {
+      if (boss[key]) currentEncounter[key] = Math.round(boss[key] * damage);
+    }
+    find('[data-boss-name]').textContent = boss.name;
     find('[data-encounter-preview]').textContent = whole(currentEncounter.health) + ' boss HP · ×' +
-      damage.toFixed(3).replace(/\.?0+$/, '') + ' boss damage · ×' + tankHealth.toFixed(2) + ' tank HP · ×' + allyHealth.toFixed(2) + ' other ally HP';
+      damage.toFixed(3).replace(/\.?0+$/, '') + ' boss damage · ×' + tankHealth.toFixed(2) + ' tank HP · ×' + allyHealth.toFixed(2) + ' other ally HP · ' + boss.description;
     pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal);
     updateSheet();
     if (start) pull.start();
@@ -250,16 +273,32 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : 'Ready to pull';
     fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
     find('[data-boss]').textContent = Math.ceil(s.boss / currentEncounter.health * 100) + '%';
-    const flurry = active && s.nextFlurry - s.time <= 2;
-    fill(find('[data-boss-cast-fill]'), flurry ? 1 - (s.nextFlurry - s.time) / 2 : 0);
-    find('[data-boss-cast]').textContent = flurry ? 'Blade Flurry' : '';
+    const specialAt = currentEncounter.id === 'patchwerk' ? s.nextSpecial : s.nextFlurry;
+    const flurry = active && specialAt - s.time <= 2;
+    fill(find('[data-boss-cast-fill]'), flurry ? 1 - (specialAt - s.time) / 2 : 0);
+    find('[data-boss-cast]').textContent = flurry ? (currentEncounter.id === 'patchwerk' ? 'Hateful Strike' : 'Blade Flurry') : '';
     const incoming = pull.incomingHealing();
     s.party.forEach((unit, i) => {
       const frame = frames[i];
       fill(frame.fill, unit.hp / unit.max);
       frame.incoming.style.left = (100 * unit.hp / unit.max) + '%';
       fill(frame.incoming, incoming[i] / unit.max);
-      frame.label.textContent = unit.name;
+      frame.label.textContent = unit.name + (currentEncounter.id === 'patchwerk' && i === 1 ? ' · Off-tank' : '');
+      if (frame.resource && unit.resource) {
+        fill(frame.resource, unit.resource.value / unit.resource.max);
+        frame.resource.parentElement.title = unit.resource.type + ' · ' + whole(unit.resource.value) + ' / ' + unit.resource.max;
+        const {row, summary, breakdown} = damageRows[i];
+        const abilities = Object.entries(unit.damage).sort((a,b) => b[1].total - a[1].total);
+        const total = abilities.reduce((sum, [, ability]) => sum + ability.total, 0);
+        row.style.setProperty('--share', (s.boss < currentEncounter.health ? 100 * total / (currentEncounter.health - s.boss) : 0) + '%');
+        summary.textContent = unit.name + ' · ' + whole(total) + ' damage · ' + whole(total / (s.endedAt || s.time || 1)) + ' DPS';
+        if (row.open) {
+          const stats = combatants[unit.name];
+          const stat = stats.power ? stats.power + ' spell power' : stats.ap + ' attack power';
+          breakdown.textContent = [stat + ' · ' + Math.round(stats.crit * 100) + '% crit · ' + Math.round(stats.hit * 100) + '% special hit', ...abilities.map(([name, data]) =>
+          name + ' · ' + whole(data.total) + ' damage · ' + data.hits + '/' + data.attempts + ' hits · ' + data.crits + ' crits')].join('\n');
+        }
+      }
       frame.frame.classList.toggle('touch-target', i === touchTarget && !!unit.hp);
       frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
       for (const {key, name, badge, timer} of frame.auras) {
@@ -307,7 +346,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     selects.forEach(({select}) => select.disabled = active);
     find('[data-power]').disabled = active;
     find('[data-loadout]').disabled = active;
-    difficulty.disabled = stamina.disabled = active;
+    encounterSelect.disabled = difficulty.disabled = stamina.disabled = active;
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
     talentTree.setLocked(active);
     renderMeters(s);
@@ -387,6 +426,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     try {
       localStorage.setItem(settingsKey, JSON.stringify({
         loadout: gear.value,
+        encounter: encounterSelect.value,
         difficulty: Number(difficulty.value),
         stamina: staminaMultiplier(),
         buffs: [...enabled],
@@ -485,7 +525,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   find('[data-buffs]').onchange = () => reset();
   find('[data-talents]').onchange = () => reset();
   find('[data-start]').onclick = () => reset(true);
-  difficulty.onchange = () => reset();
+  difficulty.onchange = encounterSelect.onchange = () => reset();
   stamina.onchange = () => {
     stamina.value = staminaMultiplier();
     reset();
