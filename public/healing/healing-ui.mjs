@@ -3,6 +3,22 @@ import {encounters, combatants} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
+const damageIcons = {
+  'Melee': 'ability_meleedamage',
+  'Heroic Strike': 'ability_rogue_ambush',
+  'Shield Slam': 'inv_shield_05',
+  'Revenge': 'ability_warrior_revenge',
+  'Main-hand swing': 'ability_meleedamage',
+  'Off-hand swing': 'inv_sword_04',
+  'Sinister Strike': 'spell_shadow_ritualofsacrifice',
+  'Eviscerate': 'ability_rogue_eviscerate',
+  'Auto Shot': 'inv_weapon_bow_07',
+  'Aimed Shot': 'inv_spear_07',
+  'Multi-Shot': 'ability_upgrademoonglaive',
+  'Frostbolt': 'spell_frost_frostbolt02',
+  'Fireball': 'spell_fire_flamebolt'
+};
+
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
   configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison'}) {
@@ -210,14 +226,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       row.className = 'meter-row';
       row.style.setProperty('--damage-class', unit.color);
       const summary = document.createElement('summary');
-      const breakdown = document.createElement('p');
+      const breakdown = document.createElement('div');
+      breakdown.className = 'damage-breakdown';
       const label = document.createElement('span');
       const value = document.createElement('span');
       summary.append(label, value);
       row.append(summary, breakdown);
       damageMeter.append(row);
       label.textContent = unit.name;
-      damageRows[index] = {row, value, breakdown};
+      damageRows[index] = {row, value, breakdown, lines: new Map()};
     } else {
       frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana"><span data-mana-fill></span></span>');
     }
@@ -357,8 +374,27 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         entry.dps = total / (s.endedAt || s.time || 1);
         value.textContent = whole(total) + ' · ' + whole(entry.dps) + ' DPS';
         if (row.open) {
-          breakdown.textContent = abilities.filter(([, data]) => data.total > 0).map(([name, data]) =>
-            name + ' · ' + whole(data.total) + ' damage · ' + whole(data.total / (s.endedAt || s.time || 1)) + ' DPS').join('\n');
+          const damaging = abilities.filter(([, data]) => data.total > 0);
+          damaging.forEach(([name, data], index) => {
+            let line = entry.lines.get(name);
+            if (!line) {
+              const element = document.createElement('div');
+              const image = document.createElement('img');
+              image.src = new URL('./icons/' + (damageIcons[name] ?? damageIcons.Melee) + '.jpg', import.meta.url);
+              image.alt = name;
+              image.title = name;
+              const numbers = document.createElement('span');
+              element.append(image, numbers);
+              line = {element, numbers};
+              entry.lines.set(name, line);
+            }
+            line.element.style.setProperty('--damage-hue', (index % 5 * (unit.name === 'Jaina' ? -10 : 7)) + 'deg');
+            line.element.style.setProperty('--damage-tint', (28 + index % 5 * 7) + '%');
+            line.numbers.textContent = whole(data.total) + ' · ' + whole(data.total / (s.endedAt || s.time || 1)) + ' DPS';
+            const current = breakdown.children[index];
+            if (current !== line.element) breakdown.insertBefore(line.element, current ?? null);
+          });
+          while (breakdown.children.length > damaging.length) breakdown.lastElementChild.remove();
         }
       }
       frame.frame.classList.toggle('touch-target', i === touchTarget && !!unit.hp);
@@ -406,7 +442,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const gcd = active && !spell?.offGcd ? Math.max(0, s.gcd - s.time) : 0;
       button.hidden = !spell;
       sweep(art, remaining && base ? 1 - remaining / base : gcd ? 1 - gcd / s.gcdDuration : 0);
-      timer.textContent = remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
+      const needsMana = !!spell && s.mana < spell.cost && !(key !== 'focus' && s.innerFocus > s.time);
+      art.classList.toggle('low-mana', needsMana);
+      timer.textContent = needsMana ? whole(spell.cost) : remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
       cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
         base ? countdown(base) + ' cooldown' : '';
       button.setAttribute('aria-pressed', selected === index);

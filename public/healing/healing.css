@@ -299,3 +299,18 @@ body:has(#healing) { font-family:var(--ui); }
 .healbot-header nav [aria-current="page"] { color:var(--gold); background:#2d2114; }
 .healbot-page .healing { padding:clamp(6px,1vw,16px); }
 .healbot-page .heal-stage { border-radius:0; }
+
+.damage-breakdown { display:grid; gap:2px; margin:3px 0 5px; }
+.damage-breakdown > div {
+  display:flex; align-items:center; justify-content:space-between; gap:4px; padding:2px 4px;
+  isolation:isolate; position:relative; font-size:.72rem; font-variant-numeric:tabular-nums;
+}
+.damage-breakdown > div::before {
+  content:""; position:absolute; inset:0; z-index:-1; border-radius:2px;
+  background:color-mix(in srgb,var(--damage-class) var(--damage-tint),#171219);
+  filter:hue-rotate(var(--damage-hue));
+}
+.damage-breakdown img { width:19px; height:19px; flex:none; }
+.spell-art.low-mana img { filter:brightness(.55); }
+.spell-art.low-mana::after { background:#071d5dbb; }
+.spell-art.low-mana .spell-timer { color:#d7ecff; font-size:.8rem; }
