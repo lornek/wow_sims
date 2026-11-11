@@ -19,17 +19,23 @@
       </select>
     </label>
     <label>Party stamina multiplier <input type="number" min="1" max="10" step="0.05" value="1" data-stamina></label>
-    <p data-encounter-preview></p>
   </div>
   <div class="heal-stage">
-    <div class="combat-buffs" data-buffs aria-label="Buffs"></div>
-    <div class="heal-top"><strong data-phase>Ready to pull</strong><button type="button" data-start>Start pull</button></div>
+    <div class="heal-top"><button type="button" data-start>Pull</button><strong data-phase>Ready to pull</strong></div>
+    <aside class="combat-sidebar">
+      <div class="combat-buffs" data-buffs aria-label="Buffs"></div>
+      <section class="combat-damage" aria-labelledby="damage-title">
+        <h3 id="damage-title">Damage done</h3>
+        <div data-damage-meter></div>
+      </section>
+    </aside>
     <div class="heal-boss">
-      <div class="heal-bar"><span data-boss-fill></span><strong><span data-boss-name></span> <output data-boss>100%</output></strong></div>
+      <div class="boss-portrait"><img data-boss-portrait alt="" width="120" height="138"></div>
+      <strong data-boss-name></strong>
+      <div class="heal-bar boss-health"><span data-boss-fill></span><small data-boss></small></div>
       <div class="heal-bar cast-bar"><span data-boss-cast-fill></span><strong data-boss-cast></strong></div>
     </div>
     <div class="heal-party" aria-label="Party"></div>
-    <div class="heal-bar mana-bar"><span data-mana-fill></span><strong><span data-mana-current></span><span> / </span><span data-mana-max></span></strong></div>
     <div class="regen-track" aria-hidden="true"><span data-regen></span></div>
     <div class="heal-bar cast-bar"><span data-cast-fill></span><strong data-cast></strong></div>
     <p class="heal-message" data-message aria-live="polite"></p>
@@ -45,7 +51,6 @@
     <p data-meter-empty>No healing recorded yet.</p>
     <div data-meter></div>
   </section>
-  <section class="heal-meter"><h2>Damage done</h2><div data-damage-meter></div></section>
   <p>Mana-per-five effects work throughout the pull. Mindfulness keeps a portion of Spirit regeneration active inside the five-second rule.</p>
 <section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Shaman settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
     <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
