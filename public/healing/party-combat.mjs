@@ -260,12 +260,7 @@ export function advancePartyCombat(state, dt, random) {
       let spread = .05;
       let bonusCrit = 0;
       let cooldown = 0;
-      if (fire && !rotation.pyroOpened) {
-        spell = 'Pyroblast';
-        base = 768 + stats.power;
-        cost = 440;
-        castTime = 6;
-      } else if (ready('Fire Blast', rotation.clearcasting ? 0 : 340)) {
+      if (ready('Fire Blast', rotation.clearcasting ? 0 : 340)) {
         spell = 'Fire Blast';
         base = 438 + .429 * stats.power;
         cost = 340;
@@ -288,7 +283,6 @@ export function advancePartyCombat(state, dt, random) {
         spend(spell, cost, cooldown, Math.max(1.5, castTime));
         rotation.mageCastCost = cost;
         rotation.clearcasting = false;
-        if (spell === 'Pyroblast') rotation.pyroOpened = true;
         if (spell === 'Ice Lance') rotation.fingers--;
         if (castTime) rotation.casting = {spell, base, spread, bonusCrit};
         else hit(spell, base * (fire ? 1 + .03 * stacks : 1),
