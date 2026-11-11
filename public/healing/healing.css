@@ -10,7 +10,7 @@
 .healing button:hover, .healing button[aria-pressed=true] { border-color:var(--gold); }
 .heal-boss { width:min(440px,100%); margin:0 auto; text-align:center; }
 .heal-stage[data-encounter] {
-  background:linear-gradient(180deg,#100d1066 0%,#100d1038 35%,#100d10df 100%),
+  background:linear-gradient(180deg,#100d1066 0%,#100d1038 35%,#100d10a6 calc(100% - clamp(8px, 2vw, 20px)),#120d09 100%),
     var(--encounter-art) center / cover no-repeat #120d09;
 }
 .heal-stage[data-encounter="rend"] { --encounter-art:url('./portraits/rend-background.jpg'); }
@@ -23,7 +23,7 @@
 }
 .boss-portrait img { display:block; width:100%; height:auto; }
 .boss-actions { position:absolute; inset:auto 0 -9px; display:flex; justify-content:center; gap:4px; }
-.heal-top strong, .heal-stage > p, .heal-sound { text-shadow:0 1px 4px #000,0 1px 4px #000; }
+.heal-top strong, .heal-sound { text-shadow:0 1px 4px #000,0 1px 4px #000; }
 .healing .boss-actions button {
   padding:2px; border:1px solid #e3b558; background:#32200f;
   box-shadow:0 0 0 1px #2f1c0e,0 3px 7px #0009;
