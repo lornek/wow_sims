@@ -1,5 +1,5 @@
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
-import {encounters, combatants} from './party-combat.mjs';
+import {encounters, combatants, bossArmor} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
@@ -282,6 +282,12 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : 'Ready to pull';
     fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
     find('[data-boss]').textContent = whole(s.boss) + ' / ' + whole(currentEncounter.health);
+    const sunder = find('[data-sunder]');
+    sunder.hidden = !s.sunderStacks;
+    if (s.sunderStacks) {
+      sunder.textContent = 'Sunder Armor ' + s.sunderStacks + '/5';
+      sunder.title = whole(bossArmor(s)) + ' boss armor remaining';
+    }
     const specialAt = currentEncounter.id === 'patchwerk' ? s.nextSpecial : s.nextFlurry;
     const flurry = active && specialAt - s.time <= 2;
     fill(find('[data-boss-cast-fill]'), flurry ? 1 - (specialAt - s.time) / 2 : 0);
@@ -493,7 +499,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-loadout-label]').textContent = gear.value;
     const kit = loadouts[gear.value];
     const sources = [...new Set(Object.values(kit).map(item => item.source))];
-    find('[data-gear-source]').textContent = sources.length ? 'Item data · ' + sources.join(' / ') : '';
+    find('[data-gear-source]').textContent = sources.includes('ForeverDB') ? 'ForeverDB level 60 PvE BiS · Includes selections from later raids and PvP' :
+      sources.length ? 'Item data · ' + sources.join(' / ') : '';
     const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
       spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {

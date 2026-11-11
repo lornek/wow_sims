@@ -500,216 +500,245 @@ export const loadouts = {
   },
   "Tier 1 raid": {
     "Head": {
-      "id": 226590,
-      "name": "Lawbringer Helm",
-      "icon": "inv_helmet_05",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
+      "id": 252561,
+      "name": "Living Crown",
+      "icon": "inv_helmet_19",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 61,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 19,
-        "intellect": 22,
-        "power": 46,
-        "crit": 1,
-        "armor": 608
+        "intellect": 18,
+        "spirit": 14,
+        "power": 73,
+        "spellDamage": 25,
+        "armor": 152
       }
     },
     "Neck": {
-      "id": 228137,
-      "name": "Heart of Golemagg",
-      "icon": "inv_jewelry_necklace_05",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 21712,
+      "name": "Amulet of the Fallen God",
+      "icon": "inv_jewelry_necklace_ahnqiraj_02",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data).",
+      "ilvl": 88,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "spirit": 11,
-        "power": 37
+        "stamina": 11,
+        "power": 57,
+        "mp5": 6
       }
     },
     "Shoulders": {
-      "id": 226588,
-      "name": "Lawbringer Spaulders",
-      "icon": "inv_shoulder_20",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
+      "id": 271957,
+      "name": "Theramore Mantle",
+      "icon": "inv_shoulder_25",
+      "source": "ForeverDB",
+      "acquisition": "Needs Exalted with Theramore Expeditionary Force (Forever client: who sells it isn't known yet).",
+      "ilvl": 65,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 12,
-        "intellect": 15,
+        "stamina": 24,
         "power": 37,
-        "crit": 1,
-        "armor": 562
+        "spellDamage": 12,
+        "crit": 1.0,
+        "armor": 553
       }
     },
     "Back": {
-      "id": 228280,
-      "name": "Fireproof Cloak",
-      "icon": "inv_misc_cape_18",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 18510,
+      "name": "Hide of the Wild",
+      "icon": "inv_misc_cape_01",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 62,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 12,
-        "intellect": 9,
-        "power": 22,
-        "armor": 54
+        "stamina": 8,
+        "intellect": 10,
+        "power": 42,
+        "spellDamage": 14,
+        "armor": 48
       }
     },
     "Chest": {
-      "id": 226610,
-      "name": "Lawbringer Chestplate",
-      "icon": "inv_chest_plate03",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 10020,
+      "name": "Stormcloth Vest",
+      "icon": "inv_chest_cloth_08",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 190 (Forever client). Learn it at skill 190.",
+      "ilvl": 45,
+      "quality": 2,
       "stats": {
-        "stamina": 17,
-        "intellect": 18,
-        "power": 57,
-        "crit": 1,
-        "armor": 749
+        "stamina": 8,
+        "spirit": 8,
+        "power": 58,
+        "spellDamage": 10,
+        "armor": 59
       }
     },
     "Wrists": {
-      "id": 226589,
-      "name": "Lawbringer Bracers",
-      "icon": "inv_bracer_18",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 13969,
+      "name": "Loomguard Armbraces",
+      "icon": "inv_bracer_16",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Kirtonos in Scholomance, 11% (Classic data).",
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 9,
-        "intellect": 11,
-        "power": 22,
-        "crit": 1,
-        "armor": 328
+        "stamina": 6,
+        "intellect": 7,
+        "power": 29,
+        "spellDamage": 10,
+        "mp5": 3,
+        "armor": 157
       }
     },
     "Hands": {
-      "id": 226591,
-      "name": "Lawbringer Gauntlets",
-      "icon": "inv_gauntlets_29",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 18409,
+      "name": "Mooncloth Gloves",
+      "icon": "inv_gauntlets_17",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 280 (Forever client). Learn it at skill 280.",
+      "ilvl": 62,
+      "quality": 3,
       "stats": {
-        "stamina": 12,
-        "intellect": 15,
-        "power": 37,
-        "crit": 1,
-        "armor": 468
+        "stamina": 9,
+        "intellect": 16,
+        "power": 33,
+        "spellDamage": 11,
+        "armor": 55
       }
     },
     "Waist": {
-      "id": 226592,
-      "name": "Lawbringer Belt",
-      "icon": "inv_belt_27",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
+      "id": 19162,
+      "name": "Corehound Belt",
+      "icon": "inv_belt_24",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 70,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 12,
-        "intellect": 15,
-        "power": 37,
-        "crit": 1,
-        "armor": 421
+        "intellect": 16,
+        "power": 62,
+        "spellDamage": 21,
+        "armor": 118
       }
     },
     "Legs": {
-      "id": 226594,
-      "name": "Lawbringer Legplates",
-      "icon": "inv_pants_04",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
+      "id": 250600,
+      "name": "Martyr's Legplates",
+      "icon": "inv_pants_plate_03",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Blacksmithing 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 61,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 21,
-        "intellect": 19,
-        "power": 48,
-        "crit": 1,
-        "armor": 655
+        "intellect": 14,
+        "spirit": 18,
+        "power": 73,
+        "spellDamage": 25,
+        "armor": 608
       }
     },
     "Feet": {
-      "id": 226593,
-      "name": "Lawbringer Boots",
-      "icon": "inv_boots_plate_09",
-      "source": "Season of Discovery",
-      "acquisition": "Lawbringer Mercy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 13954,
+      "name": "Verdant Footpads",
+      "icon": "inv_boots_08",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Stonespine in Stratholme, 33% (Classic data).",
+      "ilvl": 62,
+      "quality": 3,
       "stats": {
-        "stamina": 13,
-        "intellect": 15,
-        "power": 37,
-        "crit": 1,
-        "armor": 515
+        "power": 38,
+        "spellDamage": 12,
+        "mp5": 5,
+        "armor": 120
       }
     },
     "Finger 1": {
-      "id": 228274,
+      "id": 19140,
       "name": "Cauterizing Band",
       "icon": "inv_jewelry_ring_39",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data).",
       "ilvl": 71,
       "quality": 4,
-      "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 46
+        "power": 46,
+        "spellDamage": 15
       }
     },
     "Finger 2": {
-      "id": 228243,
-      "name": "Ring of Spell Power",
-      "icon": "inv_jewelry_ring_38",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 21210,
+      "name": "Signet Ring of the Bronze Dragonflight",
+      "icon": "inv_jewelry_ring_40",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Grand Invoker, level 60 (Classic data).",
+      "ilvl": 80,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "power": 34,
-        "spellDamage": 34
+        "stamina": 8,
+        "intellect": 9,
+        "power": 28,
+        "spellDamage": 28,
+        "mp5": 5
+      }
+    },
+    "Trinket 1": {
+      "id": 18472,
+      "name": "Royal Seal of Eldre'Thalas",
+      "icon": "inv_jewelry_talisman_10",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Light and How To Swing It, level 60 (Classic data).",
+      "ilvl": 62,
+      "quality": 3,
+      "stats": {
+        "power": 22,
+        "spellDamage": 7
+      }
+    },
+    "Trinket 2": {
+      "id": 272439,
+      "name": "Serenity Field",
+      "icon": "inv_misc_enggizmos_36",
+      "source": "ForeverDB",
+      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever).",
+      "ilvl": 65,
+      "quality": 3,
+      "stats": {
+        "power": 21,
+        "spellDamage": 7
       }
     },
     "Main hand": {
-      "id": 228278,
-      "name": "Hyperthermically Insulated Lava Dredger",
-      "icon": "inv_gizmo_02",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
-      "quality": 4,
-      "twoHand": true,
+      "id": 2816,
+      "name": "Death Speaker Scepter",
+      "icon": "inv_mace_07",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Death Speaker Jargba in Razorfen Kraul, 20% (Classic data).",
+      "ilvl": 33,
+      "quality": 3,
       "stats": {
-        "stamina": 25,
-        "intellect": 24,
-        "power": 84,
-        "mp5": 9
+        "power": 68
+      }
+    },
+    "Off hand": {
+      "id": 235473,
+      "name": "Grand Marshal's Barricade",
+      "icon": "inv_shield_05",
+      "source": "ForeverDB",
+      "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one.",
+      "ilvl": 80,
+      "quality": 4,
+      "stats": {
+        "armor": 3000,
+        "stamina": 26,
+        "intellect": 10,
+        "power": 44,
+        "spellDamage": 24
       }
     }
   },

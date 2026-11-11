@@ -530,230 +530,491 @@ export const loadouts = {
   },
   "Tier 1 raid": {
     "Head": {
-      "id": 226573,
-      "name": "Circlet of Prophecy",
-      "icon": "inv_helmet_34",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 14140,
+      "name": "Mooncloth Circlet",
+      "icon": "inv_misc_bandana_01",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 280 (Forever client). Learn it at skill 280.",
+      "ilvl": 62,
+      "quality": 3,
       "stats": {
-        "stamina": 15,
-        "intellect": 16,
-        "spirit": 14,
-        "power": 66,
-        "armor": 83
+        "stamina": 13,
+        "spirit": 15,
+        "power": 51,
+        "spellDamage": 17,
+        "armor": 71
       }
     },
     "Neck": {
-      "id": 228137,
-      "name": "Heart of Golemagg",
-      "icon": "inv_jewelry_necklace_05",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 21712,
+      "name": "Amulet of the Fallen God",
+      "icon": "inv_jewelry_necklace_ahnqiraj_02",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data).",
+      "ilvl": 88,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "spirit": 11,
-        "power": 37
+        "stamina": 11,
+        "power": 57,
+        "mp5": 6
       }
     },
     "Shoulders": {
-      "id": 226576,
-      "name": "Mantle of Prophecy",
+      "id": 14139,
+      "name": "Mooncloth Shoulders",
       "icon": "inv_shoulder_02",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 275 (Forever client). Learn it at skill 275.",
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 14,
-        "intellect": 15,
-        "spirit": 12,
+        "stamina": 9,
+        "spirit": 11,
         "power": 37,
-        "armor": 76
+        "spellDamage": 13,
+        "armor": 65
       }
     },
     "Back": {
-      "id": 228280,
-      "name": "Fireproof Cloak",
-      "icon": "inv_misc_cape_18",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 18510,
+      "name": "Hide of the Wild",
+      "icon": "inv_misc_cape_01",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 62,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 12,
-        "intellect": 9,
-        "power": 22,
-        "armor": 54
+        "stamina": 8,
+        "intellect": 10,
+        "power": 42,
+        "spellDamage": 14,
+        "armor": 48
       }
     },
     "Chest": {
-      "id": 226575,
-      "name": "Robes of Prophecy",
-      "icon": "inv_chest_cloth_03",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
+      "id": 14154,
+      "name": "Truefaith Vestments",
+      "icon": "inv_chest_cloth_31",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 295 (Forever client). Learn it at skill 295.",
+      "ilvl": 62,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 15,
-        "intellect": 16,
-        "spirit": 14,
-        "power": 66,
-        "armor": 102
+        "stamina": 14,
+        "spirit": 16,
+        "power": 73,
+        "spellDamage": 25,
+        "armor": 96
       }
     },
     "Wrists": {
-      "id": 226578,
-      "name": "Vambraces of Prophecy",
-      "icon": "inv_bracer_09",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
+      "id": 19843,
+      "name": "Zandalar Confessor's Wraps",
+      "icon": "inv_bracer_07",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Paragons of Power: The Confessor's Wraps, level 60 (Classic data).",
+      "ilvl": 61,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 11,
-        "intellect": 13,
-        "spirit": 9,
+        "stamina": 10,
+        "intellect": 11,
+        "spirit": 12,
         "power": 24,
-        "armor": 44
+        "armor": 41
       }
     },
     "Hands": {
-      "id": 226572,
-      "name": "Gloves of Prophecy",
-      "icon": "inv_gauntlets_14",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 20717,
+      "name": "Desert Bloom Gloves",
+      "icon": "inv_gauntlets_17",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Armaments of War, level 60 (Classic data).",
+      "ilvl": 63,
+      "quality": 3,
       "stats": {
-        "stamina": 14,
-        "intellect": 15,
-        "spirit": 12,
-        "power": 37,
-        "armor": 63
+        "stamina": 5,
+        "intellect": 5,
+        "spirit": 5,
+        "power": 51,
+        "spellDamage": 17,
+        "armor": 56
       }
     },
     "Waist": {
-      "id": 226577,
-      "name": "Girdle of Prophecy",
-      "icon": "inv_belt_22",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 18327,
+      "name": "Whipvine Cord",
+      "icon": "inv_belt_17",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Alzzin the Wildshaper in Dire Maul, 20% (Classic data).",
+      "ilvl": 59,
+      "quality": 3,
       "stats": {
-        "stamina": 14,
-        "intellect": 15,
-        "spirit": 12,
-        "power": 37,
-        "armor": 57
+        "armor": 47,
+        "intellect": 9,
+        "mp5": 6,
+        "power": 29,
+        "spellDamage": 10
       }
     },
     "Legs": {
-      "id": 226574,
-      "name": "Pants of Prophecy",
-      "icon": "inv_pants_08",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 18386,
+      "name": "Padre's Trousers",
+      "icon": "inv_pants_06",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Illyanna Ravenoak in Dire Maul, 25% (Classic data).",
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 15,
-        "intellect": 16,
-        "spirit": 14,
-        "power": 66,
-        "armor": 89
+        "armor": 76,
+        "power": 37,
+        "spellDamage": 12,
+        "intellect": 20,
+        "mp5": 7
       }
     },
     "Feet": {
-      "id": 226571,
-      "name": "Boots of Prophecy",
-      "icon": "inv_boots_07",
-      "source": "Season of Discovery",
-      "acquisition": "Dawn Prophecy",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 275609,
+      "name": "Swarmtender's Footpads",
+      "icon": "inv_boots_cloth_05",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 295 (Forever client). Learn it at skill 295.",
+      "ilvl": 58,
+      "quality": 3,
       "stats": {
-        "stamina": 15,
-        "intellect": 15,
-        "spirit": 13,
-        "power": 37,
-        "armor": 70
+        "stamina": 10,
+        "power": 43,
+        "spellDamage": 14,
+        "armor": 57
       }
     },
     "Finger 1": {
-      "id": 228274,
+      "id": 19140,
       "name": "Cauterizing Band",
       "icon": "inv_jewelry_ring_39",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data).",
       "ilvl": 71,
       "quality": 4,
-      "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 46
+        "power": 46,
+        "spellDamage": 15
       }
     },
     "Finger 2": {
-      "id": 228243,
-      "name": "Ring of Spell Power",
-      "icon": "inv_jewelry_ring_38",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 275983,
+      "name": "Warden's Signet of Resolve",
+      "icon": "inv_jewelry_ring_11",
+      "source": "ForeverDB",
+      "acquisition": "Needs Exalted with The Watchers (Forever client: who sells it isn't known yet).",
+      "ilvl": 65,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "power": 34,
-        "spellDamage": 34
+        "stamina": 10,
+        "spirit": 14,
+        "power": 37,
+        "spellDamage": 12
+      }
+    },
+    "Trinket 1": {
+      "id": 272439,
+      "name": "Serenity Field",
+      "icon": "inv_misc_enggizmos_36",
+      "source": "ForeverDB",
+      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever).",
+      "ilvl": 65,
+      "quality": 3,
+      "stats": {
+        "power": 21,
+        "spellDamage": 7
+      }
+    },
+    "Trinket 2": {
+      "id": 23027,
+      "name": "Warmth of Forgiveness",
+      "icon": "inv_trinket_naxxramas01",
+      "source": "ForeverDB",
+      "acquisition": "ForeverDB level 60 PvE selection",
+      "ilvl": 85,
+      "quality": 4,
+      "stats": {
+        "mp5": 10
       }
     },
     "Main hand": {
-      "id": 228278,
-      "name": "Hyperthermically Insulated Lava Dredger",
-      "icon": "inv_gizmo_02",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
-      "quality": 4,
-      "twoHand": true,
+      "id": 22631,
+      "name": "Atiesh, Greatstaff of the Guardian",
+      "icon": "inv_staff_medivh",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Atiesh, Greatstaff of the Guardian, level 60 (Classic data).",
+      "ilvl": 90,
+      "quality": 5,
       "stats": {
-        "stamina": 25,
-        "intellect": 24,
-        "power": 84,
-        "mp5": 9
+        "stamina": 28,
+        "intellect": 28,
+        "spirit": 27,
+        "power": 362,
+        "spellDamage": 120
       }
     },
     "Relic": {
-      "id": 231308,
-      "name": "Touch of Chaos",
-      "icon": "inv_wand_09",
-      "source": "Season of Discovery",
-      "acquisition": "Zul’Gurub",
-      "ilvl": 70,
+      "id": 279246,
+      "name": "Torch of Light",
+      "icon": "inv_torch_lit",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Enchanting 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 65,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "power": 19,
-        "spellDamage": 19
+        "spirit": 11,
+        "power": 17,
+        "spellDamage": 6
+      }
+    }
+  },
+  "Tier 1 raid (Discipline)": {
+    "Head": {
+      "id": 14140,
+      "name": "Mooncloth Circlet",
+      "icon": "inv_misc_bandana_01",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 280 (Forever client). Learn it at skill 280.",
+      "ilvl": 62,
+      "quality": 3,
+      "stats": {
+        "stamina": 13,
+        "spirit": 15,
+        "power": 51,
+        "spellDamage": 17,
+        "armor": 71
+      }
+    },
+    "Neck": {
+      "id": 21712,
+      "name": "Amulet of the Fallen God",
+      "icon": "inv_jewelry_necklace_ahnqiraj_02",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data).",
+      "ilvl": 88,
+      "quality": 4,
+      "stats": {
+        "stamina": 11,
+        "power": 57,
+        "mp5": 6
+      }
+    },
+    "Shoulders": {
+      "id": 19841,
+      "name": "Zandalar Confessor's Mantle",
+      "icon": "inv_shoulder_01",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Paragons of Power: The Confessor's Mantle, level 60 (Classic data).",
+      "ilvl": 68,
+      "quality": 4,
+      "stats": {
+        "stamina": 11,
+        "intellect": 24,
+        "spirit": 15,
+        "power": 22,
+        "armor": 78
+      }
+    },
+    "Back": {
+      "id": 18510,
+      "name": "Hide of the Wild",
+      "icon": "inv_misc_cape_01",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 62,
+      "quality": 4,
+      "stats": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 42,
+        "spellDamage": 14,
+        "armor": 48
+      }
+    },
+    "Chest": {
+      "id": 14154,
+      "name": "Truefaith Vestments",
+      "icon": "inv_chest_cloth_31",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 295 (Forever client). Learn it at skill 295.",
+      "ilvl": 62,
+      "quality": 4,
+      "stats": {
+        "stamina": 14,
+        "spirit": 16,
+        "power": 73,
+        "spellDamage": 25,
+        "armor": 96
+      }
+    },
+    "Wrists": {
+      "id": 19843,
+      "name": "Zandalar Confessor's Wraps",
+      "icon": "inv_bracer_07",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Paragons of Power: The Confessor's Wraps, level 60 (Classic data).",
+      "ilvl": 61,
+      "quality": 4,
+      "stats": {
+        "stamina": 10,
+        "intellect": 11,
+        "spirit": 12,
+        "power": 24,
+        "armor": 41
+      }
+    },
+    "Hands": {
+      "id": 20717,
+      "name": "Desert Bloom Gloves",
+      "icon": "inv_gauntlets_17",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Armaments of War, level 60 (Classic data).",
+      "ilvl": 63,
+      "quality": 3,
+      "stats": {
+        "stamina": 5,
+        "intellect": 5,
+        "spirit": 5,
+        "power": 51,
+        "spellDamage": 17,
+        "armor": 56
+      }
+    },
+    "Waist": {
+      "id": 18327,
+      "name": "Whipvine Cord",
+      "icon": "inv_belt_17",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Alzzin the Wildshaper in Dire Maul, 20% (Classic data).",
+      "ilvl": 59,
+      "quality": 3,
+      "stats": {
+        "armor": 47,
+        "intellect": 9,
+        "mp5": 6,
+        "power": 29,
+        "spellDamage": 10
+      }
+    },
+    "Legs": {
+      "id": 18386,
+      "name": "Padre's Trousers",
+      "icon": "inv_pants_06",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Illyanna Ravenoak in Dire Maul, 25% (Classic data).",
+      "ilvl": 61,
+      "quality": 3,
+      "stats": {
+        "armor": 76,
+        "power": 37,
+        "spellDamage": 12,
+        "intellect": 20,
+        "mp5": 7
+      }
+    },
+    "Feet": {
+      "id": 275609,
+      "name": "Swarmtender's Footpads",
+      "icon": "inv_boots_cloth_05",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 295 (Forever client). Learn it at skill 295.",
+      "ilvl": 58,
+      "quality": 3,
+      "stats": {
+        "stamina": 10,
+        "power": 43,
+        "spellDamage": 14,
+        "armor": 57
+      }
+    },
+    "Finger 1": {
+      "id": 19140,
+      "name": "Cauterizing Band",
+      "icon": "inv_jewelry_ring_39",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data).",
+      "ilvl": 71,
+      "quality": 4,
+      "stats": {
+        "stamina": 9,
+        "intellect": 12,
+        "power": 46,
+        "spellDamage": 15
+      }
+    },
+    "Finger 2": {
+      "id": 275983,
+      "name": "Warden's Signet of Resolve",
+      "icon": "inv_jewelry_ring_11",
+      "source": "ForeverDB",
+      "acquisition": "Needs Exalted with The Watchers (Forever client: who sells it isn't known yet).",
+      "ilvl": 65,
+      "quality": 4,
+      "stats": {
+        "stamina": 10,
+        "spirit": 14,
+        "power": 37,
+        "spellDamage": 12
+      }
+    },
+    "Trinket 1": {
+      "id": 272439,
+      "name": "Serenity Field",
+      "icon": "inv_misc_enggizmos_36",
+      "source": "ForeverDB",
+      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever).",
+      "ilvl": 65,
+      "quality": 3,
+      "stats": {
+        "power": 21,
+        "spellDamage": 7
+      }
+    },
+    "Trinket 2": {
+      "id": 23027,
+      "name": "Warmth of Forgiveness",
+      "icon": "inv_trinket_naxxramas01",
+      "source": "ForeverDB",
+      "acquisition": "ForeverDB level 60 PvE selection",
+      "ilvl": 85,
+      "quality": 4,
+      "stats": {
+        "mp5": 10
+      }
+    },
+    "Main hand": {
+      "id": 22631,
+      "name": "Atiesh, Greatstaff of the Guardian",
+      "icon": "inv_staff_medivh",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Atiesh, Greatstaff of the Guardian, level 60 (Classic data).",
+      "ilvl": 90,
+      "quality": 5,
+      "stats": {
+        "stamina": 28,
+        "intellect": 28,
+        "spirit": 27,
+        "power": 362,
+        "spellDamage": 120
+      }
+    },
+    "Relic": {
+      "id": 279246,
+      "name": "Torch of Light",
+      "icon": "inv_torch_lit",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Enchanting 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 65,
+      "quality": 4,
+      "stats": {
+        "spirit": 11,
+        "power": 17,
+        "spellDamage": 6
       }
     }
   },

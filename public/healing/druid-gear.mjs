@@ -518,232 +518,231 @@ export const loadouts = {
   },
   "Tier 1 raid": {
     "Head": {
-      "id": 226647,
-      "name": "Cenarion Helm",
-      "icon": "inv_helmet_09",
-      "source": "Season of Discovery",
-      "acquisition": "Cenarion Bounty",
-      "ilvl": 66,
+      "id": 252561,
+      "name": "Living Crown",
+      "icon": "inv_helmet_19",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 61,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 19,
-        "intellect": 22,
-        "spirit": 17,
-        "power": 42,
-        "armor": 163
+        "intellect": 18,
+        "spirit": 14,
+        "power": 73,
+        "spellDamage": 25,
+        "armor": 152
       }
     },
     "Neck": {
-      "id": 228137,
-      "name": "Heart of Golemagg",
-      "icon": "inv_jewelry_necklace_05",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 21712,
+      "name": "Amulet of the Fallen God",
+      "icon": "inv_jewelry_necklace_ahnqiraj_02",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data).",
+      "ilvl": 88,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "spirit": 11,
-        "power": 37
+        "stamina": 11,
+        "power": 57,
+        "mp5": 6
       }
     },
     "Shoulders": {
-      "id": 226644,
-      "name": "Cenarion Spaulders",
-      "icon": "inv_shoulder_07",
-      "source": "Season of Discovery",
-      "acquisition": "Cenarion Bounty",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 14139,
+      "name": "Mooncloth Shoulders",
+      "icon": "inv_shoulder_02",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 275 (Forever client). Learn it at skill 275.",
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 12,
-        "intellect": 14,
-        "spirit": 12,
-        "power": 40,
-        "armor": 150
+        "stamina": 9,
+        "spirit": 11,
+        "power": 37,
+        "spellDamage": 13,
+        "armor": 65
       }
     },
     "Back": {
-      "id": 228280,
-      "name": "Fireproof Cloak",
-      "icon": "inv_misc_cape_18",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 18510,
+      "name": "Hide of the Wild",
+      "icon": "inv_misc_cape_01",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 62,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 12,
-        "intellect": 9,
-        "power": 22,
-        "armor": 54
+        "stamina": 8,
+        "intellect": 10,
+        "power": 42,
+        "spellDamage": 14,
+        "armor": 48
       }
     },
     "Chest": {
-      "id": 221785,
-      "name": "Cenarion Vestments",
-      "icon": "inv_chest_cloth_06",
-      "source": "Season of Discovery",
-      "acquisition": "Cenarion Bounty",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 22272,
+      "name": "Forest's Embrace",
+      "icon": "inv_chest_leather_08",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: A Better Ingredient (a choice), level 52 (Classic data).",
+      "ilvl": 52,
+      "quality": 3,
       "stats": {
-        "stamina": 11,
-        "intellect": 17,
-        "spirit": 15,
-        "power": 62,
-        "armor": 200
+        "intellect": 9,
+        "spirit": 8,
+        "power": 44,
+        "spellDamage": 15,
+        "mp5": 6,
+        "armor": 151
       }
     },
     "Wrists": {
-      "id": 226649,
-      "name": "Cenarion Bracers",
-      "icon": "inv_bracer_03",
-      "source": "Season of Discovery",
-      "acquisition": "Cenarion Bounty",
-      "ilvl": 66,
+      "id": 19840,
+      "name": "Zandalar Haruspex's Bracers",
+      "icon": "inv_bracer_08",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Paragons of Power: The Haruspex's Bracers, level 60 (Classic data).",
+      "ilvl": 61,
       "quality": 4,
-      "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 11,
         "spirit": 11,
-        "power": 29,
-        "armor": 88
+        "power": 24,
+        "armor": 122
       }
     },
     "Hands": {
-      "id": 226648,
-      "name": "Cenarion Gloves",
-      "icon": "inv_gauntlets_07",
-      "source": "Season of Discovery",
-      "acquisition": "Cenarion Bounty",
+      "id": 227198,
+      "name": "Knight-Lieutenant's Dragonhide Gauntlets",
+      "icon": "inv_gauntlets_25",
+      "source": "ForeverDB",
+      "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one.",
       "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "quality": 3,
       "stats": {
-        "stamina": 12,
-        "intellect": 14,
-        "spirit": 10,
-        "power": 44,
-        "armor": 125
+        "armor": 115,
+        "power": 40,
+        "stamina": 18,
+        "intellect": 5
       }
     },
     "Waist": {
-      "id": 226650,
-      "name": "Cenarion Belt",
-      "icon": "inv_belt_06",
-      "source": "Season of Discovery",
-      "acquisition": "Cenarion Bounty",
-      "ilvl": 66,
+      "id": 19162,
+      "name": "Corehound Belt",
+      "icon": "inv_belt_24",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 70,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "stamina": 12,
-        "intellect": 14,
-        "spirit": 12,
-        "power": 40,
-        "armor": 113
+        "intellect": 16,
+        "power": 62,
+        "spellDamage": 21,
+        "armor": 118
       }
     },
     "Legs": {
-      "id": 228245,
-      "name": "Salamander Scale Pants",
-      "icon": "inv_pants_12",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "id": 18386,
+      "name": "Padre's Trousers",
+      "icon": "inv_pants_06",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Illyanna Ravenoak in Dire Maul, 25% (Classic data).",
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 14,
-        "intellect": 14,
-        "power": 51,
-        "mp5": 9,
-        "armor": 175
+        "armor": 76,
+        "power": 37,
+        "spellDamage": 12,
+        "intellect": 20,
+        "mp5": 7
       }
     },
     "Feet": {
-      "id": 226645,
-      "name": "Cenarion Boots",
+      "id": 13954,
+      "name": "Verdant Footpads",
       "icon": "inv_boots_08",
-      "source": "Season of Discovery",
-      "acquisition": "Cenarion Bounty",
-      "ilvl": 66,
-      "quality": 4,
-      "twoHand": false,
+      "source": "ForeverDB",
+      "acquisition": "Drops from Stonespine in Stratholme, 33% (Classic data).",
+      "ilvl": 62,
+      "quality": 3,
       "stats": {
-        "stamina": 13,
-        "intellect": 17,
-        "spirit": 13,
-        "power": 37,
-        "armor": 138
+        "power": 38,
+        "spellDamage": 12,
+        "mp5": 5,
+        "armor": 120
       }
     },
     "Finger 1": {
-      "id": 228274,
+      "id": 19140,
       "name": "Cauterizing Band",
       "icon": "inv_jewelry_ring_39",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data).",
       "ilvl": 71,
       "quality": 4,
-      "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 46
+        "power": 46,
+        "spellDamage": 15
       }
     },
     "Finger 2": {
-      "id": 228243,
-      "name": "Ring of Spell Power",
-      "icon": "inv_jewelry_ring_38",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 275983,
+      "name": "Warden's Signet of Resolve",
+      "icon": "inv_jewelry_ring_11",
+      "source": "ForeverDB",
+      "acquisition": "Needs Exalted with The Watchers (Forever client: who sells it isn't known yet).",
+      "ilvl": 65,
       "quality": 4,
-      "twoHand": false,
       "stats": {
-        "power": 34,
-        "spellDamage": 34
+        "stamina": 10,
+        "spirit": 14,
+        "power": 37,
+        "spellDamage": 12
+      }
+    },
+    "Trinket 1": {
+      "id": 18470,
+      "name": "Royal Seal of Eldre'Thalas",
+      "icon": "inv_jewelry_talisman_10",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Emerald Dream..., level 60 (Classic data).",
+      "ilvl": 62,
+      "quality": 3,
+      "stats": {
+        "power": 22,
+        "spellDamage": 7
+      }
+    },
+    "Trinket 2": {
+      "id": 272439,
+      "name": "Serenity Field",
+      "icon": "inv_misc_enggizmos_36",
+      "source": "ForeverDB",
+      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever).",
+      "ilvl": 65,
+      "quality": 3,
+      "stats": {
+        "power": 21,
+        "spellDamage": 7
       }
     },
     "Main hand": {
-      "id": 228264,
-      "name": "Aurastone Hammer",
-      "icon": "inv_hammer_05",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 68,
-      "quality": 4,
-      "twoHand": false,
+      "id": 22632,
+      "name": "Atiesh, Greatstaff of the Guardian",
+      "icon": "inv_staff_medivh",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: Atiesh, Greatstaff of the Guardian, level 60 (Classic data).",
+      "ilvl": 90,
+      "quality": 5,
       "stats": {
-        "stamina": 10,
-        "intellect": 10,
-        "power": 62,
-        "mp5": 4
-      }
-    },
-    "Off hand": {
-      "id": 228259,
-      "name": "Fire Runed Grimoire",
-      "icon": "inv_misc_book_09",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
-      "quality": 4,
-      "twoHand": false,
-      "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "power": 25,
-        "spellDamage": 25
+        "stamina": 28,
+        "intellect": 28,
+        "spirit": 27,
+        "power": 300,
+        "mp5": 11
       }
     }
   },
