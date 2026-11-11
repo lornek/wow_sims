@@ -31,20 +31,21 @@
       <div class="heal-bar boss-health"><span data-boss-fill></span><small data-boss></small></div>
       <div class="heal-bar cast-bar"><span data-boss-cast-fill></span><strong data-boss-cast></strong></div>
     </div>
+    <section class="combat-damage" aria-labelledby="damage-title">
+      <h3 id="damage-title">Damage done</h3>
+      <div data-damage-meter></div>
+    </section>
     <div class="heal-party" aria-label="Party"></div>
     <div class="heal-bar main-mana" aria-label="Healer mana">
       <span data-mana-fill></span><strong><span data-mana-current></span><span>/</span><span data-mana-max></span></strong>
     </div>
     <div class="regen-track" aria-hidden="true"><span data-regen></span></div>
+    <div class="heal-bar cast-bar player-cast"><span data-cast-fill></span><strong data-cast></strong></div>
     <div class="heal-spells" aria-label="Select a spell"></div>
     <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
     <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
     <p data-result aria-live="polite"></p>
     <p data-regen-result hidden></p>
-      <section class="combat-damage" aria-labelledby="damage-title">
-        <h3 id="damage-title">Damage done</h3>
-        <div data-damage-meter></div>
-      </section>
   </div>
   <section class="heal-meter" aria-labelledby="meter-title">
     <h2 id="meter-title">Healing done</h2>

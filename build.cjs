@@ -30,7 +30,7 @@ function page(title, depth, current, content) {
 <body>
 <header class="site-header"><div class="container">
 <a class="brand" href="${depth}"><span class="sigil" aria-hidden="true">∞</span><span>WoW Forever Sims<small>Class tools for World of Warcraft: Forever</small></span></a>
-<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a></nav>
+<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a></nav>
 </div></header>
 <main class="container">
 <section class="hero">
@@ -59,12 +59,53 @@ function humanHealing(name, regenTalent) {
     .replace('/abilities/shaman/', '/abilities/' + slug + '/')
     .replace('../healing/shaman.mjs', '../healing/' + slug + '.mjs');
 }
-const classSims = {warrior: sunder + cleave, shaman: healing, druid: druidHealing, paladin: humanHealing('Paladin', 'Reverence'), priest: humanHealing('Priest', 'Meditation')};
-fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#sunder-armor">Warrior · Sunder Armor DPS</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./shaman/#healing">Shaman · Healing practice</a></p><p><a href="./druid/#healing">Druid · Healing practice</a></p><p><a href="./paladin/#healing">Paladin · Healing practice</a></p><p><a href="./priest/#healing">Priest · Healing practice</a></p></section>'));
+const healers = {shaman: healing, druid: druidHealing, paladin: humanHealing('Paladin', 'Reverence'), priest: humanHealing('Priest', 'Meditation')};
+
+function healbotPath(slug) {
+  return slug === 'shaman' ? 'healbot/' : `healbot/${slug}/`;
+}
+
+function healbotPage(slug, content, depth) {
+  const links = classes.filter(([name]) => Object.hasOwn(healers, name.toLowerCase())).map(([name]) => {
+    const key = name.toLowerCase();
+    return `<a href="${depth}${healbotPath(key)}"${key === slug ? ' aria-current="page"' : ''}>${name}</a>`;
+  }).join('\n');
+  const current = classes.find(([name]) => name.toLowerCase() === slug)[0];
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Healbot · ${current}</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans:wght@400;700&family=Metamorphous&display=swap">
+<link rel="stylesheet" href="${depth}assets/theme.css">
+</head>
+<body class="healbot-page">
+<header class="healbot-header">
+  <h1>Healbot</h1>
+  <details><summary>${current}</summary><nav aria-label="Healer class">${links}<a href="${depth}">Class sims</a></nav></details>
+</header>
+<main>${content.replaceAll('="../', '="' + depth).replace('class="panel healing"', 'class="healing"').replace('  <h2>Healing practice</h2>', '')}</main>
+</body>
+</html>`;
+}
+
+for (const [slug, content] of Object.entries(healers)) {
+  const directory = path.join(output, healbotPath(slug));
+  fs.mkdirSync(directory, {recursive: true});
+  fs.writeFileSync(path.join(directory, 'index.html'), healbotPage(slug, content, slug === 'shaman' ? '../' : '../../'));
+}
+
+fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#sunder-armor">Warrior · Sunder Armor DPS</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./healbot/">Shaman · Healing practice</a></p><p><a href="./healbot/druid/">Druid · Healing practice</a></p><p><a href="./healbot/paladin/">Paladin · Healing practice</a></p><p><a href="./healbot/priest/">Priest · Healing practice</a></p></section>'));
 for (const [name] of classes) {
   const slug = name.toLowerCase();
   const directory = path.join(output, slug);
   fs.mkdirSync(directory, {recursive: true});
-  const content = classSims[slug] ?? `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
+  if (Object.hasOwn(healers, slug)) {
+    const destination = '../' + healbotPath(slug);
+    fs.writeFileSync(path.join(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Healbot</title><meta http-equiv="refresh" content="0;url=${destination}"></head><body><a href="${destination}">Open Healbot</a></body></html>`);
+    continue;
+  }
+  const content = slug === 'warrior' ? sunder + cleave : `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
   fs.writeFileSync(path.join(directory, 'index.html'), page(`${name} Sims`, '../', slug, content));
 }
