@@ -454,7 +454,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       sweep(art, remaining && base ? 1 - remaining / base : gcd ? 1 - gcd / s.gcdDuration : 0);
       const needsMana = !!spell && s.mana < spell.cost && !(key !== 'focus' && s.innerFocus > s.time);
       art.classList.toggle('low-mana', needsMana);
-      timer.textContent = needsMana ? whole(spell.cost) : remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
+      timer.textContent = needsMana ? whole(Math.ceil(spell.cost - s.mana)) : remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
       cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
         base ? countdown(base) + ' cooldown' : '';
       button.setAttribute('aria-pressed', selected === index);
