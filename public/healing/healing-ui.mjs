@@ -145,6 +145,53 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const roleSymbols = {Tank: 'M12 2 3 6v6c0 5 5 9 9 11 4-2 9-6 9-11V6z',
     Damage: 'm21 2-2 7-9 9-2-2 9-9 4-5zM3 17l2-2 6 6-2 2zM2 22l4-4 2 2-4 4z',
     Healer: 'M9 2h6v7h7v6h-7v7H9v-7H2V9h7z'};
+  const bossActions = find('[data-boss-actions]');
+  let bossAbilityRows = [];
+  function mountBossAbilities(id) {
+    if (bossActions.dataset.encounter === id) return;
+    for (const ability of bossAbilityRows) ability.tooltip.hide();
+    bossActions.dataset.encounter = id;
+    const attack = ['Melee', 'ability_meleedamage', 'nextSwing', 2,
+      boss => whole(boss.swing) + ' physical damage to the first living party member, normally Cairne.'];
+    const special = {
+      rend: [
+        ['Poisoned Blade', 'ability_poisons', 'nextPoison', 11,
+          boss => 'Marks a random living party member for 10 sec. Deals ' + whole(boss.poisonTick) +
+            ' damage on each boss swing while marked. The effect can be dispelled.'],
+        ['Blade Flurry', 'ability_rogue_slicedice', 'nextFlurry', 9,
+          boss => whole(boss.flurry) + ' physical damage to every living party member. First used at 17 sec.'],
+        ['Enrage', 'spell_shadow_unholyfrenzy', null, 0,
+          () => 'At 35% health, Rend attacks and uses abilities 20% faster for the rest of the fight.']
+      ],
+      patchwerk: [['Hateful Strike', 'ability_warrior_punishingblow', 'nextSpecial', 3,
+        boss => whole(boss.strike) + ' physical damage to Illidan. If Illidan is down, it hits the first living party member.']],
+      sapphiron: [['Frost Aura', 'spell_frost_frostarmor', 'nextSpecial', 2,
+        boss => whole(boss.frost) + ' Frost damage to every living party member on each pulse.']]
+    };
+    bossAbilityRows = [attack, ...special[id]].map(([name, art, clock, period, description]) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.setAttribute('aria-label', name);
+      const graphic = document.createElement('span');
+      graphic.className = 'spell-art';
+      const image = document.createElement('img');
+      image.src = new URL('./icons/' + art + '.jpg', import.meta.url);
+      image.alt = '';
+      image.width = image.height = 38;
+      const timer = document.createElement('small');
+      graphic.append(image, timer);
+      button.append(graphic);
+      const tooltip = attachGameTooltip(button, tip => {
+        const boss = currentEncounter;
+        tooltipLine(tip, clock === 'nextPoison' && boss.hazard === 'disease' ? 'Infected Blade' : name, 'game-tooltip-title');
+        tooltipLine(tip, description(boss), 'game-tooltip-description');
+        if (clock) tooltipLine(tip, 'Every ' + period + ' sec before any haste effects');
+      });
+      return {button, graphic, timer, clock, period, tooltip};
+    });
+    bossActions.replaceChildren(...bossAbilityRows.map(ability => ability.button));
+  }
+
   const damageRows = [];
   for (const [index, unit] of encounter.party.entries()) {
     const frame = document.createElement('button');
@@ -164,6 +211,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       frame.append(track);
       const row = document.createElement('details');
       row.className = 'meter-row';
+      row.style.setProperty('--damage-class', unit.color);
       const summary = document.createElement('summary');
       const breakdown = document.createElement('p');
       const label = document.createElement('span');
@@ -258,6 +306,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (boss[key]) currentEncounter[key] = Math.round(boss[key] * damage);
     }
     find('[data-boss-name]').textContent = boss.name;
+    difficulty.dataset.level = difficulty.value;
+    mountBossAbilities(id);
     const portrait = find('[data-boss-portrait]');
     const portraitUrl = new URL('./portraits/' + id + '.jpg', import.meta.url).href;
     if (portrait.src !== portraitUrl) portrait.src = portraitUrl;
@@ -288,6 +338,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       sunder.textContent = 'Sunder Armor ' + s.sunderStacks + '/5';
       sunder.title = whole(bossArmor(s)) + ' boss armor remaining';
     }
+    for (const ability of bossAbilityRows) {
+      const remaining = ability.clock ? Math.max(0, s[ability.clock] - s.time) : 0;
+      const period = ability.period / (s.enraged ? 1.2 : 1);
+      sweep(ability.graphic, active && ability.clock ? 1 - remaining / period : 0);
+      ability.timer.textContent = active ? (ability.clock ? countdown(remaining) : s.enraged ? 'Active' : '35%') : '';
+      ability.button.classList.toggle('is-enraged', !ability.clock && !!s.enraged);
+    }
     const specialAt = currentEncounter.id === 'patchwerk' ? s.nextSpecial : s.nextFlurry;
     const flurry = active && specialAt - s.time <= 2;
     fill(find('[data-boss-cast-fill]'), flurry ? 1 - (specialAt - s.time) / 2 : 0);
@@ -310,7 +367,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         if (row.open) {
           const stats = combatants[unit.name];
           const stat = stats.power ? stats.power + ' spell power' : stats.ap + ' attack power';
-          breakdown.textContent = [stat + ' · ' + Math.round(stats.crit * 100) + '% crit · ' + Math.round(stats.hit * 100) + '% special hit', ...abilities.map(([name, data]) =>
+          const rage = unit.resource.type === 'Rage' ? [whole(unit.rotation.swingRage ?? 0) + ' Rage gained from auto-attacks'] : [];
+          breakdown.textContent = [stat + ' · ' + Math.round(stats.crit * 100) + '% crit · ' + Math.round(stats.hit * 100) + '% special hit', ...rage, ...abilities.map(([name, data]) =>
           name + ' · ' + whole(data.total) + ' damage · ' + data.hits + '/' + data.attempts + ' hits · ' + data.crits + ' crits')].join('\n');
         }
       }
@@ -337,9 +395,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         }
       }
     });
-    fill(find('[data-mana-fill]'), s.mana / profile.mana);
-    find('[data-mana-current]').textContent = whole(s.mana);
-    find('[data-mana-max]').textContent = whole(profile.mana) + ' mana';
+    for (const field of root.querySelectorAll('[data-mana-fill]')) fill(field, s.mana / profile.mana);
+    for (const field of root.querySelectorAll('[data-mana-current]')) field.textContent = whole(s.mana);
+    for (const field of root.querySelectorAll('[data-mana-max]')) field.textContent = whole(profile.mana);
     fill(find('[data-regen]'), (s.time - s.lastSpend) / 5);
     fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : 0);
     find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';
