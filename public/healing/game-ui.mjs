@@ -51,7 +51,7 @@ export function attachGameTooltip(button, render) {
   button.addEventListener('focus', show);
   button.addEventListener('blur', hide);
   button.addEventListener('keydown', event => { if (event.key === 'Escape') hide(); });
-  const handle = {refresh() { if (!tip.hidden) show(); }, hide};
+  const handle = {show, refresh() { if (!tip.hidden) show(); }, hide};
   return handle;
 }
 

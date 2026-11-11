@@ -120,11 +120,23 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const cooldown = document.createElement('small');
     label.append(shortcut, cooldown);
     button.append(label);
+    const tooltip = attachGameTooltip(button, tip => {
+      const {select, rows} = selects[index];
+      const row = rows[select.selectedIndex];
+      const spell = currentSpells[key];
+      tooltipLine(tip, name + (row.rank ? ' · ' + row.rank : ''), 'game-tooltip-title');
+      tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.cast ? spell.cast + ' sec cast' : 'Instant'));
+      if (spell.cooldown) tooltipLine(tip, spell.cooldown + ' sec cooldown');
+      const description = catalog[name]?.ranks?.find(entry => entry.rank === row.rank)?.description;
+      if (description) tooltipLine(tip, description, 'game-tooltip-description');
+      renderHealingBreakdown(tip, name, row);
+    });
     button.onclick = event => {
       if (pull.state.phase === 'ready' && touchInput(event)) {
-        openInspector(index);
+        tooltip.show();
         return;
       }
+      tooltip.hide();
       if (utility[key]) {
         const previous = pull.state.meters[key]?.casts;
         pull.cast(key, encounter.party.length - 1);
@@ -144,15 +156,17 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     };
     button.oncontextmenu = event => {
       event.preventDefault();
+      tooltip.hide();
       openInspector(index);
     };
     button.onkeydown = event => {
       if (event.key !== 'ContextMenu' && !(event.shiftKey && event.key === 'F10')) return;
       event.preventDefault();
+      tooltip.hide();
       openInspector(index);
     };
     find('.heal-spells').append(button);
-    spellButtons.push({button, art, timer, cooldown, key});
+    spellButtons.push({button, art, timer, cooldown, key, tooltip});
 
     const rows = key === 'potion' ? [{rank: '', cast: 0, gcd: 0, cooldown: 60, cost: 0, effects: []}] :
       byName(name).sort((a, b) => a.level - b.level || a.id - b.id).filter(row => key !== 'tide' || row.rank === 'Rank 4');
@@ -261,6 +275,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       attempt(event, index, true);
     };
     find('.heal-party').append(frame);
+    const status = frame.querySelector('.unit-status');
+    let auraOrder = 0;
     const badges = [...auras,
       ['swiftness', "Nature's Swiftness"], ['poison', hazard === 'disease' ? 'Infected Blade' : 'Poisoned Blade']]
       .map(([key, name]) => {
@@ -268,11 +284,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         badge.className = 'unit-aura ' + key;
         const timer = document.createElement('span');
         badge.append(icon(key === 'poison' ? slots[3][1] : name), timer);
-        frame.querySelector('.unit-status').append(badge);
+        status.append(badge);
         return {key, name, badge, timer};
       });
     frames.push({frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('.unit-name'),
-      health: frame.querySelector(':scope > small'), resource, auras: badges});
+      health: frame.querySelector(':scope > small'), resource, status, nextAuraOrder: () => ++auraOrder, auras: badges});
   }
 
   function attempt(event, index, right) {
@@ -418,7 +434,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
       frame.frame.classList.toggle('touch-target', i === touchTarget && !!unit.hp);
       frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
-      for (const {key, name, badge, timer} of frame.auras) {
+      for (const aura of frame.auras) {
+        const {key, name, badge, timer} = aura;
         const effect = s.effects.find(effect => effect.key === key && (!effect.target || effect.target === unit));
         const expires = key === 'swiftness' ? (i === frames.length - 1 ? s.swiftness : 0) :
           key === 'poison' ? unit.poison :
@@ -430,6 +447,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           effect?.expires ?? 0;
         badge.hidden = !unit.hp || expires <= s.time;
         if (!badge.hidden) {
+          if (aura.expires !== expires) aura.order = frame.nextAuraOrder();
           const duration = {poison:10, weakened:15, aegis:12, inspiration:15, mending:30,
             innervate:currentSpells.innervate?.duration, powerInfusion:currentSpells.pi?.duration}[key] ??
             s[key]?.spell?.duration ?? currentSpells[key]?.duration ?? (key === 'abolish' ? currentSpells.poison?.duration : 0);
@@ -437,7 +455,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           timer.textContent = Number.isFinite(expires) ? countdown(expires - s.time) : '✓';
           badge.title = name + ' · ' + timer.textContent;
         }
+        aura.expires = badge.hidden ? null : expires;
       }
+      const visibleAuras = frame.auras.filter(({badge}) => !badge.hidden).sort((a, b) => b.order - a.order);
+      frame.status.style.setProperty('--aura-gaps', Math.max(1, visibleAuras.length - 1));
+      visibleAuras.forEach(({badge}, index) => {
+        badge.style.setProperty('--aura-index', index);
+        badge.style.zIndex = visibleAuras.length - index;
+      });
     });
     const ranking = damageRows.slice().sort((a, b) => b.dps - a.dps);
     const leadingDps = ranking[0]?.dps || 1;
@@ -453,13 +478,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     fill(find('[data-regen]'), (s.time - s.lastSpend) / 5);
     fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : 0);
     find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';
-    spellButtons.forEach(({button, art, timer, cooldown, key}, index) => {
+    spellButtons.forEach(({button, art, timer, cooldown, key, tooltip}, index) => {
       const {select, rows} = selects[index];
       const base = currentSpells[key]?.cooldown ?? rows[select.selectedIndex].cooldown;
       const remaining = Math.max(0, (s.cooldowns[key] ?? 0) - s.time);
       const spell = currentSpells[key];
       const gcd = active && !spell?.offGcd ? Math.max(0, s.gcd - s.time) : 0;
       button.hidden = !spell;
+      if (!spell) tooltip.hide();
       sweep(art, remaining && base ? 1 - remaining / base : gcd ? 1 - gcd / s.gcdDuration : 0);
       const needsMana = !!spell && s.mana < spell.cost && !(key !== 'focus' && s.innerFocus > s.time);
       art.classList.toggle('low-mana', needsMana);
