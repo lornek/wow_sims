@@ -3,31 +3,24 @@
   <p class="heal-mouse-help">Keep the party alive through the pull. Click a party frame with the spell’s mouse binding, or select a spell and then select a party member.</p>
   <p class="heal-touch-help">Tap a party member to target them, then tap a spell to cast. Self buffs cast on your healer.</p>
   <div class="heal-settings encounter-settings">
-    <label>Encounter
+    <label>Encounter:
       <select data-encounter>
         <option value="rend">Rend Blackhand</option>
         <option value="patchwerk">Patchwerk</option>
         <option value="sapphiron">Sapphiron</option>
       </select>
     </label>
-    <label>Difficulty
-      <select data-difficulty>
+    <select data-difficulty aria-label="Difficulty">
         <option value="0">Normal</option>
         <option value="1">Heroic</option>
         <option value="2">Mythic</option>
         <option value="3">Legendary</option>
-      </select>
-    </label>
-    <label>Party stamina multiplier <input type="number" min="1" max="10" step="0.05" value="1" data-stamina></label>
+    </select>
   </div>
   <div class="heal-stage">
-    <div class="heal-top"><button type="button" data-start>Pull</button><strong data-phase>Ready to pull</strong></div>
+    <div class="heal-top"><button type="button" data-start>⚔ PULL! ⚔</button><strong data-phase></strong></div>
     <aside class="combat-sidebar">
       <div class="combat-buffs" data-buffs aria-label="Buffs"></div>
-      <section class="combat-damage" aria-labelledby="damage-title">
-        <h3 id="damage-title">Damage done</h3>
-        <div data-damage-meter></div>
-      </section>
     </aside>
     <div class="heal-boss">
       <strong data-boss-name></strong>
@@ -49,6 +42,10 @@
     <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
     <p data-result aria-live="polite"></p>
     <p data-regen-result hidden></p>
+      <section class="combat-damage" aria-labelledby="damage-title">
+        <h3 id="damage-title">Damage done</h3>
+        <div data-damage-meter></div>
+      </section>
   </div>
   <section class="heal-meter" aria-labelledby="meter-title">
     <h2 id="meter-title">Healing done</h2>

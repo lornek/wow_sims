@@ -91,3 +91,5 @@ footer { padding-block: 16px 28px; border-top: 1px solid #3d2f14; font-size: .9r
   .hero-logo { width: min(120px, 28vw); }
   .class-picker { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
 }
+
+html { -webkit-user-select:none; user-select:none; }

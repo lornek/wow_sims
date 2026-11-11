@@ -37,13 +37,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const difficulty = find('[data-difficulty]');
   const encounterSelect = find('[data-encounter]');
   if (Object.hasOwn(encounters, saved.encounter)) encounterSelect.value = saved.encounter;
-  const stamina = find('[data-stamina]');
   if (Number.isInteger(saved.difficulty) && saved.difficulty >= 0 && saved.difficulty <= 3) difficulty.value = saved.difficulty;
-  if (typeof saved.stamina === 'number') {
-    stamina.value = saved.stamina;
-    if (!stamina.validity.valid) stamina.value = '1';
-  }
-  const staminaMultiplier = () => stamina.validity.valid && stamina.value !== '' ? Number(stamina.value) : 1;
   function spellFor(key, name, row) {
     const entries = catalog[name]?.ranks ?? [];
     const tooltip = entries.find(entry => entry.rank === row.rank) ?? entries.at(-1);
@@ -294,9 +288,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const boss = encounters[id];
     const damage = 1.1 * (1.15 * 1.1) ** level;
     const health = 1.3 ** level;
-    const staminaScale = staminaMultiplier();
-    const allyHealth = staminaScale * 1.1 ** level;
-    const tankHealth = staminaScale * 1.16 ** level;
+    const allyHealth = 1.1 ** level;
+    const tankHealth = 1.16 ** level;
     const party = encounter.party.map((unit, index) => ({
       ...unit,
       max: Math.round(index === encounter.party.length - 1 ? profile.health : unit.max * (unit.role === 'Tank' || id === 'patchwerk' && index === 1 ? tankHealth : allyHealth) * (id === 'patchwerk' && index === 1 ? 1.3 : 1))
@@ -329,9 +322,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     const active = s.phase === 'active';
     const ended = ['won', 'lost'].includes(s.phase);
-    find('[data-start]').textContent = s.phase === 'ready' ? 'Pull' : 'Reset';
+    find('[data-start]').textContent = s.phase === 'ready' ? '⚔ PULL! ⚔' : 'Reset';
     find('[data-phase]').textContent = active ? whole(s.time) + ' sec · ' + (s.enraged ? 'Enraged' : 'In combat') :
-      s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : 'Ready to pull';
+      s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : '';
     fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
     find('[data-boss]').textContent = whole(s.boss) + ' / ' + whole(currentEncounter.health);
     const sunder = find('[data-sunder]');
@@ -425,7 +418,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     selects.forEach(({select}) => select.disabled = active);
     find('[data-power]').disabled = active;
     find('[data-loadout]').disabled = active;
-    encounterSelect.disabled = difficulty.disabled = stamina.disabled = active;
+    encounterSelect.disabled = difficulty.disabled = active;
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
     talentTree.setLocked(active);
     renderMeters(s);
@@ -507,7 +500,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         loadout: gear.value,
         encounter: encounterSelect.value,
         difficulty: Number(difficulty.value),
-        stamina: staminaMultiplier(),
         buffs: [...enabled],
         buffDefaults: true,
         power: power.validity.valid ? Number(power.value) : 0,
@@ -606,10 +598,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   find('[data-talents]').onchange = () => reset();
   find('[data-start]').onclick = () => reset(pull.state.phase === 'ready');
   difficulty.onchange = encounterSelect.onchange = () => reset();
-  stamina.onchange = () => {
-    stamina.value = staminaMultiplier();
-    reset();
-  };
   for (const {select} of selects) select.onchange = () => {
     if (pull.state.phase === 'active') return;
     if (pull.state.phase === 'ready') reset();
