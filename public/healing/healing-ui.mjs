@@ -23,8 +23,7 @@ const damageIcons = {
   'Ice Lance': 'spell_frost_frostblast',
   'Arcane Shot': 'ability_impalingbolt',
   'Serpent Sting': 'ability_hunter_quickshot',
-  'Pet: Melee': 'ability_meleedamage',
-  'Pet: Claw': 'ability_druid_rake'
+  'Pet': 'ability_druid_rake'
 };
 
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
@@ -378,13 +377,19 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         frame.resource.parentElement.title = unit.resource.type + ' · ' + whole(unit.resource.value) + ' / ' + unit.resource.max;
         const entry = damageRows[i];
         const {row, value, breakdown} = entry;
-        const abilities = Object.entries(unit.damage).sort((a,b) => b[1].total - a[1].total);
+        const abilities = Object.entries(unit.damage);
         const total = abilities.reduce((sum, [, ability]) => sum + ability.total, 0);
         entry.dps = total / (s.endedAt || s.time || 1);
         value.textContent = whole(total) + ' · ' + whole(entry.dps) + ' DPS';
         if (row.open) {
-          const damaging = abilities.filter(([, data]) => data.total > 0);
-          damaging.forEach(([name, data], index) => {
+          const damageByAbility = new Map();
+          for (const [name, data] of abilities) {
+            if (data.total <= 0) continue;
+            const label = name.startsWith('Pet: ') ? 'Pet' : name;
+            damageByAbility.set(label, (damageByAbility.get(label) ?? 0) + data.total);
+          }
+          const damaging = [...damageByAbility].sort((a, b) => b[1] - a[1]);
+          damaging.forEach(([name, damage], index) => {
             let line = entry.lines.get(name);
             if (!line) {
               const element = document.createElement('div');
@@ -399,7 +404,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
             }
             line.element.style.setProperty('--damage-hue', (index % 5 * (unit.name === 'Jaina' ? -10 : 7)) + 'deg');
             line.element.style.setProperty('--damage-tint', (28 + index % 5 * 7) + '%');
-            line.numbers.textContent = whole(data.total) + ' · ' + whole(data.total / (s.endedAt || s.time || 1)) + ' DPS';
+            line.numbers.textContent = whole(damage) + ' · ' + whole(damage / (s.endedAt || s.time || 1)) + ' DPS';
             const current = breakdown.children[index];
             if (current !== line.element) breakdown.insertBefore(line.element, current ?? null);
           });
