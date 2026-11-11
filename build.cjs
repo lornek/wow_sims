@@ -10,11 +10,16 @@ const classes = [
 const output = path.join(__dirname, 'dist');
 fs.cpSync(path.join(__dirname, 'public'), output, {recursive: true});
 
+function classButton(depth, slug, label, color, href, active, spec, spellIcon) {
+  const badge = spellIcon ? `<img class="class-spec-icon" src="${depth}healing/icons/${spellIcon}.jpg" alt="" width="18" height="18">` : '';
+  const marker = spec ? ` data-healbot-spec="${spec}"` : '';
+  return `<a class="class-pick" href="${depth}${href}" style="--class-color:${color}"${marker}${active ? ' aria-current="page"' : ''}><span class="class-art"><img src="${depth}assets/${slug}.jpg" alt="" width="40" height="40">${badge}</span><span>${label}</span></a>`;
+}
+
 function page(title, depth, current, content) {
   const links = classes.map(([name, color]) => {
     const slug = name.toLowerCase();
-    const active = current === slug ? ' aria-current="page"' : '';
-    return `<a class="class-pick" href="${depth}${slug}/" style="--class-color:${color}"${active}><img src="${depth}assets/${slug}.jpg" alt="" width="40" height="40"><span>${name}</span></a>`;
+    return classButton(depth, slug, name, color, slug + '/', current === slug);
   }).join('\n');
 
   return `<!doctype html>
@@ -48,7 +53,6 @@ ${content}
 
 const cleave = fs.readFileSync(path.join(__dirname, 'sims', 'cleave.html'), 'utf8');
 const healing = fs.readFileSync(path.join(__dirname, 'sims', 'healing.html'), 'utf8');
-const sunder = fs.readFileSync(path.join(__dirname, 'sims', 'sunder-armor.html'), 'utf8');
 const druidHealing = healing.replaceAll('Shaman', 'Druid').replace('Dwarf Druid', 'Night Elf Druid')
   .replace('Mindfulness', 'Reflection').replace('../assets/shaman.jpg', '../assets/druid.jpg')
   .replace('/abilities/shaman/', '/abilities/druid/').replace('../healing/shaman.mjs', '../healing/druid.mjs');
@@ -66,9 +70,14 @@ function healbotPath(slug) {
 }
 
 function healbotPage(slug, content, depth) {
-  const links = classes.filter(([name]) => Object.hasOwn(healers, name.toLowerCase())).map(([name]) => {
+  const links = classes.filter(([name]) => Object.hasOwn(healers, name.toLowerCase())).flatMap(([name, color]) => {
     const key = name.toLowerCase();
-    return `<a href="${depth}${healbotPath(key)}"${key === slug ? ' aria-current="page"' : ''}>${name}</a>`;
+    const href = healbotPath(key);
+    if (key !== 'priest') return classButton(depth, key, name, color, href, key === slug);
+    return [
+      classButton(depth, key, 'Discipline', color, href + '?spec=discipline', key === slug, 'discipline', 'spell_holy_penance'),
+      classButton(depth, key, 'Holy', color, href + '?spec=holy', false, 'holy', 'spell_holy_prayerofmendingtga')
+    ];
   }).join('\n');
   const current = classes.find(([name]) => name.toLowerCase() === slug)[0];
   return `<!doctype html>
@@ -83,7 +92,7 @@ function healbotPage(slug, content, depth) {
 <body class="healbot-page">
 <header class="healbot-header">
   <h1>Healbot</h1>
-  <details><summary>${current}</summary><nav aria-label="Healer class">${links}<a href="${depth}">Class sims</a></nav></details>
+  <nav class="class-picker" aria-label="Healer class">${links}</nav>
 </header>
 <main>${content.replaceAll('="../', '="' + depth).replace('class="panel healing"', 'class="healing"').replace('  <h2>Healing practice</h2>', '')}</main>
 </body>
@@ -96,7 +105,7 @@ for (const [slug, content] of Object.entries(healers)) {
   fs.writeFileSync(path.join(directory, 'index.html'), healbotPage(slug, content, slug === 'shaman' ? '../' : '../../'));
 }
 
-fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#sunder-armor">Warrior · Sunder Armor DPS</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./healbot/">Shaman · Healing practice</a></p><p><a href="./healbot/druid/">Druid · Healing practice</a></p><p><a href="./healbot/paladin/">Paladin · Healing practice</a></p><p><a href="./healbot/priest/">Priest · Healing practice</a></p></section>'));
+fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./healbot/">Shaman · Healing practice</a></p><p><a href="./healbot/druid/">Druid · Healing practice</a></p><p><a href="./healbot/paladin/">Paladin · Healing practice</a></p><p><a href="./healbot/priest/">Priest · Healing practice</a></p></section>'));
 for (const [name] of classes) {
   const slug = name.toLowerCase();
   const directory = path.join(output, slug);
@@ -106,6 +115,6 @@ for (const [name] of classes) {
     fs.writeFileSync(path.join(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Healbot</title><meta http-equiv="refresh" content="0;url=${destination}"></head><body><a href="${destination}">Open Healbot</a></body></html>`);
     continue;
   }
-  const content = slug === 'warrior' ? sunder + cleave : `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
+  const content = slug === 'warrior' ? cleave : `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
   fs.writeFileSync(path.join(directory, 'index.html'), page(`${name} Sims`, '../', slug, content));
 }

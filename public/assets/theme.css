@@ -93,3 +93,5 @@ footer { padding-block: 16px 28px; border-top: 1px solid #3d2f14; font-size: .9r
 }
 
 html { -webkit-user-select:none; user-select:none; }
+.class-art { position:relative; display:block; width:40px; height:40px; }
+.class-art .class-spec-icon { position:absolute; right:-3px; bottom:-3px; }

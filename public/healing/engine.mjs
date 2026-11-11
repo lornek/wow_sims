@@ -6,7 +6,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
-    manaPerSpirit: 0, manaPerMp5: 0,
+    manaGained: 0, manaPerSpirit: 0, manaPerMp5: 0,
     encounterId: encounter.id, nextPoison: encounter.id && encounter.id !== 'rend' ? Infinity : 7,
     nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}};
 
@@ -15,7 +15,9 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function restoreMana(amount) {
+    const previous = state.mana;
     state.mana = Math.min(profile.mana, state.mana + amount);
+    state.manaGained += state.mana - previous;
   }
 
   function applyWaterShield() {

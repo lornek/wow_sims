@@ -29,7 +29,17 @@ const damageIcons = {
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
   configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison'}) {
-  const settingsKey = 'wow-forever-sims.' + className + '.v1';
+  const params = new URLSearchParams(location.search);
+  const priestSpec = params.get('spec') === 'holy' ? 'holy' : 'discipline';
+  const settingsKey = 'wow-forever-sims.' + className + '.v1' +
+    (presets && priestSpec === 'holy' ? '.holy' : '');
+  const classLinks = [...document.querySelectorAll('.healbot-header .class-pick')];
+  if (presets) {
+    for (const link of classLinks.filter(link => link.dataset.healbotSpec)) {
+      if (link.dataset.healbotSpec === priestSpec) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    }
+  }
   function readSettings() {
     try {
       return JSON.parse(localStorage.getItem(settingsKey)) ?? {};
@@ -61,6 +71,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const encounterSelect = find('[data-encounter]');
   if (Object.hasOwn(encounters, saved.encounter)) encounterSelect.value = saved.encounter;
   if (Number.isInteger(saved.difficulty) && saved.difficulty >= 0 && saved.difficulty <= 3) difficulty.value = saved.difficulty;
+  if (Object.hasOwn(encounters, params.get('encounter'))) encounterSelect.value = params.get('encounter');
+  const linkedDifficulty = params.get('difficulty');
+  if (linkedDifficulty !== null && /^[0-3]$/.test(linkedDifficulty)) difficulty.value = linkedDifficulty;
+
   function spellFor(key, name, row) {
     const entries = catalog[name]?.ranks ?? [];
     const tooltip = entries.find(entry => entry.rank === row.rank) ?? entries.at(-1);
@@ -349,6 +363,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     difficulty.dataset.level = difficulty.value;
     mountBossAbilities(id);
     find('.heal-stage').dataset.encounter = id;
+    for (const link of classLinks) {
+      const destination = new URL(link.href);
+      destination.searchParams.set('encounter', id);
+      destination.searchParams.set('difficulty', level);
+      link.href = destination;
+    }
+    const mobilePortrait = find('[data-boss-portrait-mobile]');
+    const mobileUrl = new URL('./portraits/' + id + '-mobile.jpg', import.meta.url).href;
+    if (mobilePortrait.srcset !== mobileUrl) mobilePortrait.srcset = mobileUrl;
     const portrait = find('[data-boss-portrait]');
     const portraitUrl = new URL('./portraits/' + id + '.jpg', import.meta.url).href;
     if (portrait.src !== portraitUrl) portrait.src = portraitUrl;
@@ -503,20 +526,43 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     renderMeters(s);
     if (inspected !== null) updateInspectorMeter(s);
     const result = find('[data-result]');
-    const score = ended ? s.survivors + '/5 survived · ' + whole(s.healing) + ' effective healing · ' +
-      whole(s.healing / s.endedAt) + ' HPS · ' + whole(s.overheal) + ' overhealing · ' +
-      (s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) + ' effective healing per mana · ' : '') +
-      whole(s.manaAtEnd) + ' mana left' : '';
-    if (result.textContent !== score) result.textContent = score;
-    const regenResult = find('[data-regen-result]');
-    regenResult.hidden = !ended;
-    if (ended) {
-      const comparison = 'Mana gained this pull · ' + s.manaPerSpirit.toFixed(2) + ' mana per +1 raw Spirit · ' +
-        s.manaPerMp5.toFixed(2) + ' mana per +1 mana / 5 sec';
-      if (regenResult.textContent !== comparison) regenResult.textContent = comparison;
-      regenResult.title = 'Extra mana usable during the observed pull, after the mana cap. ' +
-        'Raw Spirit includes multipliers from talents and buffs, averaged across stat rounding.';
+    if (ended && result.hidden) {
+      const reportGroup = (title, metrics) => {
+        const heading = document.createElement('h3');
+        heading.textContent = title;
+        const list = document.createElement('dl');
+        for (const [art, label, value] of metrics) {
+          const metric = document.createElement('div');
+          const image = document.createElement('img');
+          image.src = new URL('./report-icons/' + art + '.jpg', import.meta.url);
+          image.alt = '';
+          image.width = image.height = 40;
+          const term = document.createElement('dt');
+          term.textContent = label;
+          const detail = document.createElement('dd');
+          detail.textContent = value;
+          metric.append(image, term, detail);
+          list.append(metric);
+        }
+        result.append(heading, list);
+      };
+      reportGroup('Fight summary', [
+        ['survived', 'Players kept alive', s.survivors + ' / ' + s.party.length],
+        ['healing', 'Effective healing', whole(s.healing)],
+        ['hps', 'Healing per second', whole(s.healing / s.endedAt)],
+        ['overheal', 'Overhealing', whole(s.overheal)],
+        ['efficiency', 'Healing per mana', s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) : '—'],
+        ['remaining', 'Mana remaining', whole(s.manaAtEnd)]
+      ]);
+      reportGroup('Mana gained during fight · ' + whole(s.manaGained), [
+        ['gained', 'Total mana gained', whole(s.manaGained)],
+        ['spirit', 'Mana per +1 raw Spirit', s.manaPerSpirit.toFixed(2)],
+        ['mp5', 'Mana per +1 mana / 5 sec', s.manaPerMp5.toFixed(2)]
+      ]);
+    } else if (!ended && !result.hidden) {
+      result.replaceChildren();
     }
+    result.hidden = !ended;
   }
 
   const equipment = {
@@ -553,7 +599,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     find('[data-buffs]').append(label);
   }
-  const talentTree = mountTalentTree(find('[data-talents]'), saved.talents ?? defaultTalents, () => reset(), trees);
+  const talentTree = mountTalentTree(find('[data-talents]'), saved.talents ?? (presets && priestSpec === 'holy' ? presets.Holy : defaultTalents), () => reset(), trees);
   if (presets) {
     const label = document.createElement('label');
     const select = document.createElement('select');
@@ -676,7 +722,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   find('[data-buffs]').onchange = () => reset();
   find('[data-talents]').onchange = () => reset();
   find('[data-start]').onclick = () => reset(pull.state.phase === 'ready');
-  difficulty.onchange = encounterSelect.onchange = () => reset();
+  difficulty.onchange = encounterSelect.onchange = () => {
+    const url = new URL(location.href);
+    url.searchParams.set('encounter', encounterSelect.value);
+    url.searchParams.set('difficulty', difficulty.value);
+    history.replaceState(null, '', url);
+    reset();
+  };
   for (const {select} of selects) select.onchange = () => {
     if (pull.state.phase === 'active') return;
     if (pull.state.phase === 'ready') reset();
