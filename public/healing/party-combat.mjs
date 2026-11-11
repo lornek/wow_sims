@@ -63,25 +63,38 @@ export function advancePartyCombat(state, dt, random) {
     if (!unit.hp || !unit.rotation || !state.boss) continue;
     const stats = combatants[unit.name];
     const rotation = unit.rotation;
-    gain(unit, stats.regen * dt);
+    gain(unit, stats.regen * dt * (rotation.adrenalineUntil > now ? 2 : 1));
+    if (rotation.evocationUntil > now) gain(unit, unit.resource.max * .075 * dt);
     const ready = (spell, cost) => (rotation.cooldowns[spell] ?? 0) <= now && unit.resource.value >= cost;
     const weapon = speed => stats.weapon + stats.ap * speed / 14;
-    function hit(spell, base, {magic = false, auto = false, critMultiplier = 2, spread = .05, grantsRage = false} = {}) {
+    function recordDamage(spell, amount, crit = false) {
+      const meter = unit.damage[spell] ??= {attempts:0, hits:0, crits:0, total:0};
+      const damage = Math.min(state.boss, Math.round(amount));
+      meter.hits++;
+      meter.crits += Number(crit);
+      meter.total += damage;
+      state.boss -= damage;
+    }
+    function hit(spell, base, {ignite = false, bonusCrit = 0, magic = false, auto = false, critMultiplier = 2, spread = .05, grantsRage = false} = {}) {
       const meter = unit.damage[spell] ??= {attempts:0, hits:0, crits:0, total:0};
       meter.attempts++;
       const roll = random();
       const miss = 1 - stats.hit + (auto && stats.offHand ? .19 : 0) +
         (stats.expertise === undefined ? 0 : Math.max(0, .065 - stats.expertise));
       if (roll < miss) return false;
-      const crit = roll < miss + stats.crit;
+      const crit = roll < miss + stats.crit + bonusCrit;
       const glance = !crit && auto && stats.resource !== 'Mana' && roll < miss + stats.crit + .4;
       const infused = magic && unit.powerInfusion?.expires > now;
-      const damage = Math.min(state.boss, Math.round(base * (1 - spread + 2 * spread * random()) *
-        (magic ? 1 : 5500 / (5500 + bossArmor(state))) * (crit ? critMultiplier : glance ? .7 : 1) * (infused ? 1.2 : 1)));
-      meter.hits++;
-      meter.crits += Number(crit);
-      meter.total += damage;
-      state.boss -= damage;
+      const damage = base * (1 - spread + 2 * spread * random()) *
+        (magic ? 1 : 5500 / (5500 + bossArmor(state))) * (crit ? critMultiplier : glance ? .7 : 1) * (infused ? 1.2 : 1);
+      recordDamage(spell, damage, crit);
+      if (unit.name === 'Jaina' && random() < .1) rotation.clearcasting = true;
+      if (ignite && crit) {
+        gain(unit, (rotation.mageCastCost ?? 0) * .3);
+        rotation.ignitePool = (rotation.ignitePool ?? 0) + damage * .4;
+        rotation.igniteTick ??= now + 2;
+        rotation.igniteTicks = 2;
+      }
       if (grantsRage) {
         const before = unit.resource.value;
         gain(unit, 3.46 * stats.speed * (crit ? 2 : 1));
@@ -141,7 +154,11 @@ export function advancePartyCombat(state, dt, random) {
         hit('Revenge', revenge * .9, {spread:15.5 / revenge});
       }
     } else if (unit.name === 'Illidan') {
-      const haste = rotation.sliceUntil > now ? 1.3 : 1;
+      if ((rotation.cooldowns['Adrenaline Rush'] ?? 0) <= now && unit.resource.value <= 40) {
+        rotation.adrenalineUntil = now + 15;
+        rotation.cooldowns['Adrenaline Rush'] = now + 300;
+      }
+      const haste = (rotation.sliceUntil > now ? 1.3 : 1) * (rotation.flurryUntil > now ? 1.2 : 1);
       if (now >= rotation.swing) {
         rotation.swing += stats.speed / haste;
         hit('Main-hand swing', weapon(stats.speed), {auto:true});
@@ -151,48 +168,131 @@ export function advancePartyCombat(state, dt, random) {
         hit('Off-hand swing', (stats.offHand + stats.ap * stats.offSpeed / 14) * .75, {auto:true});
       }
       if (now < rotation.action) continue;
-      if (rotation.combo >= 2 && !(rotation.sliceUntil > now) && ready('Slice and Dice', 25)) {
+      if (ready('Blade Flurry', 25)) {
+        spend('Blade Flurry', 25, 120, 1);
+        rotation.flurryUntil = now + 15;
+      } else if (rotation.combo >= 2 && !(rotation.sliceUntil > now) && ready('Slice and Dice', 25)) {
         spend('Slice and Dice', 25, 0, 1);
         rotation.sliceUntil = now + (6 + 3 * rotation.combo) * 1.45;
-        rotation.combo = 0;
+        rotation.combo = Number(random() < .6);
       } else if (rotation.combo === 5 && ready('Eviscerate', 35)) {
         spend('Eviscerate', 35, 0, 1);
-        if (hit('Eviscerate', 108 + 170 * rotation.combo + .15 * stats.ap)) rotation.combo = 0;
+        if (hit('Eviscerate', 108 + 170 * rotation.combo + .15 * stats.ap)) rotation.combo = Number(random() < .6);
       } else if (rotation.combo < 5 && ready('Sinister Strike', 40)) {
         spend('Sinister Strike', 40, 0, 1);
-        if (hit('Sinister Strike', weapon(2.4) + 68)) rotation.combo++;
+        if (hit('Sinister Strike', weapon(2.4) + 68, {critMultiplier:2.3})) rotation.combo++;
       }
     } else if (unit.name === 'Sylvanas') {
+      // ForeverDB's ranged priority assumes Hunter's Mark, Hawk and Improved Tracking.
+      const ranged = (speed, bonus = 0) => (weapon(speed) + 263 * speed / 14 + bonus) * 1.05;
+      if (now >= (rotation.petSwing ?? 2)) {
+        rotation.petSwing = now + 2;
+        hit('Pet: Melee', 60, {spread:.25});
+      }
+      if (now >= (rotation.petClaw ?? 5)) {
+        rotation.petClaw = now + 5;
+        hit('Pet: Claw', 50);
+      }
+      if (rotation.stingTicks && now >= rotation.stingTick) {
+        recordDamage('Serpent Sting', 58 * 1.05);
+        rotation.stingTicks--;
+        rotation.stingTick += 3;
+      }
       if (rotation.aimedUntil > now) continue;
       if (rotation.aimedUntil) {
-        hit('Aimed Shot', weapon(2.8) + 350, {critMultiplier:2.3});
+        hit('Aimed Shot', ranged(2.8, 350), {critMultiplier:2.3});
         rotation.aimedUntil = 0;
       }
+      if ((rotation.cooldowns['Rapid Fire'] ?? 0) <= now) {
+        rotation.cooldowns['Rapid Fire'] = now + 300;
+        rotation.rapidUntil = now + 15;
+      }
       if (now >= rotation.swing) {
-        rotation.swing = now + stats.speed;
-        hit('Auto Shot', weapon(stats.speed), {auto:true,critMultiplier:2.3});
+        rotation.swing = now + stats.speed / (rotation.rapidUntil > now ? 1.4 : 1);
+        hit('Auto Shot', ranged(stats.speed), {auto:true, critMultiplier:2.3});
       }
       if (now < rotation.action) continue;
-      if (ready('Aimed Shot', 310)) {
+      if (!rotation.stingTicks && ready('Serpent Sting', 115)) {
+        spend('Serpent Sting', 115);
+        rotation.stingTicks = 5;
+        rotation.stingTick = now + 3;
+      } else if (ready('Arcane Shot', 190)) {
+        spend('Arcane Shot', 190, 6);
+        hit('Arcane Shot', 280 * 1.05, {magic:true, critMultiplier:2.3});
+      } else if (ready('Aimed Shot', 310)) {
         spend('Aimed Shot', 310, 6, 2);
         rotation.aimedUntil = now + 2;
-      } else if (ready('Multi-Shot', 235)) {
-        spend('Multi-Shot', 235, 6);
-        hit('Multi-Shot', weapon(2.8), {critMultiplier:2.3});
       }
     } else if (unit.name === 'Jaina') {
-      if (now < rotation.action) continue;
-      const frostImmune = state.encounterId === 'sapphiron';
-      const spell = frostImmune ? 'Fireball' : 'Frostbolt';
-      if (rotation.casting) {
-        hit(spell, frostImmune ? 483 + stats.power : (475 + .814 * stats.power) * 1.06,
-          {magic:true,critMultiplier:frostImmune ? 1.5 : 2});
-        rotation.casting = false;
+      const fire = state.encounterId === 'sapphiron';
+      if (rotation.igniteTicks && now >= rotation.igniteTick) {
+        const tick = rotation.ignitePool / rotation.igniteTicks;
+        recordDamage('Ignite', tick);
+        rotation.ignitePool -= tick;
+        rotation.igniteTicks--;
+        rotation.igniteTick = rotation.igniteTicks ? rotation.igniteTick + 2 : undefined;
       }
-      const cost = frostImmune ? 410 : 290;
+      if (now < rotation.action || !state.boss) continue;
+      const vulnerability = fire && rotation.scorchUntil > now ? (rotation.scorchStacks ?? 0) : 0;
+      if (rotation.casting) {
+        const {spell, base, spread, bonusCrit} = rotation.casting;
+        const multiplier = fire ? 1 + .03 * vulnerability : spell === 'Frostbolt' ? 1.06 : 1;
+        const landed = hit(spell, base * multiplier, {magic:true, ignite:fire, spread, bonusCrit,
+          critMultiplier:spell === 'Frostbolt' || spell === 'Ice Lance' ? 2 : 1.5});
+        if (landed && spell === 'Scorch') {
+          rotation.scorchStacks = Math.min(5, vulnerability + 1);
+          rotation.scorchUntil = now + 30;
+        }
+        if (landed && spell === 'Frostbolt' && random() < .15) rotation.fingers = 2;
+        rotation.casting = null;
+      }
+      if (!state.boss) continue;
+      if (unit.resource.value < .15 * unit.resource.max && ready('Evocation', 0)) {
+        spend('Evocation', 0, 480, 8);
+        rotation.evocationUntil = now + 8;
+        continue;
+      }
+      const stacks = rotation.scorchUntil > now ? rotation.scorchStacks : 0;
+      let spell = fire ? 'Fireball' : 'Frostbolt';
+      let base = fire ? 483 + stats.power : 475 + .814 * stats.power;
+      let cost = fire ? 410 : 290;
+      let castTime = fire ? 3 : 2.5;
+      let spread = .05;
+      let bonusCrit = 0;
+      let cooldown = 0;
+      if (fire && !rotation.pyroOpened) {
+        spell = 'Pyroblast';
+        base = 768 + stats.power;
+        cost = 440;
+        castTime = 6;
+      } else if (ready('Fire Blast', rotation.clearcasting ? 0 : 340)) {
+        spell = 'Fire Blast';
+        base = 438 + .429 * stats.power;
+        cost = 340;
+        castTime = 0;
+        cooldown = 8;
+      } else if (fire && (stacks < 5 || rotation.scorchUntil - now < 4)) {
+        spell = 'Scorch';
+        base = 178 + .429 * stats.power;
+        cost = 150;
+        castTime = 1.5;
+      } else if (!fire && rotation.fingers) {
+        spell = 'Ice Lance';
+        base = 3 * (28 + .143 * stats.power);
+        cost = 120;
+        castTime = 0;
+        bonusCrit = .5;
+      }
+      if (rotation.clearcasting) cost = 0;
       if (ready(spell, cost)) {
-        spend(spell, cost, 0, frostImmune ? 3 : 2.5);
-        rotation.casting = true;
+        spend(spell, cost, cooldown, Math.max(1.5, castTime));
+        rotation.mageCastCost = cost;
+        rotation.clearcasting = false;
+        if (spell === 'Pyroblast') rotation.pyroOpened = true;
+        if (spell === 'Ice Lance') rotation.fingers--;
+        if (castTime) rotation.casting = {spell, base, spread, bonusCrit};
+        else hit(spell, base * (fire ? 1 + .03 * stacks : 1),
+          {magic:true, ignite:fire, bonusCrit, critMultiplier:spell === 'Ice Lance' ? 2 : 1.5});
       }
     }
   }

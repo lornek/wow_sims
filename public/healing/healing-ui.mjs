@@ -16,7 +16,16 @@ const damageIcons = {
   'Aimed Shot': 'inv_spear_07',
   'Multi-Shot': 'ability_upgrademoonglaive',
   'Frostbolt': 'spell_frost_frostbolt02',
-  'Fireball': 'spell_fire_flamebolt'
+  'Fireball': 'spell_fire_flamebolt',
+  'Fire Blast': 'spell_fire_fireball',
+  'Scorch': 'spell_fire_soulburn',
+  'Pyroblast': 'spell_fire_fireball02',
+  'Ignite': 'spell_fire_incinerate',
+  'Ice Lance': 'spell_frost_frostblast',
+  'Arcane Shot': 'ability_impalingbolt',
+  'Serpent Sting': 'ability_hunter_quickshot',
+  'Pet: Melee': 'ability_meleedamage',
+  'Pet: Claw': 'ability_druid_rake'
 };
 
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
@@ -224,6 +233,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       frame.append(track);
       const row = document.createElement('details');
       row.className = 'meter-row';
+      row.name = 'healbot-damage-breakdown';
       row.style.setProperty('--damage-class', unit.color);
       const summary = document.createElement('summary');
       const breakdown = document.createElement('div');
