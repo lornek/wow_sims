@@ -308,6 +308,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-boss-name]').textContent = boss.name;
     difficulty.dataset.level = difficulty.value;
     mountBossAbilities(id);
+    find('.heal-stage').dataset.encounter = id;
     const portrait = find('[data-boss-portrait]');
     const portraitUrl = new URL('./portraits/' + id + '.jpg', import.meta.url).href;
     if (portrait.src !== portraitUrl) portrait.src = portraitUrl;
