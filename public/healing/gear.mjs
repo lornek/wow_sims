@@ -506,242 +506,245 @@ export const equipmentSets = {
   },
   "Tier 1 raid": {
     "Head": {
-      "id": 226612,
-      "name": "Earthfury Helmet",
-      "icon": "inv_helmet_09",
-      "source": "Season of Discovery",
-      "acquisition": "Earthfury Relief · Molten Core",
-      "ilvl": 66,
+      "id": 252561,
+      "name": "Living Crown",
+      "icon": "inv_helmet_19",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 61,
       "quality": 4,
       "stats": {
-        "stamina": 19,
-        "intellect": 21,
-        "power": 51,
-        "crit": 1,
-        "armor": 343
+        "intellect": 18,
+        "spirit": 14,
+        "power": 73,
+        "spellDamage": 25,
+        "armor": 152
       }
     },
     "Neck": {
-      "id": 228137,
-      "name": "Heart of Golemagg",
-      "icon": "inv_jewelry_necklace_05",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
-      "quality": 4,
-      "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "spirit": 11,
-        "power": 37
-      }
-    },
-    "Shoulders": {
-      "id": 228283,
-      "name": "Wild Growth Spaulders",
-      "icon": "inv_shoulder_18",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 21712,
+      "name": "Amulet of the Fallen God",
+      "icon": "inv_jewelry_necklace_ahnqiraj_02",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data).",
+      "ilvl": 88,
       "quality": 4,
       "stats": {
         "stamina": 11,
-        "intellect": 12,
-        "power": 62,
-        "armor": 159
+        "power": 57,
+        "mp5": 6
+      }
+    },
+    "Shoulders": {
+      "id": 22234,
+      "name": "Mantle of Lost Hope",
+      "icon": "inv_shoulder_09",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Lord Roccor in Blackrock Depths, 25% (Classic data).",
+      "ilvl": 53,
+      "quality": 3,
+      "stats": {
+        "stamina": 5,
+        "intellect": 11,
+        "power": 26,
+        "spellDamage": 9,
+        "mp5": 4,
+        "armor": 57
       }
     },
     "Back": {
-      "id": 230858,
-      "name": "Cloak of the Hakkari Worshipers",
-      "icon": "inv_misc_cape_16",
-      "source": "Season of Discovery",
-      "acquisition": "Zul’Gurub",
-      "ilvl": 65,
+      "id": 18510,
+      "name": "Hide of the Wild",
+      "icon": "inv_misc_cape_01",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 62,
       "quality": 4,
       "stats": {
         "stamina": 8,
-        "intellect": 8,
-        "power": 26,
-        "spellDamage": 26,
-        "armor": 50
+        "intellect": 10,
+        "power": 42,
+        "spellDamage": 14,
+        "armor": 48
       }
     },
     "Chest": {
-      "id": 226617,
-      "name": "Earthfury Vestments",
-      "icon": "inv_chest_chain_11",
-      "source": "Season of Discovery",
-      "acquisition": "Earthfury Relief · Molten Core",
-      "ilvl": 66,
-      "quality": 4,
+      "id": 10020,
+      "name": "Stormcloth Vest",
+      "icon": "inv_chest_cloth_08",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 190 (Forever client). Learn it at skill 190.",
+      "ilvl": 45,
+      "quality": 2,
       "stats": {
-        "stamina": 12,
-        "intellect": 23,
-        "power": 55,
-        "crit": 1,
-        "armor": 422
+        "stamina": 8,
+        "spirit": 8,
+        "power": 58,
+        "spellDamage": 10,
+        "armor": 59
       }
     },
     "Wrists": {
-      "id": 226618,
-      "name": "Earthfury Bracers",
+      "id": 13969,
+      "name": "Loomguard Armbraces",
       "icon": "inv_bracer_16",
-      "source": "Season of Discovery",
-      "acquisition": "Earthfury Relief · Molten Core",
-      "ilvl": 66,
-      "quality": 4,
+      "source": "ForeverDB",
+      "acquisition": "Drops from Kirtonos in Scholomance, 11% (Classic data).",
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 9,
-        "intellect": 10,
-        "power": 24,
-        "crit": 1,
-        "armor": 185
+        "stamina": 6,
+        "intellect": 7,
+        "power": 29,
+        "spellDamage": 10,
+        "mp5": 3,
+        "armor": 157
       }
     },
     "Hands": {
-      "id": 226615,
-      "name": "Earthfury Gauntlets",
-      "icon": "inv_gauntlets_11",
-      "source": "Season of Discovery",
-      "acquisition": "Earthfury Relief · Molten Core",
-      "ilvl": 66,
-      "quality": 4,
+      "id": 18409,
+      "name": "Mooncloth Gloves",
+      "icon": "inv_gauntlets_17",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Tailoring 280 (Forever client). Learn it at skill 280.",
+      "ilvl": 62,
+      "quality": 3,
       "stats": {
-        "stamina": 12,
-        "intellect": 17,
+        "stamina": 9,
+        "intellect": 16,
         "power": 33,
-        "crit": 1,
-        "armor": 264
+        "spellDamage": 11,
+        "armor": 55
       }
     },
     "Waist": {
-      "id": 226616,
-      "name": "Earthfury Belt",
-      "icon": "inv_belt_14",
-      "source": "Season of Discovery",
-      "acquisition": "Earthfury Relief · Molten Core",
-      "ilvl": 66,
+      "id": 19162,
+      "name": "Corehound Belt",
+      "icon": "inv_belt_24",
+      "source": "ForeverDB",
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
+      "ilvl": 70,
       "quality": 4,
       "stats": {
-        "stamina": 12,
-        "intellect": 15,
-        "power": 37,
-        "crit": 1,
-        "armor": 237
+        "intellect": 16,
+        "power": 62,
+        "spellDamage": 21,
+        "armor": 118
       }
     },
     "Legs": {
-      "id": 228245,
-      "name": "Salamander Scale Pants",
-      "icon": "inv_pants_12",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 66,
-      "quality": 4,
+      "id": 18386,
+      "name": "Padre's Trousers",
+      "icon": "inv_pants_06",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Illyanna Ravenoak in Dire Maul, 25% (Classic data).",
+      "ilvl": 61,
+      "quality": 3,
       "stats": {
-        "stamina": 14,
-        "intellect": 14,
-        "power": 51,
-        "mp5": 9,
-        "armor": 175
+        "armor": 76,
+        "power": 37,
+        "spellDamage": 12,
+        "intellect": 20,
+        "mp5": 7
       }
     },
     "Feet": {
-      "id": 226613,
-      "name": "Earthfury Boots",
-      "icon": "inv_boots_plate_06",
-      "source": "Season of Discovery",
-      "acquisition": "Earthfury Relief · Molten Core",
-      "ilvl": 66,
-      "quality": 4,
+      "id": 13954,
+      "name": "Verdant Footpads",
+      "icon": "inv_boots_08",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Stonespine in Stratholme, 33% (Classic data).",
+      "ilvl": 62,
+      "quality": 3,
       "stats": {
-        "stamina": 14,
-        "intellect": 15,
-        "power": 37,
-        "crit": 1,
-        "armor": 290
+        "power": 38,
+        "spellDamage": 12,
+        "mp5": 5,
+        "armor": 120
       }
     },
     "Finger 1": {
-      "id": 228274,
+      "id": 19140,
       "name": "Cauterizing Band",
       "icon": "inv_jewelry_ring_39",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data).",
       "ilvl": 71,
       "quality": 4,
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 46
+        "power": 46,
+        "spellDamage": 15
       }
     },
     "Finger 2": {
-      "id": 228243,
-      "name": "Ring of Spell Power",
-      "icon": "inv_jewelry_ring_38",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
+      "id": 21210,
+      "name": "Signet Ring of the Bronze Dragonflight",
+      "icon": "inv_jewelry_ring_40",
+      "source": "ForeverDB",
+      "acquisition": "Quest reward: The Grand Invoker, level 60 (Classic data).",
+      "ilvl": 80,
       "quality": 4,
       "stats": {
-        "power": 34,
-        "spellDamage": 34
+        "stamina": 8,
+        "intellect": 9,
+        "power": 28,
+        "spellDamage": 28,
+        "mp5": 5
       }
     },
     "Trinket 1": {
-      "id": 231271,
-      "name": "Nat Pagle's Broken Reel",
-      "icon": "inv_gizmo_09",
-      "source": "Season of Discovery",
-      "acquisition": "Zul’Gurub",
+      "id": 272439,
+      "name": "Serenity Field",
+      "icon": "inv_misc_enggizmos_36",
+      "source": "ForeverDB",
+      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever).",
       "ilvl": 65,
-      "quality": 4,
+      "quality": 3,
       "stats": {
-        "power": 26,
-        "spellDamage": 26
+        "power": 21,
+        "spellDamage": 7
       }
     },
     "Trinket 2": {
-      "id": 228255,
-      "name": "Talisman of Ephemeral Power",
-      "icon": "inv_misc_stonetablet_11",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 71,
-      "quality": 4,
-      "stats": {}
-    },
-    "Main hand": {
-      "id": 228264,
-      "name": "Aurastone Hammer",
-      "icon": "inv_hammer_05",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 68,
+      "id": 23027,
+      "name": "Warmth of Forgiveness",
+      "icon": "inv_trinket_naxxramas01",
+      "source": "ForeverDB",
+      "acquisition": "ForeverDB level 60 PvE selection",
+      "ilvl": 85,
       "quality": 4,
       "stats": {
-        "stamina": 10,
-        "intellect": 10,
-        "power": 62,
-        "mp5": 4
+        "mp5": 10
+      }
+    },
+    "Main hand": {
+      "id": 2816,
+      "name": "Death Speaker Scepter",
+      "icon": "inv_mace_07",
+      "source": "ForeverDB",
+      "acquisition": "Drops from Death Speaker Jargba in Razorfen Kraul, 20% (Classic data).",
+      "ilvl": 33,
+      "quality": 3,
+      "stats": {
+        "power": 68
       }
     },
     "Off hand": {
-      "id": 228294,
-      "name": "Malistar's Defender",
-      "icon": "inv_shield_08",
-      "source": "Season of Discovery",
-      "acquisition": "Molten Core",
-      "ilvl": 77,
+      "id": 235473,
+      "name": "Grand Marshal's Barricade",
+      "icon": "inv_shield_05",
+      "source": "ForeverDB",
+      "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one.",
+      "ilvl": 80,
       "quality": 4,
       "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "power": 42,
-        "mp5": 5,
-        "armor": 2893
+        "armor": 3000,
+        "stamina": 26,
+        "intellect": 10,
+        "power": 44,
+        "spellDamage": 24
       }
     }
   },
