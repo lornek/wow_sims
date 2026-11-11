@@ -161,14 +161,21 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       track.className = 'party-resource ' + combatants[unit.name].resource.toLowerCase();
       resource = document.createElement('span');
       track.append(resource);
-      frame.insertBefore(track, frame.lastElementChild);
+      frame.append(track);
       const row = document.createElement('details');
       row.className = 'meter-row';
       const summary = document.createElement('summary');
       const breakdown = document.createElement('p');
+      const label = document.createElement('span');
+      const value = document.createElement('span');
+      summary.append(label, value);
       row.append(summary, breakdown);
       find('[data-damage-meter]').append(row);
-      damageRows[index] = {row, summary, breakdown};
+      label.textContent = unit.name;
+      damageRows[index] = {row, value, breakdown};
+    } else {
+      frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana healer-resource"><span data-mana-fill></span>' +
+        '<small><span data-mana-current></span><span> / </span><span data-mana-max></span></small></span>');
     }
     frame.onclick = event => {
       if (!touchInput(event)) return attempt(event, index, false);
@@ -188,11 +195,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         badge.className = 'unit-aura ' + key;
         const timer = document.createElement('span');
         badge.append(icon(key === 'poison' ? slots[3][1] : name), timer);
-        frame.lastElementChild.append(badge);
+        frame.querySelector('.unit-status').append(badge);
         return {key, name, badge, timer};
       });
     frames.push({frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('.unit-name'),
-      health: frame.querySelector('small'), resource, auras: badges});
+      health: frame.querySelector(':scope > small'), resource, auras: badges});
   }
 
   function attempt(event, index, right) {
@@ -231,6 +238,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function reset(start = false, persist = true) {
     touchTarget = null;
+    root.querySelectorAll('.heal-float, .heal-bounce').forEach(effect => effect.remove());
     configuredSpells();
     const level = Number(difficulty.value);
     const id = encounterSelect.value;
@@ -250,8 +258,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (boss[key]) currentEncounter[key] = Math.round(boss[key] * damage);
     }
     find('[data-boss-name]').textContent = boss.name;
-    find('[data-encounter-preview]').textContent = whole(currentEncounter.health) + ' boss HP · ×' +
-      damage.toFixed(3).replace(/\.?0+$/, '') + ' boss damage · ×' + tankHealth.toFixed(2) + ' tank HP · ×' + allyHealth.toFixed(2) + ' other ally HP · ' + boss.description;
+    const portrait = find('[data-boss-portrait]');
+    const portraitUrl = new URL('./portraits/' + id + '.jpg', import.meta.url).href;
+    if (portrait.src !== portraitUrl) portrait.src = portraitUrl;
     pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal);
     updateSheet();
     if (start) pull.start();
@@ -268,11 +277,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     const active = s.phase === 'active';
     const ended = ['won', 'lost'].includes(s.phase);
-    find('[data-start]').textContent = active ? 'Restart pull' : ended ? 'Pull again' : 'Start pull';
+    find('[data-start]').textContent = s.phase === 'ready' ? 'Pull' : 'Reset';
     find('[data-phase]').textContent = active ? whole(s.time) + ' sec · ' + (s.enraged ? 'Enraged' : 'In combat') :
       s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : 'Ready to pull';
     fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
-    find('[data-boss]').textContent = Math.ceil(s.boss / currentEncounter.health * 100) + '%';
+    find('[data-boss]').textContent = whole(s.boss) + ' / ' + whole(currentEncounter.health);
     const specialAt = currentEncounter.id === 'patchwerk' ? s.nextSpecial : s.nextFlurry;
     const flurry = active && specialAt - s.time <= 2;
     fill(find('[data-boss-cast-fill]'), flurry ? 1 - (specialAt - s.time) / 2 : 0);
@@ -287,11 +296,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (frame.resource && unit.resource) {
         fill(frame.resource, unit.resource.value / unit.resource.max);
         frame.resource.parentElement.title = unit.resource.type + ' · ' + whole(unit.resource.value) + ' / ' + unit.resource.max;
-        const {row, summary, breakdown} = damageRows[i];
+        const {row, value, breakdown} = damageRows[i];
         const abilities = Object.entries(unit.damage).sort((a,b) => b[1].total - a[1].total);
         const total = abilities.reduce((sum, [, ability]) => sum + ability.total, 0);
         row.style.setProperty('--share', (s.boss < currentEncounter.health ? 100 * total / (currentEncounter.health - s.boss) : 0) + '%');
-        summary.textContent = unit.name + ' · ' + whole(total) + ' damage · ' + whole(total / (s.endedAt || s.time || 1)) + ' DPS';
+        value.textContent = whole(total) + ' · ' + whole(total / (s.endedAt || s.time || 1)) + ' DPS';
         if (row.open) {
           const stats = combatants[unit.name];
           const stat = stats.power ? stats.power + ' spell power' : stats.ap + ' attack power';
@@ -524,7 +533,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   gear.onchange = () => reset();
   find('[data-buffs]').onchange = () => reset();
   find('[data-talents]').onchange = () => reset();
-  find('[data-start]').onclick = () => reset(true);
+  find('[data-start]').onclick = () => reset(pull.state.phase === 'ready');
   difficulty.onchange = encounterSelect.onchange = () => reset();
   stamina.onchange = () => {
     stamina.value = staminaMultiplier();
