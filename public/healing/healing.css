@@ -3,7 +3,7 @@
 .heal-stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 30%); align-items:start; gap: 10px; padding: clamp(8px, 2vw, 20px); background: radial-gradient(ellipse at top,#342317,#120d09 68%); border: 1px solid var(--border); border-radius: 4px; }
 .heal-stage > * { grid-column:1 / -1; }
 .heal-stage > .heal-top, .heal-stage > .heal-boss { grid-column:1; }
-.heal-stage > .combat-sidebar { grid-column:2; grid-row:1 / 3; }
+.heal-stage > .combat-sidebar { grid-column:2; grid-row:1; }
 .heal-top { display:flex; justify-content:flex-start; align-items:center; gap:8px; color:var(--gold); }
 .healing button, .healing input, .healing select { font: inherit; color: var(--text); background: #1a130d; border: 1px solid var(--border); border-radius:4px; padding: 5px 9px; }
 .healing button { cursor:pointer; }
@@ -266,7 +266,24 @@ body:has(#healing) { font-family:var(--ui); }
 .party-resource.energy > span { background:#e5bf44; }
 [data-damage-meter] .meter-row p { white-space:pre-line; }
 
-.heal-stage > .combat-damage { grid-column:2; }
+.heal-stage > .combat-damage { grid-column:2; grid-row:2; align-self:end; }
 .encounter-settings { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
 .encounter-settings label { margin:0; }
 .healing [data-start] { color:#ffe5a2; font-weight:700; border-color:#b98b46; }
+
+.healbot-page { min-height:100dvh; }
+.healbot-header {
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  padding:8px clamp(8px,2vw,24px); background:#15100c; border-bottom:1px solid var(--border);
+}
+.healbot-header h1 { margin:0; font-size:1.45rem; }
+.healbot-header details { position:relative; z-index:5; }
+.healbot-header summary { cursor:pointer; color:var(--gold); padding:5px 8px; border:1px solid var(--border); border-radius:4px; }
+.healbot-header nav {
+  position:absolute; right:0; top:calc(100% + 5px); min-width:135px;
+  background:#15100c; border:1px solid var(--border); border-radius:4px;
+}
+.healbot-header nav a { display:block; padding:6px 10px; }
+.healbot-header nav [aria-current="page"] { color:var(--gold); background:#2d2114; }
+.healbot-page .healing { padding:clamp(6px,1vw,16px); }
+.healbot-page .heal-stage { border-radius:0; }

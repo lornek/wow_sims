@@ -396,6 +396,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const field of root.querySelectorAll('[data-mana-current]')) field.textContent = whole(s.mana);
     for (const field of root.querySelectorAll('[data-mana-max]')) field.textContent = whole(profile.mana);
     fill(find('[data-regen]'), (s.time - s.lastSpend) / 5);
+    fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : 0);
+    find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';
     spellButtons.forEach(({button, art, timer, cooldown, key}, index) => {
       const {select, rows} = selects[index];
       const base = currentSpells[key]?.cooldown ?? rows[select.selectedIndex].cooldown;
