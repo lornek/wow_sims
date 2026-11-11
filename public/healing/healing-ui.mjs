@@ -1,5 +1,5 @@
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
-import {encounters, combatants, bossArmor} from './party-combat.mjs';
+import {encounters, combatants} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
@@ -327,12 +327,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : '';
     fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
     find('[data-boss]').textContent = whole(s.boss) + ' / ' + whole(currentEncounter.health);
-    const sunder = find('[data-sunder]');
-    sunder.hidden = !s.sunderStacks;
-    if (s.sunderStacks) {
-      sunder.textContent = 'Sunder Armor ' + s.sunderStacks + '/5';
-      sunder.title = whole(bossArmor(s)) + ' boss armor remaining';
-    }
     for (const ability of bossAbilityRows) {
       const remaining = ability.clock ? Math.max(0, s[ability.clock] - s.time) : 0;
       const period = ability.period / (s.enraged ? 1.2 : 1);
