@@ -30,11 +30,11 @@
       </section>
     </aside>
     <div class="heal-boss">
+      <strong data-boss-name></strong>
       <div class="boss-crest">
         <div class="boss-portrait"><img data-boss-portrait alt="" width="512" height="512"></div>
         <div class="boss-actions" data-boss-actions aria-label="Boss abilities"></div>
       </div>
-      <strong data-boss-name></strong>
       <small class="boss-debuff" data-sunder hidden></small>
       <div class="heal-bar boss-health"><span data-boss-fill></span><small data-boss></small></div>
       <div class="heal-bar cast-bar"><span data-boss-cast-fill></span><strong data-boss-cast></strong></div>
@@ -44,8 +44,6 @@
       <span data-mana-fill></span><strong><span data-mana-current></span><span>/</span><span data-mana-max></span></strong>
     </div>
     <div class="regen-track" aria-hidden="true"><span data-regen></span></div>
-    <div class="heal-bar cast-bar"><span data-cast-fill></span><strong data-cast></strong></div>
-    <p class="heal-message" data-message aria-live="polite"></p>
     <div class="heal-spells" aria-label="Select a spell"></div>
     <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
     <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>

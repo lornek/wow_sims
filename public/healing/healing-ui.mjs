@@ -192,6 +192,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     bossActions.replaceChildren(...bossAbilityRows.map(ability => ability.button));
   }
 
+  const damageMeter = find('[data-damage-meter]');
   const damageRows = [];
   for (const [index, unit] of encounter.party.entries()) {
     const frame = document.createElement('button');
@@ -218,7 +219,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const value = document.createElement('span');
       summary.append(label, value);
       row.append(summary, breakdown);
-      find('[data-damage-meter]').append(row);
+      damageMeter.append(row);
       label.textContent = unit.name;
       damageRows[index] = {row, value, breakdown};
     } else {
@@ -360,11 +361,12 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (frame.resource && unit.resource) {
         fill(frame.resource, unit.resource.value / unit.resource.max);
         frame.resource.parentElement.title = unit.resource.type + ' · ' + whole(unit.resource.value) + ' / ' + unit.resource.max;
-        const {row, value, breakdown} = damageRows[i];
+        const entry = damageRows[i];
+        const {row, value, breakdown} = entry;
         const abilities = Object.entries(unit.damage).sort((a,b) => b[1].total - a[1].total);
         const total = abilities.reduce((sum, [, ability]) => sum + ability.total, 0);
-        row.style.setProperty('--share', (s.boss < currentEncounter.health ? 100 * total / (currentEncounter.health - s.boss) : 0) + '%');
-        value.textContent = whole(total) + ' · ' + whole(total / (s.endedAt || s.time || 1)) + ' DPS';
+        entry.dps = total / (s.endedAt || s.time || 1);
+        value.textContent = whole(total) + ' · ' + whole(entry.dps) + ' DPS';
         if (row.open) {
           const stats = combatants[unit.name];
           const stat = stats.power ? stats.power + ' spell power' : stats.ap + ' attack power';
@@ -396,14 +398,17 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         }
       }
     });
+    const ranking = damageRows.slice().sort((a, b) => b.dps - a.dps);
+    const leadingDps = ranking[0]?.dps || 1;
+    ranking.forEach(({row, dps}, index) => {
+      row.style.setProperty('--share', (100 * dps / leadingDps) + '%');
+      const current = damageMeter.children[index];
+      if (current !== row) damageMeter.insertBefore(row, current);
+    });
     for (const field of root.querySelectorAll('[data-mana-fill]')) fill(field, s.mana / profile.mana);
     for (const field of root.querySelectorAll('[data-mana-current]')) field.textContent = whole(s.mana);
     for (const field of root.querySelectorAll('[data-mana-max]')) field.textContent = whole(profile.mana);
     fill(find('[data-regen]'), (s.time - s.lastSpend) / 5);
-    fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : 0);
-    find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : '';
-    const message = find('[data-message]');
-    if (message.textContent !== s.message) message.textContent = s.message;
     spellButtons.forEach(({button, art, timer, cooldown, key}, index) => {
       const {select, rows} = selects[index];
       const base = currentSpells[key]?.cooldown ?? rows[select.selectedIndex].cooldown;
