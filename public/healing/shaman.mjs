@@ -1,4 +1,3 @@
-import {mountHealing} from './healing-ui.mjs';
 import {spellGroups} from './book-groups.mjs';
 import {catalog, ranks} from './shaman-data.mjs';
 import {loadouts, buffs, talents, applyTalents, buildProfile} from './profile.mjs';
@@ -35,7 +34,7 @@ const defaultTalents = {
   'Mana Tide Totem': 1, 'Healing Way': 3, "Nature's Swiftness": 1, Purification: 5, Riptide: 1
 };
 
-mountHealing({
+export default {
   className: 'shaman', healer: 'Thrall', healerColor: '#2868cc', catalog, ranks: ranks.filter(row => row.name !== 'Water Shield' || row.id === 408510), spellGroups,
   loadouts, buffs, talents, applyTalents, buildProfile, trees, slots, utility, defaultTalents,
   schools: ['Enhancement', 'Restoration', 'Elemental Combat'],
@@ -44,4 +43,4 @@ mountHealing({
   configureSpell: spell => spell.key === 'riptide' ? {...spell, periodicCrit: true} : spell,
   auras: [['riptide', 'Riptide'], ['stream', 'Healing Stream Totem'], ['tide', 'Mana Tide Totem']],
   healingKeys: ['wave', 'lesser', 'chain', 'riptide', 'stream']
-});
+};

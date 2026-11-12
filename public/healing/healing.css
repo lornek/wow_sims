@@ -309,12 +309,12 @@ body:has(#healing) { font-family:var(--ui); }
 .healbot-header .class-picker { grid-template-columns:repeat(5,minmax(0,1fr)); width:min(100%,610px); }
 .fight-report { padding:12px; background:#19120d; border:1px solid var(--border); }
 .fight-report h3 { margin:0 0 8px; }
-.fight-report dl { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:8px; margin:0 0 14px; }
+.fight-report dl, .healing-breakdown { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:8px; margin:0 0 14px; }
 .fight-report dl:last-child { margin-bottom:0; }
-.fight-report dl > div { display:grid; grid-template-columns:40px 1fr; gap:2px 8px; align-items:center; padding:7px; background:#241a12; border:1px solid #624b2a; border-radius:4px; }
-.fight-report img { grid-row:span 2; border-radius:4px; }
-.fight-report dt { font:.85rem var(--ui); }
-.fight-report dd { margin:0; color:#ffe19a; font:700 1.15rem var(--ui); font-variant-numeric:tabular-nums; }
+.fight-report dl > div, .healing-breakdown > div { display:grid; grid-template-columns:40px 1fr; gap:2px 8px; align-items:center; padding:7px; background:#241a12; border:1px solid #624b2a; border-radius:4px; }
+.fight-report img, .healing-breakdown img { grid-row:span 2; border-radius:4px; }
+.fight-report dt, .healing-breakdown dt { font:.85rem var(--ui); }
+.fight-report dd, .healing-breakdown dd { margin:0; color:#ffe19a; font:700 1.15rem var(--ui); font-variant-numeric:tabular-nums; }
 @media(max-width:650px) {
   .healbot-header .class-picker { gap:4px; }
   .healbot-header .class-pick { padding:6px 2px; font-size:clamp(.58rem,2.2vw,.8rem); letter-spacing:0; }
@@ -322,3 +322,7 @@ body:has(#healing) { font-family:var(--ui); }
   .heal-stage[data-encounter="patchwerk"] { --encounter-art:url('./portraits/patchwerk-background-mobile.jpg'); }
   .heal-stage[data-encounter="sapphiron"] { --encounter-art:url('./portraits/sapphiron-background-mobile.jpg'); }
 }
+.healbot-header { flex-direction:column; justify-content:center; text-align:center; }
+.healbot-header[aria-busy="true"] .class-pick { cursor:progress; }
+.healing-breakdown { padding-top:8px; }
+.heal-meter .healing-breakdown img { width:40px; height:40px; }

@@ -1,4 +1,3 @@
-import {mountHealing} from './healing-ui.mjs';
 import {catalog, ranks} from './druid-data.mjs';
 import {trees} from './druid-talents.mjs';
 import {spellGroups} from './druid-book-groups.mjs';
@@ -45,7 +44,7 @@ function configureSpell(spell, row, tooltip, profile) {
   return spell;
 }
 
-mountHealing({
+export default {
   className: 'druid', healer: 'Malfurion', healerColor: '#bd6520', catalog, ranks, spellGroups,
   loadouts, buffs, talents, applyTalents, buildProfile, trees, slots, utility, defaultTalents, configureSpell,
   schools: ['Restoration', 'Balance', 'Feral Combat'],
@@ -55,4 +54,4 @@ mountHealing({
     ['tranquility', 'Tranquility'], ['innervate', 'Innervate'], ['abolish', 'Abolish Poison']],
   healingKeys: ['touch', 'regrowth', 'rejuvenation', 'growth', 'tranquility'],
   extraMeters: [['bloom', 'Bloom']]
-});
+};

@@ -244,13 +244,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   const damageMeter = find('[data-damage-meter]');
+  damageMeter.replaceChildren();
   const damageRows = [];
   for (const [index, unit] of encounter.party.entries()) {
-    const frame = document.createElement('button');
+    const frame = find('.heal-party').children[index] ?? document.createElement('button');
     frame.type = 'button';
     frame.className = 'heal-frame';
     frame.style.setProperty('--unit', unit.color);
-    frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
+    if (!frame.firstElementChild) frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
       '<strong><svg class="unit-role" viewBox="0 0 24 24" role="img" aria-label="' + unit.role +
       '"><title>' + unit.role + '</title><path d="' + roleSymbols[unit.role] +
       '"/></svg><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
@@ -258,9 +259,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (combatants[unit.name]) {
       const track = document.createElement('span');
       track.className = 'party-resource ' + combatants[unit.name].resource.toLowerCase();
-      resource = document.createElement('span');
-      track.append(resource);
-      frame.append(track);
+      resource = frame.querySelector('.party-resource > span') ?? document.createElement('span');
+      if (!resource.parentElement) {
+        track.append(resource);
+        frame.append(track);
+      }
       const row = document.createElement('details');
       row.className = 'meter-row';
       row.name = 'healbot-damage-breakdown';
@@ -275,7 +278,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       damageMeter.append(row);
       label.textContent = unit.name;
       damageRows[index] = {row, value, breakdown, lines: new Map()};
-    } else {
+    } else if (!frame.querySelector('.party-resource')) {
       frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana"><span data-mana-fill></span></span>');
     }
     frame.onclick = event => {
@@ -288,8 +291,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       event.preventDefault();
       attempt(event, index, true);
     };
-    find('.heal-party').append(frame);
+    if (!frame.parentElement) find('.heal-party').append(frame);
     const status = frame.querySelector('.unit-status');
+    status.replaceChildren();
     let auraOrder = 0;
     const badges = [...auras,
       ['swiftness', "Nature's Swiftness"], ['poison', hazard === 'disease' ? 'Infected Blade' : 'Poisoned Blade']]
@@ -380,6 +384,20 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (start) pull.start();
     render();
     if (persist) saveSettings();
+  }
+
+  function addMetric(list, art, label) {
+    const metric = document.createElement('div');
+    const image = document.createElement('img');
+    image.src = new URL('./report-icons/' + art + '.jpg', import.meta.url);
+    image.alt = '';
+    image.width = image.height = 40;
+    const term = document.createElement('dt');
+    term.textContent = label;
+    const detail = document.createElement('dd');
+    metric.append(image, term, detail);
+    list.append(metric);
+    return detail;
   }
 
   function render() {
@@ -531,19 +549,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         const heading = document.createElement('h3');
         heading.textContent = title;
         const list = document.createElement('dl');
-        for (const [art, label, value] of metrics) {
-          const metric = document.createElement('div');
-          const image = document.createElement('img');
-          image.src = new URL('./report-icons/' + art + '.jpg', import.meta.url);
-          image.alt = '';
-          image.width = image.height = 40;
-          const term = document.createElement('dt');
-          term.textContent = label;
-          const detail = document.createElement('dd');
-          detail.textContent = value;
-          metric.append(image, term, detail);
-          list.append(metric);
-        }
+        for (const [art, label, value] of metrics) addMetric(list, art, label).textContent = value;
         result.append(heading, list);
       };
       reportGroup('Fight summary', [
@@ -939,19 +945,25 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   for (const [key, name] of [...slots, ...extraMeters]) {
     const row = document.createElement('details');
     row.className = 'meter-row';
+    row.ontoggle = () => { if (row.open) renderMeters(pull.state); };
     const summary = document.createElement('summary');
     const label = document.createElement('span');
     label.append(icon(name), name);
     const total = document.createElement('strong');
-    const breakdown = document.createElement('p');
+    const breakdown = document.createElement('dl');
+    breakdown.className = 'healing-breakdown';
+    const fields = [
+      ['hps', 'Casts'], ['healing', 'Healing events'], ['survived', 'Normal hits'],
+      ['crit', 'Critical hits'], ['overheal', 'Overhealing'], ['efficiency', 'Healing per mana']
+    ].map(([art, title]) => addMetric(breakdown, art, title));
     summary.append(label, total);
     row.append(summary, breakdown);
     find('[data-meter]').append(row);
-    meterRows.set(key, {row, summary, total, breakdown});
+    meterRows.set(key, {row, summary, total, fields});
   }
   function renderMeters(state) {
     find('[data-meter-empty]').hidden = !Object.values(state.meters).every(stats => !stats.hits);
-    for (const [key, {row, summary, total, breakdown}] of meterRows) {
+    for (const [key, {row, summary, total, fields}] of meterRows) {
       const stats = state.meters[key];
       row.hidden = !stats?.hits;
       if (row.hidden) continue;
@@ -960,11 +972,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const share = percent(stats.effective, state.healing);
       total.textContent = whole(stats.effective) + ' · ' + share;
       summary.style.setProperty('--share', share);
-      breakdown.textContent = stats.casts + ' casts · ' + stats.hits + ' healing events · ' +
-        (stats.hits - stats.crits) + ' normal · ' + stats.crits + ' crits (' + percent(stats.crits, stats.hits) +
-        ') · ' + whole(stats.overheal) + ' overhealing (' + percent(stats.overheal, raw) + ') · ' +
-        (stats.mana ? (stats.effective / stats.mana).toFixed(2) + ' effective healing per mana' : 'no mana spent');
-      summary.title = breakdown.textContent;
+      if (!row.open) continue;
+      const values = [stats.casts, stats.hits, stats.hits - stats.crits,
+        stats.crits + ' (' + percent(stats.crits, stats.hits) + ')',
+        whole(stats.overheal) + ' (' + percent(stats.overheal, raw) + ')',
+        stats.mana ? (stats.effective / stats.mana).toFixed(2) : '—'];
+      fields.forEach((field, index) => {
+        const value = String(values[index]);
+        if (field.textContent !== value) field.textContent = value;
+      });
     }
   }
 
@@ -998,7 +1014,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   let visualPull = 0;
-  find('[data-start]').addEventListener('click', () => { visualPull++; enableAudio(); });
+  const startButton = find('[data-start]');
+  const onStart = () => { visualPull++; enableAudio(); };
+  startButton.addEventListener('click', onStart);
   function showHeal(event) {
     const pullId = visualPull;
     const draw = () => {
@@ -1045,7 +1063,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       pull.step(delta);
       render();
     }
-    requestAnimationFrame(frame);
+    animation = requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
+  let animation = requestAnimationFrame(frame);
+  return () => {
+    cancelAnimationFrame(animation);
+    visualPull++;
+    startButton.removeEventListener('click', onStart);
+    audio?.close();
+    for (const {tooltip} of [...spellButtons, ...bossAbilityRows]) tooltip.hide();
+    delete bossActions.dataset.encounter;
+  };
 }
