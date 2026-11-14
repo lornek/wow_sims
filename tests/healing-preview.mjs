@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {healingRange, swiftmendRange, periodicHealingPreview} from '../public/healing/healing-preview.mjs';
+import {healingRange, swiftmendRange, periodicHealingPreview, periodicHealingScaling} from '../public/healing/healing-preview.mjs';
 import {applyTalents} from '../public/healing/druid-profile.mjs';
 
 test('final healing includes power and talent multipliers before engine rounding', () => {
@@ -41,4 +41,16 @@ test('channel preview includes its immediate tick and hybrid preview excludes th
 test('decaying HoT preview displays first and last tick values',()=>{
   const preview=periodicHealingPreview({low:100,coefficient:0,multiplier:1,period:1,duration:7,decay:true},0);
   assert.deepEqual(preview.first,[130,130]);assert.deepEqual(preview.last,[70,70]);assert.deepEqual(preview.total,[700,700]);
+});
+
+
+test('full-duration HoT scaling grows with talent-added ticks independently of healing multipliers',()=>{
+  const source={key:'regrowth',duration:21,hot:{low:10,coefficient:1/7,period:3}};
+  assert.equal(periodicHealingScaling(source),1);
+  const extended=applyTalents(source,{"Nature's Splendor":1,'Gift of Nature':5,Genesis:5});
+  assert.equal((periodicHealingScaling(extended)*100).toFixed(2),'128.57');
+  assert.equal(extended.hot.multiplier,1.1*1.1);
+});
+test('channel scaling includes immediate ticks and does not count party targets',()=>{
+  assert.equal(periodicHealingScaling({duration:2,period:1,immediateTick:true,coefficient:.2,party:true}).toFixed(2),'0.60');
 });

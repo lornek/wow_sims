@@ -43,3 +43,10 @@ Use the same right column for direct healing, Swiftmend's two source values, abs
 Replace the base-tick reference with `Base heal over time (21sec)` and the full base periodic amount. Compute it from the configured pre-talent spell at zero healing power and multiplier 1, using its original duration and tick count (including any immediate channel tick). This distinguishes the base duration from a talent-extended final duration. Hybrid spells retain a separate Base healing row for the initial heal.
 
 Regrowth uniquely shows `Scaling (direct)`, `Scaling (HoT)`, `Talent multiplier (direct)`, and `Talent multiplier (HoT)`. Read each component's actual coefficient and multiplier. Gift of Nature 5/5 and Genesis 5/5 produce ×1.1 direct and ×1.21 HoT; Improved Rejuvenation does not apply. Keep all values in the shared right-aligned column.
+
+
+# Full-duration scaling
+
+HoT/channel scaling is the per-tick bonus-healing coefficient times the actual tick count, including talent-extended durations and immediate channel ticks. Show two decimal places. Do not multiply by the talent healing multiplier or number of party targets; those are separate factors. Regrowth keeps `Scaling (direct)` unchanged and shows this duration-adjusted coefficient under `Scaling (HoT)`. A hypothetical 100% over 7 ticks becomes 128.57% over 9 ticks. Preserve the actual data coefficients rather than replacing them with this example.
+
+Healing Stream Totem is the exception: both tooltip and inspector explicitly show `Scaling (per tick)`. Its long duration is not multiplied into the displayed coefficient. Other periodic spells use `Scaling (full duration)`. The inspector follows the same conventions.

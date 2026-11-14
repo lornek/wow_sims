@@ -17,3 +17,9 @@ export function periodicHealingPreview(spell, power) {
     first:healingRange(periodic, power, spell.decay ? 1.3 : 1),
     last:healingRange(periodic, power, spell.decay ? .7 : 1)};
 }
+
+// Full-duration bonus-healing coefficient, before the separate talent multiplier.
+export function periodicHealingScaling(spell) {
+  const periodic = spell.hot ?? spell;
+  return (periodic.coefficient ?? 0) * periodicHealingPreview(spell, 0).ticks;
+}

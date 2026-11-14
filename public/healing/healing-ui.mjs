@@ -1,7 +1,7 @@
 import {setBarNumbers} from './bar-numbers.mjs';
 import {healingEventRows} from './healing-events.mjs';
 import {resetHealingReport} from './report-reset.mjs';
-import {healingRange, swiftmendRange, periodicHealingPreview} from './healing-preview.mjs';
+import {healingRange, swiftmendRange, periodicHealingPreview, periodicHealingScaling} from './healing-preview.mjs';
 import {manaReportSources, spiritContribution} from './mana-report.mjs';
 import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
 import {healingScore} from './healing-score.mjs';
@@ -855,11 +855,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     tooltipValue(tip, 'Bonus healing', '+' + whole(profile.power), 'game-tooltip-muted');
     if (key === 'regrowth') {
       tooltipValue(tip, 'Scaling (direct)', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
-      tooltipValue(tip, 'Scaling (HoT)', (spell.hot.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
+      tooltipValue(tip, 'Scaling (HoT)', (periodicHealingScaling(spell) * 100).toFixed(2) + '%', 'game-tooltip-muted');
       tooltipValue(tip, 'Talent multiplier (direct)', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
       tooltipValue(tip, 'Talent multiplier (HoT)', '×' + Number(spell.hot.multiplier.toFixed(3)), 'game-tooltip-muted');
     } else {
-      tooltipValue(tip, 'Scaling', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
+      const fullDuration = !!spell.period && key !== 'stream';
+      tooltipValue(tip, key === 'stream' ? 'Scaling (per tick)' : fullDuration ? 'Scaling (full duration)' : 'Scaling',
+        ((fullDuration ? periodicHealingScaling(spell) : spell.coefficient) * 100).toFixed(2) + '%', 'game-tooltip-muted');
       tooltipValue(tip, 'Talent multiplier', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
     }
     if (key === 'chain') {
@@ -984,10 +986,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       add(spell.period ? 'Non-crit healing per tick' : 'Non-crit primary heal', range());
       if (spell.period) add('Ticks per target', ticks + ' × every ' + spell.period + ' sec');
       if (spell.mark === 'vigil') add('Trigger', 'Holy Shock on the marked ally · 30 sec mark · no Holy Shock cooldown');
-      add('Base coefficient', (spell.coefficient * 100).toFixed(1) + '%' + (spell.period ? ' per tick' : ''));
+      add(key === 'stream' ? 'Scaling (per tick)' : spell.period ? 'Scaling (full duration)' : 'Scaling (direct)',
+        ((spell.period && key !== 'stream' ? periodicHealingScaling(spell) : spell.coefficient) * 100).toFixed(2) + '%');
       if (spell.hot) {
         add('Non-crit periodic healing', whole(Math.round(hotTick)) + ' × ' + hotTicks + ' ticks');
-        add('Periodic coefficient', (spell.hot.coefficient * 100).toFixed(1) + '% per tick');
+        add('Scaling (HoT)', (periodicHealingScaling(spell) * 100).toFixed(2) + '%');
       }
       if (key === 'stream') {
         add('Restorative Totems', healingMultiplier(spell));
