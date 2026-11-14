@@ -1,3 +1,4 @@
+import {recordHealingEvent} from './healing-events.mjs';
 import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-combat.mjs';
 
 export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}) {
@@ -55,6 +56,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     stats.crits += Number(crit);
     stats.effective += effective;
     stats.overheal += amount - effective;
+    recordHealingEvent(stats, periodic || !!spell?.period, crit, effective, amount - effective);
     if (crit && spell?.illumination && random() < spell.illumination) restoreMana(.5 * spell.baseCost, 'Illumination');
     if (crit && spell?.infusion) state.infusion = state.time + 15;
     if (crit && !periodic && profile.aegis) {
@@ -278,7 +280,10 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       amount -= consumed;
       const stats = meter(key);
       stats.effective += consumed;
-      if (consumed) stats.hits++;
+      if (consumed) {
+        stats.hits++;
+        recordHealingEvent(stats, false, false, consumed, 0);
+      }
       state.healing += consumed;
     }
     gainDamageRage(unit, Math.min(unit.hp, amount));

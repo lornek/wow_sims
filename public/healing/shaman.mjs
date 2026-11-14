@@ -42,7 +42,7 @@ export default {
   schools: ['Enhancement', 'Restoration', 'Elemental Combat'],
   schoolIcons: ['Lightning Shield', 'Healing Wave', 'Lightning Bolt'],
   unlocks: ['riptide', 'swiftness', 'tide', 'waterShield'],
-  configureSpell: spell => spell.key === 'riptide' ? {...spell, periodicCrit: true} : spell,
+  configureSpell: spell => ['riptide', 'stream'].includes(spell.key) ? {...spell, periodicCrit: true} : spell,
   auras: [['riptide', 'Riptide'], ['stream', 'Healing Stream Totem'], ['tide', 'Mana Tide Totem'], ['spring', 'Mana Spring Totem']],
   healingKeys: ['wave', 'lesser', 'chain', 'riptide', 'stream']
 };

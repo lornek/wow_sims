@@ -89,3 +89,20 @@ Healing, mana, and expanded contribution fills share the party-frame vertical sh
 Spirit regeneration and Innervate share one expandable row, ranked by their combined mana. Keep the Spirit icon/name/normal amount on the left and the existing Innervate icon/name/incremental amount on the right. Never sort these segments by magnitude. With no Innervate mana, hide its heading. Both retain their individual total-mana percentages.
 
 Expanded Spirit entries split at the normal contribution: normal turquoise first, incremental Innervate deep blue (`#193b86`) second, then the dark unfilled track. Allocate both sources using the same Spirit weights, including Base regeneration. Each child displays its combined amount and total-mana percentage; its tooltip reports normal and Innervate amounts separately. All widths use total mana gained, even when Innervate dominates. Grouping changes presentation only; combat accounting still credits normal Spirit and incremental Innervate separately and excludes capped mana.
+
+## Healing event bars and standard sheet icons
+
+`public/healing/healing-events.mjs` is the shared site-wide definition of event keys, labels, and icon-sheet tiles. All healer reports must use this mapping:
+
+| Key | Label | Sheet tile under `public/healing/report-icons/` | Treatment |
+| --- | --- | --- | --- |
+| `d_hits` | Direct hits | `healing.jpg` | Green healing cross; non-critical direct events |
+| `d_crits` | Direct crits | `crit.jpg` | Blue critical star |
+| `p_hits` | Periodic hits | `hps.jpg` | Hands receiving repeated healing |
+| `p_crits` | Periodic crits | `crit.jpg` + `hps.jpg` | Critical star with a small periodic-healing tile badge at bottom right |
+
+Keep the order direct hits, direct crits, periodic hits, periodic crits. Display both hit/crit bars for every event type present, including zero-count critical bars. Pure direct heals show two direct bars; pure HoTs/totems show two periodic bars; hybrid spells such as Regrowth show all four after ticking. Channel ticks, including an immediate channel tick, count as periodic events for this breakdown. Absorbed damage events are recorded in the direct/non-critical bucket of the absorb meter.
+
+Bar lengths represent effective healing, using the same scale as their parent spell, and tooltips show effective healing and overhealing. The right-hand value is event count. Critical bars append their critical percentage within that event type, not within all spell events: 4 direct hits and 6 direct crits display `4` and `6 (60%)`. Periodic crit percentages use only periodic events. Fully overhealing events still count. Keep the existing Casts, Healing events, Normal hits, Critical hits, Overhealing, and Healing per mana metric tiles below these bars.
+
+Healing Stream Totem ticks can critically heal using the current healing crit chance. Its crits remain excluded from Water Shield activation. Run `node --test tests/healing-events.mjs` to verify category totals, crit denominators, hybrid overhealing, and Healing Stream/Water Shield behavior.

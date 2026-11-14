@@ -1,3 +1,4 @@
+import {healingEventRows} from './healing-events.mjs';
 import {resetHealingReport} from './report-reset.mjs';
 import {healingRange, swiftmendRange} from './healing-preview.mjs';
 import {manaReportSources, spiritContribution} from './mana-report.mjs';
@@ -1020,14 +1021,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       ['crit', 'Critical hits'], ['overheal', 'Overhealing'], ['efficiency', 'Healing per mana']
     ].map(([art, title]) => addMetric(breakdown, art, title));
     summary.append(label, total);
-    row.append(summary, breakdown);
+    const eventBars = document.createElement('div');
+    eventBars.className = 'healing-event-bars';
+    row.append(summary, eventBars, breakdown);
     find('[data-meter]').append(row);
-    meterRows.set(key, {row, summary, total, fields});
+    meterRows.set(key, {row, summary, total, fields, eventBars});
   }
   function renderMeters(state) {
     find('[data-meter-empty]').hidden = !Object.values(state.meters).every(stats => !stats.hits);
     let meterIndex = 0;
-    for (const [key, {row, summary, total, fields}] of [...meterRows].sort((a,b) => (state.meters[b[0]]?.effective ?? 0) - (state.meters[a[0]]?.effective ?? 0))) {
+    for (const [key, {row, summary, total, fields, eventBars}] of [...meterRows].sort((a,b) => (state.meters[b[0]]?.effective ?? 0) - (state.meters[a[0]]?.effective ?? 0))) {
       const stats = state.meters[key];
       row.hidden = !stats?.hits;
       if (row.hidden) continue;
@@ -1041,6 +1044,34 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       total.textContent = whole(stats.effective) + ' · ' + share;
       summary.style.setProperty('--share', (100 * stats.effective / (Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1)) + '%');
       if (!row.open) continue;
+      const maxHealing = Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1;
+      eventBars.replaceChildren();
+      for (const event of healingEventRows(stats)) {
+        const bar = document.createElement('div');
+        bar.className = 'mana-source-bar healing-event-bar';
+        bar.style.setProperty('--source-color', healingColors[key] ?? '#397b42');
+        bar.style.setProperty('--share', (100 * event.effective / maxHealing) + '%');
+        const label = document.createElement('span');
+        const art = document.createElement('span');
+        art.className = 'healing-event-icon';
+        const image = document.createElement('img');
+        image.src = new URL('./report-icons/' + event.icon + '.jpg', import.meta.url);
+        image.alt = '';
+        art.append(image);
+        if (event.badge) {
+          const badge = document.createElement('img');
+          badge.className = 'healing-event-badge';
+          badge.src = new URL('./report-icons/' + event.badge + '.jpg', import.meta.url);
+          badge.alt = '';
+          art.append(badge);
+        }
+        label.append(art, event.label);
+        const count = document.createElement('strong');
+        count.textContent = event.count + (event.crit ? ' (' + Number(event.critPercent.toFixed(1)) + '%)' : '');
+        bar.title = whole(event.effective) + ' effective healing · ' + whole(event.overheal) + ' overhealing';
+        bar.append(label, count);
+        eventBars.append(bar);
+      }
       const values = [stats.casts, stats.hits, stats.hits - stats.crits,
         stats.crits + ' (' + percent(stats.crits, stats.hits) + ')',
         whole(stats.overheal) + ' (' + percent(stats.overheal, raw) + ')',
