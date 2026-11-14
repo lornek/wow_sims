@@ -869,7 +869,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       tooltipValue(tip, 'Talent multiplier', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
     }
     if (key === 'chain') {
-      tooltipValue(tip, 'With Riptide (primary)', range(profile.power, spell.multiplier * 1.25), 'game-tooltip-good');
+      for (const [index, label] of ['primary', '1st bounce', '2nd bounce'].entries()) {
+        tooltipValue(tip, 'With Riptide (' + label + ')',
+          formatHealingRange(healingRange(spell, profile.power, 1.25 * spell.falloff ** index)), 'game-tooltip-good');
+      }
     }
     return true;
   }
@@ -1007,13 +1010,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (spell.chain > 1) {
         const table = document.createElement('table');
         table.className = 'table table-sm';
-        table.innerHTML = '<caption>Chain Heal before overhealing. HPM includes crits. Riptide boosts the primary hit only.</caption><thead><tr><th>Targets hit</th><th>Normal healing</th><th>HPM</th><th>Riptide healing</th><th>HPM</th></tr></thead><tbody></tbody>';
+        table.innerHTML = '<caption>Chain Heal before overhealing. HPM includes crits. Riptide on the primary target boosts the entire chain by 25%.</caption><thead><tr><th>Targets hit</th><th>Normal healing</th><th>HPM</th><th>Riptide healing</th><th>HPM</th></tr></thead><tbody></tbody>';
         let total = 0;
         for (let targets = 1; targets <= spell.chain; targets++) {
           total += spell.falloff ** (targets - 1);
           const row = table.tBodies[0].insertRow();
           for (const value of [targets === 1 ? '1 · primary' : targets + ' · ' + (targets - 1) + ' jumps',
-            range(total), hpm(total), range(total + .25), hpm(total + .25)]) row.insertCell().textContent = value;
+            range(total), hpm(total), range(total * 1.25), hpm(total * 1.25)]) row.insertCell().textContent = value;
         }
         chain.append(table);
       }
