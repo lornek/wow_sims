@@ -50,3 +50,8 @@ Regrowth uniquely shows `Scaling (direct)`, `Scaling (HoT)`, `Talent multiplier 
 HoT/channel scaling is the per-tick bonus-healing coefficient times the actual tick count, including talent-extended durations and immediate channel ticks. Show two decimal places. Do not multiply by the talent healing multiplier or number of party targets; those are separate factors. Regrowth keeps `Scaling (direct)` unchanged and shows this duration-adjusted coefficient under `Scaling (HoT)`. A hypothetical 100% over 7 ticks becomes 128.57% over 9 ticks. Preserve the actual data coefficients rather than replacing them with this example.
 
 Healing Stream Totem is the exception: both tooltip and inspector explicitly show `Scaling (per tick)`. Its long duration is not multiplied into the displayed coefficient. Other periodic spells use `Scaling (full duration)`. The inspector follows the same conventions.
+
+
+# Healing Stream and Chain Heal exceptions
+
+Healing Stream Totem omits full-duration totals and tick counts from its tooltip. Show `Healing per tick`, `Base heal per tick`, and `Scaling (per tick)`; keep the existing healing multiplier and crit details. Chain Heal shows `Healing (primary)`, `Healing (1st bounce)`, and `Healing (2nd bounce)` using the configured falloff once and squared respectively, applied to the unrounded configured heal before final rounding. Its base section shows only primary base healing. The Riptide bonus remains primary-only.

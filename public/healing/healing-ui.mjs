@@ -832,11 +832,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (!healingKeys.includes(key)) return;
     const range = (power, multiplier = 1) => formatHealingRange(healingRange({...spell, multiplier}, power));
     if (!spell.period) tooltipValue(tip, spell.chain > 1 ? 'Healing (primary)' : 'Healing', formatHealingRange(healingRange(spell, profile.power)), 'game-tooltip-good');
+    if (key === 'chain') {
+      tooltipValue(tip, 'Healing (1st bounce)', formatHealingRange(healingRange(spell, profile.power, spell.falloff)), 'game-tooltip-good');
+      tooltipValue(tip, 'Healing (2nd bounce)', formatHealingRange(healingRange(spell, profile.power, spell.falloff ** 2)), 'game-tooltip-good');
+    }
     if (spell.period || spell.hot) {
       const periodic = periodicHealingPreview(spell, profile.power);
       const ticks = spell.decay ? formatHealingRange(periodic.first) + ' → ' + formatHealingRange(periodic.last) : formatHealingRange(periodic.first);
-      tooltipValue(tip, 'Heal over time (' + periodic.duration + 'sec)', formatHealingRange(periodic.total), 'game-tooltip-good');
-      tooltipValue(tip, 'Healing per tick (' + periodic.ticks + ' ticks)', ticks, 'game-tooltip-good');
+      if (key !== 'stream') tooltipValue(tip, 'Heal over time (' + periodic.duration + 'sec)', formatHealingRange(periodic.total), 'game-tooltip-good');
+      tooltipValue(tip, key === 'stream' ? 'Healing per tick' : 'Healing per tick (' + periodic.ticks + ' ticks)', ticks, 'game-tooltip-good');
     }
     if (spell.party) tooltipLine(tip, 'Heals all living party members.');
     if (spell.mending) tooltipLine(tip, 'Triggers on damage, then jumps to another ally. Up to 5 heals; 30 sec duration.');
@@ -849,7 +853,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (spell.period || spell.hot) {
       const basePeriodic = periodicHealingPreview({...baseSpell, multiplier:1,
         hot:baseSpell.hot && {...baseSpell.hot, multiplier:1}}, 0);
-      tooltipValue(tip, 'Base heal over time (' + basePeriodic.duration + 'sec)', formatHealingRange(basePeriodic.total),
+      tooltipValue(tip, key === 'stream' ? 'Base heal per tick' : 'Base heal over time (' + basePeriodic.duration + 'sec)', formatHealingRange(key === 'stream' ? basePeriodic.first : basePeriodic.total),
         spell.period ? 'game-tooltip-reference' : 'game-tooltip-muted');
     }
     tooltipValue(tip, 'Bonus healing', '+' + whole(profile.power), 'game-tooltip-muted');
