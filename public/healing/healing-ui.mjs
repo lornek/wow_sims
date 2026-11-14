@@ -1,3 +1,4 @@
+import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
 import {healingScore} from './healing-score.mjs';
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
 import {encounters, combatants} from './party-combat.mjs';
@@ -129,7 +130,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     button.append(art);
     const label = document.createElement('span');
     label.className = 'spell-label';
-    label.textContent = name;
+    const image = document.createElement('img');
+          image.src = new URL('./' + (contributionIcons[name] ?? 'report-icons/gained.jpg'), import.meta.url);
+          image.alt = '';
+          label.append(image, name);
     const shortcut = document.createElement('small');
     shortcut.className = 'spell-shortcut';
     shortcut.textContent = binding;
@@ -981,7 +985,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const container = find('[data-meter]');
       if (container.children[meterIndex] !== row) container.insertBefore(row, container.children[meterIndex] ?? null);
       meterIndex++;
-      summary.style.setProperty('--meter-color', `hsl(${95 + [...meterRows.keys()].indexOf(key) * 13} 30% 32%)`);
+      summary.style.setProperty('--meter-color', healingColors[key] ?? '#397b42');
       const raw = stats.effective + stats.overheal;
       const percent = (part, all) => (all ? 100 * part / all : 0).toFixed(1) + '%';
       const share = percent(stats.effective, state.healing);
@@ -1010,7 +1014,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         row.className = 'meter-row';
         const summary = document.createElement('summary');
         const label = document.createElement('span');
-        label.textContent = source;
+        const image = document.createElement('img');
+        image.src = new URL('./' + reportManaVisual(source)[0], import.meta.url);
+        image.alt = '';
+        label.append(image, source);
         const total = document.createElement('strong');
         const children = document.createElement('div');
         summary.append(label, total);
@@ -1022,7 +1029,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const share = (100 * value / state.manaGained).toFixed(1) + '%';
       total.textContent = whole(value) + ' · ' + share;
       summary.style.setProperty('--share', (100 * value / (sources[0]?.[1] || 1)) + '%');
-      summary.style.setProperty('--meter-color', `hsl(210 55% ${30 + [...manaRows.keys()].indexOf(source) * 4 % 30}%)`);
+      summary.style.setProperty('--meter-color', reportManaVisual(source)[1]);
       const weights = source === 'Spirit regeneration' ? profile.spiritRates : source === 'Mana / 5' ? profile.mp5Sources : null;
       children.replaceChildren();
       if (weights) {
@@ -1030,10 +1037,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         for (const [name, weight] of Object.entries(weights).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])) {
           const bar = document.createElement('div');
           bar.className = 'mana-source-bar';
-          bar.style.setProperty('--source-color', `hsl(210 45% ${30 + children.children.length * 4}%)`);
+          bar.style.setProperty('--source-color', contributionColor(source, name));
           bar.style.setProperty('--share', (100 * weight / Math.max(...Object.values(weights))) + '%');
           const label = document.createElement('span');
-          label.textContent = name;
+          const image = document.createElement('img');
+          image.src = new URL('./' + (contributionIcons[name] ?? 'report-icons/gained.jpg'), import.meta.url);
+          image.alt = '';
+          label.append(image, name);
           const amount = document.createElement('strong');
           amount.textContent = whole(value * weight / sum) + ' · ' + (100 * weight / sum).toFixed(1) + '%';
           bar.append(label, amount);

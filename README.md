@@ -36,3 +36,5 @@ bonus is 1.10 for a kill and 1 otherwise. Scores reward raw healing, mana recove
 and efficiency; compare runs with the same encounter, difficulty, and loadout.
 
 Run `node --test tests/healing-score.mjs` for accounting and scoring checks.
+
+Report icon assignments, fixed healing/mana palettes, and contribution colors are documented in [Healbot report visuals](docs/healbot-report-visuals.md). The shared registry keeps all healer classes consistent.
