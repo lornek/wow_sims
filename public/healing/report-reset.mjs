@@ -8,6 +8,7 @@ export function resetHealingReport(root, meterRows, manaRows) {
     eventBars?.replaceChildren();
     for (const field of fields) field.textContent = '';
   }
+  root.querySelector('[data-mana-gained-total]').textContent = '0';
   root.querySelector('[data-mana-meter]').replaceChildren();
   manaRows.clear();
   for (const selector of ['[data-result]', '[data-regen-result]']) {

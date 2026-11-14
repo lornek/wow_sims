@@ -106,3 +106,9 @@ Keep the order direct hits, direct crits, periodic hits, periodic crits. Display
 Bar lengths represent effective healing, using the same scale as their parent spell, and tooltips show effective healing and overhealing. The right-hand value is event count. Critical bars append their critical percentage within that event type, not within all spell events: 4 direct hits and 6 direct crits display `4` and `6 (60%)`. Periodic crit percentages use only periodic events. Fully overhealing events still count. Keep the existing Casts, Healing events, Normal hits, Critical hits, Overhealing, and Healing per mana metric tiles below these bars.
 
 Healing Stream Totem ticks can critically heal using the current healing crit chance. Its crits remain excluded from Water Shield activation. Run `node --test tests/healing-events.mjs` to verify category totals, crit denominators, hybrid overhealing, and Healing Stream/Water Shield behavior.
+
+## Mana total and gearing indicators
+
+The Mana gained section heading is a full-width blue mana bar using the existing main-mana vertical gradient. Its right edge shows `state.manaGained`, and resets to zero for each new run.
+
+Place a compact gearing button at the far right of the Spirit regeneration and Mana / 5 summaries. Use the standard custom `spirit.jpg` and `mp5.jpg` tiles respectively. Display `state.manaPerSpirit` as mana per +1 base Spirit and `state.manaPerMp5` as mana per +1 mana / 5, to one decimal place. The Spirit value includes raw-Spirit multipliers, casting regeneration, and Innervate. Both values use the engine's marginal-regeneration headroom calculation and freeze when combat ends. The accessible name and hover tooltip explain the units; clicking the button must not toggle the parent breakdown. Keep the Spirit indicator at the far right after the Innervate heading.

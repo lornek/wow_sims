@@ -1084,6 +1084,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function renderManaMeters(state) {
+    find('[data-mana-gained-total]').textContent = whole(state.manaGained);
     find('[data-mana-empty]').hidden = state.manaGained > 0;
     const sources = manaReportSources(state.manaSources);
     for (const {row} of manaRows.values()) row.hidden = true;
@@ -1119,9 +1120,33 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           summary.replaceChildren(normal, boosted);
           row.classList.add('mana-spirit-pair');
         }
-        manaRows.set(source, {row, summary, total, children, innervateTotal});
+        let gearing;
+        if (source === 'Spirit regeneration' || source === 'Mana / 5') {
+          gearing = document.createElement('button');
+          gearing.type = 'button';
+          gearing.className = 'mana-gearing';
+          const art = document.createElement('img');
+          art.src = new URL('./report-icons/' + (source === 'Spirit regeneration' ? 'spirit' : 'mp5') + '.jpg', import.meta.url);
+          art.alt = '';
+          const amount = document.createElement('strong');
+          gearing.append(art, amount);
+          gearing.onclick = event => { event.preventDefault(); event.stopPropagation(); };
+          summary.append(gearing);
+        }
+        manaRows.set(source, {row, summary, total, children, innervateTotal, gearing});
       }
-      const {row, summary, total, children, innervateTotal} = manaRows.get(source);
+      const {row, summary, total, children, innervateTotal, gearing} = manaRows.get(source);
+      if (gearing) {
+        const spirit = source === 'Spirit regeneration';
+        const value = (spirit ? state.manaPerSpirit : state.manaPerMp5) ?? 0;
+        const amount = value.toLocaleString('en-US', {minimumFractionDigits:1, maximumFractionDigits:1});
+        gearing.lastElementChild.textContent = amount + (spirit ? ' / Spirit' : ' / MP5');
+        const explanation = amount + ' additional mana per +1 ' + (spirit ? 'base Spirit' : 'mana / 5') + ' over this pull. ' +
+          (spirit ? 'Includes Spirit multipliers, casting regeneration, and Innervate.' : 'Mana / 5 regeneration continues while casting.') +
+          ' Excludes regeneration lost at full mana; stops accumulating when the encounter ends.';
+        gearing.title = explanation;
+        gearing.setAttribute('aria-label', explanation);
+      }
       row.hidden = false;
       const share = (100 * value / state.manaGained).toFixed(1) + '%';
       total.textContent = whole(value) + ' · ' + share;
@@ -1134,7 +1159,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         innervateTotal.textContent = whole(innervate) + ' · ' + (100 * innervate / state.manaGained).toFixed(1) + '%';
         summary.style.setProperty('--normal-share', (100 * normal / state.manaGained) + '%');
         summary.style.setProperty('--innervate-color', reportManaVisual('Innervate')[1]);
-        summary.lastElementChild.hidden = !innervate;
+        innervateTotal.parentElement.hidden = !innervate;
       }
       const weights = source === 'Spirit regeneration' ? profile.spiritRates : source === 'Mana / 5' ? profile.mp5Sources : null;
       children.replaceChildren();
