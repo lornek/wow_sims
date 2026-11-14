@@ -1087,6 +1087,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-mana-gained-total]').textContent = whole(state.manaGained);
     find('[data-mana-empty]').hidden = state.manaGained > 0;
     const sources = manaReportSources(state.manaSources);
+    if (currentSpells.waterShield && !sources.some(([source]) => source === 'Water Shield')) sources.push(['Water Shield', 0]);
     for (const {row} of manaRows.values()) row.hidden = true;
     let sourceIndex = 0;
     for (const [source, value] of sources) {
@@ -1133,9 +1134,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           gearing.onclick = event => { event.preventDefault(); event.stopPropagation(); };
           summary.append(gearing);
         }
-        manaRows.set(source, {row, summary, total, children, innervateTotal, gearing});
+        manaRows.set(source, {row, summary, total, children, innervateTotal, gearing, sourceLabel:label});
       }
-      const {row, summary, total, children, innervateTotal, gearing} = manaRows.get(source);
+      const {row, summary, total, children, innervateTotal, gearing, sourceLabel} = manaRows.get(source);
+      if (source === 'Water Shield') {
+        const duration = state.endedAt ?? state.time;
+        const uptime = duration > 0 ? Math.min(100, 100 * state.waterShieldUptime / duration) : 0;
+        sourceLabel.lastChild.textContent = 'Water Shield (' + Math.round(uptime) + '% Uptime)';
+        sourceLabel.title = state.waterShieldUptime.toFixed(1) + ' of ' + duration.toFixed(1) + ' combat seconds with at least one unexpired charge. Internal proc cooldown still counts as active.';
+      }
       if (gearing) {
         const spirit = source === 'Spirit regeneration';
         const value = (spirit ? state.manaPerSpirit : state.manaPerMp5) ?? 0;
@@ -1148,7 +1155,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         gearing.setAttribute('aria-label', explanation);
       }
       row.hidden = false;
-      const share = (100 * value / state.manaGained).toFixed(1) + '%';
+      const share = (100 * value / (state.manaGained || 1)).toFixed(1) + '%';
       total.textContent = whole(value) + ' · ' + share;
       summary.style.setProperty('--share', share);
       summary.style.setProperty('--meter-color', reportManaVisual(source)[1]);

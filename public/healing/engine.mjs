@@ -7,7 +7,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
-    manaPerSpirit: 0, manaPerMp5: 0, manaGained: 0, manaSources: {}, survivalSeconds: 0, focusSpend: -Infinity,
+    manaPerSpirit: 0, manaPerMp5: 0, manaGained: 0, manaSources: {}, waterShieldUptime: 0, survivalSeconds: 0, focusSpend: -Infinity,
     encounterId: encounter.id, nextPoison: encounter.id && encounter.id !== 'rend' ? Infinity : 7,
     nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}};
 
@@ -314,6 +314,9 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       const boundaries = [to, state.innervateUntil, state.lastSpend + 5, state.focusSpend + 5];
       const end = Math.min(...boundaries.filter(time => time > from));
       const seconds = end - from;
+      if (state.phase === 'active' && state.waterShield?.charges > 0) {
+        state.waterShieldUptime += Math.max(0, Math.min(end, state.waterShield.expires) - from);
+      }
       const spiritFraction = spiritRegenFraction(from);
       const regen = manaRegenRate(from) * seconds;
       if (state.phase === 'active') {
