@@ -449,3 +449,8 @@ body:has(#healing) { font-family:var(--ui); }
 .healing-score .healing-event-bar .meter-number-main { text-align:left; }
 .healing-score .healing-event-bar .meter-number-separator { display:none; }
 .healing-score .healing-event-bar .meter-number-detail:not(:empty) { margin-inline-start:.6ch; }
+
+.additional-stats { display:grid; gap:10px; width:min(100%,460px); }
+.additional-stats label { display:grid; grid-template-columns:28px minmax(0,1fr) 90px; align-items:center; gap:10px; }
+.additional-stats img { border-radius:3px; }
+.additional-stats input { width:100%; box-sizing:border-box; text-align:right; font-variant-numeric:tabular-nums; }

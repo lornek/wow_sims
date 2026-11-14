@@ -1,3 +1,4 @@
+import {normalizeAdditionalStats} from './additional-stats.mjs';
 import {setBarNumbers} from './bar-numbers.mjs';
 import {healingEventRows} from './healing-events.mjs';
 import {resetHealingReport} from './report-reset.mjs';
@@ -60,6 +61,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const root = document.querySelector('#healing');
   root.dataset.healerClass = className;
   const find = selector => root.querySelector(selector);
+  const customInputs = [...root.querySelectorAll('[data-custom-stat]')];
+  const readAdditionalStats = () => normalizeAdditionalStats(Object.fromEntries(customInputs.map(input =>
+    [input.dataset.customStat, input.validity.valid ? Number(input.value) : 0])));
   const byName = name => ranks.filter(row => row.name === name && row.level <= 60);
   const whole = number => Math.floor(number).toLocaleString('en-US');
   const clamp = number => Math.min(1, Math.max(0, number));
@@ -342,9 +346,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   let talentPoints;
   function configuredSpells() {
     const points = talentPoints = Object.fromEntries(talents.map(([key, name]) => [key, talentTree.build[name] ?? 0]));
-    const power = find('[data-power]');
     enabled = new Set([...root.querySelectorAll('[data-buff]:checked')].map(input => input.value));
-    profile = buildProfile(gear.value, enabled, power.validity.valid ? Number(power.value) : 0, points);
+    profile = buildProfile(gear.value, enabled, readAdditionalStats(), points);
     currentSpells = Object.fromEntries(selects.map(({select, rows, key, name}) =>
       [key, applyTalents(spellFor(key, name, rows[select.selectedIndex]), points)]));
     if (!enabled.has('potion')) delete currentSpells.potion;
@@ -550,7 +553,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       button.setAttribute('aria-pressed', selected === index);
     });
     selects.forEach(({select}) => select.disabled = active);
-    find('[data-power]').disabled = active;
+    for (const input of customInputs) input.disabled = active;
     find('[data-loadout]').disabled = active;
     encounterSelect.disabled = difficulty.disabled = active;
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
@@ -664,14 +667,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     label.append('Talent preset ', select);
     find('[data-talents]').before(label);
   }
-  if (Number.isInteger(saved.power) && saved.power >= 0 && saved.power <= 5000) find('[data-power]').value = saved.power;
+  const savedAdditionalStats = normalizeAdditionalStats(saved.additionalStats ?? saved.power ?? 0);
+  for (const input of customInputs) input.value = savedAdditionalStats[input.dataset.customStat];
   const savedSlot = typeof saved.selected === 'string' ? slots.findIndex(([key]) => key === saved.selected) :
     Number.isInteger(saved.selected) && saved.selected !== 5 ? saved.selected - Number(saved.selected > 5) : -1;
   if (slots[savedSlot] && !utility[slots[savedSlot][0]]) selected = savedSlot;
   renderSoundToggle();
 
   function saveSettings() {
-    const power = find('[data-power]');
     try {
       localStorage.setItem(settingsKey, JSON.stringify({
         loadout: gear.value,
@@ -679,7 +682,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         difficulty: Number(difficulty.value),
         buffs: [...enabled],
         buffDefaults: true,
-        power: power.validity.valid ? Number(power.value) : 0,
+        additionalStats: readAdditionalStats(),
         sound: soundEnabled,
         selected: slots[selected][0],
         talents: talentTree.build,
@@ -769,7 +772,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           key === 'mp5' ? (profile.mp5 + 5 * profile.regen * profile.castingRegen).toFixed(1) : whole(profile[key]);
     }
   }
-  find('[data-power]').oninput = () => reset();
+  for (const input of customInputs) input.oninput = () => reset();
   gear.onchange = () => reset();
   find('[data-buffs]').onchange = () => reset();
   find('[data-talents]').onchange = () => reset();

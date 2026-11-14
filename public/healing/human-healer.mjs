@@ -1,10 +1,11 @@
+import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {buffs} from './profile.mjs';
 export {buffs};
 
 const base = {
-  paladin: {strength:105, agility:65, intellect:70, spirit:75, stamina:100, health:1381, mana:1512, crit:3.5, critPerInt:.0167},
-  priest: {strength:35, agility:40, intellect:120, spirit:125, stamina:50, health:1397, mana:1376, crit:.8, critPerInt:.0168}
+  paladin: {strength:105, agility:65, intellect:70, spirit:75, stamina:100, health:1381, mana:1512, crit:3.5},
+  priest: {strength:35, agility:40, intellect:120, spirit:125, stamina:50, health:1397, mana:1376, crit:.8}
 };
 
 export function humanProfile(className, loadouts) {
@@ -15,6 +16,7 @@ export function humanProfile(className, loadouts) {
     for (const item of Object.values(loadouts[loadout])) {
       for (const [stat, value] of Object.entries(item.stats)) gear[stat] = (gear[stat] ?? 0) + value;
     }
+    addAdditionalStats(gear, customHealing);
     const kings = buffs.has('kings') ? 1.1 : 1;
     const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra + (buffs.has('mark') ? 16 : 0)) * multiplier * kings);
     const intellect = stat('intellect', buffs.has('intellect') ? 31 : 0, 1 + .02 * (rank('Mental Strength') + rank('Divine Intellect')));
@@ -26,7 +28,7 @@ export function humanProfile(className, loadouts) {
     return {...manaSourceProfile(naked.spirit, gear, buffs, spirit, {human: 1.1}), strength: stat('strength', 0, 1 + .02 * rank('Divine Strength')), agility: stat('agility'), intellect, spirit, stamina,
       health: naked.health + 10 * (stamina - 20), baseMana: naked.mana,
       mana: naked.mana + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
-      crit: (naked.crit + 1 + intellect * naked.critPerInt + (gear.crit ?? 0) + rank('Holy Specialization') + 2 * rank('Conviction')) / 100,
+      crit: (naked.crit + 1 + intellect * spellCritPercentPerIntellect[className] + (gear.crit ?? 0) + rank('Holy Specialization') + 2 * rank('Conviction')) / 100,
       critHealingBonus: .05 * rank('Holy Power'),
       spiritPerRawPoint: 1.1 * kings, spiritRegenCoefficient,
       regen: 6.25 + spirit * spiritRegenCoefficient,
@@ -34,7 +36,7 @@ export function humanProfile(className, loadouts) {
       pushbackResist: className === 'priest' ? [0, .23, .46, .70][rank('Twilight Focus')] : .14 * rank('Spiritual Focus'),
       aegis: .05 * rank('Divine Aegis'),
       inspiration: [0,.08,.16,.25][rank('Inspiration')],
-      gearPower, talentPower, power: gearPower + talentPower + customHealing,
+      gearPower, talentPower, power: gearPower + talentPower,
       mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? 12 : 0)};
   };
 }

@@ -1,3 +1,4 @@
+import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {equipmentSets} from './gear.mjs';
 
@@ -45,6 +46,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   for (const item of Object.values(loadouts[loadout])) {
     for (const [key, value] of Object.entries(item.stats)) gear[key] = (gear[key] ?? 0) + value;
   }
+  addAdditionalStats(gear, bonusHealing);
   const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra + (enabled.has('mark') ? 16 : 0)) * multiplier * (enabled.has('kings') ? 1.1 : 1));
   const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0, 1 + .02 * (points.ancestral ?? 0));
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
@@ -53,9 +55,9 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
     spiritPerRawPoint: enabled.has('kings') ? 1.1 : 1,
     baseMana: naked.baseMana, health: 1280 + 10 * stamina,
     mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
-    crit: (2.3 + intellect * .0169 + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
+    crit: (2.3 + intellect * spellCritPercentPerIntellect.shaman + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
     pushbackResist: [0, .23, .46, .70][points.pushback ?? 0],
-    regen: 6.25 + spirit / 8, gearPower: gear.power ?? 0, power: (gear.power ?? 0) + bonusHealing,
+    regen: 6.25 + spirit / 8, gearPower: gear.power ?? 0, power: gear.power ?? 0,
     mp5: (gear.mp5 ?? 0) + (enabled.has('wisdom') ? 40 : 0) + (enabled.has('mageblood') ? 12 : 0)};
 }

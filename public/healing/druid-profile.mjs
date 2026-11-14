@@ -1,3 +1,4 @@
+import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {loadouts} from './druid-gear.mjs';
 export {loadouts};
@@ -21,6 +22,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   for (const item of Object.values(loadouts[loadout])) {
     for (const [key, value] of Object.entries(item.stats)) gear[key] = (gear[key] ?? 0) + value;
   }
+  addAdditionalStats(gear, bonus);
   const stat = (key, base, multiplier = 1) => Math.floor((base + (gear[key] ?? 0) + (buffs.has('mark') ? 16 : 0)) * multiplier * (buffs.has('kings') ? 1.1 : 1));
   const intellect = stat('intellect', 100 + (buffs.has('intellect') ? 31 : 0), 1 + .02 * (talents['Heart of the Wild'] ?? 0));
   const livingSpirit = 1 + .05 * (talents['Living Spirit'] ?? 0);
@@ -30,9 +32,9 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   return {...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
     spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),
     health: 1483 + 10 * stamina, baseMana: 1244, mana: 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
-    crit: (1.8 + intellect * .0167 + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,
+    crit: (1.8 + intellect * spellCritPercentPerIntellect.druid + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][talents.Reflection ?? 0],
-    regen: 6.25 + spirit / 8, gearPower, power: gearPower + bonus,
+    regen: 6.25 + spirit / 8, gearPower, power: gearPower,
     pushbackResist: .14 * (talents["Nature's Focus"] ?? 0), grace: !!talents["Nature's Grace"],
     bloom: talents.Bloom ? spirit * (1 + .02 * (talents['Gift of Nature'] ?? 0)) : 0,
     mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? 12 : 0)};
