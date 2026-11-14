@@ -335,9 +335,9 @@ body:has(#healing) { font-family:var(--ui); }
 .healing-score .fight-report { border:0; padding:0; background:none; }
 
 /* Compact contribution rows retain the semantic color of their parent source. */
-.mana-source-bar { align-items:center; gap:8px; margin:3px 8px 3px 20px; padding:2px 6px; min-height:20px; font-size:.8rem; }
-.mana-source-bar > span { display:flex; align-items:center; gap:6px; min-width:0; }
+.mana-source-bar { align-items:center; gap:8px; margin:3px 0; padding:2px 8px; min-height:20px; font-size:.8rem; }
+.mana-source-bar > span { padding-inline-start:12px; display:flex; align-items:center; gap:6px; min-width:0; }
 .mana-source-bar img { width:16px; height:16px; flex:none; border-radius:2px; }
 @media (max-width:480px) {
-  .mana-source-bar { margin-inline:8px 0; gap:4px; font-size:.72rem; }
+  .mana-source-bar { margin-inline:0; gap:4px; font-size:.72rem; }
 }

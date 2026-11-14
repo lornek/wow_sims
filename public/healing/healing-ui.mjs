@@ -130,10 +130,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     button.append(art);
     const label = document.createElement('span');
     label.className = 'spell-label';
-    const image = document.createElement('img');
-          image.src = new URL('./' + (contributionIcons[name] ?? 'report-icons/gained.jpg'), import.meta.url);
-          image.alt = '';
-          label.append(image, name);
+    label.textContent = name;
     const shortcut = document.createElement('small');
     shortcut.className = 'spell-shortcut';
     shortcut.textContent = binding;
@@ -1028,7 +1025,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       row.hidden = false;
       const share = (100 * value / state.manaGained).toFixed(1) + '%';
       total.textContent = whole(value) + ' · ' + share;
-      summary.style.setProperty('--share', (100 * value / (sources[0]?.[1] || 1)) + '%');
+      summary.style.setProperty('--share', share);
       summary.style.setProperty('--meter-color', reportManaVisual(source)[1]);
       const weights = source === 'Spirit regeneration' ? profile.spiritRates : source === 'Mana / 5' ? profile.mp5Sources : null;
       children.replaceChildren();
@@ -1038,14 +1035,17 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           const bar = document.createElement('div');
           bar.className = 'mana-source-bar';
           bar.style.setProperty('--source-color', contributionColor(source, name));
-          bar.style.setProperty('--share', (100 * weight / Math.max(...Object.values(weights))) + '%');
+          const contribution = value * weight / sum;
+          const totalShare = 100 * contribution / state.manaGained;
+          bar.style.setProperty('--share', totalShare + '%');
+          bar.title = (100 * weight / sum).toFixed(1) + '% of ' + source + ' · ' + totalShare.toFixed(1) + '% of total mana gained';
           const label = document.createElement('span');
           const image = document.createElement('img');
           image.src = new URL('./' + (contributionIcons[name] ?? 'report-icons/gained.jpg'), import.meta.url);
           image.alt = '';
           label.append(image, name);
           const amount = document.createElement('strong');
-          amount.textContent = whole(value * weight / sum) + ' · ' + (100 * weight / sum).toFixed(1) + '%';
+          amount.textContent = whole(contribution) + ' · ' + totalShare.toFixed(1) + '%';
           bar.append(label, amount);
           children.append(bar);
         }

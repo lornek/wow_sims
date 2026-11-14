@@ -39,7 +39,7 @@ All currently generated non-ability sources are listed here. The custom report i
 | Blessing of Wisdom | icons/spell_holy_sealofwisdom.jpg | hsl(185 76% 35%) | hsl(215 67% 39%) |
 | Mageblood Elixir | icons/inv_potion_45.jpg | hsl(176 69% 37%) | hsl(206 60% 41%) |
 
-Child colors are keyed by contribution name: Spirit children stay within 175–186° hue, MP5 within 205–216°. Small saturation/lightness offsets retain the parent family even when sorting changes. Child bars use 16px icons, 2px vertical padding, and compact text; parent rows retain 22px icons. Amounts remain shares of the parent and bar lengths remain relative to the largest sibling.
+Child colors are keyed by contribution name: Spirit children stay within 175–186° hue, MP5 within 205–216°. Small saturation/lightness offsets retain the parent family even when sorting changes. Child bars use 16px icons, 2px vertical padding, and compact text; parent rows retain 22px icons. Parent and child bar fills share the same full-width track and use total mana gained as their denominator. Child amount = parent mana × contribution weight / sum of parent weights. Child width = child amount / total mana gained. For example, a 50% parent with a 50% child fills 25% of the track. Displayed percentages are shares of total mana gained; child tooltips also show the share of the parent.
 
 ## Healing done
 
