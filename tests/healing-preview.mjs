@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {healingRange, swiftmendRange} from '../public/healing/healing-preview.mjs';
+import {healingRange, swiftmendRange, periodicHealingPreview} from '../public/healing/healing-preview.mjs';
 import {applyTalents} from '../public/healing/druid-profile.mjs';
 
 test('final healing includes power and talent multipliers before engine rounding', () => {
@@ -25,4 +25,20 @@ test('Swiftmend Rejuvenation includes its own talents and selected rank amounts'
     {"Nature's Splendor":1, 'Gift of Nature':5, Genesis:5, 'Improved Rejuvenation':3});
   assert.equal(rejuv.duration, 15);
   assert.deepEqual(swiftmendRange(rejuv, 200), [974, 974]);
+});
+
+
+test('HoT tooltip totals and ticks use the requested two-row values',()=>{
+  const preview=periodicHealingPreview({low:300,high:300,coefficient:0,multiplier:1,period:3,duration:21},0);
+  assert.deepEqual(preview,{duration:21,ticks:7,total:[2100,2100],first:[300,300],last:[300,300]});
+});
+test('channel preview includes its immediate tick and hybrid preview excludes the direct heal',()=>{
+  assert.equal(periodicHealingPreview({low:100,coefficient:0,multiplier:1,period:1,duration:2,immediateTick:true},0).ticks,3);
+  const preview=periodicHealingPreview({low:1000,duration:21,hot:{low:40,coefficient:.1,multiplier:1.1,period:3}},100);
+  assert.deepEqual(preview.total,[385,385]);
+  assert.equal(preview.ticks,7);
+});
+test('decaying HoT preview displays first and last tick values',()=>{
+  const preview=periodicHealingPreview({low:100,coefficient:0,multiplier:1,period:1,duration:7,decay:true},0);
+  assert.deepEqual(preview.first,[130,130]);assert.deepEqual(preview.last,[70,70]);assert.deepEqual(preview.total,[700,700]);
 });

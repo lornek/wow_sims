@@ -437,3 +437,8 @@ body:has(#healing) { font-family:var(--ui); }
 .game-tooltip-reference { border-top:1px solid #665238; margin-top:8px; padding-top:6px; color:#c4b89f; font-size:.9em; }
 .game-tooltip :first-child { margin-top:0; }
 [data-tooltip-trigger]:focus-visible { outline:2px solid #ffe19a; outline-offset:2px; }
+
+.game-tooltip-stat { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; column-gap:16px; }
+.game-tooltip-stat > strong { text-align:right; white-space:nowrap; font-variant-numeric:lining-nums tabular-nums; }
+
+.game-tooltip .game-tooltip-stat { min-width:min(290px,calc(100vw - 42px)); }

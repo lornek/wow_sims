@@ -1,11 +1,11 @@
 import {setBarNumbers} from './bar-numbers.mjs';
 import {healingEventRows} from './healing-events.mjs';
 import {resetHealingReport} from './report-reset.mjs';
-import {healingRange, swiftmendRange} from './healing-preview.mjs';
+import {healingRange, swiftmendRange, periodicHealingPreview} from './healing-preview.mjs';
 import {manaReportSources, spiritContribution} from './mana-report.mjs';
 import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
 import {healingScore} from './healing-score.mjs';
-import {mountTabs, attachGameTooltip, tooltipLine, setGameTooltip, hideGameTooltip, hideGameTooltipWithin} from './game-ui.mjs';
+import {mountTabs, attachGameTooltip, tooltipLine, tooltipValue, setGameTooltip, hideGameTooltip, hideGameTooltipWithin} from './game-ui.mjs';
 import {encounters, combatants} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
@@ -811,56 +811,46 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const spell = applyTalents(spellFor(key, name, row), talentPoints);
     if (spell.swiftmend) {
       for (const [label, amounts] of swiftmendPreviews()) {
-        tooltipLine(tip, 'With ' + label + ' · ' + formatHealingRange(amounts) + ' healing (non-crit)', 'game-tooltip-good');
+        tooltipValue(tip, 'With ' + label, formatHealingRange(amounts), 'game-tooltip-good');
       }
-      tooltipLine(tip, 'Crit chance · ' + (100 * Math.min(1,profile.crit)).toFixed(1) + '%');
+      tooltipValue(tip, 'Crit chance', (100 * Math.min(1,profile.crit)).toFixed(1) + '%');
       tooltipLine(tip, 'Uses your selected HoT ranks and full duration. Leaves the HoT active; if both are present, uses the one expiring first.', 'game-tooltip-description');
       return true;
     }
     if (spell.shield) {
-      tooltipLine(tip, 'Final absorb · ' + whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)), 'game-tooltip-good');
+      tooltipValue(tip, 'Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)), 'game-tooltip-good');
       tooltipLine(tip, spell.duration + ' sec duration · prevents another shield for 15 sec');
-      tooltipLine(tip, 'Base absorb · ' + whole(spell.shield), 'game-tooltip-reference');
+      tooltipValue(tip, 'Base absorb', whole(spell.shield), 'game-tooltip-reference');
       return true;
     }
     if (key === 'hands') {
-      tooltipLine(tip, 'Healing · ' + whole(profile.health) + ' (before overhealing)', 'game-tooltip-good');
+      tooltipValue(tip, 'Healing', whole(profile.health), 'game-tooltip-good');
       tooltipLine(tip, 'Spends all remaining mana. Restores ' + whole(spell.layOnHands) + ' mana when used on yourself.');
       return true;
     }
     if (!healingKeys.includes(key)) return;
-    const unit = spell.period ? ' per target' : spell.chain > 1 ? ' on the primary target' : '';
-    const range = (power, multiplier = 1) => {
-      const bonus = power * spell.coefficient;
-      const low = whole(Math.round((spell.low + bonus) * multiplier));
-      const high = whole(Math.round((spell.high + bonus) * multiplier));
-      return (low === high ? low : low + '–' + high) + unit;
-    };
-    const headline = spell.decay ? formatHealingRange(healingRange(spell, profile.power, 1.3)) + ' → ' + formatHealingRange(healingRange(spell, profile.power, .7)) : formatHealingRange(healingRange(spell, profile.power));
-    tooltipLine(tip, (spell.period ? 'Healing per tick · ' : 'Healing · ') + headline + unit, 'game-tooltip-good');
-    if (spell.period) {
-      const ticks = Math.floor(spell.duration / spell.period) + Number(!!spell.immediateTick);
-
-      tooltipLine(tip, 'Full duration · ' + formatHealingRange(healingRange(spell, profile.power, ticks)) + ' per target · ' + ticks + ' ticks', 'game-tooltip-good');
-    }
-    if (spell.hot) {
-      const ticks = Math.floor(spell.duration / spell.hot.period);
-      tooltipLine(tip, 'Heal over time · ' + formatHealingRange(healingRange(spell.hot, profile.power)) + ' every ' + spell.hot.period + ' sec · ' + formatHealingRange(healingRange(spell.hot, profile.power, ticks)) + ' over ' + spell.duration + ' sec', 'game-tooltip-good');
+    const range = (power, multiplier = 1) => formatHealingRange(healingRange({...spell, multiplier}, power));
+    if (!spell.period) tooltipValue(tip, spell.chain > 1 ? 'Healing (primary)' : 'Healing', formatHealingRange(healingRange(spell, profile.power)), 'game-tooltip-good');
+    if (spell.period || spell.hot) {
+      const periodic = periodicHealingPreview(spell, profile.power);
+      const ticks = spell.decay ? formatHealingRange(periodic.first) + ' → ' + formatHealingRange(periodic.last) : formatHealingRange(periodic.first);
+      tooltipValue(tip, 'Heal over time (' + periodic.duration + 'sec)', formatHealingRange(periodic.total), 'game-tooltip-good');
+      tooltipValue(tip, 'Healing per tick (' + periodic.ticks + ' ticks)', ticks, 'game-tooltip-good');
     }
     if (spell.party) tooltipLine(tip, 'Heals all living party members.');
     if (spell.mending) tooltipLine(tip, 'Triggers on damage, then jumps to another ally. Up to 5 heals; 30 sec duration.');
     if (spell.mark === 'vigil') tooltipLine(tip, 'Triggered by Holy Shock on the marked ally. Mark lasts 30 sec.');
     if (spell.chain > 1) tooltipLine(tip, spell.chain + ' targets · ' + Math.round(spell.falloff * 100) + '% healing retained per jump');
     if (spell.selfCopy) tooltipLine(tip, 'Also heals you for ' + Math.round(100 * spell.selfCopy) + '% when used on another ally.');
-    tooltipLine(tip, 'Includes gear and talents; before crits and overhealing.', 'game-tooltip-muted');
     const crit = spell.period && !spell.periodicCrit ? 0 : Math.min(1, profile.crit + (spell.bonusCrit ?? 0));
-    tooltipLine(tip, (key === 'regrowth' ? 'Direct and periodic crit · ' : 'Crit chance · ') + (100 * crit).toFixed(1) + '%');
-    tooltipLine(tip, (spell.period ? 'Base tick · ' : 'Base healing · ') + range(0), 'game-tooltip-reference');
-    if (spell.hot) tooltipLine(tip, 'Base HoT · ' + formatHealingRange(healingRange({...spell.hot, multiplier:1}, 0)) + ' every ' + spell.hot.period + ' sec', 'game-tooltip-muted');
-    tooltipLine(tip, '+' + whole(profile.power) + ' healing · ' + (spell.coefficient * 100).toFixed(1) + '% scaling · ×' + Number(spell.multiplier.toFixed(3)) + ' talents', 'game-tooltip-muted');
+    tooltipValue(tip, key === 'regrowth' ? 'Direct and periodic crit' : 'Crit chance', (100 * crit).toFixed(1) + '%');
+    tooltipValue(tip, spell.period ? 'Base tick' : 'Base healing', range(0), 'game-tooltip-reference');
+    if (spell.hot) tooltipValue(tip, 'Base tick', formatHealingRange(healingRange({...spell.hot, multiplier:1}, 0)), 'game-tooltip-muted');
+    tooltipValue(tip, 'Bonus healing', '+' + whole(profile.power), 'game-tooltip-muted');
+    tooltipValue(tip, 'Scaling', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
+    tooltipValue(tip, 'Talent multiplier', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
     if (key === 'chain') {
-      tooltipLine(tip, 'With Riptide (+25% first hit) · ' +
-        range(profile.power, spell.multiplier * 1.25), 'game-tooltip-good');
+      tooltipValue(tip, 'With Riptide (primary)', range(profile.power, spell.multiplier * 1.25), 'game-tooltip-good');
     }
     return true;
   }

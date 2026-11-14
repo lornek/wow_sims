@@ -120,3 +120,14 @@ export function tooltipLine(tip, text, style = '') {
   line.textContent = text;
   tip.append(line);
 }
+
+export function tooltipValue(tip, label, value, style = '') {
+  const row = document.createElement('div');
+  row.className = 'game-tooltip-stat' + (style ? ' ' + style : '');
+  const term = document.createElement('span');
+  term.textContent = label;
+  const amount = document.createElement('strong');
+  amount.textContent = value;
+  row.append(term, amount);
+  tip.append(row);
+}

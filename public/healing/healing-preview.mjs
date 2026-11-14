@@ -8,3 +8,12 @@ export function swiftmendRange(source, power) {
   const hot = source.hot ?? source;
   return healingRange(hot, power, Math.floor(source.duration / hot.period));
 }
+
+export function periodicHealingPreview(spell, power) {
+  const periodic = spell.hot ?? spell;
+  const ticks = Math.floor(spell.duration / periodic.period) + Number(!spell.hot && !!spell.immediateTick);
+  return {duration:spell.duration, ticks,
+    total:healingRange(periodic, power, ticks),
+    first:healingRange(periodic, power, spell.decay ? 1.3 : 1),
+    last:healingRange(periodic, power, spell.decay ? .7 : 1)};
+}

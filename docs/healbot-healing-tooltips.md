@@ -29,3 +29,10 @@ All ability, talent, equipment, buff, aura, report, gearing, resource, score-fac
 `attachGameTooltip()` supports hover and focus, one active tooltip, an accessible `aria-describedby` link, Escape/outside-click dismissal, an 8px viewport margin, side flipping, and scrolling for unusually long content. A short hover grace period lets users move onto the tooltip to read/scroll it. `setGameTooltip()` updates dynamic content without adding duplicate handlers. Use `hideGameTooltip()` on every pull reset and class unmount; hide tooltips inside a region before replacing its contents. Stable final-report rows are retained between frames so their tooltips and keyboard focus do not flicker.
 
 Equipment uses the same popup as abilities. Talent tooltips show rank 1 when unlearned, the final rank when maxed, and available reference descriptions for intermediate ranks; combat-lock status replaces editing instructions during a pull. Report and gearing tooltips use short numeric lines with explicit units. Detailed formula explanations remain accessible without repeating the displayed healing result.
+
+
+# Healing amount rows
+
+Use `tooltipValue()` to place healing labels on the left and numeric amounts in a right-aligned tabular column. All HoTs and channels show two leading periodic rows: `Heal over time (21sec)` with full-duration healing, then `Healing per tick (7 ticks)` with the tick amount. Hybrid spells show direct healing first, followed by the same periodic rows. Immediate channel ticks count toward the displayed tick total. Decaying HoTs display first → last tick values. Totals are per target, non-critical, and computed before overhealing; retain party/target descriptions where relevant.
+
+Use the same right column for direct healing, Swiftmend's two source values, absorbs, crit chance, and base healing/tick values. Keep base values in the muted reference section. Omit the previous “Includes gear and talents” information line.
