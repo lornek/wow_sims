@@ -89,7 +89,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     const others = spell.chain > 1 ? party.filter(member => member !== unit && member.hp > 0)
       .sort((a, b) => (b.max - b.hp) - (a.max - a.hp)).slice(0, spell.chain - 1) : [];
     return [{unit, factor: 1 + bonus}, ...others.map((target, index) =>
-      ({unit: target, factor: spell.falloff ** (index + 1)}))];
+      ({unit: target, factor: (1 + bonus) * spell.falloff ** (index + 1)}))];
   }
 
   function incomingHealing() {
