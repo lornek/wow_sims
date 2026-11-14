@@ -18,6 +18,7 @@ export const talents = [
   ['thundering', 'Thundering Strikes', 5, '+1 percentage point of spell crit per rank'],
   ['ancestral', 'Ancestral Knowledge', 5, '+2% Intellect per rank'],
   ['wave', 'Improved Healing Wave', 5, '−0.1 sec cast time per rank'],
+  ['pushback', 'Healing Focus', 3, '23% / 46% / 70% chance to resist healing cast pushback'],
   ['focus', 'Tidal Focus', 5, '−1% mana cost per rank for direct heals and Riptide'],
   ['mindfulness', 'Mindfulness', 3, '17% / 33% / 50% Spirit regeneration inside the five-second rule'],
   ['totemic', 'Totemic Focus', 5, '−5% mana cost per rank for totems'],
@@ -54,6 +55,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
     mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
     crit: (2.3 + intellect * .0169 + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
+    pushbackResist: [0, .23, .46, .70][points.pushback ?? 0],
     regen: 6.25 + spirit / 8, gearPower: gear.power ?? 0, power: (gear.power ?? 0) + bonusHealing,
     mp5: (gear.mp5 ?? 0) + (enabled.has('wisdom') ? 40 : 0) + (enabled.has('mageblood') ? 12 : 0)};
 }

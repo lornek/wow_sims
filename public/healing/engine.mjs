@@ -286,7 +286,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (amount > 0) triggerMending(unit);
     const cast = state.cast;
     if (amount > 0 && unit === party.at(-1) && cast && !cast.channel && cast.pushbacks < 2 &&
-        profile.pushbackResist !== undefined && random() >= profile.pushbackResist) {
+        random() >= (profile.pushbackResist ?? 0)) {
       cast.pushbacks++;
       cast.end += .5;
       cast.duration += .5;
