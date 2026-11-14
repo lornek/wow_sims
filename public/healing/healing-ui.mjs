@@ -588,8 +588,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       find('[data-score-total]').textContent = whole(score.total);
       regenResult.replaceChildren();
       const terms = [
-        ['score-healing', '(' + whole(s.healing) + ')', 'Effective healing'],
-        ['score-mana', '(0.1 × ' + whole(score.manaGained) + ')', 'Mana gained excluding mana potions'],
+        ['score-healing', '(' + whole(s.healing) + ' × 0.1)', 'Effective healing × 0.1'],
+        ['score-mana', '(' + whole(score.manaGained) + ' × 0.1)', 'Mana gained excluding mana potions'],
         ['score-efficiency', '(' + (100 * score.efficiency).toFixed(1) + '% efficiency)', 'Effective healing / total healing'],
         ['score-survival', '(' + score.survivors + '/' + s.party.length + ' survived)', 'Party members alive at victory']
       ];
@@ -603,7 +603,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         term.className = style; term.textContent = text; term.title = title;
         regenResult.append(term);
       }
-      regenResult.title = 'Effective healing × (0.1 × mana gained excluding potions) × healing efficiency × survivors / party size. Scores are awarded only for victories.';
+      regenResult.title = '(Effective healing × 0.1) × (mana gained excluding potions × 0.1) × healing efficiency × survivors / party size. Scores are awarded only for victories.';
     } else if (!won) {
       find('[data-score-total]').textContent = '';
       regenResult.replaceChildren();

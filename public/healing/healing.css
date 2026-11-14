@@ -314,7 +314,7 @@ body:has(#healing) { font-family:var(--ui); }
 .fight-report dl > div, .healing-breakdown > div { display:grid; grid-template-columns:40px 1fr; gap:2px 8px; align-items:center; padding:7px; background:#241a12; border:1px solid #624b2a; border-radius:4px; }
 .fight-report img, .healing-breakdown img { grid-row:span 2; border-radius:4px; }
 .fight-report dt, .healing-breakdown dt { font:.85rem var(--ui); }
-.fight-report dd, .healing-breakdown dd { margin:0; color:#ffe19a; font:700 1.15rem var(--ui); font-variant-numeric:tabular-nums; }
+.fight-report dd, .healing-breakdown dd { margin:0; color:#ffe19a; font:700 var(--report-value-size,1.15rem) var(--ui); font-variant-numeric:tabular-nums; }
 @media(max-width:650px) {
   .healbot-header .class-picker { gap:4px; }
   .healbot-header .class-pick { padding:6px 2px; font-size:clamp(.58rem,2.2vw,.8rem); letter-spacing:0; }
@@ -398,9 +398,9 @@ body:has(#healing) { font-family:var(--ui); }
 
 .score-heading { display:flex; justify-content:center; align-items:baseline; flex-wrap:wrap; gap:12px 24px; padding:12px 0 6px; }
 .score-heading[hidden], .score-formula[hidden] { display:none; }
-.score-heading h2, .score-heading > strong { margin:0; font:700 clamp(1.8rem,4vw,3rem) var(--ui); text-shadow:0 2px 3px #000,0 4px 10px #000; }
+.score-heading h2, .score-heading > strong { margin:0; font:400 clamp(1.8rem,4vw,3rem) var(--display); text-shadow:0 2px 3px #000,0 4px 10px #000; }
 .score-heading > strong { color:#ffe19a; font-variant-numeric:lining-nums tabular-nums; }
-.score-formula { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:8px 12px; padding:8px 0 20px; font:700 clamp(1.15rem,2.4vw,1.8rem) var(--ui); font-variant-numeric:lining-nums tabular-nums; text-shadow:0 2px 3px #000,0 3px 8px #000; }
+.score-formula { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:8px 12px; padding:8px 0 20px; font:700 calc(var(--report-value-size,1.15rem) * 1.1) var(--ui); font-variant-numeric:lining-nums tabular-nums; text-shadow:0 2px 3px #000,0 3px 8px #000; }
 .score-formula strong { white-space:nowrap; }
 .score-healing { color:#73e391; }
 .score-mana { color:#75bbff; }
@@ -413,3 +413,15 @@ body:has(#healing) { font-family:var(--ui); }
 .sound-toggle svg path:not(:first-child) { fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; }
 .sound-toggle svg [hidden] { display:none; }
 .sound-toggle:focus-visible { outline:2px solid #ffe19a; outline-offset:2px; }
+
+
+.healing-score { --report-value-size:1.15rem; }
+/* Reserve the numeric grid and pin gearing immediately against its left edge. */
+.healing-score .meter-row summary:has(> .mana-gearing),
+.healing-score summary .mana-pair-heading:has(> .mana-gearing) {
+  display:grid; grid-template-columns:minmax(0,1fr) auto auto; column-gap:8px; align-items:center;
+}
+.healing-score .meter-row summary > .mana-gearing,
+.healing-score summary .mana-pair-heading > .mana-gearing { margin:0; }
+.healing-score .meter-row summary:has(> .mana-gearing) > .meter-numbers,
+.healing-score summary .mana-pair-heading:has(> .mana-gearing) > .meter-numbers { margin:0; }

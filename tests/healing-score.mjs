@@ -57,7 +57,7 @@ test('Spirit and MP5 drilldowns reconcile with profile totals including multipli
 });
 test('score is uncapped and rewards healing, efficiency and mana recovery', () => {
   const state = {party:[{}], time:10, survivalSeconds:10, survivors:1, healing:10000, overheal:0, manaGained:1000, phase:'won'};
-  close(healingScore(state).total, 1000000);
+  close(healingScore(state).total, 100000);
   assert.ok(healingScore({...state,manaGained:2000}).total > healingScore(state).total);
   assert.ok(healingScore({...state,overheal:1000}).total < healingScore(state).total);
 });
@@ -77,10 +77,10 @@ test('score uses final survivors and excludes potion mana without changing resto
     manaGained:3000,manaSources:{'Spirit regeneration':2000,'Major Mana Potion':1000},phase:'won'};
   const score=healingScore(state);
   close(score.manaGained,2000);close(score.efficiency,.8);close(score.survivalMultiplier,.6);
-  close(score.total,960000);
+  close(score.total,96000);
   assert.equal(state.manaGained,3000);
   assert.equal(healingScore({...state,manaGained:4000,manaSources:{...state.manaSources,'Major Mana Potion':2000}}).total,score.total);
-  assert.equal(healingScore({...state,survivors:5}).total,1600000);
+  assert.equal(healingScore({...state,survivors:5}).total,160000);
 });
 test('failed and unfinished runs do not receive a score',()=>{
   const state={party:[{hp:100}],healing:10000,overheal:0,manaGained:1000,manaSources:{}};

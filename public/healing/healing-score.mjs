@@ -5,7 +5,7 @@ export function healingScore(state) {
   const manaGained = Math.max(0, state.manaGained - potionMana);
   const survivors = state.survivors ?? state.party.filter(unit => unit.hp > 0).length;
   const survivalMultiplier = state.party.length ? survivors / state.party.length : 0;
-  const base = state.healing * (.1 * manaGained);
+  const base = (.1 * state.healing) * (.1 * manaGained);
   return {total: state.phase === 'won' ? Math.round(base * efficiency * survivalMultiplier) : null,
     base, manaGained, potionMana, efficiency, survivors, survivalMultiplier};
 }
