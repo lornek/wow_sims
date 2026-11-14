@@ -1,3 +1,4 @@
+import {setBarNumbers} from './bar-numbers.mjs';
 import {healingEventRows} from './healing-events.mjs';
 import {resetHealingReport} from './report-reset.mjs';
 import {healingRange, swiftmendRange} from './healing-preview.mjs';
@@ -451,7 +452,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         const abilities = Object.entries(unit.damage);
         const total = abilities.reduce((sum, [, ability]) => sum + ability.total, 0);
         entry.dps = total / (s.endedAt || s.time || 1);
-        value.textContent = whole(total) + ' · ' + whole(entry.dps) + ' DPS';
+        setBarNumbers(value, whole(total), whole(entry.dps) + ' DPS');
         if (row.open) {
           const damageByAbility = new Map();
           for (const [name, data] of abilities) {
@@ -476,7 +477,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
             line.element.style.setProperty('--damage-hue', (index % 5 * (unit.name === 'Jaina' ? -10 : 7)) + 'deg');
             line.element.style.setProperty('--ability-share', (100 * damage / damaging[0][1]) + '%');
             line.element.style.setProperty('--damage-tint', (28 + index % 5 * 7) + '%');
-            line.numbers.textContent = whole(damage) + ' · ' + whole(damage / (s.endedAt || s.time || 1)) + ' DPS';
+            setBarNumbers(line.numbers, whole(damage), whole(damage / (s.endedAt || s.time || 1)) + ' DPS');
             const current = breakdown.children[index];
             if (current !== line.element) breakdown.insertBefore(line.element, current ?? null);
           });
@@ -1041,7 +1042,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const raw = stats.effective + stats.overheal;
       const percent = (part, all) => (all ? 100 * part / all : 0).toFixed(1) + '%';
       const share = percent(stats.effective, state.healing);
-      total.textContent = whole(stats.effective) + ' · ' + share;
+      setBarNumbers(total, whole(stats.effective), share);
       summary.style.setProperty('--share', (100 * stats.effective / (Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1)) + '%');
       if (!row.open) continue;
       const maxHealing = Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1;
@@ -1067,7 +1068,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         }
         label.append(art, event.label);
         const count = document.createElement('strong');
-        count.textContent = event.count + (event.crit ? ' (' + Number(event.critPercent.toFixed(1)) + '%)' : '');
+        setBarNumbers(count, event.count, event.crit ? '(' + Number(event.critPercent.toFixed(1)) + '%)' : '', '');
         bar.title = whole(event.effective) + ' effective healing · ' + whole(event.overheal) + ' overhealing';
         bar.append(label, count);
         eventBars.append(bar);
@@ -1132,7 +1133,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           const amount = document.createElement('strong');
           gearing.append(art, amount);
           gearing.onclick = event => { event.preventDefault(); event.stopPropagation(); };
-          summary.append(gearing);
+          total.parentElement.insertBefore(gearing, total);
         }
         manaRows.set(source, {row, summary, total, children, innervateTotal, gearing, sourceLabel:label});
       }
@@ -1156,14 +1157,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
       row.hidden = false;
       const share = (100 * value / (state.manaGained || 1)).toFixed(1) + '%';
-      total.textContent = whole(value) + ' · ' + share;
+      setBarNumbers(total, whole(value), share);
       summary.style.setProperty('--share', share);
       summary.style.setProperty('--meter-color', reportManaVisual(source)[1]);
       const innervate = source === 'Spirit regeneration' ? state.manaSources.Innervate ?? 0 : 0;
       const normal = value - innervate;
       if (innervateTotal) {
-        total.textContent = whole(normal) + ' · ' + (100 * normal / state.manaGained).toFixed(1) + '%';
-        innervateTotal.textContent = whole(innervate) + ' · ' + (100 * innervate / state.manaGained).toFixed(1) + '%';
+        setBarNumbers(total, whole(normal), (100 * normal / state.manaGained).toFixed(1) + '%');
+        setBarNumbers(innervateTotal, whole(innervate), (100 * innervate / state.manaGained).toFixed(1) + '%');
+        const rightmostTotal = innervate ? innervateTotal : total;
+        rightmostTotal.parentElement.insertBefore(gearing, rightmostTotal);
         summary.style.setProperty('--normal-share', (100 * normal / state.manaGained) + '%');
         summary.style.setProperty('--innervate-color', reportManaVisual('Innervate')[1]);
         innervateTotal.parentElement.hidden = !innervate;
@@ -1193,7 +1196,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           image.alt = '';
           label.append(image, name);
           const amount = document.createElement('strong');
-          amount.textContent = whole(contribution) + ' · ' + totalShare.toFixed(1) + '%';
+          setBarNumbers(amount, whole(contribution), totalShare.toFixed(1) + '%');
           bar.append(label, amount);
           children.append(bar);
         }

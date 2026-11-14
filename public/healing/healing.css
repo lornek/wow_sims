@@ -378,3 +378,19 @@ body:has(#healing) { font-family:var(--ui); }
   .healing-score .mana-gearing img { width:18px; height:18px; }
   .healing-score .mana-spirit-pair .mana-pair-heading { font-size:.75rem; padding-inline:5px; }
 }
+
+/* Stable amount / percentage (or DPS) columns, independent of digit count. */
+.healing-score .meter-numbers, .combat-damage .meter-numbers {
+  display:inline-grid; grid-template-columns:8ch 1ch 7ch; align-items:center; column-gap:4px;
+  flex:none; margin-inline-start:auto; font-variant-numeric:lining-nums tabular-nums; white-space:nowrap;
+}
+.healing-score .meter-numbers > span, .combat-damage .meter-numbers > span { display:block; text-align:right; }
+.healing-score .meter-number-separator, .combat-damage .meter-number-separator { text-align:center; color:var(--muted); }
+.healing-score .mana-gearing { margin-inline:8px 0; }
+.healing-score .mana-spirit-pair .mana-gearing { margin:0 0 0 auto; }
+.healing-score summary .mana-pair-heading > .meter-numbers { flex:none; }
+@media (max-width:620px) {
+  .healing-score .meter-numbers, .combat-damage .meter-numbers { grid-template-columns:7ch .6ch 6ch; column-gap:2px; }
+  .combat-damage .meter-numbers { font-size:.68rem; }
+}
+.healing-score .mana-gearing + .meter-numbers { margin-inline-start:0; }
