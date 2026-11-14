@@ -425,3 +425,12 @@ body:has(#healing) { font-family:var(--ui); }
 .healing-score summary .mana-pair-heading > .mana-gearing { margin:0; }
 .healing-score .meter-row summary:has(> .mana-gearing) > .meter-numbers,
 .healing-score summary .mana-pair-heading:has(> .mana-gearing) > .meter-numbers { margin:0; }
+
+/* Gearing controls must not make mana rows taller than healing spell rows. */
+.healing-score button.mana-gearing { box-sizing:border-box; height:22px; padding:0 4px; font:700 .8rem/1 var(--ui); }
+.healing-score button.mana-gearing img { width:18px; height:18px; }
+.healing-score .mana-total-bar { box-sizing:border-box; min-height:30px; padding:3px 8px; font:700 1rem var(--ui); }
+.healing-score .mana-total-bar img { width:22px; height:22px; }
+@media (max-width:480px) {
+  .healing-score button.mana-gearing { font-size:.65rem; }
+}

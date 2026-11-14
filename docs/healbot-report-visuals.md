@@ -134,3 +134,7 @@ The speaker/mute icon lives directly below Pull/Reset on the battlefield. It is 
 The score title and final score use the original `--display` typeface (Metamorphous), with matching size and weight. Formula text remains bold in `--ui`, sized at exactly 110% of the effective-healing report value: both derive from `--report-value-size` (1.15rem). Formula text reads `(healing) × (non-potion mana) × (efficiency%) × (survivors/party survived) / 1000`. Apply the division once at the end before rounding; no 0.1 multipliers remain.
 
 Rows containing a gearing button use a three-column grid: flexible label, fixed button, protected numeric grid. The button is immediately before the numeric columns with an 8px gap, never distributed across spare row space. Apply the same layout inside the rightmost visible Spirit/Innervate heading.
+
+### Mana row height
+
+Keep gearing controls at 22px high with 18px icons and zero vertical button padding, so they do not enlarge their summary rows beyond the healing spell rows. Scope this rule more specifically than the shared `.healing button` styles. The main blue Mana Gained bar uses a compact 30px height with its bold title and total preserved.
