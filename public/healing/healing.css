@@ -442,3 +442,10 @@ body:has(#healing) { font-family:var(--ui); }
 .game-tooltip-stat > strong { text-align:right; white-space:nowrap; font-variant-numeric:lining-nums tabular-nums; }
 
 .game-tooltip .game-tooltip-stat { min-width:min(290px,calc(100vw - 42px)); }
+
+/* Event counts follow their labels at a shared tab stop, rather than the bar edge. */
+.healing-score .healing-event-bar { display:grid; grid-template-columns:22ch max-content; justify-content:start; column-gap:4ch; }
+.healing-score .healing-event-bar > .meter-numbers { display:inline-flex; gap:0; margin:0; }
+.healing-score .healing-event-bar .meter-number-main { text-align:left; }
+.healing-score .healing-event-bar .meter-number-separator { display:none; }
+.healing-score .healing-event-bar .meter-number-detail:not(:empty) { margin-inline-start:.6ch; }

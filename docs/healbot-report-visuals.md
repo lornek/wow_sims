@@ -138,3 +138,7 @@ Rows containing a gearing button use a three-column grid: flexible label, fixed 
 ### Mana row height
 
 Keep gearing controls at 22px high with 18px icons and zero vertical button padding, so they do not enlarge their summary rows beyond the healing spell rows. Scope this rule more specifically than the shared `.healing button` styles. The main blue Mana Gained bar uses a compact 30px height with its bold title and total preserved.
+
+### Expanded event count placement
+
+Direct/periodic hit and crit counts use a shared tab stop beside their labels, with a four-character gap. These counts are left-aligned near the label rather than pinned to the bar's far edge. Critical percentages remain directly beside their counts (`6 (60%)`). This exception affects only expanded healing-event bars; main healing, mana, DPS totals, and mana contribution columns keep their protected right-aligned layout.
