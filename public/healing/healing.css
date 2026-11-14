@@ -175,12 +175,7 @@
 .equipment-slot[data-quality="2"] { border-color:#60a95b; }
 .equipment-slot[data-quality="3"] { border-color:#6799e6; }
 .equipment-slot[data-quality="4"] { border-color:#b174eb; }
-.equipment-tooltip { display:none; position:absolute; z-index:8; inset:auto auto 0 calc(100% + 6px); width:min(205px, 62vw); padding:8px 10px; border:1px solid var(--border); border-radius:4px; background:#0e0c10; text-align:left; font:.9rem var(--ui); pointer-events:none; }
-[data-equipment=right] .equipment-tooltip { inset:auto calc(100% + 6px) 0 auto; }
-.equipment-slot:hover .equipment-tooltip, .equipment-slot:focus-visible .equipment-tooltip { display:grid; gap:3px; }
-.equipment-tooltip strong { color:var(--gold); }
-.equipment-slot[data-quality="3"] .equipment-tooltip strong { color:#8db9ff; }
-.equipment-slot[data-quality="4"] .equipment-tooltip strong { color:#d4a5ff; }
+
 [data-buffs] img { border:1px solid var(--border); border-radius:3px; }
 .spell-inspector { width:min(650px, calc(100% - 24px)); max-height:calc(100% - 24px); color:var(--text); background:#18110b; border:1px solid var(--border); border-radius:5px; padding:16px; }
 .spell-inspector::backdrop { background:#000a; }
@@ -234,7 +229,7 @@
 .book-spell summary { font:600 .95rem var(--ui); }
 .book-spell small { display:block; color:var(--muted); font-weight:400; }
 .book-spell > div { font-size:.9rem; padding:6px; }
-.game-tooltip { position:fixed; z-index:1000; pointer-events:none; width:max-content; max-width:min(330px,calc(100vw - 16px)); padding:10px 12px; background:#100e10; border:1px solid #8e723a; border-radius:5px; box-shadow:0 5px 18px #000b; color:#e9dfc7; font:.93rem/1.35 var(--ui); }
+.game-tooltip { position:fixed; z-index:1000; pointer-events:auto; box-sizing:border-box; width:max-content; max-width:min(350px,calc(100vw - 16px)); max-height:calc(100dvh - 16px); overflow-y:auto; overscroll-behavior:contain; padding:10px 12px; background:#100e10; border:1px solid #8e723a; border-radius:5px; box-shadow:0 5px 18px #000b; color:#e9dfc7; font:.93rem/1.35 var(--ui); }
 .game-tooltip-title { color:#ffdf82; font-size:1.06em; font-weight:bold; }
 .game-tooltip-description { color:#fff1bb; margin-top:6px; }
 .game-tooltip-good { color:#96d86e; margin-top:5px; }
@@ -434,3 +429,11 @@ body:has(#healing) { font-family:var(--ui); }
 @media (max-width:480px) {
   .healing-score button.mana-gearing { font-size:.65rem; }
 }
+
+
+.game-tooltip { text-align:left; font-variant-numeric:lining-nums tabular-nums; overflow-wrap:anywhere; }
+.game-tooltip-title { margin-bottom:4px; line-height:1.2; }
+.game-tooltip-muted { color:#b8ae9c; margin-top:4px; font-size:.9em; }
+.game-tooltip-reference { border-top:1px solid #665238; margin-top:8px; padding-top:6px; color:#c4b89f; font-size:.9em; }
+.game-tooltip :first-child { margin-top:0; }
+[data-tooltip-trigger]:focus-visible { outline:2px solid #ffe19a; outline-offset:2px; }

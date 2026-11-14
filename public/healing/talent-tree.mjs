@@ -108,11 +108,13 @@ export function mountTalentTree(container, initial, onChange, treeList = trees) 
         tip.replaceChildren();
         tooltipLine(tip, node.name, 'game-tooltip-title');
         tooltipLine(tip, 'Rank ' + (build[node.name] ?? 0) + ' / ' + node.max);
-        for (const description of node.description) tooltipLine(tip, description, 'game-tooltip-description');
+        const rank = build[node.name] ?? 0;
+        const descriptions = rank === node.max ? node.description.slice(-1) : rank === 0 ? node.description.slice(0,1) : node.description;
+        for (const description of descriptions) tooltipLine(tip, description, 'game-tooltip-description');
         if (node.row > 1) tooltipLine(tip, 'Requires ' + ((node.row - 1) * 5) + ' points in ' + tree.name,
           unlocked(build, tree, node) ? '' : 'game-tooltip-locked');
         if (node.requires) tooltipLine(tip, 'Requires max rank in ' + node.requires);
-        tooltipLine(tip, 'Click to learn · Right-click to remove', 'game-tooltip-good');
+        tooltipLine(tip, locked ? 'Talents are locked during combat.' : 'Click to learn · Right-click / Delete to remove · Shift-click to fill', 'game-tooltip-muted');
       });
       grid.append(button);
       return {node, button, badge, tooltip};
