@@ -1,3 +1,4 @@
+import {resetHealingReport} from './report-reset.mjs';
 import {healingRange, swiftmendRange} from './healing-preview.mjs';
 import {manaReportSources, spiritContribution} from './mana-report.mjs';
 import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
@@ -105,6 +106,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     (!event.pointerType && matchMedia('(pointer: coarse)').matches);
   let pendingTargetSpell = null;
   let pull;
+  let visualPull = 0;
   let currentSpells;
   let enabled = new Set();
   let inspected = null;
@@ -349,9 +351,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function reset(start = false, persist = true) {
+    visualPull++;
     touchTarget = null;
     root.querySelectorAll('.heal-float, .heal-bounce').forEach(effect => effect.remove());
     configuredSpells();
+    resetHealingReport(root, meterRows, manaRows);
     const level = Number(difficulty.value);
     const id = encounterSelect.value;
     const boss = encounters[id];
@@ -1170,9 +1174,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     tone.stop(start + .23);
   }
 
-  let visualPull = 0;
   const startButton = find('[data-start]');
-  const onStart = () => { visualPull++; enableAudio(); };
+  const onStart = () => { enableAudio(); };
   startButton.addEventListener('click', onStart);
   function showHeal(event) {
     const pullId = visualPull;

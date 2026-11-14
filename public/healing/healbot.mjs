@@ -27,7 +27,7 @@ const header = document.querySelector('.healbot-header');
 const root = document.querySelector('#healing');
 const links = [...header.querySelectorAll('[data-healbot-class]')];
 const dynamicAreas = [
-  '.heal-menu', '.spell-inspector', '.heal-spells', '[data-buffs]', '.fight-report', '[data-meter]'
+  '.heal-menu', '.spell-inspector', '.heal-spells', '[data-buffs]', '.healing-score'
 ].map(selector => [selector, root.querySelector(selector).cloneNode(true)]);
 const encounter = root.querySelector('[data-encounter]');
 const difficulty = root.querySelector('[data-difficulty]');
