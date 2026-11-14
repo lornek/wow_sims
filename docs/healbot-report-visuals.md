@@ -79,3 +79,7 @@ The fixed spell-key palette ranges from lemongrass to Douglas fir green. Shared 
 ## Adding sources
 
 Add each new mana source to `manaVisuals`; add each new stat contribution to `contributionIcons` and `contributionOffsets`. Use an existing ability icon for named abilities and the documented custom tiles for generic concepts. Add new healing spell keys to `healingColors`. Unknown mana entries fall back to the custom mana-gained icon and `#3d669e`; unknown contributions use the custom mana-gained icon and parent color; unknown healing keys use `#397b42`. These are defensive fallbacks, not mappings for new features.
+
+## Bar shading
+
+Healing, mana, and expanded contribution fills share the party-frame vertical shading: `linear-gradient(#fff2, transparent 48%, #0004)`. Size the shading layer to `--share` so the unfilled track stays dark. Keep the registered source color underneath; shading must not change the semantic palette or contribution scale.
