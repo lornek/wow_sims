@@ -808,7 +808,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function renderHealingBreakdown(tip, name, row) {
     const key = healingByName.get(name);
     if (!key || !row) return;
-    const spell = applyTalents(spellFor(key, name, row), talentPoints);
+    const baseSpell = spellFor(key, name, row);
+    const spell = applyTalents(baseSpell, talentPoints);
     if (spell.swiftmend) {
       for (const [label, amounts] of swiftmendPreviews()) {
         tooltipValue(tip, 'With ' + label, formatHealingRange(amounts), 'game-tooltip-good');
@@ -844,11 +845,23 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (spell.selfCopy) tooltipLine(tip, 'Also heals you for ' + Math.round(100 * spell.selfCopy) + '% when used on another ally.');
     const crit = spell.period && !spell.periodicCrit ? 0 : Math.min(1, profile.crit + (spell.bonusCrit ?? 0));
     tooltipValue(tip, key === 'regrowth' ? 'Direct and periodic crit' : 'Crit chance', (100 * crit).toFixed(1) + '%');
-    tooltipValue(tip, spell.period ? 'Base tick' : 'Base healing', range(0), 'game-tooltip-reference');
-    if (spell.hot) tooltipValue(tip, 'Base tick', formatHealingRange(healingRange({...spell.hot, multiplier:1}, 0)), 'game-tooltip-muted');
+    if (!spell.period) tooltipValue(tip, 'Base healing', range(0), 'game-tooltip-reference');
+    if (spell.period || spell.hot) {
+      const basePeriodic = periodicHealingPreview({...baseSpell, multiplier:1,
+        hot:baseSpell.hot && {...baseSpell.hot, multiplier:1}}, 0);
+      tooltipValue(tip, 'Base heal over time (' + basePeriodic.duration + 'sec)', formatHealingRange(basePeriodic.total),
+        spell.period ? 'game-tooltip-reference' : 'game-tooltip-muted');
+    }
     tooltipValue(tip, 'Bonus healing', '+' + whole(profile.power), 'game-tooltip-muted');
-    tooltipValue(tip, 'Scaling', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
-    tooltipValue(tip, 'Talent multiplier', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
+    if (key === 'regrowth') {
+      tooltipValue(tip, 'Scaling (direct)', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
+      tooltipValue(tip, 'Scaling (HoT)', (spell.hot.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
+      tooltipValue(tip, 'Talent multiplier (direct)', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
+      tooltipValue(tip, 'Talent multiplier (HoT)', '×' + Number(spell.hot.multiplier.toFixed(3)), 'game-tooltip-muted');
+    } else {
+      tooltipValue(tip, 'Scaling', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
+      tooltipValue(tip, 'Talent multiplier', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
+    }
     if (key === 'chain') {
       tooltipValue(tip, 'With Riptide (primary)', range(profile.power, spell.multiplier * 1.25), 'game-tooltip-good');
     }

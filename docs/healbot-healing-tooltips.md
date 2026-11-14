@@ -36,3 +36,10 @@ Equipment uses the same popup as abilities. Talent tooltips show rank 1 when unl
 Use `tooltipValue()` to place healing labels on the left and numeric amounts in a right-aligned tabular column. All HoTs and channels show two leading periodic rows: `Heal over time (21sec)` with full-duration healing, then `Healing per tick (7 ticks)` with the tick amount. Hybrid spells show direct healing first, followed by the same periodic rows. Immediate channel ticks count toward the displayed tick total. Decaying HoTs display first → last tick values. Totals are per target, non-critical, and computed before overhealing; retain party/target descriptions where relevant.
 
 Use the same right column for direct healing, Swiftmend's two source values, absorbs, crit chance, and base healing/tick values. Keep base values in the muted reference section. Omit the previous “Includes gear and talents” information line.
+
+
+# Periodic base reference and Regrowth components
+
+Replace the base-tick reference with `Base heal over time (21sec)` and the full base periodic amount. Compute it from the configured pre-talent spell at zero healing power and multiplier 1, using its original duration and tick count (including any immediate channel tick). This distinguishes the base duration from a talent-extended final duration. Hybrid spells retain a separate Base healing row for the initial heal.
+
+Regrowth uniquely shows `Scaling (direct)`, `Scaling (HoT)`, `Talent multiplier (direct)`, and `Talent multiplier (HoT)`. Read each component's actual coefficient and multiplier. Gift of Nature 5/5 and Genesis 5/5 produce ×1.1 direct and ×1.21 HoT; Improved Rejuvenation does not apply. Keep all values in the shared right-aligned column.
