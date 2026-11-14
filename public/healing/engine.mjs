@@ -35,7 +35,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (!unit.hp) return;
     const weakened = spell?.renewedHope && unit.weakened > state.time;
     const crit = canCrit && random() < profile.crit + bonusCrit + (weakened ? .02 * spell.renewedHope : 0);
-    if (crit) triggerWaterShield();
+    if (crit && key !== 'stream' && !(key === 'riptide' && periodic)) triggerWaterShield();
     if (weakened && !spell.channel) unit.weakened = Math.max(state.time, unit.weakened - spell.renewedHope);
     if (crit && !periodic && profile.grace) state.graceUntil = state.time + 3;
     const amount = Math.round(raw * (party.at(-1).powerInfusion?.expires > state.time ? 1.2 : 1) * (crit ? 1.5 + (profile.critHealingBonus ?? 0) : 1));
