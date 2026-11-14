@@ -1,3 +1,4 @@
+import {manaReportSources, spiritContribution} from './mana-report.mjs';
 import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
 import {healingScore} from './healing-score.mjs';
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
@@ -1002,7 +1003,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function renderManaMeters(state) {
     find('[data-mana-empty]').hidden = state.manaGained > 0;
-    const sources = Object.entries(state.manaSources).filter(([, value]) => value > 0).sort((a, b) => b[1] - a[1]);
+    const sources = manaReportSources(state.manaSources);
     for (const {row} of manaRows.values()) row.hidden = true;
     let sourceIndex = 0;
     for (const [source, value] of sources) {
@@ -1019,14 +1020,40 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         const children = document.createElement('div');
         summary.append(label, total);
         row.append(summary, children);
-        manaRows.set(source, {row, summary, total, children});
+        let innervateTotal;
+        if (source === 'Spirit regeneration') {
+          const normal = document.createElement('span');
+          normal.className = 'mana-pair-heading';
+          normal.append(label, total);
+          const boosted = document.createElement('span');
+          boosted.className = 'mana-pair-heading';
+          const boostedLabel = document.createElement('span');
+          const boostedIcon = document.createElement('img');
+          boostedIcon.src = new URL('./' + reportManaVisual('Innervate')[0], import.meta.url);
+          boostedIcon.alt = '';
+          boostedLabel.append(boostedIcon, 'Innervate');
+          innervateTotal = document.createElement('strong');
+          boosted.append(boostedLabel, innervateTotal);
+          summary.replaceChildren(normal, boosted);
+          row.classList.add('mana-spirit-pair');
+        }
+        manaRows.set(source, {row, summary, total, children, innervateTotal});
       }
-      const {row, summary, total, children} = manaRows.get(source);
+      const {row, summary, total, children, innervateTotal} = manaRows.get(source);
       row.hidden = false;
       const share = (100 * value / state.manaGained).toFixed(1) + '%';
       total.textContent = whole(value) + ' · ' + share;
       summary.style.setProperty('--share', share);
       summary.style.setProperty('--meter-color', reportManaVisual(source)[1]);
+      const innervate = source === 'Spirit regeneration' ? state.manaSources.Innervate ?? 0 : 0;
+      const normal = value - innervate;
+      if (innervateTotal) {
+        total.textContent = whole(normal) + ' · ' + (100 * normal / state.manaGained).toFixed(1) + '%';
+        innervateTotal.textContent = whole(innervate) + ' · ' + (100 * innervate / state.manaGained).toFixed(1) + '%';
+        summary.style.setProperty('--normal-share', (100 * normal / state.manaGained) + '%');
+        summary.style.setProperty('--innervate-color', reportManaVisual('Innervate')[1]);
+        summary.lastElementChild.hidden = !innervate;
+      }
       const weights = source === 'Spirit regeneration' ? profile.spiritRates : source === 'Mana / 5' ? profile.mp5Sources : null;
       children.replaceChildren();
       if (weights) {
@@ -1035,10 +1062,17 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           const bar = document.createElement('div');
           bar.className = 'mana-source-bar';
           bar.style.setProperty('--source-color', contributionColor(source, name));
-          const contribution = value * weight / sum;
-          const totalShare = 100 * contribution / state.manaGained;
+          const split = spiritContribution(normal, innervate, weight, sum, state.manaGained);
+          const contribution = split.normalMana + split.innervateMana;
+          const totalShare = split.totalShare;
+          if (source === 'Spirit regeneration') {
+            bar.classList.add('mana-split-bar');
+            bar.style.setProperty('--normal-share', split.normalShare + '%');
+            bar.style.setProperty('--innervate-color', reportManaVisual('Innervate')[1]);
+          }
           bar.style.setProperty('--share', totalShare + '%');
-          bar.title = (100 * weight / sum).toFixed(1) + '% of ' + source + ' · ' + totalShare.toFixed(1) + '% of total mana gained';
+          bar.title = (100 * weight / sum).toFixed(1) + '% of ' + source + ' · ' + totalShare.toFixed(1) + '% of total mana gained' +
+            (source === 'Spirit regeneration' ? '\nNormal: ' + whole(split.normalMana) + ' · Innervate: ' + whole(split.innervateMana) : '');
           const label = document.createElement('span');
           const image = document.createElement('img');
           image.src = new URL('./' + (contributionIcons[name] ?? 'report-icons/gained.jpg'), import.meta.url);

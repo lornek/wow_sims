@@ -344,3 +344,19 @@ body:has(#healing) { font-family:var(--ui); }
 @media (max-width:480px) {
   .mana-source-bar { margin-inline:0; gap:4px; font-size:.72rem; }
 }
+
+/* Spirit always leads; incremental Innervate mana always follows on the right. */
+.healing-score .mana-spirit-pair summary {
+  display:flex; flex-wrap:nowrap; padding:0; gap:0;
+  background:linear-gradient(#fff2,transparent 48%,#0004) left / var(--share,0%) 100% no-repeat,
+    linear-gradient(90deg,var(--meter-color) 0 var(--normal-share),var(--innervate-color) var(--normal-share) var(--share),#271a10 var(--share));
+}
+.healing-score summary .mana-pair-heading { display:flex; flex:1 1 0; min-width:0; justify-content:space-between; flex-wrap:wrap; padding:4px 8px; gap:4px 8px; }
+.healing-score summary .mana-pair-heading[hidden] { display:none; }
+.mana-split-bar {
+  background:linear-gradient(#fff2,transparent 48%,#0004) left / var(--share,0%) 100% no-repeat,
+    linear-gradient(90deg,var(--source-color) 0 var(--normal-share),var(--innervate-color) var(--normal-share) var(--share),#201a17 var(--share));
+}
+
+.healing-score summary .mana-pair-heading > span { min-width:0; overflow-wrap:anywhere; }
+.healing-score summary .mana-pair-heading img { flex:none; }

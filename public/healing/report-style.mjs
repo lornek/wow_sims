@@ -2,7 +2,7 @@
 export const manaVisuals = {
   'Spirit regeneration': ['report-icons/spirit.jpg', '#168f91'],
   'Mana / 5': ['report-icons/mp5.jpg', '#225c9a'],
-  'Innervate': ['icons/spell_nature_lightning.jpg', '#3375b2'],
+  'Innervate': ['icons/spell_nature_lightning.jpg', '#193b86'],
   'Inner Focus · spell cost': ['icons/spell_frost_windwalkon.jpg', '#51458f'],
   'Inner Focus · Spirit regeneration': ['icons/spell_frost_windwalkon.jpg', '#4265a4'],
   'Water Shield': ['icons/ability_shaman_watershield.jpg', '#258dba'],

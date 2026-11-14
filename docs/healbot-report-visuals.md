@@ -10,7 +10,7 @@ Spirit regeneration is shallow tropical ocean turquoise (`#168f91`). Mana / 5 is
 | --- | --- | --- |
 | Spirit regeneration | report-icons/spirit.jpg | #168f91 |
 | Mana / 5 | report-icons/mp5.jpg | #225c9a |
-| Innervate | icons/spell_nature_lightning.jpg | #3375b2 |
+| Innervate | icons/spell_nature_lightning.jpg | #193b86 |
 | Inner Focus · spell cost | icons/spell_frost_windwalkon.jpg | #51458f |
 | Inner Focus · Spirit regeneration | icons/spell_frost_windwalkon.jpg | #4265a4 |
 | Water Shield | icons/ability_shaman_watershield.jpg | #258dba |
@@ -83,3 +83,9 @@ Add each new mana source to `manaVisuals`; add each new stat contribution to `co
 ## Bar shading
 
 Healing, mana, and expanded contribution fills share the party-frame vertical shading: `linear-gradient(#fff2, transparent 48%, #0004)`. Size the shading layer to `--share` so the unfilled track stays dark. Keep the registered source color underneath; shading must not change the semantic palette or contribution scale.
+
+## Spirit and Innervate grouping
+
+Spirit regeneration and Innervate share one expandable row, ranked by their combined mana. Keep the Spirit icon/name/normal amount on the left and the existing Innervate icon/name/incremental amount on the right. Never sort these segments by magnitude. With no Innervate mana, hide its heading. Both retain their individual total-mana percentages.
+
+Expanded Spirit entries split at the normal contribution: normal turquoise first, incremental Innervate deep blue (`#193b86`) second, then the dark unfilled track. Allocate both sources using the same Spirit weights, including Base regeneration. Each child displays its combined amount and total-mana percentage; its tooltip reports normal and Innervate amounts separately. All widths use total mana gained, even when Innervate dominates. Grouping changes presentation only; combat accounting still credits normal Spirit and incremental Innervate separately and excludes capped mana.
