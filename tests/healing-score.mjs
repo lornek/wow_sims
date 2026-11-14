@@ -56,8 +56,8 @@ test('Spirit and MP5 drilldowns reconcile with profile totals including multipli
   assert.ok(result.spiritRates['Human racial'] > 0);
 });
 test('score is uncapped and rewards healing, efficiency and mana recovery', () => {
-  const state = {party:[{}], time:10, survivalSeconds:10, healing:10000, overheal:0, manaGained:1000, phase:'won'};
-  close(healingScore(state).total, 13200);
+  const state = {party:[{}], time:10, survivalSeconds:10, survivors:1, healing:10000, overheal:0, manaGained:1000, phase:'won'};
+  close(healingScore(state).total, 1000000);
   assert.ok(healingScore({...state,manaGained:2000}).total > healingScore(state).total);
   assert.ok(healingScore({...state,overheal:1000}).total < healingScore(state).total);
 });
@@ -69,4 +69,20 @@ test('Water Shield and Illumination returns are tracked independently', () => {
   close(q.state.manaSources['Water Shield'], 200);
   close(q.state.manaSources.Illumination, 50);
   close(q.state.manaGained, 250);
+});
+
+
+test('score uses final survivors and excludes potion mana without changing restoration accounting', () => {
+  const state={party:Array.from({length:5},()=>({hp:100})),survivors:3,healing:10000,overheal:2500,
+    manaGained:3000,manaSources:{'Spirit regeneration':2000,'Major Mana Potion':1000},phase:'won'};
+  const score=healingScore(state);
+  close(score.manaGained,2000);close(score.efficiency,.8);close(score.survivalMultiplier,.6);
+  close(score.total,960000);
+  assert.equal(state.manaGained,3000);
+  assert.equal(healingScore({...state,manaGained:4000,manaSources:{...state.manaSources,'Major Mana Potion':2000}}).total,score.total);
+  assert.equal(healingScore({...state,survivors:5}).total,1600000);
+});
+test('failed and unfinished runs do not receive a score',()=>{
+  const state={party:[{hp:100}],healing:10000,overheal:0,manaGained:1000,manaSources:{}};
+  for(const phase of ['ready','active','lost'])assert.equal(healingScore({...state,phase}).total,null);
 });

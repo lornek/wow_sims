@@ -29,11 +29,9 @@ window runs from the free spell landing until the next paid spell lands, as the
 minigame scoring convention, and excludes overlap with Innervate. Saved costs
 count toward total mana gained without being added to the mana pool.
 
-The uncapped score is `(effective healing + 2 × mana gained) × healing efficiency
-× (0.5 + 0.5 × average living party fraction) × victory bonus`. Healing efficiency
-is effective healing divided by effective healing plus overhealing. The victory
-bonus is 1.10 for a kill and 1 otherwise. Scores reward raw healing, mana recovery,
-and efficiency; compare runs with the same encounter, difficulty, and loadout.
+Victory score is `effective healing × (0.1 × mana gained excluding mana potions) × healing efficiency × (survivors / party size)`, rounded once at the end. Healing efficiency is effective healing divided by effective healing plus overhealing. Use final survivors, not average survival time. Failed and unfinished runs receive no score. Potions still restore mana and appear in restoration accounting but do not improve the score. Compare within the same encounter, difficulty, and loadout.
+
+The centered score heading places the final total beside Healing Score. The bold breakdown uses green healing, blue eligible mana, purple efficiency, and orange survival. The battlefield speaker/mute toggle below Pull/Reset replaces the old sound-effects checkbox and preserves the character's saved sound preference.
 
 Run `node --test tests/healing-score.mjs` for accounting and scoring checks.
 

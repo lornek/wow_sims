@@ -18,7 +18,7 @@
     </select>
   </div>
   <div class="heal-stage">
-    <div class="heal-top"><button type="button" data-start>⚔ PULL! ⚔</button><strong data-phase></strong></div>
+    <div class="heal-top"><div class="battlefield-controls"><button type="button" data-start>⚔ PULL! ⚔</button><button type="button" class="sound-toggle" data-sound aria-label="Mute healing sounds" aria-pressed="true" title="Mute healing sounds"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="currentColor"/><path data-sound-on d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14"/><path data-sound-off d="m16 9 6 6m0-6-6 6" hidden/></svg></button></div><strong data-phase></strong></div>
     <aside class="combat-sidebar">
       <div class="combat-buffs" data-buffs aria-label="Buffs"></div>
     </aside>
@@ -44,11 +44,10 @@
     <div class="heal-spells" aria-label="Select a spell"></div>
   </div>
   <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
-  <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
   <section class="heal-meter healing-score" aria-labelledby="score-title">
-    <h2 id="score-title">Healing Score</h2>
+    <header class="score-heading" data-score-heading hidden><h2 id="score-title">Healing Score</h2><strong data-score-total></strong></header>
+    <div class="score-formula" data-regen-result hidden></div>
     <div class="fight-report" data-result aria-live="polite" hidden></div>
-    <p data-regen-result hidden></p>
     <h3 id="meter-title">Healing done</h3>
     <p>Expand a spell to see casts, hits, crits, and overhealing.</p>
     <p data-meter-empty>No healing recorded yet.</p>

@@ -23,7 +23,7 @@
 }
 .boss-portrait img { display:block; width:100%; height:auto; }
 .boss-actions { position:absolute; inset:auto 0 -9px; display:flex; justify-content:center; gap:4px; }
-.heal-top strong, .heal-sound { text-shadow:0 1px 4px #000,0 1px 4px #000; }
+.heal-top strong { text-shadow:0 1px 4px #000,0 1px 4px #000; }
 .healing .boss-actions button {
   padding:2px; border:1px solid #e3b558; background:#32200f;
   box-shadow:0 0 0 1px #2f1c0e,0 3px 7px #0009;
@@ -157,7 +157,7 @@
 
 .heal-stage { position:relative; }
 .heal-spells button[hidden], .meter-row[hidden] { display:none; }
-.heal-sound { color:var(--muted); }
+
 .heal-float { position:absolute; z-index:3; pointer-events:none; color:#95ff7d; font:700 1.35rem var(--ui); text-shadow:0 2px 3px #000; animation:heal-rise 1s ease-out both; }
 .heal-float.is-crit { color:#d5ff87; font-size:1.75rem; text-shadow:0 0 8px #77d553,0 2px 3px #000; }
 @keyframes heal-rise { from {transform:translate(-50%,0);opacity:1} to {transform:translate(-50%,-36px);opacity:0} }
@@ -394,3 +394,22 @@ body:has(#healing) { font-family:var(--ui); }
   .combat-damage .meter-numbers { font-size:.68rem; }
 }
 .healing-score .mana-gearing + .meter-numbers { margin-inline-start:0; }
+
+
+.score-heading { display:flex; justify-content:center; align-items:baseline; flex-wrap:wrap; gap:12px 24px; padding:12px 0 6px; }
+.score-heading[hidden], .score-formula[hidden] { display:none; }
+.score-heading h2, .score-heading > strong { margin:0; font:700 clamp(1.8rem,4vw,3rem) var(--ui); text-shadow:0 2px 3px #000,0 4px 10px #000; }
+.score-heading > strong { color:#ffe19a; font-variant-numeric:lining-nums tabular-nums; }
+.score-formula { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:8px 12px; padding:8px 0 20px; font:700 clamp(1.15rem,2.4vw,1.8rem) var(--ui); font-variant-numeric:lining-nums tabular-nums; text-shadow:0 2px 3px #000,0 3px 8px #000; }
+.score-formula strong { white-space:nowrap; }
+.score-healing { color:#73e391; }
+.score-mana { color:#75bbff; }
+.score-efficiency { color:#c793ff; }
+.score-survival { color:#ffb36a; }
+.score-times { color:#ead9b6; }
+.battlefield-controls { display:grid; justify-items:center; gap:6px; }
+.healing .sound-toggle { display:flex; padding:4px; color:#ffe5a2; background:#100d09c9; border-color:#b98b46; }
+.sound-toggle svg { display:block; }
+.sound-toggle svg path:not(:first-child) { fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; }
+.sound-toggle svg [hidden] { display:none; }
+.sound-toggle:focus-visible { outline:2px solid #ffe19a; outline-offset:2px; }

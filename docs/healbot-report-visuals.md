@@ -120,3 +120,11 @@ Label the mana source `Water Shield (73% Uptime)`, rounded to a whole percent. U
 ## Numeric column alignment
 
 All healing, mana, expanded event/contribution, DPS summary, and DPS ability bars use `setBarNumbers()` from `public/healing/bar-numbers.mjs`. Render the amount/event count, separator, and percentage/DPS value in separate right-aligned grid cells. Use the current proportional typeface with `font-variant-numeric: lining-nums tabular-nums`; never concatenate the full pair into a single text node or align values with spaces. Shared column widths keep one-, two-, three-, and four-digit DPS values aligned. Hit-count rows reserve the empty percentage cell so their counts line up with crit-count rows. Gearing buttons precede these numeric columns. Responsive widths may shrink together, not independently per row.
+
+## Victory score and sound control
+
+Victory only: `effective healing × (0.1 × non-potion mana gained) × efficiency × (final survivors / party size)`. Round the final result to the nearest integer. Efficiency is effective / (effective + overhealing). No additive mana term, time-averaged survival multiplier, or victory bonus remains. `healingScore()` returns `total: null` for failed and unfinished runs; hide the score heading and formula for those phases while retaining the fight report.
+
+Center the large Healing Score title and gold total on one heading row. Place the bold, shadowed formula directly below, before the fight-total tiles. Healing is green, eligible mana blue, efficiency purple, and survivors orange. Potion restoration stays in the mana report for accounting, but subtract mana-potion sources when calculating the scoring mana factor. The formula's mana tooltip makes this exclusion explicit.
+
+The speaker/mute icon lives directly below Pull/Reset on the battlefield. It is a native keyboard-accessible toggle button with `aria-pressed`, a changing accessible label/title, and distinct speaker/waves versus speaker/crossed-out glyphs. The saved sound preference and existing healing audio behavior are preserved. No separate sound-effects checkbox is displayed.

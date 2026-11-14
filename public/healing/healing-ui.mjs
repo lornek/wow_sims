@@ -55,6 +55,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
   }
   const saved = readSettings();
+  let soundEnabled = saved.sound !== false;
 
   const root = document.querySelector('#healing');
   root.dataset.healerClass = className;
@@ -579,13 +580,34 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     result.hidden = !ended;
     const regenResult = find('[data-regen-result]');
-    regenResult.hidden = !ended;
-    if (ended) {
+    const won = s.phase === 'won';
+    regenResult.hidden = !won;
+    find('[data-score-heading]').hidden = !won;
+    if (won && !regenResult.childElementCount) {
       const score = healingScore(s);
-      regenResult.textContent = whole(score.total) + ' points · (' + whole(s.healing) + ' healing + 2 × ' +
-        whole(s.manaGained) + ' mana) × ' + (100 * score.efficiency).toFixed(1) + '% efficiency × ' +
-        score.survivalMultiplier.toFixed(2) + ' survival' + (score.killMultiplier > 1 ? ' × 1.10 victory' : '');
-      regenResult.title = 'Uncapped score = (effective healing + 2 × mana gained) × effective / total healing × (0.5 + 0.5 × average living party fraction) × 1.10 on victory. Compare within the same encounter, difficulty and loadout. Inner Focus savings count as mana gained.';
+      find('[data-score-total]').textContent = whole(score.total);
+      regenResult.replaceChildren();
+      const terms = [
+        ['score-healing', '(' + whole(s.healing) + ')', 'Effective healing'],
+        ['score-mana', '(0.1 × ' + whole(score.manaGained) + ')', 'Mana gained excluding mana potions'],
+        ['score-efficiency', '(' + (100 * score.efficiency).toFixed(1) + '% efficiency)', 'Effective healing / total healing'],
+        ['score-survival', '(' + score.survivors + '/' + s.party.length + ' survived)', 'Party members alive at victory']
+      ];
+      for (const [index, [style, text, title]] of terms.entries()) {
+        if (index) {
+          const times = document.createElement('span');
+          times.className = 'score-times'; times.textContent = '×';
+          regenResult.append(times);
+        }
+        const term = document.createElement('strong');
+        term.className = style; term.textContent = text; term.title = title;
+        regenResult.append(term);
+      }
+      regenResult.title = 'Effective healing × (0.1 × mana gained excluding potions) × healing efficiency × survivors / party size. Scores are awarded only for victories.';
+    } else if (!won) {
+      find('[data-score-total]').textContent = '';
+      regenResult.replaceChildren();
+      regenResult.removeAttribute('title');
     }
   }
 
@@ -640,7 +662,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const savedSlot = typeof saved.selected === 'string' ? slots.findIndex(([key]) => key === saved.selected) :
     Number.isInteger(saved.selected) && saved.selected !== 5 ? saved.selected - Number(saved.selected > 5) : -1;
   if (slots[savedSlot] && !utility[slots[savedSlot][0]]) selected = savedSlot;
-  find('[data-sound]').checked = saved.sound !== false;
+  renderSoundToggle();
 
   function saveSettings() {
     const power = find('[data-power]');
@@ -652,7 +674,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         buffs: [...enabled],
         buffDefaults: true,
         power: power.validity.valid ? Number(power.value) : 0,
-        sound: find('[data-sound]').checked,
+        sound: soundEnabled,
         selected: slots[selected][0],
         talents: talentTree.build,
         ranks: Object.fromEntries(selects.map(({key, select}) => [key, select.value]))
@@ -1213,20 +1235,32 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   let audio;
   function enableAudio() {
-    if (!find('[data-sound]').checked) return;
+    if (!soundEnabled) return;
     if (!window.AudioContext) {
-      find('[data-sound]').checked = false;
+      soundEnabled = false;
+      renderSoundToggle();
       return;
     }
     audio ??= new AudioContext();
     audio.resume().catch(() => {});
   }
-  find('[data-sound]').onchange = () => {
+  function renderSoundToggle() {
+    const button = find('[data-sound]');
+    const label = soundEnabled ? 'Mute healing sounds' : 'Unmute healing sounds';
+    button.setAttribute('aria-pressed', String(soundEnabled));
+    button.setAttribute('aria-label', label);
+    button.title = label;
+    button.querySelector('[data-sound-on]').toggleAttribute('hidden', !soundEnabled);
+    button.querySelector('[data-sound-off]').toggleAttribute('hidden', soundEnabled);
+  }
+  find('[data-sound]').onclick = () => {
+    soundEnabled = !soundEnabled;
+    renderSoundToggle();
     enableAudio();
     saveSettings();
   };
   function playHealSound(crit, bounce) {
-    if (audio?.state !== 'running' || !find('[data-sound]').checked) return;
+    if (audio?.state !== 'running' || !soundEnabled) return;
     const start = audio.currentTime;
     const tone = audio.createOscillator();
     const volume = audio.createGain();
