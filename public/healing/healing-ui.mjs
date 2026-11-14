@@ -1,3 +1,4 @@
+import {healingRange, swiftmendRange} from './healing-preview.mjs';
 import {manaReportSources, spiritContribution} from './mana-report.mjs';
 import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
 import {healingScore} from './healing-score.mjs';
@@ -146,8 +147,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.cast ? spell.cast + ' sec cast' : 'Instant'));
       if (spell.cooldown) tooltipLine(tip, spell.cooldown + ' sec cooldown');
       const description = catalog[name]?.ranks?.find(entry => entry.rank === row.rank)?.description;
-      if (description) tooltipLine(tip, description, 'game-tooltip-description');
       renderHealingBreakdown(tip, name, row);
+      if (description) tooltipLine(tip, 'Base spell description · ' + description, 'game-tooltip-description');
     });
     button.onclick = event => {
       if (pull.state.phase === 'ready' && touchInput(event)) {
@@ -760,12 +761,37 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     return '+' + Math.round((spell.multiplier - 1) * 100) + '%';
   }
 
-  const healingByName = new Map(slots.filter(([key]) => healingKeys.includes(key))
-    .map(([key, name]) => [name, key]));
+  const healingByName = new Map(slots.map(([key, name]) => [name, key]));
+  function formatHealingRange([low, high]) {
+    return low === high ? whole(low) : whole(low) + '–' + whole(high);
+  }
+  function swiftmendPreviews() {
+    return [['regrowth', 'Regrowth'], ['rejuvenation', 'Rejuvenation']].flatMap(([key, label]) => {
+      const source = currentSpells?.[key];
+      return source ? [[label, swiftmendRange(source, profile.power)]] : [];
+    });
+  }
   function renderHealingBreakdown(tip, name, row) {
     const key = healingByName.get(name);
     if (!key || !row) return;
     const spell = applyTalents(spellFor(key, name, row), talentPoints);
+    if (spell.swiftmend) {
+      for (const [label, amounts] of swiftmendPreviews()) {
+        tooltipLine(tip, 'With ' + label + ' · ' + formatHealingRange(amounts) + ' healing (non-crit)', 'game-tooltip-good');
+      }
+      tooltipLine(tip, 'Uses the full HoT duration, including talent bonuses, and leaves the HoT active. Based on your selected HoT ranks; if both are active, uses the one expiring first.');
+      return;
+    }
+    if (spell.shield) {
+      tooltipLine(tip, 'Final absorb · ' + whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)), 'game-tooltip-good');
+      tooltipLine(tip, 'Base absorb · ' + whole(spell.shield));
+      return;
+    }
+    if (key === 'hands') {
+      tooltipLine(tip, 'Final healing · ' + whole(profile.health) + ' (before overhealing)', 'game-tooltip-good');
+      return;
+    }
+    if (!healingKeys.includes(key)) return;
     const unit = spell.period ? ' per tick per target' : spell.chain > 1 ? ' on the primary target' : '';
     const range = (power, multiplier = 1) => {
       const bonus = power * spell.coefficient;
@@ -773,6 +799,18 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const high = whole(Math.round((spell.high + bonus) * multiplier));
       return (low === high ? low : low + '–' + high) + unit;
     };
+    tooltipLine(tip, 'Final healing (non-crit) · ' + formatHealingRange(healingRange(spell, profile.power)) + unit, 'game-tooltip-good');
+    if (spell.period) {
+      const ticks = Math.floor(spell.duration / spell.period) + Number(!!spell.immediateTick);
+      const factor = spell.decay ? 1.3 : 1;
+      if (spell.decay) tooltipLine(tip, 'Tick range · ' + formatHealingRange(healingRange(spell, profile.power, .7)) + ' (last) to ' + formatHealingRange(healingRange(spell, profile.power, factor)) + ' (first)', 'game-tooltip-good');
+      tooltipLine(tip, 'Full duration · ' + formatHealingRange(healingRange(spell, profile.power, ticks)) + ' per target · ' + ticks + ' ticks', 'game-tooltip-good');
+    }
+    if (spell.hot) {
+      const ticks = Math.floor(spell.duration / spell.hot.period);
+      tooltipLine(tip, 'Final HoT · ' + formatHealingRange(healingRange(spell.hot, profile.power)) + ' every ' + spell.hot.period + ' sec · ' + formatHealingRange(healingRange(spell.hot, profile.power, ticks)) + ' over ' + spell.duration + ' sec', 'game-tooltip-good');
+    }
+    tooltipLine(tip, 'Before critical heals, target-specific bonuses, temporary effects, and overhealing.');
     tooltipLine(tip, 'Base healing · ' + range(0));
     tooltipLine(tip, 'With gear (+' + whole(profile.gearPower) + ' healing) · ' + range(profile.gearPower));
     const talentPower = profile.talentPower ?? 0;
@@ -839,10 +877,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           tip.replaceChildren();
           tooltipLine(tip, name, 'game-tooltip-title');
           tooltipLine(tip, [rank.rank, 'Level ' + rank.level].filter(Boolean).join(' · '));
-          tooltipLine(tip, rank.details || '');
-          tooltipLine(tip, rank.description || '', 'game-tooltip-description');
-          if (coefficients.length) tooltipLine(tip, 'Coefficient · ' + coefficients.join(' / '));
+          const key = healingByName.get(name);
+          if (key && row) {
+            const spell = applyTalents(spellFor(key, name, row), talentPoints);
+            tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.cast ? spell.cast + ' sec cast' : 'Instant'));
+            if (spell.cooldown) tooltipLine(tip, spell.cooldown + ' sec cooldown');
+          }
           renderHealingBreakdown(tip, name, row);
+          if (rank.details) tooltipLine(tip, 'Base spell details · ' + rank.details);
+          tooltipLine(tip, 'Base spell description · ' + (rank.description || ''), 'game-tooltip-description');
+          if (coefficients.length) tooltipLine(tip, 'Coefficient · ' + coefficients.join(' / '));
         };
         const detail = document.createElement('div');
         const tooltip = attachGameTooltip(button, render);
@@ -931,7 +975,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (spell.dispel) add('Dispel', spell.abolishPoison ? 'Removes one poison now and every 2 sec for 8 sec' : 'Removes one ' + hazard + ' effect');
       if (spell.shield) add('Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)) +
         ' damage · ' + spell.duration + ' sec · 15 sec Weakened Soul before talents');
-      if (spell.swiftmend) add('Effect', 'Heals for the full value of your active Rejuvenation or Regrowth HoT and leaves it active');
+      if (spell.swiftmend) {
+        for (const [label, amounts] of swiftmendPreviews()) add('With ' + label + ' (non-crit)', formatHealingRange(amounts));
+        add('Effect', 'Heals for the full value of your active Rejuvenation or Regrowth HoT and leaves it active; uses the HoT expiring first. Values use selected HoT ranks.');
+      }
       if (spell.innervate) add('Effect', '500% of normal Spirit mana regeneration for 20 sec, including while casting');
       if (spell.swiftness) add('Effect', 'Makes your next cast-time Nature heal instant');
       if (spell.manaTick) add('Mana restored', spell.manaTick + ' every ' + spell.period + ' sec for ' + spell.duration + ' sec');
