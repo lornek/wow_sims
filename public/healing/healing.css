@@ -288,14 +288,6 @@ body:has(#healing) { font-family:var(--ui); }
   padding:8px clamp(8px,2vw,24px); background:#15100c; border-bottom:1px solid var(--border);
 }
 .healbot-header h1 { margin:0; font-size:1.45rem; }
-.healbot-header details { position:relative; z-index:5; }
-.healbot-header summary { cursor:pointer; color:var(--gold); padding:5px 8px; border:1px solid var(--border); border-radius:4px; }
-.healbot-header nav {
-  position:absolute; right:0; top:calc(100% + 5px); min-width:135px;
-  background:#15100c; border:1px solid var(--border); border-radius:4px;
-}
-.healbot-header nav a { display:block; padding:6px 10px; }
-.healbot-header nav [aria-current="page"] { color:var(--gold); background:#2d2114; }
 .healbot-page .healing { padding:clamp(6px,1vw,16px); }
 .healbot-page .heal-stage { border-radius:0; }
 
@@ -313,3 +305,31 @@ body:has(#healing) { font-family:var(--ui); }
 .spell-art.low-mana img { filter:brightness(.55); }
 .spell-art.low-mana::after { background:#071d5dbb; }
 .spell-art.low-mana .spell-timer { color:#d7ecff; font-size:.8rem; }
+.healbot-header { flex-wrap:wrap; }
+.healbot-header .class-picker { grid-template-columns:repeat(5,minmax(0,1fr)); width:min(100%,610px); }
+.fight-report { padding:12px; background:#19120d; border:1px solid var(--border); }
+.fight-report h3 { margin:0 0 8px; }
+.fight-report dl, .healing-breakdown { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:8px; margin:0 0 14px; }
+.fight-report dl:last-child { margin-bottom:0; }
+.fight-report dl > div, .healing-breakdown > div { display:grid; grid-template-columns:40px 1fr; gap:2px 8px; align-items:center; padding:7px; background:#241a12; border:1px solid #624b2a; border-radius:4px; }
+.fight-report img, .healing-breakdown img { grid-row:span 2; border-radius:4px; }
+.fight-report dt, .healing-breakdown dt { font:.85rem var(--ui); }
+.fight-report dd, .healing-breakdown dd { margin:0; color:#ffe19a; font:700 1.15rem var(--ui); font-variant-numeric:tabular-nums; }
+@media(max-width:650px) {
+  .healbot-header .class-picker { gap:4px; }
+  .healbot-header .class-pick { padding:6px 2px; font-size:clamp(.58rem,2.2vw,.8rem); letter-spacing:0; }
+  .heal-stage[data-encounter="rend"] { --encounter-art:url('./portraits/rend-background-mobile.jpg'); }
+  .heal-stage[data-encounter="patchwerk"] { --encounter-art:url('./portraits/patchwerk-background-mobile.jpg'); }
+  .heal-stage[data-encounter="sapphiron"] { --encounter-art:url('./portraits/sapphiron-background-mobile.jpg'); }
+}
+.healbot-header { flex-direction:column; justify-content:center; text-align:center; }
+.healbot-header[aria-busy="true"] .class-pick { cursor:progress; }
+.healing-breakdown { padding-top:8px; }
+.heal-meter .healing-breakdown img { width:40px; height:40px; }
+
+.healing-score .meter-row summary { background:linear-gradient(90deg,var(--meter-color,#4b693d) var(--share),#271a10 var(--share)); }
+.healing-score h3 { margin:16px 0 6px; }
+.mana-source-bar { display:flex; justify-content:space-between; gap:12px; margin:5px 8px 5px 20px; padding:5px 8px; background:linear-gradient(90deg,var(--source-color,#315b83) var(--share),#201a17 var(--share)); }
+.healing-score summary strong, .mana-source-bar strong { font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+.healing-score .fight-report { border:0; padding:0; background:none; }

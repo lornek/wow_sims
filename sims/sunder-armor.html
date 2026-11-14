@@ -1,0 +1,45 @@
+<section class="panel" id="sunder-armor" aria-labelledby="sunder-title">
+  <h2 id="sunder-title" class="sunder-title"><img src="../assets/ability_warrior_sunder.jpg" alt="" width="36" height="36"> Sunder Armor DPS</h2>
+  <p>See how each stack increases armor-mitigated physical DPS against the same target.</p>
+  <div class="viz-controls sunder-controls">
+    <label class="form-label" for="sunder-level"><span>Mob level <strong id="sunder-level-value">60</strong></span>
+      <input id="sunder-level" type="range" min="1" max="60" value="60">
+    </label>
+    <label class="form-label" for="sunder-type">Mob type
+      <select class="form-select" id="sunder-type">
+        <option value="0">Normal</option>
+        <option value="1">Caster</option>
+        <option value="2">Tank</option>
+      </select>
+    </label>
+  </div>
+  <p id="sunder-summary" aria-live="polite"></p>
+  <table class="table tabular-nums">
+    <thead><tr><th scope="col">Stacks</th><th scope="col">Armor left</th><th scope="col">DPS vs. 0 stacks</th><th scope="col">DPS vs. prior stack</th></tr></thead>
+    <tbody id="sunder-stacks"></tbody>
+  </table>
+  <p>Warrior level matches mob level. Results assume steady attacks with no other armor debuffs and exclude the time and rage spent applying Sunder.</p>
+  <section class="sunder-ttk" aria-labelledby="sunder-ttk-title">
+    <h2 id="sunder-ttk-title">Time to kill</h2>
+    <div class="viz-controls sunder-controls">
+      <label class="form-label">Mob HP
+        <input class="form-control" id="sunder-hp" type="number" min="0" step="any" value="2000">
+      </label>
+      <label class="form-label">Player DPS at 0 stacks
+        <input class="form-control" id="sunder-dps" type="number" min="0" step="any" value="100">
+      </label>
+    </div>
+    <p>Damage starts at pull. Sunder stacks apply at 0, 1.5, 3, 4.5 and 6 seconds, up to the stack limit shown in each row.</p>
+    <p id="sunder-ttk-status" role="status"></p>
+    <table class="table tabular-nums" id="sunder-ttk-chart" aria-labelledby="sunder-ttk-title">
+      <thead><tr><th scope="col">Stack limit</th><th scope="col">Time to kill</th><th scope="col">Time saved vs. 0</th></tr></thead>
+      <tbody id="sunder-ttk-rows"></tbody>
+    </table>
+  </section>
+  <details>
+    <summary>Rank training and armor data</summary>
+    <p>Ranks 1–5 unlock at levels 10, 22, 34, 46 and 58 and remove 90, 180, 270, 360 and 450 armor per stack, respectively. Armor bottoms out at zero. <a href="https://us.forums.blizzard.com/en/wow/t/my-thoughts-on-forever-warrior/2358514/7">Forever rank values</a></p>
+    <p>Mob armor is estimated from spawned ClassicDB creature templates. Normal uses paladin templates, Caster uses mage templates, and Tank uses warrior templates. Each template counts once per supported level. Groups with no samples use their class baseline. <a href="https://github.com/cmangos/classic-db/tree/master/Full_DB">ClassicDB source</a></p>
+  </details>
+</section>
+<script type="module" src="../assets/sunder-armor.mjs"></script>

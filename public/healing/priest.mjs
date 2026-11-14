@@ -1,4 +1,3 @@
-import {mountHealing} from './healing-ui.mjs';
 import {catalog, ranks} from './priest-data.mjs';
 import {trees} from './priest-talents.mjs';
 import {loadouts} from './priest-gear.mjs';
@@ -59,11 +58,11 @@ function applyTalents(spell, points) {
     litany:normalHeal ? .05 * rank('Litany of Light') : 0, renewedHope:direct ? rank('Renewed Hope') : 0,
     selfCopy:spell.key === 'flash' && rank('Holy Binding') ? .5 : 0};
 }
-mountHealing({className:'priest',healer:'Anduin',healerColor:'#d2d7e8',catalog,ranks:castRanks,spellGroups,loadouts,buffs,
+export default {className:'priest',healer:'Anduin',healerColor:'#d2d7e8',catalog,ranks:castRanks,spellGroups,loadouts,buffs,
   talents:trees.flatMap(t => t.nodes.map(n => [n.name,n.name])),defaultTalents:presets.Discipline,presets,applyTalents,configureSpell,
   buildProfile:humanProfile('priest',loadouts),trees,slots,utility,schools:['Holy','Discipline','Shadow'],
   schoolIcons:['Renew','Power Word: Shield','Shadow Word: Pain'],unlocks:['penance','mending','focus','nova','pi'],
   auras:[['renew','Renew'],['shield','Power Word: Shield'],['weakened','Weakened Soul'],['aegis','Divine Aegis'],
     ['mending','Prayer of Mending'],['powerInfusion','Power Infusion'],['innerFocus','Inner Focus'],['inspiration','Inspiration']],
   healingKeys:['flash','greater','heal','renew','prayer','penance','mending','nova','desperate'],
-  extraMeters:[['aegis','Divine Aegis']],hazard:'disease'});
+  extraMeters:[['aegis','Divine Aegis']],hazard:'disease'};

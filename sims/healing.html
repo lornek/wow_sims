@@ -25,7 +25,7 @@
     <div class="heal-boss">
       <strong data-boss-name></strong>
       <div class="boss-crest">
-        <div class="boss-portrait"><img data-boss-portrait alt="" width="512" height="512"></div>
+        <div class="boss-portrait"><picture><source media="(max-width: 650px)" data-boss-portrait-mobile><img data-boss-portrait alt="" width="512" height="512"></picture></div>
         <div class="boss-actions" data-boss-actions aria-label="Boss abilities"></div>
       </div>
       <div class="heal-bar boss-health"><span data-boss-fill></span><small data-boss></small><b data-boss-percent></b></div>
@@ -45,20 +45,24 @@
   </div>
   <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
   <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
-  <p data-result aria-live="polite"></p>
-  <p data-regen-result hidden></p>
-  <section class="heal-meter" aria-labelledby="meter-title">
-    <h2 id="meter-title">Healing done</h2>
-    <p>Hover or expand a spell for casts, hits, crits, and overhealing.</p>
+  <section class="heal-meter healing-score" aria-labelledby="score-title">
+    <h2 id="score-title">Healing Score</h2>
+    <div class="fight-report" data-result aria-live="polite" hidden></div>
+    <p data-regen-result hidden></p>
+    <h3 id="meter-title">Healing done</h3>
+    <p>Expand a spell to see casts, hits, crits, and overhealing.</p>
     <p data-meter-empty>No healing recorded yet.</p>
     <div data-meter></div>
+    <h3>Mana gained</h3>
+    <p data-mana-empty>No mana gained yet.</p>
+    <div data-mana-meter></div>
   </section>
-  <p>Mana-per-five effects work throughout the pull. Mindfulness keeps a portion of Spirit regeneration active inside the five-second rule.</p>
-<section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Shaman settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
+  <p>Mana-per-five effects work throughout the pull. <span data-regen-talent>Mindfulness</span> keeps a portion of Spirit regeneration active inside the five-second rule.</p>
+<section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Healer settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
     <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
     <p data-gear-source></p>
   <section class="character-sheet" aria-labelledby="character-title">
-    <header><img src="../assets/shaman.jpg" alt="" width="44" height="44"><div>
+    <header><img data-character-icon alt="" width="44" height="44"><div>
       <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · <span data-loadout-label>Ungeared</span></p>
     </div></header>
     <div class="character-body">
@@ -81,8 +85,8 @@
     <div data-inspect-chain></div>
     <p data-inspect-meter></p>
   </dialog>
-  <p class="heal-credit">Spell and base-stat inputs from <a href="https://github.com/wowsims/forever">WoWSims Forever</a> and the <a href="https://wowforevertalents.com/abilities/shaman/">Forever spellbook</a>.</p>
+  <p class="heal-credit">Spell and base-stat inputs from <a href="https://github.com/wowsims/forever">WoWSims Forever</a> and the <a data-spellbook-source href="https://wowforevertalents.com/abilities/shaman/">Forever spellbook</a>.</p>
   <noscript>Enable JavaScript to run the healing practice.</noscript>
 </section>
 <link rel="stylesheet" href="../healing/healing.css">
-<script type="module" src="../healing/shaman.mjs"></script>
+<script type="module" src="../healing/healbot.mjs"></script>

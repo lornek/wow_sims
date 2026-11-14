@@ -1,3 +1,4 @@
+import {manaSourceProfile} from './mana-sources.mjs';
 import {equipmentSets} from './gear.mjs';
 
 export const naked = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99, baseMana: 1520};
@@ -28,7 +29,7 @@ export const talents = [
 
 export function applyTalents(spell, points) {
   const direct = ['wave', 'lesser', 'chain', 'riptide'].includes(spell.key);
-  const totem = ['stream', 'tide'].includes(spell.key);
+  const totem = ['stream', 'tide', 'spring'].includes(spell.key);
   const multiplier = (direct ? 1 + .02 * points.purification : 1) *
     (spell.key === 'wave' ? [1, 1.08, 1.17, 1.25][points.way] : 1) *
     (spell.key === 'stream' ? 1 + .10 * points.stream : 1);
@@ -47,7 +48,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0, 1 + .02 * (points.ancestral ?? 0));
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
   const stamina = stat('stamina');
-  return {strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
+  return {...manaSourceProfile(naked.spirit, gear, enabled, spirit), strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
     spiritPerRawPoint: enabled.has('kings') ? 1.1 : 1,
     baseMana: naked.baseMana, health: 1280 + 10 * stamina,
     mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),

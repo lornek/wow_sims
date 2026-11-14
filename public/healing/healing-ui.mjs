@@ -1,3 +1,4 @@
+import {healingScore} from './healing-score.mjs';
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
 import {encounters, combatants} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
@@ -29,7 +30,17 @@ const damageIcons = {
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
   configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison'}) {
-  const settingsKey = 'wow-forever-sims.' + className + '.v1';
+  const params = new URLSearchParams(location.search);
+  const priestSpec = params.get('spec') === 'holy' ? 'holy' : 'discipline';
+  const settingsKey = 'wow-forever-sims.' + className + '.v1' +
+    (presets && priestSpec === 'holy' ? '.holy' : '');
+  const classLinks = [...document.querySelectorAll('.healbot-header .class-pick')];
+  if (presets) {
+    for (const link of classLinks.filter(link => link.dataset.healbotSpec)) {
+      if (link.dataset.healbotSpec === priestSpec) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    }
+  }
   function readSettings() {
     try {
       return JSON.parse(localStorage.getItem(settingsKey)) ?? {};
@@ -61,6 +72,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const encounterSelect = find('[data-encounter]');
   if (Object.hasOwn(encounters, saved.encounter)) encounterSelect.value = saved.encounter;
   if (Number.isInteger(saved.difficulty) && saved.difficulty >= 0 && saved.difficulty <= 3) difficulty.value = saved.difficulty;
+  if (Object.hasOwn(encounters, params.get('encounter'))) encounterSelect.value = params.get('encounter');
+  const linkedDifficulty = params.get('difficulty');
+  if (linkedDifficulty !== null && /^[0-3]$/.test(linkedDifficulty)) difficulty.value = linkedDifficulty;
+
   function spellFor(key, name, row) {
     const entries = catalog[name]?.ranks ?? [];
     const tooltip = entries.find(entry => entry.rank === row.rank) ?? entries.at(-1);
@@ -74,6 +89,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       coefficient: effect?.coefficient ?? 0, period: effect?.period, chain: effect?.chain,
       falloff: effect?.falloff, party: key === 'stream', waterTotem: key === 'stream', dispel: key === 'poison',
       ...utility[key],
+      ...(key === 'spring' ? {manaTick: Number(tooltip?.description.match(/restores (\d+) mana/)?.[1] ?? 0)} : {}),
       directChainBonus: key === 'riptide' ? .25 : 0}, row, tooltip, profile);
   }
 
@@ -230,13 +246,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   const damageMeter = find('[data-damage-meter]');
+  damageMeter.replaceChildren();
   const damageRows = [];
   for (const [index, unit] of encounter.party.entries()) {
-    const frame = document.createElement('button');
+    const frame = find('.heal-party').children[index] ?? document.createElement('button');
     frame.type = 'button';
     frame.className = 'heal-frame';
     frame.style.setProperty('--unit', unit.color);
-    frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
+    if (!frame.firstElementChild) frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
       '<strong><svg class="unit-role" viewBox="0 0 24 24" role="img" aria-label="' + unit.role +
       '"><title>' + unit.role + '</title><path d="' + roleSymbols[unit.role] +
       '"/></svg><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
@@ -244,9 +261,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (combatants[unit.name]) {
       const track = document.createElement('span');
       track.className = 'party-resource ' + combatants[unit.name].resource.toLowerCase();
-      resource = document.createElement('span');
-      track.append(resource);
-      frame.append(track);
+      resource = frame.querySelector('.party-resource > span') ?? document.createElement('span');
+      if (!resource.parentElement) {
+        track.append(resource);
+        frame.append(track);
+      }
       const row = document.createElement('details');
       row.className = 'meter-row';
       row.name = 'healbot-damage-breakdown';
@@ -261,7 +280,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       damageMeter.append(row);
       label.textContent = unit.name;
       damageRows[index] = {row, value, breakdown, lines: new Map()};
-    } else {
+    } else if (!frame.querySelector('.party-resource')) {
       frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana"><span data-mana-fill></span></span>');
     }
     frame.onclick = event => {
@@ -274,8 +293,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       event.preventDefault();
       attempt(event, index, true);
     };
-    find('.heal-party').append(frame);
+    if (!frame.parentElement) find('.heal-party').append(frame);
     const status = frame.querySelector('.unit-status');
+    status.replaceChildren();
     let auraOrder = 0;
     const badges = [...auras,
       ['swiftness', "Nature's Swiftness"], ['poison', hazard === 'disease' ? 'Infected Blade' : 'Poisoned Blade']]
@@ -349,6 +369,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     difficulty.dataset.level = difficulty.value;
     mountBossAbilities(id);
     find('.heal-stage').dataset.encounter = id;
+    for (const link of classLinks) {
+      const destination = new URL(link.href);
+      destination.searchParams.set('encounter', id);
+      destination.searchParams.set('difficulty', level);
+      link.href = destination;
+    }
+    const mobilePortrait = find('[data-boss-portrait-mobile]');
+    const mobileUrl = new URL('./portraits/' + id + '-mobile.jpg', import.meta.url).href;
+    if (mobilePortrait.srcset !== mobileUrl) mobilePortrait.srcset = mobileUrl;
     const portrait = find('[data-boss-portrait]');
     const portraitUrl = new URL('./portraits/' + id + '.jpg', import.meta.url).href;
     if (portrait.src !== portraitUrl) portrait.src = portraitUrl;
@@ -357,6 +386,20 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (start) pull.start();
     render();
     if (persist) saveSettings();
+  }
+
+  function addMetric(list, art, label) {
+    const metric = document.createElement('div');
+    const image = document.createElement('img');
+    image.src = new URL('./report-icons/' + art + '.jpg', import.meta.url);
+    image.alt = '';
+    image.width = image.height = 40;
+    const term = document.createElement('dt');
+    term.textContent = label;
+    const detail = document.createElement('dd');
+    metric.append(image, term, detail);
+    list.append(metric);
+    return detail;
   }
 
   function render() {
@@ -501,21 +544,39 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
     talentTree.setLocked(active);
     renderMeters(s);
+    renderManaMeters(s);
     if (inspected !== null) updateInspectorMeter(s);
     const result = find('[data-result]');
-    const score = ended ? s.survivors + '/5 survived · ' + whole(s.healing) + ' effective healing · ' +
-      whole(s.healing / s.endedAt) + ' HPS · ' + whole(s.overheal) + ' overhealing · ' +
-      (s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) + ' effective healing per mana · ' : '') +
-      whole(s.manaAtEnd) + ' mana left' : '';
-    if (result.textContent !== score) result.textContent = score;
+    if (ended && result.hidden) {
+      const reportGroup = (title, metrics) => {
+        const heading = document.createElement('h3');
+        heading.textContent = title;
+        const list = document.createElement('dl');
+        for (const [art, label, value] of metrics) addMetric(list, art, label).textContent = value;
+        result.append(heading, list);
+      };
+      reportGroup('Fight totals', [
+        ['survived', 'Players kept alive', s.survivors + ' / ' + s.party.length],
+        ['healing', 'Effective healing', whole(s.healing)],
+        ['hps', 'Healing per second', whole(s.healing / s.endedAt)],
+        ['overheal', 'Overhealing', whole(s.overheal)],
+        ['efficiency', 'Healing per mana', s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) : '—'],
+        ['remaining', 'Mana remaining', whole(s.manaAtEnd)],
+        ['gained', 'Total mana gained', whole(s.manaGained)]
+      ]);
+
+    } else if (!ended && !result.hidden) {
+      result.replaceChildren();
+    }
+    result.hidden = !ended;
     const regenResult = find('[data-regen-result]');
     regenResult.hidden = !ended;
     if (ended) {
-      const comparison = 'Mana gained this pull · ' + s.manaPerSpirit.toFixed(2) + ' mana per +1 raw Spirit · ' +
-        s.manaPerMp5.toFixed(2) + ' mana per +1 mana / 5 sec';
-      if (regenResult.textContent !== comparison) regenResult.textContent = comparison;
-      regenResult.title = 'Extra mana usable during the observed pull, after the mana cap. ' +
-        'Raw Spirit includes multipliers from talents and buffs, averaged across stat rounding.';
+      const score = healingScore(s);
+      regenResult.textContent = whole(score.total) + ' points · (' + whole(s.healing) + ' healing + 2 × ' +
+        whole(s.manaGained) + ' mana) × ' + (100 * score.efficiency).toFixed(1) + '% efficiency × ' +
+        score.survivalMultiplier.toFixed(2) + ' survival' + (score.killMultiplier > 1 ? ' × 1.10 victory' : '');
+      regenResult.title = 'Uncapped score = (effective healing + 2 × mana gained) × effective / total healing × (0.5 + 0.5 × average living party fraction) × 1.10 on victory. Compare within the same encounter, difficulty and loadout. Inner Focus savings count as mana gained.';
     }
   }
 
@@ -553,7 +614,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     find('[data-buffs]').append(label);
   }
-  const talentTree = mountTalentTree(find('[data-talents]'), saved.talents ?? defaultTalents, () => reset(), trees);
+  const talentTree = mountTalentTree(find('[data-talents]'), saved.talents ?? (presets && priestSpec === 'holy' ? presets.Holy : defaultTalents), () => reset(), trees);
   if (presets) {
     const label = document.createElement('label');
     const select = document.createElement('select');
@@ -676,7 +737,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   find('[data-buffs]').onchange = () => reset();
   find('[data-talents]').onchange = () => reset();
   find('[data-start]').onclick = () => reset(pull.state.phase === 'ready');
-  difficulty.onchange = encounterSelect.onchange = () => reset();
+  difficulty.onchange = encounterSelect.onchange = () => {
+    const url = new URL(location.href);
+    url.searchParams.set('encounter', encounterSelect.value);
+    url.searchParams.set('difficulty', difficulty.value);
+    history.replaceState(null, '', url);
+    reset();
+  };
   for (const {select} of selects) select.onchange = () => {
     if (pull.state.phase === 'active') return;
     if (pull.state.phase === 'ready') reset();
@@ -883,36 +950,103 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (field.textContent !== value) field.textContent = value;
   }
 
+  const manaRows = new Map();
   const meterRows = new Map();
   for (const [key, name] of [...slots, ...extraMeters]) {
     const row = document.createElement('details');
     row.className = 'meter-row';
+    row.ontoggle = () => { if (row.open) renderMeters(pull.state); };
     const summary = document.createElement('summary');
     const label = document.createElement('span');
     label.append(icon(name), name);
     const total = document.createElement('strong');
-    const breakdown = document.createElement('p');
+    const breakdown = document.createElement('dl');
+    breakdown.className = 'healing-breakdown';
+    const fields = [
+      ['hps', 'Casts'], ['healing', 'Healing events'], ['survived', 'Normal hits'],
+      ['crit', 'Critical hits'], ['overheal', 'Overhealing'], ['efficiency', 'Healing per mana']
+    ].map(([art, title]) => addMetric(breakdown, art, title));
     summary.append(label, total);
     row.append(summary, breakdown);
     find('[data-meter]').append(row);
-    meterRows.set(key, {row, summary, total, breakdown});
+    meterRows.set(key, {row, summary, total, fields});
   }
   function renderMeters(state) {
     find('[data-meter-empty]').hidden = !Object.values(state.meters).every(stats => !stats.hits);
-    for (const [key, {row, summary, total, breakdown}] of meterRows) {
+    let meterIndex = 0;
+    for (const [key, {row, summary, total, fields}] of [...meterRows].sort((a,b) => (state.meters[b[0]]?.effective ?? 0) - (state.meters[a[0]]?.effective ?? 0))) {
       const stats = state.meters[key];
       row.hidden = !stats?.hits;
       if (row.hidden) continue;
+      const container = find('[data-meter]');
+      if (container.children[meterIndex] !== row) container.insertBefore(row, container.children[meterIndex] ?? null);
+      meterIndex++;
+      summary.style.setProperty('--meter-color', `hsl(${95 + [...meterRows.keys()].indexOf(key) * 13} 30% 32%)`);
       const raw = stats.effective + stats.overheal;
       const percent = (part, all) => (all ? 100 * part / all : 0).toFixed(1) + '%';
       const share = percent(stats.effective, state.healing);
       total.textContent = whole(stats.effective) + ' · ' + share;
-      summary.style.setProperty('--share', share);
-      breakdown.textContent = stats.casts + ' casts · ' + stats.hits + ' healing events · ' +
-        (stats.hits - stats.crits) + ' normal · ' + stats.crits + ' crits (' + percent(stats.crits, stats.hits) +
-        ') · ' + whole(stats.overheal) + ' overhealing (' + percent(stats.overheal, raw) + ') · ' +
-        (stats.mana ? (stats.effective / stats.mana).toFixed(2) + ' effective healing per mana' : 'no mana spent');
-      summary.title = breakdown.textContent;
+      summary.style.setProperty('--share', (100 * stats.effective / (Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1)) + '%');
+      if (!row.open) continue;
+      const values = [stats.casts, stats.hits, stats.hits - stats.crits,
+        stats.crits + ' (' + percent(stats.crits, stats.hits) + ')',
+        whole(stats.overheal) + ' (' + percent(stats.overheal, raw) + ')',
+        stats.mana ? (stats.effective / stats.mana).toFixed(2) : '—'];
+      fields.forEach((field, index) => {
+        const value = String(values[index]);
+        if (field.textContent !== value) field.textContent = value;
+      });
+    }
+  }
+
+  function renderManaMeters(state) {
+    find('[data-mana-empty]').hidden = state.manaGained > 0;
+    const sources = Object.entries(state.manaSources).filter(([, value]) => value > 0).sort((a, b) => b[1] - a[1]);
+    for (const {row} of manaRows.values()) row.hidden = true;
+    let sourceIndex = 0;
+    for (const [source, value] of sources) {
+      if (!manaRows.has(source)) {
+        const row = document.createElement('details');
+        row.className = 'meter-row';
+        const summary = document.createElement('summary');
+        const label = document.createElement('span');
+        label.textContent = source;
+        const total = document.createElement('strong');
+        const children = document.createElement('div');
+        summary.append(label, total);
+        row.append(summary, children);
+        manaRows.set(source, {row, summary, total, children});
+      }
+      const {row, summary, total, children} = manaRows.get(source);
+      row.hidden = false;
+      const share = (100 * value / state.manaGained).toFixed(1) + '%';
+      total.textContent = whole(value) + ' · ' + share;
+      summary.style.setProperty('--share', (100 * value / (sources[0]?.[1] || 1)) + '%');
+      summary.style.setProperty('--meter-color', `hsl(210 55% ${30 + [...manaRows.keys()].indexOf(source) * 4 % 30}%)`);
+      const weights = source === 'Spirit regeneration' ? profile.spiritRates : source === 'Mana / 5' ? profile.mp5Sources : null;
+      children.replaceChildren();
+      if (weights) {
+        const sum = Object.values(weights).reduce((a, b) => a + b, 0);
+        for (const [name, weight] of Object.entries(weights).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])) {
+          const bar = document.createElement('div');
+          bar.className = 'mana-source-bar';
+          bar.style.setProperty('--source-color', `hsl(210 45% ${30 + children.children.length * 4}%)`);
+          bar.style.setProperty('--share', (100 * weight / Math.max(...Object.values(weights))) + '%');
+          const label = document.createElement('span');
+          label.textContent = name;
+          const amount = document.createElement('strong');
+          amount.textContent = whole(value * weight / sum) + ' · ' + (100 * weight / sum).toFixed(1) + '%';
+          bar.append(label, amount);
+          children.append(bar);
+        }
+      } else {
+        const note = document.createElement('p');
+        note.textContent = source === 'Inner Focus · spell cost' ? 'Mana saved by free casts; included in total mana gained.' : source === 'Inner Focus · Spirit regeneration' ? 'Extra Spirit regeneration until the next paid spell lands, relative to five-second-rule regeneration; excludes overlap with Innervate and mana lost to the cap.' : 'Mana restored after the mana cap; excess regeneration is excluded.';
+        children.append(note);
+      }
+      const container = find('[data-mana-meter]');
+      if (container.children[sourceIndex] !== row) container.insertBefore(row, container.children[sourceIndex] ?? null);
+      sourceIndex++;
     }
   }
 
@@ -946,7 +1080,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   let visualPull = 0;
-  find('[data-start]').addEventListener('click', () => { visualPull++; enableAudio(); });
+  const startButton = find('[data-start]');
+  const onStart = () => { visualPull++; enableAudio(); };
+  startButton.addEventListener('click', onStart);
   function showHeal(event) {
     const pullId = visualPull;
     const draw = () => {
@@ -993,7 +1129,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       pull.step(delta);
       render();
     }
-    requestAnimationFrame(frame);
+    animation = requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
+  let animation = requestAnimationFrame(frame);
+  return () => {
+    cancelAnimationFrame(animation);
+    visualPull++;
+    startButton.removeEventListener('click', onStart);
+    audio?.close();
+    for (const {tooltip} of [...spellButtons, ...bossAbilityRows]) tooltip.hide();
+    delete bossActions.dataset.encounter;
+  };
 }

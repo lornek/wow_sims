@@ -1,4 +1,3 @@
-import {mountHealing} from './healing-ui.mjs';
 import {catalog, ranks} from './paladin-data.mjs';
 import {trees} from './paladin-talents.mjs';
 import {loadouts} from './paladin-gear.mjs';
@@ -41,9 +40,9 @@ function applyTalents(spell, points) {
     infusion:rank('Infusion of Light') && ['shock','flash'].includes(spell.key),
     infusionReduction:.5 * rank('Infusion of Light')};
 }
-mountHealing({className:'paladin',healer:'Uther',healerColor:'#d86da3',catalog,ranks:castRanks,spellGroups,loadouts,buffs,
+export default {className:'paladin',healer:'Uther',healerColor:'#d86da3',catalog,ranks:castRanks,spellGroups,loadouts,buffs,
   talents:trees.flatMap(t => t.nodes.map(n => [n.name,n.name])), defaultTalents, applyTalents, configureSpell,
   buildProfile:humanProfile('paladin',loadouts), trees, slots, utility, schools:['Holy','Protection','Retribution'],
   schoolIcons:['Holy Light','Devotion Aura','Seal of Command'],unlocks:['shock','vigil','oath','favor'],
   auras:[['oath','Oath of Light'],['vigil',"Light's Vigil"],['divineFavor','Divine Favor']],
-  healingKeys:['flash','holyLight','shock','vigil']});
+  healingKeys:['flash','holyLight','shock','vigil']};
