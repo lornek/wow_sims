@@ -6,7 +6,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
-    manaGained: 0, manaPerSpirit: 0, manaPerMp5: 0,
+    manaPerSpirit: 0, manaPerMp5: 0, manaGained: 0, manaSources: {}, survivalSeconds: 0, focusSpend: -Infinity,
     encounterId: encounter.id, nextPoison: encounter.id && encounter.id !== 'rend' ? Infinity : 7,
     nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}};
 
@@ -14,10 +14,15 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0, mana: 0};
   }
 
-  function restoreMana(amount) {
-    const previous = state.mana;
-    state.mana = Math.min(profile.mana, state.mana + amount);
-    state.manaGained += state.mana - previous;
+  function creditMana(source, amount) {
+    state.manaSources[source] = (state.manaSources[source] ?? 0) + amount;
+    state.manaGained += amount;
+  }
+
+  function restoreMana(amount, source) {
+    const gained = Math.max(0, Math.min(profile.mana - state.mana, amount));
+    state.mana += gained;
+    if (source && state.phase === 'active') creditMana(source, gained);
   }
 
   function applyWaterShield() {
@@ -30,7 +35,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (!shield?.charges || shield.expires <= state.time || state.time < (state.waterShieldNext ?? 0)) return;
     shield.charges--;
     state.waterShieldNext = state.time + 3.5;
-    restoreMana(profile.mana * .02);
+    restoreMana(profile.mana * .02, 'Water Shield');
   }
 
   function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key]) {
@@ -50,7 +55,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     stats.crits += Number(crit);
     stats.effective += effective;
     stats.overheal += amount - effective;
-    if (crit && spell?.illumination && random() < spell.illumination) restoreMana(.5 * spell.baseCost);
+    if (crit && spell?.illumination && random() < spell.illumination) restoreMana(.5 * spell.baseCost, 'Illumination');
     if (crit && spell?.infusion) state.infusion = state.time + 15;
     if (crit && !periodic && profile.aegis) {
       const existing = unit.aegis?.expires > state.time ? unit.aegis.amount : 0;
@@ -133,7 +138,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     } else if (spell.layOnHands) {
       state.mana = 0;
       heal(spell.key, unit, party.at(-1).max);
-      if (unit === party.at(-1)) restoreMana(spell.layOnHands);
+      if (unit === party.at(-1)) restoreMana(spell.layOnHands, 'Lay on Hands');
     } else if (spell.swiftness) {
       state.swiftness = Infinity;
     } else if (spell.innervate) {
@@ -142,7 +147,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       const effect = swiftmendEffect(unit);
       if (effect) heal(spell.key, unit, effect.amount * effect.ticks, true);
     } else if (spell.manaRange) {
-      restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]));
+      restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]), spell.name);
     } else if (spell.dispel) {
       unit.poison = 0;
       if (spell.abolishPoison) {
@@ -227,7 +232,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (infused) state.infusion = 0;
     if (focus) state.innerFocus = 0;
     const castTime = instant ? 0 : (spell.cast - (infused ? spell.infusionReduction : 0)) / speed;
-    const prepared = focus ? {...spell, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
+    const prepared = focus ? {...spell, focusCost: spell.cost, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
     state.cast = {spell: prepared, unit, end: state.time + castTime, duration: castTime, pushbacks: 0, usesVigil};
     state.message = spell.name + ' → ' + unit.name;
     if (!castTime) finishCast();
@@ -237,6 +242,10 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     const {spell, unit, usesVigil} = state.cast;
     state.cast = null;
     if (!unit.hp) return;
+    if (spell.focusCost > 0) {
+      creditMana('Inner Focus · spell cost', spell.focusCost);
+      state.focusSpend = state.time;
+    }
     state.mana -= spell.cost;
     if (spell.cost) state.lastSpend = state.time;
     state.manaSpent += spell.cost;
@@ -244,7 +253,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     meter(spell.key).casts++;
     meter(spell.key).mana += spell.cost;
     if (spell.litany) {
-      if (state.lastHeal && state.lastHeal !== spell.key && spell.cost) restoreMana(spell.baseCost * spell.litany);
+      if (state.lastHeal && state.lastHeal !== spell.key && spell.cost) restoreMana(spell.baseCost * spell.litany, 'Litany');
       state.lastHeal = spell.key;
     }
     resolve(spell, unit);
@@ -297,7 +306,8 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     while (from < to) {
       const innervated = from < state.innervateUntil;
       const restricted = from < state.lastSpend + 5;
-      const end = Math.min(to, innervated ? state.innervateUntil : restricted ? state.lastSpend + 5 : to);
+      const boundaries = [to, state.innervateUntil, state.lastSpend + 5, state.focusSpend + 5];
+      const end = Math.min(...boundaries.filter(time => time > from));
       const seconds = end - from;
       const spiritFraction = spiritRegenFraction(from);
       const regen = manaRegenRate(from) * seconds;
@@ -305,6 +315,22 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
         const headroom = Math.max(0, profile.mana - state.mana - regen);
         state.manaPerSpirit += Math.min(headroom, (profile.spiritPerRawPoint ?? 1) * spiritFraction * seconds * (profile.spiritRegenCoefficient ?? .125));
         state.manaPerMp5 += Math.min(headroom, seconds / 5);
+      }
+      const normalFraction = restricted ? (profile.castingRegen ?? 0) : 1;
+      // Credit the free-cast window until the next paid spell lands.
+      const withoutFocus = state.focusSpend > state.lastSpend ? (profile.castingRegen ?? 0) : normalFraction;
+      const focusBonus = Math.max(0, normalFraction - withoutFocus);
+      const components = {
+        'Spirit regeneration': profile.regen * (normalFraction - focusBonus) * seconds,
+        'Mana / 5': (profile.mp5 ?? 0) / 5 * seconds,
+        'Innervate': innervated ? profile.regen * (5 - normalFraction) * seconds : 0,
+        'Inner Focus · Spirit regeneration': innervated ? 0 : profile.regen * focusBonus * seconds
+      };
+      // Innervate supersedes the free-cast benefit; retain the baseline Spirit rate.
+      if (innervated) components['Spirit regeneration'] += profile.regen * focusBonus * seconds;
+      const usable = regen > 0 ? Math.min(1, Math.max(0, profile.mana - state.mana) / regen) : 0;
+      for (const [source, amount] of Object.entries(components)) {
+        if (amount > 0 && state.phase === 'active') creditMana(source, amount * usable);
       }
       restoreMana(regen);
       from = end;
@@ -324,10 +350,11 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     regenerate(state.time, end);
     state.time = end;
     if (state.phase !== 'active') return;
+    state.survivalSeconds += party.filter(unit => unit.hp).length * dt;
     for (const effect of state.effects) {
       if (state.time < effect.next) continue;
       if (effect.abolishPoison) effect.target.poison = 0;
-      else if (effect.manaTick) restoreMana(effect.manaTick);
+      else if (effect.manaTick) restoreMana(effect.manaTick, spells[effect.key]?.name ?? effect.key);
       else for (const unit of effect.target ? [effect.target] : party) heal(effect.key, unit, tickAmount(effect),
         effect.periodicCrit, null, 0, effect.bonusCrit, !spells[effect.key]?.immediateTick);
       effect.next += effect.period;

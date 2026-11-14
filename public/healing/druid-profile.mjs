@@ -1,3 +1,4 @@
+import {manaSourceProfile} from './mana-sources.mjs';
 import {loadouts} from './druid-gear.mjs';
 export {loadouts};
 export {buffs} from './profile.mjs';
@@ -26,7 +27,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   const spirit = stat('spirit', 110 + (buffs.has('spirit') ? 40 : 0), livingSpirit);
   const stamina = stat('stamina', 69);
   const gearPower = gear.power ?? 0;
-  return {strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
+  return {...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
     spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),
     health: 1483 + 10 * stamina, baseMana: 1244, mana: 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
     crit: (1.8 + intellect * .0167 + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,

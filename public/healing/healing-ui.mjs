@@ -1,3 +1,4 @@
+import {healingScore} from './healing-score.mjs';
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
 import {encounters, combatants} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
@@ -88,6 +89,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       coefficient: effect?.coefficient ?? 0, period: effect?.period, chain: effect?.chain,
       falloff: effect?.falloff, party: key === 'stream', waterTotem: key === 'stream', dispel: key === 'poison',
       ...utility[key],
+      ...(key === 'spring' ? {manaTick: Number(tooltip?.description.match(/restores (\d+) mana/)?.[1] ?? 0)} : {}),
       directChainBonus: key === 'riptide' ? .25 : 0}, row, tooltip, profile);
   }
 
@@ -542,6 +544,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
     talentTree.setLocked(active);
     renderMeters(s);
+    renderManaMeters(s);
     if (inspected !== null) updateInspectorMeter(s);
     const result = find('[data-result]');
     if (ended && result.hidden) {
@@ -552,23 +555,29 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         for (const [art, label, value] of metrics) addMetric(list, art, label).textContent = value;
         result.append(heading, list);
       };
-      reportGroup('Fight summary', [
+      reportGroup('Fight totals', [
         ['survived', 'Players kept alive', s.survivors + ' / ' + s.party.length],
         ['healing', 'Effective healing', whole(s.healing)],
         ['hps', 'Healing per second', whole(s.healing / s.endedAt)],
         ['overheal', 'Overhealing', whole(s.overheal)],
         ['efficiency', 'Healing per mana', s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) : '—'],
-        ['remaining', 'Mana remaining', whole(s.manaAtEnd)]
+        ['remaining', 'Mana remaining', whole(s.manaAtEnd)],
+        ['gained', 'Total mana gained', whole(s.manaGained)]
       ]);
-      reportGroup('Mana gained during fight · ' + whole(s.manaGained), [
-        ['gained', 'Total mana gained', whole(s.manaGained)],
-        ['spirit', 'Mana per +1 raw Spirit', s.manaPerSpirit.toFixed(2)],
-        ['mp5', 'Mana per +1 mana / 5 sec', s.manaPerMp5.toFixed(2)]
-      ]);
+
     } else if (!ended && !result.hidden) {
       result.replaceChildren();
     }
     result.hidden = !ended;
+    const regenResult = find('[data-regen-result]');
+    regenResult.hidden = !ended;
+    if (ended) {
+      const score = healingScore(s);
+      regenResult.textContent = whole(score.total) + ' points · (' + whole(s.healing) + ' healing + 2 × ' +
+        whole(s.manaGained) + ' mana) × ' + (100 * score.efficiency).toFixed(1) + '% efficiency × ' +
+        score.survivalMultiplier.toFixed(2) + ' survival' + (score.killMultiplier > 1 ? ' × 1.10 victory' : '');
+      regenResult.title = 'Uncapped score = (effective healing + 2 × mana gained) × effective / total healing × (0.5 + 0.5 × average living party fraction) × 1.10 on victory. Compare within the same encounter, difficulty and loadout. Inner Focus savings count as mana gained.';
+    }
   }
 
   const equipment = {
@@ -941,6 +950,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (field.textContent !== value) field.textContent = value;
   }
 
+  const manaRows = new Map();
   const meterRows = new Map();
   for (const [key, name] of [...slots, ...extraMeters]) {
     const row = document.createElement('details');
@@ -963,15 +973,20 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   function renderMeters(state) {
     find('[data-meter-empty]').hidden = !Object.values(state.meters).every(stats => !stats.hits);
-    for (const [key, {row, summary, total, fields}] of meterRows) {
+    let meterIndex = 0;
+    for (const [key, {row, summary, total, fields}] of [...meterRows].sort((a,b) => (state.meters[b[0]]?.effective ?? 0) - (state.meters[a[0]]?.effective ?? 0))) {
       const stats = state.meters[key];
       row.hidden = !stats?.hits;
       if (row.hidden) continue;
+      const container = find('[data-meter]');
+      if (container.children[meterIndex] !== row) container.insertBefore(row, container.children[meterIndex] ?? null);
+      meterIndex++;
+      summary.style.setProperty('--meter-color', `hsl(${95 + [...meterRows.keys()].indexOf(key) * 13} 30% 32%)`);
       const raw = stats.effective + stats.overheal;
       const percent = (part, all) => (all ? 100 * part / all : 0).toFixed(1) + '%';
       const share = percent(stats.effective, state.healing);
       total.textContent = whole(stats.effective) + ' · ' + share;
-      summary.style.setProperty('--share', share);
+      summary.style.setProperty('--share', (100 * stats.effective / (Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1)) + '%');
       if (!row.open) continue;
       const values = [stats.casts, stats.hits, stats.hits - stats.crits,
         stats.crits + ' (' + percent(stats.crits, stats.hits) + ')',
@@ -981,6 +996,57 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         const value = String(values[index]);
         if (field.textContent !== value) field.textContent = value;
       });
+    }
+  }
+
+  function renderManaMeters(state) {
+    find('[data-mana-empty]').hidden = state.manaGained > 0;
+    const sources = Object.entries(state.manaSources).filter(([, value]) => value > 0).sort((a, b) => b[1] - a[1]);
+    for (const {row} of manaRows.values()) row.hidden = true;
+    let sourceIndex = 0;
+    for (const [source, value] of sources) {
+      if (!manaRows.has(source)) {
+        const row = document.createElement('details');
+        row.className = 'meter-row';
+        const summary = document.createElement('summary');
+        const label = document.createElement('span');
+        label.textContent = source;
+        const total = document.createElement('strong');
+        const children = document.createElement('div');
+        summary.append(label, total);
+        row.append(summary, children);
+        manaRows.set(source, {row, summary, total, children});
+      }
+      const {row, summary, total, children} = manaRows.get(source);
+      row.hidden = false;
+      const share = (100 * value / state.manaGained).toFixed(1) + '%';
+      total.textContent = whole(value) + ' · ' + share;
+      summary.style.setProperty('--share', (100 * value / (sources[0]?.[1] || 1)) + '%');
+      summary.style.setProperty('--meter-color', `hsl(210 55% ${30 + [...manaRows.keys()].indexOf(source) * 4 % 30}%)`);
+      const weights = source === 'Spirit regeneration' ? profile.spiritRates : source === 'Mana / 5' ? profile.mp5Sources : null;
+      children.replaceChildren();
+      if (weights) {
+        const sum = Object.values(weights).reduce((a, b) => a + b, 0);
+        for (const [name, weight] of Object.entries(weights).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])) {
+          const bar = document.createElement('div');
+          bar.className = 'mana-source-bar';
+          bar.style.setProperty('--source-color', `hsl(210 45% ${30 + children.children.length * 4}%)`);
+          bar.style.setProperty('--share', (100 * weight / Math.max(...Object.values(weights))) + '%');
+          const label = document.createElement('span');
+          label.textContent = name;
+          const amount = document.createElement('strong');
+          amount.textContent = whole(value * weight / sum) + ' · ' + (100 * weight / sum).toFixed(1) + '%';
+          bar.append(label, amount);
+          children.append(bar);
+        }
+      } else {
+        const note = document.createElement('p');
+        note.textContent = source === 'Inner Focus · spell cost' ? 'Mana saved by free casts; included in total mana gained.' : source === 'Inner Focus · Spirit regeneration' ? 'Extra Spirit regeneration until the next paid spell lands, relative to five-second-rule regeneration; excludes overlap with Innervate and mana lost to the cap.' : 'Mana restored after the mana cap; excess regeneration is excluded.';
+        children.append(note);
+      }
+      const container = find('[data-mana-meter]');
+      if (container.children[sourceIndex] !== row) container.insertBefore(row, container.children[sourceIndex] ?? null);
+      sourceIndex++;
     }
   }
 

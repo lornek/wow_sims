@@ -45,12 +45,17 @@
   </div>
   <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
   <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
-  <section class="fight-report" data-result aria-live="polite" hidden></section>
-  <section class="heal-meter" aria-labelledby="meter-title">
-    <h2 id="meter-title">Healing done</h2>
+  <section class="heal-meter healing-score" aria-labelledby="score-title">
+    <h2 id="score-title">Healing Score</h2>
+    <div class="fight-report" data-result aria-live="polite" hidden></div>
+    <p data-regen-result hidden></p>
+    <h3 id="meter-title">Healing done</h3>
     <p>Expand a spell to see casts, hits, crits, and overhealing.</p>
     <p data-meter-empty>No healing recorded yet.</p>
     <div data-meter></div>
+    <h3>Mana gained</h3>
+    <p data-mana-empty>No mana gained yet.</p>
+    <div data-mana-meter></div>
   </section>
   <p>Mana-per-five effects work throughout the pull. <span data-regen-talent>Mindfulness</span> keeps a portion of Spirit regeneration active inside the five-second rule.</p>
 <section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Healer settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>

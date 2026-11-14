@@ -1,3 +1,4 @@
+import {manaSourceProfile} from './mana-sources.mjs';
 import {buffs} from './profile.mjs';
 export {buffs};
 
@@ -22,7 +23,7 @@ export function humanProfile(className, loadouts) {
     const gearPower = gear.power ?? 0;
     const talentPower = spirit * .05 * rank('Spiritual Guidance');
     const spiritRegenCoefficient = .125;
-    return {strength: stat('strength', 0, 1 + .02 * rank('Divine Strength')), agility: stat('agility'), intellect, spirit, stamina,
+    return {...manaSourceProfile(naked.spirit, gear, buffs, spirit, {human: 1.1}), strength: stat('strength', 0, 1 + .02 * rank('Divine Strength')), agility: stat('agility'), intellect, spirit, stamina,
       health: naked.health + 10 * (stamina - 20), baseMana: naked.mana,
       mana: naked.mana + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
       crit: (naked.crit + 1 + intellect * naked.critPerInt + (gear.crit ?? 0) + rank('Holy Specialization') + 2 * rank('Conviction')) / 100,

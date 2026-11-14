@@ -326,3 +326,10 @@ body:has(#healing) { font-family:var(--ui); }
 .healbot-header[aria-busy="true"] .class-pick { cursor:progress; }
 .healing-breakdown { padding-top:8px; }
 .heal-meter .healing-breakdown img { width:40px; height:40px; }
+
+.healing-score .meter-row summary { background:linear-gradient(90deg,var(--meter-color,#4b693d) var(--share),#271a10 var(--share)); }
+.healing-score h3 { margin:16px 0 6px; }
+.mana-source-bar { display:flex; justify-content:space-between; gap:12px; margin:5px 8px 5px 20px; padding:5px 8px; background:linear-gradient(90deg,var(--source-color,#315b83) var(--share),#201a17 var(--share)); }
+.healing-score summary strong, .mana-source-bar strong { font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+.healing-score .fight-report { border:0; padding:0; background:none; }
