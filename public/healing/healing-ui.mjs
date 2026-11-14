@@ -588,8 +588,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       find('[data-score-total]').textContent = whole(score.total);
       regenResult.replaceChildren();
       const terms = [
-        ['score-healing', '(' + whole(s.healing) + ' × 0.1)', 'Effective healing × 0.1'],
-        ['score-mana', '(' + whole(score.manaGained) + ' × 0.1)', 'Mana gained excluding mana potions'],
+        ['score-healing', '(' + whole(s.healing) + ')', 'Effective healing'],
+        ['score-mana', '(' + whole(score.manaGained) + ')', 'Mana gained excluding mana potions'],
         ['score-efficiency', '(' + (100 * score.efficiency).toFixed(1) + '% efficiency)', 'Effective healing / total healing'],
         ['score-survival', '(' + score.survivors + '/' + s.party.length + ' survived)', 'Party members alive at victory']
       ];
@@ -603,7 +603,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         term.className = style; term.textContent = text; term.title = title;
         regenResult.append(term);
       }
-      regenResult.title = '(Effective healing × 0.1) × (mana gained excluding potions × 0.1) × healing efficiency × survivors / party size. Scores are awarded only for victories.';
+      const divisor = document.createElement('strong');
+      divisor.className = 'score-times'; divisor.textContent = '/ 1000';
+      regenResult.append(divisor);
+      regenResult.title = 'Effective healing × mana gained excluding potions × healing efficiency × (survivors / party size) / 1000. Scores are awarded only for victories.';
     } else if (!won) {
       find('[data-score-total]').textContent = '';
       regenResult.replaceChildren();
@@ -852,6 +855,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       tooltipLine(tip, 'Periodic healing with gear and talents · ' + whole(tick) + ' every ' + spell.hot.period +
         ' sec for ' + spell.duration + ' sec', 'game-tooltip-good');
     }
+    if (key === 'regrowth') tooltipLine(tip, 'Direct and periodic crit chance · ' + (100 * Math.min(1, profile.crit + (spell.bonusCrit ?? 0))).toFixed(1) + '% (includes Improved Regrowth)');
     if (key === 'chain') {
       tooltipLine(tip, 'With Riptide (+25% first hit) · ' +
         range(profile.power, spell.multiplier * 1.25), 'game-tooltip-good');
@@ -980,7 +984,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         add('Restorative Totems', healingMultiplier(spell));
         add('Effective coefficient', (spell.coefficient * spell.multiplier * 100).toFixed(2) + '% per tick');
       }
-      add('Healing crit chance', (crit * 100).toFixed(2) + '%');
+      add(key === 'regrowth' ? 'Direct and periodic crit chance' : 'Healing crit chance', (crit * 100).toFixed(2) + '%');
       add('Expected healing per mana', hpm(ticks) + (spell.party ? ' per party member' : ' on primary'));
       const chain = find('[data-inspect-chain]');
       chain.replaceChildren();

@@ -123,7 +123,7 @@ All healing, mana, expanded event/contribution, DPS summary, and DPS ability bar
 
 ## Victory score and sound control
 
-Victory only: `(effective healing × 0.1) × (non-potion mana gained × 0.1) × efficiency × (final survivors / party size)`. Round the final result to the nearest integer. Efficiency is effective / (effective + overhealing). No additive mana term, time-averaged survival multiplier, or victory bonus remains. `healingScore()` returns `total: null` for failed and unfinished runs; hide the score heading and formula for those phases while retaining the fight report.
+Victory only: `effective healing × non-potion mana gained × efficiency × (final survivors / party size) / 1000`. Round the final result to the nearest integer. Efficiency is effective / (effective + overhealing). No additive mana term, time-averaged survival multiplier, or victory bonus remains. `healingScore()` returns `total: null` for failed and unfinished runs; hide the score heading and formula for those phases while retaining the fight report.
 
 Center the large Healing Score title and gold total on one heading row. Place the bold, shadowed formula directly below, before the fight-total tiles. Healing is green, eligible mana blue, efficiency purple, and survivors orange. Potion restoration stays in the mana report for accounting, but subtract mana-potion sources when calculating the scoring mana factor. The formula's mana tooltip makes this exclusion explicit.
 
@@ -131,6 +131,6 @@ The speaker/mute icon lives directly below Pull/Reset on the battlefield. It is 
 
 ### Score typography and control alignment
 
-The score title and final score use the original `--display` typeface (Metamorphous), with matching size and weight. Formula text remains bold in `--ui`, sized at exactly 110% of the effective-healing report value: both derive from `--report-value-size` (1.15rem). Formula text reads `(healing × 0.1) × (non-potion mana × 0.1) × (efficiency%) × (survivors/party survived)` and the calculation applies both 0.1 factors.
+The score title and final score use the original `--display` typeface (Metamorphous), with matching size and weight. Formula text remains bold in `--ui`, sized at exactly 110% of the effective-healing report value: both derive from `--report-value-size` (1.15rem). Formula text reads `(healing) × (non-potion mana) × (efficiency%) × (survivors/party survived) / 1000`. Apply the division once at the end before rounding; no 0.1 multipliers remain.
 
 Rows containing a gearing button use a three-column grid: flexible label, fixed button, protected numeric grid. The button is immediately before the numeric columns with an 8px gap, never distributed across spare row space. Apply the same layout inside the rightmost visible Spirit/Innervate heading.
