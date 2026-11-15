@@ -471,3 +471,27 @@ body:has(#healing) { font-family:var(--ui); }
   .healbot-header .class-art > img:first-child { width:clamp(22px,6vw,40px); height:auto; }
   .healbot-header .class-pick > span:last-child { font-size:clamp(.48rem,1.5vw,.7rem); }
 }
+/* Classic-sized character panel and individual talent trees never stretch with the viewport. */
+.heal-tab-panel .character-sheet { width:min(100%,420px); box-sizing:border-box; }
+.character-body { grid-template-columns:minmax(0,1fr); }
+.talent-board { grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),300px)); justify-content:start; }
+.gear-toolbar { display:flex; flex-wrap:wrap; gap:6px; padding:10px; border-top:1px solid var(--border); }
+.gear-toolbar input,.gear-toolbar select { min-width:0; max-width:100%; flex:1 1 140px; }
+.gear-status { padding:0 10px; font-size:.9rem; }
+.gear-dialog { box-sizing:border-box; width:min(680px,calc(100vw - 24px)); max-height:85dvh; padding:16px; color:var(--text); background:#160f0a; border:1px solid var(--border); border-radius:6px; }
+.gear-dialog::backdrop { background:#000a; }
+.gear-dialog>button:first-child { float:right; }
+.gear-dialog h2 { padding-right:60px; }
+.gear-dialog input[type=search] { box-sizing:border-box; width:100%; margin:10px 0; }
+.gear-dialog>p { font-size:.85rem; color:var(--muted); }
+.gear-results { display:grid; gap:6px; }
+.gear-choice { display:flex; align-items:center; gap:10px; text-align:left; width:100%; padding:8px; }
+.gear-choice[aria-pressed=true] { border-color:#e9c46a; background:#40321c; }
+.gear-choice img { width:36px; height:36px; flex-shrink:0; }
+.gear-choice span { min-width:0; }
+.gear-choice strong,.gear-choice small { display:block; }
+.gear-choice small { font-size:.82rem; color:var(--muted); }
+.gear-choice [data-quality="2"] { color:#1eff00; }
+.gear-choice [data-quality="3"] { color:#71aaff; }
+.gear-choice [data-quality="4"] { color:#c68aff; }
+.gear-choice [data-quality="5"] { color:#ff8000; }

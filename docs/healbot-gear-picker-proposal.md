@@ -1,6 +1,6 @@
 # Gear picker and healing averages: proposal
 
-These features are proposed, not implemented by this change.
+The gear picker is now implemented: see [equipment v1](healbot-gear-picker.md). The expanded healing averages below remain a proposal.
 
 ## Expanded healing averages
 

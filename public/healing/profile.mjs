@@ -43,7 +43,7 @@ export function applyTalents(spell, points) {
 
 export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   const gear = {};
-  for (const item of Object.values(loadouts[loadout])) {
+  for (const item of Object.values(typeof loadout === 'object' ? loadout : loadouts[loadout])) {
     for (const [key, value] of Object.entries(item.stats)) gear[key] = (gear[key] ?? 0) + value;
   }
   addAdditionalStats(gear, bonusHealing);
@@ -53,8 +53,8 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   const stamina = stat('stamina');
   return {...manaSourceProfile(naked.spirit, gear, enabled, spirit), strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
     spiritPerRawPoint: enabled.has('kings') ? 1.1 : 1,
-    baseMana: naked.baseMana, health: 1280 + 10 * stamina,
-    mana: naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
+    baseMana: naked.baseMana, health: (gear.health ?? 0) + 1280 + 10 * stamina,
+    mana: (gear.mana ?? 0) + naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
     crit: (2.3 + intellect * spellCritPercentPerIntellect.shaman + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
     pushbackResist: [0, .23, .46, .70][points.pushback ?? 0],

@@ -1,3 +1,4 @@
+import {mountGearEditor} from './gear-editor.mjs';
 import {watchScoreFormula} from './score-layout.mjs';
 import {normalizeAdditionalStats} from './additional-stats.mjs';
 import {setBarNumbers} from './bar-numbers.mjs';
@@ -348,7 +349,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function configuredSpells() {
     const points = talentPoints = Object.fromEntries(talents.map(([key, name]) => [key, talentTree.build[name] ?? 0]));
     enabled = new Set([...root.querySelectorAll('[data-buff]:checked')].map(input => input.value));
-    profile = buildProfile(gear.value, enabled, readAdditionalStats(), points);
+    profile = buildProfile(gearEditor.kit, enabled, readAdditionalStats(), points);
     currentSpells = Object.fromEntries(selects.map(({select, rows, key, name}) =>
       [key, applyTalents(spellFor(key, name, rows[select.selectedIndex]), points)]));
     if (!enabled.has('potion')) delete currentSpells.potion;
@@ -557,6 +558,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const input of customInputs) input.disabled = active;
     find('[data-loadout]').disabled = active;
     find('[data-reset-character]').disabled = active;
+    gearEditor.lock(active || gearEditor.loading);
+    find('[data-start]').disabled = gearEditor.loading;
     encounterSelect.disabled = difficulty.disabled = active;
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
     talentTree.setLocked(active);
@@ -682,6 +685,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   ]);
   resetCharacterButton.onclick = () => {
     try {
+      const gearKey = 'wow-forever-sims.gear.' + className + '.v1';
+      const library = JSON.parse(localStorage.getItem(gearKey) ?? '{}');
+      localStorage.setItem(gearKey, JSON.stringify({sets:library.sets ?? {}}));
       localStorage.setItem(settingsKey, JSON.stringify({sound:soundEnabled,
         encounter:encounterSelect.value, difficulty:Number(difficulty.value)}));
     } catch { /* Defaults still load when storage is unavailable. */ }
@@ -727,6 +733,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       find('[data-equipment="' + group + '"]').append(slotButton);
     }
   }
+  const gearEditor = mountGearEditor({container:find('.character-sheet'), slots:gearSlots, className, loadouts, select:gear, onchange:()=>reset(), isActive:()=>pull?.state.phase === 'active'});
   const statGroups = {
     Resources: {Health: 'health', Mana: 'mana', 'Base mana': 'baseMana'},
     Attributes: {Strength: 'strength', Agility: 'agility', Stamina: 'stamina',
@@ -750,15 +757,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   function updateSheet() {
     find('[data-loadout-label]').textContent = gear.value;
-    const kit = loadouts[gear.value];
+    const kit = gearEditor.kit;
     const sources = [...new Set(Object.values(kit).map(item => item.source))];
     find('[data-gear-source]').textContent = sources.includes('ForeverDB') ? 'ForeverDB level 60 PvE BiS · Includes selections from later raids and PvP' :
       sources.length ? 'Item data · ' + sources.join(' / ') : '';
     const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
-      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor'};
+      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor', health:'Health', mana:'Mana'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {
       const item = kit[name];
-      image.src = new URL(item ? './icons/' + item.icon + '.jpg' : './slots/' + file + '.jpg', import.meta.url);
+      image.src = item ? 'https://wow.zamimg.com/images/wow/icons/medium/' + item.icon + '.jpg' : new URL('./slots/' + file + '.jpg', import.meta.url);
       slotButton.dataset.quality = item?.quality ?? '';
       slotButton.setAttribute('aria-label', name + ' · ' + (item?.name ?? 'Empty'));
       tip.replaceChildren();
@@ -776,11 +783,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
       for (const [key, value] of Object.entries(item.stats)) {
         const line = document.createElement('span');
-        line.textContent = '+' + value + (key === 'crit' ? '% ' : ' ') + labels[key];
+        line.textContent = '+' + Number(value.toFixed(2)) + (key === 'crit' ? '% ' : ' ') + labels[key];
         tip.append(line);
       }
       const linkText = document.createElement('span');
-      linkText.textContent = 'Item ID ' + item.id;
+      linkText.textContent = 'Item ID ' + item.id + (item.enchantId ? ' · Enchanted (stats included above)' : '');
       tip.append(linkText);
       setGameTooltip(slotButton, title.textContent, [...tip.children].slice(1).map(line => line.textContent));
     }
@@ -791,7 +798,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
   }
   for (const input of customInputs) input.oninput = () => reset();
-  gear.onchange = () => reset();
+
   find('[data-buffs]').onchange = () => reset();
   find('[data-talents]').onchange = () => reset();
   find('[data-start]').onclick = () => reset(pull.state.phase === 'ready');
@@ -1388,6 +1395,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   return () => {
     cancelAnimationFrame(animation);
     stopScoreLayout();
+    gearEditor.destroy();
     hideGameTooltip();
     visualPull++;
     startButton.removeEventListener('click', onStart);

@@ -38,7 +38,7 @@ window.addEventListener('pointerdown', event => {
   if (activeTooltip && !activeTooltip.element.contains(event.target) && !activeTooltip.trigger.contains(event.target)) hideGameTooltip();
 });
 
-export function attachGameTooltip(button, render) {
+export function attachGameTooltip(button, render, {immediateLeave = false} = {}) {
   const tip = document.createElement('div');
   tip.id = 'healbot-tooltip-' + ++tooltipId;
   tip.className = 'game-tooltip';
@@ -74,7 +74,7 @@ export function attachGameTooltip(button, render) {
   const delayedHide = () => { cancelHide(); timer = setTimeout(hide, 120); };
   const escape = event => { if (event.key === 'Escape') hide(); };
   button.addEventListener('mouseenter', show);
-  button.addEventListener('mouseleave', delayedHide);
+  button.addEventListener('mouseleave', immediateLeave ? hide : delayedHide);
   button.addEventListener('focusin', show);
   button.addEventListener('focusout', delayedHide);
   button.addEventListener('keydown', escape);
@@ -84,7 +84,7 @@ export function attachGameTooltip(button, render) {
     destroy() {
       hide();
       button.removeEventListener('mouseenter', show);
-      button.removeEventListener('mouseleave', delayedHide);
+      button.removeEventListener('mouseleave', immediateLeave ? hide : delayedHide);
       button.removeEventListener('focusin', show);
       button.removeEventListener('focusout', delayedHide);
       button.removeEventListener('keydown', escape);

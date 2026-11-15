@@ -13,7 +13,7 @@ export function humanProfile(className, loadouts) {
   return (loadout, buffs, customHealing, talents = {}) => {
     const rank = name => talents[name] ?? 0;
     const gear = {};
-    for (const item of Object.values(loadouts[loadout])) {
+    for (const item of Object.values(typeof loadout === 'object' ? loadout : loadouts[loadout])) {
       for (const [stat, value] of Object.entries(item.stats)) gear[stat] = (gear[stat] ?? 0) + value;
     }
     addAdditionalStats(gear, customHealing);
@@ -26,8 +26,8 @@ export function humanProfile(className, loadouts) {
     const talentPower = spirit * .05 * rank('Spiritual Guidance');
     const spiritRegenCoefficient = .125;
     return {...manaSourceProfile(naked.spirit, gear, buffs, spirit, {human: 1.1}), strength: stat('strength', 0, 1 + .02 * rank('Divine Strength')), agility: stat('agility'), intellect, spirit, stamina,
-      health: naked.health + 10 * (stamina - 20), baseMana: naked.mana,
-      mana: naked.mana + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
+      health: (gear.health ?? 0) + naked.health + 10 * (stamina - 20), baseMana: naked.mana,
+      mana: (gear.mana ?? 0) + naked.mana + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
       crit: (naked.crit + 1 + intellect * spellCritPercentPerIntellect[className] + (gear.crit ?? 0) + rank('Holy Specialization') + 2 * rank('Conviction')) / 100,
       critHealingBonus: .05 * rank('Holy Power'),
       spiritPerRawPoint: 1.1 * kings, spiritRegenCoefficient,

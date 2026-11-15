@@ -115,7 +115,7 @@ export function mountTalentTree(container, initial, onChange, treeList = trees) 
           unlocked(build, tree, node) ? '' : 'game-tooltip-locked');
         if (node.requires) tooltipLine(tip, 'Requires max rank in ' + node.requires);
         tooltipLine(tip, locked ? 'Talents are locked during combat.' : 'Click to learn · Right-click / Delete to remove · Shift-click to fill', 'game-tooltip-muted');
-      });
+      }, {immediateLeave:true});
       grid.append(button);
       return {node, button, badge, tooltip};
     });

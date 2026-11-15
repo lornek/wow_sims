@@ -5,111 +5,148 @@ export const loadouts = {
       "id": 9534,
       "name": "Engineer's Guild Headpiece",
       "icon": "inv_helmet_33",
-      "source": "Forever",
-      "acquisition": "Quest · Divino-matic Rod",
-      "ilvl": 49,
+      "type": 1,
+      "armorType": 2,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:9534",
+      "source": "Forever",
+      "ilvl": 49,
       "twoHand": false,
       "stats": {
-        "spirit": 22,
         "power": 29,
         "spellDamage": 10,
+        "spirit": 22,
         "armor": 117
-      }
+      },
+      "effects": false,
+      "acquisition": "Quest · Divino-matic Rod"
     },
     "Neck": {
       "id": 18317,
       "name": "Tempest Talisman",
       "icon": "inv_jewelry_necklace_03",
-      "source": "Forever",
-      "acquisition": "Dungeon · Dire Maul",
-      "ilvl": 58,
+      "type": 2,
+      "reqLvl": 53,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18317",
+      "source": "Forever",
+      "ilvl": 58,
       "twoHand": false,
       "stats": {
         "intellect": 6,
-        "spirit": 6,
         "power": 7,
         "spellDamage": 2,
-        "crit": 14
-      }
+        "spirit": 6,
+        "crit": 1
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Dire Maul"
     },
     "Shoulders": {
       "id": 15061,
       "name": "Living Shoulders",
       "icon": "inv_shoulder_18",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 54,
+      "type": 3,
+      "armorType": 2,
+      "reqLvl": 49,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:15061",
+      "source": "Forever",
+      "ilvl": 54,
       "twoHand": false,
       "stats": {
         "stamina": 8,
-        "spirit": 13,
         "power": 31,
         "spellDamage": 10,
+        "spirit": 13,
         "armor": 117
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted"
     },
     "Back": {
       "id": 12608,
       "name": "Butcher's Apron",
       "icon": "inv_misc_cape_18",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Spire",
-      "ilvl": 58,
+      "type": 4,
+      "armorType": 1,
+      "reqLvl": 53,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:12608",
+      "source": "Forever",
+      "ilvl": 58,
       "twoHand": false,
       "stats": {
         "stamina": 7,
-        "spirit": 15,
         "power": 9,
         "spellDamage": 3,
+        "spirit": 15,
         "armor": 41
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Blackrock Spire"
     },
     "Chest": {
       "id": 22272,
       "name": "Forest's Embrace",
       "icon": "inv_chest_leather_08",
-      "source": "Forever",
-      "acquisition": "Quest · A Better Ingredient",
-      "ilvl": 52,
+      "type": 5,
+      "armorType": 2,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:22272",
+      "source": "Forever",
+      "ilvl": 52,
       "twoHand": false,
       "stats": {
         "intellect": 9,
-        "spirit": 8,
         "power": 44,
         "spellDamage": 15,
-        "mp5": 6,
-        "armor": 151
-      }
+        "spirit": 8,
+        "armor": 151,
+        "mp5": 6
+      },
+      "effects": false,
+      "acquisition": "Quest · A Better Ingredient"
     },
     "Wrists": {
       "id": 12626,
       "name": "Funeral Cuffs",
       "icon": "inv_bracer_07",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Spire",
-      "ilvl": 59,
+      "type": 6,
+      "armorType": 1,
+      "reqLvl": 54,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:12626",
+      "source": "Forever",
+      "ilvl": 59,
       "twoHand": false,
       "stats": {
         "intellect": 14,
         "power": 18,
         "spellDamage": 6,
         "armor": 37
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Blackrock Spire"
     },
     "Hands": {
       "id": 18309,
       "name": "Gloves of Restoration",
       "icon": "inv_gauntlets_20",
-      "source": "Forever",
-      "acquisition": "Dungeon · Dire Maul",
-      "ilvl": 59,
+      "type": 7,
+      "armorType": 2,
+      "reqLvl": 54,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18309",
+      "source": "Forever",
+      "ilvl": 59,
       "twoHand": false,
       "stats": {
         "stamina": 13,
@@ -117,145 +154,201 @@ export const loadouts = {
         "power": 31,
         "spellDamage": 10,
         "armor": 105
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Dire Maul"
     },
     "Waist": {
       "id": 19047,
       "name": "Wisdom of the Timbermaw",
       "icon": "inv_belt_09",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 58,
+      "type": 8,
+      "armorType": 1,
+      "reqLvl": 53,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:19047",
+      "source": "Forever",
+      "ilvl": 58,
       "twoHand": false,
       "stats": {
         "intellect": 14,
-        "spirit": 9,
         "power": 31,
         "spellDamage": 11,
+        "spirit": 9,
         "armor": 46
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted"
     },
     "Legs": {
       "id": 11841,
       "name": "Senior Designer's Pantaloons",
       "icon": "inv_pants_09",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Depths",
-      "ilvl": 55,
+      "type": 9,
+      "armorType": 1,
+      "reqLvl": 50,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:11841",
+      "source": "Forever",
+      "ilvl": 55,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 7,
-        "spirit": 18,
         "power": 37,
         "spellDamage": 12,
+        "spirit": 18,
         "armor": 69
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Blackrock Depths"
     },
     "Feet": {
       "id": 15802,
       "name": "Mooncloth Boots",
       "icon": "inv_boots_05",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 56,
+      "type": 10,
+      "armorType": 1,
+      "reqLvl": 51,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:15802",
+      "source": "Forever",
+      "ilvl": 56,
       "twoHand": false,
       "stats": {
         "intellect": 14,
-        "spirit": 13,
         "power": 24,
         "spellDamage": 8,
+        "spirit": 13,
         "armor": 55
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted"
     },
     "Finger 1": {
       "id": 13178,
       "name": "Rosewine Circle",
       "icon": "inv_jewelry_ring_22",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Spire",
-      "ilvl": 60,
+      "type": 11,
+      "unique": true,
+      "reqLvl": 55,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:13178",
+      "source": "Forever",
+      "ilvl": 60,
       "twoHand": false,
       "stats": {
         "power": 24,
         "spellDamage": 8,
         "mp5": 6
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Blackrock Spire"
     },
     "Finger 2": {
       "id": 6440,
       "name": "Brainlash",
       "icon": "inv_belt_30",
-      "source": "Forever",
-      "acquisition": "Dungeon · Zul'Farrak",
-      "ilvl": 48,
+      "type": 11,
+      "unique": true,
+      "reqLvl": 43,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:6440",
+      "source": "Forever",
+      "ilvl": 48,
       "twoHand": false,
       "stats": {
         "intellect": 10,
-        "spirit": 5,
         "power": 11,
-        "spellDamage": 11
-      }
+        "spellDamage": 11,
+        "spirit": 5
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Zul'Farrak"
     },
     "Trinket 1": {
       "id": 11819,
       "name": "Second Wind",
       "icon": "inv_jewelry_talisman_06",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Depths",
-      "ilvl": 59,
+      "type": 12,
+      "unique": true,
+      "reqLvl": 54,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:11819",
+      "source": "Forever",
+      "ilvl": 59,
       "twoHand": false,
       "stats": {
         "power": 15,
         "spellDamage": 5
-      }
+      },
+      "effects": true,
+      "acquisition": "Dungeon · Blackrock Depths"
     },
     "Trinket 2": {
       "id": 18951,
       "name": "Evonice's Landin' Pilla",
       "icon": "inv_misc_armorkit_18",
-      "source": "Forever",
-      "acquisition": "Quest · Look at the Size of It!",
-      "ilvl": 50,
+      "type": 12,
+      "unique": true,
       "quality": 2,
+      "phase": 1,
+      "key": "Forever:18951",
+      "source": "Forever",
+      "ilvl": 50,
       "twoHand": false,
       "stats": {
         "spirit": 10
-      }
+      },
+      "effects": true,
+      "acquisition": "Quest · Look at the Size of It!"
     },
     "Main hand": {
       "id": 11932,
       "name": "Guiding Stave of Wisdom",
       "icon": "inv_staff_30",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Depths",
-      "ilvl": 59,
+      "type": 13,
+      "weaponType": 8,
+      "handType": 4,
+      "reqLvl": 54,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:11932",
+      "source": "Forever",
+      "ilvl": 59,
       "twoHand": true,
       "stats": {
         "stamina": 11,
-        "spirit": 10,
         "power": 127,
         "spellDamage": 42,
+        "spirit": 10,
         "mp5": 6
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Blackrock Depths"
     },
     "Relic": {
       "id": 220606,
       "name": "Idol of the Dream",
       "icon": "inv_relics_idolofferocity",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 60,
+      "type": 14,
+      "rangedWeaponType": 6,
+      "reqLvl": 55,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:220606",
+      "source": "Forever",
+      "ilvl": 60,
       "twoHand": false,
-      "stats": {}
+      "stats": {},
+      "effects": true,
+      "acquisition": "Crafted"
     }
   },
   "Level 60 dungeon": {
@@ -263,60 +356,81 @@ export const loadouts = {
       "id": 14140,
       "name": "Mooncloth Circlet",
       "icon": "inv_misc_bandana_01",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 62,
+      "type": 1,
+      "armorType": 1,
+      "reqLvl": 57,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:14140",
+      "source": "Forever",
+      "ilvl": 62,
       "twoHand": false,
       "stats": {
         "stamina": 13,
-        "spirit": 15,
         "power": 51,
         "spellDamage": 17,
+        "spirit": 15,
         "armor": 71
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted"
     },
     "Neck": {
       "id": 18723,
       "name": "Animated Chain Necklace",
       "icon": "inv_jewelry_necklace_01",
-      "source": "Forever",
-      "acquisition": "Dungeon · Stratholme",
-      "ilvl": 62,
+      "type": 2,
+      "reqLvl": 57,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18723",
+      "source": "Forever",
+      "ilvl": 62,
       "twoHand": false,
       "stats": {
         "stamina": 8,
-        "spirit": 7,
         "power": 33,
-        "spellDamage": 11
-      }
+        "spellDamage": 11,
+        "spirit": 7
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Stratholme"
     },
     "Shoulders": {
       "id": 14139,
       "name": "Mooncloth Shoulders",
       "icon": "inv_shoulder_02",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 61,
+      "type": 3,
+      "armorType": 1,
+      "reqLvl": 56,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:14139",
+      "source": "Forever",
+      "ilvl": 61,
       "twoHand": false,
       "stats": {
         "stamina": 9,
-        "spirit": 11,
         "power": 37,
         "spellDamage": 13,
+        "spirit": 11,
         "armor": 65
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted"
     },
     "Back": {
       "id": 18389,
       "name": "Cloak of the Cosmos",
       "icon": "inv_misc_cape_01",
-      "source": "Forever",
-      "acquisition": "Dungeon · Dire Maul",
-      "ilvl": 62,
+      "type": 4,
+      "armorType": 1,
+      "reqLvl": 57,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18389",
+      "source": "Forever",
+      "ilvl": 62,
       "twoHand": false,
       "stats": {
         "stamina": 7,
@@ -324,52 +438,69 @@ export const loadouts = {
         "power": 20,
         "spellDamage": 7,
         "armor": 44
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Dire Maul"
     },
     "Chest": {
       "id": 22272,
       "name": "Forest's Embrace",
       "icon": "inv_chest_leather_08",
-      "source": "Forever",
-      "acquisition": "Quest · A Better Ingredient",
-      "ilvl": 52,
+      "type": 5,
+      "armorType": 2,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:22272",
+      "source": "Forever",
+      "ilvl": 52,
       "twoHand": false,
       "stats": {
         "intellect": 9,
-        "spirit": 8,
         "power": 44,
         "spellDamage": 15,
-        "mp5": 6,
-        "armor": 151
-      }
+        "spirit": 8,
+        "armor": 151,
+        "mp5": 6
+      },
+      "effects": false,
+      "acquisition": "Quest · A Better Ingredient"
     },
     "Wrists": {
       "id": 18525,
       "name": "Bracers of Prosperity",
       "icon": "inv_bracer_12",
-      "source": "Forever",
-      "acquisition": "Dungeon · Dire Maul",
-      "ilvl": 63,
+      "type": 6,
+      "armorType": 2,
+      "reqLvl": 58,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18525",
+      "source": "Forever",
+      "ilvl": 63,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 10,
-        "spirit": 5,
         "power": 22,
         "spellDamage": 7,
+        "spirit": 5,
         "armor": 77
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Dire Maul"
     },
     "Hands": {
       "id": 18409,
       "name": "Mooncloth Gloves",
       "icon": "inv_gauntlets_17",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 62,
+      "type": 7,
+      "armorType": 1,
+      "reqLvl": 57,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18409",
+      "source": "Forever",
+      "ilvl": 62,
       "twoHand": false,
       "stats": {
         "stamina": 9,
@@ -377,373 +508,537 @@ export const loadouts = {
         "power": 33,
         "spellDamage": 11,
         "armor": 55
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted"
     },
     "Waist": {
       "id": 19047,
       "name": "Wisdom of the Timbermaw",
       "icon": "inv_belt_09",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 58,
+      "type": 8,
+      "armorType": 1,
+      "reqLvl": 53,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:19047",
+      "source": "Forever",
+      "ilvl": 58,
       "twoHand": false,
       "stats": {
         "intellect": 14,
-        "spirit": 9,
         "power": 31,
         "spellDamage": 11,
+        "spirit": 9,
         "armor": 46
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted"
     },
     "Legs": {
       "id": 11841,
       "name": "Senior Designer's Pantaloons",
       "icon": "inv_pants_09",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Depths",
-      "ilvl": 55,
+      "type": 9,
+      "armorType": 1,
+      "reqLvl": 50,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:11841",
+      "source": "Forever",
+      "ilvl": 55,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 7,
-        "spirit": 18,
         "power": 37,
         "spellDamage": 12,
+        "spirit": 18,
         "armor": 69
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Blackrock Depths"
     },
     "Feet": {
       "id": 13954,
       "name": "Verdant Footpads",
       "icon": "inv_boots_08",
-      "source": "Forever",
-      "acquisition": "Dungeon · Stratholme",
-      "ilvl": 62,
+      "type": 10,
+      "armorType": 2,
+      "reqLvl": 57,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:13954",
+      "source": "Forever",
+      "ilvl": 62,
       "twoHand": false,
       "stats": {
         "power": 38,
         "spellDamage": 12,
-        "mp5": 5,
-        "armor": 120
-      }
+        "armor": 120,
+        "mp5": 5
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Stratholme"
     },
     "Finger 1": {
       "id": 13178,
       "name": "Rosewine Circle",
       "icon": "inv_jewelry_ring_22",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Spire",
-      "ilvl": 60,
+      "type": 11,
+      "unique": true,
+      "reqLvl": 55,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:13178",
+      "source": "Forever",
+      "ilvl": 60,
       "twoHand": false,
       "stats": {
         "power": 24,
         "spellDamage": 8,
         "mp5": 6
-      }
+      },
+      "effects": false,
+      "acquisition": "Dungeon · Blackrock Spire"
     },
     "Finger 2": {
       "id": 12543,
       "name": "Songstone of Ironforge",
       "icon": "inv_jewelry_ring_05",
-      "source": "Forever",
-      "acquisition": "Quest · The Princess's Surprise",
-      "ilvl": 60,
+      "type": 11,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:12543",
+      "source": "Forever",
+      "ilvl": 60,
       "twoHand": false,
       "stats": {
         "intellect": 7,
         "power": 18,
         "spellDamage": 18
-      }
+      },
+      "effects": false,
+      "acquisition": "Quest · The Princess's Surprise"
     },
     "Trinket 1": {
       "id": 11819,
       "name": "Second Wind",
       "icon": "inv_jewelry_talisman_06",
-      "source": "Forever",
-      "acquisition": "Dungeon · Blackrock Depths",
-      "ilvl": 59,
+      "type": 12,
+      "unique": true,
+      "reqLvl": 54,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:11819",
+      "source": "Forever",
+      "ilvl": 59,
       "twoHand": false,
       "stats": {
         "power": 15,
         "spellDamage": 5
-      }
+      },
+      "effects": true,
+      "acquisition": "Dungeon · Blackrock Depths"
     },
     "Trinket 2": {
       "id": 18951,
       "name": "Evonice's Landin' Pilla",
       "icon": "inv_misc_armorkit_18",
-      "source": "Forever",
-      "acquisition": "Quest · Look at the Size of It!",
-      "ilvl": 50,
+      "type": 12,
+      "unique": true,
       "quality": 2,
+      "phase": 1,
+      "key": "Forever:18951",
+      "source": "Forever",
+      "ilvl": 50,
       "twoHand": false,
       "stats": {
         "spirit": 10
-      }
+      },
+      "effects": true,
+      "acquisition": "Quest · Look at the Size of It!"
     },
     "Main hand": {
       "id": 13249,
       "name": "Argent Crusader",
       "icon": "inv_staff_13",
-      "source": "Forever",
-      "acquisition": "Quest · The Argent Hold",
-      "ilvl": 62,
+      "type": 13,
+      "weaponType": 8,
+      "handType": 4,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:13249",
+      "source": "Forever",
+      "ilvl": 62,
       "twoHand": true,
       "stats": {
         "stamina": 6,
         "intellect": 30,
-        "spirit": 10,
         "power": 135,
-        "spellDamage": 45
-      }
+        "spellDamage": 45,
+        "spirit": 10
+      },
+      "effects": false,
+      "acquisition": "Quest · The Argent Hold"
     },
     "Relic": {
       "id": 220606,
       "name": "Idol of the Dream",
       "icon": "inv_relics_idolofferocity",
-      "source": "Forever",
-      "acquisition": "Crafted",
-      "ilvl": 60,
+      "type": 14,
+      "rangedWeaponType": 6,
+      "reqLvl": 55,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:220606",
+      "source": "Forever",
+      "ilvl": 60,
       "twoHand": false,
-      "stats": {}
+      "stats": {},
+      "effects": true,
+      "acquisition": "Crafted"
     }
   },
   "Tier 1 raid": {
     "Head": {
       "id": 252561,
       "name": "Living Crown",
-      "icon": "inv_helmet_19",
-      "source": "ForeverDB",
-      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
-      "ilvl": 61,
+      "type": 1,
+      "armorType": 2,
+      "reqLvl": 56,
       "quality": 4,
+      "phase": 1,
+      "key": "Forever:252561",
+      "source": "Forever",
+      "ilvl": 61,
+      "twoHand": false,
       "stats": {
         "intellect": 18,
-        "spirit": 14,
         "power": 73,
         "spellDamage": 25,
+        "spirit": 14,
         "armor": 152
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300."
     },
     "Neck": {
       "id": 21712,
       "name": "Amulet of the Fallen God",
       "icon": "inv_jewelry_necklace_ahnqiraj_02",
-      "source": "ForeverDB",
-      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data).",
-      "ilvl": 88,
+      "type": 2,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 2,
+      "key": "Forever:21712",
+      "source": "Forever",
+      "ilvl": 88,
+      "twoHand": false,
       "stats": {
         "stamina": 11,
         "power": 57,
         "mp5": 6
-      }
+      },
+      "effects": false,
+      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data)."
     },
     "Shoulders": {
       "id": 14139,
       "name": "Mooncloth Shoulders",
       "icon": "inv_shoulder_02",
-      "source": "ForeverDB",
-      "acquisition": "Crafted: Tailoring 275 (Forever client). Learn it at skill 275.",
-      "ilvl": 61,
+      "type": 3,
+      "armorType": 1,
+      "reqLvl": 56,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:14139",
+      "source": "Forever",
+      "ilvl": 61,
+      "twoHand": false,
       "stats": {
         "stamina": 9,
-        "spirit": 11,
         "power": 37,
         "spellDamage": 13,
+        "spirit": 11,
         "armor": 65
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted: Tailoring 275 (Forever client). Learn it at skill 275."
     },
     "Back": {
       "id": 18510,
       "name": "Hide of the Wild",
       "icon": "inv_misc_cape_01",
-      "source": "ForeverDB",
-      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
-      "ilvl": 62,
+      "type": 4,
+      "armorType": 1,
+      "reqLvl": 57,
       "quality": 4,
+      "phase": 1,
+      "key": "Forever:18510",
+      "source": "Forever",
+      "ilvl": 62,
+      "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 10,
         "power": 42,
         "spellDamage": 14,
         "armor": 48
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300."
     },
     "Chest": {
       "id": 22272,
       "name": "Forest's Embrace",
       "icon": "inv_chest_leather_08",
-      "source": "ForeverDB",
-      "acquisition": "Quest reward: A Better Ingredient (a choice), level 52 (Classic data).",
-      "ilvl": 52,
+      "type": 5,
+      "armorType": 2,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:22272",
+      "source": "Forever",
+      "ilvl": 52,
+      "twoHand": false,
       "stats": {
         "intellect": 9,
-        "spirit": 8,
         "power": 44,
         "spellDamage": 15,
-        "mp5": 6,
-        "armor": 151
-      }
+        "spirit": 8,
+        "armor": 151,
+        "mp5": 6
+      },
+      "effects": false,
+      "acquisition": "Quest reward: A Better Ingredient (a choice), level 52 (Classic data)."
     },
     "Wrists": {
       "id": 19840,
       "name": "Zandalar Haruspex's Bracers",
       "icon": "inv_bracer_08",
-      "source": "ForeverDB",
-      "acquisition": "Quest reward: Paragons of Power: The Haruspex's Bracers, level 60 (Classic data).",
-      "ilvl": 61,
+      "type": 6,
+      "armorType": 2,
+      "classAllowlist": [
+        11
+      ],
       "quality": 4,
+      "phase": 2,
+      "key": "Forever:19840",
+      "source": "Forever",
+      "ilvl": 61,
+      "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 11,
-        "spirit": 11,
         "power": 24,
-        "armor": 122
-      }
+        "spirit": 11,
+        "armor": 82
+      },
+      "effects": true,
+      "acquisition": "Quest reward: Paragons of Power: The Haruspex's Bracers, level 60 (Classic data)."
     },
     "Hands": {
       "id": 227198,
       "name": "Knight-Lieutenant's Dragonhide Gauntlets",
       "icon": "inv_gauntlets_25",
-      "source": "ForeverDB",
-      "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one.",
-      "ilvl": 66,
+      "type": 7,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 3,
+      "phase": 4,
+      "key": "Season of Discovery:227198",
+      "source": "Season of Discovery",
+      "ilvl": 66,
+      "twoHand": false,
       "stats": {
-        "armor": 115,
-        "power": 40,
         "stamina": 18,
-        "intellect": 5
-      }
+        "intellect": 5,
+        "armor": 115,
+        "power": 40
+      },
+      "effects": true,
+      "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one."
     },
     "Waist": {
       "id": 19162,
       "name": "Corehound Belt",
       "icon": "inv_belt_24",
-      "source": "ForeverDB",
-      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300.",
-      "ilvl": 70,
+      "type": 8,
+      "armorType": 2,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 2,
+      "key": "Forever:19162",
+      "source": "Forever",
+      "ilvl": 70,
+      "twoHand": false,
       "stats": {
         "intellect": 16,
         "power": 62,
         "spellDamage": 21,
         "armor": 118
-      }
+      },
+      "effects": false,
+      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300."
     },
     "Legs": {
       "id": 18386,
       "name": "Padre's Trousers",
       "icon": "inv_pants_06",
-      "source": "ForeverDB",
-      "acquisition": "Drops from Illyanna Ravenoak in Dire Maul, 25% (Classic data).",
-      "ilvl": 61,
+      "type": 9,
+      "armorType": 1,
+      "reqLvl": 56,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18386",
+      "source": "Forever",
+      "ilvl": 61,
+      "twoHand": false,
       "stats": {
-        "armor": 76,
+        "intellect": 20,
         "power": 37,
         "spellDamage": 12,
-        "intellect": 20,
+        "armor": 76,
         "mp5": 7
-      }
+      },
+      "effects": false,
+      "acquisition": "Drops from Illyanna Ravenoak in Dire Maul, 25% (Classic data)."
     },
     "Feet": {
       "id": 13954,
       "name": "Verdant Footpads",
       "icon": "inv_boots_08",
-      "source": "ForeverDB",
-      "acquisition": "Drops from Stonespine in Stratholme, 33% (Classic data).",
-      "ilvl": 62,
+      "type": 10,
+      "armorType": 2,
+      "reqLvl": 57,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:13954",
+      "source": "Forever",
+      "ilvl": 62,
+      "twoHand": false,
       "stats": {
         "power": 38,
         "spellDamage": 12,
-        "mp5": 5,
-        "armor": 120
-      }
+        "armor": 120,
+        "mp5": 5
+      },
+      "effects": false,
+      "acquisition": "Drops from Stonespine in Stratholme, 33% (Classic data)."
     },
     "Finger 1": {
       "id": 19140,
       "name": "Cauterizing Band",
       "icon": "inv_jewelry_ring_39",
-      "source": "ForeverDB",
-      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data).",
-      "ilvl": 71,
+      "type": 11,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 2,
+      "key": "Forever:19140",
+      "source": "Forever",
+      "ilvl": 71,
+      "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 12,
         "power": 46,
         "spellDamage": 15
-      }
+      },
+      "effects": false,
+      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data)."
     },
     "Finger 2": {
       "id": 275983,
       "name": "Warden's Signet of Resolve",
       "icon": "inv_jewelry_ring_11",
-      "source": "ForeverDB",
-      "acquisition": "Needs Exalted with The Watchers (Forever client: who sells it isn't known yet).",
-      "ilvl": 65,
+      "type": 11,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 1,
+      "key": "Forever:275983",
+      "source": "Forever",
+      "ilvl": 65,
+      "twoHand": false,
       "stats": {
         "stamina": 10,
-        "spirit": 14,
         "power": 37,
-        "spellDamage": 12
-      }
+        "spellDamage": 12,
+        "spirit": 14
+      },
+      "effects": false,
+      "acquisition": "Needs Exalted with The Watchers (Forever client: who sells it isn't known yet)."
     },
     "Trinket 1": {
       "id": 18470,
       "name": "Royal Seal of Eldre'Thalas",
       "icon": "inv_jewelry_talisman_10",
-      "source": "ForeverDB",
-      "acquisition": "Quest reward: The Emerald Dream..., level 60 (Classic data).",
-      "ilvl": 62,
+      "type": 12,
+      "classAllowlist": [
+        11
+      ],
+      "unique": true,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:18470",
+      "source": "Forever",
+      "ilvl": 62,
+      "twoHand": false,
       "stats": {
         "power": 22,
         "spellDamage": 7
-      }
+      },
+      "effects": true,
+      "acquisition": "Quest reward: The Emerald Dream..., level 60 (Classic data)."
     },
     "Trinket 2": {
       "id": 272439,
       "name": "Serenity Field",
       "icon": "inv_misc_enggizmos_36",
-      "source": "ForeverDB",
-      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever).",
-      "ilvl": 65,
+      "type": 12,
+      "reqLvl": 60,
       "quality": 3,
+      "phase": 1,
+      "key": "Forever:272439",
+      "source": "Forever",
+      "ilvl": 65,
+      "twoHand": false,
       "stats": {
         "power": 21,
         "spellDamage": 7
-      }
+      },
+      "effects": true,
+      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever)."
     },
     "Main hand": {
       "id": 22632,
       "name": "Atiesh, Greatstaff of the Guardian",
       "icon": "inv_staff_medivh",
-      "source": "ForeverDB",
-      "acquisition": "Quest reward: Atiesh, Greatstaff of the Guardian, level 60 (Classic data).",
-      "ilvl": 90,
+      "type": 13,
+      "weaponType": 8,
+      "handType": 4,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 5,
+      "phase": 2,
+      "key": "Forever:22632",
+      "source": "Forever",
+      "ilvl": 90,
+      "twoHand": true,
       "stats": {
         "stamina": 28,
         "intellect": 28,
-        "spirit": 27,
         "power": 300,
+        "spirit": 27,
         "mp5": 11
-      }
+      },
+      "effects": false,
+      "acquisition": "Quest reward: Atiesh, Greatstaff of the Guardian, level 60 (Classic data)."
     }
   },
   "Tier 2 raid": {
@@ -751,250 +1046,359 @@ export const loadouts = {
       "id": 230812,
       "name": "Mish'undare, Circlet of the Mind Flayer",
       "icon": "inv_helmet_52",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 83,
+      "type": 1,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230812",
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "twoHand": false,
       "stats": {
         "stamina": 14,
         "intellect": 20,
         "spirit": 12,
         "power": 37,
-        "spellDamage": 37,
         "crit": 2,
         "armor": 102
-      }
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     },
     "Neck": {
       "id": 230245,
       "name": "Pendant of the Fallen Dragon",
       "icon": "inv_jewelry_necklace_12",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 74,
+      "type": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230245",
+      "source": "Season of Discovery",
+      "ilvl": 74,
       "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 12,
         "power": 13,
-        "spellDamage": 13,
         "mp5": 5
-      }
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     },
     "Shoulders": {
       "id": 231235,
       "name": "Stormrage Pauldrons",
       "icon": "inv_shoulder_07",
-      "source": "Season of Discovery",
-      "acquisition": "Bounty of Stormrage",
-      "ilvl": 76,
+      "type": 3,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:231235",
+      "source": "Season of Discovery",
+      "ilvl": 76,
       "twoHand": false,
       "stats": {
         "stamina": 10,
         "intellect": 13,
         "spirit": 11,
         "power": 15,
-        "spellDamage": 15,
         "crit": 1,
         "armor": 169
-      }
+      },
+      "effects": true,
+      "acquisition": "Bounty of Stormrage"
     },
     "Back": {
       "id": 230804,
       "name": "Cloak of the Brood Lord",
       "icon": "inv_misc_cape_20",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 83,
+      "type": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230804",
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "twoHand": false,
       "stats": {
         "stamina": 10,
         "intellect": 13,
         "power": 30,
-        "spellDamage": 30,
         "armor": 63
-      }
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     },
     "Chest": {
       "id": 231230,
       "name": "Stormrage Chestguard",
       "icon": "inv_chest_chain_16",
-      "source": "Season of Discovery",
-      "acquisition": "Bounty of Stormrage",
-      "ilvl": 76,
+      "type": 5,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:231230",
+      "source": "Season of Discovery",
+      "ilvl": 76,
       "twoHand": false,
       "stats": {
         "stamina": 14,
         "intellect": 15,
         "spirit": 13,
         "power": 22,
-        "spellDamage": 22,
         "crit": 1,
         "armor": 225
-      }
+      },
+      "effects": true,
+      "acquisition": "Bounty of Stormrage"
     },
     "Wrists": {
       "id": 231237,
       "name": "Stormrage Bracers",
       "icon": "inv_bracer_03",
-      "source": "Season of Discovery",
-      "acquisition": "Bounty of Stormrage",
-      "ilvl": 76,
+      "type": 6,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:231237",
+      "source": "Season of Discovery",
+      "ilvl": 76,
       "twoHand": false,
       "stats": {
         "stamina": 13,
         "intellect": 10,
         "power": 11,
-        "spellDamage": 11,
         "crit": 1,
         "armor": 98
-      }
+      },
+      "effects": true,
+      "acquisition": "Bounty of Stormrage"
     },
     "Hands": {
       "id": 231232,
       "name": "Stormrage Handguards",
       "icon": "inv_gauntlets_25",
-      "source": "Season of Discovery",
-      "acquisition": "Bounty of Stormrage",
-      "ilvl": 76,
+      "type": 7,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:231232",
+      "source": "Season of Discovery",
+      "ilvl": 76,
       "twoHand": false,
       "stats": {
         "stamina": 14,
         "intellect": 16,
         "spirit": 11,
         "power": 16,
-        "spellDamage": 16,
         "armor": 140
-      }
+      },
+      "effects": true,
+      "acquisition": "Bounty of Stormrage"
     },
     "Waist": {
       "id": 231236,
       "name": "Stormrage Belt",
       "icon": "inv_belt_06",
-      "source": "Season of Discovery",
-      "acquisition": "Bounty of Stormrage",
-      "ilvl": 76,
+      "type": 8,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:231236",
+      "source": "Season of Discovery",
+      "ilvl": 76,
       "twoHand": false,
       "stats": {
         "stamina": 10,
         "intellect": 12,
         "spirit": 12,
         "power": 14,
-        "spellDamage": 14,
         "crit": 1,
         "armor": 126
-      }
+      },
+      "effects": true,
+      "acquisition": "Bounty of Stormrage"
     },
     "Legs": {
       "id": 230746,
       "name": "Empowered Leggings",
       "icon": "inv_pants_cloth_19",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 77,
+      "type": 9,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230746",
+      "source": "Season of Discovery",
+      "ilvl": 77,
       "twoHand": false,
       "stats": {
         "stamina": 12,
         "intellect": 12,
         "spirit": 24,
         "power": 26,
-        "spellDamage": 26,
         "crit": 1,
         "armor": 103
-      }
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     },
     "Feet": {
       "id": 231231,
       "name": "Stormrage Boots",
       "icon": "inv_boots_08",
-      "source": "Season of Discovery",
-      "acquisition": "Bounty of Stormrage",
-      "ilvl": 76,
+      "type": 10,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:231231",
+      "source": "Season of Discovery",
+      "ilvl": 76,
       "twoHand": false,
       "stats": {
         "stamina": 12,
         "intellect": 17,
         "power": 14,
-        "spellDamage": 14,
         "crit": 1,
         "armor": 154
-      }
+      },
+      "effects": true,
+      "acquisition": "Bounty of Stormrage"
     },
     "Finger 1": {
       "id": 230811,
       "name": "Pure Elementium Band",
       "icon": "inv_jewelry_ring_42",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 83,
+      "type": 11,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230811",
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 11,
         "spirit": 11,
-        "power": 18,
-        "spellDamage": 18
-      }
+        "power": 18
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     },
     "Finger 2": {
       "id": 230257,
       "name": "Ring of Blackrock",
       "icon": "inv_jewelry_ring_43",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 75,
+      "type": 11,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230257",
+      "source": "Season of Discovery",
+      "ilvl": 75,
       "twoHand": false,
       "stats": {
         "intellect": 12,
         "spirit": 11,
-        "power": 26,
-        "spellDamage": 26
-      }
+        "power": 26
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     },
     "Trinket 1": {
       "id": 230269,
       "name": "Rejuvenating Gem",
       "icon": "inv_misc_gem_topaz_02",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 75,
+      "type": 12,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230269",
+      "source": "Season of Discovery",
+      "ilvl": 75,
       "twoHand": false,
       "stats": {
         "power": 22,
-        "spellDamage": 22,
         "mp5": 9
-      }
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     },
     "Main hand": {
       "id": 230813,
       "name": "Staff of the Shadow Flame",
       "icon": "inv_staff_06",
-      "source": "Season of Discovery",
-      "acquisition": "Blackwing Lair",
-      "ilvl": 81,
+      "type": 13,
+      "weaponType": 8,
+      "handType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230813",
+      "source": "Season of Discovery",
+      "ilvl": 81,
       "twoHand": true,
       "stats": {
         "stamina": 21,
         "intellect": 29,
         "spirit": 18,
         "power": 86,
-        "spellDamage": 86,
         "crit": 2
-      }
+      },
+      "effects": false,
+      "acquisition": "Blackwing Lair"
     }
   },
   "Tier 3 raid": {
@@ -1002,279 +1406,408 @@ export const loadouts = {
       "id": 236182,
       "name": "Dreamwalker Headpiece",
       "icon": "inv_helmet_15",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 88,
+      "type": 1,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236182",
+      "source": "Season of Discovery",
+      "ilvl": 88,
       "twoHand": false,
       "stats": {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
         "power": 32,
-        "spellDamage": 32,
         "crit": 2,
         "armor": 205
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Neck": {
       "id": 236345,
       "name": "Gem of Trapped Innocents",
       "icon": "inv_jewelry_necklace_29naxxramas",
-      "source": "Season of Discovery",
-      "acquisition": "Naxxramas",
-      "ilvl": 92,
+      "type": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236345",
+      "source": "Season of Discovery",
+      "ilvl": 92,
       "twoHand": false,
       "stats": {
         "stamina": 5,
         "intellect": 5,
         "power": 20,
-        "spellDamage": 20,
         "crit": 2
-      }
+      },
+      "effects": false,
+      "acquisition": "Naxxramas"
     },
     "Shoulders": {
       "id": 236189,
       "name": "Dreamwalker Spaulders",
       "icon": "inv_shoulder_14",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 86,
+      "type": 3,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236189",
+      "source": "Season of Discovery",
+      "ilvl": 86,
       "twoHand": false,
       "stats": {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
         "power": 24,
-        "spellDamage": 24,
         "crit": 1,
         "armor": 186
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Back": {
       "id": 236307,
       "name": "Veil of Eclipse",
       "icon": "inv_misc_cape_naxxramas_01",
-      "source": "Season of Discovery",
-      "acquisition": "Naxxramas",
-      "ilvl": 83,
+      "type": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236307",
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 8,
         "power": 28,
-        "spellDamage": 28,
         "crit": 1,
         "armor": 63
-      }
+      },
+      "effects": false,
+      "acquisition": "Naxxramas"
     },
     "Chest": {
       "id": 236186,
       "name": "Dreamwalker Tunic",
       "icon": "inv_chest_chain_15",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 92,
+      "type": 5,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236186",
+      "source": "Season of Discovery",
+      "ilvl": 92,
       "twoHand": false,
       "stats": {
         "stamina": 15,
         "intellect": 16,
         "spirit": 16,
         "power": 32,
-        "spellDamage": 32,
         "crit": 2,
         "armor": 262
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Wrists": {
       "id": 236183,
       "name": "Dreamwalker Wristguards",
       "icon": "inv_bracer_02",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 88,
+      "type": 6,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236183",
+      "source": "Season of Discovery",
+      "ilvl": 88,
       "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 10,
         "spirit": 9,
         "power": 16,
-        "spellDamage": 16,
         "crit": 1,
         "armor": 111
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Hands": {
       "id": 236184,
       "name": "Dreamwalker Handguards",
       "icon": "inv_gauntlets_25",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 88,
+      "type": 7,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236184",
+      "source": "Season of Discovery",
+      "ilvl": 88,
       "twoHand": false,
       "stats": {
         "stamina": 12,
         "intellect": 13,
         "spirit": 12,
         "power": 24,
-        "spellDamage": 24,
         "crit": 1,
         "armor": 158
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Waist": {
       "id": 236187,
       "name": "Dreamwalker Girdle",
       "icon": "inv_belt_22",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 88,
+      "type": 8,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236187",
+      "source": "Season of Discovery",
+      "ilvl": 88,
       "twoHand": false,
       "stats": {
         "stamina": 14,
         "intellect": 13,
         "spirit": 14,
         "power": 22,
-        "spellDamage": 22,
         "crit": 1,
         "armor": 142
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Legs": {
       "id": 236188,
       "name": "Dreamwalker Legguards",
       "icon": "inv_pants_mail_15",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 88,
+      "type": 9,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236188",
+      "source": "Season of Discovery",
+      "ilvl": 88,
       "twoHand": false,
       "stats": {
         "stamina": 14,
         "intellect": 15,
         "spirit": 15,
         "power": 31,
-        "spellDamage": 31,
         "crit": 2,
         "armor": 221
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Feet": {
       "id": 236185,
       "name": "Dreamwalker Boots",
       "icon": "inv_boots_chain_05",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 86,
+      "type": 10,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236185",
+      "source": "Season of Discovery",
+      "ilvl": 86,
       "twoHand": false,
       "stats": {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
         "power": 24,
-        "spellDamage": 24,
         "crit": 1,
         "armor": 171
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Finger 1": {
       "id": 236190,
       "name": "Ring of the Dreamwalker",
       "icon": "inv_jewelry_ring_51naxxramas",
-      "source": "Season of Discovery",
-      "acquisition": "Dreamwalker Raiment",
-      "ilvl": 92,
+      "type": 11,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236190",
+      "source": "Season of Discovery",
+      "ilvl": 92,
       "twoHand": false,
       "stats": {
         "intellect": 10,
         "power": 21,
-        "spellDamage": 21,
         "crit": 1
-      }
+      },
+      "effects": true,
+      "acquisition": "Dreamwalker Raiment"
     },
     "Finger 2": {
       "id": 236283,
       "name": "Ring of Spiritual Fervor",
       "icon": "inv_jewelry_ring_52naxxramas",
-      "source": "Season of Discovery",
-      "acquisition": "Naxxramas",
-      "ilvl": 85,
+      "type": 11,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236283",
+      "source": "Season of Discovery",
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 8,
         "power": 18,
-        "spellDamage": 18,
         "crit": 1
-      }
+      },
+      "effects": false,
+      "acquisition": "Naxxramas"
     },
     "Trinket 1": {
       "id": 236329,
       "name": "Eye of the Dead",
       "icon": "inv_trinket_naxxramas01",
-      "source": "Season of Discovery",
-      "acquisition": "Naxxramas",
-      "ilvl": 90,
+      "type": 12,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236329",
+      "source": "Season of Discovery",
+      "ilvl": 90,
       "twoHand": false,
       "stats": {
-        "power": 26,
-        "spellDamage": 26
-      }
+        "power": 26
+      },
+      "effects": false,
+      "acquisition": "Naxxramas"
     },
     "Trinket 2": {
       "id": 236320,
       "name": "Warmth of Forgiveness",
       "icon": "inv_trinket_naxxramas01",
-      "source": "Season of Discovery",
-      "acquisition": "Naxxramas",
-      "ilvl": 85,
+      "type": 12,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236320",
+      "source": "Season of Discovery",
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
         "power": 23,
-        "spellDamage": 23,
         "mp5": 10
-      }
+      },
+      "effects": false,
+      "acquisition": "Naxxramas"
     },
     "Main hand": {
       "id": 236346,
       "name": "Soulseeker",
       "icon": "inv_staff_15",
-      "source": "Season of Discovery",
-      "acquisition": "Naxxramas",
-      "ilvl": 89,
+      "type": 13,
+      "weaponType": 8,
+      "handType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236346",
+      "source": "Season of Discovery",
+      "ilvl": 89,
       "twoHand": true,
       "stats": {
         "stamina": 10,
         "intellect": 15,
         "spirit": 20,
         "power": 127,
-        "spellDamage": 127,
         "crit": 2
-      }
+      },
+      "effects": false,
+      "acquisition": "Naxxramas"
     },
     "Relic": {
       "id": 236308,
       "name": "Idol of Longevity",
       "icon": "inv_relics_idolofhealth",
-      "source": "Season of Discovery",
-      "acquisition": "Naxxramas",
-      "ilvl": 83,
+      "type": 14,
+      "rangedWeaponType": 6,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236308",
+      "source": "Season of Discovery",
+      "ilvl": 83,
       "twoHand": false,
-      "stats": {}
+      "stats": {},
+      "effects": false,
+      "acquisition": "Naxxramas"
     }
   },
   "Tier 4 raid · SoD": {
@@ -1282,245 +1815,350 @@ export const loadouts = {
       "id": 240088,
       "name": "Waywatcher Headpiece",
       "icon": "inv_helmet_15",
-      "source": "Season of Discovery",
-      "acquisition": "Waywatcher Raiment",
-      "ilvl": 98,
+      "type": 1,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:240088",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 14,
         "intellect": 16,
         "spirit": 16,
         "power": 36,
-        "spellDamage": 36,
         "crit": 2,
         "armor": 223
-      }
+      },
+      "effects": true,
+      "acquisition": "Waywatcher Raiment"
     },
     "Neck": {
       "id": 241073,
       "name": "Touch of Light",
       "icon": "inv_jewelry_necklace_12",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 98,
+      "type": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 0,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241073",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 9,
         "intellect": 8,
         "power": 25,
-        "spellDamage": 25,
         "crit": 1
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Shoulders": {
       "id": 241153,
       "name": "Doan's Mantle",
       "icon": "inv_shoulder_49",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 98,
+      "type": 3,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241153",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 12,
         "power": 51,
-        "spellDamage": 51,
         "armor": 110
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Back": {
       "id": 241026,
       "name": "Cardinal's Shawl",
       "icon": "inv_misc_cape_18",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 94,
+      "type": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241026",
+      "source": "Season of Discovery",
+      "ilvl": 94,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 10,
         "power": 25,
-        "spellDamage": 25,
         "crit": 1,
         "armor": 70
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Chest": {
       "id": 240091,
       "name": "Waywatcher Tunic",
       "icon": "inv_chest_chain_15",
-      "source": "Season of Discovery",
-      "acquisition": "Waywatcher Raiment",
-      "ilvl": 98,
+      "type": 5,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:240091",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 18,
         "intellect": 21,
         "spirit": 19,
         "power": 37,
-        "spellDamage": 37,
         "crit": 2,
         "armor": 275
-      }
+      },
+      "effects": true,
+      "acquisition": "Waywatcher Raiment"
     },
     "Wrists": {
       "id": 241165,
       "name": "Penitent Wraps",
       "icon": "inv_bracer_13",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 96,
+      "type": 6,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241165",
+      "source": "Season of Discovery",
+      "ilvl": 96,
       "twoHand": false,
       "stats": {
         "intellect": 8,
         "power": 25,
-        "spellDamage": 25,
         "armor": 63
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Hands": {
       "id": 241171,
       "name": "Gloves of Departed Souls",
       "icon": "inv_gauntlets_49",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 92,
+      "type": 7,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241171",
+      "source": "Season of Discovery",
+      "ilvl": 92,
       "twoHand": false,
       "stats": {
         "stamina": 11,
         "intellect": 12,
         "power": 30,
-        "spellDamage": 30,
         "crit": 1,
         "armor": 86
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Waist": {
       "id": 240085,
       "name": "Waywatcher Girdle",
       "icon": "inv_belt_22",
-      "source": "Season of Discovery",
-      "acquisition": "Waywatcher Raiment",
-      "ilvl": 98,
+      "type": 8,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:240085",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 16,
         "intellect": 16,
         "spirit": 16,
         "power": 26,
-        "spellDamage": 26,
         "crit": 1,
         "armor": 155
-      }
+      },
+      "effects": true,
+      "acquisition": "Waywatcher Raiment"
     },
     "Legs": {
       "id": 240087,
       "name": "Waywatcher Legguards",
       "icon": "inv_pants_mail_15",
-      "source": "Season of Discovery",
-      "acquisition": "Waywatcher Raiment",
-      "ilvl": 98,
+      "type": 9,
+      "armorType": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        11
+      ],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:240087",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 16,
         "intellect": 20,
         "spirit": 20,
         "power": 32,
-        "spellDamage": 32,
         "crit": 3,
         "armor": 240
-      }
+      },
+      "effects": true,
+      "acquisition": "Waywatcher Raiment"
     },
     "Feet": {
       "id": 241183,
       "name": "Ashwalkers",
       "icon": "inv_boots_fabric_01",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 98,
+      "type": 10,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241183",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 10,
         "intellect": 10,
         "spirit": 25,
         "power": 47,
-        "spellDamage": 47,
         "armor": 100
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Finger 1": {
       "id": 241031,
       "name": "Barthalomew's Promise",
       "icon": "inv_jewelry_ring_63",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 98,
+      "type": 11,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241031",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 8,
         "power": 35,
-        "spellDamage": 35,
         "crit": 1
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Finger 2": {
       "id": 241032,
       "name": "Ring of Resurrection",
       "icon": "inv_jewelry_ring_72",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 98,
+      "type": 11,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241032",
+      "source": "Season of Discovery",
+      "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "power": 28,
-        "spellDamage": 28
-      }
+        "power": 28
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Trinket 1": {
       "id": 241068,
       "name": "Stiltz's Standard",
       "icon": "inv_misc_token_scarletcrusade",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 94,
+      "type": 12,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241068",
+      "source": "Season of Discovery",
+      "ilvl": 94,
       "twoHand": false,
       "stats": {
         "intellect": 10,
         "spirit": 10,
-        "power": 30,
-        "spellDamage": 30
-      }
+        "power": 30
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     },
     "Main hand": {
       "id": 241003,
       "name": "Mirage, Rod of Illusion",
       "icon": "inv_staff_53",
-      "source": "Season of Discovery",
-      "acquisition": "Scarlet Enclave",
-      "ilvl": 96,
+      "type": 13,
+      "weaponType": 8,
+      "handType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241003",
+      "source": "Season of Discovery",
+      "ilvl": 96,
       "twoHand": true,
       "stats": {
         "stamina": 12,
         "intellect": 28,
         "power": 169,
-        "spellDamage": 169,
         "crit": 3
-      }
+      },
+      "effects": false,
+      "acquisition": "Scarlet Enclave"
     }
   }
 };
