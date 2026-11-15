@@ -454,3 +454,10 @@ body:has(#healing) { font-family:var(--ui); }
 .additional-stats label { display:grid; grid-template-columns:28px minmax(0,1fr) 90px; align-items:center; gap:10px; }
 .additional-stats img { border-radius:3px; }
 .additional-stats input { width:100%; box-sizing:border-box; text-align:right; font-variant-numeric:tabular-nums; }
+
+
+/* Fit the complete score expression to its actual container, including on phones. */
+.score-formula { min-width:0; max-width:100%; flex-wrap:nowrap; gap:0 calc(12px * var(--score-fit,1)); font-size:calc(var(--report-value-size,1.15rem) * 1.1 * var(--score-fit,1)); }
+.score-formula > * { flex:none; white-space:nowrap; }
+.healing-score { min-width:0; }
+.score-formula { width:100%; box-sizing:border-box; }

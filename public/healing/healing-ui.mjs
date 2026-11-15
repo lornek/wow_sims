@@ -1,3 +1,4 @@
+import {watchScoreFormula} from './score-layout.mjs';
 import {normalizeAdditionalStats} from './additional-stats.mjs';
 import {setBarNumbers} from './bar-numbers.mjs';
 import {healingEventRows} from './healing-events.mjs';
@@ -1365,9 +1366,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     animation = requestAnimationFrame(frame);
   }
+  const stopScoreLayout = watchScoreFormula(find('[data-regen-result]'));
   let animation = requestAnimationFrame(frame);
   return () => {
     cancelAnimationFrame(animation);
+    stopScoreLayout();
     hideGameTooltip();
     visualPull++;
     startButton.removeEventListener('click', onStart);

@@ -142,3 +142,7 @@ Keep gearing controls at 22px high with 18px icons and zero vertical button padd
 ### Expanded event count placement
 
 Direct/periodic hit and crit counts use a shared tab stop beside their labels, with a four-character gap. These counts are left-aligned near the label rather than pinned to the bar's far edge. Critical percentages remain directly beside their counts (`6 (60%)`). This exception affects only expanded healing-event bars; main healing, mana, DPS totals, and mana contribution columns keep their protected right-aligned layout.
+
+### Score formula width fitting
+
+Keep the breakdown expression on one line and shrink its font and gaps together only when its measured natural width exceeds the available report width. `score-layout.mjs` measures every factor/operator plus gaps, respects container padding, and leaves one pixel for rounding. The desktop maximum remains 110% of the effective-healing value font. ResizeObserver, content observation, and font-load completion recalculate the fit for phone widths, orientation changes, changed score digit counts, and delayed webfonts. Disconnect observers on healer unmount. Keep the score container's minimum width at zero so intrinsic text width cannot expand the page instead of shrinking the expression.
