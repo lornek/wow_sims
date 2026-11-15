@@ -556,6 +556,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     selects.forEach(({select}) => select.disabled = active);
     for (const input of customInputs) input.disabled = active;
     find('[data-loadout]').disabled = active;
+    find('[data-reset-character]').disabled = active;
     encounterSelect.disabled = difficulty.disabled = active;
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
     talentTree.setLocked(active);
@@ -674,6 +675,22 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     Number.isInteger(saved.selected) && saved.selected !== 5 ? saved.selected - Number(saved.selected > 5) : -1;
   if (slots[savedSlot] && !utility[slots[savedSlot][0]]) selected = savedSlot;
   renderSoundToggle();
+  const resetCharacterButton = find('[data-reset-character]');
+  setGameTooltip(resetCharacterButton, 'Reset character', [
+    'Restore this healer’s default gear, talents, buffs, spell ranks, and Additional stats.',
+    'Keeps your boss, difficulty, and sound preference. Other healers are unchanged.'
+  ]);
+  resetCharacterButton.onclick = () => {
+    try {
+      localStorage.setItem(settingsKey, JSON.stringify({sound:soundEnabled,
+        encounter:encounterSelect.value, difficulty:Number(difficulty.value)}));
+    } catch { /* Defaults still load when storage is unavailable. */ }
+    const url = new URL(location.href);
+    url.searchParams.set('encounter', encounterSelect.value);
+    url.searchParams.set('difficulty', difficulty.value);
+    history.replaceState(null, '', url);
+    location.reload();
+  };
 
   function saveSettings() {
     try {
@@ -1067,7 +1084,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const breakdown = document.createElement('dl');
     breakdown.className = 'healing-breakdown';
     const fields = [
-      ['hps', 'Casts'], ['healing', 'Healing events'], ['survived', 'Normal hits'],
+      ['hps', 'Casts'], ['survived', 'Normal hits'],
       ['crit', 'Critical hits'], ['overheal', 'Overhealing'], ['efficiency', 'Healing per mana']
     ].map(([art, title]) => addMetric(breakdown, art, title));
     summary.append(label, total);
@@ -1128,7 +1145,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           eventBars.append(bar);
         }
       }
-      const values = [stats.casts, stats.hits, stats.hits - stats.crits,
+      const values = [stats.casts, stats.hits - stats.crits,
         stats.crits + ' (' + percent(stats.crits, stats.hits) + ')',
         whole(stats.overheal) + ' (' + percent(stats.overheal, raw) + ')',
         stats.mana ? (stats.effective / stats.mana).toFixed(2) : '—'];

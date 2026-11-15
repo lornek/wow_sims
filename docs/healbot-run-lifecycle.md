@@ -7,3 +7,8 @@ The shared `reset()` path calls `resetHealingReport()` before creating the new p
 Healer/spec navigation unmounts the previous healer and restores a pristine `.healing-score` section along with the other class-specific regions. Reset the entire report, not just `[data-meter]`: leaving `[data-mana-meter]` in place caused the prior healer's potion, Innervate, and duplicate regeneration rows to remain visible despite fresh combat totals.
 
 Validation: `node --test tests/pull-reset.mjs` checks fresh accounting across encounter/configuration changes. DOM regression checks reproduced the old Druid-to-Shaman stale rows and verified the fixed navigation, plus repeated clearing of expanded rows, totals, and tooltips.
+
+
+## Reset character
+
+The Character tab has a separate Reset character action, disabled during combat. It replaces only the current healer/spec's saved configuration with the existing sound, boss, and difficulty preferences, then reloads the current route. Gear, talents, buffs, selected spell ranks, selected ability, and all Additional stats initialize from defaults; other healer/spec settings remain untouched. This is distinct from Reset on the battlefield, which restarts combat with the current character configuration.
