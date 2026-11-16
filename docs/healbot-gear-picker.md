@@ -2,7 +2,7 @@
 
 Click any paper-doll slot to search compatible items by name or numeric ID, equip or unequip an item, and apply/remove a compatible permanent stat enchant. Items apply immediately and change the preset label to Custom. Search is local, sorted by +healing, with 50 results per page. Item level, ruleset, stats and differences from the equipped item appear in each result. Normal weapon enchants, two-handed, shield, staff, held-offhand and armor-kit restrictions are checked separately.
 
-The character panel is capped at 420 CSS pixels; each talent tree at 300 pixels, wrapping when needed. Talent mouse tooltips close immediately on leaving their icon; keyboard tooltips retain normal focus behavior.
+The centered character panel is capped at 780 CSS pixels, with paper doll and stats side by side above 700 pixels and stacked below. Centered talent trees are capped at 380 pixels each, with 56-pixel icons and 84-pixel rows; narrow phones use 48-pixel icons and 74-pixel rows. Trees wrap when needed. Talent mouse tooltips close immediately on leaving their icon; keyboard tooltips retain normal focus behavior.
 
 ## Local data and caching
 

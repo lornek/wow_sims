@@ -142,7 +142,7 @@
 .character-sheet header img { border:1px solid var(--border); border-radius:50%; }
 .character-sheet header h2 { margin:0; }
 .character-sheet header p { color:var(--muted); }
-.character-body { display:grid; grid-template-columns:minmax(215px, 1fr) minmax(190px,1fr); gap:16px; padding:12px; }
+.character-body { display:grid; grid-template-columns:minmax(0,360px) minmax(0,1fr); align-items:start; gap:24px; padding:20px; }
 .paper-doll { display:grid; grid-template-columns:auto 1fr auto; gap:8px; align-items:stretch; background:radial-gradient(ellipse,#403a2b,#100d09 70%); border:1px solid #3d2f14; padding:8px; }
 .paper-doll [data-equipment] { display:grid; gap:4px; align-content:start; }
 .paper-doll [data-equipment=weapons] { grid-column:1 / -1; grid-auto-flow:column; justify-content:center; }
@@ -189,13 +189,13 @@
 .spell-inspector [data-inspect-meter] { margin-top:12px; color:var(--gold); }
 
 .talent-toolbar { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-block:10px; color:var(--gold); }
-.talent-board { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); gap:10px; }
+.talent-board { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),380px)); justify-content:center; gap:20px; margin:20px auto; max-width:1180px; }
 .talent-tree { border:1px solid var(--border); border-radius:4px; overflow:hidden; background:#17110c; }
-.talent-tree header { display:flex; align-items:center; gap:7px; padding:7px; background:linear-gradient(#312416,#1a130e); border-bottom:1px solid var(--border); }
-.talent-tree h3 { margin:0 auto 0 0; color:var(--gold); font:1rem var(--ui); }
+.talent-tree header { display:flex; align-items:center; gap:12px; padding:16px; background:linear-gradient(#312416,#1a130e); border-bottom:1px solid var(--border); }
+.talent-tree h3 { margin:0 auto 0 0; color:var(--gold); font:700 1.2rem var(--ui); }
 .talent-tree output { color:var(--gold); }
 .talent-tree header button { font:.85rem var(--ui); }
-.talent-grid { position:relative; isolation:isolate; display:grid; grid-template:repeat(7,52px) / repeat(4,1fr); place-items:center; background-size:cover; background-position:center; }
+.talent-grid { position:relative; isolation:isolate; display:grid; grid-template:repeat(7,84px) / repeat(4,1fr); place-items:center; background-size:cover; background-position:center; }
 .talent-grid.elemental { background-image:linear-gradient(#08060478,#080604a8),url(elemental-tree.jpg); }
 .talent-grid.enhancement { background-image:linear-gradient(#08060478,#080604a8),url(enhancement-tree.jpg); }
 .talent-grid.restoration { background-image:linear-gradient(#08060478,#080604a8),url(restoration-tree.jpg); }
@@ -204,9 +204,9 @@
 [data-healer-class="druid"] .talent-grid.feral-combat { background-image:linear-gradient(#08060478,#080604a8),url(druid-feral-combat-tree.jpg); }
 .talent-grid svg { position:absolute; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
 .talent-grid path { stroke:#c3a560; stroke-width:3; fill:none; vector-effect:non-scaling-stroke; }
-.healing .talent-node { position:relative; padding:0; width:40px; height:40px; border-width:2px; }
+.healing .talent-node { position:relative; padding:0; width:56px; height:56px; border-width:2px; }
 .talent-node img { display:block; width:100%; height:100%; object-fit:cover; border-radius:2px; }
-.talent-node span { position:absolute; right:-4px; bottom:-5px; padding:1px 3px; color:#e9dbc3; background:#100b09; border-radius:2px; font:700 .72rem var(--ui); }
+.talent-node span { position:absolute; right:-4px; bottom:-5px; padding:1px 3px; color:#e9dbc3; background:#100b09; border-radius:2px; font:700 .85rem var(--ui); }
 .talent-node[data-state=locked] img { filter:grayscale(1) brightness(.55); }
 .healing .talent-node[data-state=available],.healing .talent-node[data-state=spent] { border-color:#6bab4e; }
 .healing .talent-node[data-state=max] { border-color:#f2cf6a; }
@@ -471,10 +471,26 @@ body:has(#healing) { font-family:var(--ui); }
   .healbot-header .class-art > img:first-child { width:clamp(22px,6vw,40px); height:auto; }
   .healbot-header .class-pick > span:last-child { font-size:clamp(.48rem,1.5vw,.7rem); }
 }
-/* Classic-sized character panel and individual talent trees never stretch with the viewport. */
-.heal-tab-panel .character-sheet { width:min(100%,420px); box-sizing:border-box; }
-.character-body { grid-template-columns:minmax(0,1fr); }
-.talent-board { grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),300px)); justify-content:start; }
+/* Center the settings around readable, deliberately sized character and talent panels. */
+#panel-character, #panel-talents > p { text-align:center; }
+.heal-tab-panel .character-sheet { width:min(100%,780px); box-sizing:border-box; margin:18px auto 0; text-align:left; }
+.character-sheet > header { justify-content:center; text-align:center; }
+.character-sheet .gear-toolbar { justify-content:center; }
+.character-sheet .gear-status { text-align:center; }
+.character-sheet .equipment-slot { width:44px; height:44px; }
+.character-sheet .equipment-slot img { width:42px; height:42px; }
+.talent-toolbar { justify-content:center; gap:20px; max-width:1180px; margin:16px auto; }
+#panel-talents > label { display:block; text-align:center; }
+@media(max-width:700px) {
+  .character-body { grid-template-columns:minmax(0,380px); justify-content:center; gap:20px; padding:12px; }
+  .talent-board { gap:16px; }
+}
+@media(max-width:380px) {
+  .talent-grid { grid-template-rows:repeat(7,74px); }
+  .healing .talent-node { width:48px; height:48px; }
+  .talent-tree header { gap:8px; padding:12px; }
+  .talent-tree h3 { font-size:1.05rem; }
+}
 .gear-toolbar { display:flex; flex-wrap:wrap; gap:6px; padding:10px; border-top:1px solid var(--border); }
 .gear-toolbar input,.gear-toolbar select { min-width:0; max-width:100%; flex:1 1 140px; }
 .gear-status { padding:0 10px; font-size:.9rem; }
