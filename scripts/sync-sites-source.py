@@ -7,7 +7,11 @@ root=pathlib.Path(__file__).resolve().parent.parent
 credential=json.loads(getpass.getpass('Credential JSON: '))
 header='Authorization: Basic '+base64.b64encode(('x-access-token:'+credential['token']).encode()).decode()
 base=['git','-c','http.extraHeader='+header,'-c','http.postBuffer=157286400']
-def run(args,**kwargs):return subprocess.run(args,cwd=root,check=True,**kwargs)
+def run(args,**kwargs):
+    result=subprocess.run(args,cwd=root,**kwargs)
+    if result.returncode:
+        raise SystemExit('Source synchronization failed (git exit '+str(result.returncode)+'). Refresh the short-lived write credential or check the Git service. Command arguments are intentionally withheld.')
+    return result
 head=run(['git','rev-parse','HEAD'],capture_output=True,text=True).stdout.strip()
 tree=run(['git','rev-parse','HEAD^{tree}'],capture_output=True,text=True).stdout.strip()
 line=run(base+['ls-remote',credential['remote_url'],'refs/heads/'+credential['branch']],capture_output=True,text=True).stdout.strip()
