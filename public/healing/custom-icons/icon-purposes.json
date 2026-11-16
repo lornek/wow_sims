@@ -175,9 +175,9 @@
         }
       ],
       "current": {
-        "id": "arcane-vitality-045",
-        "name": "Overflowing mana fountain",
-        "path": "custom-icons/arcane-vitality/045-overflowing-mana-fountain.png"
+        "id": "mana-renewal-044",
+        "name": "Swirling water sphere",
+        "path": "custom-icons/mana-renewal/044-swirling-water-sphere.png"
       },
       "implemented": true
     },
@@ -265,9 +265,9 @@
         }
       ],
       "current": {
-        "id": "arcane-vitality-010",
-        "name": "Luminous spirit shield",
-        "path": "custom-icons/arcane-vitality/010-luminous-spirit-shield.png"
+        "id": "mystical-healing-073",
+        "name": "Radiant group blessing",
+        "path": "custom-icons/mystical-healing/073-radiant-group-blessing.png"
       },
       "implemented": true
     },
@@ -304,7 +304,7 @@
     {
       "key": "casts",
       "purpose": "Spell casts",
-      "where": "Cast count below each expanded spell; Direct hits share this selected art.",
+      "where": "Cast count below each expanded spell; uses the selected open spellbook icon.",
       "status": "current",
       "note": "",
       "options": [
@@ -325,9 +325,9 @@
         }
       ],
       "current": {
-        "id": "arcane-vitality-021",
-        "name": "Hands in golden light",
-        "path": "custom-icons/arcane-vitality/021-hands-in-golden-light.png"
+        "id": "mystical-healing-049",
+        "name": "Open spellbook",
+        "path": "custom-icons/mystical-healing/049-open-spellbook.png"
       },
       "implemented": true
     },
