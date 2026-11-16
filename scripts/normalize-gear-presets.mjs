@@ -16,6 +16,14 @@ for(const [cls,file]of Object.entries({paladin:'paladin-gear',priest:'priest-gea
    // Prefer healer stats and a shield; never fill this class with a staff.
    for(const slot of ['Main hand','Off hand']){
     if(name==='Tier 1 raid' && kit[slot])continue;
+    if(name==='Tier 4 raid · SoD' && slot==='Main hand'){
+     // Reviewed healer weapon: the DPS catalog's generic power is not a reliable healer ranking.
+     const spire=pool.find(i=>i.id===241006);
+     if(!spire || !canEquip(spire,slot,cls) || spire.stats.power!==317 || spire.stats.spellDamage!==106)
+      throw new Error('T4 healer preset requires the verified Spire of Sacrifice healing stats');
+     kit[slot]=spire;
+     continue;
+    }
     const candidates=pool.filter(i=>canEquip(i,slot,cls)&&!i.twoHand&&(name!=='Tier 3 raid'||slot!=='Main hand'||i.weaponType===4)&&(slot!=='Off hand'||i.weaponType===7)&&(name!=='Fresh 60'||i.quality<=3)&& (name!=='Level 60 dungeon'||i.quality<=3));
     candidates.sort((a,b)=>(b.stats.power??0)-(a.stats.power??0)||(b.stats.intellect??0)-(a.stats.intellect??0));
     if(candidates[0])kit[slot]=candidates[0];

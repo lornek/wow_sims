@@ -1,0 +1,10 @@
+{
+  "Season of Discovery:241006": {
+    "stats": {"power": 317, "spellDamage": 106},
+    "effects": true,
+    "verification": {
+      "url": "https://www.wowhead.com/classic/item=241006/spire-of-sacrifice",
+      "note": "Separate passive healing and damage bonuses. The DPS simulator snapshot only retains 106 generic spell power. The +200 healing sacrifice toggle and 2% casting speed are not simulated."
+    }
+  }
+}

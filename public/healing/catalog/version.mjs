@@ -1,1 +1,1 @@
-export const catalogVersion = "72adc3e0ca4f";
+export const catalogVersion = "cce215a6b04e";

@@ -2187,9 +2187,9 @@ export const loadouts = {
       "acquisition": "Scarlet Enclave"
     },
     "Main hand": {
-      "id": 241001,
-      "name": "Tyr's Fall",
-      "icon": "inv_mace_82",
+      "id": 241006,
+      "name": "Spire of Sacrifice",
+      "icon": "inv_mace_56",
       "type": 13,
       "weaponType": 4,
       "handType": 1,
@@ -2198,17 +2198,21 @@ export const loadouts = {
       "reqLvl": 60,
       "quality": 4,
       "phase": 8,
-      "key": "Season of Discovery:241001",
+      "key": "Season of Discovery:241006",
       "source": "Season of Discovery",
       "ilvl": 96,
       "twoHand": false,
       "stats": {
-        "stamina": 9,
-        "intellect": 17,
-        "power": 169,
-        "crit": 1
+        "stamina": 7,
+        "power": 317,
+        "crit": 1,
+        "spellDamage": 106
       },
-      "effects": false
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241006/spire-of-sacrifice",
+        "note": "Separate passive healing and damage bonuses. The DPS simulator snapshot only retains 106 generic spell power. The +200 healing sacrifice toggle and 2% casting speed are not simulated."
+      }
     },
     "Off hand": {
       "id": 228294,

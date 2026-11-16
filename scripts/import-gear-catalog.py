@@ -9,6 +9,7 @@ def stats(raw,mapping,modern=False):
   key=mapping.get(int(n))
   if key and v:result[key]=result.get(key,0)+(v/14 if key=='crit' and modern else v)
  return result
+overrides=json.loads((pathlib.Path(__file__).with_name('gear-catalog-overrides.json')).read_text())
 items=[];enchants=[];sources=[]
 for filename,realm,mapping in [('db.json','Forever',modern),('sod.json','Season of Discovery',old)]:
  raw=(root/filename).read_bytes();d=json.loads(raw);sources.append({'repository':'https://github.com/wowsims/'+('forever' if realm=='Forever' else 'sod'),'sha256':hashlib.sha256(raw).hexdigest(),'file':'assets/database/db.json'})
@@ -18,6 +19,10 @@ for filename,realm,mapping in [('db.json','Forever',modern),('sod.json','Season 
   if realm!='Forever':
    i={**i,'classAllowlist':[{1:11,2:3,3:8,4:2,5:5,6:4,7:7,8:9,9:1}.get(c,c) for c in i.get('classAllowlist',[])],'rangedWeaponType':{4:6,5:7,6:4,7:8,8:5}.get(i.get('rangedWeaponType'),i.get('rangedWeaponType',0)),'reqLvl':i.get('requiresLevel',0)}
   items.append({**{k:i[k] for k in ['id','name','icon','type','armorType','weaponType','handType','rangedWeaponType','classAllowlist','unique','reqLvl','quality','phase'] if k in i},'key':realm+':'+str(i['id']),'source':realm,'ilvl':scale.get('ilvl',i.get('ilvl',0)),'twoHand':i.get('handType')==4,'stats':s,'effects':bool(i.get('itemEffects') or i.get('setName') or i.get('setId'))})
+  override=overrides.get(items[-1]['key'])
+  if override:
+   items[-1]['stats'].update(override.get('stats',{}))
+   items[-1].update({k:v for k,v in override.items() if k!='stats'})
  if realm=='Forever':
   for e in d['enchants']:
    s=stats(e.get('stats',[]),mapping,True)

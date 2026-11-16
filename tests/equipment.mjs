@@ -11,10 +11,15 @@ test('all presets obey class, weapon, slot and level restrictions',async()=>{
   for(const [name,kit]of Object.entries(m.loadouts??m.equipmentSets))for(const [slot,item]of Object.entries(kit))assert.ok(canEquip(item,slot,cls),`${cls} ${name}: ${slot} ${item.name}`);
  }
 });
-test('Paladin T4 equips a strong healing mace and shield, never the Mirage staff',async()=>{
+test('Paladin T4 uses Spire of Sacrifice with its distinct healing bonus, not a DPS mace or staff',async()=>{
  const {loadouts}=await import('../public/healing/paladin-gear.mjs');const kit=loadouts['Tier 4 raid · SoD'];
- assert.equal(kit['Main hand'].weaponType,4);assert.ok(kit['Main hand'].stats.power>=169);assert.equal(kit['Off hand'].weaponType,7);assert.ok(kit['Off hand'].stats.power>0);
+ assert.equal(kit['Main hand'].id,241006);assert.equal(kit['Main hand'].weaponType,4);assert.equal(kit['Main hand'].stats.power,317);assert.equal(kit['Main hand'].stats.spellDamage,106);assert.equal(kit['Off hand'].weaponType,7);assert.ok(kit['Off hand'].stats.power>0);
  assert.equal(canEquip(find(241003),'Main hand','paladin'),false);
+});
+test('catalog preserves verified healing and damage separately without granting the sacrifice toggle',()=>{
+ const spire=find(241006);assert.equal(spire.stats.power,317);assert.equal(spire.stats.spellDamage,106);assert.ok(spire.effects);assert.ok(spire.verification.url.includes('241006'));
+ assert.ok(spire.stats.power>find(241001).stats.power);
+ const kit=sanitizeEquipment({'Main hand':{...spire,stats:{power:517}}},'paladin',catalog);assert.equal(kit['Main hand'].stats.power,317);
 });
 test('two-handed equipment clears offhand, shields clear two-handers, unique rings cannot duplicate',()=>{
  const staff=find(241003),shield=find(241017);let kit=equipItem({'Off hand':shield},'Main hand',staff);assert.equal(kit['Off hand'],undefined);
