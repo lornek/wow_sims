@@ -1,3 +1,4 @@
+import {setEquipmentImage} from './gear-images.mjs';
 import {purposeIconPath} from './purpose-icons.mjs';
 import {foreverSpellbook} from './forever-spellbook.mjs';
 import {spellbookEntries, spellbookPage} from './spellbook-layout.mjs';
@@ -776,7 +777,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor', health:'Health', mana:'Mana'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {
       const item = kit[name];
-      image.src = item ? 'https://wow.zamimg.com/images/wow/icons/medium/' + item.icon + '.jpg' : new URL('./slots/' + file + '.jpg', import.meta.url);
+      setEquipmentImage(image, item, file);
       slotButton.dataset.quality = item?.quality ?? '';
       slotButton.setAttribute('aria-label', name + ' · ' + (item?.name ?? 'Empty'));
       tip.replaceChildren();
