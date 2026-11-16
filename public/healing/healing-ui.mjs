@@ -1,3 +1,4 @@
+import {foreverSpellbook} from './forever-spellbook.mjs';
 import {spellbookEntries, spellbookPage} from './spellbook-layout.mjs';
 import {mountGearEditor} from './gear-editor.mjs';
 import {watchScoreFormula} from './score-layout.mjs';
@@ -122,10 +123,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   let inspected = null;
   let last = performance.now();
 
-  function icon(name) {
+  function icon(name, entry = catalog[name]) {
     const image = document.createElement('img');
     const fallback = {"Nature's Swiftness": 'spell_nature_ravenform.jpg', 'Major Mana Potion': 'inv_potion_76.jpg'};
-    image.src = new URL('./icons/' + (catalog[name]?.icon ?? fallback[name]), import.meta.url);
+    image.src = new URL('./icons/' + (entry?.icon ?? fallback[name]), import.meta.url);
     image.alt = '';
     image.width = image.height = 34;
     return image;
@@ -907,21 +908,32 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   let selectedSchool = schools[0], bookPage = 0, bookStatus = 'all';
   let bookTooltips = [];
+  find('[data-book-title]').textContent = className[0].toUpperCase() + className.slice(1) + ' spellbook';
   const allRanks = find('[data-all-ranks]');
   const bookLevel = find('[data-book-level]');
   const bookSearch = find('[data-filter]');
   const schoolButtons = schools.map((school, index) => {
     const button = document.createElement('button');
     button.type = 'button';
+    button.id = 'book-school-' + index;
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-controls', 'forever-spellbook');
     button.append(icon(schoolIcons[index]), school);
+    button.onkeydown = event => {
+      const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+      if (!step && !['Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      const target = event.key === 'Home' ? 0 : event.key === 'End' ? schools.length - 1 : (index + step + schools.length) % schools.length;
+      schoolButtons[target].click(); schoolButtons[target].focus();
+    };
     button.onclick = () => { selectedSchool = school; bookPage = 0; renderBook(); };
     find('[data-schools]').append(button);
     return button;
   });
-  const resurrection = new Set(['Ancestral Spirit', 'Rebirth', 'Redemption', 'Resurrection']);
-  const bookRows = Object.entries(catalog).filter(([name]) => !resurrection.has(name)).map(([name, entry]) => {
-    const [school, status] = spellGroups[name] ?? ['enhancement', ''];
-    return {name, school, status, ranks: entry.ranks.map(rank => {
+  const bookCatalog = foreverSpellbook(className, catalog, trees, spellGroups);
+  const bookRows = Object.entries(bookCatalog).map(([name, entry]) => {
+    const [school, status] = spellGroups[name] ?? [entry.school ?? schools[0].toLowerCase(), ''];
+    return {name, school, status, talentAbility:entry.talentAbility, ranks: entry.ranks.map(rank => {
       const row = byName(name).find(candidate => candidate.rank === rank.rank);
       const effects = row?.effects.filter(effect => effect.coefficient) ?? [];
       const coefficients = effects.map(effect => (effect.coefficient * 100).toFixed(1) + '%' +
@@ -936,7 +948,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     bookTooltips = [];
     hideGameTooltipWithin(grid);
     grid.replaceChildren();
-    schoolButtons.forEach((button, index) => button.setAttribute('aria-pressed', schools[index] === selectedSchool));
+    schoolButtons.forEach((button, index) => {
+      const selected = schools[index] === selectedSchool;
+      button.setAttribute('aria-pressed', selected);
+      button.setAttribute('aria-selected', selected);
+      button.tabIndex = selected ? 0 : -1;
+      if (selected) grid.setAttribute('aria-labelledby', button.id);
+    });
     const level = Math.max(1, Math.min(60, bookLevel.valueAsNumber || 60));
     const query = bookSearch.value.trim();
     const options = {school:selectedSchool, query, level, allRanks:allRanks.checked};
@@ -957,7 +975,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const list = document.createElement('div');
       list.className = 'book-page';
       list.setAttribute('aria-label', side + ' spellbook page');
-      for (const {name, status, rank, coefficients, row} of rows) {
+      for (const {name, status, rank, coefficients, row, talentAbility} of rows) {
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'book-spell';
@@ -974,8 +992,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         }
         const sub = document.createElement('small');
         sub.textContent = status === 'removed' ? 'Not in Forever' : rank.rank || (rank.details?.includes('Passive') ? 'Passive' : 'Level ' + rank.level);
+        if (talentAbility) sub.textContent += ' · Talent ability';
         label.append(spellName, sub);
-        button.append(icon(name), label);
+        button.append(icon(name, bookCatalog[name]), label);
         const render = tip => {
           tip.replaceChildren();
           tooltipLine(tip, name, 'game-tooltip-title');
@@ -1001,7 +1020,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
       return list;
     }
-    spread.append(renderPage(page.left, 'Left'), renderPage(page.right, 'Right'));
+    spread.append(renderPage([...page.left,...page.right], 'Spells'));
     const pagination = document.createElement('nav');
     pagination.className = 'book-pagination';
     pagination.setAttribute('aria-label', 'Spellbook pages');
@@ -1024,7 +1043,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const legend = document.createElement('nav');
     legend.className = 'book-legend';
     legend.setAttribute('aria-label', 'Filter spell changes');
-    for (const [key,label] of [['all','All'],['new','★ New in Forever'],['changed','◆ Changed'],['same','Same as Classic'],['removed','✕ Gone'],['unclassified','Other']]) {
+    for (const [key,label] of [['all','All'],['new','★ New in Forever'],['changed','◆ Changed'],['same','Same as Classic'],['unclassified','Other']]) {
       const total = allEntries.filter(entry => key === 'all' || entry.status === key).length;
       if (key === 'unclassified' && !total) continue;
       const filter = document.createElement('button');
@@ -1045,7 +1064,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       clear.onclick = () => {bookSearch.value = ''; bookStatus = 'all'; bookPage = 0; renderBook();};
       empty.append(clear);grid.append(empty);
     }
-    grid.append(legend);
+    find('[data-book-legend]').replaceChildren(legend);
   }
   allRanks.onchange = bookLevel.oninput = bookSearch.oninput = () => {bookPage = 0; renderBook();};
   mountTabs(find('.heal-menu'));

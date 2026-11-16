@@ -6,13 +6,14 @@ export function spellbookStatus(status) {
 export function spellbookEntries(rows, {school, query = '', level = 60, allRanks = false, status = 'all'} = {}) {
   const needle = query.trim().toLowerCase();
   const result = [];
-  for (const entry of rows) {
+  for (const [order, entry] of rows.entries()) {
+    if (entry.status === 'removed') continue;
     if ((!needle && entry.school !== school?.toLowerCase()) || !entry.name.toLowerCase().includes(needle)) continue;
     if (status !== 'all' && spellbookStatus(entry.status) !== status) continue;
     const available = entry.ranks.filter(({rank}) => rank.level <= level);
-    for (const rank of allRanks ? available : available.slice(-1)) result.push({...entry, ...rank, status:spellbookStatus(entry.status)});
+    for (const rank of allRanks ? available : available.slice(-1)) result.push({...entry, ...rank, status:spellbookStatus(entry.status), learnedAt:Math.min(...entry.ranks.map(({rank})=>rank.level)), order});
   }
-  return result.sort((a,b) => a.rank.level - b.rank.level || a.name.localeCompare(b.name));
+  return result.sort((a,b) => a.learnedAt - b.learnedAt || a.order - b.order || a.rank.level - b.rank.level);
 }
 export function spellbookPage(entries, page = 0) {
   const pages = Math.max(1, Math.ceil(entries.length / spellsPerPage));
