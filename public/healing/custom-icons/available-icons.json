@@ -3586,6 +3586,3577 @@
       ]
     },
     {
+      "id": "neon-nature-001",
+      "name": "Dewdrop leaf",
+      "path": "custom-icons/neon-nature/001-dewdrop-leaf.png",
+      "family": "neon-nature",
+      "filename": "001-dewdrop-leaf.png",
+      "tags": [
+        "dewdrop",
+        "leaf"
+      ]
+    },
+    {
+      "id": "neon-nature-002",
+      "name": "Forest waterfall",
+      "path": "custom-icons/neon-nature/002-forest-waterfall.png",
+      "family": "neon-nature",
+      "filename": "002-forest-waterfall.png",
+      "tags": [
+        "forest",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "neon-nature-003",
+      "name": "Blue mana potion",
+      "path": "custom-icons/neon-nature/003-blue-mana-potion.png",
+      "family": "neon-nature",
+      "filename": "003-blue-mana-potion.png",
+      "tags": [
+        "blue",
+        "mana",
+        "potion"
+      ]
+    },
+    {
+      "id": "neon-nature-004",
+      "name": "Daisy-crowned healer",
+      "path": "custom-icons/neon-nature/004-daisy-crowned-healer.png",
+      "family": "neon-nature",
+      "filename": "004-daisy-crowned-healer.png",
+      "tags": [
+        "crowned",
+        "daisy",
+        "healer"
+      ]
+    },
+    {
+      "id": "neon-nature-005",
+      "name": "Azure crystals",
+      "path": "custom-icons/neon-nature/005-azure-crystals.png",
+      "family": "neon-nature",
+      "filename": "005-azure-crystals.png",
+      "tags": [
+        "azure",
+        "crystals"
+      ]
+    },
+    {
+      "id": "neon-nature-006",
+      "name": "Radiant droplet ripples",
+      "path": "custom-icons/neon-nature/006-radiant-droplet-ripples.png",
+      "family": "neon-nature",
+      "filename": "006-radiant-droplet-ripples.png",
+      "tags": [
+        "droplet",
+        "radiant",
+        "ripples"
+      ]
+    },
+    {
+      "id": "neon-nature-007",
+      "name": "Rain-fed seedling",
+      "path": "custom-icons/neon-nature/007-rain-fed-seedling.png",
+      "family": "neon-nature",
+      "filename": "007-rain-fed-seedling.png",
+      "tags": [
+        "fed",
+        "rain",
+        "seedling"
+      ]
+    },
+    {
+      "id": "neon-nature-008",
+      "name": "Moonlit mountain lake",
+      "path": "custom-icons/neon-nature/008-moonlit-mountain-lake.png",
+      "family": "neon-nature",
+      "filename": "008-moonlit-mountain-lake.png",
+      "tags": [
+        "lake",
+        "moonlit",
+        "mountain"
+      ]
+    },
+    {
+      "id": "neon-nature-009",
+      "name": "White water lily",
+      "path": "custom-icons/neon-nature/009-white-water-lily.png",
+      "family": "neon-nature",
+      "filename": "009-white-water-lily.png",
+      "tags": [
+        "lily",
+        "water",
+        "white"
+      ]
+    },
+    {
+      "id": "neon-nature-010",
+      "name": "Water spirit",
+      "path": "custom-icons/neon-nature/010-water-spirit.png",
+      "family": "neon-nature",
+      "filename": "010-water-spirit.png",
+      "tags": [
+        "spirit",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-011",
+      "name": "Neon heron",
+      "path": "custom-icons/neon-nature/011-neon-heron.png",
+      "family": "neon-nature",
+      "filename": "011-neon-heron.png",
+      "tags": [
+        "heron",
+        "neon"
+      ]
+    },
+    {
+      "id": "neon-nature-012",
+      "name": "Blue healing flower",
+      "path": "custom-icons/neon-nature/012-blue-healing-flower.png",
+      "family": "neon-nature",
+      "filename": "012-blue-healing-flower.png",
+      "tags": [
+        "blue",
+        "flower",
+        "healing"
+      ]
+    },
+    {
+      "id": "neon-nature-013",
+      "name": "Cupped glowing water",
+      "path": "custom-icons/neon-nature/013-cupped-glowing-water.png",
+      "family": "neon-nature",
+      "filename": "013-cupped-glowing-water.png",
+      "tags": [
+        "cupped",
+        "glowing",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-014",
+      "name": "Luminous fish school",
+      "path": "custom-icons/neon-nature/014-luminous-fish-school.png",
+      "family": "neon-nature",
+      "filename": "014-luminous-fish-school.png",
+      "tags": [
+        "fish",
+        "luminous",
+        "school"
+      ]
+    },
+    {
+      "id": "neon-nature-015",
+      "name": "Waterflow in hands",
+      "path": "custom-icons/neon-nature/015-waterflow-in-hands.png",
+      "family": "neon-nature",
+      "filename": "015-waterflow-in-hands.png",
+      "tags": [
+        "hands",
+        "in",
+        "waterflow"
+      ]
+    },
+    {
+      "id": "neon-nature-016",
+      "name": "Single water ripple",
+      "path": "custom-icons/neon-nature/016-single-water-ripple.png",
+      "family": "neon-nature",
+      "filename": "016-single-water-ripple.png",
+      "tags": [
+        "ripple",
+        "single",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-017",
+      "name": "Glowing blue mushrooms",
+      "path": "custom-icons/neon-nature/017-glowing-blue-mushrooms.png",
+      "family": "neon-nature",
+      "filename": "017-glowing-blue-mushrooms.png",
+      "tags": [
+        "blue",
+        "glowing",
+        "mushrooms"
+      ]
+    },
+    {
+      "id": "neon-nature-018",
+      "name": "Blue mana vortex",
+      "path": "custom-icons/neon-nature/018-blue-mana-vortex.png",
+      "family": "neon-nature",
+      "filename": "018-blue-mana-vortex.png",
+      "tags": [
+        "blue",
+        "mana",
+        "vortex"
+      ]
+    },
+    {
+      "id": "neon-nature-019",
+      "name": "Veiled spring keeper",
+      "path": "custom-icons/neon-nature/019-veiled-spring-keeper.png",
+      "family": "neon-nature",
+      "filename": "019-veiled-spring-keeper.png",
+      "tags": [
+        "keeper",
+        "spring",
+        "veiled"
+      ]
+    },
+    {
+      "id": "neon-nature-020",
+      "name": "Garden archway",
+      "path": "custom-icons/neon-nature/020-garden-archway.png",
+      "family": "neon-nature",
+      "filename": "020-garden-archway.png",
+      "tags": [
+        "archway",
+        "garden"
+      ]
+    },
+    {
+      "id": "neon-nature-021",
+      "name": "Paired white lilies",
+      "path": "custom-icons/neon-nature/021-paired-white-lilies.png",
+      "family": "neon-nature",
+      "filename": "021-paired-white-lilies.png",
+      "tags": [
+        "lilies",
+        "paired",
+        "white"
+      ]
+    },
+    {
+      "id": "neon-nature-022",
+      "name": "Luminous tree roots",
+      "path": "custom-icons/neon-nature/022-luminous-tree-roots.png",
+      "family": "neon-nature",
+      "filename": "022-luminous-tree-roots.png",
+      "tags": [
+        "luminous",
+        "roots",
+        "tree"
+      ]
+    },
+    {
+      "id": "neon-nature-023",
+      "name": "Moonlit lake",
+      "path": "custom-icons/neon-nature/023-moonlit-lake.png",
+      "family": "neon-nature",
+      "filename": "023-moonlit-lake.png",
+      "tags": [
+        "lake",
+        "moonlit"
+      ]
+    },
+    {
+      "id": "neon-nature-024",
+      "name": "Seedling water orb",
+      "path": "custom-icons/neon-nature/024-seedling-water-orb.png",
+      "family": "neon-nature",
+      "filename": "024-seedling-water-orb.png",
+      "tags": [
+        "orb",
+        "seedling",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-025",
+      "name": "Pink cherry blossom",
+      "path": "custom-icons/neon-nature/025-pink-cherry-blossom.png",
+      "family": "neon-nature",
+      "filename": "025-pink-cherry-blossom.png",
+      "tags": [
+        "blossom",
+        "cherry",
+        "pink"
+      ]
+    },
+    {
+      "id": "neon-nature-026",
+      "name": "Rain-soaked wanderer",
+      "path": "custom-icons/neon-nature/026-rain-soaked-wanderer.png",
+      "family": "neon-nature",
+      "filename": "026-rain-soaked-wanderer.png",
+      "tags": [
+        "rain",
+        "soaked",
+        "wanderer"
+      ]
+    },
+    {
+      "id": "neon-nature-027",
+      "name": "Steaming blue spring",
+      "path": "custom-icons/neon-nature/027-steaming-blue-spring.png",
+      "family": "neon-nature",
+      "filename": "027-steaming-blue-spring.png",
+      "tags": [
+        "blue",
+        "spring",
+        "steaming"
+      ]
+    },
+    {
+      "id": "neon-nature-028",
+      "name": "Iridescent nautilus",
+      "path": "custom-icons/neon-nature/028-iridescent-nautilus.png",
+      "family": "neon-nature",
+      "filename": "028-iridescent-nautilus.png",
+      "tags": [
+        "iridescent",
+        "nautilus"
+      ]
+    },
+    {
+      "id": "neon-nature-029",
+      "name": "Golden waterside tree",
+      "path": "custom-icons/neon-nature/029-golden-waterside-tree.png",
+      "family": "neon-nature",
+      "filename": "029-golden-waterside-tree.png",
+      "tags": [
+        "golden",
+        "tree",
+        "waterside"
+      ]
+    },
+    {
+      "id": "neon-nature-030",
+      "name": "Tiered garden waterfall",
+      "path": "custom-icons/neon-nature/030-tiered-garden-waterfall.png",
+      "family": "neon-nature",
+      "filename": "030-tiered-garden-waterfall.png",
+      "tags": [
+        "garden",
+        "tiered",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "neon-nature-031",
+      "name": "Luminous jellyfish",
+      "path": "custom-icons/neon-nature/031-luminous-jellyfish.png",
+      "family": "neon-nature",
+      "filename": "031-luminous-jellyfish.png",
+      "tags": [
+        "jellyfish",
+        "luminous"
+      ]
+    },
+    {
+      "id": "neon-nature-032",
+      "name": "Rain blessing",
+      "path": "custom-icons/neon-nature/032-rain-blessing.png",
+      "family": "neon-nature",
+      "filename": "032-rain-blessing.png",
+      "tags": [
+        "blessing",
+        "rain"
+      ]
+    },
+    {
+      "id": "neon-nature-033",
+      "name": "Seedling in soil",
+      "path": "custom-icons/neon-nature/033-seedling-in-soil.png",
+      "family": "neon-nature",
+      "filename": "033-seedling-in-soil.png",
+      "tags": [
+        "in",
+        "seedling",
+        "soil"
+      ]
+    },
+    {
+      "id": "neon-nature-034",
+      "name": "Steaming stone pool",
+      "path": "custom-icons/neon-nature/034-steaming-stone-pool.png",
+      "family": "neon-nature",
+      "filename": "034-steaming-stone-pool.png",
+      "tags": [
+        "pool",
+        "steaming",
+        "stone"
+      ]
+    },
+    {
+      "id": "neon-nature-035",
+      "name": "Blue crystal lotus",
+      "path": "custom-icons/neon-nature/035-blue-crystal-lotus.png",
+      "family": "neon-nature",
+      "filename": "035-blue-crystal-lotus.png",
+      "tags": [
+        "blue",
+        "crystal",
+        "lotus"
+      ]
+    },
+    {
+      "id": "neon-nature-036",
+      "name": "Arcane forest roots",
+      "path": "custom-icons/neon-nature/036-arcane-forest-roots.png",
+      "family": "neon-nature",
+      "filename": "036-arcane-forest-roots.png",
+      "tags": [
+        "arcane",
+        "forest",
+        "roots"
+      ]
+    },
+    {
+      "id": "neon-nature-037",
+      "name": "Stone spring maiden",
+      "path": "custom-icons/neon-nature/037-stone-spring-maiden.png",
+      "family": "neon-nature",
+      "filename": "037-stone-spring-maiden.png",
+      "tags": [
+        "maiden",
+        "spring",
+        "stone"
+      ]
+    },
+    {
+      "id": "neon-nature-038",
+      "name": "Dew-laden leaves",
+      "path": "custom-icons/neon-nature/038-dew-laden-leaves.png",
+      "family": "neon-nature",
+      "filename": "038-dew-laden-leaves.png",
+      "tags": [
+        "dew",
+        "laden",
+        "leaves"
+      ]
+    },
+    {
+      "id": "neon-nature-039",
+      "name": "Pebble stream ripples",
+      "path": "custom-icons/neon-nature/039-pebble-stream-ripples.png",
+      "family": "neon-nature",
+      "filename": "039-pebble-stream-ripples.png",
+      "tags": [
+        "pebble",
+        "ripples",
+        "stream"
+      ]
+    },
+    {
+      "id": "neon-nature-040",
+      "name": "Round blue mana flask",
+      "path": "custom-icons/neon-nature/040-round-blue-mana-flask.png",
+      "family": "neon-nature",
+      "filename": "040-round-blue-mana-flask.png",
+      "tags": [
+        "blue",
+        "flask",
+        "mana",
+        "round"
+      ]
+    },
+    {
+      "id": "neon-nature-041",
+      "name": "Dewy fern",
+      "path": "custom-icons/neon-nature/041-dewy-fern.png",
+      "family": "neon-nature",
+      "filename": "041-dewy-fern.png",
+      "tags": [
+        "dewy",
+        "fern"
+      ]
+    },
+    {
+      "id": "neon-nature-042",
+      "name": "Sunrise lake",
+      "path": "custom-icons/neon-nature/042-sunrise-lake.png",
+      "family": "neon-nature",
+      "filename": "042-sunrise-lake.png",
+      "tags": [
+        "lake",
+        "sunrise"
+      ]
+    },
+    {
+      "id": "neon-nature-043",
+      "name": "River otter family",
+      "path": "custom-icons/neon-nature/043-river-otter-family.png",
+      "family": "neon-nature",
+      "filename": "043-river-otter-family.png",
+      "tags": [
+        "family",
+        "otter",
+        "river"
+      ]
+    },
+    {
+      "id": "neon-nature-044",
+      "name": "Swirling water sphere",
+      "path": "custom-icons/neon-nature/044-swirling-water-sphere.png",
+      "family": "neon-nature",
+      "filename": "044-swirling-water-sphere.png",
+      "tags": [
+        "sphere",
+        "swirling",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-045",
+      "name": "Dandelion blessing",
+      "path": "custom-icons/neon-nature/045-dandelion-blessing.png",
+      "family": "neon-nature",
+      "filename": "045-dandelion-blessing.png",
+      "tags": [
+        "blessing",
+        "dandelion"
+      ]
+    },
+    {
+      "id": "neon-nature-046",
+      "name": "Falling forest cascade",
+      "path": "custom-icons/neon-nature/046-falling-forest-cascade.png",
+      "family": "neon-nature",
+      "filename": "046-falling-forest-cascade.png",
+      "tags": [
+        "cascade",
+        "falling",
+        "forest"
+      ]
+    },
+    {
+      "id": "neon-nature-047",
+      "name": "Purple water lilies",
+      "path": "custom-icons/neon-nature/047-purple-water-lilies.png",
+      "family": "neon-nature",
+      "filename": "047-purple-water-lilies.png",
+      "tags": [
+        "lilies",
+        "purple",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-048",
+      "name": "Underwater grasses",
+      "path": "custom-icons/neon-nature/048-underwater-grasses.png",
+      "family": "neon-nature",
+      "filename": "048-underwater-grasses.png",
+      "tags": [
+        "grasses",
+        "underwater"
+      ]
+    },
+    {
+      "id": "neon-nature-049",
+      "name": "Misty blue woodland",
+      "path": "custom-icons/neon-nature/049-misty-blue-woodland.png",
+      "family": "neon-nature",
+      "filename": "049-misty-blue-woodland.png",
+      "tags": [
+        "blue",
+        "misty",
+        "woodland"
+      ]
+    },
+    {
+      "id": "neon-nature-050",
+      "name": "Growing seedlings",
+      "path": "custom-icons/neon-nature/050-growing-seedlings.png",
+      "family": "neon-nature",
+      "filename": "050-growing-seedlings.png",
+      "tags": [
+        "growing",
+        "seedlings"
+      ]
+    },
+    {
+      "id": "neon-nature-051",
+      "name": "Root-framed spring",
+      "path": "custom-icons/neon-nature/051-root-framed-spring.png",
+      "family": "neon-nature",
+      "filename": "051-root-framed-spring.png",
+      "tags": [
+        "framed",
+        "root",
+        "spring"
+      ]
+    },
+    {
+      "id": "neon-nature-052",
+      "name": "Azure crystal cluster",
+      "path": "custom-icons/neon-nature/052-azure-crystal-cluster.png",
+      "family": "neon-nature",
+      "filename": "052-azure-crystal-cluster.png",
+      "tags": [
+        "azure",
+        "cluster",
+        "crystal"
+      ]
+    },
+    {
+      "id": "neon-nature-053",
+      "name": "Pink water lotus",
+      "path": "custom-icons/neon-nature/053-pink-water-lotus.png",
+      "family": "neon-nature",
+      "filename": "053-pink-water-lotus.png",
+      "tags": [
+        "lotus",
+        "pink",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-054",
+      "name": "Spectral water stag",
+      "path": "custom-icons/neon-nature/054-spectral-water-stag.png",
+      "family": "neon-nature",
+      "filename": "054-spectral-water-stag.png",
+      "tags": [
+        "spectral",
+        "stag",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-055",
+      "name": "Flower-lined stream",
+      "path": "custom-icons/neon-nature/055-flower-lined-stream.png",
+      "family": "neon-nature",
+      "filename": "055-flower-lined-stream.png",
+      "tags": [
+        "flower",
+        "lined",
+        "stream"
+      ]
+    },
+    {
+      "id": "neon-nature-056",
+      "name": "Hanging dewdrop",
+      "path": "custom-icons/neon-nature/056-hanging-dewdrop.png",
+      "family": "neon-nature",
+      "filename": "056-hanging-dewdrop.png",
+      "tags": [
+        "dewdrop",
+        "hanging"
+      ]
+    },
+    {
+      "id": "neon-nature-057",
+      "name": "Dandelion seeds",
+      "path": "custom-icons/neon-nature/057-dandelion-seeds.png",
+      "family": "neon-nature",
+      "filename": "057-dandelion-seeds.png",
+      "tags": [
+        "dandelion",
+        "seeds"
+      ]
+    },
+    {
+      "id": "neon-nature-058",
+      "name": "Rocky hot spring",
+      "path": "custom-icons/neon-nature/058-rocky-hot-spring.png",
+      "family": "neon-nature",
+      "filename": "058-rocky-hot-spring.png",
+      "tags": [
+        "hot",
+        "rocky",
+        "spring"
+      ]
+    },
+    {
+      "id": "neon-nature-059",
+      "name": "Waterfall in hands",
+      "path": "custom-icons/neon-nature/059-waterfall-in-hands.png",
+      "family": "neon-nature",
+      "filename": "059-waterfall-in-hands.png",
+      "tags": [
+        "hands",
+        "in",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "neon-nature-060",
+      "name": "Rainy cherry blossom",
+      "path": "custom-icons/neon-nature/060-rainy-cherry-blossom.png",
+      "family": "neon-nature",
+      "filename": "060-rainy-cherry-blossom.png",
+      "tags": [
+        "blossom",
+        "cherry",
+        "rainy"
+      ]
+    },
+    {
+      "id": "neon-nature-061",
+      "name": "Veiled water prayer",
+      "path": "custom-icons/neon-nature/061-veiled-water-prayer.png",
+      "family": "neon-nature",
+      "filename": "061-veiled-water-prayer.png",
+      "tags": [
+        "prayer",
+        "veiled",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-062",
+      "name": "White lily pond",
+      "path": "custom-icons/neon-nature/062-white-lily-pond.png",
+      "family": "neon-nature",
+      "filename": "062-white-lily-pond.png",
+      "tags": [
+        "lily",
+        "pond",
+        "white"
+      ]
+    },
+    {
+      "id": "neon-nature-063",
+      "name": "Rainfall ripples",
+      "path": "custom-icons/neon-nature/063-rainfall-ripples.png",
+      "family": "neon-nature",
+      "filename": "063-rainfall-ripples.png",
+      "tags": [
+        "rainfall",
+        "ripples"
+      ]
+    },
+    {
+      "id": "neon-nature-064",
+      "name": "Tree in water globe",
+      "path": "custom-icons/neon-nature/064-tree-in-water-globe.png",
+      "family": "neon-nature",
+      "filename": "064-tree-in-water-globe.png",
+      "tags": [
+        "globe",
+        "in",
+        "tree",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-065",
+      "name": "Pink rosebud",
+      "path": "custom-icons/neon-nature/065-pink-rosebud.png",
+      "family": "neon-nature",
+      "filename": "065-pink-rosebud.png",
+      "tags": [
+        "pink",
+        "rosebud"
+      ]
+    },
+    {
+      "id": "neon-nature-066",
+      "name": "Sunbeam forest pool",
+      "path": "custom-icons/neon-nature/066-sunbeam-forest-pool.png",
+      "family": "neon-nature",
+      "filename": "066-sunbeam-forest-pool.png",
+      "tags": [
+        "forest",
+        "pool",
+        "sunbeam"
+      ]
+    },
+    {
+      "id": "neon-nature-067",
+      "name": "Flower-crowned renewal",
+      "path": "custom-icons/neon-nature/067-flower-crowned-renewal.png",
+      "family": "neon-nature",
+      "filename": "067-flower-crowned-renewal.png",
+      "tags": [
+        "crowned",
+        "flower",
+        "renewal"
+      ]
+    },
+    {
+      "id": "neon-nature-068",
+      "name": "Overflowing stone basin",
+      "path": "custom-icons/neon-nature/068-overflowing-stone-basin.png",
+      "family": "neon-nature",
+      "filename": "068-overflowing-stone-basin.png",
+      "tags": [
+        "basin",
+        "overflowing",
+        "stone"
+      ]
+    },
+    {
+      "id": "neon-nature-069",
+      "name": "Mossy cascade",
+      "path": "custom-icons/neon-nature/069-mossy-cascade.png",
+      "family": "neon-nature",
+      "filename": "069-mossy-cascade.png",
+      "tags": [
+        "cascade",
+        "mossy"
+      ]
+    },
+    {
+      "id": "neon-nature-070",
+      "name": "Underwater leaf sprig",
+      "path": "custom-icons/neon-nature/070-underwater-leaf-sprig.png",
+      "family": "neon-nature",
+      "filename": "070-underwater-leaf-sprig.png",
+      "tags": [
+        "leaf",
+        "sprig",
+        "underwater"
+      ]
+    },
+    {
+      "id": "neon-nature-071",
+      "name": "Wisteria spring",
+      "path": "custom-icons/neon-nature/071-wisteria-spring.png",
+      "family": "neon-nature",
+      "filename": "071-wisteria-spring.png",
+      "tags": [
+        "spring",
+        "wisteria"
+      ]
+    },
+    {
+      "id": "neon-nature-072",
+      "name": "Reflection tree",
+      "path": "custom-icons/neon-nature/072-reflection-tree.png",
+      "family": "neon-nature",
+      "filename": "072-reflection-tree.png",
+      "tags": [
+        "reflection",
+        "tree"
+      ]
+    },
+    {
+      "id": "neon-nature-073",
+      "name": "Flowing water woman",
+      "path": "custom-icons/neon-nature/073-flowing-water-woman.png",
+      "family": "neon-nature",
+      "filename": "073-flowing-water-woman.png",
+      "tags": [
+        "flowing",
+        "water",
+        "woman"
+      ]
+    },
+    {
+      "id": "neon-nature-074",
+      "name": "Fresh leaf buds",
+      "path": "custom-icons/neon-nature/074-fresh-leaf-buds.png",
+      "family": "neon-nature",
+      "filename": "074-fresh-leaf-buds.png",
+      "tags": [
+        "buds",
+        "fresh",
+        "leaf"
+      ]
+    },
+    {
+      "id": "neon-nature-075",
+      "name": "Mossy forest waterfall",
+      "path": "custom-icons/neon-nature/075-mossy-forest-waterfall.png",
+      "family": "neon-nature",
+      "filename": "075-mossy-forest-waterfall.png",
+      "tags": [
+        "forest",
+        "mossy",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "neon-nature-076",
+      "name": "Underwater light pillars",
+      "path": "custom-icons/neon-nature/076-underwater-light-pillars.png",
+      "family": "neon-nature",
+      "filename": "076-underwater-light-pillars.png",
+      "tags": [
+        "light",
+        "pillars",
+        "underwater"
+      ]
+    },
+    {
+      "id": "neon-nature-077",
+      "name": "Dewy clover",
+      "path": "custom-icons/neon-nature/077-dewy-clover.png",
+      "family": "neon-nature",
+      "filename": "077-dewy-clover.png",
+      "tags": [
+        "clover",
+        "dewy"
+      ]
+    },
+    {
+      "id": "neon-nature-078",
+      "name": "Spiral blue mana flask",
+      "path": "custom-icons/neon-nature/078-spiral-blue-mana-flask.png",
+      "family": "neon-nature",
+      "filename": "078-spiral-blue-mana-flask.png",
+      "tags": [
+        "blue",
+        "flask",
+        "mana",
+        "spiral"
+      ]
+    },
+    {
+      "id": "neon-nature-079",
+      "name": "Falling water droplet",
+      "path": "custom-icons/neon-nature/079-falling-water-droplet.png",
+      "family": "neon-nature",
+      "filename": "079-falling-water-droplet.png",
+      "tags": [
+        "droplet",
+        "falling",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-080",
+      "name": "Golden forest deer",
+      "path": "custom-icons/neon-nature/080-golden-forest-deer.png",
+      "family": "neon-nature",
+      "filename": "080-golden-forest-deer.png",
+      "tags": [
+        "deer",
+        "forest",
+        "golden"
+      ]
+    },
+    {
+      "id": "neon-nature-081",
+      "name": "Healing fingers on water",
+      "path": "custom-icons/neon-nature/081-healing-fingers-on-water.png",
+      "family": "neon-nature",
+      "filename": "081-healing-fingers-on-water.png",
+      "tags": [
+        "fingers",
+        "healing",
+        "on",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-082",
+      "name": "Stone spout fountain",
+      "path": "custom-icons/neon-nature/082-stone-spout-fountain.png",
+      "family": "neon-nature",
+      "filename": "082-stone-spout-fountain.png",
+      "tags": [
+        "fountain",
+        "spout",
+        "stone"
+      ]
+    },
+    {
+      "id": "neon-nature-083",
+      "name": "Rosebud water globe",
+      "path": "custom-icons/neon-nature/083-rosebud-water-globe.png",
+      "family": "neon-nature",
+      "filename": "083-rosebud-water-globe.png",
+      "tags": [
+        "globe",
+        "rosebud",
+        "water"
+      ]
+    },
+    {
+      "id": "neon-nature-084",
+      "name": "Dew on green leaf",
+      "path": "custom-icons/neon-nature/084-dew-on-green-leaf.png",
+      "family": "neon-nature",
+      "filename": "084-dew-on-green-leaf.png",
+      "tags": [
+        "dew",
+        "green",
+        "leaf",
+        "on"
+      ]
+    },
+    {
+      "id": "neon-nature-085",
+      "name": "Woodland brook",
+      "path": "custom-icons/neon-nature/085-woodland-brook.png",
+      "family": "neon-nature",
+      "filename": "085-woodland-brook.png",
+      "tags": [
+        "brook",
+        "woodland"
+      ]
+    },
+    {
+      "id": "neon-nature-086",
+      "name": "Blue bellflowers",
+      "path": "custom-icons/neon-nature/086-blue-bellflowers.png",
+      "family": "neon-nature",
+      "filename": "086-blue-bellflowers.png",
+      "tags": [
+        "bellflowers",
+        "blue"
+      ]
+    },
+    {
+      "id": "neon-nature-087",
+      "name": "Meditating sage",
+      "path": "custom-icons/neon-nature/087-meditating-sage.png",
+      "family": "neon-nature",
+      "filename": "087-meditating-sage.png",
+      "tags": [
+        "meditating",
+        "sage"
+      ]
+    },
+    {
+      "id": "neon-nature-088",
+      "name": "Twin spirit koi",
+      "path": "custom-icons/neon-nature/088-twin-spirit-koi.png",
+      "family": "neon-nature",
+      "filename": "088-twin-spirit-koi.png",
+      "tags": [
+        "koi",
+        "spirit",
+        "twin"
+      ]
+    },
+    {
+      "id": "neon-nature-089",
+      "name": "Steaming waterfall pools",
+      "path": "custom-icons/neon-nature/089-steaming-waterfall-pools.png",
+      "family": "neon-nature",
+      "filename": "089-steaming-waterfall-pools.png",
+      "tags": [
+        "pools",
+        "steaming",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "neon-nature-090",
+      "name": "Mountain lake sunrise",
+      "path": "custom-icons/neon-nature/090-mountain-lake-sunrise.png",
+      "family": "neon-nature",
+      "filename": "090-mountain-lake-sunrise.png",
+      "tags": [
+        "lake",
+        "mountain",
+        "sunrise"
+      ]
+    },
+    {
+      "id": "neon-nature-091",
+      "name": "Blue luminous lilies",
+      "path": "custom-icons/neon-nature/091-blue-luminous-lilies.png",
+      "family": "neon-nature",
+      "filename": "091-blue-luminous-lilies.png",
+      "tags": [
+        "blue",
+        "lilies",
+        "luminous"
+      ]
+    },
+    {
+      "id": "neon-nature-092",
+      "name": "Misty pine lake",
+      "path": "custom-icons/neon-nature/092-misty-pine-lake.png",
+      "family": "neon-nature",
+      "filename": "092-misty-pine-lake.png",
+      "tags": [
+        "lake",
+        "misty",
+        "pine"
+      ]
+    },
+    {
+      "id": "neon-nature-093",
+      "name": "Drinking from hands",
+      "path": "custom-icons/neon-nature/093-drinking-from-hands.png",
+      "family": "neon-nature",
+      "filename": "093-drinking-from-hands.png",
+      "tags": [
+        "drinking",
+        "from",
+        "hands"
+      ]
+    },
+    {
+      "id": "neon-nature-094",
+      "name": "Golden rooted seedling",
+      "path": "custom-icons/neon-nature/094-golden-rooted-seedling.png",
+      "family": "neon-nature",
+      "filename": "094-golden-rooted-seedling.png",
+      "tags": [
+        "golden",
+        "rooted",
+        "seedling"
+      ]
+    },
+    {
+      "id": "neon-nature-095",
+      "name": "Deep blue vortex",
+      "path": "custom-icons/neon-nature/095-deep-blue-vortex.png",
+      "family": "neon-nature",
+      "filename": "095-deep-blue-vortex.png",
+      "tags": [
+        "blue",
+        "deep",
+        "vortex"
+      ]
+    },
+    {
+      "id": "neon-nature-096",
+      "name": "Rain on white lotus",
+      "path": "custom-icons/neon-nature/096-rain-on-white-lotus.png",
+      "family": "neon-nature",
+      "filename": "096-rain-on-white-lotus.png",
+      "tags": [
+        "lotus",
+        "on",
+        "rain",
+        "white"
+      ]
+    },
+    {
+      "id": "neon-nature-097",
+      "name": "Ancient garden fountain",
+      "path": "custom-icons/neon-nature/097-ancient-garden-fountain.png",
+      "family": "neon-nature",
+      "filename": "097-ancient-garden-fountain.png",
+      "tags": [
+        "ancient",
+        "fountain",
+        "garden"
+      ]
+    },
+    {
+      "id": "neon-nature-098",
+      "name": "Pink lotus pair",
+      "path": "custom-icons/neon-nature/098-pink-lotus-pair.png",
+      "family": "neon-nature",
+      "filename": "098-pink-lotus-pair.png",
+      "tags": [
+        "lotus",
+        "pair",
+        "pink"
+      ]
+    },
+    {
+      "id": "neon-nature-099",
+      "name": "Waterside blue crystals",
+      "path": "custom-icons/neon-nature/099-waterside-blue-crystals.png",
+      "family": "neon-nature",
+      "filename": "099-waterside-blue-crystals.png",
+      "tags": [
+        "blue",
+        "crystals",
+        "waterside"
+      ]
+    },
+    {
+      "id": "neon-nature-100",
+      "name": "Golden tree spring",
+      "path": "custom-icons/neon-nature/100-golden-tree-spring.png",
+      "family": "neon-nature",
+      "filename": "100-golden-tree-spring.png",
+      "tags": [
+        "golden",
+        "spring",
+        "tree"
+      ]
+    },
+    {
+      "id": "mystical-nature-001",
+      "name": "Healing light in hands",
+      "path": "custom-icons/mystical-nature/001-healing-light-in-hands.png",
+      "family": "mystical-nature",
+      "filename": "001-healing-light-in-hands.png",
+      "tags": [
+        "hands",
+        "healing",
+        "in",
+        "light"
+      ]
+    },
+    {
+      "id": "mystical-nature-002",
+      "name": "White healing lilies",
+      "path": "custom-icons/mystical-nature/002-white-healing-lilies.png",
+      "family": "mystical-nature",
+      "filename": "002-white-healing-lilies.png",
+      "tags": [
+        "healing",
+        "lilies",
+        "white"
+      ]
+    },
+    {
+      "id": "mystical-nature-003",
+      "name": "Blue crystal potion",
+      "path": "custom-icons/mystical-nature/003-blue-crystal-potion.png",
+      "family": "mystical-nature",
+      "filename": "003-blue-crystal-potion.png",
+      "tags": [
+        "blue",
+        "crystal",
+        "potion"
+      ]
+    },
+    {
+      "id": "mystical-nature-004",
+      "name": "Forest waterfall",
+      "path": "custom-icons/mystical-nature/004-forest-waterfall.png",
+      "family": "mystical-nature",
+      "filename": "004-forest-waterfall.png",
+      "tags": [
+        "forest",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "mystical-nature-005",
+      "name": "Flower-crowned blessing",
+      "path": "custom-icons/mystical-nature/005-flower-crowned-blessing.png",
+      "family": "mystical-nature",
+      "filename": "005-flower-crowned-blessing.png",
+      "tags": [
+        "blessing",
+        "crowned",
+        "flower"
+      ]
+    },
+    {
+      "id": "mystical-nature-006",
+      "name": "Multicolor crystal bloom",
+      "path": "custom-icons/mystical-nature/006-multicolor-crystal-bloom.png",
+      "family": "mystical-nature",
+      "filename": "006-multicolor-crystal-bloom.png",
+      "tags": [
+        "bloom",
+        "crystal",
+        "multicolor"
+      ]
+    },
+    {
+      "id": "mystical-nature-007",
+      "name": "Blue crystal spires",
+      "path": "custom-icons/mystical-nature/007-blue-crystal-spires.png",
+      "family": "mystical-nature",
+      "filename": "007-blue-crystal-spires.png",
+      "tags": [
+        "blue",
+        "crystal",
+        "spires"
+      ]
+    },
+    {
+      "id": "mystical-nature-008",
+      "name": "White spirit dove",
+      "path": "custom-icons/mystical-nature/008-white-spirit-dove.png",
+      "family": "mystical-nature",
+      "filename": "008-white-spirit-dove.png",
+      "tags": [
+        "dove",
+        "spirit",
+        "white"
+      ]
+    },
+    {
+      "id": "mystical-nature-009",
+      "name": "Herbal mortar",
+      "path": "custom-icons/mystical-nature/009-herbal-mortar.png",
+      "family": "mystical-nature",
+      "filename": "009-herbal-mortar.png",
+      "tags": [
+        "herbal",
+        "mortar"
+      ]
+    },
+    {
+      "id": "mystical-nature-010",
+      "name": "Golden winged spirit",
+      "path": "custom-icons/mystical-nature/010-golden-winged-spirit.png",
+      "family": "mystical-nature",
+      "filename": "010-golden-winged-spirit.png",
+      "tags": [
+        "golden",
+        "spirit",
+        "winged"
+      ]
+    },
+    {
+      "id": "mystical-nature-011",
+      "name": "Dewdrop on grass",
+      "path": "custom-icons/mystical-nature/011-dewdrop-on-grass.png",
+      "family": "mystical-nature",
+      "filename": "011-dewdrop-on-grass.png",
+      "tags": [
+        "dewdrop",
+        "grass",
+        "on"
+      ]
+    },
+    {
+      "id": "mystical-nature-012",
+      "name": "White lotus pond",
+      "path": "custom-icons/mystical-nature/012-white-lotus-pond.png",
+      "family": "mystical-nature",
+      "filename": "012-white-lotus-pond.png",
+      "tags": [
+        "lotus",
+        "pond",
+        "white"
+      ]
+    },
+    {
+      "id": "mystical-nature-013",
+      "name": "Blue cosmic spiral",
+      "path": "custom-icons/mystical-nature/013-blue-cosmic-spiral.png",
+      "family": "mystical-nature",
+      "filename": "013-blue-cosmic-spiral.png",
+      "tags": [
+        "blue",
+        "cosmic",
+        "spiral"
+      ]
+    },
+    {
+      "id": "mystical-nature-014",
+      "name": "Golden healing circle",
+      "path": "custom-icons/mystical-nature/014-golden-healing-circle.png",
+      "family": "mystical-nature",
+      "filename": "014-golden-healing-circle.png",
+      "tags": [
+        "circle",
+        "golden",
+        "healing"
+      ]
+    },
+    {
+      "id": "mystical-nature-015",
+      "name": "Radiant healing heart",
+      "path": "custom-icons/mystical-nature/015-radiant-healing-heart.png",
+      "family": "mystical-nature",
+      "filename": "015-radiant-healing-heart.png",
+      "tags": [
+        "healing",
+        "heart",
+        "radiant"
+      ]
+    },
+    {
+      "id": "mystical-nature-016",
+      "name": "Pink lotus",
+      "path": "custom-icons/mystical-nature/016-pink-lotus.png",
+      "family": "mystical-nature",
+      "filename": "016-pink-lotus.png",
+      "tags": [
+        "lotus",
+        "pink"
+      ]
+    },
+    {
+      "id": "mystical-nature-017",
+      "name": "Seedling in healing hands",
+      "path": "custom-icons/mystical-nature/017-seedling-in-healing-hands.png",
+      "family": "mystical-nature",
+      "filename": "017-seedling-in-healing-hands.png",
+      "tags": [
+        "hands",
+        "healing",
+        "in",
+        "seedling"
+      ]
+    },
+    {
+      "id": "mystical-nature-018",
+      "name": "Moonlit water",
+      "path": "custom-icons/mystical-nature/018-moonlit-water.png",
+      "family": "mystical-nature",
+      "filename": "018-moonlit-water.png",
+      "tags": [
+        "moonlit",
+        "water"
+      ]
+    },
+    {
+      "id": "mystical-nature-019",
+      "name": "Violet mana potion",
+      "path": "custom-icons/mystical-nature/019-violet-mana-potion.png",
+      "family": "mystical-nature",
+      "filename": "019-violet-mana-potion.png",
+      "tags": [
+        "mana",
+        "potion",
+        "violet"
+      ]
+    },
+    {
+      "id": "mystical-nature-020",
+      "name": "Resting forest fawn",
+      "path": "custom-icons/mystical-nature/020-resting-forest-fawn.png",
+      "family": "mystical-nature",
+      "filename": "020-resting-forest-fawn.png",
+      "tags": [
+        "fawn",
+        "forest",
+        "resting"
+      ]
+    },
+    {
+      "id": "mystical-nature-021",
+      "name": "Veiled healer prayer",
+      "path": "custom-icons/mystical-nature/021-veiled-healer-prayer.png",
+      "family": "mystical-nature",
+      "filename": "021-veiled-healer-prayer.png",
+      "tags": [
+        "healer",
+        "prayer",
+        "veiled"
+      ]
+    },
+    {
+      "id": "mystical-nature-022",
+      "name": "Steaming herbal tea",
+      "path": "custom-icons/mystical-nature/022-steaming-herbal-tea.png",
+      "family": "mystical-nature",
+      "filename": "022-steaming-herbal-tea.png",
+      "tags": [
+        "herbal",
+        "steaming",
+        "tea"
+      ]
+    },
+    {
+      "id": "mystical-nature-023",
+      "name": "Golden forest stag",
+      "path": "custom-icons/mystical-nature/023-golden-forest-stag.png",
+      "family": "mystical-nature",
+      "filename": "023-golden-forest-stag.png",
+      "tags": [
+        "forest",
+        "golden",
+        "stag"
+      ]
+    },
+    {
+      "id": "mystical-nature-024",
+      "name": "Pink blossom branch",
+      "path": "custom-icons/mystical-nature/024-pink-blossom-branch.png",
+      "family": "mystical-nature",
+      "filename": "024-pink-blossom-branch.png",
+      "tags": [
+        "blossom",
+        "branch",
+        "pink"
+      ]
+    },
+    {
+      "id": "mystical-nature-025",
+      "name": "Healing tree roots",
+      "path": "custom-icons/mystical-nature/025-healing-tree-roots.png",
+      "family": "mystical-nature",
+      "filename": "025-healing-tree-roots.png",
+      "tags": [
+        "healing",
+        "roots",
+        "tree"
+      ]
+    },
+    {
+      "id": "mystical-nature-026",
+      "name": "Tiered clear cascade",
+      "path": "custom-icons/mystical-nature/026-tiered-clear-cascade.png",
+      "family": "mystical-nature",
+      "filename": "026-tiered-clear-cascade.png",
+      "tags": [
+        "cascade",
+        "clear",
+        "tiered"
+      ]
+    },
+    {
+      "id": "mystical-nature-027",
+      "name": "Violet spirit butterfly",
+      "path": "custom-icons/mystical-nature/027-violet-spirit-butterfly.png",
+      "family": "mystical-nature",
+      "filename": "027-violet-spirit-butterfly.png",
+      "tags": [
+        "butterfly",
+        "spirit",
+        "violet"
+      ]
+    },
+    {
+      "id": "mystical-nature-028",
+      "name": "Glowing earth seedling",
+      "path": "custom-icons/mystical-nature/028-glowing-earth-seedling.png",
+      "family": "mystical-nature",
+      "filename": "028-glowing-earth-seedling.png",
+      "tags": [
+        "earth",
+        "glowing",
+        "seedling"
+      ]
+    },
+    {
+      "id": "mystical-nature-029",
+      "name": "Golden crystal eruption",
+      "path": "custom-icons/mystical-nature/029-golden-crystal-eruption.png",
+      "family": "mystical-nature",
+      "filename": "029-golden-crystal-eruption.png",
+      "tags": [
+        "crystal",
+        "eruption",
+        "golden"
+      ]
+    },
+    {
+      "id": "mystical-nature-030",
+      "name": "Sunlit healer",
+      "path": "custom-icons/mystical-nature/030-sunlit-healer.png",
+      "family": "mystical-nature",
+      "filename": "030-sunlit-healer.png",
+      "tags": [
+        "healer",
+        "sunlit"
+      ]
+    },
+    {
+      "id": "mystical-nature-031",
+      "name": "Calendula healing salve",
+      "path": "custom-icons/mystical-nature/031-calendula-healing-salve.png",
+      "family": "mystical-nature",
+      "filename": "031-calendula-healing-salve.png",
+      "tags": [
+        "calendula",
+        "healing",
+        "salve"
+      ]
+    },
+    {
+      "id": "mystical-nature-032",
+      "name": "Luminous violet lotus",
+      "path": "custom-icons/mystical-nature/032-luminous-violet-lotus.png",
+      "family": "mystical-nature",
+      "filename": "032-luminous-violet-lotus.png",
+      "tags": [
+        "lotus",
+        "luminous",
+        "violet"
+      ]
+    },
+    {
+      "id": "mystical-nature-033",
+      "name": "Green leaf vortex",
+      "path": "custom-icons/mystical-nature/033-green-leaf-vortex.png",
+      "family": "mystical-nature",
+      "filename": "033-green-leaf-vortex.png",
+      "tags": [
+        "green",
+        "leaf",
+        "vortex"
+      ]
+    },
+    {
+      "id": "mystical-nature-034",
+      "name": "Group healing circle",
+      "path": "custom-icons/mystical-nature/034-group-healing-circle.png",
+      "family": "mystical-nature",
+      "filename": "034-group-healing-circle.png",
+      "tags": [
+        "circle",
+        "group",
+        "healing"
+      ]
+    },
+    {
+      "id": "mystical-nature-035",
+      "name": "Flower-crowned serenity",
+      "path": "custom-icons/mystical-nature/035-flower-crowned-serenity.png",
+      "family": "mystical-nature",
+      "filename": "035-flower-crowned-serenity.png",
+      "tags": [
+        "crowned",
+        "flower",
+        "serenity"
+      ]
+    },
+    {
+      "id": "mystical-nature-036",
+      "name": "Crystal healing staff",
+      "path": "custom-icons/mystical-nature/036-crystal-healing-staff.png",
+      "family": "mystical-nature",
+      "filename": "036-crystal-healing-staff.png",
+      "tags": [
+        "crystal",
+        "healing",
+        "staff"
+      ]
+    },
+    {
+      "id": "mystical-nature-037",
+      "name": "Blue spirit meditation",
+      "path": "custom-icons/mystical-nature/037-blue-spirit-meditation.png",
+      "family": "mystical-nature",
+      "filename": "037-blue-spirit-meditation.png",
+      "tags": [
+        "blue",
+        "meditation",
+        "spirit"
+      ]
+    },
+    {
+      "id": "mystical-nature-038",
+      "name": "Stone spring maiden",
+      "path": "custom-icons/mystical-nature/038-stone-spring-maiden.png",
+      "family": "mystical-nature",
+      "filename": "038-stone-spring-maiden.png",
+      "tags": [
+        "maiden",
+        "spring",
+        "stone"
+      ]
+    },
+    {
+      "id": "mystical-nature-039",
+      "name": "Willow healing pool",
+      "path": "custom-icons/mystical-nature/039-willow-healing-pool.png",
+      "family": "mystical-nature",
+      "filename": "039-willow-healing-pool.png",
+      "tags": [
+        "healing",
+        "pool",
+        "willow"
+      ]
+    },
+    {
+      "id": "mystical-nature-040",
+      "name": "Violet golden wisp",
+      "path": "custom-icons/mystical-nature/040-violet-golden-wisp.png",
+      "family": "mystical-nature",
+      "filename": "040-violet-golden-wisp.png",
+      "tags": [
+        "golden",
+        "violet",
+        "wisp"
+      ]
+    },
+    {
+      "id": "mystical-nature-041",
+      "name": "Garden healing arch",
+      "path": "custom-icons/mystical-nature/041-garden-healing-arch.png",
+      "family": "mystical-nature",
+      "filename": "041-garden-healing-arch.png",
+      "tags": [
+        "arch",
+        "garden",
+        "healing"
+      ]
+    },
+    {
+      "id": "mystical-nature-042",
+      "name": "Golden healer prayer",
+      "path": "custom-icons/mystical-nature/042-golden-healer-prayer.png",
+      "family": "mystical-nature",
+      "filename": "042-golden-healer-prayer.png",
+      "tags": [
+        "golden",
+        "healer",
+        "prayer"
+      ]
+    },
+    {
+      "id": "mystical-nature-043",
+      "name": "Green herbal potion",
+      "path": "custom-icons/mystical-nature/043-green-herbal-potion.png",
+      "family": "mystical-nature",
+      "filename": "043-green-herbal-potion.png",
+      "tags": [
+        "green",
+        "herbal",
+        "potion"
+      ]
+    },
+    {
+      "id": "mystical-nature-044",
+      "name": "Pink water lotus",
+      "path": "custom-icons/mystical-nature/044-pink-water-lotus.png",
+      "family": "mystical-nature",
+      "filename": "044-pink-water-lotus.png",
+      "tags": [
+        "lotus",
+        "pink",
+        "water"
+      ]
+    },
+    {
+      "id": "mystical-nature-045",
+      "name": "Shared healing light",
+      "path": "custom-icons/mystical-nature/045-shared-healing-light.png",
+      "family": "mystical-nature",
+      "filename": "045-shared-healing-light.png",
+      "tags": [
+        "healing",
+        "light",
+        "shared"
+      ]
+    },
+    {
+      "id": "mystical-nature-046",
+      "name": "Sunlit clear river",
+      "path": "custom-icons/mystical-nature/046-sunlit-clear-river.png",
+      "family": "mystical-nature",
+      "filename": "046-sunlit-clear-river.png",
+      "tags": [
+        "clear",
+        "river",
+        "sunlit"
+      ]
+    },
+    {
+      "id": "mystical-nature-047",
+      "name": "Golden spirit feather",
+      "path": "custom-icons/mystical-nature/047-golden-spirit-feather.png",
+      "family": "mystical-nature",
+      "filename": "047-golden-spirit-feather.png",
+      "tags": [
+        "feather",
+        "golden",
+        "spirit"
+      ]
+    },
+    {
+      "id": "mystical-nature-048",
+      "name": "Purple bellflowers",
+      "path": "custom-icons/mystical-nature/048-purple-bellflowers.png",
+      "family": "mystical-nature",
+      "filename": "048-purple-bellflowers.png",
+      "tags": [
+        "bellflowers",
+        "purple"
+      ]
+    },
+    {
+      "id": "mystical-nature-049",
+      "name": "Open spellbook",
+      "path": "custom-icons/mystical-nature/049-open-spellbook.png",
+      "family": "mystical-nature",
+      "filename": "049-open-spellbook.png",
+      "tags": [
+        "open",
+        "spellbook"
+      ]
+    },
+    {
+      "id": "mystical-nature-050",
+      "name": "Pink blossom tree",
+      "path": "custom-icons/mystical-nature/050-pink-blossom-tree.png",
+      "family": "mystical-nature",
+      "filename": "050-pink-blossom-tree.png",
+      "tags": [
+        "blossom",
+        "pink",
+        "tree"
+      ]
+    },
+    {
+      "id": "mystical-nature-051",
+      "name": "Water healing hands",
+      "path": "custom-icons/mystical-nature/051-water-healing-hands.png",
+      "family": "mystical-nature",
+      "filename": "051-water-healing-hands.png",
+      "tags": [
+        "hands",
+        "healing",
+        "water"
+      ]
+    },
+    {
+      "id": "mystical-nature-052",
+      "name": "Luminous purple mushrooms",
+      "path": "custom-icons/mystical-nature/052-luminous-purple-mushrooms.png",
+      "family": "mystical-nature",
+      "filename": "052-luminous-purple-mushrooms.png",
+      "tags": [
+        "luminous",
+        "mushrooms",
+        "purple"
+      ]
+    },
+    {
+      "id": "mystical-nature-053",
+      "name": "Lotus pond ripples",
+      "path": "custom-icons/mystical-nature/053-lotus-pond-ripples.png",
+      "family": "mystical-nature",
+      "filename": "053-lotus-pond-ripples.png",
+      "tags": [
+        "lotus",
+        "pond",
+        "ripples"
+      ]
+    },
+    {
+      "id": "mystical-nature-054",
+      "name": "Glowing spirit dove",
+      "path": "custom-icons/mystical-nature/054-glowing-spirit-dove.png",
+      "family": "mystical-nature",
+      "filename": "054-glowing-spirit-dove.png",
+      "tags": [
+        "dove",
+        "glowing",
+        "spirit"
+      ]
+    },
+    {
+      "id": "mystical-nature-055",
+      "name": "Flower-crowned renewal",
+      "path": "custom-icons/mystical-nature/055-flower-crowned-renewal.png",
+      "family": "mystical-nature",
+      "filename": "055-flower-crowned-renewal.png",
+      "tags": [
+        "crowned",
+        "flower",
+        "renewal"
+      ]
+    },
+    {
+      "id": "mystical-nature-056",
+      "name": "Forest waterfall pool",
+      "path": "custom-icons/mystical-nature/056-forest-waterfall-pool.png",
+      "family": "mystical-nature",
+      "filename": "056-forest-waterfall-pool.png",
+      "tags": [
+        "forest",
+        "pool",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "mystical-nature-057",
+      "name": "Golden lotus",
+      "path": "custom-icons/mystical-nature/057-golden-lotus.png",
+      "family": "mystical-nature",
+      "filename": "057-golden-lotus.png",
+      "tags": [
+        "golden",
+        "lotus"
+      ]
+    },
+    {
+      "id": "mystical-nature-058",
+      "name": "Round azure potion",
+      "path": "custom-icons/mystical-nature/058-round-azure-potion.png",
+      "family": "mystical-nature",
+      "filename": "058-round-azure-potion.png",
+      "tags": [
+        "azure",
+        "potion",
+        "round"
+      ]
+    },
+    {
+      "id": "mystical-nature-059",
+      "name": "Golden tree roots",
+      "path": "custom-icons/mystical-nature/059-golden-tree-roots.png",
+      "family": "mystical-nature",
+      "filename": "059-golden-tree-roots.png",
+      "tags": [
+        "golden",
+        "roots",
+        "tree"
+      ]
+    },
+    {
+      "id": "mystical-nature-060",
+      "name": "Healing fellowship",
+      "path": "custom-icons/mystical-nature/060-healing-fellowship.png",
+      "family": "mystical-nature",
+      "filename": "060-healing-fellowship.png",
+      "tags": [
+        "fellowship",
+        "healing"
+      ]
+    },
+    {
+      "id": "mystical-nature-061",
+      "name": "Sage and lavender herbs",
+      "path": "custom-icons/mystical-nature/061-sage-and-lavender-herbs.png",
+      "family": "mystical-nature",
+      "filename": "061-sage-and-lavender-herbs.png",
+      "tags": [
+        "and",
+        "herbs",
+        "lavender",
+        "sage"
+      ]
+    },
+    {
+      "id": "mystical-nature-062",
+      "name": "Green blue vortex",
+      "path": "custom-icons/mystical-nature/062-green-blue-vortex.png",
+      "family": "mystical-nature",
+      "filename": "062-green-blue-vortex.png",
+      "tags": [
+        "blue",
+        "green",
+        "vortex"
+      ]
+    },
+    {
+      "id": "mystical-nature-063",
+      "name": "Veiled golden serenity",
+      "path": "custom-icons/mystical-nature/063-veiled-golden-serenity.png",
+      "family": "mystical-nature",
+      "filename": "063-veiled-golden-serenity.png",
+      "tags": [
+        "golden",
+        "serenity",
+        "veiled"
+      ]
+    },
+    {
+      "id": "mystical-nature-064",
+      "name": "Radiant sunrise",
+      "path": "custom-icons/mystical-nature/064-radiant-sunrise.png",
+      "family": "mystical-nature",
+      "filename": "064-radiant-sunrise.png",
+      "tags": [
+        "radiant",
+        "sunrise"
+      ]
+    },
+    {
+      "id": "mystical-nature-065",
+      "name": "Violet crystal cluster",
+      "path": "custom-icons/mystical-nature/065-violet-crystal-cluster.png",
+      "family": "mystical-nature",
+      "filename": "065-violet-crystal-cluster.png",
+      "tags": [
+        "cluster",
+        "crystal",
+        "violet"
+      ]
+    },
+    {
+      "id": "mystical-nature-066",
+      "name": "Spectral white stag",
+      "path": "custom-icons/mystical-nature/066-spectral-white-stag.png",
+      "family": "mystical-nature",
+      "filename": "066-spectral-white-stag.png",
+      "tags": [
+        "spectral",
+        "stag",
+        "white"
+      ]
+    },
+    {
+      "id": "mystical-nature-067",
+      "name": "Red healing berries",
+      "path": "custom-icons/mystical-nature/067-red-healing-berries.png",
+      "family": "mystical-nature",
+      "filename": "067-red-healing-berries.png",
+      "tags": [
+        "berries",
+        "healing",
+        "red"
+      ]
+    },
+    {
+      "id": "mystical-nature-068",
+      "name": "Stone water spring",
+      "path": "custom-icons/mystical-nature/068-stone-water-spring.png",
+      "family": "mystical-nature",
+      "filename": "068-stone-water-spring.png",
+      "tags": [
+        "spring",
+        "stone",
+        "water"
+      ]
+    },
+    {
+      "id": "mystical-nature-069",
+      "name": "Blue enchanted grove",
+      "path": "custom-icons/mystical-nature/069-blue-enchanted-grove.png",
+      "family": "mystical-nature",
+      "filename": "069-blue-enchanted-grove.png",
+      "tags": [
+        "blue",
+        "enchanted",
+        "grove"
+      ]
+    },
+    {
+      "id": "mystical-nature-070",
+      "name": "Golden lotus in hand",
+      "path": "custom-icons/mystical-nature/070-golden-lotus-in-hand.png",
+      "family": "mystical-nature",
+      "filename": "070-golden-lotus-in-hand.png",
+      "tags": [
+        "golden",
+        "hand",
+        "in",
+        "lotus"
+      ]
+    },
+    {
+      "id": "mystical-nature-071",
+      "name": "Crescent moon lake",
+      "path": "custom-icons/mystical-nature/071-crescent-moon-lake.png",
+      "family": "mystical-nature",
+      "filename": "071-crescent-moon-lake.png",
+      "tags": [
+        "crescent",
+        "lake",
+        "moon"
+      ]
+    },
+    {
+      "id": "mystical-nature-072",
+      "name": "Pink peony",
+      "path": "custom-icons/mystical-nature/072-pink-peony.png",
+      "family": "mystical-nature",
+      "filename": "072-pink-peony.png",
+      "tags": [
+        "peony",
+        "pink"
+      ]
+    },
+    {
+      "id": "mystical-nature-073",
+      "name": "Radiant group blessing",
+      "path": "custom-icons/mystical-nature/073-radiant-group-blessing.png",
+      "family": "mystical-nature",
+      "filename": "073-radiant-group-blessing.png",
+      "tags": [
+        "blessing",
+        "group",
+        "radiant"
+      ]
+    },
+    {
+      "id": "mystical-nature-074",
+      "name": "Sleeping forest fox",
+      "path": "custom-icons/mystical-nature/074-sleeping-forest-fox.png",
+      "family": "mystical-nature",
+      "filename": "074-sleeping-forest-fox.png",
+      "tags": [
+        "forest",
+        "fox",
+        "sleeping"
+      ]
+    },
+    {
+      "id": "mystical-nature-075",
+      "name": "Flower petal potion",
+      "path": "custom-icons/mystical-nature/075-flower-petal-potion.png",
+      "family": "mystical-nature",
+      "filename": "075-flower-petal-potion.png",
+      "tags": [
+        "flower",
+        "petal",
+        "potion"
+      ]
+    },
+    {
+      "id": "mystical-nature-076",
+      "name": "Deep azure vortex",
+      "path": "custom-icons/mystical-nature/076-deep-azure-vortex.png",
+      "family": "mystical-nature",
+      "filename": "076-deep-azure-vortex.png",
+      "tags": [
+        "azure",
+        "deep",
+        "vortex"
+      ]
+    },
+    {
+      "id": "mystical-nature-077",
+      "name": "Golden sanctuary fountain",
+      "path": "custom-icons/mystical-nature/077-golden-sanctuary-fountain.png",
+      "family": "mystical-nature",
+      "filename": "077-golden-sanctuary-fountain.png",
+      "tags": [
+        "fountain",
+        "golden",
+        "sanctuary"
+      ]
+    },
+    {
+      "id": "mystical-nature-078",
+      "name": "Aurora night sky",
+      "path": "custom-icons/mystical-nature/078-aurora-night-sky.png",
+      "family": "mystical-nature",
+      "filename": "078-aurora-night-sky.png",
+      "tags": [
+        "aurora",
+        "night",
+        "sky"
+      ]
+    },
+    {
+      "id": "mystical-nature-079",
+      "name": "Pink healing rosebud",
+      "path": "custom-icons/mystical-nature/079-pink-healing-rosebud.png",
+      "family": "mystical-nature",
+      "filename": "079-pink-healing-rosebud.png",
+      "tags": [
+        "healing",
+        "pink",
+        "rosebud"
+      ]
+    },
+    {
+      "id": "mystical-nature-080",
+      "name": "Celestial healing prayer",
+      "path": "custom-icons/mystical-nature/080-celestial-healing-prayer.png",
+      "family": "mystical-nature",
+      "filename": "080-celestial-healing-prayer.png",
+      "tags": [
+        "celestial",
+        "healing",
+        "prayer"
+      ]
+    },
+    {
+      "id": "mystical-nature-081",
+      "name": "Lavender sunrise valley",
+      "path": "custom-icons/mystical-nature/081-lavender-sunrise-valley.png",
+      "family": "mystical-nature",
+      "filename": "081-lavender-sunrise-valley.png",
+      "tags": [
+        "lavender",
+        "sunrise",
+        "valley"
+      ]
+    },
+    {
+      "id": "mystical-nature-082",
+      "name": "Healing light between hands",
+      "path": "custom-icons/mystical-nature/082-healing-light-between-hands.png",
+      "family": "mystical-nature",
+      "filename": "082-healing-light-between-hands.png",
+      "tags": [
+        "between",
+        "hands",
+        "healing",
+        "light"
+      ]
+    },
+    {
+      "id": "mystical-nature-083",
+      "name": "Blue dewdrop blossoms",
+      "path": "custom-icons/mystical-nature/083-blue-dewdrop-blossoms.png",
+      "family": "mystical-nature",
+      "filename": "083-blue-dewdrop-blossoms.png",
+      "tags": [
+        "blossoms",
+        "blue",
+        "dewdrop"
+      ]
+    },
+    {
+      "id": "mystical-nature-084",
+      "name": "Crystal waterfall",
+      "path": "custom-icons/mystical-nature/084-crystal-waterfall.png",
+      "family": "mystical-nature",
+      "filename": "084-crystal-waterfall.png",
+      "tags": [
+        "crystal",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "mystical-nature-085",
+      "name": "Golden waterside tree",
+      "path": "custom-icons/mystical-nature/085-golden-waterside-tree.png",
+      "family": "mystical-nature",
+      "filename": "085-golden-waterside-tree.png",
+      "tags": [
+        "golden",
+        "tree",
+        "waterside"
+      ]
+    },
+    {
+      "id": "mystical-nature-086",
+      "name": "Cosmic healing fellowship",
+      "path": "custom-icons/mystical-nature/086-cosmic-healing-fellowship.png",
+      "family": "mystical-nature",
+      "filename": "086-cosmic-healing-fellowship.png",
+      "tags": [
+        "cosmic",
+        "fellowship",
+        "healing"
+      ]
+    },
+    {
+      "id": "mystical-nature-087",
+      "name": "Flower-crowned spirit",
+      "path": "custom-icons/mystical-nature/087-flower-crowned-spirit.png",
+      "family": "mystical-nature",
+      "filename": "087-flower-crowned-spirit.png",
+      "tags": [
+        "crowned",
+        "flower",
+        "spirit"
+      ]
+    },
+    {
+      "id": "mystical-nature-088",
+      "name": "Steaming herbal cauldron",
+      "path": "custom-icons/mystical-nature/088-steaming-herbal-cauldron.png",
+      "family": "mystical-nature",
+      "filename": "088-steaming-herbal-cauldron.png",
+      "tags": [
+        "cauldron",
+        "herbal",
+        "steaming"
+      ]
+    },
+    {
+      "id": "mystical-nature-089",
+      "name": "Radiant white lilies",
+      "path": "custom-icons/mystical-nature/089-radiant-white-lilies.png",
+      "family": "mystical-nature",
+      "filename": "089-radiant-white-lilies.png",
+      "tags": [
+        "lilies",
+        "radiant",
+        "white"
+      ]
+    },
+    {
+      "id": "mystical-nature-090",
+      "name": "Golden violet spiral",
+      "path": "custom-icons/mystical-nature/090-golden-violet-spiral.png",
+      "family": "mystical-nature",
+      "filename": "090-golden-violet-spiral.png",
+      "tags": [
+        "golden",
+        "spiral",
+        "violet"
+      ]
+    },
+    {
+      "id": "mystical-nature-091",
+      "name": "Woodland healing spirit",
+      "path": "custom-icons/mystical-nature/091-woodland-healing-spirit.png",
+      "family": "mystical-nature",
+      "filename": "091-woodland-healing-spirit.png",
+      "tags": [
+        "healing",
+        "spirit",
+        "woodland"
+      ]
+    },
+    {
+      "id": "mystical-nature-092",
+      "name": "Blue crystal lilies",
+      "path": "custom-icons/mystical-nature/092-blue-crystal-lilies.png",
+      "family": "mystical-nature",
+      "filename": "092-blue-crystal-lilies.png",
+      "tags": [
+        "blue",
+        "crystal",
+        "lilies"
+      ]
+    },
+    {
+      "id": "mystical-nature-093",
+      "name": "Floating sacred temple",
+      "path": "custom-icons/mystical-nature/093-floating-sacred-temple.png",
+      "family": "mystical-nature",
+      "filename": "093-floating-sacred-temple.png",
+      "tags": [
+        "floating",
+        "sacred",
+        "temple"
+      ]
+    },
+    {
+      "id": "mystical-nature-094",
+      "name": "Radiant heart in hands",
+      "path": "custom-icons/mystical-nature/094-radiant-heart-in-hands.png",
+      "family": "mystical-nature",
+      "filename": "094-radiant-heart-in-hands.png",
+      "tags": [
+        "hands",
+        "heart",
+        "in",
+        "radiant"
+      ]
+    },
+    {
+      "id": "mystical-nature-095",
+      "name": "Golden spirit meditation",
+      "path": "custom-icons/mystical-nature/095-golden-spirit-meditation.png",
+      "family": "mystical-nature",
+      "filename": "095-golden-spirit-meditation.png",
+      "tags": [
+        "golden",
+        "meditation",
+        "spirit"
+      ]
+    },
+    {
+      "id": "mystical-nature-096",
+      "name": "Spiral azure potion",
+      "path": "custom-icons/mystical-nature/096-spiral-azure-potion.png",
+      "family": "mystical-nature",
+      "filename": "096-spiral-azure-potion.png",
+      "tags": [
+        "azure",
+        "potion",
+        "spiral"
+      ]
+    },
+    {
+      "id": "mystical-nature-097",
+      "name": "Forest deer family",
+      "path": "custom-icons/mystical-nature/097-forest-deer-family.png",
+      "family": "mystical-nature",
+      "filename": "097-forest-deer-family.png",
+      "tags": [
+        "deer",
+        "family",
+        "forest"
+      ]
+    },
+    {
+      "id": "mystical-nature-098",
+      "name": "Violet water lotus",
+      "path": "custom-icons/mystical-nature/098-violet-water-lotus.png",
+      "family": "mystical-nature",
+      "filename": "098-violet-water-lotus.png",
+      "tags": [
+        "lotus",
+        "violet",
+        "water"
+      ]
+    },
+    {
+      "id": "mystical-nature-099",
+      "name": "Golden healing assembly",
+      "path": "custom-icons/mystical-nature/099-golden-healing-assembly.png",
+      "family": "mystical-nature",
+      "filename": "099-golden-healing-assembly.png",
+      "tags": [
+        "assembly",
+        "golden",
+        "healing"
+      ]
+    },
+    {
+      "id": "mystical-nature-100",
+      "name": "Radiant winged guardian",
+      "path": "custom-icons/mystical-nature/100-radiant-winged-guardian.png",
+      "family": "mystical-nature",
+      "filename": "100-radiant-winged-guardian.png",
+      "tags": [
+        "guardian",
+        "radiant",
+        "winged"
+      ]
+    },
+    {
+      "id": "luminous-healing-001",
+      "name": "Radiant star in hand",
+      "path": "custom-icons/luminous-healing/001-radiant-star-in-hand.png",
+      "family": "luminous-healing",
+      "filename": "001-radiant-star-in-hand.png",
+      "tags": [
+        "hand",
+        "in",
+        "radiant",
+        "star"
+      ]
+    },
+    {
+      "id": "luminous-healing-002",
+      "name": "White healing lilies",
+      "path": "custom-icons/luminous-healing/002-white-healing-lilies.png",
+      "family": "luminous-healing",
+      "filename": "002-white-healing-lilies.png",
+      "tags": [
+        "healing",
+        "lilies",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-003",
+      "name": "Blue crystal potion",
+      "path": "custom-icons/luminous-healing/003-blue-crystal-potion.png",
+      "family": "luminous-healing",
+      "filename": "003-blue-crystal-potion.png",
+      "tags": [
+        "blue",
+        "crystal",
+        "potion"
+      ]
+    },
+    {
+      "id": "luminous-healing-004",
+      "name": "Luminous forest waterfall",
+      "path": "custom-icons/luminous-healing/004-luminous-forest-waterfall.png",
+      "family": "luminous-healing",
+      "filename": "004-luminous-forest-waterfall.png",
+      "tags": [
+        "forest",
+        "luminous",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "luminous-healing-005",
+      "name": "Golden tree of life",
+      "path": "custom-icons/luminous-healing/005-golden-tree-of-life.png",
+      "family": "luminous-healing",
+      "filename": "005-golden-tree-of-life.png",
+      "tags": [
+        "golden",
+        "life",
+        "of",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-006",
+      "name": "Flower-crowned blessing",
+      "path": "custom-icons/luminous-healing/006-flower-crowned-blessing.png",
+      "family": "luminous-healing",
+      "filename": "006-flower-crowned-blessing.png",
+      "tags": [
+        "blessing",
+        "crowned",
+        "flower"
+      ]
+    },
+    {
+      "id": "luminous-healing-007",
+      "name": "Blue crystal spires",
+      "path": "custom-icons/luminous-healing/007-blue-crystal-spires.png",
+      "family": "luminous-healing",
+      "filename": "007-blue-crystal-spires.png",
+      "tags": [
+        "blue",
+        "crystal",
+        "spires"
+      ]
+    },
+    {
+      "id": "luminous-healing-008",
+      "name": "White spirit dove",
+      "path": "custom-icons/luminous-healing/008-white-spirit-dove.png",
+      "family": "luminous-healing",
+      "filename": "008-white-spirit-dove.png",
+      "tags": [
+        "dove",
+        "spirit",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-009",
+      "name": "Herbal mortar",
+      "path": "custom-icons/luminous-healing/009-herbal-mortar.png",
+      "family": "luminous-healing",
+      "filename": "009-herbal-mortar.png",
+      "tags": [
+        "herbal",
+        "mortar"
+      ]
+    },
+    {
+      "id": "luminous-healing-010",
+      "name": "Golden winged spirit",
+      "path": "custom-icons/luminous-healing/010-golden-winged-spirit.png",
+      "family": "luminous-healing",
+      "filename": "010-golden-winged-spirit.png",
+      "tags": [
+        "golden",
+        "spirit",
+        "winged"
+      ]
+    },
+    {
+      "id": "luminous-healing-011",
+      "name": "Dewdrop on grass",
+      "path": "custom-icons/luminous-healing/011-dewdrop-on-grass.png",
+      "family": "luminous-healing",
+      "filename": "011-dewdrop-on-grass.png",
+      "tags": [
+        "dewdrop",
+        "grass",
+        "on"
+      ]
+    },
+    {
+      "id": "luminous-healing-012",
+      "name": "Green leaf current",
+      "path": "custom-icons/luminous-healing/012-green-leaf-current.png",
+      "family": "luminous-healing",
+      "filename": "012-green-leaf-current.png",
+      "tags": [
+        "current",
+        "green",
+        "leaf"
+      ]
+    },
+    {
+      "id": "luminous-healing-013",
+      "name": "Blue cosmic spiral",
+      "path": "custom-icons/luminous-healing/013-blue-cosmic-spiral.png",
+      "family": "luminous-healing",
+      "filename": "013-blue-cosmic-spiral.png",
+      "tags": [
+        "blue",
+        "cosmic",
+        "spiral"
+      ]
+    },
+    {
+      "id": "luminous-healing-014",
+      "name": "Radiant healing fellowship",
+      "path": "custom-icons/luminous-healing/014-radiant-healing-fellowship.png",
+      "family": "luminous-healing",
+      "filename": "014-radiant-healing-fellowship.png",
+      "tags": [
+        "fellowship",
+        "healing",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-015",
+      "name": "Radiant healing heart",
+      "path": "custom-icons/luminous-healing/015-radiant-healing-heart.png",
+      "family": "luminous-healing",
+      "filename": "015-radiant-healing-heart.png",
+      "tags": [
+        "healing",
+        "heart",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-016",
+      "name": "Pink lotus",
+      "path": "custom-icons/luminous-healing/016-pink-lotus.png",
+      "family": "luminous-healing",
+      "filename": "016-pink-lotus.png",
+      "tags": [
+        "lotus",
+        "pink"
+      ]
+    },
+    {
+      "id": "luminous-healing-017",
+      "name": "Seedling in healing hands",
+      "path": "custom-icons/luminous-healing/017-seedling-in-healing-hands.png",
+      "family": "luminous-healing",
+      "filename": "017-seedling-in-healing-hands.png",
+      "tags": [
+        "hands",
+        "healing",
+        "in",
+        "seedling"
+      ]
+    },
+    {
+      "id": "luminous-healing-018",
+      "name": "Moonlit water",
+      "path": "custom-icons/luminous-healing/018-moonlit-water.png",
+      "family": "luminous-healing",
+      "filename": "018-moonlit-water.png",
+      "tags": [
+        "moonlit",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-019",
+      "name": "Violet mana potion",
+      "path": "custom-icons/luminous-healing/019-violet-mana-potion.png",
+      "family": "luminous-healing",
+      "filename": "019-violet-mana-potion.png",
+      "tags": [
+        "mana",
+        "potion",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-020",
+      "name": "Resting forest fawn",
+      "path": "custom-icons/luminous-healing/020-resting-forest-fawn.png",
+      "family": "luminous-healing",
+      "filename": "020-resting-forest-fawn.png",
+      "tags": [
+        "fawn",
+        "forest",
+        "resting"
+      ]
+    },
+    {
+      "id": "luminous-healing-021",
+      "name": "Veiled healer prayer",
+      "path": "custom-icons/luminous-healing/021-veiled-healer-prayer.png",
+      "family": "luminous-healing",
+      "filename": "021-veiled-healer-prayer.png",
+      "tags": [
+        "healer",
+        "prayer",
+        "veiled"
+      ]
+    },
+    {
+      "id": "luminous-healing-022",
+      "name": "Steaming herbal tea",
+      "path": "custom-icons/luminous-healing/022-steaming-herbal-tea.png",
+      "family": "luminous-healing",
+      "filename": "022-steaming-herbal-tea.png",
+      "tags": [
+        "herbal",
+        "steaming",
+        "tea"
+      ]
+    },
+    {
+      "id": "luminous-healing-023",
+      "name": "Golden forest stag",
+      "path": "custom-icons/luminous-healing/023-golden-forest-stag.png",
+      "family": "luminous-healing",
+      "filename": "023-golden-forest-stag.png",
+      "tags": [
+        "forest",
+        "golden",
+        "stag"
+      ]
+    },
+    {
+      "id": "luminous-healing-024",
+      "name": "Pink blossom branch",
+      "path": "custom-icons/luminous-healing/024-pink-blossom-branch.png",
+      "family": "luminous-healing",
+      "filename": "024-pink-blossom-branch.png",
+      "tags": [
+        "blossom",
+        "branch",
+        "pink"
+      ]
+    },
+    {
+      "id": "luminous-healing-025",
+      "name": "Guardian of the golden tree",
+      "path": "custom-icons/luminous-healing/025-guardian-of-the-golden-tree.png",
+      "family": "luminous-healing",
+      "filename": "025-guardian-of-the-golden-tree.png",
+      "tags": [
+        "golden",
+        "guardian",
+        "of",
+        "the",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-026",
+      "name": "Tiered clear cascade",
+      "path": "custom-icons/luminous-healing/026-tiered-clear-cascade.png",
+      "family": "luminous-healing",
+      "filename": "026-tiered-clear-cascade.png",
+      "tags": [
+        "cascade",
+        "clear",
+        "tiered"
+      ]
+    },
+    {
+      "id": "luminous-healing-027",
+      "name": "Violet spirit butterfly",
+      "path": "custom-icons/luminous-healing/027-violet-spirit-butterfly.png",
+      "family": "luminous-healing",
+      "filename": "027-violet-spirit-butterfly.png",
+      "tags": [
+        "butterfly",
+        "spirit",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-028",
+      "name": "Glowing earth seedling",
+      "path": "custom-icons/luminous-healing/028-glowing-earth-seedling.png",
+      "family": "luminous-healing",
+      "filename": "028-glowing-earth-seedling.png",
+      "tags": [
+        "earth",
+        "glowing",
+        "seedling"
+      ]
+    },
+    {
+      "id": "luminous-healing-029",
+      "name": "Golden crystal eruption",
+      "path": "custom-icons/luminous-healing/029-golden-crystal-eruption.png",
+      "family": "luminous-healing",
+      "filename": "029-golden-crystal-eruption.png",
+      "tags": [
+        "crystal",
+        "eruption",
+        "golden"
+      ]
+    },
+    {
+      "id": "luminous-healing-030",
+      "name": "Sunlit healer",
+      "path": "custom-icons/luminous-healing/030-sunlit-healer.png",
+      "family": "luminous-healing",
+      "filename": "030-sunlit-healer.png",
+      "tags": [
+        "healer",
+        "sunlit"
+      ]
+    },
+    {
+      "id": "luminous-healing-031",
+      "name": "Calendula healing salve",
+      "path": "custom-icons/luminous-healing/031-calendula-healing-salve.png",
+      "family": "luminous-healing",
+      "filename": "031-calendula-healing-salve.png",
+      "tags": [
+        "calendula",
+        "healing",
+        "salve"
+      ]
+    },
+    {
+      "id": "luminous-healing-032",
+      "name": "Violet lotus bloom",
+      "path": "custom-icons/luminous-healing/032-violet-lotus-bloom.png",
+      "family": "luminous-healing",
+      "filename": "032-violet-lotus-bloom.png",
+      "tags": [
+        "bloom",
+        "lotus",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-033",
+      "name": "Green leaf vortex",
+      "path": "custom-icons/luminous-healing/033-green-leaf-vortex.png",
+      "family": "luminous-healing",
+      "filename": "033-green-leaf-vortex.png",
+      "tags": [
+        "green",
+        "leaf",
+        "vortex"
+      ]
+    },
+    {
+      "id": "luminous-healing-034",
+      "name": "Group healing circle",
+      "path": "custom-icons/luminous-healing/034-group-healing-circle.png",
+      "family": "luminous-healing",
+      "filename": "034-group-healing-circle.png",
+      "tags": [
+        "circle",
+        "group",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-035",
+      "name": "Flower-crowned serenity",
+      "path": "custom-icons/luminous-healing/035-flower-crowned-serenity.png",
+      "family": "luminous-healing",
+      "filename": "035-flower-crowned-serenity.png",
+      "tags": [
+        "crowned",
+        "flower",
+        "serenity"
+      ]
+    },
+    {
+      "id": "luminous-healing-036",
+      "name": "Crystal healing staff",
+      "path": "custom-icons/luminous-healing/036-crystal-healing-staff.png",
+      "family": "luminous-healing",
+      "filename": "036-crystal-healing-staff.png",
+      "tags": [
+        "crystal",
+        "healing",
+        "staff"
+      ]
+    },
+    {
+      "id": "luminous-healing-037",
+      "name": "Blue spirit meditation",
+      "path": "custom-icons/luminous-healing/037-blue-spirit-meditation.png",
+      "family": "luminous-healing",
+      "filename": "037-blue-spirit-meditation.png",
+      "tags": [
+        "blue",
+        "meditation",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-038",
+      "name": "Stone spring maiden",
+      "path": "custom-icons/luminous-healing/038-stone-spring-maiden.png",
+      "family": "luminous-healing",
+      "filename": "038-stone-spring-maiden.png",
+      "tags": [
+        "maiden",
+        "spring",
+        "stone"
+      ]
+    },
+    {
+      "id": "luminous-healing-039",
+      "name": "Willow healing pool",
+      "path": "custom-icons/luminous-healing/039-willow-healing-pool.png",
+      "family": "luminous-healing",
+      "filename": "039-willow-healing-pool.png",
+      "tags": [
+        "healing",
+        "pool",
+        "willow"
+      ]
+    },
+    {
+      "id": "luminous-healing-040",
+      "name": "Violet golden wisp",
+      "path": "custom-icons/luminous-healing/040-violet-golden-wisp.png",
+      "family": "luminous-healing",
+      "filename": "040-violet-golden-wisp.png",
+      "tags": [
+        "golden",
+        "violet",
+        "wisp"
+      ]
+    },
+    {
+      "id": "luminous-healing-041",
+      "name": "Garden healing arch",
+      "path": "custom-icons/luminous-healing/041-garden-healing-arch.png",
+      "family": "luminous-healing",
+      "filename": "041-garden-healing-arch.png",
+      "tags": [
+        "arch",
+        "garden",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-042",
+      "name": "Golden healer prayer",
+      "path": "custom-icons/luminous-healing/042-golden-healer-prayer.png",
+      "family": "luminous-healing",
+      "filename": "042-golden-healer-prayer.png",
+      "tags": [
+        "golden",
+        "healer",
+        "prayer"
+      ]
+    },
+    {
+      "id": "luminous-healing-043",
+      "name": "Green herbal potion",
+      "path": "custom-icons/luminous-healing/043-green-herbal-potion.png",
+      "family": "luminous-healing",
+      "filename": "043-green-herbal-potion.png",
+      "tags": [
+        "green",
+        "herbal",
+        "potion"
+      ]
+    },
+    {
+      "id": "luminous-healing-044",
+      "name": "Purple healing lotus",
+      "path": "custom-icons/luminous-healing/044-purple-healing-lotus.png",
+      "family": "luminous-healing",
+      "filename": "044-purple-healing-lotus.png",
+      "tags": [
+        "healing",
+        "lotus",
+        "purple"
+      ]
+    },
+    {
+      "id": "luminous-healing-045",
+      "name": "Shared healing light",
+      "path": "custom-icons/luminous-healing/045-shared-healing-light.png",
+      "family": "luminous-healing",
+      "filename": "045-shared-healing-light.png",
+      "tags": [
+        "healing",
+        "light",
+        "shared"
+      ]
+    },
+    {
+      "id": "luminous-healing-046",
+      "name": "Sunlit clear river",
+      "path": "custom-icons/luminous-healing/046-sunlit-clear-river.png",
+      "family": "luminous-healing",
+      "filename": "046-sunlit-clear-river.png",
+      "tags": [
+        "clear",
+        "river",
+        "sunlit"
+      ]
+    },
+    {
+      "id": "luminous-healing-047",
+      "name": "Golden spirit feather",
+      "path": "custom-icons/luminous-healing/047-golden-spirit-feather.png",
+      "family": "luminous-healing",
+      "filename": "047-golden-spirit-feather.png",
+      "tags": [
+        "feather",
+        "golden",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-048",
+      "name": "Purple bellflowers",
+      "path": "custom-icons/luminous-healing/048-purple-bellflowers.png",
+      "family": "luminous-healing",
+      "filename": "048-purple-bellflowers.png",
+      "tags": [
+        "bellflowers",
+        "purple"
+      ]
+    },
+    {
+      "id": "luminous-healing-049",
+      "name": "Open spellbook",
+      "path": "custom-icons/luminous-healing/049-open-spellbook.png",
+      "family": "luminous-healing",
+      "filename": "049-open-spellbook.png",
+      "tags": [
+        "open",
+        "spellbook"
+      ]
+    },
+    {
+      "id": "luminous-healing-050",
+      "name": "Pink blossom tree",
+      "path": "custom-icons/luminous-healing/050-pink-blossom-tree.png",
+      "family": "luminous-healing",
+      "filename": "050-pink-blossom-tree.png",
+      "tags": [
+        "blossom",
+        "pink",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-051",
+      "name": "Water healing hands",
+      "path": "custom-icons/luminous-healing/051-water-healing-hands.png",
+      "family": "luminous-healing",
+      "filename": "051-water-healing-hands.png",
+      "tags": [
+        "hands",
+        "healing",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-052",
+      "name": "Luminous purple mushrooms",
+      "path": "custom-icons/luminous-healing/052-luminous-purple-mushrooms.png",
+      "family": "luminous-healing",
+      "filename": "052-luminous-purple-mushrooms.png",
+      "tags": [
+        "luminous",
+        "mushrooms",
+        "purple"
+      ]
+    },
+    {
+      "id": "luminous-healing-053",
+      "name": "Lotus pond ripples",
+      "path": "custom-icons/luminous-healing/053-lotus-pond-ripples.png",
+      "family": "luminous-healing",
+      "filename": "053-lotus-pond-ripples.png",
+      "tags": [
+        "lotus",
+        "pond",
+        "ripples"
+      ]
+    },
+    {
+      "id": "luminous-healing-054",
+      "name": "Glowing spirit dove",
+      "path": "custom-icons/luminous-healing/054-glowing-spirit-dove.png",
+      "family": "luminous-healing",
+      "filename": "054-glowing-spirit-dove.png",
+      "tags": [
+        "dove",
+        "glowing",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-055",
+      "name": "Flower-crowned blessing",
+      "path": "custom-icons/luminous-healing/055-flower-crowned-blessing.png",
+      "family": "luminous-healing",
+      "filename": "055-flower-crowned-blessing.png",
+      "tags": [
+        "blessing",
+        "crowned",
+        "flower"
+      ]
+    },
+    {
+      "id": "luminous-healing-056",
+      "name": "Forest waterfall pool",
+      "path": "custom-icons/luminous-healing/056-forest-waterfall-pool.png",
+      "family": "luminous-healing",
+      "filename": "056-forest-waterfall-pool.png",
+      "tags": [
+        "forest",
+        "pool",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "luminous-healing-057",
+      "name": "Golden lotus",
+      "path": "custom-icons/luminous-healing/057-golden-lotus.png",
+      "family": "luminous-healing",
+      "filename": "057-golden-lotus.png",
+      "tags": [
+        "golden",
+        "lotus"
+      ]
+    },
+    {
+      "id": "luminous-healing-058",
+      "name": "Round azure potion",
+      "path": "custom-icons/luminous-healing/058-round-azure-potion.png",
+      "family": "luminous-healing",
+      "filename": "058-round-azure-potion.png",
+      "tags": [
+        "azure",
+        "potion",
+        "round"
+      ]
+    },
+    {
+      "id": "luminous-healing-059",
+      "name": "Golden tree roots",
+      "path": "custom-icons/luminous-healing/059-golden-tree-roots.png",
+      "family": "luminous-healing",
+      "filename": "059-golden-tree-roots.png",
+      "tags": [
+        "golden",
+        "roots",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-060",
+      "name": "Healing fellowship",
+      "path": "custom-icons/luminous-healing/060-healing-fellowship.png",
+      "family": "luminous-healing",
+      "filename": "060-healing-fellowship.png",
+      "tags": [
+        "fellowship",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-061",
+      "name": "Sage and lavender herbs",
+      "path": "custom-icons/luminous-healing/061-sage-and-lavender-herbs.png",
+      "family": "luminous-healing",
+      "filename": "061-sage-and-lavender-herbs.png",
+      "tags": [
+        "and",
+        "herbs",
+        "lavender",
+        "sage"
+      ]
+    },
+    {
+      "id": "luminous-healing-062",
+      "name": "Green blue vortex",
+      "path": "custom-icons/luminous-healing/062-green-blue-vortex.png",
+      "family": "luminous-healing",
+      "filename": "062-green-blue-vortex.png",
+      "tags": [
+        "blue",
+        "green",
+        "vortex"
+      ]
+    },
+    {
+      "id": "luminous-healing-063",
+      "name": "Veiled golden serenity",
+      "path": "custom-icons/luminous-healing/063-veiled-golden-serenity.png",
+      "family": "luminous-healing",
+      "filename": "063-veiled-golden-serenity.png",
+      "tags": [
+        "golden",
+        "serenity",
+        "veiled"
+      ]
+    },
+    {
+      "id": "luminous-healing-064",
+      "name": "Radiant sunrise",
+      "path": "custom-icons/luminous-healing/064-radiant-sunrise.png",
+      "family": "luminous-healing",
+      "filename": "064-radiant-sunrise.png",
+      "tags": [
+        "radiant",
+        "sunrise"
+      ]
+    },
+    {
+      "id": "luminous-healing-065",
+      "name": "Violet crystal cluster",
+      "path": "custom-icons/luminous-healing/065-violet-crystal-cluster.png",
+      "family": "luminous-healing",
+      "filename": "065-violet-crystal-cluster.png",
+      "tags": [
+        "cluster",
+        "crystal",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-066",
+      "name": "Spectral white stag",
+      "path": "custom-icons/luminous-healing/066-spectral-white-stag.png",
+      "family": "luminous-healing",
+      "filename": "066-spectral-white-stag.png",
+      "tags": [
+        "spectral",
+        "stag",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-067",
+      "name": "Red healing berries",
+      "path": "custom-icons/luminous-healing/067-red-healing-berries.png",
+      "family": "luminous-healing",
+      "filename": "067-red-healing-berries.png",
+      "tags": [
+        "berries",
+        "healing",
+        "red"
+      ]
+    },
+    {
+      "id": "luminous-healing-068",
+      "name": "Stone water spring",
+      "path": "custom-icons/luminous-healing/068-stone-water-spring.png",
+      "family": "luminous-healing",
+      "filename": "068-stone-water-spring.png",
+      "tags": [
+        "spring",
+        "stone",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-069",
+      "name": "Blue enchanted grove",
+      "path": "custom-icons/luminous-healing/069-blue-enchanted-grove.png",
+      "family": "luminous-healing",
+      "filename": "069-blue-enchanted-grove.png",
+      "tags": [
+        "blue",
+        "enchanted",
+        "grove"
+      ]
+    },
+    {
+      "id": "luminous-healing-070",
+      "name": "Golden lotus in hand",
+      "path": "custom-icons/luminous-healing/070-golden-lotus-in-hand.png",
+      "family": "luminous-healing",
+      "filename": "070-golden-lotus-in-hand.png",
+      "tags": [
+        "golden",
+        "hand",
+        "in",
+        "lotus"
+      ]
+    },
+    {
+      "id": "luminous-healing-071",
+      "name": "Crescent moon lake",
+      "path": "custom-icons/luminous-healing/071-crescent-moon-lake.png",
+      "family": "luminous-healing",
+      "filename": "071-crescent-moon-lake.png",
+      "tags": [
+        "crescent",
+        "lake",
+        "moon"
+      ]
+    },
+    {
+      "id": "luminous-healing-072",
+      "name": "Pink peony",
+      "path": "custom-icons/luminous-healing/072-pink-peony.png",
+      "family": "luminous-healing",
+      "filename": "072-pink-peony.png",
+      "tags": [
+        "peony",
+        "pink"
+      ]
+    },
+    {
+      "id": "luminous-healing-073",
+      "name": "Radiant group blessing",
+      "path": "custom-icons/luminous-healing/073-radiant-group-blessing.png",
+      "family": "luminous-healing",
+      "filename": "073-radiant-group-blessing.png",
+      "tags": [
+        "blessing",
+        "group",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-074",
+      "name": "Sleeping forest fox",
+      "path": "custom-icons/luminous-healing/074-sleeping-forest-fox.png",
+      "family": "luminous-healing",
+      "filename": "074-sleeping-forest-fox.png",
+      "tags": [
+        "forest",
+        "fox",
+        "sleeping"
+      ]
+    },
+    {
+      "id": "luminous-healing-075",
+      "name": "Flower petal potion",
+      "path": "custom-icons/luminous-healing/075-flower-petal-potion.png",
+      "family": "luminous-healing",
+      "filename": "075-flower-petal-potion.png",
+      "tags": [
+        "flower",
+        "petal",
+        "potion"
+      ]
+    },
+    {
+      "id": "luminous-healing-076",
+      "name": "Deep azure vortex",
+      "path": "custom-icons/luminous-healing/076-deep-azure-vortex.png",
+      "family": "luminous-healing",
+      "filename": "076-deep-azure-vortex.png",
+      "tags": [
+        "azure",
+        "deep",
+        "vortex"
+      ]
+    },
+    {
+      "id": "luminous-healing-077",
+      "name": "Golden sanctuary well",
+      "path": "custom-icons/luminous-healing/077-golden-sanctuary-well.png",
+      "family": "luminous-healing",
+      "filename": "077-golden-sanctuary-well.png",
+      "tags": [
+        "golden",
+        "sanctuary",
+        "well"
+      ]
+    },
+    {
+      "id": "luminous-healing-078",
+      "name": "Aurora night sky",
+      "path": "custom-icons/luminous-healing/078-aurora-night-sky.png",
+      "family": "luminous-healing",
+      "filename": "078-aurora-night-sky.png",
+      "tags": [
+        "aurora",
+        "night",
+        "sky"
+      ]
+    },
+    {
+      "id": "luminous-healing-079",
+      "name": "Pink healing rosebud",
+      "path": "custom-icons/luminous-healing/079-pink-healing-rosebud.png",
+      "family": "luminous-healing",
+      "filename": "079-pink-healing-rosebud.png",
+      "tags": [
+        "healing",
+        "pink",
+        "rosebud"
+      ]
+    },
+    {
+      "id": "luminous-healing-080",
+      "name": "Celestial healing prayer",
+      "path": "custom-icons/luminous-healing/080-celestial-healing-prayer.png",
+      "family": "luminous-healing",
+      "filename": "080-celestial-healing-prayer.png",
+      "tags": [
+        "celestial",
+        "healing",
+        "prayer"
+      ]
+    },
+    {
+      "id": "luminous-healing-081",
+      "name": "Lavender sunrise valley",
+      "path": "custom-icons/luminous-healing/081-lavender-sunrise-valley.png",
+      "family": "luminous-healing",
+      "filename": "081-lavender-sunrise-valley.png",
+      "tags": [
+        "lavender",
+        "sunrise",
+        "valley"
+      ]
+    },
+    {
+      "id": "luminous-healing-082",
+      "name": "Golden healing touch",
+      "path": "custom-icons/luminous-healing/082-golden-healing-touch.png",
+      "family": "luminous-healing",
+      "filename": "082-golden-healing-touch.png",
+      "tags": [
+        "golden",
+        "healing",
+        "touch"
+      ]
+    },
+    {
+      "id": "luminous-healing-083",
+      "name": "Blue dewdrop blossoms",
+      "path": "custom-icons/luminous-healing/083-blue-dewdrop-blossoms.png",
+      "family": "luminous-healing",
+      "filename": "083-blue-dewdrop-blossoms.png",
+      "tags": [
+        "blossoms",
+        "blue",
+        "dewdrop"
+      ]
+    },
+    {
+      "id": "luminous-healing-084",
+      "name": "Crystal waterfall",
+      "path": "custom-icons/luminous-healing/084-crystal-waterfall.png",
+      "family": "luminous-healing",
+      "filename": "084-crystal-waterfall.png",
+      "tags": [
+        "crystal",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "luminous-healing-085",
+      "name": "Golden waterside tree",
+      "path": "custom-icons/luminous-healing/085-golden-waterside-tree.png",
+      "family": "luminous-healing",
+      "filename": "085-golden-waterside-tree.png",
+      "tags": [
+        "golden",
+        "tree",
+        "waterside"
+      ]
+    },
+    {
+      "id": "luminous-healing-086",
+      "name": "Cosmic healing fellowship",
+      "path": "custom-icons/luminous-healing/086-cosmic-healing-fellowship.png",
+      "family": "luminous-healing",
+      "filename": "086-cosmic-healing-fellowship.png",
+      "tags": [
+        "cosmic",
+        "fellowship",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-087",
+      "name": "Flower-crowned spirit",
+      "path": "custom-icons/luminous-healing/087-flower-crowned-spirit.png",
+      "family": "luminous-healing",
+      "filename": "087-flower-crowned-spirit.png",
+      "tags": [
+        "crowned",
+        "flower",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-088",
+      "name": "Steaming herbal cauldron",
+      "path": "custom-icons/luminous-healing/088-steaming-herbal-cauldron.png",
+      "family": "luminous-healing",
+      "filename": "088-steaming-herbal-cauldron.png",
+      "tags": [
+        "cauldron",
+        "herbal",
+        "steaming"
+      ]
+    },
+    {
+      "id": "luminous-healing-089",
+      "name": "Radiant white lilies",
+      "path": "custom-icons/luminous-healing/089-radiant-white-lilies.png",
+      "family": "luminous-healing",
+      "filename": "089-radiant-white-lilies.png",
+      "tags": [
+        "lilies",
+        "radiant",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-090",
+      "name": "Golden violet spiral",
+      "path": "custom-icons/luminous-healing/090-golden-violet-spiral.png",
+      "family": "luminous-healing",
+      "filename": "090-golden-violet-spiral.png",
+      "tags": [
+        "golden",
+        "spiral",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-091",
+      "name": "Woodland water spirit",
+      "path": "custom-icons/luminous-healing/091-woodland-water-spirit.png",
+      "family": "luminous-healing",
+      "filename": "091-woodland-water-spirit.png",
+      "tags": [
+        "spirit",
+        "water",
+        "woodland"
+      ]
+    },
+    {
+      "id": "luminous-healing-092",
+      "name": "Blue crystal lilies",
+      "path": "custom-icons/luminous-healing/092-blue-crystal-lilies.png",
+      "family": "luminous-healing",
+      "filename": "092-blue-crystal-lilies.png",
+      "tags": [
+        "blue",
+        "crystal",
+        "lilies"
+      ]
+    },
+    {
+      "id": "luminous-healing-093",
+      "name": "Floating sacred temple",
+      "path": "custom-icons/luminous-healing/093-floating-sacred-temple.png",
+      "family": "luminous-healing",
+      "filename": "093-floating-sacred-temple.png",
+      "tags": [
+        "floating",
+        "sacred",
+        "temple"
+      ]
+    },
+    {
+      "id": "luminous-healing-094",
+      "name": "Radiant heart in hands",
+      "path": "custom-icons/luminous-healing/094-radiant-heart-in-hands.png",
+      "family": "luminous-healing",
+      "filename": "094-radiant-heart-in-hands.png",
+      "tags": [
+        "hands",
+        "heart",
+        "in",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-095",
+      "name": "Golden spirit meditation",
+      "path": "custom-icons/luminous-healing/095-golden-spirit-meditation.png",
+      "family": "luminous-healing",
+      "filename": "095-golden-spirit-meditation.png",
+      "tags": [
+        "golden",
+        "meditation",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-096",
+      "name": "Spiral azure potion",
+      "path": "custom-icons/luminous-healing/096-spiral-azure-potion.png",
+      "family": "luminous-healing",
+      "filename": "096-spiral-azure-potion.png",
+      "tags": [
+        "azure",
+        "potion",
+        "spiral"
+      ]
+    },
+    {
+      "id": "luminous-healing-097",
+      "name": "Forest deer family",
+      "path": "custom-icons/luminous-healing/097-forest-deer-family.png",
+      "family": "luminous-healing",
+      "filename": "097-forest-deer-family.png",
+      "tags": [
+        "deer",
+        "family",
+        "forest"
+      ]
+    },
+    {
+      "id": "luminous-healing-098",
+      "name": "Violet water lotus",
+      "path": "custom-icons/luminous-healing/098-violet-water-lotus.png",
+      "family": "luminous-healing",
+      "filename": "098-violet-water-lotus.png",
+      "tags": [
+        "lotus",
+        "violet",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-099",
+      "name": "Golden healing assembly",
+      "path": "custom-icons/luminous-healing/099-golden-healing-assembly.png",
+      "family": "luminous-healing",
+      "filename": "099-golden-healing-assembly.png",
+      "tags": [
+        "assembly",
+        "golden",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-100",
+      "name": "Radiant winged guardian",
+      "path": "custom-icons/luminous-healing/100-radiant-winged-guardian.png",
+      "family": "luminous-healing",
+      "filename": "100-radiant-winged-guardian.png",
+      "tags": [
+        "guardian",
+        "radiant",
+        "winged"
+      ]
+    },
+    {
       "id": "ability:ability_ambush",
       "name": "ability ambush",
       "path": "icons/ability_ambush.jpg",

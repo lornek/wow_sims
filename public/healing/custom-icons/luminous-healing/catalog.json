@@ -1,0 +1,2235 @@
+{
+  "id": "luminous-healing",
+  "title": "Luminous Healing",
+  "sourceFilename": "luminous-healing.png",
+  "sourceSha256": "8b516743c475f6126be8260ac79720e9cb979832f0fb93e8e4310fe158d226e0",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "xBoundaries": [
+    0,
+    133,
+    257,
+    379,
+    504,
+    629,
+    755,
+    880,
+    1006,
+    1130,
+    1254
+  ],
+  "yBoundaries": [
+    0,
+    125,
+    250,
+    376,
+    501,
+    626,
+    749,
+    866,
+    981,
+    1101,
+    1254
+  ],
+  "icons": [
+    {
+      "id": "luminous-healing-001",
+      "set": "luminous-healing",
+      "number": 1,
+      "row": 1,
+      "column": 1,
+      "name": "Radiant star in hand",
+      "path": "luminous-healing/001-radiant-star-in-hand.png",
+      "width": 133,
+      "height": 125,
+      "sourceBox": [
+        0,
+        0,
+        133,
+        125
+      ],
+      "tags": [
+        "hand",
+        "in",
+        "radiant",
+        "star"
+      ]
+    },
+    {
+      "id": "luminous-healing-002",
+      "set": "luminous-healing",
+      "number": 2,
+      "row": 1,
+      "column": 2,
+      "name": "White healing lilies",
+      "path": "luminous-healing/002-white-healing-lilies.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        133,
+        0,
+        257,
+        125
+      ],
+      "tags": [
+        "healing",
+        "lilies",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-003",
+      "set": "luminous-healing",
+      "number": 3,
+      "row": 1,
+      "column": 3,
+      "name": "Blue crystal potion",
+      "path": "luminous-healing/003-blue-crystal-potion.png",
+      "width": 122,
+      "height": 125,
+      "sourceBox": [
+        257,
+        0,
+        379,
+        125
+      ],
+      "tags": [
+        "blue",
+        "crystal",
+        "potion"
+      ]
+    },
+    {
+      "id": "luminous-healing-004",
+      "set": "luminous-healing",
+      "number": 4,
+      "row": 1,
+      "column": 4,
+      "name": "Luminous forest waterfall",
+      "path": "luminous-healing/004-luminous-forest-waterfall.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        379,
+        0,
+        504,
+        125
+      ],
+      "tags": [
+        "forest",
+        "luminous",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "luminous-healing-005",
+      "set": "luminous-healing",
+      "number": 5,
+      "row": 1,
+      "column": 5,
+      "name": "Golden tree of life",
+      "path": "luminous-healing/005-golden-tree-of-life.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        504,
+        0,
+        629,
+        125
+      ],
+      "tags": [
+        "golden",
+        "life",
+        "of",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-006",
+      "set": "luminous-healing",
+      "number": 6,
+      "row": 1,
+      "column": 6,
+      "name": "Flower-crowned blessing",
+      "path": "luminous-healing/006-flower-crowned-blessing.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        629,
+        0,
+        755,
+        125
+      ],
+      "tags": [
+        "blessing",
+        "crowned",
+        "flower"
+      ]
+    },
+    {
+      "id": "luminous-healing-007",
+      "set": "luminous-healing",
+      "number": 7,
+      "row": 1,
+      "column": 7,
+      "name": "Blue crystal spires",
+      "path": "luminous-healing/007-blue-crystal-spires.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        755,
+        0,
+        880,
+        125
+      ],
+      "tags": [
+        "blue",
+        "crystal",
+        "spires"
+      ]
+    },
+    {
+      "id": "luminous-healing-008",
+      "set": "luminous-healing",
+      "number": 8,
+      "row": 1,
+      "column": 8,
+      "name": "White spirit dove",
+      "path": "luminous-healing/008-white-spirit-dove.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        880,
+        0,
+        1006,
+        125
+      ],
+      "tags": [
+        "dove",
+        "spirit",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-009",
+      "set": "luminous-healing",
+      "number": 9,
+      "row": 1,
+      "column": 9,
+      "name": "Herbal mortar",
+      "path": "luminous-healing/009-herbal-mortar.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1006,
+        0,
+        1130,
+        125
+      ],
+      "tags": [
+        "herbal",
+        "mortar"
+      ]
+    },
+    {
+      "id": "luminous-healing-010",
+      "set": "luminous-healing",
+      "number": 10,
+      "row": 1,
+      "column": 10,
+      "name": "Golden winged spirit",
+      "path": "luminous-healing/010-golden-winged-spirit.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1130,
+        0,
+        1254,
+        125
+      ],
+      "tags": [
+        "golden",
+        "spirit",
+        "winged"
+      ]
+    },
+    {
+      "id": "luminous-healing-011",
+      "set": "luminous-healing",
+      "number": 11,
+      "row": 2,
+      "column": 1,
+      "name": "Dewdrop on grass",
+      "path": "luminous-healing/011-dewdrop-on-grass.png",
+      "width": 133,
+      "height": 125,
+      "sourceBox": [
+        0,
+        125,
+        133,
+        250
+      ],
+      "tags": [
+        "dewdrop",
+        "grass",
+        "on"
+      ]
+    },
+    {
+      "id": "luminous-healing-012",
+      "set": "luminous-healing",
+      "number": 12,
+      "row": 2,
+      "column": 2,
+      "name": "Green leaf current",
+      "path": "luminous-healing/012-green-leaf-current.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        133,
+        125,
+        257,
+        250
+      ],
+      "tags": [
+        "current",
+        "green",
+        "leaf"
+      ]
+    },
+    {
+      "id": "luminous-healing-013",
+      "set": "luminous-healing",
+      "number": 13,
+      "row": 2,
+      "column": 3,
+      "name": "Blue cosmic spiral",
+      "path": "luminous-healing/013-blue-cosmic-spiral.png",
+      "width": 122,
+      "height": 125,
+      "sourceBox": [
+        257,
+        125,
+        379,
+        250
+      ],
+      "tags": [
+        "blue",
+        "cosmic",
+        "spiral"
+      ]
+    },
+    {
+      "id": "luminous-healing-014",
+      "set": "luminous-healing",
+      "number": 14,
+      "row": 2,
+      "column": 4,
+      "name": "Radiant healing fellowship",
+      "path": "luminous-healing/014-radiant-healing-fellowship.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        379,
+        125,
+        504,
+        250
+      ],
+      "tags": [
+        "fellowship",
+        "healing",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-015",
+      "set": "luminous-healing",
+      "number": 15,
+      "row": 2,
+      "column": 5,
+      "name": "Radiant healing heart",
+      "path": "luminous-healing/015-radiant-healing-heart.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        504,
+        125,
+        629,
+        250
+      ],
+      "tags": [
+        "healing",
+        "heart",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-016",
+      "set": "luminous-healing",
+      "number": 16,
+      "row": 2,
+      "column": 6,
+      "name": "Pink lotus",
+      "path": "luminous-healing/016-pink-lotus.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        629,
+        125,
+        755,
+        250
+      ],
+      "tags": [
+        "lotus",
+        "pink"
+      ]
+    },
+    {
+      "id": "luminous-healing-017",
+      "set": "luminous-healing",
+      "number": 17,
+      "row": 2,
+      "column": 7,
+      "name": "Seedling in healing hands",
+      "path": "luminous-healing/017-seedling-in-healing-hands.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        755,
+        125,
+        880,
+        250
+      ],
+      "tags": [
+        "hands",
+        "healing",
+        "in",
+        "seedling"
+      ]
+    },
+    {
+      "id": "luminous-healing-018",
+      "set": "luminous-healing",
+      "number": 18,
+      "row": 2,
+      "column": 8,
+      "name": "Moonlit water",
+      "path": "luminous-healing/018-moonlit-water.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        880,
+        125,
+        1006,
+        250
+      ],
+      "tags": [
+        "moonlit",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-019",
+      "set": "luminous-healing",
+      "number": 19,
+      "row": 2,
+      "column": 9,
+      "name": "Violet mana potion",
+      "path": "luminous-healing/019-violet-mana-potion.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1006,
+        125,
+        1130,
+        250
+      ],
+      "tags": [
+        "mana",
+        "potion",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-020",
+      "set": "luminous-healing",
+      "number": 20,
+      "row": 2,
+      "column": 10,
+      "name": "Resting forest fawn",
+      "path": "luminous-healing/020-resting-forest-fawn.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1130,
+        125,
+        1254,
+        250
+      ],
+      "tags": [
+        "fawn",
+        "forest",
+        "resting"
+      ]
+    },
+    {
+      "id": "luminous-healing-021",
+      "set": "luminous-healing",
+      "number": 21,
+      "row": 3,
+      "column": 1,
+      "name": "Veiled healer prayer",
+      "path": "luminous-healing/021-veiled-healer-prayer.png",
+      "width": 133,
+      "height": 126,
+      "sourceBox": [
+        0,
+        250,
+        133,
+        376
+      ],
+      "tags": [
+        "healer",
+        "prayer",
+        "veiled"
+      ]
+    },
+    {
+      "id": "luminous-healing-022",
+      "set": "luminous-healing",
+      "number": 22,
+      "row": 3,
+      "column": 2,
+      "name": "Steaming herbal tea",
+      "path": "luminous-healing/022-steaming-herbal-tea.png",
+      "width": 124,
+      "height": 126,
+      "sourceBox": [
+        133,
+        250,
+        257,
+        376
+      ],
+      "tags": [
+        "herbal",
+        "steaming",
+        "tea"
+      ]
+    },
+    {
+      "id": "luminous-healing-023",
+      "set": "luminous-healing",
+      "number": 23,
+      "row": 3,
+      "column": 3,
+      "name": "Golden forest stag",
+      "path": "luminous-healing/023-golden-forest-stag.png",
+      "width": 122,
+      "height": 126,
+      "sourceBox": [
+        257,
+        250,
+        379,
+        376
+      ],
+      "tags": [
+        "forest",
+        "golden",
+        "stag"
+      ]
+    },
+    {
+      "id": "luminous-healing-024",
+      "set": "luminous-healing",
+      "number": 24,
+      "row": 3,
+      "column": 4,
+      "name": "Pink blossom branch",
+      "path": "luminous-healing/024-pink-blossom-branch.png",
+      "width": 125,
+      "height": 126,
+      "sourceBox": [
+        379,
+        250,
+        504,
+        376
+      ],
+      "tags": [
+        "blossom",
+        "branch",
+        "pink"
+      ]
+    },
+    {
+      "id": "luminous-healing-025",
+      "set": "luminous-healing",
+      "number": 25,
+      "row": 3,
+      "column": 5,
+      "name": "Guardian of the golden tree",
+      "path": "luminous-healing/025-guardian-of-the-golden-tree.png",
+      "width": 125,
+      "height": 126,
+      "sourceBox": [
+        504,
+        250,
+        629,
+        376
+      ],
+      "tags": [
+        "golden",
+        "guardian",
+        "of",
+        "the",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-026",
+      "set": "luminous-healing",
+      "number": 26,
+      "row": 3,
+      "column": 6,
+      "name": "Tiered clear cascade",
+      "path": "luminous-healing/026-tiered-clear-cascade.png",
+      "width": 126,
+      "height": 126,
+      "sourceBox": [
+        629,
+        250,
+        755,
+        376
+      ],
+      "tags": [
+        "cascade",
+        "clear",
+        "tiered"
+      ]
+    },
+    {
+      "id": "luminous-healing-027",
+      "set": "luminous-healing",
+      "number": 27,
+      "row": 3,
+      "column": 7,
+      "name": "Violet spirit butterfly",
+      "path": "luminous-healing/027-violet-spirit-butterfly.png",
+      "width": 125,
+      "height": 126,
+      "sourceBox": [
+        755,
+        250,
+        880,
+        376
+      ],
+      "tags": [
+        "butterfly",
+        "spirit",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-028",
+      "set": "luminous-healing",
+      "number": 28,
+      "row": 3,
+      "column": 8,
+      "name": "Glowing earth seedling",
+      "path": "luminous-healing/028-glowing-earth-seedling.png",
+      "width": 126,
+      "height": 126,
+      "sourceBox": [
+        880,
+        250,
+        1006,
+        376
+      ],
+      "tags": [
+        "earth",
+        "glowing",
+        "seedling"
+      ]
+    },
+    {
+      "id": "luminous-healing-029",
+      "set": "luminous-healing",
+      "number": 29,
+      "row": 3,
+      "column": 9,
+      "name": "Golden crystal eruption",
+      "path": "luminous-healing/029-golden-crystal-eruption.png",
+      "width": 124,
+      "height": 126,
+      "sourceBox": [
+        1006,
+        250,
+        1130,
+        376
+      ],
+      "tags": [
+        "crystal",
+        "eruption",
+        "golden"
+      ]
+    },
+    {
+      "id": "luminous-healing-030",
+      "set": "luminous-healing",
+      "number": 30,
+      "row": 3,
+      "column": 10,
+      "name": "Sunlit healer",
+      "path": "luminous-healing/030-sunlit-healer.png",
+      "width": 124,
+      "height": 126,
+      "sourceBox": [
+        1130,
+        250,
+        1254,
+        376
+      ],
+      "tags": [
+        "healer",
+        "sunlit"
+      ]
+    },
+    {
+      "id": "luminous-healing-031",
+      "set": "luminous-healing",
+      "number": 31,
+      "row": 4,
+      "column": 1,
+      "name": "Calendula healing salve",
+      "path": "luminous-healing/031-calendula-healing-salve.png",
+      "width": 133,
+      "height": 125,
+      "sourceBox": [
+        0,
+        376,
+        133,
+        501
+      ],
+      "tags": [
+        "calendula",
+        "healing",
+        "salve"
+      ]
+    },
+    {
+      "id": "luminous-healing-032",
+      "set": "luminous-healing",
+      "number": 32,
+      "row": 4,
+      "column": 2,
+      "name": "Violet lotus bloom",
+      "path": "luminous-healing/032-violet-lotus-bloom.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        133,
+        376,
+        257,
+        501
+      ],
+      "tags": [
+        "bloom",
+        "lotus",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-033",
+      "set": "luminous-healing",
+      "number": 33,
+      "row": 4,
+      "column": 3,
+      "name": "Green leaf vortex",
+      "path": "luminous-healing/033-green-leaf-vortex.png",
+      "width": 122,
+      "height": 125,
+      "sourceBox": [
+        257,
+        376,
+        379,
+        501
+      ],
+      "tags": [
+        "green",
+        "leaf",
+        "vortex"
+      ]
+    },
+    {
+      "id": "luminous-healing-034",
+      "set": "luminous-healing",
+      "number": 34,
+      "row": 4,
+      "column": 4,
+      "name": "Group healing circle",
+      "path": "luminous-healing/034-group-healing-circle.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        379,
+        376,
+        504,
+        501
+      ],
+      "tags": [
+        "circle",
+        "group",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-035",
+      "set": "luminous-healing",
+      "number": 35,
+      "row": 4,
+      "column": 5,
+      "name": "Flower-crowned serenity",
+      "path": "luminous-healing/035-flower-crowned-serenity.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        504,
+        376,
+        629,
+        501
+      ],
+      "tags": [
+        "crowned",
+        "flower",
+        "serenity"
+      ]
+    },
+    {
+      "id": "luminous-healing-036",
+      "set": "luminous-healing",
+      "number": 36,
+      "row": 4,
+      "column": 6,
+      "name": "Crystal healing staff",
+      "path": "luminous-healing/036-crystal-healing-staff.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        629,
+        376,
+        755,
+        501
+      ],
+      "tags": [
+        "crystal",
+        "healing",
+        "staff"
+      ]
+    },
+    {
+      "id": "luminous-healing-037",
+      "set": "luminous-healing",
+      "number": 37,
+      "row": 4,
+      "column": 7,
+      "name": "Blue spirit meditation",
+      "path": "luminous-healing/037-blue-spirit-meditation.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        755,
+        376,
+        880,
+        501
+      ],
+      "tags": [
+        "blue",
+        "meditation",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-038",
+      "set": "luminous-healing",
+      "number": 38,
+      "row": 4,
+      "column": 8,
+      "name": "Stone spring maiden",
+      "path": "luminous-healing/038-stone-spring-maiden.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        880,
+        376,
+        1006,
+        501
+      ],
+      "tags": [
+        "maiden",
+        "spring",
+        "stone"
+      ]
+    },
+    {
+      "id": "luminous-healing-039",
+      "set": "luminous-healing",
+      "number": 39,
+      "row": 4,
+      "column": 9,
+      "name": "Willow healing pool",
+      "path": "luminous-healing/039-willow-healing-pool.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1006,
+        376,
+        1130,
+        501
+      ],
+      "tags": [
+        "healing",
+        "pool",
+        "willow"
+      ]
+    },
+    {
+      "id": "luminous-healing-040",
+      "set": "luminous-healing",
+      "number": 40,
+      "row": 4,
+      "column": 10,
+      "name": "Violet golden wisp",
+      "path": "luminous-healing/040-violet-golden-wisp.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1130,
+        376,
+        1254,
+        501
+      ],
+      "tags": [
+        "golden",
+        "violet",
+        "wisp"
+      ]
+    },
+    {
+      "id": "luminous-healing-041",
+      "set": "luminous-healing",
+      "number": 41,
+      "row": 5,
+      "column": 1,
+      "name": "Garden healing arch",
+      "path": "luminous-healing/041-garden-healing-arch.png",
+      "width": 133,
+      "height": 125,
+      "sourceBox": [
+        0,
+        501,
+        133,
+        626
+      ],
+      "tags": [
+        "arch",
+        "garden",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-042",
+      "set": "luminous-healing",
+      "number": 42,
+      "row": 5,
+      "column": 2,
+      "name": "Golden healer prayer",
+      "path": "luminous-healing/042-golden-healer-prayer.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        133,
+        501,
+        257,
+        626
+      ],
+      "tags": [
+        "golden",
+        "healer",
+        "prayer"
+      ]
+    },
+    {
+      "id": "luminous-healing-043",
+      "set": "luminous-healing",
+      "number": 43,
+      "row": 5,
+      "column": 3,
+      "name": "Green herbal potion",
+      "path": "luminous-healing/043-green-herbal-potion.png",
+      "width": 122,
+      "height": 125,
+      "sourceBox": [
+        257,
+        501,
+        379,
+        626
+      ],
+      "tags": [
+        "green",
+        "herbal",
+        "potion"
+      ]
+    },
+    {
+      "id": "luminous-healing-044",
+      "set": "luminous-healing",
+      "number": 44,
+      "row": 5,
+      "column": 4,
+      "name": "Purple healing lotus",
+      "path": "luminous-healing/044-purple-healing-lotus.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        379,
+        501,
+        504,
+        626
+      ],
+      "tags": [
+        "healing",
+        "lotus",
+        "purple"
+      ]
+    },
+    {
+      "id": "luminous-healing-045",
+      "set": "luminous-healing",
+      "number": 45,
+      "row": 5,
+      "column": 5,
+      "name": "Shared healing light",
+      "path": "luminous-healing/045-shared-healing-light.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        504,
+        501,
+        629,
+        626
+      ],
+      "tags": [
+        "healing",
+        "light",
+        "shared"
+      ]
+    },
+    {
+      "id": "luminous-healing-046",
+      "set": "luminous-healing",
+      "number": 46,
+      "row": 5,
+      "column": 6,
+      "name": "Sunlit clear river",
+      "path": "luminous-healing/046-sunlit-clear-river.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        629,
+        501,
+        755,
+        626
+      ],
+      "tags": [
+        "clear",
+        "river",
+        "sunlit"
+      ]
+    },
+    {
+      "id": "luminous-healing-047",
+      "set": "luminous-healing",
+      "number": 47,
+      "row": 5,
+      "column": 7,
+      "name": "Golden spirit feather",
+      "path": "luminous-healing/047-golden-spirit-feather.png",
+      "width": 125,
+      "height": 125,
+      "sourceBox": [
+        755,
+        501,
+        880,
+        626
+      ],
+      "tags": [
+        "feather",
+        "golden",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-048",
+      "set": "luminous-healing",
+      "number": 48,
+      "row": 5,
+      "column": 8,
+      "name": "Purple bellflowers",
+      "path": "luminous-healing/048-purple-bellflowers.png",
+      "width": 126,
+      "height": 125,
+      "sourceBox": [
+        880,
+        501,
+        1006,
+        626
+      ],
+      "tags": [
+        "bellflowers",
+        "purple"
+      ]
+    },
+    {
+      "id": "luminous-healing-049",
+      "set": "luminous-healing",
+      "number": 49,
+      "row": 5,
+      "column": 9,
+      "name": "Open spellbook",
+      "path": "luminous-healing/049-open-spellbook.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1006,
+        501,
+        1130,
+        626
+      ],
+      "tags": [
+        "open",
+        "spellbook"
+      ]
+    },
+    {
+      "id": "luminous-healing-050",
+      "set": "luminous-healing",
+      "number": 50,
+      "row": 5,
+      "column": 10,
+      "name": "Pink blossom tree",
+      "path": "luminous-healing/050-pink-blossom-tree.png",
+      "width": 124,
+      "height": 125,
+      "sourceBox": [
+        1130,
+        501,
+        1254,
+        626
+      ],
+      "tags": [
+        "blossom",
+        "pink",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-051",
+      "set": "luminous-healing",
+      "number": 51,
+      "row": 6,
+      "column": 1,
+      "name": "Water healing hands",
+      "path": "luminous-healing/051-water-healing-hands.png",
+      "width": 133,
+      "height": 123,
+      "sourceBox": [
+        0,
+        626,
+        133,
+        749
+      ],
+      "tags": [
+        "hands",
+        "healing",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-052",
+      "set": "luminous-healing",
+      "number": 52,
+      "row": 6,
+      "column": 2,
+      "name": "Luminous purple mushrooms",
+      "path": "luminous-healing/052-luminous-purple-mushrooms.png",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        133,
+        626,
+        257,
+        749
+      ],
+      "tags": [
+        "luminous",
+        "mushrooms",
+        "purple"
+      ]
+    },
+    {
+      "id": "luminous-healing-053",
+      "set": "luminous-healing",
+      "number": 53,
+      "row": 6,
+      "column": 3,
+      "name": "Lotus pond ripples",
+      "path": "luminous-healing/053-lotus-pond-ripples.png",
+      "width": 122,
+      "height": 123,
+      "sourceBox": [
+        257,
+        626,
+        379,
+        749
+      ],
+      "tags": [
+        "lotus",
+        "pond",
+        "ripples"
+      ]
+    },
+    {
+      "id": "luminous-healing-054",
+      "set": "luminous-healing",
+      "number": 54,
+      "row": 6,
+      "column": 4,
+      "name": "Glowing spirit dove",
+      "path": "luminous-healing/054-glowing-spirit-dove.png",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        379,
+        626,
+        504,
+        749
+      ],
+      "tags": [
+        "dove",
+        "glowing",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-055",
+      "set": "luminous-healing",
+      "number": 55,
+      "row": 6,
+      "column": 5,
+      "name": "Flower-crowned blessing",
+      "path": "luminous-healing/055-flower-crowned-blessing.png",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        504,
+        626,
+        629,
+        749
+      ],
+      "tags": [
+        "blessing",
+        "crowned",
+        "flower"
+      ]
+    },
+    {
+      "id": "luminous-healing-056",
+      "set": "luminous-healing",
+      "number": 56,
+      "row": 6,
+      "column": 6,
+      "name": "Forest waterfall pool",
+      "path": "luminous-healing/056-forest-waterfall-pool.png",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        629,
+        626,
+        755,
+        749
+      ],
+      "tags": [
+        "forest",
+        "pool",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "luminous-healing-057",
+      "set": "luminous-healing",
+      "number": 57,
+      "row": 6,
+      "column": 7,
+      "name": "Golden lotus",
+      "path": "luminous-healing/057-golden-lotus.png",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        755,
+        626,
+        880,
+        749
+      ],
+      "tags": [
+        "golden",
+        "lotus"
+      ]
+    },
+    {
+      "id": "luminous-healing-058",
+      "set": "luminous-healing",
+      "number": 58,
+      "row": 6,
+      "column": 8,
+      "name": "Round azure potion",
+      "path": "luminous-healing/058-round-azure-potion.png",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        880,
+        626,
+        1006,
+        749
+      ],
+      "tags": [
+        "azure",
+        "potion",
+        "round"
+      ]
+    },
+    {
+      "id": "luminous-healing-059",
+      "set": "luminous-healing",
+      "number": 59,
+      "row": 6,
+      "column": 9,
+      "name": "Golden tree roots",
+      "path": "luminous-healing/059-golden-tree-roots.png",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        1006,
+        626,
+        1130,
+        749
+      ],
+      "tags": [
+        "golden",
+        "roots",
+        "tree"
+      ]
+    },
+    {
+      "id": "luminous-healing-060",
+      "set": "luminous-healing",
+      "number": 60,
+      "row": 6,
+      "column": 10,
+      "name": "Healing fellowship",
+      "path": "luminous-healing/060-healing-fellowship.png",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        1130,
+        626,
+        1254,
+        749
+      ],
+      "tags": [
+        "fellowship",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-061",
+      "set": "luminous-healing",
+      "number": 61,
+      "row": 7,
+      "column": 1,
+      "name": "Sage and lavender herbs",
+      "path": "luminous-healing/061-sage-and-lavender-herbs.png",
+      "width": 133,
+      "height": 117,
+      "sourceBox": [
+        0,
+        749,
+        133,
+        866
+      ],
+      "tags": [
+        "and",
+        "herbs",
+        "lavender",
+        "sage"
+      ]
+    },
+    {
+      "id": "luminous-healing-062",
+      "set": "luminous-healing",
+      "number": 62,
+      "row": 7,
+      "column": 2,
+      "name": "Green blue vortex",
+      "path": "luminous-healing/062-green-blue-vortex.png",
+      "width": 124,
+      "height": 117,
+      "sourceBox": [
+        133,
+        749,
+        257,
+        866
+      ],
+      "tags": [
+        "blue",
+        "green",
+        "vortex"
+      ]
+    },
+    {
+      "id": "luminous-healing-063",
+      "set": "luminous-healing",
+      "number": 63,
+      "row": 7,
+      "column": 3,
+      "name": "Veiled golden serenity",
+      "path": "luminous-healing/063-veiled-golden-serenity.png",
+      "width": 122,
+      "height": 117,
+      "sourceBox": [
+        257,
+        749,
+        379,
+        866
+      ],
+      "tags": [
+        "golden",
+        "serenity",
+        "veiled"
+      ]
+    },
+    {
+      "id": "luminous-healing-064",
+      "set": "luminous-healing",
+      "number": 64,
+      "row": 7,
+      "column": 4,
+      "name": "Radiant sunrise",
+      "path": "luminous-healing/064-radiant-sunrise.png",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        379,
+        749,
+        504,
+        866
+      ],
+      "tags": [
+        "radiant",
+        "sunrise"
+      ]
+    },
+    {
+      "id": "luminous-healing-065",
+      "set": "luminous-healing",
+      "number": 65,
+      "row": 7,
+      "column": 5,
+      "name": "Violet crystal cluster",
+      "path": "luminous-healing/065-violet-crystal-cluster.png",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        504,
+        749,
+        629,
+        866
+      ],
+      "tags": [
+        "cluster",
+        "crystal",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-066",
+      "set": "luminous-healing",
+      "number": 66,
+      "row": 7,
+      "column": 6,
+      "name": "Spectral white stag",
+      "path": "luminous-healing/066-spectral-white-stag.png",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        629,
+        749,
+        755,
+        866
+      ],
+      "tags": [
+        "spectral",
+        "stag",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-067",
+      "set": "luminous-healing",
+      "number": 67,
+      "row": 7,
+      "column": 7,
+      "name": "Red healing berries",
+      "path": "luminous-healing/067-red-healing-berries.png",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        755,
+        749,
+        880,
+        866
+      ],
+      "tags": [
+        "berries",
+        "healing",
+        "red"
+      ]
+    },
+    {
+      "id": "luminous-healing-068",
+      "set": "luminous-healing",
+      "number": 68,
+      "row": 7,
+      "column": 8,
+      "name": "Stone water spring",
+      "path": "luminous-healing/068-stone-water-spring.png",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        880,
+        749,
+        1006,
+        866
+      ],
+      "tags": [
+        "spring",
+        "stone",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-069",
+      "set": "luminous-healing",
+      "number": 69,
+      "row": 7,
+      "column": 9,
+      "name": "Blue enchanted grove",
+      "path": "luminous-healing/069-blue-enchanted-grove.png",
+      "width": 124,
+      "height": 117,
+      "sourceBox": [
+        1006,
+        749,
+        1130,
+        866
+      ],
+      "tags": [
+        "blue",
+        "enchanted",
+        "grove"
+      ]
+    },
+    {
+      "id": "luminous-healing-070",
+      "set": "luminous-healing",
+      "number": 70,
+      "row": 7,
+      "column": 10,
+      "name": "Golden lotus in hand",
+      "path": "luminous-healing/070-golden-lotus-in-hand.png",
+      "width": 124,
+      "height": 117,
+      "sourceBox": [
+        1130,
+        749,
+        1254,
+        866
+      ],
+      "tags": [
+        "golden",
+        "hand",
+        "in",
+        "lotus"
+      ]
+    },
+    {
+      "id": "luminous-healing-071",
+      "set": "luminous-healing",
+      "number": 71,
+      "row": 8,
+      "column": 1,
+      "name": "Crescent moon lake",
+      "path": "luminous-healing/071-crescent-moon-lake.png",
+      "width": 133,
+      "height": 115,
+      "sourceBox": [
+        0,
+        866,
+        133,
+        981
+      ],
+      "tags": [
+        "crescent",
+        "lake",
+        "moon"
+      ]
+    },
+    {
+      "id": "luminous-healing-072",
+      "set": "luminous-healing",
+      "number": 72,
+      "row": 8,
+      "column": 2,
+      "name": "Pink peony",
+      "path": "luminous-healing/072-pink-peony.png",
+      "width": 124,
+      "height": 115,
+      "sourceBox": [
+        133,
+        866,
+        257,
+        981
+      ],
+      "tags": [
+        "peony",
+        "pink"
+      ]
+    },
+    {
+      "id": "luminous-healing-073",
+      "set": "luminous-healing",
+      "number": 73,
+      "row": 8,
+      "column": 3,
+      "name": "Radiant group blessing",
+      "path": "luminous-healing/073-radiant-group-blessing.png",
+      "width": 122,
+      "height": 115,
+      "sourceBox": [
+        257,
+        866,
+        379,
+        981
+      ],
+      "tags": [
+        "blessing",
+        "group",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-074",
+      "set": "luminous-healing",
+      "number": 74,
+      "row": 8,
+      "column": 4,
+      "name": "Sleeping forest fox",
+      "path": "luminous-healing/074-sleeping-forest-fox.png",
+      "width": 125,
+      "height": 115,
+      "sourceBox": [
+        379,
+        866,
+        504,
+        981
+      ],
+      "tags": [
+        "forest",
+        "fox",
+        "sleeping"
+      ]
+    },
+    {
+      "id": "luminous-healing-075",
+      "set": "luminous-healing",
+      "number": 75,
+      "row": 8,
+      "column": 5,
+      "name": "Flower petal potion",
+      "path": "luminous-healing/075-flower-petal-potion.png",
+      "width": 125,
+      "height": 115,
+      "sourceBox": [
+        504,
+        866,
+        629,
+        981
+      ],
+      "tags": [
+        "flower",
+        "petal",
+        "potion"
+      ]
+    },
+    {
+      "id": "luminous-healing-076",
+      "set": "luminous-healing",
+      "number": 76,
+      "row": 8,
+      "column": 6,
+      "name": "Deep azure vortex",
+      "path": "luminous-healing/076-deep-azure-vortex.png",
+      "width": 126,
+      "height": 115,
+      "sourceBox": [
+        629,
+        866,
+        755,
+        981
+      ],
+      "tags": [
+        "azure",
+        "deep",
+        "vortex"
+      ]
+    },
+    {
+      "id": "luminous-healing-077",
+      "set": "luminous-healing",
+      "number": 77,
+      "row": 8,
+      "column": 7,
+      "name": "Golden sanctuary well",
+      "path": "luminous-healing/077-golden-sanctuary-well.png",
+      "width": 125,
+      "height": 115,
+      "sourceBox": [
+        755,
+        866,
+        880,
+        981
+      ],
+      "tags": [
+        "golden",
+        "sanctuary",
+        "well"
+      ]
+    },
+    {
+      "id": "luminous-healing-078",
+      "set": "luminous-healing",
+      "number": 78,
+      "row": 8,
+      "column": 8,
+      "name": "Aurora night sky",
+      "path": "luminous-healing/078-aurora-night-sky.png",
+      "width": 126,
+      "height": 115,
+      "sourceBox": [
+        880,
+        866,
+        1006,
+        981
+      ],
+      "tags": [
+        "aurora",
+        "night",
+        "sky"
+      ]
+    },
+    {
+      "id": "luminous-healing-079",
+      "set": "luminous-healing",
+      "number": 79,
+      "row": 8,
+      "column": 9,
+      "name": "Pink healing rosebud",
+      "path": "luminous-healing/079-pink-healing-rosebud.png",
+      "width": 124,
+      "height": 115,
+      "sourceBox": [
+        1006,
+        866,
+        1130,
+        981
+      ],
+      "tags": [
+        "healing",
+        "pink",
+        "rosebud"
+      ]
+    },
+    {
+      "id": "luminous-healing-080",
+      "set": "luminous-healing",
+      "number": 80,
+      "row": 8,
+      "column": 10,
+      "name": "Celestial healing prayer",
+      "path": "luminous-healing/080-celestial-healing-prayer.png",
+      "width": 124,
+      "height": 115,
+      "sourceBox": [
+        1130,
+        866,
+        1254,
+        981
+      ],
+      "tags": [
+        "celestial",
+        "healing",
+        "prayer"
+      ]
+    },
+    {
+      "id": "luminous-healing-081",
+      "set": "luminous-healing",
+      "number": 81,
+      "row": 9,
+      "column": 1,
+      "name": "Lavender sunrise valley",
+      "path": "luminous-healing/081-lavender-sunrise-valley.png",
+      "width": 133,
+      "height": 120,
+      "sourceBox": [
+        0,
+        981,
+        133,
+        1101
+      ],
+      "tags": [
+        "lavender",
+        "sunrise",
+        "valley"
+      ]
+    },
+    {
+      "id": "luminous-healing-082",
+      "set": "luminous-healing",
+      "number": 82,
+      "row": 9,
+      "column": 2,
+      "name": "Golden healing touch",
+      "path": "luminous-healing/082-golden-healing-touch.png",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        133,
+        981,
+        257,
+        1101
+      ],
+      "tags": [
+        "golden",
+        "healing",
+        "touch"
+      ]
+    },
+    {
+      "id": "luminous-healing-083",
+      "set": "luminous-healing",
+      "number": 83,
+      "row": 9,
+      "column": 3,
+      "name": "Blue dewdrop blossoms",
+      "path": "luminous-healing/083-blue-dewdrop-blossoms.png",
+      "width": 122,
+      "height": 120,
+      "sourceBox": [
+        257,
+        981,
+        379,
+        1101
+      ],
+      "tags": [
+        "blossoms",
+        "blue",
+        "dewdrop"
+      ]
+    },
+    {
+      "id": "luminous-healing-084",
+      "set": "luminous-healing",
+      "number": 84,
+      "row": 9,
+      "column": 4,
+      "name": "Crystal waterfall",
+      "path": "luminous-healing/084-crystal-waterfall.png",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        379,
+        981,
+        504,
+        1101
+      ],
+      "tags": [
+        "crystal",
+        "waterfall"
+      ]
+    },
+    {
+      "id": "luminous-healing-085",
+      "set": "luminous-healing",
+      "number": 85,
+      "row": 9,
+      "column": 5,
+      "name": "Golden waterside tree",
+      "path": "luminous-healing/085-golden-waterside-tree.png",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        504,
+        981,
+        629,
+        1101
+      ],
+      "tags": [
+        "golden",
+        "tree",
+        "waterside"
+      ]
+    },
+    {
+      "id": "luminous-healing-086",
+      "set": "luminous-healing",
+      "number": 86,
+      "row": 9,
+      "column": 6,
+      "name": "Cosmic healing fellowship",
+      "path": "luminous-healing/086-cosmic-healing-fellowship.png",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        629,
+        981,
+        755,
+        1101
+      ],
+      "tags": [
+        "cosmic",
+        "fellowship",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-087",
+      "set": "luminous-healing",
+      "number": 87,
+      "row": 9,
+      "column": 7,
+      "name": "Flower-crowned spirit",
+      "path": "luminous-healing/087-flower-crowned-spirit.png",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        755,
+        981,
+        880,
+        1101
+      ],
+      "tags": [
+        "crowned",
+        "flower",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-088",
+      "set": "luminous-healing",
+      "number": 88,
+      "row": 9,
+      "column": 8,
+      "name": "Steaming herbal cauldron",
+      "path": "luminous-healing/088-steaming-herbal-cauldron.png",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        880,
+        981,
+        1006,
+        1101
+      ],
+      "tags": [
+        "cauldron",
+        "herbal",
+        "steaming"
+      ]
+    },
+    {
+      "id": "luminous-healing-089",
+      "set": "luminous-healing",
+      "number": 89,
+      "row": 9,
+      "column": 9,
+      "name": "Radiant white lilies",
+      "path": "luminous-healing/089-radiant-white-lilies.png",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        1006,
+        981,
+        1130,
+        1101
+      ],
+      "tags": [
+        "lilies",
+        "radiant",
+        "white"
+      ]
+    },
+    {
+      "id": "luminous-healing-090",
+      "set": "luminous-healing",
+      "number": 90,
+      "row": 9,
+      "column": 10,
+      "name": "Golden violet spiral",
+      "path": "luminous-healing/090-golden-violet-spiral.png",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        1130,
+        981,
+        1254,
+        1101
+      ],
+      "tags": [
+        "golden",
+        "spiral",
+        "violet"
+      ]
+    },
+    {
+      "id": "luminous-healing-091",
+      "set": "luminous-healing",
+      "number": 91,
+      "row": 10,
+      "column": 1,
+      "name": "Woodland water spirit",
+      "path": "luminous-healing/091-woodland-water-spirit.png",
+      "width": 133,
+      "height": 153,
+      "sourceBox": [
+        0,
+        1101,
+        133,
+        1254
+      ],
+      "tags": [
+        "spirit",
+        "water",
+        "woodland"
+      ]
+    },
+    {
+      "id": "luminous-healing-092",
+      "set": "luminous-healing",
+      "number": 92,
+      "row": 10,
+      "column": 2,
+      "name": "Blue crystal lilies",
+      "path": "luminous-healing/092-blue-crystal-lilies.png",
+      "width": 124,
+      "height": 153,
+      "sourceBox": [
+        133,
+        1101,
+        257,
+        1254
+      ],
+      "tags": [
+        "blue",
+        "crystal",
+        "lilies"
+      ]
+    },
+    {
+      "id": "luminous-healing-093",
+      "set": "luminous-healing",
+      "number": 93,
+      "row": 10,
+      "column": 3,
+      "name": "Floating sacred temple",
+      "path": "luminous-healing/093-floating-sacred-temple.png",
+      "width": 122,
+      "height": 153,
+      "sourceBox": [
+        257,
+        1101,
+        379,
+        1254
+      ],
+      "tags": [
+        "floating",
+        "sacred",
+        "temple"
+      ]
+    },
+    {
+      "id": "luminous-healing-094",
+      "set": "luminous-healing",
+      "number": 94,
+      "row": 10,
+      "column": 4,
+      "name": "Radiant heart in hands",
+      "path": "luminous-healing/094-radiant-heart-in-hands.png",
+      "width": 125,
+      "height": 153,
+      "sourceBox": [
+        379,
+        1101,
+        504,
+        1254
+      ],
+      "tags": [
+        "hands",
+        "heart",
+        "in",
+        "radiant"
+      ]
+    },
+    {
+      "id": "luminous-healing-095",
+      "set": "luminous-healing",
+      "number": 95,
+      "row": 10,
+      "column": 5,
+      "name": "Golden spirit meditation",
+      "path": "luminous-healing/095-golden-spirit-meditation.png",
+      "width": 125,
+      "height": 153,
+      "sourceBox": [
+        504,
+        1101,
+        629,
+        1254
+      ],
+      "tags": [
+        "golden",
+        "meditation",
+        "spirit"
+      ]
+    },
+    {
+      "id": "luminous-healing-096",
+      "set": "luminous-healing",
+      "number": 96,
+      "row": 10,
+      "column": 6,
+      "name": "Spiral azure potion",
+      "path": "luminous-healing/096-spiral-azure-potion.png",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        629,
+        1101,
+        755,
+        1254
+      ],
+      "tags": [
+        "azure",
+        "potion",
+        "spiral"
+      ]
+    },
+    {
+      "id": "luminous-healing-097",
+      "set": "luminous-healing",
+      "number": 97,
+      "row": 10,
+      "column": 7,
+      "name": "Forest deer family",
+      "path": "luminous-healing/097-forest-deer-family.png",
+      "width": 125,
+      "height": 153,
+      "sourceBox": [
+        755,
+        1101,
+        880,
+        1254
+      ],
+      "tags": [
+        "deer",
+        "family",
+        "forest"
+      ]
+    },
+    {
+      "id": "luminous-healing-098",
+      "set": "luminous-healing",
+      "number": 98,
+      "row": 10,
+      "column": 8,
+      "name": "Violet water lotus",
+      "path": "luminous-healing/098-violet-water-lotus.png",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        880,
+        1101,
+        1006,
+        1254
+      ],
+      "tags": [
+        "lotus",
+        "violet",
+        "water"
+      ]
+    },
+    {
+      "id": "luminous-healing-099",
+      "set": "luminous-healing",
+      "number": 99,
+      "row": 10,
+      "column": 9,
+      "name": "Golden healing assembly",
+      "path": "luminous-healing/099-golden-healing-assembly.png",
+      "width": 124,
+      "height": 153,
+      "sourceBox": [
+        1006,
+        1101,
+        1130,
+        1254
+      ],
+      "tags": [
+        "assembly",
+        "golden",
+        "healing"
+      ]
+    },
+    {
+      "id": "luminous-healing-100",
+      "set": "luminous-healing",
+      "number": 100,
+      "row": 10,
+      "column": 10,
+      "name": "Radiant winged guardian",
+      "path": "luminous-healing/100-radiant-winged-guardian.png",
+      "width": 124,
+      "height": 153,
+      "sourceBox": [
+        1130,
+        1101,
+        1254,
+        1254
+      ],
+      "tags": [
+        "guardian",
+        "radiant",
+        "winged"
+      ]
+    }
+  ]
+}

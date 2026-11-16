@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 require('./scripts/sync-icon-purposes.cjs');
+require('./scripts/package-icon-library.cjs');
 const iconPurposes = require('./public/healing/custom-icons/icon-purposes.json');
 
 const classes = [
