@@ -1,4 +1,6 @@
 {
+  "category": "spells",
+  "directory": "mystical-nature",
   "id": "mystical-nature",
   "title": "Mystical Nature",
   "sourceFilename": "mystical-nature.png",
@@ -42,6 +44,8 @@
       "column": 1,
       "name": "Healing light in hands",
       "path": "mystical-nature/001-healing-light-in-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 127,
       "sourceBox": [
@@ -54,7 +58,8 @@
         "hands",
         "healing",
         "in",
-        "light"
+        "light",
+        "spells"
       ]
     },
     {
@@ -65,6 +70,8 @@
       "column": 2,
       "name": "White healing lilies",
       "path": "mystical-nature/002-white-healing-lilies.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 127,
       "sourceBox": [
@@ -76,6 +83,7 @@
       "tags": [
         "healing",
         "lilies",
+        "spells",
         "white"
       ]
     },
@@ -87,6 +95,8 @@
       "column": 3,
       "name": "Blue crystal potion",
       "path": "mystical-nature/003-blue-crystal-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 127,
       "sourceBox": [
@@ -98,7 +108,8 @@
       "tags": [
         "blue",
         "crystal",
-        "potion"
+        "potion",
+        "spells"
       ]
     },
     {
@@ -109,6 +120,8 @@
       "column": 4,
       "name": "Forest waterfall",
       "path": "mystical-nature/004-forest-waterfall.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 127,
       "sourceBox": [
@@ -119,6 +132,7 @@
       ],
       "tags": [
         "forest",
+        "spells",
         "waterfall"
       ]
     },
@@ -130,6 +144,8 @@
       "column": 5,
       "name": "Flower-crowned blessing",
       "path": "mystical-nature/005-flower-crowned-blessing.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 127,
       "sourceBox": [
@@ -141,7 +157,8 @@
       "tags": [
         "blessing",
         "crowned",
-        "flower"
+        "flower",
+        "spells"
       ]
     },
     {
@@ -152,6 +169,8 @@
       "column": 6,
       "name": "Multicolor crystal bloom",
       "path": "mystical-nature/006-multicolor-crystal-bloom.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 127,
       "sourceBox": [
@@ -163,7 +182,8 @@
       "tags": [
         "bloom",
         "crystal",
-        "multicolor"
+        "multicolor",
+        "spells"
       ]
     },
     {
@@ -174,6 +194,8 @@
       "column": 7,
       "name": "Blue crystal spires",
       "path": "mystical-nature/007-blue-crystal-spires.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 127,
       "sourceBox": [
@@ -185,6 +207,7 @@
       "tags": [
         "blue",
         "crystal",
+        "spells",
         "spires"
       ]
     },
@@ -196,6 +219,8 @@
       "column": 8,
       "name": "White spirit dove",
       "path": "mystical-nature/008-white-spirit-dove.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 127,
       "sourceBox": [
@@ -206,6 +231,7 @@
       ],
       "tags": [
         "dove",
+        "spells",
         "spirit",
         "white"
       ]
@@ -218,6 +244,8 @@
       "column": 9,
       "name": "Herbal mortar",
       "path": "mystical-nature/009-herbal-mortar.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 127,
       "sourceBox": [
@@ -228,7 +256,8 @@
       ],
       "tags": [
         "herbal",
-        "mortar"
+        "mortar",
+        "spells"
       ]
     },
     {
@@ -239,6 +268,8 @@
       "column": 10,
       "name": "Golden winged spirit",
       "path": "mystical-nature/010-golden-winged-spirit.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 127,
       "sourceBox": [
@@ -249,6 +280,7 @@
       ],
       "tags": [
         "golden",
+        "spells",
         "spirit",
         "winged"
       ]
@@ -261,6 +293,8 @@
       "column": 1,
       "name": "Dewdrop on grass",
       "path": "mystical-nature/011-dewdrop-on-grass.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 123,
       "sourceBox": [
@@ -272,7 +306,8 @@
       "tags": [
         "dewdrop",
         "grass",
-        "on"
+        "on",
+        "spells"
       ]
     },
     {
@@ -283,6 +318,8 @@
       "column": 2,
       "name": "White lotus pond",
       "path": "mystical-nature/012-white-lotus-pond.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 123,
       "sourceBox": [
@@ -294,6 +331,7 @@
       "tags": [
         "lotus",
         "pond",
+        "spells",
         "white"
       ]
     },
@@ -305,6 +343,8 @@
       "column": 3,
       "name": "Blue cosmic spiral",
       "path": "mystical-nature/013-blue-cosmic-spiral.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 123,
       "sourceBox": [
@@ -316,6 +356,7 @@
       "tags": [
         "blue",
         "cosmic",
+        "spells",
         "spiral"
       ]
     },
@@ -327,6 +368,8 @@
       "column": 4,
       "name": "Golden healing circle",
       "path": "mystical-nature/014-golden-healing-circle.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 123,
       "sourceBox": [
@@ -338,7 +381,8 @@
       "tags": [
         "circle",
         "golden",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -349,6 +393,8 @@
       "column": 5,
       "name": "Radiant healing heart",
       "path": "mystical-nature/015-radiant-healing-heart.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 123,
       "sourceBox": [
@@ -360,7 +406,8 @@
       "tags": [
         "healing",
         "heart",
-        "radiant"
+        "radiant",
+        "spells"
       ]
     },
     {
@@ -371,6 +418,8 @@
       "column": 6,
       "name": "Pink lotus",
       "path": "mystical-nature/016-pink-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 123,
       "sourceBox": [
@@ -381,7 +430,8 @@
       ],
       "tags": [
         "lotus",
-        "pink"
+        "pink",
+        "spells"
       ]
     },
     {
@@ -392,6 +442,8 @@
       "column": 7,
       "name": "Seedling in healing hands",
       "path": "mystical-nature/017-seedling-in-healing-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -404,7 +456,8 @@
         "hands",
         "healing",
         "in",
-        "seedling"
+        "seedling",
+        "spells"
       ]
     },
     {
@@ -415,6 +468,8 @@
       "column": 8,
       "name": "Moonlit water",
       "path": "mystical-nature/018-moonlit-water.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -425,6 +480,7 @@
       ],
       "tags": [
         "moonlit",
+        "spells",
         "water"
       ]
     },
@@ -436,6 +492,8 @@
       "column": 9,
       "name": "Violet mana potion",
       "path": "mystical-nature/019-violet-mana-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 123,
       "sourceBox": [
@@ -447,6 +505,7 @@
       "tags": [
         "mana",
         "potion",
+        "spells",
         "violet"
       ]
     },
@@ -458,6 +517,8 @@
       "column": 10,
       "name": "Resting forest fawn",
       "path": "mystical-nature/020-resting-forest-fawn.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -469,7 +530,8 @@
       "tags": [
         "fawn",
         "forest",
-        "resting"
+        "resting",
+        "spells"
       ]
     },
     {
@@ -480,6 +542,8 @@
       "column": 1,
       "name": "Veiled healer prayer",
       "path": "mystical-nature/021-veiled-healer-prayer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 123,
       "sourceBox": [
@@ -491,6 +555,7 @@
       "tags": [
         "healer",
         "prayer",
+        "spells",
         "veiled"
       ]
     },
@@ -502,6 +567,8 @@
       "column": 2,
       "name": "Steaming herbal tea",
       "path": "mystical-nature/022-steaming-herbal-tea.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 123,
       "sourceBox": [
@@ -512,6 +579,7 @@
       ],
       "tags": [
         "herbal",
+        "spells",
         "steaming",
         "tea"
       ]
@@ -524,6 +592,8 @@
       "column": 3,
       "name": "Golden forest stag",
       "path": "mystical-nature/023-golden-forest-stag.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 123,
       "sourceBox": [
@@ -535,6 +605,7 @@
       "tags": [
         "forest",
         "golden",
+        "spells",
         "stag"
       ]
     },
@@ -546,6 +617,8 @@
       "column": 4,
       "name": "Pink blossom branch",
       "path": "mystical-nature/024-pink-blossom-branch.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 123,
       "sourceBox": [
@@ -557,7 +630,8 @@
       "tags": [
         "blossom",
         "branch",
-        "pink"
+        "pink",
+        "spells"
       ]
     },
     {
@@ -568,6 +642,8 @@
       "column": 5,
       "name": "Healing tree roots",
       "path": "mystical-nature/025-healing-tree-roots.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 123,
       "sourceBox": [
@@ -579,6 +655,7 @@
       "tags": [
         "healing",
         "roots",
+        "spells",
         "tree"
       ]
     },
@@ -590,6 +667,8 @@
       "column": 6,
       "name": "Tiered clear cascade",
       "path": "mystical-nature/026-tiered-clear-cascade.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 123,
       "sourceBox": [
@@ -601,6 +680,7 @@
       "tags": [
         "cascade",
         "clear",
+        "spells",
         "tiered"
       ]
     },
@@ -612,6 +692,8 @@
       "column": 7,
       "name": "Violet spirit butterfly",
       "path": "mystical-nature/027-violet-spirit-butterfly.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -622,6 +704,7 @@
       ],
       "tags": [
         "butterfly",
+        "spells",
         "spirit",
         "violet"
       ]
@@ -634,6 +717,8 @@
       "column": 8,
       "name": "Glowing earth seedling",
       "path": "mystical-nature/028-glowing-earth-seedling.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -645,7 +730,8 @@
       "tags": [
         "earth",
         "glowing",
-        "seedling"
+        "seedling",
+        "spells"
       ]
     },
     {
@@ -656,6 +742,8 @@
       "column": 9,
       "name": "Golden crystal eruption",
       "path": "mystical-nature/029-golden-crystal-eruption.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 123,
       "sourceBox": [
@@ -667,7 +755,8 @@
       "tags": [
         "crystal",
         "eruption",
-        "golden"
+        "golden",
+        "spells"
       ]
     },
     {
@@ -678,6 +767,8 @@
       "column": 10,
       "name": "Sunlit healer",
       "path": "mystical-nature/030-sunlit-healer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -688,6 +779,7 @@
       ],
       "tags": [
         "healer",
+        "spells",
         "sunlit"
       ]
     },
@@ -699,6 +791,8 @@
       "column": 1,
       "name": "Calendula healing salve",
       "path": "mystical-nature/031-calendula-healing-salve.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 125,
       "sourceBox": [
@@ -710,7 +804,8 @@
       "tags": [
         "calendula",
         "healing",
-        "salve"
+        "salve",
+        "spells"
       ]
     },
     {
@@ -721,6 +816,8 @@
       "column": 2,
       "name": "Luminous violet lotus",
       "path": "mystical-nature/032-luminous-violet-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -732,6 +829,7 @@
       "tags": [
         "lotus",
         "luminous",
+        "spells",
         "violet"
       ]
     },
@@ -743,6 +841,8 @@
       "column": 3,
       "name": "Green leaf vortex",
       "path": "mystical-nature/033-green-leaf-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 125,
       "sourceBox": [
@@ -754,6 +854,7 @@
       "tags": [
         "green",
         "leaf",
+        "spells",
         "vortex"
       ]
     },
@@ -765,6 +866,8 @@
       "column": 4,
       "name": "Group healing circle",
       "path": "mystical-nature/034-group-healing-circle.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 125,
       "sourceBox": [
@@ -776,7 +879,8 @@
       "tags": [
         "circle",
         "group",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -787,6 +891,8 @@
       "column": 5,
       "name": "Flower-crowned serenity",
       "path": "mystical-nature/035-flower-crowned-serenity.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 125,
       "sourceBox": [
@@ -798,7 +904,8 @@
       "tags": [
         "crowned",
         "flower",
-        "serenity"
+        "serenity",
+        "spells"
       ]
     },
     {
@@ -809,6 +916,8 @@
       "column": 6,
       "name": "Crystal healing staff",
       "path": "mystical-nature/036-crystal-healing-staff.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -820,6 +929,7 @@
       "tags": [
         "crystal",
         "healing",
+        "spells",
         "staff"
       ]
     },
@@ -831,6 +941,8 @@
       "column": 7,
       "name": "Blue spirit meditation",
       "path": "mystical-nature/037-blue-spirit-meditation.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -842,6 +954,7 @@
       "tags": [
         "blue",
         "meditation",
+        "spells",
         "spirit"
       ]
     },
@@ -853,6 +966,8 @@
       "column": 8,
       "name": "Stone spring maiden",
       "path": "mystical-nature/038-stone-spring-maiden.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -863,6 +978,7 @@
       ],
       "tags": [
         "maiden",
+        "spells",
         "spring",
         "stone"
       ]
@@ -875,6 +991,8 @@
       "column": 9,
       "name": "Willow healing pool",
       "path": "mystical-nature/039-willow-healing-pool.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 125,
       "sourceBox": [
@@ -886,6 +1004,7 @@
       "tags": [
         "healing",
         "pool",
+        "spells",
         "willow"
       ]
     },
@@ -897,6 +1016,8 @@
       "column": 10,
       "name": "Violet golden wisp",
       "path": "mystical-nature/040-violet-golden-wisp.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -907,6 +1028,7 @@
       ],
       "tags": [
         "golden",
+        "spells",
         "violet",
         "wisp"
       ]
@@ -919,6 +1041,8 @@
       "column": 1,
       "name": "Garden healing arch",
       "path": "mystical-nature/041-garden-healing-arch.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 127,
       "sourceBox": [
@@ -930,7 +1054,8 @@
       "tags": [
         "arch",
         "garden",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -941,6 +1066,8 @@
       "column": 2,
       "name": "Golden healer prayer",
       "path": "mystical-nature/042-golden-healer-prayer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 127,
       "sourceBox": [
@@ -952,7 +1079,8 @@
       "tags": [
         "golden",
         "healer",
-        "prayer"
+        "prayer",
+        "spells"
       ]
     },
     {
@@ -963,6 +1091,8 @@
       "column": 3,
       "name": "Green herbal potion",
       "path": "mystical-nature/043-green-herbal-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 127,
       "sourceBox": [
@@ -974,7 +1104,8 @@
       "tags": [
         "green",
         "herbal",
-        "potion"
+        "potion",
+        "spells"
       ]
     },
     {
@@ -985,6 +1116,8 @@
       "column": 4,
       "name": "Pink water lotus",
       "path": "mystical-nature/044-pink-water-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 127,
       "sourceBox": [
@@ -996,6 +1129,7 @@
       "tags": [
         "lotus",
         "pink",
+        "spells",
         "water"
       ]
     },
@@ -1007,6 +1141,8 @@
       "column": 5,
       "name": "Shared healing light",
       "path": "mystical-nature/045-shared-healing-light.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 127,
       "sourceBox": [
@@ -1018,7 +1154,8 @@
       "tags": [
         "healing",
         "light",
-        "shared"
+        "shared",
+        "spells"
       ]
     },
     {
@@ -1029,6 +1166,8 @@
       "column": 6,
       "name": "Sunlit clear river",
       "path": "mystical-nature/046-sunlit-clear-river.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 127,
       "sourceBox": [
@@ -1040,6 +1179,7 @@
       "tags": [
         "clear",
         "river",
+        "spells",
         "sunlit"
       ]
     },
@@ -1051,6 +1191,8 @@
       "column": 7,
       "name": "Golden spirit feather",
       "path": "mystical-nature/047-golden-spirit-feather.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 127,
       "sourceBox": [
@@ -1062,6 +1204,7 @@
       "tags": [
         "feather",
         "golden",
+        "spells",
         "spirit"
       ]
     },
@@ -1073,6 +1216,8 @@
       "column": 8,
       "name": "Purple bellflowers",
       "path": "mystical-nature/048-purple-bellflowers.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 127,
       "sourceBox": [
@@ -1083,7 +1228,8 @@
       ],
       "tags": [
         "bellflowers",
-        "purple"
+        "purple",
+        "spells"
       ]
     },
     {
@@ -1094,6 +1240,8 @@
       "column": 9,
       "name": "Open spellbook",
       "path": "mystical-nature/049-open-spellbook.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 127,
       "sourceBox": [
@@ -1104,7 +1252,8 @@
       ],
       "tags": [
         "open",
-        "spellbook"
+        "spellbook",
+        "spells"
       ]
     },
     {
@@ -1115,6 +1264,8 @@
       "column": 10,
       "name": "Pink blossom tree",
       "path": "mystical-nature/050-pink-blossom-tree.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 127,
       "sourceBox": [
@@ -1126,6 +1277,7 @@
       "tags": [
         "blossom",
         "pink",
+        "spells",
         "tree"
       ]
     },
@@ -1137,6 +1289,8 @@
       "column": 1,
       "name": "Water healing hands",
       "path": "mystical-nature/051-water-healing-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 123,
       "sourceBox": [
@@ -1148,6 +1302,7 @@
       "tags": [
         "hands",
         "healing",
+        "spells",
         "water"
       ]
     },
@@ -1159,6 +1314,8 @@
       "column": 2,
       "name": "Luminous purple mushrooms",
       "path": "mystical-nature/052-luminous-purple-mushrooms.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 123,
       "sourceBox": [
@@ -1170,7 +1327,8 @@
       "tags": [
         "luminous",
         "mushrooms",
-        "purple"
+        "purple",
+        "spells"
       ]
     },
     {
@@ -1181,6 +1339,8 @@
       "column": 3,
       "name": "Lotus pond ripples",
       "path": "mystical-nature/053-lotus-pond-ripples.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 123,
       "sourceBox": [
@@ -1192,7 +1352,8 @@
       "tags": [
         "lotus",
         "pond",
-        "ripples"
+        "ripples",
+        "spells"
       ]
     },
     {
@@ -1203,6 +1364,8 @@
       "column": 4,
       "name": "Glowing spirit dove",
       "path": "mystical-nature/054-glowing-spirit-dove.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 123,
       "sourceBox": [
@@ -1214,6 +1377,7 @@
       "tags": [
         "dove",
         "glowing",
+        "spells",
         "spirit"
       ]
     },
@@ -1225,6 +1389,8 @@
       "column": 5,
       "name": "Flower-crowned renewal",
       "path": "mystical-nature/055-flower-crowned-renewal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 123,
       "sourceBox": [
@@ -1236,7 +1402,8 @@
       "tags": [
         "crowned",
         "flower",
-        "renewal"
+        "renewal",
+        "spells"
       ]
     },
     {
@@ -1247,6 +1414,8 @@
       "column": 6,
       "name": "Forest waterfall pool",
       "path": "mystical-nature/056-forest-waterfall-pool.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 123,
       "sourceBox": [
@@ -1258,6 +1427,7 @@
       "tags": [
         "forest",
         "pool",
+        "spells",
         "waterfall"
       ]
     },
@@ -1269,6 +1439,8 @@
       "column": 7,
       "name": "Golden lotus",
       "path": "mystical-nature/057-golden-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -1279,7 +1451,8 @@
       ],
       "tags": [
         "golden",
-        "lotus"
+        "lotus",
+        "spells"
       ]
     },
     {
@@ -1290,6 +1463,8 @@
       "column": 8,
       "name": "Round azure potion",
       "path": "mystical-nature/058-round-azure-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -1301,7 +1476,8 @@
       "tags": [
         "azure",
         "potion",
-        "round"
+        "round",
+        "spells"
       ]
     },
     {
@@ -1312,6 +1488,8 @@
       "column": 9,
       "name": "Golden tree roots",
       "path": "mystical-nature/059-golden-tree-roots.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 123,
       "sourceBox": [
@@ -1323,6 +1501,7 @@
       "tags": [
         "golden",
         "roots",
+        "spells",
         "tree"
       ]
     },
@@ -1334,6 +1513,8 @@
       "column": 10,
       "name": "Healing fellowship",
       "path": "mystical-nature/060-healing-fellowship.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 123,
       "sourceBox": [
@@ -1344,7 +1525,8 @@
       ],
       "tags": [
         "fellowship",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -1355,6 +1537,8 @@
       "column": 1,
       "name": "Sage and lavender herbs",
       "path": "mystical-nature/061-sage-and-lavender-herbs.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 116,
       "sourceBox": [
@@ -1367,7 +1551,8 @@
         "and",
         "herbs",
         "lavender",
-        "sage"
+        "sage",
+        "spells"
       ]
     },
     {
@@ -1378,6 +1563,8 @@
       "column": 2,
       "name": "Green blue vortex",
       "path": "mystical-nature/062-green-blue-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 116,
       "sourceBox": [
@@ -1389,6 +1576,7 @@
       "tags": [
         "blue",
         "green",
+        "spells",
         "vortex"
       ]
     },
@@ -1400,6 +1588,8 @@
       "column": 3,
       "name": "Veiled golden serenity",
       "path": "mystical-nature/063-veiled-golden-serenity.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 116,
       "sourceBox": [
@@ -1411,6 +1601,7 @@
       "tags": [
         "golden",
         "serenity",
+        "spells",
         "veiled"
       ]
     },
@@ -1422,6 +1613,8 @@
       "column": 4,
       "name": "Radiant sunrise",
       "path": "mystical-nature/064-radiant-sunrise.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 116,
       "sourceBox": [
@@ -1432,6 +1625,7 @@
       ],
       "tags": [
         "radiant",
+        "spells",
         "sunrise"
       ]
     },
@@ -1443,6 +1637,8 @@
       "column": 5,
       "name": "Violet crystal cluster",
       "path": "mystical-nature/065-violet-crystal-cluster.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 116,
       "sourceBox": [
@@ -1454,6 +1650,7 @@
       "tags": [
         "cluster",
         "crystal",
+        "spells",
         "violet"
       ]
     },
@@ -1465,6 +1662,8 @@
       "column": 6,
       "name": "Spectral white stag",
       "path": "mystical-nature/066-spectral-white-stag.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 116,
       "sourceBox": [
@@ -1475,6 +1674,7 @@
       ],
       "tags": [
         "spectral",
+        "spells",
         "stag",
         "white"
       ]
@@ -1487,6 +1687,8 @@
       "column": 7,
       "name": "Red healing berries",
       "path": "mystical-nature/067-red-healing-berries.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 116,
       "sourceBox": [
@@ -1498,7 +1700,8 @@
       "tags": [
         "berries",
         "healing",
-        "red"
+        "red",
+        "spells"
       ]
     },
     {
@@ -1509,6 +1712,8 @@
       "column": 8,
       "name": "Stone water spring",
       "path": "mystical-nature/068-stone-water-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 116,
       "sourceBox": [
@@ -1518,6 +1723,7 @@
         864
       ],
       "tags": [
+        "spells",
         "spring",
         "stone",
         "water"
@@ -1531,6 +1737,8 @@
       "column": 9,
       "name": "Blue enchanted grove",
       "path": "mystical-nature/069-blue-enchanted-grove.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 116,
       "sourceBox": [
@@ -1542,7 +1750,8 @@
       "tags": [
         "blue",
         "enchanted",
-        "grove"
+        "grove",
+        "spells"
       ]
     },
     {
@@ -1553,6 +1762,8 @@
       "column": 10,
       "name": "Golden lotus in hand",
       "path": "mystical-nature/070-golden-lotus-in-hand.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 116,
       "sourceBox": [
@@ -1565,7 +1776,8 @@
         "golden",
         "hand",
         "in",
-        "lotus"
+        "lotus",
+        "spells"
       ]
     },
     {
@@ -1576,6 +1788,8 @@
       "column": 1,
       "name": "Crescent moon lake",
       "path": "mystical-nature/071-crescent-moon-lake.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 115,
       "sourceBox": [
@@ -1587,7 +1801,8 @@
       "tags": [
         "crescent",
         "lake",
-        "moon"
+        "moon",
+        "spells"
       ]
     },
     {
@@ -1598,6 +1813,8 @@
       "column": 2,
       "name": "Pink peony",
       "path": "mystical-nature/072-pink-peony.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 115,
       "sourceBox": [
@@ -1608,7 +1825,8 @@
       ],
       "tags": [
         "peony",
-        "pink"
+        "pink",
+        "spells"
       ]
     },
     {
@@ -1619,6 +1837,8 @@
       "column": 3,
       "name": "Radiant group blessing",
       "path": "mystical-nature/073-radiant-group-blessing.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 115,
       "sourceBox": [
@@ -1630,7 +1850,8 @@
       "tags": [
         "blessing",
         "group",
-        "radiant"
+        "radiant",
+        "spells"
       ]
     },
     {
@@ -1641,6 +1862,8 @@
       "column": 4,
       "name": "Sleeping forest fox",
       "path": "mystical-nature/074-sleeping-forest-fox.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 115,
       "sourceBox": [
@@ -1652,7 +1875,8 @@
       "tags": [
         "forest",
         "fox",
-        "sleeping"
+        "sleeping",
+        "spells"
       ]
     },
     {
@@ -1663,6 +1887,8 @@
       "column": 5,
       "name": "Flower petal potion",
       "path": "mystical-nature/075-flower-petal-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 115,
       "sourceBox": [
@@ -1674,7 +1900,8 @@
       "tags": [
         "flower",
         "petal",
-        "potion"
+        "potion",
+        "spells"
       ]
     },
     {
@@ -1685,6 +1912,8 @@
       "column": 6,
       "name": "Deep azure vortex",
       "path": "mystical-nature/076-deep-azure-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 115,
       "sourceBox": [
@@ -1696,6 +1925,7 @@
       "tags": [
         "azure",
         "deep",
+        "spells",
         "vortex"
       ]
     },
@@ -1707,6 +1937,8 @@
       "column": 7,
       "name": "Golden sanctuary fountain",
       "path": "mystical-nature/077-golden-sanctuary-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 115,
       "sourceBox": [
@@ -1718,7 +1950,8 @@
       "tags": [
         "fountain",
         "golden",
-        "sanctuary"
+        "sanctuary",
+        "spells"
       ]
     },
     {
@@ -1729,6 +1962,8 @@
       "column": 8,
       "name": "Aurora night sky",
       "path": "mystical-nature/078-aurora-night-sky.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 115,
       "sourceBox": [
@@ -1740,7 +1975,8 @@
       "tags": [
         "aurora",
         "night",
-        "sky"
+        "sky",
+        "spells"
       ]
     },
     {
@@ -1751,6 +1987,8 @@
       "column": 9,
       "name": "Pink healing rosebud",
       "path": "mystical-nature/079-pink-healing-rosebud.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 115,
       "sourceBox": [
@@ -1762,7 +2000,8 @@
       "tags": [
         "healing",
         "pink",
-        "rosebud"
+        "rosebud",
+        "spells"
       ]
     },
     {
@@ -1773,6 +2012,8 @@
       "column": 10,
       "name": "Celestial healing prayer",
       "path": "mystical-nature/080-celestial-healing-prayer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 115,
       "sourceBox": [
@@ -1784,7 +2025,8 @@
       "tags": [
         "celestial",
         "healing",
-        "prayer"
+        "prayer",
+        "spells"
       ]
     },
     {
@@ -1795,6 +2037,8 @@
       "column": 1,
       "name": "Lavender sunrise valley",
       "path": "mystical-nature/081-lavender-sunrise-valley.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 121,
       "sourceBox": [
@@ -1805,6 +2049,7 @@
       ],
       "tags": [
         "lavender",
+        "spells",
         "sunrise",
         "valley"
       ]
@@ -1817,6 +2062,8 @@
       "column": 2,
       "name": "Healing light between hands",
       "path": "mystical-nature/082-healing-light-between-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 121,
       "sourceBox": [
@@ -1829,7 +2076,8 @@
         "between",
         "hands",
         "healing",
-        "light"
+        "light",
+        "spells"
       ]
     },
     {
@@ -1840,6 +2088,8 @@
       "column": 3,
       "name": "Blue dewdrop blossoms",
       "path": "mystical-nature/083-blue-dewdrop-blossoms.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 121,
       "sourceBox": [
@@ -1851,7 +2101,8 @@
       "tags": [
         "blossoms",
         "blue",
-        "dewdrop"
+        "dewdrop",
+        "spells"
       ]
     },
     {
@@ -1862,6 +2113,8 @@
       "column": 4,
       "name": "Crystal waterfall",
       "path": "mystical-nature/084-crystal-waterfall.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 121,
       "sourceBox": [
@@ -1872,6 +2125,7 @@
       ],
       "tags": [
         "crystal",
+        "spells",
         "waterfall"
       ]
     },
@@ -1883,6 +2137,8 @@
       "column": 5,
       "name": "Golden waterside tree",
       "path": "mystical-nature/085-golden-waterside-tree.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 121,
       "sourceBox": [
@@ -1893,6 +2149,7 @@
       ],
       "tags": [
         "golden",
+        "spells",
         "tree",
         "waterside"
       ]
@@ -1905,6 +2162,8 @@
       "column": 6,
       "name": "Cosmic healing fellowship",
       "path": "mystical-nature/086-cosmic-healing-fellowship.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 121,
       "sourceBox": [
@@ -1916,7 +2175,8 @@
       "tags": [
         "cosmic",
         "fellowship",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -1927,6 +2187,8 @@
       "column": 7,
       "name": "Flower-crowned spirit",
       "path": "mystical-nature/087-flower-crowned-spirit.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 121,
       "sourceBox": [
@@ -1938,6 +2200,7 @@
       "tags": [
         "crowned",
         "flower",
+        "spells",
         "spirit"
       ]
     },
@@ -1949,6 +2212,8 @@
       "column": 8,
       "name": "Steaming herbal cauldron",
       "path": "mystical-nature/088-steaming-herbal-cauldron.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 121,
       "sourceBox": [
@@ -1960,6 +2225,7 @@
       "tags": [
         "cauldron",
         "herbal",
+        "spells",
         "steaming"
       ]
     },
@@ -1971,6 +2237,8 @@
       "column": 9,
       "name": "Radiant white lilies",
       "path": "mystical-nature/089-radiant-white-lilies.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 121,
       "sourceBox": [
@@ -1982,6 +2250,7 @@
       "tags": [
         "lilies",
         "radiant",
+        "spells",
         "white"
       ]
     },
@@ -1993,6 +2262,8 @@
       "column": 10,
       "name": "Golden violet spiral",
       "path": "mystical-nature/090-golden-violet-spiral.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 121,
       "sourceBox": [
@@ -2003,6 +2274,7 @@
       ],
       "tags": [
         "golden",
+        "spells",
         "spiral",
         "violet"
       ]
@@ -2015,6 +2287,8 @@
       "column": 1,
       "name": "Woodland healing spirit",
       "path": "mystical-nature/091-woodland-healing-spirit.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 137,
       "height": 154,
       "sourceBox": [
@@ -2025,6 +2299,7 @@
       ],
       "tags": [
         "healing",
+        "spells",
         "spirit",
         "woodland"
       ]
@@ -2037,6 +2312,8 @@
       "column": 2,
       "name": "Blue crystal lilies",
       "path": "mystical-nature/092-blue-crystal-lilies.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 154,
       "sourceBox": [
@@ -2048,7 +2325,8 @@
       "tags": [
         "blue",
         "crystal",
-        "lilies"
+        "lilies",
+        "spells"
       ]
     },
     {
@@ -2059,6 +2337,8 @@
       "column": 3,
       "name": "Floating sacred temple",
       "path": "mystical-nature/093-floating-sacred-temple.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 123,
       "height": 154,
       "sourceBox": [
@@ -2070,6 +2350,7 @@
       "tags": [
         "floating",
         "sacred",
+        "spells",
         "temple"
       ]
     },
@@ -2081,6 +2362,8 @@
       "column": 4,
       "name": "Radiant heart in hands",
       "path": "mystical-nature/094-radiant-heart-in-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 121,
       "height": 154,
       "sourceBox": [
@@ -2093,7 +2376,8 @@
         "hands",
         "heart",
         "in",
-        "radiant"
+        "radiant",
+        "spells"
       ]
     },
     {
@@ -2104,6 +2388,8 @@
       "column": 5,
       "name": "Golden spirit meditation",
       "path": "mystical-nature/095-golden-spirit-meditation.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 122,
       "height": 154,
       "sourceBox": [
@@ -2115,6 +2401,7 @@
       "tags": [
         "golden",
         "meditation",
+        "spells",
         "spirit"
       ]
     },
@@ -2126,6 +2413,8 @@
       "column": 6,
       "name": "Spiral azure potion",
       "path": "mystical-nature/096-spiral-azure-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 154,
       "sourceBox": [
@@ -2137,6 +2426,7 @@
       "tags": [
         "azure",
         "potion",
+        "spells",
         "spiral"
       ]
     },
@@ -2148,6 +2438,8 @@
       "column": 7,
       "name": "Forest deer family",
       "path": "mystical-nature/097-forest-deer-family.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 154,
       "sourceBox": [
@@ -2159,7 +2451,8 @@
       "tags": [
         "deer",
         "family",
-        "forest"
+        "forest",
+        "spells"
       ]
     },
     {
@@ -2170,6 +2463,8 @@
       "column": 8,
       "name": "Violet water lotus",
       "path": "mystical-nature/098-violet-water-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 154,
       "sourceBox": [
@@ -2180,6 +2475,7 @@
       ],
       "tags": [
         "lotus",
+        "spells",
         "violet",
         "water"
       ]
@@ -2192,6 +2488,8 @@
       "column": 9,
       "name": "Golden healing assembly",
       "path": "mystical-nature/099-golden-healing-assembly.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 124,
       "height": 154,
       "sourceBox": [
@@ -2203,7 +2501,8 @@
       "tags": [
         "assembly",
         "golden",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -2214,6 +2513,8 @@
       "column": 10,
       "name": "Radiant winged guardian",
       "path": "mystical-nature/100-radiant-winged-guardian.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 154,
       "sourceBox": [
@@ -2225,6 +2526,7 @@
       "tags": [
         "guardian",
         "radiant",
+        "spells",
         "winged"
       ]
     }

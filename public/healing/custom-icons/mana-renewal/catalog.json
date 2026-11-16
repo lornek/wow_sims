@@ -1,4 +1,6 @@
 {
+  "category": "spells",
+  "directory": "mana-renewal",
   "id": "mana-renewal",
   "title": "Mana Springs of Renewal",
   "sourceFilename": "mana-renewal.png",
@@ -42,6 +44,8 @@
       "column": 1,
       "name": "Dewdrop leaf",
       "path": "mana-renewal/001-dewdrop-leaf.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -52,7 +56,8 @@
       ],
       "tags": [
         "dewdrop",
-        "leaf"
+        "leaf",
+        "spells"
       ]
     },
     {
@@ -63,6 +68,8 @@
       "column": 2,
       "name": "Forest waterfall",
       "path": "mana-renewal/002-forest-waterfall.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -73,6 +80,7 @@
       ],
       "tags": [
         "forest",
+        "spells",
         "waterfall"
       ]
     },
@@ -84,6 +92,8 @@
       "column": 3,
       "name": "Blue mana potion",
       "path": "mana-renewal/003-blue-mana-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -95,7 +105,8 @@
       "tags": [
         "blue",
         "mana",
-        "potion"
+        "potion",
+        "spells"
       ]
     },
     {
@@ -106,6 +117,8 @@
       "column": 4,
       "name": "Flower-crowned healer",
       "path": "mana-renewal/004-flower-crowned-healer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -117,7 +130,8 @@
       "tags": [
         "crowned",
         "flower",
-        "healer"
+        "healer",
+        "spells"
       ]
     },
     {
@@ -128,6 +142,8 @@
       "column": 5,
       "name": "Azure crystals",
       "path": "mana-renewal/005-azure-crystals.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -138,7 +154,8 @@
       ],
       "tags": [
         "azure",
-        "crystals"
+        "crystals",
+        "spells"
       ]
     },
     {
@@ -149,6 +166,8 @@
       "column": 6,
       "name": "Stone mana basin",
       "path": "mana-renewal/006-stone-mana-basin.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -160,6 +179,7 @@
       "tags": [
         "basin",
         "mana",
+        "spells",
         "stone"
       ]
     },
@@ -171,6 +191,8 @@
       "column": 7,
       "name": "Rain-fed seedling",
       "path": "mana-renewal/007-rain-fed-seedling.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -182,7 +204,8 @@
       "tags": [
         "fed",
         "rain",
-        "seedling"
+        "seedling",
+        "spells"
       ]
     },
     {
@@ -193,6 +216,8 @@
       "column": 8,
       "name": "Misty mountain river",
       "path": "mana-renewal/008-misty-mountain-river.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -204,7 +229,8 @@
       "tags": [
         "misty",
         "mountain",
-        "river"
+        "river",
+        "spells"
       ]
     },
     {
@@ -215,6 +241,8 @@
       "column": 9,
       "name": "White water lily",
       "path": "mana-renewal/009-white-water-lily.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -225,6 +253,7 @@
       ],
       "tags": [
         "lily",
+        "spells",
         "water",
         "white"
       ]
@@ -237,6 +266,8 @@
       "column": 10,
       "name": "Water spirit",
       "path": "mana-renewal/010-water-spirit.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -246,6 +277,7 @@
         125
       ],
       "tags": [
+        "spells",
         "spirit",
         "water"
       ]
@@ -258,6 +290,8 @@
       "column": 1,
       "name": "Sunlit forest stream",
       "path": "mana-renewal/011-sunlit-forest-stream.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -268,6 +302,7 @@
       ],
       "tags": [
         "forest",
+        "spells",
         "stream",
         "sunlit"
       ]
@@ -280,6 +315,8 @@
       "column": 2,
       "name": "White heron",
       "path": "mana-renewal/012-white-heron.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -290,6 +327,7 @@
       ],
       "tags": [
         "heron",
+        "spells",
         "white"
       ]
     },
@@ -301,6 +339,8 @@
       "column": 3,
       "name": "Blue dewdrop flowers",
       "path": "mana-renewal/013-blue-dewdrop-flowers.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -312,7 +352,8 @@
       "tags": [
         "blue",
         "dewdrop",
-        "flowers"
+        "flowers",
+        "spells"
       ]
     },
     {
@@ -323,6 +364,8 @@
       "column": 4,
       "name": "Underwater fish",
       "path": "mana-renewal/014-underwater-fish.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -333,6 +376,7 @@
       ],
       "tags": [
         "fish",
+        "spells",
         "underwater"
       ]
     },
@@ -344,6 +388,8 @@
       "column": 5,
       "name": "Cupped water hands",
       "path": "mana-renewal/015-cupped-water-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -355,6 +401,7 @@
       "tags": [
         "cupped",
         "hands",
+        "spells",
         "water"
       ]
     },
@@ -366,6 +413,8 @@
       "column": 6,
       "name": "Single water ripple",
       "path": "mana-renewal/016-single-water-ripple.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -377,6 +426,7 @@
       "tags": [
         "ripple",
         "single",
+        "spells",
         "water"
       ]
     },
@@ -388,6 +438,8 @@
       "column": 7,
       "name": "Glowing blue mushrooms",
       "path": "mana-renewal/017-glowing-blue-mushrooms.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -399,7 +451,8 @@
       "tags": [
         "blue",
         "glowing",
-        "mushrooms"
+        "mushrooms",
+        "spells"
       ]
     },
     {
@@ -410,6 +463,8 @@
       "column": 8,
       "name": "Blue mana vortex",
       "path": "mana-renewal/018-blue-mana-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -421,6 +476,7 @@
       "tags": [
         "blue",
         "mana",
+        "spells",
         "vortex"
       ]
     },
@@ -432,6 +488,8 @@
       "column": 9,
       "name": "Veiled spring keeper",
       "path": "mana-renewal/019-veiled-spring-keeper.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -442,6 +500,7 @@
       ],
       "tags": [
         "keeper",
+        "spells",
         "spring",
         "veiled"
       ]
@@ -454,6 +513,8 @@
       "column": 10,
       "name": "Garden archway",
       "path": "mana-renewal/020-garden-archway.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -464,7 +525,8 @@
       ],
       "tags": [
         "archway",
-        "garden"
+        "garden",
+        "spells"
       ]
     },
     {
@@ -475,6 +537,8 @@
       "column": 1,
       "name": "Paired white lilies",
       "path": "mana-renewal/021-paired-white-lilies.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -486,6 +550,7 @@
       "tags": [
         "lilies",
         "paired",
+        "spells",
         "white"
       ]
     },
@@ -497,6 +562,8 @@
       "column": 2,
       "name": "Luminous tree roots",
       "path": "mana-renewal/022-luminous-tree-roots.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -508,6 +575,7 @@
       "tags": [
         "luminous",
         "roots",
+        "spells",
         "tree"
       ]
     },
@@ -519,6 +587,8 @@
       "column": 3,
       "name": "Moonlit lake",
       "path": "mana-renewal/023-moonlit-lake.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -529,7 +599,8 @@
       ],
       "tags": [
         "lake",
-        "moonlit"
+        "moonlit",
+        "spells"
       ]
     },
     {
@@ -540,6 +611,8 @@
       "column": 4,
       "name": "Seedling water orb",
       "path": "mana-renewal/024-seedling-water-orb.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -551,6 +624,7 @@
       "tags": [
         "orb",
         "seedling",
+        "spells",
         "water"
       ]
     },
@@ -562,6 +636,8 @@
       "column": 5,
       "name": "Pink cherry blossom",
       "path": "mana-renewal/025-pink-cherry-blossom.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -573,7 +649,8 @@
       "tags": [
         "blossom",
         "cherry",
-        "pink"
+        "pink",
+        "spells"
       ]
     },
     {
@@ -584,6 +661,8 @@
       "column": 6,
       "name": "Rain-soaked wanderer",
       "path": "mana-renewal/026-rain-soaked-wanderer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -595,6 +674,7 @@
       "tags": [
         "rain",
         "soaked",
+        "spells",
         "wanderer"
       ]
     },
@@ -606,6 +686,8 @@
       "column": 7,
       "name": "Steaming blue spring",
       "path": "mana-renewal/027-steaming-blue-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -616,6 +698,7 @@
       ],
       "tags": [
         "blue",
+        "spells",
         "spring",
         "steaming"
       ]
@@ -628,6 +711,8 @@
       "column": 8,
       "name": "Iridescent nautilus",
       "path": "mana-renewal/028-iridescent-nautilus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -638,7 +723,8 @@
       ],
       "tags": [
         "iridescent",
-        "nautilus"
+        "nautilus",
+        "spells"
       ]
     },
     {
@@ -649,6 +735,8 @@
       "column": 9,
       "name": "Golden waterside tree",
       "path": "mana-renewal/029-golden-waterside-tree.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -659,6 +747,7 @@
       ],
       "tags": [
         "golden",
+        "spells",
         "tree",
         "waterside"
       ]
@@ -671,6 +760,8 @@
       "column": 10,
       "name": "Tiered garden waterfall",
       "path": "mana-renewal/030-tiered-garden-waterfall.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -681,6 +772,7 @@
       ],
       "tags": [
         "garden",
+        "spells",
         "tiered",
         "waterfall"
       ]
@@ -693,6 +785,8 @@
       "column": 1,
       "name": "Luminous jellyfish",
       "path": "mana-renewal/031-luminous-jellyfish.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -703,7 +797,8 @@
       ],
       "tags": [
         "jellyfish",
-        "luminous"
+        "luminous",
+        "spells"
       ]
     },
     {
@@ -714,6 +809,8 @@
       "column": 2,
       "name": "Rain blessing",
       "path": "mana-renewal/032-rain-blessing.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -724,7 +821,8 @@
       ],
       "tags": [
         "blessing",
-        "rain"
+        "rain",
+        "spells"
       ]
     },
     {
@@ -735,6 +833,8 @@
       "column": 3,
       "name": "Seedling in soil",
       "path": "mana-renewal/033-seedling-in-soil.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -746,7 +846,8 @@
       "tags": [
         "in",
         "seedling",
-        "soil"
+        "soil",
+        "spells"
       ]
     },
     {
@@ -757,6 +858,8 @@
       "column": 4,
       "name": "Steaming stone pool",
       "path": "mana-renewal/034-steaming-stone-pool.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -767,6 +870,7 @@
       ],
       "tags": [
         "pool",
+        "spells",
         "steaming",
         "stone"
       ]
@@ -779,6 +883,8 @@
       "column": 5,
       "name": "Blue crystal lotus",
       "path": "mana-renewal/035-blue-crystal-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -790,7 +896,8 @@
       "tags": [
         "blue",
         "crystal",
-        "lotus"
+        "lotus",
+        "spells"
       ]
     },
     {
@@ -801,6 +908,8 @@
       "column": 6,
       "name": "Arcane forest roots",
       "path": "mana-renewal/036-arcane-forest-roots.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -812,7 +921,8 @@
       "tags": [
         "arcane",
         "forest",
-        "roots"
+        "roots",
+        "spells"
       ]
     },
     {
@@ -823,6 +933,8 @@
       "column": 7,
       "name": "Stone water bearer",
       "path": "mana-renewal/037-stone-water-bearer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -833,6 +945,7 @@
       ],
       "tags": [
         "bearer",
+        "spells",
         "stone",
         "water"
       ]
@@ -845,6 +958,8 @@
       "column": 8,
       "name": "Dew-laden leaves",
       "path": "mana-renewal/038-dew-laden-leaves.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -856,7 +971,8 @@
       "tags": [
         "dew",
         "laden",
-        "leaves"
+        "leaves",
+        "spells"
       ]
     },
     {
@@ -867,6 +983,8 @@
       "column": 9,
       "name": "Pebble stream ripples",
       "path": "mana-renewal/039-pebble-stream-ripples.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -878,6 +996,7 @@
       "tags": [
         "pebble",
         "ripples",
+        "spells",
         "stream"
       ]
     },
@@ -889,6 +1008,8 @@
       "column": 10,
       "name": "Round blue mana flask",
       "path": "mana-renewal/040-round-blue-mana-flask.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -901,7 +1022,8 @@
         "blue",
         "flask",
         "mana",
-        "round"
+        "round",
+        "spells"
       ]
     },
     {
@@ -912,6 +1034,8 @@
       "column": 1,
       "name": "Dewy fern",
       "path": "mana-renewal/041-dewy-fern.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -922,7 +1046,8 @@
       ],
       "tags": [
         "dewy",
-        "fern"
+        "fern",
+        "spells"
       ]
     },
     {
@@ -933,6 +1058,8 @@
       "column": 2,
       "name": "Sunrise lake",
       "path": "mana-renewal/042-sunrise-lake.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -943,6 +1070,7 @@
       ],
       "tags": [
         "lake",
+        "spells",
         "sunrise"
       ]
     },
@@ -954,6 +1082,8 @@
       "column": 3,
       "name": "River otter family",
       "path": "mana-renewal/043-river-otter-family.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -965,7 +1095,8 @@
       "tags": [
         "family",
         "otter",
-        "river"
+        "river",
+        "spells"
       ]
     },
     {
@@ -976,6 +1107,8 @@
       "column": 4,
       "name": "Swirling water sphere",
       "path": "mana-renewal/044-swirling-water-sphere.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -985,6 +1118,7 @@
         626
       ],
       "tags": [
+        "spells",
         "sphere",
         "swirling",
         "water"
@@ -998,6 +1132,8 @@
       "column": 5,
       "name": "Dandelion blessing",
       "path": "mana-renewal/045-dandelion-blessing.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1008,7 +1144,8 @@
       ],
       "tags": [
         "blessing",
-        "dandelion"
+        "dandelion",
+        "spells"
       ]
     },
     {
@@ -1019,6 +1156,8 @@
       "column": 6,
       "name": "Falling forest cascade",
       "path": "mana-renewal/046-falling-forest-cascade.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1030,7 +1169,8 @@
       "tags": [
         "cascade",
         "falling",
-        "forest"
+        "forest",
+        "spells"
       ]
     },
     {
@@ -1041,6 +1181,8 @@
       "column": 7,
       "name": "Purple water lilies",
       "path": "mana-renewal/047-purple-water-lilies.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1052,6 +1194,7 @@
       "tags": [
         "lilies",
         "purple",
+        "spells",
         "water"
       ]
     },
@@ -1063,6 +1206,8 @@
       "column": 8,
       "name": "Underwater grasses",
       "path": "mana-renewal/048-underwater-grasses.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1073,6 +1218,7 @@
       ],
       "tags": [
         "grasses",
+        "spells",
         "underwater"
       ]
     },
@@ -1084,6 +1230,8 @@
       "column": 9,
       "name": "Misty blue woodland",
       "path": "mana-renewal/049-misty-blue-woodland.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1095,6 +1243,7 @@
       "tags": [
         "blue",
         "misty",
+        "spells",
         "woodland"
       ]
     },
@@ -1106,6 +1255,8 @@
       "column": 10,
       "name": "Growing seedlings",
       "path": "mana-renewal/050-growing-seedlings.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1116,7 +1267,8 @@
       ],
       "tags": [
         "growing",
-        "seedlings"
+        "seedlings",
+        "spells"
       ]
     },
     {
@@ -1127,6 +1279,8 @@
       "column": 1,
       "name": "Root-framed spring",
       "path": "mana-renewal/051-root-framed-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1138,6 +1292,7 @@
       "tags": [
         "framed",
         "root",
+        "spells",
         "spring"
       ]
     },
@@ -1149,6 +1304,8 @@
       "column": 2,
       "name": "Azure crystal cluster",
       "path": "mana-renewal/052-azure-crystal-cluster.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1160,7 +1317,8 @@
       "tags": [
         "azure",
         "cluster",
-        "crystal"
+        "crystal",
+        "spells"
       ]
     },
     {
@@ -1171,6 +1329,8 @@
       "column": 3,
       "name": "Pink water lotus",
       "path": "mana-renewal/053-pink-water-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1182,6 +1342,7 @@
       "tags": [
         "lotus",
         "pink",
+        "spells",
         "water"
       ]
     },
@@ -1193,6 +1354,8 @@
       "column": 4,
       "name": "Spectral water stag",
       "path": "mana-renewal/054-spectral-water-stag.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1203,6 +1366,7 @@
       ],
       "tags": [
         "spectral",
+        "spells",
         "stag",
         "water"
       ]
@@ -1215,6 +1379,8 @@
       "column": 5,
       "name": "Flower-lined stream",
       "path": "mana-renewal/055-flower-lined-stream.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1226,6 +1392,7 @@
       "tags": [
         "flower",
         "lined",
+        "spells",
         "stream"
       ]
     },
@@ -1237,6 +1404,8 @@
       "column": 6,
       "name": "Hanging dewdrop",
       "path": "mana-renewal/056-hanging-dewdrop.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1247,7 +1416,8 @@
       ],
       "tags": [
         "dewdrop",
-        "hanging"
+        "hanging",
+        "spells"
       ]
     },
     {
@@ -1258,6 +1428,8 @@
       "column": 7,
       "name": "Dandelion seeds",
       "path": "mana-renewal/057-dandelion-seeds.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1268,7 +1440,8 @@
       ],
       "tags": [
         "dandelion",
-        "seeds"
+        "seeds",
+        "spells"
       ]
     },
     {
@@ -1279,6 +1452,8 @@
       "column": 8,
       "name": "Rocky hot spring",
       "path": "mana-renewal/058-rocky-hot-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1290,6 +1465,7 @@
       "tags": [
         "hot",
         "rocky",
+        "spells",
         "spring"
       ]
     },
@@ -1301,6 +1477,8 @@
       "column": 9,
       "name": "Waterfall in hands",
       "path": "mana-renewal/059-waterfall-in-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1312,6 +1490,7 @@
       "tags": [
         "hands",
         "in",
+        "spells",
         "waterfall"
       ]
     },
@@ -1323,6 +1502,8 @@
       "column": 10,
       "name": "Rainy cherry blossom",
       "path": "mana-renewal/060-rainy-cherry-blossom.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1334,7 +1515,8 @@
       "tags": [
         "blossom",
         "cherry",
-        "rainy"
+        "rainy",
+        "spells"
       ]
     },
     {
@@ -1345,6 +1527,8 @@
       "column": 1,
       "name": "Veiled water prayer",
       "path": "mana-renewal/061-veiled-water-prayer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1355,6 +1539,7 @@
       ],
       "tags": [
         "prayer",
+        "spells",
         "veiled",
         "water"
       ]
@@ -1367,6 +1552,8 @@
       "column": 2,
       "name": "White lily pond",
       "path": "mana-renewal/062-white-lily-pond.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1378,6 +1565,7 @@
       "tags": [
         "lily",
         "pond",
+        "spells",
         "white"
       ]
     },
@@ -1389,6 +1577,8 @@
       "column": 3,
       "name": "Rainfall ripples",
       "path": "mana-renewal/063-rainfall-ripples.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1399,7 +1589,8 @@
       ],
       "tags": [
         "rainfall",
-        "ripples"
+        "ripples",
+        "spells"
       ]
     },
     {
@@ -1410,6 +1601,8 @@
       "column": 4,
       "name": "Tree in water globe",
       "path": "mana-renewal/064-tree-in-water-globe.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1421,6 +1614,7 @@
       "tags": [
         "globe",
         "in",
+        "spells",
         "tree",
         "water"
       ]
@@ -1433,6 +1627,8 @@
       "column": 5,
       "name": "Pink rosebud",
       "path": "mana-renewal/065-pink-rosebud.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1443,7 +1639,8 @@
       ],
       "tags": [
         "pink",
-        "rosebud"
+        "rosebud",
+        "spells"
       ]
     },
     {
@@ -1454,6 +1651,8 @@
       "column": 6,
       "name": "Sunbeam forest pool",
       "path": "mana-renewal/066-sunbeam-forest-pool.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1465,6 +1664,7 @@
       "tags": [
         "forest",
         "pool",
+        "spells",
         "sunbeam"
       ]
     },
@@ -1476,6 +1676,8 @@
       "column": 7,
       "name": "Flower-crowned renewal",
       "path": "mana-renewal/067-flower-crowned-renewal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1487,7 +1689,8 @@
       "tags": [
         "crowned",
         "flower",
-        "renewal"
+        "renewal",
+        "spells"
       ]
     },
     {
@@ -1498,6 +1701,8 @@
       "column": 8,
       "name": "Overflowing stone basin",
       "path": "mana-renewal/068-overflowing-stone-basin.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1509,6 +1714,7 @@
       "tags": [
         "basin",
         "overflowing",
+        "spells",
         "stone"
       ]
     },
@@ -1520,6 +1726,8 @@
       "column": 9,
       "name": "Mossy cascade",
       "path": "mana-renewal/069-mossy-cascade.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1530,7 +1738,8 @@
       ],
       "tags": [
         "cascade",
-        "mossy"
+        "mossy",
+        "spells"
       ]
     },
     {
@@ -1541,6 +1750,8 @@
       "column": 10,
       "name": "Underwater leaf sprig",
       "path": "mana-renewal/070-underwater-leaf-sprig.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1551,6 +1762,7 @@
       ],
       "tags": [
         "leaf",
+        "spells",
         "sprig",
         "underwater"
       ]
@@ -1563,6 +1775,8 @@
       "column": 1,
       "name": "Wisteria spring",
       "path": "mana-renewal/071-wisteria-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1572,6 +1786,7 @@
         1003
       ],
       "tags": [
+        "spells",
         "spring",
         "wisteria"
       ]
@@ -1584,6 +1799,8 @@
       "column": 2,
       "name": "Reflection tree",
       "path": "mana-renewal/072-reflection-tree.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1594,6 +1811,7 @@
       ],
       "tags": [
         "reflection",
+        "spells",
         "tree"
       ]
     },
@@ -1605,6 +1823,8 @@
       "column": 3,
       "name": "Flowing water woman",
       "path": "mana-renewal/073-flowing-water-woman.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1615,6 +1835,7 @@
       ],
       "tags": [
         "flowing",
+        "spells",
         "water",
         "woman"
       ]
@@ -1627,6 +1848,8 @@
       "column": 4,
       "name": "Fresh leaf buds",
       "path": "mana-renewal/074-fresh-leaf-buds.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1638,7 +1861,8 @@
       "tags": [
         "buds",
         "fresh",
-        "leaf"
+        "leaf",
+        "spells"
       ]
     },
     {
@@ -1649,6 +1873,8 @@
       "column": 5,
       "name": "Mossy forest waterfall",
       "path": "mana-renewal/075-mossy-forest-waterfall.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1660,6 +1886,7 @@
       "tags": [
         "forest",
         "mossy",
+        "spells",
         "waterfall"
       ]
     },
@@ -1671,6 +1898,8 @@
       "column": 6,
       "name": "Underwater light pillars",
       "path": "mana-renewal/076-underwater-light-pillars.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1682,6 +1911,7 @@
       "tags": [
         "light",
         "pillars",
+        "spells",
         "underwater"
       ]
     },
@@ -1693,6 +1923,8 @@
       "column": 7,
       "name": "Dewy clover",
       "path": "mana-renewal/077-dewy-clover.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1703,7 +1935,8 @@
       ],
       "tags": [
         "clover",
-        "dewy"
+        "dewy",
+        "spells"
       ]
     },
     {
@@ -1714,6 +1947,8 @@
       "column": 8,
       "name": "Spiral blue mana flask",
       "path": "mana-renewal/078-spiral-blue-mana-flask.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -1726,6 +1961,7 @@
         "blue",
         "flask",
         "mana",
+        "spells",
         "spiral"
       ]
     },
@@ -1737,6 +1973,8 @@
       "column": 9,
       "name": "Falling water droplet",
       "path": "mana-renewal/079-falling-water-droplet.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1748,6 +1986,7 @@
       "tags": [
         "droplet",
         "falling",
+        "spells",
         "water"
       ]
     },
@@ -1759,6 +1998,8 @@
       "column": 10,
       "name": "Golden forest deer",
       "path": "mana-renewal/080-golden-forest-deer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -1770,7 +2011,8 @@
       "tags": [
         "deer",
         "forest",
-        "golden"
+        "golden",
+        "spells"
       ]
     },
     {
@@ -1781,6 +2023,8 @@
       "column": 1,
       "name": "Hand on water",
       "path": "mana-renewal/081-hand-on-water.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1792,6 +2036,7 @@
       "tags": [
         "hand",
         "on",
+        "spells",
         "water"
       ]
     },
@@ -1803,6 +2048,8 @@
       "column": 2,
       "name": "Stone spout fountain",
       "path": "mana-renewal/082-stone-spout-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1813,6 +2060,7 @@
       ],
       "tags": [
         "fountain",
+        "spells",
         "spout",
         "stone"
       ]
@@ -1825,6 +2073,8 @@
       "column": 3,
       "name": "Rosebud water globe",
       "path": "mana-renewal/083-rosebud-water-globe.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1836,6 +2086,7 @@
       "tags": [
         "globe",
         "rosebud",
+        "spells",
         "water"
       ]
     },
@@ -1847,6 +2098,8 @@
       "column": 4,
       "name": "Dew on green leaf",
       "path": "mana-renewal/084-dew-on-green-leaf.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1859,7 +2112,8 @@
         "dew",
         "green",
         "leaf",
-        "on"
+        "on",
+        "spells"
       ]
     },
     {
@@ -1870,6 +2124,8 @@
       "column": 5,
       "name": "Woodland brook",
       "path": "mana-renewal/085-woodland-brook.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1880,6 +2136,7 @@
       ],
       "tags": [
         "brook",
+        "spells",
         "woodland"
       ]
     },
@@ -1891,6 +2148,8 @@
       "column": 6,
       "name": "Blue bellflowers",
       "path": "mana-renewal/086-blue-bellflowers.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1901,7 +2160,8 @@
       ],
       "tags": [
         "bellflowers",
-        "blue"
+        "blue",
+        "spells"
       ]
     },
     {
@@ -1912,6 +2172,8 @@
       "column": 7,
       "name": "Meditating sage",
       "path": "mana-renewal/087-meditating-sage.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1922,7 +2184,8 @@
       ],
       "tags": [
         "meditating",
-        "sage"
+        "sage",
+        "spells"
       ]
     },
     {
@@ -1933,6 +2196,8 @@
       "column": 8,
       "name": "Twin spirit koi",
       "path": "mana-renewal/088-twin-spirit-koi.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 125,
       "sourceBox": [
@@ -1943,6 +2208,7 @@
       ],
       "tags": [
         "koi",
+        "spells",
         "spirit",
         "twin"
       ]
@@ -1955,6 +2221,8 @@
       "column": 9,
       "name": "Steaming waterfall pools",
       "path": "mana-renewal/089-steaming-waterfall-pools.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1965,6 +2233,7 @@
       ],
       "tags": [
         "pools",
+        "spells",
         "steaming",
         "waterfall"
       ]
@@ -1977,6 +2246,8 @@
       "column": 10,
       "name": "Mountain lake sunrise",
       "path": "mana-renewal/090-mountain-lake-sunrise.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 125,
       "sourceBox": [
@@ -1988,6 +2259,7 @@
       "tags": [
         "lake",
         "mountain",
+        "spells",
         "sunrise"
       ]
     },
@@ -1999,6 +2271,8 @@
       "column": 1,
       "name": "Blue luminous lilies",
       "path": "mana-renewal/091-blue-luminous-lilies.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -2010,7 +2284,8 @@
       "tags": [
         "blue",
         "lilies",
-        "luminous"
+        "luminous",
+        "spells"
       ]
     },
     {
@@ -2021,6 +2296,8 @@
       "column": 2,
       "name": "Misty pine lake",
       "path": "mana-renewal/092-misty-pine-lake.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -2032,7 +2309,8 @@
       "tags": [
         "lake",
         "misty",
-        "pine"
+        "pine",
+        "spells"
       ]
     },
     {
@@ -2043,6 +2321,8 @@
       "column": 3,
       "name": "Drinking from hands",
       "path": "mana-renewal/093-drinking-from-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -2054,7 +2334,8 @@
       "tags": [
         "drinking",
         "from",
-        "hands"
+        "hands",
+        "spells"
       ]
     },
     {
@@ -2065,6 +2346,8 @@
       "column": 4,
       "name": "Golden rooted tree",
       "path": "mana-renewal/094-golden-rooted-tree.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -2076,6 +2359,7 @@
       "tags": [
         "golden",
         "rooted",
+        "spells",
         "tree"
       ]
     },
@@ -2087,6 +2371,8 @@
       "column": 5,
       "name": "Deep blue vortex",
       "path": "mana-renewal/095-deep-blue-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -2098,6 +2384,7 @@
       "tags": [
         "blue",
         "deep",
+        "spells",
         "vortex"
       ]
     },
@@ -2109,6 +2396,8 @@
       "column": 6,
       "name": "Rain on white lotus",
       "path": "mana-renewal/096-rain-on-white-lotus.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -2121,6 +2410,7 @@
         "lotus",
         "on",
         "rain",
+        "spells",
         "white"
       ]
     },
@@ -2132,6 +2422,8 @@
       "column": 7,
       "name": "Ancient garden fountain",
       "path": "mana-renewal/097-ancient-garden-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -2143,7 +2435,8 @@
       "tags": [
         "ancient",
         "fountain",
-        "garden"
+        "garden",
+        "spells"
       ]
     },
     {
@@ -2154,6 +2447,8 @@
       "column": 8,
       "name": "Pink lotus pair",
       "path": "mana-renewal/098-pink-lotus-pair.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 126,
       "height": 126,
       "sourceBox": [
@@ -2165,7 +2460,8 @@
       "tags": [
         "lotus",
         "pair",
-        "pink"
+        "pink",
+        "spells"
       ]
     },
     {
@@ -2176,6 +2472,8 @@
       "column": 9,
       "name": "Waterside blue crystals",
       "path": "mana-renewal/099-waterside-blue-crystals.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -2187,6 +2485,7 @@
       "tags": [
         "blue",
         "crystals",
+        "spells",
         "waterside"
       ]
     },
@@ -2198,6 +2497,8 @@
       "column": 10,
       "name": "Golden tree spring",
       "path": "mana-renewal/100-golden-tree-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 125,
       "height": 126,
       "sourceBox": [
@@ -2208,6 +2509,7 @@
       ],
       "tags": [
         "golden",
+        "spells",
         "spring",
         "tree"
       ]

@@ -1,4 +1,6 @@
 {
+  "category": "spells",
+  "directory": "arcane-vitality",
   "id": "arcane-vitality",
   "title": "Arcane Vitality",
   "sourceFilename": "arcane-vitality.jpg",
@@ -42,6 +44,8 @@
       "column": 1,
       "name": "Golden healing hand",
       "path": "arcane-vitality/001-golden-healing-hand.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -53,7 +57,8 @@
       "tags": [
         "golden",
         "hand",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -64,6 +69,8 @@
       "column": 2,
       "name": "Golden lotus offering",
       "path": "arcane-vitality/002-golden-lotus-offering.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -75,7 +82,8 @@
       "tags": [
         "golden",
         "lotus",
-        "offering"
+        "offering",
+        "spells"
       ]
     },
     {
@@ -86,6 +94,8 @@
       "column": 3,
       "name": "Golden healing flower",
       "path": "arcane-vitality/003-golden-healing-flower.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -97,7 +107,8 @@
       "tags": [
         "flower",
         "golden",
-        "healing"
+        "healing",
+        "spells"
       ]
     },
     {
@@ -108,6 +119,8 @@
       "column": 4,
       "name": "Nature reaching hands",
       "path": "arcane-vitality/004-nature-reaching-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -119,7 +132,8 @@
       "tags": [
         "hands",
         "nature",
-        "reaching"
+        "reaching",
+        "spells"
       ]
     },
     {
@@ -130,6 +144,8 @@
       "column": 5,
       "name": "Wings of light",
       "path": "arcane-vitality/005-wings-of-light.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -141,6 +157,7 @@
       "tags": [
         "light",
         "of",
+        "spells",
         "wings"
       ]
     },
@@ -152,6 +169,8 @@
       "column": 6,
       "name": "Golden winged guardian",
       "path": "arcane-vitality/006-golden-winged-guardian.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -163,6 +182,7 @@
       "tags": [
         "golden",
         "guardian",
+        "spells",
         "winged"
       ]
     },
@@ -174,6 +194,8 @@
       "column": 7,
       "name": "Radiant winged healer",
       "path": "arcane-vitality/007-radiant-winged-healer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -185,6 +207,7 @@
       "tags": [
         "healer",
         "radiant",
+        "spells",
         "winged"
       ]
     },
@@ -196,6 +219,8 @@
       "column": 8,
       "name": "Sunlit protective hand",
       "path": "arcane-vitality/008-sunlit-protective-hand.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -207,6 +232,7 @@
       "tags": [
         "hand",
         "protective",
+        "spells",
         "sunlit"
       ]
     },
@@ -218,6 +244,8 @@
       "column": 9,
       "name": "Golden healing cross",
       "path": "arcane-vitality/009-golden-healing-cross.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -230,6 +258,7 @@
         "cross",
         "golden",
         "healing",
+        "spells",
         "healing"
       ],
       "legacyReportPath": "../report-icons/healing.jpg"
@@ -242,6 +271,8 @@
       "column": 10,
       "name": "Luminous spirit shield",
       "path": "arcane-vitality/010-luminous-spirit-shield.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -253,6 +284,7 @@
       "tags": [
         "luminous",
         "shield",
+        "spells",
         "spirit",
         "survived"
       ],
@@ -266,6 +298,8 @@
       "column": 1,
       "name": "Hands of renewal",
       "path": "arcane-vitality/011-hands-of-renewal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -277,7 +311,8 @@
       "tags": [
         "hands",
         "of",
-        "renewal"
+        "renewal",
+        "spells"
       ]
     },
     {
@@ -288,6 +323,8 @@
       "column": 2,
       "name": "Golden lotus bloom",
       "path": "arcane-vitality/012-golden-lotus-bloom.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -299,7 +336,8 @@
       "tags": [
         "bloom",
         "golden",
-        "lotus"
+        "lotus",
+        "spells"
       ]
     },
     {
@@ -310,6 +348,8 @@
       "column": 3,
       "name": "Turquoise healing flower",
       "path": "arcane-vitality/013-turquoise-healing-flower.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -321,6 +361,7 @@
       "tags": [
         "flower",
         "healing",
+        "spells",
         "turquoise"
       ]
     },
@@ -332,6 +373,8 @@
       "column": 4,
       "name": "Nature healing breath",
       "path": "arcane-vitality/014-nature-healing-breath.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -343,7 +386,8 @@
       "tags": [
         "breath",
         "healing",
-        "nature"
+        "nature",
+        "spells"
       ]
     },
     {
@@ -354,6 +398,8 @@
       "column": 5,
       "name": "Azure winged guardian",
       "path": "arcane-vitality/015-azure-winged-guardian.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -365,6 +411,7 @@
       "tags": [
         "azure",
         "guardian",
+        "spells",
         "winged"
       ]
     },
@@ -376,6 +423,8 @@
       "column": 6,
       "name": "Turquoise leaf aura",
       "path": "arcane-vitality/016-turquoise-leaf-aura.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -387,6 +436,7 @@
       "tags": [
         "aura",
         "leaf",
+        "spells",
         "turquoise"
       ]
     },
@@ -398,6 +448,8 @@
       "column": 7,
       "name": "Azure mana diamond",
       "path": "arcane-vitality/017-azure-mana-diamond.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -409,7 +461,8 @@
       "tags": [
         "azure",
         "diamond",
-        "mana"
+        "mana",
+        "spells"
       ]
     },
     {
@@ -420,6 +473,8 @@
       "column": 8,
       "name": "Violet mana spiral",
       "path": "arcane-vitality/018-violet-mana-spiral.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -430,6 +485,7 @@
       ],
       "tags": [
         "mana",
+        "spells",
         "spiral",
         "violet"
       ]
@@ -442,6 +498,8 @@
       "column": 9,
       "name": "Violet crystal pedestal",
       "path": "arcane-vitality/019-violet-crystal-pedestal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -453,6 +511,7 @@
       "tags": [
         "crystal",
         "pedestal",
+        "spells",
         "violet"
       ]
     },
@@ -464,6 +523,8 @@
       "column": 10,
       "name": "Azure crystal fountain",
       "path": "arcane-vitality/020-azure-crystal-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -475,7 +536,8 @@
       "tags": [
         "azure",
         "crystal",
-        "fountain"
+        "fountain",
+        "spells"
       ]
     },
     {
@@ -486,6 +548,8 @@
       "column": 1,
       "name": "Hands in golden light",
       "path": "arcane-vitality/021-hands-in-golden-light.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -498,7 +562,8 @@
         "golden",
         "hands",
         "in",
-        "light"
+        "light",
+        "spells"
       ]
     },
     {
@@ -509,6 +574,8 @@
       "column": 2,
       "name": "Golden light offering",
       "path": "arcane-vitality/022-golden-light-offering.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -521,6 +588,7 @@
         "golden",
         "light",
         "offering",
+        "spells",
         "hps"
       ],
       "legacyReportPath": "../report-icons/hps.jpg"
@@ -533,6 +601,8 @@
       "column": 3,
       "name": "Lotus sanctuary",
       "path": "arcane-vitality/023-lotus-sanctuary.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 204,
       "sourceBox": [
@@ -543,7 +613,8 @@
       ],
       "tags": [
         "lotus",
-        "sanctuary"
+        "sanctuary",
+        "spells"
       ]
     },
     {
@@ -554,6 +625,8 @@
       "column": 4,
       "name": "Green renewal vine",
       "path": "arcane-vitality/024-green-renewal-vine.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -565,6 +638,7 @@
       "tags": [
         "green",
         "renewal",
+        "spells",
         "vine"
       ]
     },
@@ -576,6 +650,8 @@
       "column": 5,
       "name": "Verdant healing beam",
       "path": "arcane-vitality/025-verdant-healing-beam.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -587,6 +663,7 @@
       "tags": [
         "beam",
         "healing",
+        "spells",
         "verdant"
       ]
     },
@@ -598,6 +675,8 @@
       "column": 6,
       "name": "Blue spirit hand",
       "path": "arcane-vitality/026-blue-spirit-hand.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -609,6 +688,7 @@
       "tags": [
         "blue",
         "hand",
+        "spells",
         "spirit"
       ]
     },
@@ -620,6 +700,8 @@
       "column": 7,
       "name": "Turquoise water swirl",
       "path": "arcane-vitality/027-turquoise-water-swirl.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -629,6 +711,7 @@
         614
       ],
       "tags": [
+        "spells",
         "swirl",
         "turquoise",
         "water"
@@ -642,6 +725,8 @@
       "column": 8,
       "name": "Radiant mana vortex",
       "path": "arcane-vitality/028-radiant-mana-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 204,
       "sourceBox": [
@@ -653,6 +738,7 @@
       "tags": [
         "mana",
         "radiant",
+        "spells",
         "vortex"
       ]
     },
@@ -664,6 +750,8 @@
       "column": 9,
       "name": "Azure light well",
       "path": "arcane-vitality/029-azure-light-well.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -675,6 +763,7 @@
       "tags": [
         "azure",
         "light",
+        "spells",
         "well"
       ]
     },
@@ -686,6 +775,8 @@
       "column": 10,
       "name": "Violet leaf sigil",
       "path": "arcane-vitality/030-violet-leaf-sigil.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -697,6 +788,7 @@
       "tags": [
         "leaf",
         "sigil",
+        "spells",
         "violet"
       ]
     },
@@ -708,6 +800,8 @@
       "column": 1,
       "name": "Palm of golden light",
       "path": "arcane-vitality/031-palm-of-golden-light.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -720,7 +814,8 @@
         "golden",
         "light",
         "of",
-        "palm"
+        "palm",
+        "spells"
       ]
     },
     {
@@ -731,6 +826,8 @@
       "column": 2,
       "name": "Palm of green light",
       "path": "arcane-vitality/032-palm-of-green-light.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -743,7 +840,8 @@
         "green",
         "light",
         "of",
-        "palm"
+        "palm",
+        "spells"
       ]
     },
     {
@@ -754,6 +852,8 @@
       "column": 3,
       "name": "Golden light well",
       "path": "arcane-vitality/033-golden-light-well.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -765,6 +865,7 @@
       "tags": [
         "golden",
         "light",
+        "spells",
         "well"
       ]
     },
@@ -776,6 +877,8 @@
       "column": 4,
       "name": "Protective healing bubble",
       "path": "arcane-vitality/034-protective-healing-bubble.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -788,6 +891,7 @@
         "bubble",
         "healing",
         "protective",
+        "spells",
         "overheal"
       ],
       "legacyReportPath": "../report-icons/overheal.jpg"
@@ -800,6 +904,8 @@
       "column": 5,
       "name": "Blue violet vortex",
       "path": "arcane-vitality/035-blue-violet-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -810,6 +916,7 @@
       ],
       "tags": [
         "blue",
+        "spells",
         "violet",
         "vortex"
       ]
@@ -822,6 +929,8 @@
       "column": 6,
       "name": "Shattered azure crystal",
       "path": "arcane-vitality/036-shattered-azure-crystal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -833,7 +942,8 @@
       "tags": [
         "azure",
         "crystal",
-        "shattered"
+        "shattered",
+        "spells"
       ]
     },
     {
@@ -844,6 +954,8 @@
       "column": 7,
       "name": "Tiered mana fountain",
       "path": "arcane-vitality/037-tiered-mana-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -855,6 +967,7 @@
       "tags": [
         "fountain",
         "mana",
+        "spells",
         "tiered",
         "gained"
       ],
@@ -868,6 +981,8 @@
       "column": 8,
       "name": "Azure flame fountain",
       "path": "arcane-vitality/038-azure-flame-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -879,7 +994,8 @@
       "tags": [
         "azure",
         "flame",
-        "fountain"
+        "fountain",
+        "spells"
       ]
     },
     {
@@ -890,6 +1006,8 @@
       "column": 9,
       "name": "Swirling spirit current",
       "path": "arcane-vitality/039-swirling-spirit-current.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -900,6 +1018,7 @@
       ],
       "tags": [
         "current",
+        "spells",
         "spirit",
         "swirling"
       ]
@@ -912,6 +1031,8 @@
       "column": 10,
       "name": "Arcane lightning sigil",
       "path": "arcane-vitality/040-arcane-lightning-sigil.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -923,7 +1044,8 @@
       "tags": [
         "arcane",
         "lightning",
-        "sigil"
+        "sigil",
+        "spells"
       ]
     },
     {
@@ -934,6 +1056,8 @@
       "column": 1,
       "name": "Violet cosmic spiral",
       "path": "arcane-vitality/041-violet-cosmic-spiral.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -944,6 +1068,7 @@
       ],
       "tags": [
         "cosmic",
+        "spells",
         "spiral",
         "violet"
       ]
@@ -956,6 +1081,8 @@
       "column": 2,
       "name": "Azure violet spiral",
       "path": "arcane-vitality/042-azure-violet-spiral.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -966,6 +1093,7 @@
       ],
       "tags": [
         "azure",
+        "spells",
         "spiral",
         "violet"
       ]
@@ -978,6 +1106,8 @@
       "column": 3,
       "name": "Floating crystal shards",
       "path": "arcane-vitality/043-floating-crystal-shards.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -989,7 +1119,8 @@
       "tags": [
         "crystal",
         "floating",
-        "shards"
+        "shards",
+        "spells"
       ]
     },
     {
@@ -1000,6 +1131,8 @@
       "column": 4,
       "name": "Azure crystal crown",
       "path": "arcane-vitality/044-azure-crystal-crown.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1011,7 +1144,8 @@
       "tags": [
         "azure",
         "crown",
-        "crystal"
+        "crystal",
+        "spells"
       ]
     },
     {
@@ -1022,6 +1156,8 @@
       "column": 5,
       "name": "Overflowing mana fountain",
       "path": "arcane-vitality/045-overflowing-mana-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1033,7 +1169,8 @@
       "tags": [
         "fountain",
         "mana",
-        "overflowing"
+        "overflowing",
+        "spells"
       ]
     },
     {
@@ -1044,6 +1181,8 @@
       "column": 6,
       "name": "Spirit sparkles",
       "path": "arcane-vitality/046-spirit-sparkles.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1054,6 +1193,7 @@
       ],
       "tags": [
         "sparkles",
+        "spells",
         "spirit"
       ]
     },
@@ -1065,6 +1205,8 @@
       "column": 7,
       "name": "Radiant spirit star",
       "path": "arcane-vitality/047-radiant-spirit-star.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1075,6 +1217,7 @@
       ],
       "tags": [
         "radiant",
+        "spells",
         "spirit",
         "star",
         "crit"
@@ -1089,6 +1232,8 @@
       "column": 8,
       "name": "Turquoise flowing current",
       "path": "arcane-vitality/048-turquoise-flowing-current.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -1100,6 +1245,7 @@
       "tags": [
         "current",
         "flowing",
+        "spells",
         "turquoise"
       ]
     },
@@ -1111,6 +1257,8 @@
       "column": 9,
       "name": "Azure violet current",
       "path": "arcane-vitality/049-azure-violet-current.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1122,6 +1270,7 @@
       "tags": [
         "azure",
         "current",
+        "spells",
         "violet"
       ]
     },
@@ -1133,6 +1282,8 @@
       "column": 10,
       "name": "Violet rune circle",
       "path": "arcane-vitality/050-violet-rune-circle.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1144,6 +1295,7 @@
       "tags": [
         "circle",
         "rune",
+        "spells",
         "violet"
       ]
     },
@@ -1155,6 +1307,8 @@
       "column": 1,
       "name": "Square azure rune",
       "path": "arcane-vitality/051-square-azure-rune.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1166,6 +1320,7 @@
       "tags": [
         "azure",
         "rune",
+        "spells",
         "square"
       ]
     },
@@ -1177,6 +1332,8 @@
       "column": 2,
       "name": "Circular azure rune",
       "path": "arcane-vitality/052-circular-azure-rune.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1188,7 +1345,8 @@
       "tags": [
         "azure",
         "circular",
-        "rune"
+        "rune",
+        "spells"
       ]
     },
     {
@@ -1199,6 +1357,8 @@
       "column": 3,
       "name": "Crystalline spirit star",
       "path": "arcane-vitality/053-crystalline-spirit-star.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -1209,6 +1369,7 @@
       ],
       "tags": [
         "crystalline",
+        "spells",
         "spirit",
         "star"
       ]
@@ -1221,6 +1382,8 @@
       "column": 4,
       "name": "Leaf and water crest",
       "path": "arcane-vitality/054-leaf-and-water-crest.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1233,6 +1396,7 @@
         "and",
         "crest",
         "leaf",
+        "spells",
         "water",
         "efficiency"
       ],
@@ -1246,6 +1410,8 @@
       "column": 5,
       "name": "Spiraling arcane leaf",
       "path": "arcane-vitality/055-spiraling-arcane-leaf.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1257,6 +1423,7 @@
       "tags": [
         "arcane",
         "leaf",
+        "spells",
         "spiraling"
       ]
     },
@@ -1268,6 +1435,8 @@
       "column": 6,
       "name": "Angular crystal crest",
       "path": "arcane-vitality/056-angular-crystal-crest.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1279,7 +1448,8 @@
       "tags": [
         "angular",
         "crest",
-        "crystal"
+        "crystal",
+        "spells"
       ]
     },
     {
@@ -1290,6 +1460,8 @@
       "column": 7,
       "name": "Deep mana vortex",
       "path": "arcane-vitality/057-deep-mana-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1301,6 +1473,7 @@
       "tags": [
         "deep",
         "mana",
+        "spells",
         "vortex"
       ]
     },
@@ -1312,6 +1485,8 @@
       "column": 8,
       "name": "Spiraling water fountain",
       "path": "arcane-vitality/058-spiraling-water-fountain.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -1322,6 +1497,7 @@
       ],
       "tags": [
         "fountain",
+        "spells",
         "spiraling",
         "water",
         "mp5"
@@ -1336,6 +1512,8 @@
       "column": 9,
       "name": "Violet blue stream",
       "path": "arcane-vitality/059-violet-blue-stream.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1346,6 +1524,7 @@
       ],
       "tags": [
         "blue",
+        "spells",
         "stream",
         "violet"
       ]
@@ -1358,6 +1537,8 @@
       "column": 10,
       "name": "Radiant violet rune",
       "path": "arcane-vitality/060-radiant-violet-rune.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1369,6 +1550,7 @@
       "tags": [
         "radiant",
         "rune",
+        "spells",
         "violet"
       ]
     },
@@ -1380,6 +1562,8 @@
       "column": 1,
       "name": "Azure rune frame",
       "path": "arcane-vitality/061-azure-rune-frame.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1391,7 +1575,8 @@
       "tags": [
         "azure",
         "frame",
-        "rune"
+        "rune",
+        "spells"
       ]
     },
     {
@@ -1402,6 +1587,8 @@
       "column": 2,
       "name": "Diamond arcane rune",
       "path": "arcane-vitality/062-diamond-arcane-rune.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1413,7 +1600,8 @@
       "tags": [
         "arcane",
         "diamond",
-        "rune"
+        "rune",
+        "spells"
       ]
     },
     {
@@ -1424,6 +1612,8 @@
       "column": 3,
       "name": "Celestial crystal star",
       "path": "arcane-vitality/063-celestial-crystal-star.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -1435,6 +1625,7 @@
       "tags": [
         "celestial",
         "crystal",
+        "spells",
         "star"
       ]
     },
@@ -1446,6 +1637,8 @@
       "column": 4,
       "name": "Leaf renewal shield",
       "path": "arcane-vitality/064-leaf-renewal-shield.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1457,7 +1650,8 @@
       "tags": [
         "leaf",
         "renewal",
-        "shield"
+        "shield",
+        "spells"
       ]
     },
     {
@@ -1468,6 +1662,8 @@
       "column": 5,
       "name": "Leaf in mana vortex",
       "path": "arcane-vitality/065-leaf-in-mana-vortex.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1480,6 +1676,7 @@
         "in",
         "leaf",
         "mana",
+        "spells",
         "vortex"
       ]
     },
@@ -1491,6 +1688,8 @@
       "column": 6,
       "name": "Spirit meditation",
       "path": "arcane-vitality/066-spirit-meditation.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1501,6 +1700,7 @@
       ],
       "tags": [
         "meditation",
+        "spells",
         "spirit",
         "spirit"
       ],
@@ -1514,6 +1714,8 @@
       "column": 7,
       "name": "Flowing crystal leaves",
       "path": "arcane-vitality/067-flowing-crystal-leaves.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1525,7 +1727,8 @@
       "tags": [
         "crystal",
         "flowing",
-        "leaves"
+        "leaves",
+        "spells"
       ]
     },
     {
@@ -1536,6 +1739,8 @@
       "column": 8,
       "name": "Arcane crystal seal",
       "path": "arcane-vitality/068-arcane-crystal-seal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -1547,7 +1752,8 @@
       "tags": [
         "arcane",
         "crystal",
-        "seal"
+        "seal",
+        "spells"
       ]
     },
     {
@@ -1558,6 +1764,8 @@
       "column": 9,
       "name": "Turquoise spirit spiral",
       "path": "arcane-vitality/069-turquoise-spirit-spiral.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1567,6 +1775,7 @@
         1434
       ],
       "tags": [
+        "spells",
         "spiral",
         "spirit",
         "turquoise"
@@ -1580,6 +1789,8 @@
       "column": 10,
       "name": "Angular spirit emblem",
       "path": "arcane-vitality/070-angular-spirit-emblem.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1591,6 +1802,7 @@
       "tags": [
         "angular",
         "emblem",
+        "spells",
         "spirit"
       ]
     },
@@ -1602,6 +1814,8 @@
       "column": 1,
       "name": "Radiant arcane diamond",
       "path": "arcane-vitality/071-radiant-arcane-diamond.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1613,7 +1827,8 @@
       "tags": [
         "arcane",
         "diamond",
-        "radiant"
+        "radiant",
+        "spells"
       ]
     },
     {
@@ -1624,6 +1839,8 @@
       "column": 2,
       "name": "Crystal flame seal",
       "path": "arcane-vitality/072-crystal-flame-seal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1635,7 +1852,8 @@
       "tags": [
         "crystal",
         "flame",
-        "seal"
+        "seal",
+        "spells"
       ]
     },
     {
@@ -1646,6 +1864,8 @@
       "column": 3,
       "name": "Arcane snowflake",
       "path": "arcane-vitality/073-arcane-snowflake.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 204,
       "sourceBox": [
@@ -1656,7 +1876,8 @@
       ],
       "tags": [
         "arcane",
-        "snowflake"
+        "snowflake",
+        "spells"
       ]
     },
     {
@@ -1667,6 +1888,8 @@
       "column": 4,
       "name": "Renewal leaf crest",
       "path": "arcane-vitality/074-renewal-leaf-crest.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1678,7 +1901,8 @@
       "tags": [
         "crest",
         "leaf",
-        "renewal"
+        "renewal",
+        "spells"
       ]
     },
     {
@@ -1689,6 +1913,8 @@
       "column": 5,
       "name": "Azure flame meditation",
       "path": "arcane-vitality/075-azure-flame-meditation.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1700,7 +1926,8 @@
       "tags": [
         "azure",
         "flame",
-        "meditation"
+        "meditation",
+        "spells"
       ]
     },
     {
@@ -1711,6 +1938,8 @@
       "column": 6,
       "name": "Spirit halo meditation",
       "path": "arcane-vitality/076-spirit-halo-meditation.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1722,6 +1951,7 @@
       "tags": [
         "halo",
         "meditation",
+        "spells",
         "spirit"
       ]
     },
@@ -1733,6 +1963,8 @@
       "column": 7,
       "name": "Crystalline arcane lock",
       "path": "arcane-vitality/077-crystalline-arcane-lock.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1744,7 +1976,8 @@
       "tags": [
         "arcane",
         "crystalline",
-        "lock"
+        "lock",
+        "spells"
       ]
     },
     {
@@ -1755,6 +1988,8 @@
       "column": 8,
       "name": "Radiant frozen lock",
       "path": "arcane-vitality/078-radiant-frozen-lock.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 204,
       "sourceBox": [
@@ -1766,7 +2001,8 @@
       "tags": [
         "frozen",
         "lock",
-        "radiant"
+        "radiant",
+        "spells"
       ]
     },
     {
@@ -1777,6 +2013,8 @@
       "column": 9,
       "name": "Square arcane lock",
       "path": "arcane-vitality/079-square-arcane-lock.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1788,6 +2026,7 @@
       "tags": [
         "arcane",
         "lock",
+        "spells",
         "square"
       ]
     },
@@ -1799,6 +2038,8 @@
       "column": 10,
       "name": "Radiant crystal shards",
       "path": "arcane-vitality/080-radiant-crystal-shards.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 204,
       "sourceBox": [
@@ -1810,7 +2051,8 @@
       "tags": [
         "crystal",
         "radiant",
-        "shards"
+        "shards",
+        "spells"
       ]
     },
     {
@@ -1821,6 +2063,8 @@
       "column": 1,
       "name": "Blue flame well",
       "path": "arcane-vitality/081-blue-flame-well.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1832,6 +2076,7 @@
       "tags": [
         "blue",
         "flame",
+        "spells",
         "well"
       ]
     },
@@ -1843,6 +2088,8 @@
       "column": 2,
       "name": "Pouring mana hands",
       "path": "arcane-vitality/082-pouring-mana-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1854,7 +2101,8 @@
       "tags": [
         "hands",
         "mana",
-        "pouring"
+        "pouring",
+        "spells"
       ]
     },
     {
@@ -1865,6 +2113,8 @@
       "column": 3,
       "name": "Drinking mana spring",
       "path": "arcane-vitality/083-drinking-mana-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -1876,6 +2126,7 @@
       "tags": [
         "drinking",
         "mana",
+        "spells",
         "spring"
       ]
     },
@@ -1887,6 +2138,8 @@
       "column": 4,
       "name": "Forest meditation",
       "path": "arcane-vitality/084-forest-meditation.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1897,7 +2150,8 @@
       ],
       "tags": [
         "forest",
-        "meditation"
+        "meditation",
+        "spells"
       ]
     },
     {
@@ -1908,6 +2162,8 @@
       "column": 5,
       "name": "Azure arcane bonfire",
       "path": "arcane-vitality/085-azure-arcane-bonfire.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1919,7 +2175,8 @@
       "tags": [
         "arcane",
         "azure",
-        "bonfire"
+        "bonfire",
+        "spells"
       ]
     },
     {
@@ -1930,6 +2187,8 @@
       "column": 6,
       "name": "Round blue mana potion",
       "path": "arcane-vitality/086-round-blue-mana-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1943,6 +2202,7 @@
         "mana",
         "potion",
         "round",
+        "spells",
         "remaining"
       ],
       "legacyReportPath": "../report-icons/remaining.jpg"
@@ -1955,6 +2215,8 @@
       "column": 7,
       "name": "Violet mana elixir",
       "path": "arcane-vitality/087-violet-mana-elixir.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -1966,6 +2228,7 @@
       "tags": [
         "elixir",
         "mana",
+        "spells",
         "violet"
       ]
     },
@@ -1977,6 +2240,8 @@
       "column": 8,
       "name": "Azure lotus blossom",
       "path": "arcane-vitality/088-azure-lotus-blossom.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -1988,7 +2253,8 @@
       "tags": [
         "azure",
         "blossom",
-        "lotus"
+        "lotus",
+        "spells"
       ]
     },
     {
@@ -1999,6 +2265,8 @@
       "column": 9,
       "name": "Rising mana wisp",
       "path": "arcane-vitality/089-rising-mana-wisp.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2010,6 +2278,7 @@
       "tags": [
         "mana",
         "rising",
+        "spells",
         "wisp"
       ]
     },
@@ -2021,6 +2290,8 @@
       "column": 10,
       "name": "Armored spirit guardian",
       "path": "arcane-vitality/090-armored-spirit-guardian.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2032,6 +2303,7 @@
       "tags": [
         "armored",
         "guardian",
+        "spells",
         "spirit"
       ]
     },
@@ -2043,6 +2315,8 @@
       "column": 1,
       "name": "Spiraling mana spring",
       "path": "arcane-vitality/091-spiraling-mana-spring.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2053,6 +2327,7 @@
       ],
       "tags": [
         "mana",
+        "spells",
         "spiraling",
         "spring"
       ]
@@ -2065,6 +2340,8 @@
       "column": 2,
       "name": "Crystal mana basin",
       "path": "arcane-vitality/092-crystal-mana-basin.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2076,7 +2353,8 @@
       "tags": [
         "basin",
         "crystal",
-        "mana"
+        "mana",
+        "spells"
       ]
     },
     {
@@ -2087,6 +2365,8 @@
       "column": 3,
       "name": "Spirit wisp in hand",
       "path": "arcane-vitality/093-spirit-wisp-in-hand.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -2098,6 +2378,7 @@
       "tags": [
         "hand",
         "in",
+        "spells",
         "spirit",
         "wisp"
       ]
@@ -2110,6 +2391,8 @@
       "column": 4,
       "name": "Mana crystal offering",
       "path": "arcane-vitality/094-mana-crystal-offering.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2121,7 +2404,8 @@
       "tags": [
         "crystal",
         "mana",
-        "offering"
+        "offering",
+        "spells"
       ]
     },
     {
@@ -2132,6 +2416,8 @@
       "column": 5,
       "name": "Tall blue mana potion",
       "path": "arcane-vitality/095-tall-blue-mana-potion.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2144,6 +2430,7 @@
         "blue",
         "mana",
         "potion",
+        "spells",
         "tall"
       ]
     },
@@ -2155,6 +2442,8 @@
       "column": 6,
       "name": "Luminous arcane flower",
       "path": "arcane-vitality/096-luminous-arcane-flower.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2166,7 +2455,8 @@
       "tags": [
         "arcane",
         "flower",
-        "luminous"
+        "luminous",
+        "spells"
       ]
     },
     {
@@ -2177,6 +2467,8 @@
       "column": 7,
       "name": "Spirit flower in hands",
       "path": "arcane-vitality/097-spirit-flower-in-hands.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2189,6 +2481,7 @@
         "flower",
         "hands",
         "in",
+        "spells",
         "spirit"
       ]
     },
@@ -2200,6 +2493,8 @@
       "column": 8,
       "name": "Radiant spirit body",
       "path": "arcane-vitality/098-radiant-spirit-body.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 204,
       "height": 205,
       "sourceBox": [
@@ -2211,6 +2506,7 @@
       "tags": [
         "body",
         "radiant",
+        "spells",
         "spirit"
       ]
     },
@@ -2222,6 +2518,8 @@
       "column": 9,
       "name": "Inner spirit prayer",
       "path": "arcane-vitality/099-inner-spirit-prayer.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2233,6 +2531,7 @@
       "tags": [
         "inner",
         "prayer",
+        "spells",
         "spirit"
       ]
     },
@@ -2244,6 +2543,8 @@
       "column": 10,
       "name": "Winged spirit renewal",
       "path": "arcane-vitality/100-winged-spirit-renewal.png",
+      "category": "spells",
+      "equipmentType": "",
       "width": 205,
       "height": 205,
       "sourceBox": [
@@ -2254,6 +2555,7 @@
       ],
       "tags": [
         "renewal",
+        "spells",
         "spirit",
         "winged"
       ]

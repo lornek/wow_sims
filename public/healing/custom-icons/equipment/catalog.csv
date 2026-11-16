@@ -1,0 +1,401 @@
+id,category,set,number,row,column,name,path,equipmentType,width,height
+armor-wardrobe-001,equipment,armor-wardrobe,1,1,1,Cloth hood,equipment/armor-wardrobe/001-cloth-hood.png,head,126,124
+armor-wardrobe-002,equipment,armor-wardrobe,2,1,2,Stitched leather cap,equipment/armor-wardrobe/002-stitched-leather-cap.png,head,125,124
+armor-wardrobe-003,equipment,armor-wardrobe,3,1,3,Iron nasal helmet,equipment/armor-wardrobe/003-iron-nasal-helmet.png,head,125,124
+armor-wardrobe-004,equipment,armor-wardrobe,4,1,4,Steel visor helmet,equipment/armor-wardrobe/004-steel-visor-helmet.png,head,126,124
+armor-wardrobe-005,equipment,armor-wardrobe,5,1,5,Winged azure helmet,equipment/armor-wardrobe/005-winged-azure-helmet.png,head,125,124
+armor-wardrobe-006,equipment,armor-wardrobe,6,1,6,Golden horned helmet,equipment/armor-wardrobe/006-golden-horned-helmet.png,head,126,124
+armor-wardrobe-007,equipment,armor-wardrobe,7,1,7,Bronze horned helmet,equipment/armor-wardrobe/007-bronze-horned-helmet.png,head,126,124
+armor-wardrobe-008,equipment,armor-wardrobe,8,1,8,Infernal horned helmet,equipment/armor-wardrobe/008-infernal-horned-helmet.png,head,125,124
+armor-wardrobe-009,equipment,armor-wardrobe,9,1,9,Radiant golden helmet,equipment/armor-wardrobe/009-radiant-golden-helmet.png,head,125,124
+armor-wardrobe-010,equipment,armor-wardrobe,10,1,10,Violet crystal helmet,equipment/armor-wardrobe/010-violet-crystal-helmet.png,head,125,124
+armor-wardrobe-011,equipment,armor-wardrobe,11,2,1,Leather shoulder guard,equipment/armor-wardrobe/011-leather-shoulder-guard.png,shoulders,126,123
+armor-wardrobe-012,equipment,armor-wardrobe,12,2,2,Reinforced leather shoulder,equipment/armor-wardrobe/012-reinforced-leather-shoulder.png,shoulders,125,123
+armor-wardrobe-013,equipment,armor-wardrobe,13,2,3,Iron plate shoulder,equipment/armor-wardrobe/013-iron-plate-shoulder.png,shoulders,125,123
+armor-wardrobe-014,equipment,armor-wardrobe,14,2,4,Azure cloth shoulder,equipment/armor-wardrobe/014-azure-cloth-shoulder.png,shoulders,126,123
+armor-wardrobe-015,equipment,armor-wardrobe,15,2,5,Silver plate shoulder,equipment/armor-wardrobe/015-silver-plate-shoulder.png,shoulders,125,123
+armor-wardrobe-016,equipment,armor-wardrobe,16,2,6,Golden dragon shoulder,equipment/armor-wardrobe/016-golden-dragon-shoulder.png,shoulders,126,123
+armor-wardrobe-017,equipment,armor-wardrobe,17,2,7,Horned spiked shoulder,equipment/armor-wardrobe/017-horned-spiked-shoulder.png,shoulders,126,123
+armor-wardrobe-018,equipment,armor-wardrobe,18,2,8,Infernal dragon shoulder,equipment/armor-wardrobe/018-infernal-dragon-shoulder.png,shoulders,125,123
+armor-wardrobe-019,equipment,armor-wardrobe,19,2,9,Radiant golden shoulder,equipment/armor-wardrobe/019-radiant-golden-shoulder.png,shoulders,125,123
+armor-wardrobe-020,equipment,armor-wardrobe,20,2,10,Violet dragon shoulder,equipment/armor-wardrobe/020-violet-dragon-shoulder.png,shoulders,125,123
+armor-wardrobe-021,equipment,armor-wardrobe,21,3,1,Rough cloth tunic,equipment/armor-wardrobe/021-rough-cloth-tunic.png,chest,126,124
+armor-wardrobe-022,equipment,armor-wardrobe,22,3,2,Leather jerkin,equipment/armor-wardrobe/022-leather-jerkin.png,chest,125,124
+armor-wardrobe-023,equipment,armor-wardrobe,23,3,3,Reinforced leather vest,equipment/armor-wardrobe/023-reinforced-leather-vest.png,chest,125,124
+armor-wardrobe-024,equipment,armor-wardrobe,24,3,4,Chainmail shirt,equipment/armor-wardrobe/024-chainmail-shirt.png,chest,126,124
+armor-wardrobe-025,equipment,armor-wardrobe,25,3,5,Silver plate chest,equipment/armor-wardrobe/025-silver-plate-chest.png,chest,125,124
+armor-wardrobe-026,equipment,armor-wardrobe,26,3,6,Royal azure breastplate,equipment/armor-wardrobe/026-royal-azure-breastplate.png,chest,126,124
+armor-wardrobe-027,equipment,armor-wardrobe,27,3,7,Verdant leaf vest,equipment/armor-wardrobe/027-verdant-leaf-vest.png,chest,126,124
+armor-wardrobe-028,equipment,armor-wardrobe,28,3,8,Infernal plate chest,equipment/armor-wardrobe/028-infernal-plate-chest.png,chest,125,124
+armor-wardrobe-029,equipment,armor-wardrobe,29,3,9,Radiant golden breastplate,equipment/armor-wardrobe/029-radiant-golden-breastplate.png,chest,125,124
+armor-wardrobe-030,equipment,armor-wardrobe,30,3,10,Violet crystal breastplate,equipment/armor-wardrobe/030-violet-crystal-breastplate.png,chest,125,124
+armor-wardrobe-031,equipment,armor-wardrobe,31,4,1,Cloth handwraps,equipment/armor-wardrobe/031-cloth-handwraps.png,hands,126,128
+armor-wardrobe-032,equipment,armor-wardrobe,32,4,2,Soft leather gloves,equipment/armor-wardrobe/032-soft-leather-gloves.png,hands,125,128
+armor-wardrobe-033,equipment,armor-wardrobe,33,4,3,Studded leather gloves,equipment/armor-wardrobe/033-studded-leather-gloves.png,hands,125,128
+armor-wardrobe-034,equipment,armor-wardrobe,34,4,4,Chainmail gloves,equipment/armor-wardrobe/034-chainmail-gloves.png,hands,126,128
+armor-wardrobe-035,equipment,armor-wardrobe,35,4,5,Steel gauntlets,equipment/armor-wardrobe/035-steel-gauntlets.png,hands,125,128
+armor-wardrobe-036,equipment,armor-wardrobe,36,4,6,Royal azure gauntlets,equipment/armor-wardrobe/036-royal-azure-gauntlets.png,hands,126,128
+armor-wardrobe-037,equipment,armor-wardrobe,37,4,7,Verdant leaf gloves,equipment/armor-wardrobe/037-verdant-leaf-gloves.png,hands,126,128
+armor-wardrobe-038,equipment,armor-wardrobe,38,4,8,Infernal gauntlets,equipment/armor-wardrobe/038-infernal-gauntlets.png,hands,125,128
+armor-wardrobe-039,equipment,armor-wardrobe,39,4,9,Radiant golden gauntlets,equipment/armor-wardrobe/039-radiant-golden-gauntlets.png,hands,125,128
+armor-wardrobe-040,equipment,armor-wardrobe,40,4,10,Violet crystal gauntlets,equipment/armor-wardrobe/040-violet-crystal-gauntlets.png,hands,125,128
+armor-wardrobe-041,equipment,armor-wardrobe,41,5,1,Rope belt,equipment/armor-wardrobe/041-rope-belt.png,waist,126,124
+armor-wardrobe-042,equipment,armor-wardrobe,42,5,2,Leather buckle belt,equipment/armor-wardrobe/042-leather-buckle-belt.png,waist,125,124
+armor-wardrobe-043,equipment,armor-wardrobe,43,5,3,Iron ring belt,equipment/armor-wardrobe/043-iron-ring-belt.png,waist,125,124
+armor-wardrobe-044,equipment,armor-wardrobe,44,5,4,Reinforced leather belt,equipment/armor-wardrobe/044-reinforced-leather-belt.png,waist,126,124
+armor-wardrobe-045,equipment,armor-wardrobe,45,5,5,Silver lion belt,equipment/armor-wardrobe/045-silver-lion-belt.png,waist,125,124
+armor-wardrobe-046,equipment,armor-wardrobe,46,5,6,Royal azure gem belt,equipment/armor-wardrobe/046-royal-azure-gem-belt.png,waist,126,124
+armor-wardrobe-047,equipment,armor-wardrobe,47,5,7,Verdant leaf belt,equipment/armor-wardrobe/047-verdant-leaf-belt.png,waist,126,124
+armor-wardrobe-048,equipment,armor-wardrobe,48,5,8,Infernal ruby belt,equipment/armor-wardrobe/048-infernal-ruby-belt.png,waist,125,124
+armor-wardrobe-049,equipment,armor-wardrobe,49,5,9,Radiant azure gem belt,equipment/armor-wardrobe/049-radiant-azure-gem-belt.png,waist,125,124
+armor-wardrobe-050,equipment,armor-wardrobe,50,5,10,Violet crystal belt,equipment/armor-wardrobe/050-violet-crystal-belt.png,waist,125,124
+armor-wardrobe-051,equipment,armor-wardrobe,51,6,1,Tattered cloth trousers,equipment/armor-wardrobe/051-tattered-cloth-trousers.png,legs,126,121
+armor-wardrobe-052,equipment,armor-wardrobe,52,6,2,Leather leggings,equipment/armor-wardrobe/052-leather-leggings.png,legs,125,121
+armor-wardrobe-053,equipment,armor-wardrobe,53,6,3,Reinforced leather leggings,equipment/armor-wardrobe/053-reinforced-leather-leggings.png,legs,125,121
+armor-wardrobe-054,equipment,armor-wardrobe,54,6,4,Chainmail leggings,equipment/armor-wardrobe/054-chainmail-leggings.png,legs,126,121
+armor-wardrobe-055,equipment,armor-wardrobe,55,6,5,Steel plate leggings,equipment/armor-wardrobe/055-steel-plate-leggings.png,legs,125,121
+armor-wardrobe-056,equipment,armor-wardrobe,56,6,6,Royal azure legplates,equipment/armor-wardrobe/056-royal-azure-legplates.png,legs,126,121
+armor-wardrobe-057,equipment,armor-wardrobe,57,6,7,Verdant leaf leggings,equipment/armor-wardrobe/057-verdant-leaf-leggings.png,legs,126,121
+armor-wardrobe-058,equipment,armor-wardrobe,58,6,8,Infernal legplates,equipment/armor-wardrobe/058-infernal-legplates.png,legs,125,121
+armor-wardrobe-059,equipment,armor-wardrobe,59,6,9,Radiant golden legplates,equipment/armor-wardrobe/059-radiant-golden-legplates.png,legs,125,121
+armor-wardrobe-060,equipment,armor-wardrobe,60,6,10,Violet crystal legplates,equipment/armor-wardrobe/060-violet-crystal-legplates.png,legs,125,121
+armor-wardrobe-061,equipment,armor-wardrobe,61,7,1,Cloth wrapped boots,equipment/armor-wardrobe/061-cloth-wrapped-boots.png,feet,126,112
+armor-wardrobe-062,equipment,armor-wardrobe,62,7,2,Soft leather boots,equipment/armor-wardrobe/062-soft-leather-boots.png,feet,125,112
+armor-wardrobe-063,equipment,armor-wardrobe,63,7,3,Reinforced leather boots,equipment/armor-wardrobe/063-reinforced-leather-boots.png,feet,125,112
+armor-wardrobe-064,equipment,armor-wardrobe,64,7,4,Iron plate boots,equipment/armor-wardrobe/064-iron-plate-boots.png,feet,126,112
+armor-wardrobe-065,equipment,armor-wardrobe,65,7,5,Steel plate boots,equipment/armor-wardrobe/065-steel-plate-boots.png,feet,125,112
+armor-wardrobe-066,equipment,armor-wardrobe,66,7,6,Royal azure boots,equipment/armor-wardrobe/066-royal-azure-boots.png,feet,126,112
+armor-wardrobe-067,equipment,armor-wardrobe,67,7,7,Verdant leaf boots,equipment/armor-wardrobe/067-verdant-leaf-boots.png,feet,126,112
+armor-wardrobe-068,equipment,armor-wardrobe,68,7,8,Infernal plate boots,equipment/armor-wardrobe/068-infernal-plate-boots.png,feet,125,112
+armor-wardrobe-069,equipment,armor-wardrobe,69,7,9,Radiant golden boots,equipment/armor-wardrobe/069-radiant-golden-boots.png,feet,125,112
+armor-wardrobe-070,equipment,armor-wardrobe,70,7,10,Violet crystal boots,equipment/armor-wardrobe/070-violet-crystal-boots.png,feet,125,112
+armor-wardrobe-071,equipment,armor-wardrobe,71,8,1,Tattered brown cloak,equipment/armor-wardrobe/071-tattered-brown-cloak.png,back,126,117
+armor-wardrobe-072,equipment,armor-wardrobe,72,8,2,Green cloth cloak,equipment/armor-wardrobe/072-green-cloth-cloak.png,back,125,117
+armor-wardrobe-073,equipment,armor-wardrobe,73,8,3,Azure trimmed cloak,equipment/armor-wardrobe/073-azure-trimmed-cloak.png,back,125,117
+armor-wardrobe-074,equipment,armor-wardrobe,74,8,4,Fur lined red cloak,equipment/armor-wardrobe/074-fur-lined-red-cloak.png,back,126,117
+armor-wardrobe-075,equipment,armor-wardrobe,75,8,5,Royal lion cloak,equipment/armor-wardrobe/075-royal-lion-cloak.png,back,125,117
+armor-wardrobe-076,equipment,armor-wardrobe,76,8,6,White feather cloak,equipment/armor-wardrobe/076-white-feather-cloak.png,back,126,117
+armor-wardrobe-077,equipment,armor-wardrobe,77,8,7,Verdant leaf cloak,equipment/armor-wardrobe/077-verdant-leaf-cloak.png,back,126,117
+armor-wardrobe-078,equipment,armor-wardrobe,78,8,8,Infernal flame cloak,equipment/armor-wardrobe/078-infernal-flame-cloak.png,back,125,117
+armor-wardrobe-079,equipment,armor-wardrobe,79,8,9,Radiant feather cloak,equipment/armor-wardrobe/079-radiant-feather-cloak.png,back,125,117
+armor-wardrobe-080,equipment,armor-wardrobe,80,8,10,Violet arcane cloak,equipment/armor-wardrobe/080-violet-arcane-cloak.png,back,125,117
+armor-wardrobe-081,equipment,armor-wardrobe,81,9,1,Wooden round shield,equipment/armor-wardrobe/081-wooden-round-shield.png,shield,126,131
+armor-wardrobe-082,equipment,armor-wardrobe,82,9,2,Iron bound wooden shield,equipment/armor-wardrobe/082-iron-bound-wooden-shield.png,shield,125,131
+armor-wardrobe-083,equipment,armor-wardrobe,83,9,3,Steel kite shield,equipment/armor-wardrobe/083-steel-kite-shield.png,shield,125,131
+armor-wardrobe-084,equipment,armor-wardrobe,84,9,4,Royal lion shield,equipment/armor-wardrobe/084-royal-lion-shield.png,shield,126,131
+armor-wardrobe-085,equipment,armor-wardrobe,85,9,5,Silver star shield,equipment/armor-wardrobe/085-silver-star-shield.png,shield,125,131
+armor-wardrobe-086,equipment,armor-wardrobe,86,9,6,Royal azure gem shield,equipment/armor-wardrobe/086-royal-azure-gem-shield.png,shield,126,131
+armor-wardrobe-087,equipment,armor-wardrobe,87,9,7,Verdant wooden shield,equipment/armor-wardrobe/087-verdant-wooden-shield.png,shield,126,131
+armor-wardrobe-088,equipment,armor-wardrobe,88,9,8,Infernal dragon shield,equipment/armor-wardrobe/088-infernal-dragon-shield.png,shield,125,131
+armor-wardrobe-089,equipment,armor-wardrobe,89,9,9,Radiant golden shield,equipment/armor-wardrobe/089-radiant-golden-shield.png,shield,125,131
+armor-wardrobe-090,equipment,armor-wardrobe,90,9,10,Violet crystal shield,equipment/armor-wardrobe/090-violet-crystal-shield.png,shield,125,131
+armor-wardrobe-091,equipment,armor-wardrobe,91,10,1,Laced leather bracer,equipment/armor-wardrobe/091-laced-leather-bracer.png,wrists,126,150
+armor-wardrobe-092,equipment,armor-wardrobe,92,10,2,Studded leather bracer,equipment/armor-wardrobe/092-studded-leather-bracer.png,wrists,125,150
+armor-wardrobe-093,equipment,armor-wardrobe,93,10,3,Engraved steel bracer,equipment/armor-wardrobe/093-engraved-steel-bracer.png,wrists,125,150
+armor-wardrobe-094,equipment,armor-wardrobe,94,10,4,Azure engraved bracer,equipment/armor-wardrobe/094-azure-engraved-bracer.png,wrists,126,150
+armor-wardrobe-095,equipment,armor-wardrobe,95,10,5,Royal azure bracer,equipment/armor-wardrobe/095-royal-azure-bracer.png,wrists,125,150
+armor-wardrobe-096,equipment,armor-wardrobe,96,10,6,Golden azure gem bracer,equipment/armor-wardrobe/096-golden-azure-gem-bracer.png,wrists,126,150
+armor-wardrobe-097,equipment,armor-wardrobe,97,10,7,Verdant bark bracer,equipment/armor-wardrobe/097-verdant-bark-bracer.png,wrists,126,150
+armor-wardrobe-098,equipment,armor-wardrobe,98,10,8,Infernal plate bracer,equipment/armor-wardrobe/098-infernal-plate-bracer.png,wrists,125,150
+armor-wardrobe-099,equipment,armor-wardrobe,99,10,9,Radiant golden bracer,equipment/armor-wardrobe/099-radiant-golden-bracer.png,wrists,125,150
+armor-wardrobe-100,equipment,armor-wardrobe,100,10,10,Violet crystal bracer,equipment/armor-wardrobe/100-violet-crystal-bracer.png,wrists,125,150
+druidic-relics-001,equipment,druidic-relics,1,1,1,Druid leather hood,equipment/druidic-relics/001-druid-leather-hood.png,head,126,124
+druidic-relics-002,equipment,druidic-relics,2,1,2,Layered leaf hood,equipment/druidic-relics/002-layered-leaf-hood.png,head,125,124
+druidic-relics-003,equipment,druidic-relics,3,1,3,Shaggy fur hood,equipment/druidic-relics/003-shaggy-fur-hood.png,head,125,124
+druidic-relics-004,equipment,druidic-relics,4,1,4,Mossy bark hood,equipment/druidic-relics/004-mossy-bark-hood.png,head,126,124
+druidic-relics-005,equipment,druidic-relics,5,1,5,Antler leaf crown,equipment/druidic-relics/005-antler-leaf-crown.png,head,125,124
+druidic-relics-006,equipment,druidic-relics,6,1,6,Verdant spiral antler helm,equipment/druidic-relics/006-verdant-spiral-antler-helm.png,head,126,124
+druidic-relics-007,equipment,druidic-relics,7,1,7,Moonstone antler helm,equipment/druidic-relics/007-moonstone-antler-helm.png,head,125,124
+druidic-relics-008,equipment,druidic-relics,8,1,8,Blossom antler crown,equipment/druidic-relics/008-blossom-antler-crown.png,head,125,124
+druidic-relics-009,equipment,druidic-relics,9,1,9,Azure crystal antler crown,equipment/druidic-relics/009-azure-crystal-antler-crown.png,head,126,124
+druidic-relics-010,equipment,druidic-relics,10,1,10,Violet moon antler crown,equipment/druidic-relics/010-violet-moon-antler-crown.png,head,125,124
+druidic-relics-011,equipment,druidic-relics,11,2,1,Druid leather shoulder,equipment/druidic-relics/011-druid-leather-shoulder.png,shoulders,126,122
+druidic-relics-012,equipment,druidic-relics,12,2,2,Mossy leather shoulder,equipment/druidic-relics/012-mossy-leather-shoulder.png,shoulders,125,122
+druidic-relics-013,equipment,druidic-relics,13,2,3,Fur claw shoulder,equipment/druidic-relics/013-fur-claw-shoulder.png,shoulders,125,122
+druidic-relics-014,equipment,druidic-relics,14,2,4,Mushroom bark shoulder,equipment/druidic-relics/014-mushroom-bark-shoulder.png,shoulders,126,122
+druidic-relics-015,equipment,druidic-relics,15,2,5,Layered leaf shoulder,equipment/druidic-relics/015-layered-leaf-shoulder.png,shoulders,125,122
+druidic-relics-016,equipment,druidic-relics,16,2,6,Spiral stone shoulder,equipment/druidic-relics/016-spiral-stone-shoulder.png,shoulders,126,122
+druidic-relics-017,equipment,druidic-relics,17,2,7,Antler shoulder guard,equipment/druidic-relics/017-antler-shoulder-guard.png,shoulders,125,122
+druidic-relics-018,equipment,druidic-relics,18,2,8,Blossom branch shoulder,equipment/druidic-relics/018-blossom-branch-shoulder.png,shoulders,125,122
+druidic-relics-019,equipment,druidic-relics,19,2,9,Golden leaf shoulder,equipment/druidic-relics/019-golden-leaf-shoulder.png,shoulders,126,122
+druidic-relics-020,equipment,druidic-relics,20,2,10,Violet feather shoulder,equipment/druidic-relics/020-violet-feather-shoulder.png,shoulders,125,122
+druidic-relics-021,equipment,druidic-relics,21,3,1,Druid cloth tunic,equipment/druidic-relics/021-druid-cloth-tunic.png,chest,126,124
+druidic-relics-022,equipment,druidic-relics,22,3,2,Leaf pendant leather vest,equipment/druidic-relics/022-leaf-pendant-leather-vest.png,chest,125,124
+druidic-relics-023,equipment,druidic-relics,23,3,3,Shaggy fur vest,equipment/druidic-relics/023-shaggy-fur-vest.png,chest,125,124
+druidic-relics-024,equipment,druidic-relics,24,3,4,Vine wrapped bark chest,equipment/druidic-relics/024-vine-wrapped-bark-chest.png,chest,126,124
+druidic-relics-025,equipment,druidic-relics,25,3,5,Verdant spiral leaf chest,equipment/druidic-relics/025-verdant-spiral-leaf-chest.png,chest,125,124
+druidic-relics-026,equipment,druidic-relics,26,3,6,Mossy stone chest,equipment/druidic-relics/026-mossy-stone-chest.png,chest,126,124
+druidic-relics-027,equipment,druidic-relics,27,3,7,Moon antler chest,equipment/druidic-relics/027-moon-antler-chest.png,chest,125,124
+druidic-relics-028,equipment,druidic-relics,28,3,8,Blossom branch chest,equipment/druidic-relics/028-blossom-branch-chest.png,chest,125,124
+druidic-relics-029,equipment,druidic-relics,29,3,9,Golden azure druid chest,equipment/druidic-relics/029-golden-azure-druid-chest.png,chest,126,124
+druidic-relics-030,equipment,druidic-relics,30,3,10,Violet moon druid chest,equipment/druidic-relics/030-violet-moon-druid-chest.png,chest,125,124
+druidic-relics-031,equipment,druidic-relics,31,4,1,Druid cloth wraps,equipment/druidic-relics/031-druid-cloth-wraps.png,hands,126,129
+druidic-relics-032,equipment,druidic-relics,32,4,2,Druid leather gloves,equipment/druidic-relics/032-druid-leather-gloves.png,hands,125,129
+druidic-relics-033,equipment,druidic-relics,33,4,3,Fur cuff leather gloves,equipment/druidic-relics/033-fur-cuff-leather-gloves.png,hands,125,129
+druidic-relics-034,equipment,druidic-relics,34,4,4,Vine wrapped bark gloves,equipment/druidic-relics/034-vine-wrapped-bark-gloves.png,hands,126,129
+druidic-relics-035,equipment,druidic-relics,35,4,5,Layered leaf gloves,equipment/druidic-relics/035-layered-leaf-gloves.png,hands,125,129
+druidic-relics-036,equipment,druidic-relics,36,4,6,Spiral stone gauntlets,equipment/druidic-relics/036-spiral-stone-gauntlets.png,hands,126,129
+druidic-relics-037,equipment,druidic-relics,37,4,7,Antler vine gloves,equipment/druidic-relics/037-antler-vine-gloves.png,hands,125,129
+druidic-relics-038,equipment,druidic-relics,38,4,8,Blossom branch gloves,equipment/druidic-relics/038-blossom-branch-gloves.png,hands,125,129
+druidic-relics-039,equipment,druidic-relics,39,4,9,Golden druid gauntlets,equipment/druidic-relics/039-golden-druid-gauntlets.png,hands,126,129
+druidic-relics-040,equipment,druidic-relics,40,4,10,Violet druid gauntlets,equipment/druidic-relics/040-violet-druid-gauntlets.png,hands,125,129
+druidic-relics-041,equipment,druidic-relics,41,5,1,Leaf rope belt,equipment/druidic-relics/041-leaf-rope-belt.png,waist,126,124
+druidic-relics-042,equipment,druidic-relics,42,5,2,Druid leather buckle belt,equipment/druidic-relics/042-druid-leather-buckle-belt.png,waist,125,124
+druidic-relics-043,equipment,druidic-relics,43,5,3,Leaf charm belt,equipment/druidic-relics/043-leaf-charm-belt.png,waist,125,124
+druidic-relics-044,equipment,druidic-relics,44,5,4,Fur fang belt,equipment/druidic-relics/044-fur-fang-belt.png,waist,126,124
+druidic-relics-045,equipment,druidic-relics,45,5,5,Braided vine belt,equipment/druidic-relics/045-braided-vine-belt.png,waist,125,124
+druidic-relics-046,equipment,druidic-relics,46,5,6,Spiral stone belt,equipment/druidic-relics/046-spiral-stone-belt.png,waist,126,124
+druidic-relics-047,equipment,druidic-relics,47,5,7,Moon feather belt,equipment/druidic-relics/047-moon-feather-belt.png,waist,125,124
+druidic-relics-048,equipment,druidic-relics,48,5,8,Pink lotus belt,equipment/druidic-relics/048-pink-lotus-belt.png,waist,125,124
+druidic-relics-049,equipment,druidic-relics,49,5,9,Azure crystal feather belt,equipment/druidic-relics/049-azure-crystal-feather-belt.png,waist,126,124
+druidic-relics-050,equipment,druidic-relics,50,5,10,Violet moon crystal belt,equipment/druidic-relics/050-violet-moon-crystal-belt.png,waist,125,124
+druidic-relics-051,equipment,druidic-relics,51,6,1,Druid cloth trousers,equipment/druidic-relics/051-druid-cloth-trousers.png,legs,126,119
+druidic-relics-052,equipment,druidic-relics,52,6,2,Druid leather leggings,equipment/druidic-relics/052-druid-leather-leggings.png,legs,125,119
+druidic-relics-053,equipment,druidic-relics,53,6,3,Fur trimmed leggings,equipment/druidic-relics/053-fur-trimmed-leggings.png,legs,125,119
+druidic-relics-054,equipment,druidic-relics,54,6,4,Layered leaf leggings,equipment/druidic-relics/054-layered-leaf-leggings.png,legs,126,119
+druidic-relics-055,equipment,druidic-relics,55,6,5,Vine bound bark leggings,equipment/druidic-relics/055-vine-bound-bark-leggings.png,legs,125,119
+druidic-relics-056,equipment,druidic-relics,56,6,6,Mossy leaf leggings,equipment/druidic-relics/056-mossy-leaf-leggings.png,legs,126,119
+druidic-relics-057,equipment,druidic-relics,57,6,7,White vine embroidered leggings,equipment/druidic-relics/057-white-vine-embroidered-leggings.png,legs,125,119
+druidic-relics-058,equipment,druidic-relics,58,6,8,Blossom branch leggings,equipment/druidic-relics/058-blossom-branch-leggings.png,legs,125,119
+druidic-relics-059,equipment,druidic-relics,59,6,9,Golden white druid leggings,equipment/druidic-relics/059-golden-white-druid-leggings.png,legs,126,119
+druidic-relics-060,equipment,druidic-relics,60,6,10,Violet feather leggings,equipment/druidic-relics/060-violet-feather-leggings.png,legs,125,119
+druidic-relics-061,equipment,druidic-relics,61,7,1,Druid cloth boots,equipment/druidic-relics/061-druid-cloth-boots.png,feet,126,113
+druidic-relics-062,equipment,druidic-relics,62,7,2,Druid leather boots,equipment/druidic-relics/062-druid-leather-boots.png,feet,125,113
+druidic-relics-063,equipment,druidic-relics,63,7,3,Fur cuff boots,equipment/druidic-relics/063-fur-cuff-boots.png,feet,125,113
+druidic-relics-064,equipment,druidic-relics,64,7,4,Mushroom bark boots,equipment/druidic-relics/064-mushroom-bark-boots.png,feet,126,113
+druidic-relics-065,equipment,druidic-relics,65,7,5,Vine bound bark boots,equipment/druidic-relics/065-vine-bound-bark-boots.png,feet,125,113
+druidic-relics-066,equipment,druidic-relics,66,7,6,Verdant spiral boots,equipment/druidic-relics/066-verdant-spiral-boots.png,feet,126,113
+druidic-relics-067,equipment,druidic-relics,67,7,7,Antler trail boots,equipment/druidic-relics/067-antler-trail-boots.png,feet,125,113
+druidic-relics-068,equipment,druidic-relics,68,7,8,Blossom branch boots,equipment/druidic-relics/068-blossom-branch-boots.png,feet,125,113
+druidic-relics-069,equipment,druidic-relics,69,7,9,Golden azure druid boots,equipment/druidic-relics/069-golden-azure-druid-boots.png,feet,126,113
+druidic-relics-070,equipment,druidic-relics,70,7,10,Violet druid boots,equipment/druidic-relics/070-violet-druid-boots.png,feet,125,113
+druidic-relics-071,equipment,druidic-relics,71,8,1,Bark weave cloak,equipment/druidic-relics/071-bark-weave-cloak.png,back,126,116
+druidic-relics-072,equipment,druidic-relics,72,8,2,Layered leaf mantle,equipment/druidic-relics/072-layered-leaf-mantle.png,back,125,116
+druidic-relics-073,equipment,druidic-relics,73,8,3,Shaggy fur cloak,equipment/druidic-relics/073-shaggy-fur-cloak.png,back,125,116
+druidic-relics-074,equipment,druidic-relics,74,8,4,Mossy mushroom cloak,equipment/druidic-relics/074-mossy-mushroom-cloak.png,back,126,116
+druidic-relics-075,equipment,druidic-relics,75,8,5,White feather mantle,equipment/druidic-relics/075-white-feather-mantle.png,back,125,116
+druidic-relics-076,equipment,druidic-relics,76,8,6,Daisy leaf mantle,equipment/druidic-relics/076-daisy-leaf-mantle.png,back,126,116
+druidic-relics-077,equipment,druidic-relics,77,8,7,Antler fur cloak,equipment/druidic-relics/077-antler-fur-cloak.png,back,125,116
+druidic-relics-078,equipment,druidic-relics,78,8,8,Blossom feather mantle,equipment/druidic-relics/078-blossom-feather-mantle.png,back,125,116
+druidic-relics-079,equipment,druidic-relics,79,8,9,Azure moon mantle,equipment/druidic-relics/079-azure-moon-mantle.png,back,126,116
+druidic-relics-080,equipment,druidic-relics,80,8,10,Violet tree mantle,equipment/druidic-relics/080-violet-tree-mantle.png,back,125,116
+druidic-relics-081,equipment,druidic-relics,81,9,1,Carved tree wooden shield,equipment/druidic-relics/081-carved-tree-wooden-shield.png,shield,126,131
+druidic-relics-082,equipment,druidic-relics,82,9,2,Mossy spiral stone shield,equipment/druidic-relics/082-mossy-spiral-stone-shield.png,shield,125,131
+druidic-relics-083,equipment,druidic-relics,83,9,3,Vine woven shield,equipment/druidic-relics/083-vine-woven-shield.png,shield,125,131
+druidic-relics-084,equipment,druidic-relics,84,9,4,Bear paw wooden shield,equipment/druidic-relics/084-bear-paw-wooden-shield.png,shield,126,131
+druidic-relics-085,equipment,druidic-relics,85,9,5,Antler skull shield,equipment/druidic-relics/085-antler-skull-shield.png,shield,125,131
+druidic-relics-086,equipment,druidic-relics,86,9,6,Golden tree kite shield,equipment/druidic-relics/086-golden-tree-kite-shield.png,shield,126,131
+druidic-relics-087,equipment,druidic-relics,87,9,7,Moon wave shield,equipment/druidic-relics/087-moon-wave-shield.png,shield,125,131
+druidic-relics-088,equipment,druidic-relics,88,9,8,Pink lotus leaf shield,equipment/druidic-relics/088-pink-lotus-leaf-shield.png,shield,125,131
+druidic-relics-089,equipment,druidic-relics,89,9,9,Azure crystal leaf shield,equipment/druidic-relics/089-azure-crystal-leaf-shield.png,shield,126,131
+druidic-relics-090,equipment,druidic-relics,90,9,10,Violet moon tree shield,equipment/druidic-relics/090-violet-moon-tree-shield.png,shield,125,131
+druidic-relics-091,equipment,druidic-relics,91,10,1,Root bound stone mace,equipment/druidic-relics/091-root-bound-stone-mace.png,weapon,126,152
+druidic-relics-092,equipment,druidic-relics,92,10,2,Mossy stone mallet,equipment/druidic-relics/092-mossy-stone-mallet.png,weapon,125,152
+druidic-relics-093,equipment,druidic-relics,93,10,3,Carved double axe,equipment/druidic-relics/093-carved-double-axe.png,weapon,125,152
+druidic-relics-094,equipment,druidic-relics,94,10,4,Verdant crystal axe,equipment/druidic-relics/094-verdant-crystal-axe.png,weapon,126,152
+druidic-relics-095,equipment,druidic-relics,95,10,5,Silver crescent sickle,equipment/druidic-relics/095-silver-crescent-sickle.png,weapon,125,152
+druidic-relics-096,equipment,druidic-relics,96,10,6,Azure orb branch staff,equipment/druidic-relics/096-azure-orb-branch-staff.png,weapon,126,152
+druidic-relics-097,equipment,druidic-relics,97,10,7,Verdant spiral staff,equipment/druidic-relics/097-verdant-spiral-staff.png,weapon,125,152
+druidic-relics-098,equipment,druidic-relics,98,10,8,Blossom branch staff,equipment/druidic-relics/098-blossom-branch-staff.png,weapon,125,152
+druidic-relics-099,equipment,druidic-relics,99,10,9,Vine longbow,equipment/druidic-relics/099-vine-longbow.png,weapon,126,152
+druidic-relics-100,equipment,druidic-relics,100,10,10,Violet crescent staff,equipment/druidic-relics/100-violet-crescent-staff.png,weapon,125,152
+relics-accessories-001,equipment,relics-accessories,1,1,1,Plain bronze ring,equipment/relics-accessories/001-plain-bronze-ring.png,finger,127,123
+relics-accessories-002,equipment,relics-accessories,2,1,2,Studded bronze ring,equipment/relics-accessories/002-studded-bronze-ring.png,finger,126,123
+relics-accessories-003,equipment,relics-accessories,3,1,3,Engraved silver ring,equipment/relics-accessories/003-engraved-silver-ring.png,finger,125,123
+relics-accessories-004,equipment,relics-accessories,4,1,4,Emerald silver ring,equipment/relics-accessories/004-emerald-silver-ring.png,finger,125,123
+relics-accessories-005,equipment,relics-accessories,5,1,5,Ruby silver ring,equipment/relics-accessories/005-ruby-silver-ring.png,finger,126,123
+relics-accessories-006,equipment,relics-accessories,6,1,6,Royal sapphire ring,equipment/relics-accessories/006-royal-sapphire-ring.png,finger,124,123
+relics-accessories-007,equipment,relics-accessories,7,1,7,Iron spike ring,equipment/relics-accessories/007-iron-spike-ring.png,finger,126,123
+relics-accessories-008,equipment,relics-accessories,8,1,8,Ruby skull ring,equipment/relics-accessories/008-ruby-skull-ring.png,finger,126,123
+relics-accessories-009,equipment,relics-accessories,9,1,9,Radiant sapphire ring,equipment/relics-accessories/009-radiant-sapphire-ring.png,finger,124,123
+relics-accessories-010,equipment,relics-accessories,10,1,10,Violet crystal ring,equipment/relics-accessories/010-violet-crystal-ring.png,finger,125,123
+relics-accessories-011,equipment,relics-accessories,11,2,1,Stitched leather ring,equipment/relics-accessories/011-stitched-leather-ring.png,finger,127,123
+relics-accessories-012,equipment,relics-accessories,12,2,2,Bone claw ring,equipment/relics-accessories/012-bone-claw-ring.png,finger,126,123
+relics-accessories-013,equipment,relics-accessories,13,2,3,Moonstone silver ring,equipment/relics-accessories/013-moonstone-silver-ring.png,finger,125,123
+relics-accessories-014,equipment,relics-accessories,14,2,4,Living leaf ring,equipment/relics-accessories/014-living-leaf-ring.png,finger,125,123
+relics-accessories-015,equipment,relics-accessories,15,2,5,Flame ruby ring,equipment/relics-accessories/015-flame-ruby-ring.png,finger,126,123
+relics-accessories-016,equipment,relics-accessories,16,2,6,Azure crystal ring,equipment/relics-accessories/016-azure-crystal-ring.png,finger,124,123
+relics-accessories-017,equipment,relics-accessories,17,2,7,Emerald serpent ring,equipment/relics-accessories/017-emerald-serpent-ring.png,finger,126,123
+relics-accessories-018,equipment,relics-accessories,18,2,8,Molten lava ring,equipment/relics-accessories/018-molten-lava-ring.png,finger,126,123
+relics-accessories-019,equipment,relics-accessories,19,2,9,Golden sun ring,equipment/relics-accessories/019-golden-sun-ring.png,finger,124,123
+relics-accessories-020,equipment,relics-accessories,20,2,10,Violet vortex ring,equipment/relics-accessories/020-violet-vortex-ring.png,finger,125,123
+relics-accessories-021,equipment,relics-accessories,21,3,1,Ivory fang necklace,equipment/relics-accessories/021-ivory-fang-necklace.png,neck,127,124
+relics-accessories-022,equipment,relics-accessories,22,3,2,Spiral medallion,equipment/relics-accessories/022-spiral-medallion.png,neck,126,124
+relics-accessories-023,equipment,relics-accessories,23,3,3,Silver star necklace,equipment/relics-accessories/023-silver-star-necklace.png,neck,125,124
+relics-accessories-024,equipment,relics-accessories,24,3,4,Golden tree necklace,equipment/relics-accessories/024-golden-tree-necklace.png,neck,125,124
+relics-accessories-025,equipment,relics-accessories,25,3,5,Silver feather necklace,equipment/relics-accessories/025-silver-feather-necklace.png,neck,126,124
+relics-accessories-026,equipment,relics-accessories,26,3,6,Golden lion necklace,equipment/relics-accessories/026-golden-lion-necklace.png,neck,124,124
+relics-accessories-027,equipment,relics-accessories,27,3,7,Crescent star necklace,equipment/relics-accessories/027-crescent-star-necklace.png,neck,126,124
+relics-accessories-028,equipment,relics-accessories,28,3,8,Golden sun necklace,equipment/relics-accessories/028-golden-sun-necklace.png,neck,126,124
+relics-accessories-029,equipment,relics-accessories,29,3,9,Violet crystal necklace,equipment/relics-accessories/029-violet-crystal-necklace.png,neck,124,124
+relics-accessories-030,equipment,relics-accessories,30,3,10,Violet eye necklace,equipment/relics-accessories/030-violet-eye-necklace.png,neck,125,124
+relics-accessories-031,equipment,relics-accessories,31,4,1,Drawstring pouch necklace,equipment/relics-accessories/031-drawstring-pouch-necklace.png,neck,127,131
+relics-accessories-032,equipment,relics-accessories,32,4,2,Red potion necklace,equipment/relics-accessories/032-red-potion-necklace.png,neck,126,131
+relics-accessories-033,equipment,relics-accessories,33,4,3,Blue vial necklace,equipment/relics-accessories/033-blue-vial-necklace.png,neck,125,131
+relics-accessories-034,equipment,relics-accessories,34,4,4,Azure crystal pendant,equipment/relics-accessories/034-azure-crystal-pendant.png,neck,125,131
+relics-accessories-035,equipment,relics-accessories,35,4,5,Golden sapphire cross,equipment/relics-accessories/035-golden-sapphire-cross.png,neck,126,131
+relics-accessories-036,equipment,relics-accessories,36,4,6,Living leaf pendant,equipment/relics-accessories/036-living-leaf-pendant.png,neck,124,131
+relics-accessories-037,equipment,relics-accessories,37,4,7,Silver skull pendant,equipment/relics-accessories/037-silver-skull-pendant.png,neck,126,131
+relics-accessories-038,equipment,relics-accessories,38,4,8,Crimson crystal pendant,equipment/relics-accessories/038-crimson-crystal-pendant.png,neck,126,131
+relics-accessories-039,equipment,relics-accessories,39,4,9,Coiled dragon pendant,equipment/relics-accessories/039-coiled-dragon-pendant.png,neck,124,131
+relics-accessories-040,equipment,relics-accessories,40,4,10,Violet spiral pendant,equipment/relics-accessories/040-violet-spiral-pendant.png,neck,125,131
+relics-accessories-041,equipment,relics-accessories,41,5,1,Golden compass,equipment/relics-accessories/041-golden-compass.png,trinket,127,118
+relics-accessories-042,equipment,relics-accessories,42,5,2,Brass spyglass,equipment/relics-accessories/042-brass-spyglass.png,trinket,126,118
+relics-accessories-043,equipment,relics-accessories,43,5,3,Sand hourglass,equipment/relics-accessories/043-sand-hourglass.png,trinket,125,118
+relics-accessories-044,equipment,relics-accessories,44,5,4,Carved drinking horn,equipment/relics-accessories/044-carved-drinking-horn.png,trinket,125,118
+relics-accessories-045,equipment,relics-accessories,45,5,5,Leather coin pouch,equipment/relics-accessories/045-leather-coin-pouch.png,trinket,126,118
+relics-accessories-046,equipment,relics-accessories,46,5,6,Golden ornate key,equipment/relics-accessories/046-golden-ornate-key.png,trinket,124,118
+relics-accessories-047,equipment,relics-accessories,47,5,7,Key ring,equipment/relics-accessories/047-key-ring.png,trinket,126,118
+relics-accessories-048,equipment,relics-accessories,48,5,8,Iron lockbox,equipment/relics-accessories/048-iron-lockbox.png,trinket,126,118
+relics-accessories-049,equipment,relics-accessories,49,5,9,Brass gear,equipment/relics-accessories/049-brass-gear.png,trinket,124,118
+relics-accessories-050,equipment,relics-accessories,50,5,10,Golden armillary sphere,equipment/relics-accessories/050-golden-armillary-sphere.png,trinket,125,118
+relics-accessories-051,equipment,relics-accessories,51,6,1,Carved wooden whistle,equipment/relics-accessories/051-carved-wooden-whistle.png,trinket,127,122
+relics-accessories-052,equipment,relics-accessories,52,6,2,Engraved flame lighter,equipment/relics-accessories/052-engraved-flame-lighter.png,trinket,126,122
+relics-accessories-053,equipment,relics-accessories,53,6,3,Bound parchment scroll,equipment/relics-accessories/053-bound-parchment-scroll.png,trinket,125,122
+relics-accessories-054,equipment,relics-accessories,54,6,4,Royal lion wax seal,equipment/relics-accessories/054-royal-lion-wax-seal.png,trinket,125,122
+relics-accessories-055,equipment,relics-accessories,55,6,5,Sealed letter,equipment/relics-accessories/055-sealed-letter.png,trinket,126,122
+relics-accessories-056,equipment,relics-accessories,56,6,6,Brass binoculars,equipment/relics-accessories/056-brass-binoculars.png,trinket,124,122
+relics-accessories-057,equipment,relics-accessories,57,6,7,Silver magnifying glass,equipment/relics-accessories/057-silver-magnifying-glass.png,trinket,126,122
+relics-accessories-058,equipment,relics-accessories,58,6,8,Violet scrying lens,equipment/relics-accessories/058-violet-scrying-lens.png,trinket,126,122
+relics-accessories-059,equipment,relics-accessories,59,6,9,Golden flame lantern,equipment/relics-accessories/059-golden-flame-lantern.png,trinket,124,122
+relics-accessories-060,equipment,relics-accessories,60,6,10,Violet spirit lantern,equipment/relics-accessories/060-violet-spirit-lantern.png,trinket,125,122
+relics-accessories-061,equipment,relics-accessories,61,7,1,Leather bound journal,equipment/relics-accessories/061-leather-bound-journal.png,offhand,127,116
+relics-accessories-062,equipment,relics-accessories,62,7,2,Iron bound tome,equipment/relics-accessories/062-iron-bound-tome.png,offhand,126,116
+relics-accessories-063,equipment,relics-accessories,63,7,3,Violet moon spellbook,equipment/relics-accessories/063-violet-moon-spellbook.png,offhand,125,116
+relics-accessories-064,equipment,relics-accessories,64,7,4,Azure star spellbook,equipment/relics-accessories/064-azure-star-spellbook.png,offhand,125,116
+relics-accessories-065,equipment,relics-accessories,65,7,5,Verdant leaf spellbook,equipment/relics-accessories/065-verdant-leaf-spellbook.png,offhand,126,116
+relics-accessories-066,equipment,relics-accessories,66,7,6,Crimson flame spellbook,equipment/relics-accessories/066-crimson-flame-spellbook.png,offhand,124,116
+relics-accessories-067,equipment,relics-accessories,67,7,7,Bone skull spellbook,equipment/relics-accessories/067-bone-skull-spellbook.png,offhand,126,116
+relics-accessories-068,equipment,relics-accessories,68,7,8,Golden sun spellbook,equipment/relics-accessories/068-golden-sun-spellbook.png,offhand,126,116
+relics-accessories-069,equipment,relics-accessories,69,7,9,Azure crystal spellbook,equipment/relics-accessories/069-azure-crystal-spellbook.png,offhand,124,116
+relics-accessories-070,equipment,relics-accessories,70,7,10,Violet vortex spellbook,equipment/relics-accessories/070-violet-vortex-spellbook.png,offhand,125,116
+relics-accessories-071,equipment,relics-accessories,71,8,1,Carved spiral runestone,equipment/relics-accessories/071-carved-spiral-runestone.png,relic,127,120
+relics-accessories-072,equipment,relics-accessories,72,8,2,Crystal scrying orb,equipment/relics-accessories/072-crystal-scrying-orb.png,relic,126,120
+relics-accessories-073,equipment,relics-accessories,73,8,3,Blue water basin,equipment/relics-accessories/073-blue-water-basin.png,relic,125,120
+relics-accessories-074,equipment,relics-accessories,74,8,4,Azure armillary orb,equipment/relics-accessories/074-azure-armillary-orb.png,relic,125,120
+relics-accessories-075,equipment,relics-accessories,75,8,5,Violet armillary gem,equipment/relics-accessories/075-violet-armillary-gem.png,relic,126,120
+relics-accessories-076,equipment,relics-accessories,76,8,6,Azure crystal altar,equipment/relics-accessories/076-azure-crystal-altar.png,relic,124,120
+relics-accessories-077,equipment,relics-accessories,77,8,7,Azure obelisk,equipment/relics-accessories/077-azure-obelisk.png,relic,126,120
+relics-accessories-078,equipment,relics-accessories,78,8,8,Violet rune cube,equipment/relics-accessories/078-violet-rune-cube.png,relic,126,120
+relics-accessories-079,equipment,relics-accessories,79,8,9,Golden flame pyramid,equipment/relics-accessories/079-golden-flame-pyramid.png,relic,124,120
+relics-accessories-080,equipment,relics-accessories,80,8,10,Violet vortex relic,equipment/relics-accessories/080-violet-vortex-relic.png,relic,125,120
+relics-accessories-081,equipment,relics-accessories,81,9,1,Fur claw charm,equipment/relics-accessories/081-fur-claw-charm.png,trinket,127,123
+relics-accessories-082,equipment,relics-accessories,82,9,2,Azure feather charm,equipment/relics-accessories/082-azure-feather-charm.png,trinket,126,123
+relics-accessories-083,equipment,relics-accessories,83,9,3,Feather dreamcatcher,equipment/relics-accessories/083-feather-dreamcatcher.png,trinket,125,123
+relics-accessories-084,equipment,relics-accessories,84,9,4,Four leaf clover charm,equipment/relics-accessories/084-four-leaf-clover-charm.png,trinket,125,123
+relics-accessories-085,equipment,relics-accessories,85,9,5,Lucky horseshoe,equipment/relics-accessories/085-lucky-horseshoe.png,trinket,126,123
+relics-accessories-086,equipment,relics-accessories,86,9,6,Carved stone idol,equipment/relics-accessories/086-carved-stone-idol.png,trinket,124,123
+relics-accessories-087,equipment,relics-accessories,87,9,7,Carved wooden totem,equipment/relics-accessories/087-carved-wooden-totem.png,trinket,126,123
+relics-accessories-088,equipment,relics-accessories,88,9,8,Bound ritual doll,equipment/relics-accessories/088-bound-ritual-doll.png,trinket,126,123
+relics-accessories-089,equipment,relics-accessories,89,9,9,Azure crystal charm,equipment/relics-accessories/089-azure-crystal-charm.png,trinket,124,123
+relics-accessories-090,equipment,relics-accessories,90,9,10,Golden blossom amulet,equipment/relics-accessories/090-golden-blossom-amulet.png,trinket,125,123
+relics-accessories-091,equipment,relics-accessories,91,10,1,Engraved silver heart,equipment/relics-accessories/091-engraved-silver-heart.png,relic,127,154
+relics-accessories-092,equipment,relics-accessories,92,10,2,Amber dragon eye,equipment/relics-accessories/092-amber-dragon-eye.png,relic,126,154
+relics-accessories-093,equipment,relics-accessories,93,10,3,Green alchemy flask,equipment/relics-accessories/093-green-alchemy-flask.png,relic,125,154
+relics-accessories-094,equipment,relics-accessories,94,10,4,Flame spirit relic,equipment/relics-accessories/094-flame-spirit-relic.png,relic,125,154
+relics-accessories-095,equipment,relics-accessories,95,10,5,Water spirit relic,equipment/relics-accessories/095-water-spirit-relic.png,relic,126,154
+relics-accessories-096,equipment,relics-accessories,96,10,6,Lightning spirit relic,equipment/relics-accessories/096-lightning-spirit-relic.png,relic,124,154
+relics-accessories-097,equipment,relics-accessories,97,10,7,Ruby dragon claw,equipment/relics-accessories/097-ruby-dragon-claw.png,relic,126,154
+relics-accessories-098,equipment,relics-accessories,98,10,8,Molten heartstone,equipment/relics-accessories/098-molten-heartstone.png,relic,126,154
+relics-accessories-099,equipment,relics-accessories,99,10,9,Golden winged sword charm,equipment/relics-accessories/099-golden-winged-sword-charm.png,relic,124,154
+relics-accessories-100,equipment,relics-accessories,100,10,10,Violet crystal crown,equipment/relics-accessories/100-violet-crystal-crown.png,relic,125,154
+weapon-arsenal-001,equipment,weapon-arsenal,1,1,1,Rusted dagger,equipment/weapon-arsenal/001-rusted-dagger.png,dagger,126,120
+weapon-arsenal-002,equipment,weapon-arsenal,2,1,2,Bone fang dagger,equipment/weapon-arsenal/002-bone-fang-dagger.png,dagger,126,120
+weapon-arsenal-003,equipment,weapon-arsenal,3,1,3,Honed steel dagger,equipment/weapon-arsenal/003-honed-steel-dagger.png,dagger,126,120
+weapon-arsenal-004,equipment,weapon-arsenal,4,1,4,Ruby hilt dagger,equipment/weapon-arsenal/004-ruby-hilt-dagger.png,dagger,126,120
+weapon-arsenal-005,equipment,weapon-arsenal,5,1,5,Serrated dark dagger,equipment/weapon-arsenal/005-serrated-dark-dagger.png,dagger,125,120
+weapon-arsenal-006,equipment,weapon-arsenal,6,1,6,Golden hooked dagger,equipment/weapon-arsenal/006-golden-hooked-dagger.png,dagger,126,120
+weapon-arsenal-007,equipment,weapon-arsenal,7,1,7,Venom fang dagger,equipment/weapon-arsenal/007-venom-fang-dagger.png,dagger,126,120
+weapon-arsenal-008,equipment,weapon-arsenal,8,1,8,Frost curved dagger,equipment/weapon-arsenal/008-frost-curved-dagger.png,dagger,124,120
+weapon-arsenal-009,equipment,weapon-arsenal,9,1,9,Flame dagger,equipment/weapon-arsenal/009-flame-dagger.png,dagger,125,120
+weapon-arsenal-010,equipment,weapon-arsenal,10,1,10,Violet arcane dagger,equipment/weapon-arsenal/010-violet-arcane-dagger.png,dagger,124,120
+weapon-arsenal-011,equipment,weapon-arsenal,11,2,1,Rusted sword,equipment/weapon-arsenal/011-rusted-sword.png,sword,126,124
+weapon-arsenal-012,equipment,weapon-arsenal,12,2,2,Iron broadsword,equipment/weapon-arsenal/012-iron-broadsword.png,sword,126,124
+weapon-arsenal-013,equipment,weapon-arsenal,13,2,3,Honed steel sword,equipment/weapon-arsenal/013-honed-steel-sword.png,sword,126,124
+weapon-arsenal-014,equipment,weapon-arsenal,14,2,4,Royal lion sword,equipment/weapon-arsenal/014-royal-lion-sword.png,sword,126,124
+weapon-arsenal-015,equipment,weapon-arsenal,15,2,5,Engraved silver sword,equipment/weapon-arsenal/015-engraved-silver-sword.png,sword,125,124
+weapon-arsenal-016,equipment,weapon-arsenal,16,2,6,Azure crystal sword,equipment/weapon-arsenal/016-azure-crystal-sword.png,sword,126,124
+weapon-arsenal-017,equipment,weapon-arsenal,17,2,7,Golden holy sword,equipment/weapon-arsenal/017-golden-holy-sword.png,sword,126,124
+weapon-arsenal-018,equipment,weapon-arsenal,18,2,8,Infernal rune sword,equipment/weapon-arsenal/018-infernal-rune-sword.png,sword,124,124
+weapon-arsenal-019,equipment,weapon-arsenal,19,2,9,Radiant sun sword,equipment/weapon-arsenal/019-radiant-sun-sword.png,sword,125,124
+weapon-arsenal-020,equipment,weapon-arsenal,20,2,10,Violet arcane sword,equipment/weapon-arsenal/020-violet-arcane-sword.png,sword,124,124
+weapon-arsenal-021,equipment,weapon-arsenal,21,3,1,Rusted hand axe,equipment/weapon-arsenal/021-rusted-hand-axe.png,axe,126,120
+weapon-arsenal-022,equipment,weapon-arsenal,22,3,2,Iron hand axe,equipment/weapon-arsenal/022-iron-hand-axe.png,axe,126,120
+weapon-arsenal-023,equipment,weapon-arsenal,23,3,3,Engraved bronze axe,equipment/weapon-arsenal/023-engraved-bronze-axe.png,axe,126,120
+weapon-arsenal-024,equipment,weapon-arsenal,24,3,4,Spiked steel axe,equipment/weapon-arsenal/024-spiked-steel-axe.png,axe,126,120
+weapon-arsenal-025,equipment,weapon-arsenal,25,3,5,Double edged steel axe,equipment/weapon-arsenal/025-double-edged-steel-axe.png,axe,125,120
+weapon-arsenal-026,equipment,weapon-arsenal,26,3,6,Royal azure axe,equipment/weapon-arsenal/026-royal-azure-axe.png,axe,126,120
+weapon-arsenal-027,equipment,weapon-arsenal,27,3,7,Venom crescent axe,equipment/weapon-arsenal/027-venom-crescent-axe.png,axe,126,120
+weapon-arsenal-028,equipment,weapon-arsenal,28,3,8,Infernal hand axe,equipment/weapon-arsenal/028-infernal-hand-axe.png,axe,124,120
+weapon-arsenal-029,equipment,weapon-arsenal,29,3,9,Radiant golden axe,equipment/weapon-arsenal/029-radiant-golden-axe.png,axe,125,120
+weapon-arsenal-030,equipment,weapon-arsenal,30,3,10,Violet arcane axe,equipment/weapon-arsenal/030-violet-arcane-axe.png,axe,124,120
+weapon-arsenal-031,equipment,weapon-arsenal,31,4,1,Rusted double axe,equipment/weapon-arsenal/031-rusted-double-axe.png,axe,126,127
+weapon-arsenal-032,equipment,weapon-arsenal,32,4,2,Iron double axe,equipment/weapon-arsenal/032-iron-double-axe.png,axe,126,127
+weapon-arsenal-033,equipment,weapon-arsenal,33,4,3,Engraved double axe,equipment/weapon-arsenal/033-engraved-double-axe.png,axe,126,127
+weapon-arsenal-034,equipment,weapon-arsenal,34,4,4,Spiked double axe,equipment/weapon-arsenal/034-spiked-double-axe.png,axe,126,127
+weapon-arsenal-035,equipment,weapon-arsenal,35,4,5,Silver war axe,equipment/weapon-arsenal/035-silver-war-axe.png,axe,125,127
+weapon-arsenal-036,equipment,weapon-arsenal,36,4,6,Royal azure war axe,equipment/weapon-arsenal/036-royal-azure-war-axe.png,axe,126,127
+weapon-arsenal-037,equipment,weapon-arsenal,37,4,7,Venom war axe,equipment/weapon-arsenal/037-venom-war-axe.png,axe,126,127
+weapon-arsenal-038,equipment,weapon-arsenal,38,4,8,Infernal war axe,equipment/weapon-arsenal/038-infernal-war-axe.png,axe,124,127
+weapon-arsenal-039,equipment,weapon-arsenal,39,4,9,Radiant golden war axe,equipment/weapon-arsenal/039-radiant-golden-war-axe.png,axe,125,127
+weapon-arsenal-040,equipment,weapon-arsenal,40,4,10,Violet arcane war axe,equipment/weapon-arsenal/040-violet-arcane-war-axe.png,axe,124,127
+weapon-arsenal-041,equipment,weapon-arsenal,41,5,1,Spiked wooden club,equipment/weapon-arsenal/041-spiked-wooden-club.png,mace,126,117
+weapon-arsenal-042,equipment,weapon-arsenal,42,5,2,Iron flanged mace,equipment/weapon-arsenal/042-iron-flanged-mace.png,mace,126,117
+weapon-arsenal-043,equipment,weapon-arsenal,43,5,3,Steel flanged mace,equipment/weapon-arsenal/043-steel-flanged-mace.png,mace,126,117
+weapon-arsenal-044,equipment,weapon-arsenal,44,5,4,Spiked iron mace,equipment/weapon-arsenal/044-spiked-iron-mace.png,mace,126,117
+weapon-arsenal-045,equipment,weapon-arsenal,45,5,5,Faceted steel hammer,equipment/weapon-arsenal/045-faceted-steel-hammer.png,mace,125,117
+weapon-arsenal-046,equipment,weapon-arsenal,46,5,6,Engraved stone hammer,equipment/weapon-arsenal/046-engraved-stone-hammer.png,mace,126,117
+weapon-arsenal-047,equipment,weapon-arsenal,47,5,7,Golden sapphire hammer,equipment/weapon-arsenal/047-golden-sapphire-hammer.png,mace,126,117
+weapon-arsenal-048,equipment,weapon-arsenal,48,5,8,Venom spike mace,equipment/weapon-arsenal/048-venom-spike-mace.png,mace,124,117
+weapon-arsenal-049,equipment,weapon-arsenal,49,5,9,Molten rune hammer,equipment/weapon-arsenal/049-molten-rune-hammer.png,mace,125,117
+weapon-arsenal-050,equipment,weapon-arsenal,50,5,10,Violet crystal hammer,equipment/weapon-arsenal/050-violet-crystal-hammer.png,mace,124,117
+weapon-arsenal-051,equipment,weapon-arsenal,51,6,1,Rusted war hammer,equipment/weapon-arsenal/051-rusted-war-hammer.png,mace,126,122
+weapon-arsenal-052,equipment,weapon-arsenal,52,6,2,Iron bound war hammer,equipment/weapon-arsenal/052-iron-bound-war-hammer.png,mace,126,122
+weapon-arsenal-053,equipment,weapon-arsenal,53,6,3,Spiked war hammer,equipment/weapon-arsenal/053-spiked-war-hammer.png,mace,126,122
+weapon-arsenal-054,equipment,weapon-arsenal,54,6,4,Honed steel war hammer,equipment/weapon-arsenal/054-honed-steel-war-hammer.png,mace,126,122
+weapon-arsenal-055,equipment,weapon-arsenal,55,6,5,Engraved dark war hammer,equipment/weapon-arsenal/055-engraved-dark-war-hammer.png,mace,125,122
+weapon-arsenal-056,equipment,weapon-arsenal,56,6,6,Royal azure war hammer,equipment/weapon-arsenal/056-royal-azure-war-hammer.png,mace,126,122
+weapon-arsenal-057,equipment,weapon-arsenal,57,6,7,Venom war hammer,equipment/weapon-arsenal/057-venom-war-hammer.png,mace,126,122
+weapon-arsenal-058,equipment,weapon-arsenal,58,6,8,Infernal war hammer,equipment/weapon-arsenal/058-infernal-war-hammer.png,mace,124,122
+weapon-arsenal-059,equipment,weapon-arsenal,59,6,9,Radiant golden war hammer,equipment/weapon-arsenal/059-radiant-golden-war-hammer.png,mace,125,122
+weapon-arsenal-060,equipment,weapon-arsenal,60,6,10,Violet spiked war hammer,equipment/weapon-arsenal/060-violet-spiked-war-hammer.png,mace,124,122
+weapon-arsenal-061,equipment,weapon-arsenal,61,7,1,Rusted spear,equipment/weapon-arsenal/061-rusted-spear.png,polearm,126,119
+weapon-arsenal-062,equipment,weapon-arsenal,62,7,2,Iron spear,equipment/weapon-arsenal/062-iron-spear.png,polearm,126,119
+weapon-arsenal-063,equipment,weapon-arsenal,63,7,3,Honed steel spear,equipment/weapon-arsenal/063-honed-steel-spear.png,polearm,126,119
+weapon-arsenal-064,equipment,weapon-arsenal,64,7,4,Silver halberd,equipment/weapon-arsenal/064-silver-halberd.png,polearm,126,119
+weapon-arsenal-065,equipment,weapon-arsenal,65,7,5,Azure halberd,equipment/weapon-arsenal/065-azure-halberd.png,polearm,125,119
+weapon-arsenal-066,equipment,weapon-arsenal,66,7,6,Golden sapphire spear,equipment/weapon-arsenal/066-golden-sapphire-spear.png,polearm,126,119
+weapon-arsenal-067,equipment,weapon-arsenal,67,7,7,Venom polearm,equipment/weapon-arsenal/067-venom-polearm.png,polearm,126,119
+weapon-arsenal-068,equipment,weapon-arsenal,68,7,8,Infernal halberd,equipment/weapon-arsenal/068-infernal-halberd.png,polearm,124,119
+weapon-arsenal-069,equipment,weapon-arsenal,69,7,9,Radiant golden spear,equipment/weapon-arsenal/069-radiant-golden-spear.png,polearm,125,119
+weapon-arsenal-070,equipment,weapon-arsenal,70,7,10,Violet arcane halberd,equipment/weapon-arsenal/070-violet-arcane-halberd.png,polearm,124,119
+weapon-arsenal-071,equipment,weapon-arsenal,71,8,1,Crooked wooden staff,equipment/weapon-arsenal/071-crooked-wooden-staff.png,staff,126,122
+weapon-arsenal-072,equipment,weapon-arsenal,72,8,2,Stone sphere staff,equipment/weapon-arsenal/072-stone-sphere-staff.png,staff,126,122
+weapon-arsenal-073,equipment,weapon-arsenal,73,8,3,Azure orb staff,equipment/weapon-arsenal/073-azure-orb-staff.png,staff,126,122
+weapon-arsenal-074,equipment,weapon-arsenal,74,8,4,Silver orb staff,equipment/weapon-arsenal/074-silver-orb-staff.png,staff,126,122
+weapon-arsenal-075,equipment,weapon-arsenal,75,8,5,Twin crystal staff,equipment/weapon-arsenal/075-twin-crystal-staff.png,staff,125,122
+weapon-arsenal-076,equipment,weapon-arsenal,76,8,6,Royal azure crystal staff,equipment/weapon-arsenal/076-royal-azure-crystal-staff.png,staff,126,122
+weapon-arsenal-077,equipment,weapon-arsenal,77,8,7,Venom spiral staff,equipment/weapon-arsenal/077-venom-spiral-staff.png,staff,126,122
+weapon-arsenal-078,equipment,weapon-arsenal,78,8,8,Flame orb staff,equipment/weapon-arsenal/078-flame-orb-staff.png,staff,124,122
+weapon-arsenal-079,equipment,weapon-arsenal,79,8,9,Radiant sun staff,equipment/weapon-arsenal/079-radiant-sun-staff.png,staff,125,122
+weapon-arsenal-080,equipment,weapon-arsenal,80,8,10,Violet orb staff,equipment/weapon-arsenal/080-violet-orb-staff.png,staff,124,122
+weapon-arsenal-081,equipment,weapon-arsenal,81,9,1,Plain wooden bow,equipment/weapon-arsenal/081-plain-wooden-bow.png,bow,126,130
+weapon-arsenal-082,equipment,weapon-arsenal,82,9,2,Carved wooden bow,equipment/weapon-arsenal/082-carved-wooden-bow.png,bow,126,130
+weapon-arsenal-083,equipment,weapon-arsenal,83,9,3,Iron reinforced bow,equipment/weapon-arsenal/083-iron-reinforced-bow.png,bow,126,130
+weapon-arsenal-084,equipment,weapon-arsenal,84,9,4,Azure trimmed bow,equipment/weapon-arsenal/084-azure-trimmed-bow.png,bow,126,130
+weapon-arsenal-085,equipment,weapon-arsenal,85,9,5,Bone longbow,equipment/weapon-arsenal/085-bone-longbow.png,bow,125,130
+weapon-arsenal-086,equipment,weapon-arsenal,86,9,6,Royal azure bow,equipment/weapon-arsenal/086-royal-azure-bow.png,bow,126,130
+weapon-arsenal-087,equipment,weapon-arsenal,87,9,7,Venom vine bow,equipment/weapon-arsenal/087-venom-vine-bow.png,bow,126,130
+weapon-arsenal-088,equipment,weapon-arsenal,88,9,8,Infernal bow,equipment/weapon-arsenal/088-infernal-bow.png,bow,124,130
+weapon-arsenal-089,equipment,weapon-arsenal,89,9,9,Radiant golden bow,equipment/weapon-arsenal/089-radiant-golden-bow.png,bow,125,130
+weapon-arsenal-090,equipment,weapon-arsenal,90,9,10,Violet arcane bow,equipment/weapon-arsenal/090-violet-arcane-bow.png,bow,124,130
+weapon-arsenal-091,equipment,weapon-arsenal,91,10,1,Plain wooden crossbow,equipment/weapon-arsenal/091-plain-wooden-crossbow.png,ranged,126,153
+weapon-arsenal-092,equipment,weapon-arsenal,92,10,2,Iron reinforced crossbow,equipment/weapon-arsenal/092-iron-reinforced-crossbow.png,ranged,126,153
+weapon-arsenal-093,equipment,weapon-arsenal,93,10,3,Steel crossbow,equipment/weapon-arsenal/093-steel-crossbow.png,ranged,126,153
+weapon-arsenal-094,equipment,weapon-arsenal,94,10,4,Royal azure crossbow,equipment/weapon-arsenal/094-royal-azure-crossbow.png,ranged,126,153
+weapon-arsenal-095,equipment,weapon-arsenal,95,10,5,Golden trimmed crossbow,equipment/weapon-arsenal/095-golden-trimmed-crossbow.png,ranged,125,153
+weapon-arsenal-096,equipment,weapon-arsenal,96,10,6,Brass flintlock pistol,equipment/weapon-arsenal/096-brass-flintlock-pistol.png,ranged,126,153
+weapon-arsenal-097,equipment,weapon-arsenal,97,10,7,Engraved golden pistol,equipment/weapon-arsenal/097-engraved-golden-pistol.png,ranged,126,153
+weapon-arsenal-098,equipment,weapon-arsenal,98,10,8,Iron flintlock pistol,equipment/weapon-arsenal/098-iron-flintlock-pistol.png,ranged,124,153
+weapon-arsenal-099,equipment,weapon-arsenal,99,10,9,Royal azure pistol,equipment/weapon-arsenal/099-royal-azure-pistol.png,ranged,125,153
+weapon-arsenal-100,equipment,weapon-arsenal,100,10,10,Violet arcane pistol,equipment/weapon-arsenal/100-violet-arcane-pistol.png,ranged,124,153
