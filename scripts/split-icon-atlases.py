@@ -50,6 +50,6 @@ with (output/'catalog.csv').open('w',newline='') as f:
     writer.writerows({k:r[k] for k in writer.fieldnames}for r in all_icons)
 with zipfile.ZipFile(output/'healing-and-mana-icons.zip','w',zipfile.ZIP_DEFLATED)as archive:
     for file in sorted(output.rglob('*')):
-        if file.is_file()and file.suffix in ['.png','.jpg','.json','.csv']:
+        if file.is_file()and (file.suffix=='.png' or file.name in ['contact-sheet.jpg','catalog.json','catalog.csv']):
             archive.write(file,file.relative_to(output))
 print(f'Exported {len(all_icons)} lossless icons across {len(sets)} sets.')

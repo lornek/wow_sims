@@ -151,4 +151,4 @@ Keep the breakdown expression on one line and shrink its font and gaps together 
 
 ## Additional custom icon library
 
-Three user-provided atlases, including the recovered original set, are available as 300 lossless tiles in `public/healing/custom-icons/`, with stable IDs, visual descriptions, numbered contact sheets and a searchable gallery. See [Custom icon library](custom-icon-library.md) for catalog paths and consistent-use rules. Existing semantic mappings above are preserved.
+Six user-provided atlases, including the recovered original set, are available as 600 lossless tiles in `public/healing/custom-icons/`, with stable IDs, visual descriptions, numbered contact sheets and a searchable gallery. See [Custom icon library](custom-icon-library.md) for catalog paths and consistent-use rules. Existing semantic mappings above are preserved.

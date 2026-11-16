@@ -6,7 +6,7 @@
 
 - `public/healing/purpose-icons.mjs`: live semantic icon lookup used by the simulator and review page.
 - `public/healing/custom-icons/icon-review.json`: review rows with matching registry version.
-- `public/healing/custom-icons/available-icons.json`: all 300 custom tiles plus all local WoW ability and legacy report icon files.
+- `public/healing/custom-icons/available-icons.json`: all 600 custom tiles plus all local WoW ability and legacy report icon files.
 - `docs/current-icon-purposes.md`: complete current ID/path table.
 
 Do not hand-edit the generated outputs. Change the authored registry, update usage metadata when a purpose moves or is added, and rebuild. Tests ensure generated data and the shared live registry agree, all paths exist, alternatives remain distinct, and all local icon files appear in the picker. `AGENTS.md` makes this workflow persistent for future work.
