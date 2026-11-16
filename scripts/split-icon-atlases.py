@@ -1,7 +1,7 @@
 """Crop the reviewed atlas seams; generate lossless tiles and a shared visual catalog.
 Requires Pillow. Run from repository root: python scripts/split-icon-atlases.py
 """
-import csv, hashlib, json, pathlib, re, zipfile
+import csv, hashlib, json, pathlib, re, subprocess
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT=pathlib.Path(__file__).resolve().parent.parent
 source=ROOT/'assets/icon-atlases'
@@ -48,8 +48,5 @@ for spec in config['sets']:
 with (output/'catalog.csv').open('w',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=['id','set','number','row','column','name','path','width','height'],lineterminator='\n');writer.writeheader()
     writer.writerows({k:r[k] for k in writer.fieldnames}for r in all_icons)
-with zipfile.ZipFile(output/'healing-and-mana-icons.zip','w',zipfile.ZIP_DEFLATED)as archive:
-    for file in sorted(output.rglob('*')):
-        if file.is_file()and (file.suffix=='.png' or file.name in ['contact-sheet.jpg','catalog.json','catalog.csv']):
-            archive.write(file,file.relative_to(output))
+subprocess.run(['node',str(ROOT/'scripts/package-icon-library.cjs')],check=True)
 print(f'Exported {len(all_icons)} lossless icons across {len(sets)} sets.')

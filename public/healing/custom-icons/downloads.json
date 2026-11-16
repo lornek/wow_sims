@@ -1,0 +1,27 @@
+{
+  "totalIcons": 600,
+  "parts": [
+    {
+      "part": 1,
+      "path": "healing-and-mana-icons.zip",
+      "iconCount": 300,
+      "sizeBytes": 17018889,
+      "sets": [
+        "Mana Springs of Renewal",
+        "Mystical Healing Magic",
+        "Arcane Vitality"
+      ]
+    },
+    {
+      "part": 2,
+      "path": "nature-icons.zip",
+      "iconCount": 300,
+      "sizeBytes": 11940433,
+      "sets": [
+        "Neon Nature",
+        "Mystical Nature",
+        "Luminous Healing"
+      ]
+    }
+  ]
+}

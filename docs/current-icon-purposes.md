@@ -9,12 +9,12 @@ Generated from `public/healing/custom-icons/icon-purposes.json` on every build. 
 | Overhealing | arcane-vitality-034 | custom-icons/arcane-vitality/034-protective-healing-bubble.png |
 | Healing per mana | arcane-vitality-054 | custom-icons/arcane-vitality/054-leaf-and-water-crest.png |
 | Mana remaining | arcane-vitality-095 | custom-icons/arcane-vitality/095-tall-blue-mana-potion.png |
-| Mana gained | arcane-vitality-045 | custom-icons/arcane-vitality/045-overflowing-mana-fountain.png |
+| Mana gained | mana-renewal-044 | custom-icons/mana-renewal/044-swirling-water-sphere.png |
 | Spirit regeneration / Spirit stat | mystical-healing-037 | custom-icons/mystical-healing/037-blue-spirit-meditation.png |
 | Mana / 5 stat and regeneration | arcane-vitality-091 | custom-icons/arcane-vitality/091-spiraling-mana-spring.png |
-| Players kept alive | arcane-vitality-010 | custom-icons/arcane-vitality/010-luminous-spirit-shield.png |
+| Players kept alive | mystical-healing-073 | custom-icons/mystical-healing/073-radiant-group-blessing.png |
 | Critical hits | arcane-vitality-047 | custom-icons/arcane-vitality/047-radiant-spirit-star.png |
-| Spell casts | arcane-vitality-021 | custom-icons/arcane-vitality/021-hands-in-golden-light.png |
+| Spell casts | mystical-healing-049 | custom-icons/mystical-healing/049-open-spellbook.png |
 | Normal hits | arcane-vitality-001 | custom-icons/arcane-vitality/001-golden-healing-hand.png |
 | Direct hits | arcane-vitality-021 | custom-icons/arcane-vitality/021-hands-in-golden-light.png |
 | Periodic hits | arcane-vitality-033 | custom-icons/arcane-vitality/033-golden-light-well.png |

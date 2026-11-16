@@ -1,4 +1,4 @@
 node_modules/
 dist/
 
-public/healing/custom-icons/healing-and-mana-icons.zip
+public/healing/custom-icons/*.zip
