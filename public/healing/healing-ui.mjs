@@ -1,3 +1,4 @@
+import {purposeIconPath} from './purpose-icons.mjs';
 import {foreverSpellbook} from './forever-spellbook.mjs';
 import {spellbookEntries, spellbookPage} from './spellbook-layout.mjs';
 import {mountGearEditor} from './gear-editor.mjs';
@@ -64,6 +65,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   const root = document.querySelector('#healing');
   root.dataset.healerClass = className;
+  for (const image of root.querySelectorAll('[data-purpose-icon]')) image.src = new URL('./' + purposeIconPath(image.dataset.purposeIcon), import.meta.url);
   const find = selector => root.querySelector(selector);
   const customInputs = [...root.querySelectorAll('[data-custom-stat]')];
   const readAdditionalStats = () => normalizeAdditionalStats(Object.fromEntries(customInputs.map(input =>
@@ -410,7 +412,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function addMetric(list, art, label) {
     const metric = document.createElement('div');
     const image = document.createElement('img');
-    image.src = new URL('./report-icons/' + art + '.jpg', import.meta.url);
+    image.src = new URL('./' + purposeIconPath(art), import.meta.url);
     image.alt = '';
     image.width = image.height = 40;
     const term = document.createElement('dt');
@@ -582,9 +584,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         ['healing', 'Effective healing', whole(s.healing)],
         ['hps', 'Healing per second', whole(s.healing / s.endedAt)],
         ['overheal', 'Overhealing', whole(s.overheal)],
-        ['efficiency', 'Healing per mana', s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) : '—'],
+        ['hpm', 'Healing per mana', s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) : '—'],
         ['remaining', 'Mana remaining', whole(s.manaAtEnd)],
-        ['gained', 'Total mana gained', whole(s.manaGained)]
+        ['gained', 'Total mana gained', whole(s.manaGained)],
+        ['mana-spent', 'Mana spent', whole(s.manaSpent)]
       ]);
 
     } else if (!ended && !result.hidden) {
@@ -613,6 +616,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         }
         const term = document.createElement('strong');
         term.className = style; term.textContent = text; term.tabIndex = 0;
+        const image = document.createElement('img');
+        image.src = new URL('./' + purposeIconPath(({'score-healing':'healing','score-mana':'gained','score-efficiency':'efficiency-percent','score-survival':'survived'})[style]), import.meta.url);
+        image.alt = ''; term.prepend(image);
         setGameTooltip(term, title, [text]);
         regenResult.append(term);
       }
@@ -751,7 +757,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const [label, value] of Object.entries(stats)) {
       const term = document.createElement('dt');
       const description = document.createElement('dd');
-      term.textContent = label;
+      const statIcon = document.createElement('img');
+      statIcon.src = new URL('./' + purposeIconPath(({health:'max-health',mana:'max-mana',baseMana:'max-mana',power:'healing',crit:'crit-chance',resting:'mp5'})[value] ?? value), import.meta.url);
+      statIcon.alt = ''; statIcon.width = statIcon.height = 24;
+      term.append(statIcon, label);
       sheet[value] = description;
       list.append(term, description);
     }
@@ -1180,8 +1189,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const breakdown = document.createElement('dl');
     breakdown.className = 'healing-breakdown';
     const fields = [
-      ['hps', 'Casts'], ['survived', 'Normal hits'],
-      ['crit', 'Critical hits'], ['overheal', 'Overhealing'], ['efficiency', 'Healing per mana']
+      ['casts', 'Casts'], ['normal-hits', 'Normal hits'],
+      ['crits', 'Critical hits'], ['overheal', 'Overhealing'], ['hpm', 'Healing per mana']
     ].map(([art, title]) => addMetric(breakdown, art, title));
     summary.append(label, total);
     const eventBars = document.createElement('div');
@@ -1222,16 +1231,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           const art = document.createElement('span');
           art.className = 'healing-event-icon';
           const image = document.createElement('img');
-          image.src = new URL('./report-icons/' + event.icon + '.jpg', import.meta.url);
+          image.src = new URL('./' + event.icon, import.meta.url);
           image.alt = '';
           art.append(image);
-          if (event.badge) {
-            const badge = document.createElement('img');
-            badge.className = 'healing-event-badge';
-            badge.src = new URL('./report-icons/' + event.badge + '.jpg', import.meta.url);
-            badge.alt = '';
-            art.append(badge);
-          }
           label.append(art, event.label);
           const count = document.createElement('strong');
           setBarNumbers(count, event.count, event.crit ? '(' + Number(event.critPercent.toFixed(1)) + '%)' : '', '');
@@ -1296,7 +1298,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           gearing.type = 'button';
           gearing.className = 'mana-gearing';
           const art = document.createElement('img');
-          art.src = new URL('./report-icons/' + (source === 'Spirit regeneration' ? 'spirit' : 'mp5') + '.jpg', import.meta.url);
+          art.src = new URL('./' + purposeIconPath(source === 'Spirit regeneration' ? 'spirit' : 'mp5'), import.meta.url);
           art.alt = '';
           const amount = document.createElement('strong');
           gearing.append(art, amount);
@@ -1367,7 +1369,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
               ...(source === 'Spirit regeneration' ? ['Normal: ' + whole(split.normalMana) + ' · Innervate: ' + whole(split.innervateMana)] : [])]);
             const label = document.createElement('span');
             const image = document.createElement('img');
-            image.src = new URL('./' + (contributionIcons[name] ?? 'report-icons/gained.jpg'), import.meta.url);
+            image.src = new URL('./' + (contributionIcons[name] ?? purposeIconPath('gained')), import.meta.url);
             image.alt = '';
             label.append(image, name);
             const amount = document.createElement('strong');

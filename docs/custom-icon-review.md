@@ -1,11 +1,18 @@
-# Custom icon choice table
+# Shared icon registry and review table
 
-`/healing/custom-icons/review.html` presents 28 purposes with their current art and three alternatives from the shared library. The table audits existing report metrics, healing-event rows, stat and mana contribution mappings, and Additional-stat fields in `healing-ui.mjs`, `healing-events.mjs`, `report-style.mjs` and `sims/healing.html`.
+`public/healing/custom-icons/icon-purposes.json` is the authored source of truth for all 28 generic icon purposes, current choices, usage descriptions and three alternatives. The user's 27 selected replacements/retentions are applied there; Base regeneration retains its original Arcane Vitality 037 icon because it was not included in the selections. Intellect retains the chosen existing WoW ability art. Named spell, buff and talent icons are unchanged.
 
-`icon-review.json` holds the stable purpose keys, purpose/usage descriptions, current legacy art and its Arcane Vitality cross-reference, plus the three proposed catalog IDs. Periodic crits preserve the current crit + HPS badge composite in the Current column. Borrowed Intellect art is marked separately from actual custom mappings. Different purposes that currently share art have separate rows; related Spirit uses and related MP5 uses are grouped to retain their shared cross-class identity.
+`node build.cjs` runs `scripts/sync-icon-purposes.cjs`, which validates every assignment against actual files and generates:
 
-Missing rows are proposals for the existing score formula and character attributes/resources; Mana spent is explicitly a possible future display of an already tracked quantity. The review does not add metrics, apply selected images to the simulator, or change named spell/talent/buff ability art. Strength/Agility alternatives are labelled symbolic because the sheets do not contain literal matching equipment/physical-stat symbols.
+- `public/healing/purpose-icons.mjs`: live semantic icon lookup used by the simulator and review page.
+- `public/healing/custom-icons/icon-review.json`: review rows with matching registry version.
+- `public/healing/custom-icons/available-icons.json`: all 300 custom tiles plus all local WoW ability and legacy report icon files.
+- `docs/current-icon-purposes.md`: complete current ID/path table.
 
-Selections persist in browser localStorage at `wow-forever-sims.icon-review.v1`. No choice is preselected. Current/A/B/C are only review preferences. Users copy or download their selected purpose names and stable icon IDs and send them in chat for implementation. The page cannot transmit selections to the assistant or change the shared site configuration. Missing rows have no Current radio option. Unknown/stale stored choices are discarded when loading the table.
+Do not hand-edit the generated outputs. Change the authored registry, update usage metadata when a purpose moves or is added, and rebuild. Tests ensure generated data and the shared live registry agree, all paths exist, alternatives remain distinct, and all local icon files appear in the picker. `AGENTS.md` makes this workflow persistent for future work.
 
-Do not alter live icon mappings until the user chooses them. After implementation, update the shared registries and `healbot-report-visuals.md` rather than assigning icons by class, amount or bar order.
+The registry supplies fight-report metrics, spell-report metrics, direct/periodic event bars, mana sources and contribution breakdowns, Spirit/MP5 gearing buttons, Additional stat inputs, character-sheet stats, the Healing Score heading, and the score factors. Mana spent is now a fight-report metric using its selected icon. Score factor icons scale in em units along with the responsive formula. Periodic crits now use the selected single icon instead of the old composite badge.
+
+The review page at `/healing/custom-icons/review.html` imports the same live registry and labels its Current column accordingly. Every row has Browse all icon files, opening a searchable dialog with previews, descriptive names, IDs, filenames and collection filters. It lists all custom, WoW ability and legacy report files. Search happens locally and rendering is limited to 60 results at a time, with Show more.
+
+New review picks are local drafts, not global changes. Current/A/B/C and arbitrary file selections save actual icon IDs, rather than positions that could become stale. The localStorage key includes the registry version, preventing old A/B/C choices from being mistaken for selections against new mappings. A custom draft appears in the Current column below the live icon; the live value remains visible. Copy/download exports purpose names and stable IDs to send in chat for publication. No review choice silently changes other users' settings or the shared site configuration.

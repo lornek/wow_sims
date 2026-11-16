@@ -566,3 +566,9 @@ body:has(#healing) { font-family:var(--ui); }
 .book-controls > label:has([data-book-level]) { order:1; }
 .book-controls .book-search { order:2; }
 @media(max-width:1050px) { .book-controls nav { order:3; } }
+.character-stats dt { display:flex; align-items:center; gap:7px; }
+.character-stats dt img { flex:none; object-fit:contain; border-radius:3px; }
+.score-heading h2 { display:flex; align-items:center; gap:10px; }
+.score-heading h2 img { object-fit:contain; border-radius:4px; }
+.score-formula > strong:not(.score-times) { display:inline-flex; align-items:center; gap:.25em; }
+.score-formula img { width:1em; height:1em; object-fit:contain; border-radius:2px; }

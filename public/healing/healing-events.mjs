@@ -1,8 +1,9 @@
+import {purposeIconPath} from './purpose-icons.mjs';
 export const healingEventKinds = [
-  {key:'d_hits', label:'Direct hits', icon:'healing', periodic:false, crit:false},
-  {key:'d_crits', label:'Direct crits', icon:'crit', periodic:false, crit:true},
-  {key:'p_hits', label:'Periodic hits', icon:'hps', periodic:true, crit:false},
-  {key:'p_crits', label:'Periodic crits', icon:'crit', badge:'hps', periodic:true, crit:true}
+  {key:'d_hits', label:'Direct hits', icon:purposeIconPath('direct-hits'), periodic:false, crit:false},
+  {key:'d_crits', label:'Direct crits', icon:purposeIconPath('crits'), periodic:false, crit:true},
+  {key:'p_hits', label:'Periodic hits', icon:purposeIconPath('periodic-hits'), periodic:true, crit:false},
+  {key:'p_crits', label:'Periodic crits', icon:purposeIconPath('periodic-crits'), periodic:true, crit:true}
 ];
 export function recordHealingEvent(stats, periodic, crit, effective, overheal) {
   const key = (periodic ? 'p_' : 'd_') + (crit ? 'crits' : 'hits');

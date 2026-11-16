@@ -1,7 +1,8 @@
+import {purposeIconPath} from './purpose-icons.mjs';
 // Stable semantic identities: never assign report visuals by rank or render order.
 export const manaVisuals = {
-  'Spirit regeneration': ['report-icons/spirit.jpg', '#168f91'],
-  'Mana / 5': ['report-icons/mp5.jpg', '#225c9a'],
+  'Spirit regeneration': [purposeIconPath('spirit'), '#168f91'],
+  'Mana / 5': [purposeIconPath('mp5'), '#225c9a'],
   'Innervate': ['icons/spell_nature_lightning.jpg', '#193b86'],
   'Inner Focus · spell cost': ['icons/spell_frost_windwalkon.jpg', '#51458f'],
   'Inner Focus · Spirit regeneration': ['icons/spell_frost_windwalkon.jpg', '#4265a4'],
@@ -14,11 +15,11 @@ export const manaVisuals = {
   'Major Mana Potion': ['icons/inv_potion_76.jpg', '#59479b']
 };
 export const contributionIcons = {
-  'Base Spirit': 'report-icons/spirit.jpg',
-  'Base regeneration': 'report-icons/gained.jpg',
-  'Gear': 'report-icons/efficiency.jpg',
-  'Human racial': 'report-icons/survived.jpg',
-  'Spirit talents': 'report-icons/spirit.jpg',
+  'Base Spirit': purposeIconPath('spirit'),
+  'Base regeneration': purposeIconPath('base-regen'),
+  'Gear': purposeIconPath('gear'),
+  'Human racial': purposeIconPath('human'),
+  'Spirit talents': purposeIconPath('spirit'),
   'Living Spirit': 'icons/spell_nature_giftofthewaterspirit.jpg',
   'Mark of the Wild': 'icons/spell_nature_regeneration.jpg',
   'Divine Spirit': 'icons/spell_holy_divinespirit.jpg',
@@ -46,5 +47,5 @@ export const healingColors = {
   mending: '#285c42', bloom: '#3b7948', vigil: '#316c4c'
 };
 export function reportManaVisual(name) {
-  return manaVisuals[name] ?? ['report-icons/gained.jpg', '#3d669e'];
+  return manaVisuals[name] ?? [purposeIconPath('gained'), '#3d669e'];
 }

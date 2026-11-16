@@ -1,5 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
+require('./scripts/sync-icon-purposes.cjs');
+const iconPurposes = require('./public/healing/custom-icons/icon-purposes.json');
 
 const classes = [
   ['Warrior', '#C79C6E'], ['Paladin', '#F58CBA'], ['Hunter', '#ABD473'],
@@ -53,7 +55,11 @@ ${content}
 }
 
 const cleave = fs.readFileSync(path.join(__dirname, 'sims', 'cleave.html'), 'utf8');
-const healing = fs.readFileSync(path.join(__dirname, 'sims', 'healing.html'), 'utf8');
+const healing = fs.readFileSync(path.join(__dirname, 'sims', 'healing.html'), 'utf8').replace(/<img data-purpose-icon="([^"]+)"[^>]*>/g, (tag,key) => {
+  const entry = iconPurposes.rows.find(row => row.key === key);
+  if (!entry) throw new Error('Unknown template icon purpose: ' + key);
+  return tag.replace(/src="[^"]*"/, 'src="../healing/' + entry.current.path + '"');
+});
 const healers = ['shaman', 'druid', 'paladin', 'priest'];
 
 function healbotPath(slug) {

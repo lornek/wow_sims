@@ -1,3 +1,5 @@
+> Current icon assignments are generated from `public/healing/custom-icons/icon-purposes.json`. See [Current icon purpose mappings](current-icon-purposes.md) for the authoritative complete table. The live simulator and interactive review sheet use the same generated registry; this document also describes the independent color conventions.
+
 # Healbot report icons and colors
 
 `public/healing/report-style.mjs` is the shared registry for every healer. Use semantic source names, never row rank, class, insertion order, or amount, to choose an icon or color. Keep ability icons aligned with the spellbook, talent tree, and buff selector. Decorative icons have empty alt text because the adjacent source name supplies the label.
@@ -8,8 +10,8 @@ Spirit regeneration is shallow tropical ocean turquoise (`#168f91`). Mana / 5 is
 
 | Source | Icon file under `public/healing/` | Bar color |
 | --- | --- | --- |
-| Spirit regeneration | report-icons/spirit.jpg | #168f91 |
-| Mana / 5 | report-icons/mp5.jpg | #225c9a |
+| Spirit regeneration | custom-icons/mystical-healing/037-blue-spirit-meditation.png | #168f91 |
+| Mana / 5 | custom-icons/arcane-vitality/091-spiraling-mana-spring.png | #225c9a |
 | Innervate | icons/spell_nature_lightning.jpg | #193b86 |
 | Inner Focus · spell cost | icons/spell_frost_windwalkon.jpg | #51458f |
 | Inner Focus · Spirit regeneration | icons/spell_frost_windwalkon.jpg | #4265a4 |
@@ -27,11 +29,11 @@ All currently generated non-ability sources are listed here. The custom report i
 
 | Entry | Icon file under `public/healing/` | Spirit child color | MP5 child color |
 | --- | --- | --- | --- |
-| Base Spirit | report-icons/spirit.jpg | hsl(181 73% 33%) | hsl(211 64% 37%) |
-| Base regeneration | report-icons/gained.jpg | hsl(177 65% 28%) | hsl(207 56% 32%) |
-| Gear | report-icons/efficiency.jpg | hsl(185 67% 36%) | hsl(215 58% 40%) |
-| Human racial | report-icons/survived.jpg | hsl(175 76% 30%) | hsl(205 67% 34%) |
-| Spirit talents | report-icons/spirit.jpg | hsl(186 69% 31%) | hsl(216 60% 35%) |
+| Base Spirit | custom-icons/mystical-healing/037-blue-spirit-meditation.png | hsl(181 73% 33%) | hsl(211 64% 37%) |
+| Base regeneration | custom-icons/arcane-vitality/037-tiered-mana-fountain.png | hsl(177 65% 28%) | hsl(207 56% 32%) |
+| Gear | custom-icons/mystical-healing/036-crystal-healing-staff.png | hsl(185 67% 36%) | hsl(215 58% 40%) |
+| Human racial | custom-icons/mystical-healing/030-sunlit-healer.png | hsl(175 76% 30%) | hsl(205 67% 34%) |
+| Spirit talents | custom-icons/mystical-healing/037-blue-spirit-meditation.png | hsl(186 69% 31%) | hsl(216 60% 35%) |
 | Living Spirit | icons/spell_nature_giftofthewaterspirit.jpg | hsl(186 76% 30%) | hsl(216 67% 34%) |
 | Mark of the Wild | icons/spell_nature_regeneration.jpg | hsl(176 70% 37%) | hsl(206 61% 41%) |
 | Divine Spirit | icons/spell_holy_divinespirit.jpg | hsl(184 78% 32%) | hsl(214 69% 36%) |
@@ -94,16 +96,16 @@ Expanded Spirit entries split at the normal contribution: normal turquoise first
 
 `public/healing/healing-events.mjs` is the shared site-wide definition of event keys, labels, and icon-sheet tiles. All healer reports must use this mapping:
 
-| Key | Label | Sheet tile under `public/healing/report-icons/` | Treatment |
+| Key | Label | Registry purpose | Treatment |
 | --- | --- | --- | --- |
-| `d_hits` | Direct hits | `healing.jpg` | Green healing cross; non-critical direct events |
-| `d_crits` | Direct crits | `crit.jpg` | Blue critical star |
-| `p_hits` | Periodic hits | `hps.jpg` | Hands receiving repeated healing |
-| `p_crits` | Periodic crits | `crit.jpg` + `hps.jpg` | Critical star with a small periodic-healing tile badge at bottom right |
+| `d_hits` | Direct hits | `direct-hits` | Arcane Vitality 021 |
+| `d_crits` | Direct crits | `crits` | Arcane Vitality 047 |
+| `p_hits` | Periodic hits | `periodic-hits` | Arcane Vitality 033 |
+| `p_crits` | Periodic crits | `periodic-crits` | Arcane Vitality 067; a single selected icon replaces the old badge composite |
 
 Keep the order direct hits, direct crits, periodic hits, periodic crits. Display both hit/crit bars for every event type present, including zero-count critical bars. Pure direct heals show two direct bars; pure HoTs/totems show two periodic bars; hybrid spells such as Regrowth show all four after ticking. Channel ticks, including an immediate channel tick, count as periodic events for this breakdown. Absorbed damage events are recorded in the direct/non-critical bucket of the absorb meter.
 
-Bar lengths represent effective healing, using the same scale as their parent spell, and tooltips show effective healing and overhealing. The right-hand value is event count. Critical bars append their critical percentage within that event type, not within all spell events: 4 direct hits and 6 direct crits display `4` and `6 (60%)`. Periodic crit percentages use only periodic events. Fully overhealing events still count. Keep the existing Casts, Healing events, Normal hits, Critical hits, Overhealing, and Healing per mana metric tiles below these bars.
+Bar lengths represent effective healing, using the same scale as their parent spell, and tooltips show effective healing and overhealing. The right-hand value is event count. Critical bars append their critical percentage within that event type, not within all spell events: 4 direct hits and 6 direct crits display `4` and `6 (60%)`. Periodic crit percentages use only periodic events. Fully overhealing events still count. Keep the existing Casts, Normal hits, Critical hits, Overhealing, and Healing per mana metric tiles below these bars.
 
 Healing Stream Totem ticks can critically heal using the current healing crit chance. Its crits remain excluded from Water Shield activation. Run `node --test tests/healing-events.mjs` to verify category totals, crit denominators, hybrid overhealing, and Healing Stream/Water Shield behavior.
 
@@ -111,7 +113,7 @@ Healing Stream Totem ticks can critically heal using the current healing crit ch
 
 The Mana gained section heading is a full-width blue mana bar using the existing main-mana vertical gradient. Its right edge shows `state.manaGained`, and resets to zero for each new run.
 
-Place a compact gearing button immediately before the right-aligned numeric columns of the Spirit regeneration and Mana / 5 summaries. Use the standard custom `spirit.jpg` and `mp5.jpg` tiles respectively. Display `state.manaPerSpirit` as mana per +1 base Spirit and `state.manaPerMp5` as mana per +1 mana / 5, to one decimal place. The Spirit value includes raw-Spirit multipliers, casting regeneration, and Innervate. Both values use the engine's marginal-regeneration headroom calculation and freeze when combat ends. The accessible name and hover tooltip explain the units; clicking the button must not toggle the parent breakdown. When Innervate is present, place the Spirit indicator after its heading and before its numeric columns; otherwise place it before the Spirit numeric columns.
+Place a compact gearing button immediately before the right-aligned numeric columns of the Spirit regeneration and Mana / 5 summaries. Use the shared `spirit` and `mp5` purpose icons respectively. Display `state.manaPerSpirit` as mana per +1 base Spirit and `state.manaPerMp5` as mana per +1 mana / 5, to one decimal place. The Spirit value includes raw-Spirit multipliers, casting regeneration, and Innervate. Both values use the engine's marginal-regeneration headroom calculation and freeze when combat ends. The accessible name and hover tooltip explain the units; clicking the button must not toggle the parent breakdown. When Innervate is present, place the Spirit indicator after its heading and before its numeric columns; otherwise place it before the Spirit numeric columns.
 
 ## Water Shield uptime
 

@@ -28,7 +28,7 @@ The full original set is now cataloged alongside the two newer sets; existing re
 
 For small UI images, use explicit width/height and `object-fit:contain` to preserve a rectangular tile’s full art, or consciously use `cover` for a square slot. Use empty alt text where adjacent text already names the concept; use descriptive alt text for standalone informational icons. The catalog gallery uses descriptive link labels and empty image alt text to avoid duplicate announcements.
 
-## Original report icon cross-reference
+## Original report icon cross-reference (legacy files)
 
 Existing 96×96 report JPEGs are preserved at their existing URLs. Their matching tiles in the recovered original atlas are documented below and linked by `legacyReportPath` in the JSON catalog.
 
@@ -44,3 +44,5 @@ Existing 96×96 report JPEGs are preserved at their existing URLs. Their matchin
 | mp5.jpg | arcane-vitality-058 | Spiraling water fountain |
 | spirit.jpg | arcane-vitality-066 | Spirit meditation |
 | remaining.jpg | arcane-vitality-086 | Round blue mana potion |
+
+The current live purpose choices and the interactive review sheet are now generated from `public/healing/custom-icons/icon-purposes.json`. See [Current icon purpose mappings](current-icon-purposes.md). The legacy report files listed above are retained for compatibility; their presence does not mean they remain the current selected art.

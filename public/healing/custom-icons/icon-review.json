@@ -1,121 +1,125 @@
 {
-  "version": 1,
+  "version": 2,
   "rows": [
     {
       "key": "healing",
       "purpose": "Effective healing / +healing",
-      "where": "Fight total, direct-hit event rows and Additional +healing field.",
-      "status": "current",
-      "note": "One healing icon should remain consistent across classes.",
-      "options": [
-        {
-          "id": "arcane-vitality-001",
-          "name": "Golden healing hand",
-          "path": "arcane-vitality/001-golden-healing-hand.png"
-        },
-        {
-          "id": "mystical-healing-094",
-          "name": "Radiant heart in hands",
-          "path": "mystical-healing/094-radiant-heart-in-hands.png"
-        },
-        {
-          "id": "mystical-healing-001",
-          "name": "Healing light in hands",
-          "path": "mystical-healing/001-healing-light-in-hands.png"
-        }
-      ],
-      "current": {
-        "path": "../report-icons/healing.jpg",
-        "id": "arcane-vitality-009",
-        "name": "Golden healing cross"
-      }
-    },
-    {
-      "key": "hps",
-      "purpose": "Healing per second",
-      "where": "Fight total: effective healing divided by encounter duration.",
+      "where": "Fight totals and Additional +healing. Direct-hit rows now have their own selected icon.",
       "status": "current",
       "note": "",
       "options": [
         {
-          "id": "arcane-vitality-033",
-          "name": "Golden light well",
-          "path": "arcane-vitality/033-golden-light-well.png"
+          "id": "arcane-vitality-001",
+          "name": "Golden healing hand",
+          "path": "custom-icons/arcane-vitality/001-golden-healing-hand.png"
         },
+        {
+          "id": "mystical-healing-094",
+          "name": "Radiant heart in hands",
+          "path": "custom-icons/mystical-healing/094-radiant-heart-in-hands.png"
+        },
+        {
+          "id": "mystical-healing-001",
+          "name": "Healing light in hands",
+          "path": "custom-icons/mystical-healing/001-healing-light-in-hands.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-009",
+        "name": "Golden healing cross",
+        "path": "custom-icons/arcane-vitality/009-golden-healing-cross.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "hps",
+      "purpose": "Healing per second",
+      "where": "Fight total: effective healing per second. Periodic hits share this selected art.",
+      "status": "current",
+      "note": "",
+      "options": [
         {
           "id": "mystical-healing-034",
           "name": "Group healing circle",
-          "path": "mystical-healing/034-group-healing-circle.png"
+          "path": "custom-icons/mystical-healing/034-group-healing-circle.png"
         },
         {
           "id": "mystical-healing-081",
           "name": "Lavender sunrise valley",
-          "path": "mystical-healing/081-lavender-sunrise-valley.png"
+          "path": "custom-icons/mystical-healing/081-lavender-sunrise-valley.png"
+        },
+        {
+          "id": "arcane-vitality-022",
+          "name": "Golden light offering",
+          "path": "custom-icons/arcane-vitality/022-golden-light-offering.png"
         }
       ],
       "current": {
-        "path": "../report-icons/hps.jpg",
-        "id": "arcane-vitality-022",
-        "name": "Golden light offering"
-      }
+        "id": "arcane-vitality-033",
+        "name": "Golden light well",
+        "path": "custom-icons/arcane-vitality/033-golden-light-well.png"
+      },
+      "implemented": true
     },
     {
       "key": "overheal",
       "purpose": "Overhealing",
-      "where": "Fight total and each spell\u2019s expanded report.",
+      "where": "Fight total and each spell’s expanded report.",
       "status": "current",
-      "note": "Overflowing water is a visual alternative to the current protective bubble.",
+      "note": "",
       "options": [
         {
           "id": "mana-renewal-078",
           "name": "Spiral blue mana flask",
-          "path": "mana-renewal/078-spiral-blue-mana-flask.png"
+          "path": "custom-icons/mana-renewal/078-spiral-blue-mana-flask.png"
         },
         {
           "id": "mystical-healing-051",
           "name": "Water healing hands",
-          "path": "mystical-healing/051-water-healing-hands.png"
+          "path": "custom-icons/mystical-healing/051-water-healing-hands.png"
         },
         {
           "id": "mana-renewal-025",
           "name": "Pink cherry blossom",
-          "path": "mana-renewal/025-pink-cherry-blossom.png"
+          "path": "custom-icons/mana-renewal/025-pink-cherry-blossom.png"
         }
       ],
       "current": {
-        "path": "../report-icons/overheal.jpg",
         "id": "arcane-vitality-034",
-        "name": "Protective healing bubble"
-      }
+        "name": "Protective healing bubble",
+        "path": "custom-icons/arcane-vitality/034-protective-healing-bubble.png"
+      },
+      "implemented": true
     },
     {
       "key": "hpm",
       "purpose": "Healing per mana",
-      "where": "Fight total and each spell\u2019s healing-to-mana ratio.",
+      "where": "Fight total and each spell’s healing-to-mana ratio.",
       "status": "current",
       "note": "",
       "options": [
         {
           "id": "mana-renewal-033",
           "name": "Seedling in soil",
-          "path": "mana-renewal/033-seedling-in-soil.png"
+          "path": "custom-icons/mana-renewal/033-seedling-in-soil.png"
         },
         {
           "id": "mystical-healing-017",
           "name": "Seedling in healing hands",
-          "path": "mystical-healing/017-seedling-in-healing-hands.png"
+          "path": "custom-icons/mystical-healing/017-seedling-in-healing-hands.png"
         },
         {
           "id": "arcane-vitality-097",
           "name": "Spirit flower in hands",
-          "path": "arcane-vitality/097-spirit-flower-in-hands.png"
+          "path": "custom-icons/arcane-vitality/097-spirit-flower-in-hands.png"
         }
       ],
       "current": {
-        "path": "../report-icons/efficiency.jpg",
         "id": "arcane-vitality-054",
-        "name": "Leaf and water crest"
-      }
+        "name": "Leaf and water crest",
+        "path": "custom-icons/arcane-vitality/054-leaf-and-water-crest.png"
+      },
+      "implemented": true
     },
     {
       "key": "remaining",
@@ -125,26 +129,27 @@
       "note": "",
       "options": [
         {
-          "id": "arcane-vitality-095",
-          "name": "Tall blue mana potion",
-          "path": "arcane-vitality/095-tall-blue-mana-potion.png"
-        },
-        {
           "id": "mana-renewal-040",
           "name": "Round blue mana flask",
-          "path": "mana-renewal/040-round-blue-mana-flask.png"
+          "path": "custom-icons/mana-renewal/040-round-blue-mana-flask.png"
         },
         {
           "id": "mystical-healing-003",
           "name": "Blue crystal potion",
-          "path": "mystical-healing/003-blue-crystal-potion.png"
+          "path": "custom-icons/mystical-healing/003-blue-crystal-potion.png"
+        },
+        {
+          "id": "arcane-vitality-086",
+          "name": "Round blue mana potion",
+          "path": "custom-icons/arcane-vitality/086-round-blue-mana-potion.png"
         }
       ],
       "current": {
-        "path": "../report-icons/remaining.jpg",
-        "id": "arcane-vitality-086",
-        "name": "Round blue mana potion"
-      }
+        "id": "arcane-vitality-095",
+        "name": "Tall blue mana potion",
+        "path": "custom-icons/arcane-vitality/095-tall-blue-mana-potion.png"
+      },
+      "implemented": true
     },
     {
       "key": "gained",
@@ -154,84 +159,87 @@
       "note": "",
       "options": [
         {
-          "id": "arcane-vitality-045",
-          "name": "Overflowing mana fountain",
-          "path": "arcane-vitality/045-overflowing-mana-fountain.png"
-        },
-        {
           "id": "mana-renewal-078",
           "name": "Spiral blue mana flask",
-          "path": "mana-renewal/078-spiral-blue-mana-flask.png"
+          "path": "custom-icons/mana-renewal/078-spiral-blue-mana-flask.png"
         },
         {
           "id": "mystical-healing-039",
           "name": "Willow healing pool",
-          "path": "mystical-healing/039-willow-healing-pool.png"
+          "path": "custom-icons/mystical-healing/039-willow-healing-pool.png"
+        },
+        {
+          "id": "arcane-vitality-037",
+          "name": "Tiered mana fountain",
+          "path": "custom-icons/arcane-vitality/037-tiered-mana-fountain.png"
         }
       ],
       "current": {
-        "path": "../report-icons/gained.jpg",
-        "id": "arcane-vitality-037",
-        "name": "Tiered mana fountain"
-      }
+        "id": "arcane-vitality-045",
+        "name": "Overflowing mana fountain",
+        "path": "custom-icons/arcane-vitality/045-overflowing-mana-fountain.png"
+      },
+      "implemented": true
     },
     {
       "key": "spirit",
       "purpose": "Spirit regeneration / Spirit stat",
       "where": "Mana source, Base Spirit and generic Spirit talent contributions, mana per base Spirit button, Additional Spirit.",
       "status": "current",
-      "note": "Choose one shared Spirit identity for all healers and these related uses.",
+      "note": "",
       "options": [
         {
           "id": "arcane-vitality-075",
           "name": "Azure flame meditation",
-          "path": "arcane-vitality/075-azure-flame-meditation.png"
-        },
-        {
-          "id": "mystical-healing-037",
-          "name": "Blue spirit meditation",
-          "path": "mystical-healing/037-blue-spirit-meditation.png"
+          "path": "custom-icons/arcane-vitality/075-azure-flame-meditation.png"
         },
         {
           "id": "mana-renewal-087",
           "name": "Meditating sage",
-          "path": "mana-renewal/087-meditating-sage.png"
+          "path": "custom-icons/mana-renewal/087-meditating-sage.png"
+        },
+        {
+          "id": "arcane-vitality-066",
+          "name": "Spirit meditation",
+          "path": "custom-icons/arcane-vitality/066-spirit-meditation.png"
         }
       ],
       "current": {
-        "path": "../report-icons/spirit.jpg",
-        "id": "arcane-vitality-066",
-        "name": "Spirit meditation"
-      }
+        "id": "mystical-healing-037",
+        "name": "Blue spirit meditation",
+        "path": "custom-icons/mystical-healing/037-blue-spirit-meditation.png"
+      },
+      "implemented": true
     },
     {
       "key": "mp5",
       "purpose": "Mana / 5 stat and regeneration",
       "where": "Mana source, mana per MP5 button and Additional Mana / 5.",
       "status": "current",
-      "note": "Choose one shared MP5 identity for all healers.",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-091",
-          "name": "Spiraling mana spring",
-          "path": "arcane-vitality/091-spiraling-mana-spring.png"
-        },
         {
           "id": "mana-renewal-076",
           "name": "Underwater light pillars",
-          "path": "mana-renewal/076-underwater-light-pillars.png"
+          "path": "custom-icons/mana-renewal/076-underwater-light-pillars.png"
         },
         {
           "id": "mana-renewal-016",
           "name": "Single water ripple",
-          "path": "mana-renewal/016-single-water-ripple.png"
+          "path": "custom-icons/mana-renewal/016-single-water-ripple.png"
+        },
+        {
+          "id": "arcane-vitality-058",
+          "name": "Spiraling water fountain",
+          "path": "custom-icons/arcane-vitality/058-spiraling-water-fountain.png"
         }
       ],
       "current": {
-        "path": "../report-icons/mp5.jpg",
-        "id": "arcane-vitality-058",
-        "name": "Spiraling water fountain"
-      }
+        "id": "arcane-vitality-091",
+        "name": "Spiraling mana spring",
+        "path": "custom-icons/arcane-vitality/091-spiraling-mana-spring.png"
+      },
+      "implemented": true
     },
     {
       "key": "survived",
@@ -243,530 +251,596 @@
         {
           "id": "arcane-vitality-099",
           "name": "Inner spirit prayer",
-          "path": "arcane-vitality/099-inner-spirit-prayer.png"
+          "path": "custom-icons/arcane-vitality/099-inner-spirit-prayer.png"
         },
         {
           "id": "mystical-healing-060",
           "name": "Healing fellowship",
-          "path": "mystical-healing/060-healing-fellowship.png"
+          "path": "custom-icons/mystical-healing/060-healing-fellowship.png"
         },
         {
           "id": "mana-renewal-080",
           "name": "Golden forest deer",
-          "path": "mana-renewal/080-golden-forest-deer.png"
+          "path": "custom-icons/mana-renewal/080-golden-forest-deer.png"
         }
       ],
       "current": {
-        "path": "../report-icons/survived.jpg",
         "id": "arcane-vitality-010",
-        "name": "Luminous spirit shield"
-      }
+        "name": "Luminous spirit shield",
+        "path": "custom-icons/arcane-vitality/010-luminous-spirit-shield.png"
+      },
+      "implemented": true
     },
     {
       "key": "crits",
       "purpose": "Critical hits",
-      "where": "Each spell\u2019s total critical healing events and its direct-crit event bar.",
+      "where": "Total critical hit counts and direct critical event bars.",
       "status": "current",
       "note": "",
       "options": [
         {
           "id": "arcane-vitality-056",
           "name": "Angular crystal crest",
-          "path": "arcane-vitality/056-angular-crystal-crest.png"
+          "path": "custom-icons/arcane-vitality/056-angular-crystal-crest.png"
         },
         {
           "id": "mystical-healing-029",
           "name": "Golden crystal eruption",
-          "path": "mystical-healing/029-golden-crystal-eruption.png"
+          "path": "custom-icons/mystical-healing/029-golden-crystal-eruption.png"
         },
         {
           "id": "mystical-healing-015",
           "name": "Radiant healing heart",
-          "path": "mystical-healing/015-radiant-healing-heart.png"
+          "path": "custom-icons/mystical-healing/015-radiant-healing-heart.png"
         }
       ],
       "current": {
-        "path": "../report-icons/crit.jpg",
         "id": "arcane-vitality-047",
-        "name": "Radiant spirit star"
-      }
+        "name": "Radiant spirit star",
+        "path": "custom-icons/arcane-vitality/047-radiant-spirit-star.png"
+      },
+      "implemented": true
     },
     {
       "key": "casts",
       "purpose": "Spell casts",
-      "where": "Cast count below an expanded healing meter entry.",
+      "where": "Cast count below each expanded spell; Direct hits share this selected art.",
       "status": "current",
-      "note": "Currently reuses the HPS icon; a separate cast identity would reduce ambiguity.",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-021",
-          "name": "Hands in golden light",
-          "path": "arcane-vitality/021-hands-in-golden-light.png"
-        },
         {
           "id": "mystical-healing-082",
           "name": "Healing touch",
-          "path": "mystical-healing/082-healing-touch.png"
+          "path": "custom-icons/mystical-healing/082-healing-touch.png"
         },
         {
           "id": "arcane-vitality-093",
           "name": "Spirit wisp in hand",
-          "path": "arcane-vitality/093-spirit-wisp-in-hand.png"
+          "path": "custom-icons/arcane-vitality/093-spirit-wisp-in-hand.png"
+        },
+        {
+          "id": "arcane-vitality-022",
+          "name": "Golden light offering",
+          "path": "custom-icons/arcane-vitality/022-golden-light-offering.png"
         }
       ],
       "current": {
-        "path": "../report-icons/hps.jpg",
-        "id": "arcane-vitality-022",
-        "name": "Golden light offering"
-      }
+        "id": "arcane-vitality-021",
+        "name": "Hands in golden light",
+        "path": "custom-icons/arcane-vitality/021-hands-in-golden-light.png"
+      },
+      "implemented": true
     },
     {
       "key": "normal-hits",
       "purpose": "Normal hits",
-      "where": "Total non-critical healing events below an expanded spell.",
+      "where": "Non-critical healing event counts below each spell.",
       "status": "current",
-      "note": "Currently reuses the survivor icon.",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-001",
-          "name": "Golden healing hand",
-          "path": "arcane-vitality/001-golden-healing-hand.png"
-        },
         {
           "id": "mystical-healing-042",
           "name": "Golden healer prayer",
-          "path": "mystical-healing/042-golden-healer-prayer.png"
+          "path": "custom-icons/mystical-healing/042-golden-healer-prayer.png"
         },
         {
           "id": "mystical-healing-094",
           "name": "Radiant heart in hands",
-          "path": "mystical-healing/094-radiant-heart-in-hands.png"
+          "path": "custom-icons/mystical-healing/094-radiant-heart-in-hands.png"
+        },
+        {
+          "id": "arcane-vitality-010",
+          "name": "Luminous spirit shield",
+          "path": "custom-icons/arcane-vitality/010-luminous-spirit-shield.png"
         }
       ],
       "current": {
-        "path": "../report-icons/survived.jpg",
-        "id": "arcane-vitality-010",
-        "name": "Luminous spirit shield"
-      }
+        "id": "arcane-vitality-001",
+        "name": "Golden healing hand",
+        "path": "custom-icons/arcane-vitality/001-golden-healing-hand.png"
+      },
+      "implemented": true
     },
     {
       "key": "direct-hits",
       "purpose": "Direct hits",
-      "where": "Non-critical direct healing event bar.",
+      "where": "Direct non-critical healing event bars.",
       "status": "current",
-      "note": "Can intentionally share the main healing icon, or use a distinct direct-heal symbol.",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-021",
-          "name": "Hands in golden light",
-          "path": "arcane-vitality/021-hands-in-golden-light.png"
-        },
         {
           "id": "mystical-healing-082",
           "name": "Healing touch",
-          "path": "mystical-healing/082-healing-touch.png"
+          "path": "custom-icons/mystical-healing/082-healing-touch.png"
         },
         {
           "id": "mystical-healing-001",
           "name": "Healing light in hands",
-          "path": "mystical-healing/001-healing-light-in-hands.png"
+          "path": "custom-icons/mystical-healing/001-healing-light-in-hands.png"
+        },
+        {
+          "id": "arcane-vitality-009",
+          "name": "Golden healing cross",
+          "path": "custom-icons/arcane-vitality/009-golden-healing-cross.png"
         }
       ],
       "current": {
-        "path": "../report-icons/healing.jpg",
-        "id": "arcane-vitality-009",
-        "name": "Golden healing cross"
-      }
+        "id": "arcane-vitality-021",
+        "name": "Hands in golden light",
+        "path": "custom-icons/arcane-vitality/021-hands-in-golden-light.png"
+      },
+      "implemented": true
     },
     {
       "key": "periodic-hits",
       "purpose": "Periodic hits",
       "where": "Non-critical HoT and channel tick event bars.",
       "status": "current",
-      "note": "Currently reuses the HPS icon; a ripple or flowing well suggests repeated ticks.",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-033",
-          "name": "Golden light well",
-          "path": "arcane-vitality/033-golden-light-well.png"
-        },
         {
           "id": "mana-renewal-016",
           "name": "Single water ripple",
-          "path": "mana-renewal/016-single-water-ripple.png"
+          "path": "custom-icons/mana-renewal/016-single-water-ripple.png"
         },
         {
           "id": "mystical-healing-053",
           "name": "Lotus pond ripples",
-          "path": "mystical-healing/053-lotus-pond-ripples.png"
+          "path": "custom-icons/mystical-healing/053-lotus-pond-ripples.png"
+        },
+        {
+          "id": "arcane-vitality-022",
+          "name": "Golden light offering",
+          "path": "custom-icons/arcane-vitality/022-golden-light-offering.png"
         }
       ],
       "current": {
-        "path": "../report-icons/hps.jpg",
-        "id": "arcane-vitality-022",
-        "name": "Golden light offering"
-      }
+        "id": "arcane-vitality-033",
+        "name": "Golden light well",
+        "path": "custom-icons/arcane-vitality/033-golden-light-well.png"
+      },
+      "implemented": true
     },
     {
       "key": "periodic-crits",
       "purpose": "Periodic critical hits",
-      "where": "Critical HoT/channel event bars.",
+      "where": "Critical HoT/channel event bars; selected single icon replaces the old badge composite.",
       "status": "current",
-      "note": "Current display combines the crit icon with a small HPS badge. Alternatives are single-icon designs.",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-067",
-          "name": "Flowing crystal leaves",
-          "path": "arcane-vitality/067-flowing-crystal-leaves.png"
-        },
         {
           "id": "mana-renewal-045",
           "name": "Dandelion blessing",
-          "path": "mana-renewal/045-dandelion-blessing.png"
+          "path": "custom-icons/mana-renewal/045-dandelion-blessing.png"
         },
         {
           "id": "mystical-healing-034",
           "name": "Group healing circle",
-          "path": "mystical-healing/034-group-healing-circle.png"
+          "path": "custom-icons/mystical-healing/034-group-healing-circle.png"
+        },
+        {
+          "id": "arcane-vitality-047",
+          "name": "Radiant spirit star",
+          "path": "custom-icons/arcane-vitality/047-radiant-spirit-star.png"
         }
       ],
       "current": {
-        "path": "../report-icons/crit.jpg",
-        "id": "arcane-vitality-047",
-        "name": "Radiant spirit star",
-        "badge": "../report-icons/hps.jpg"
-      }
+        "id": "arcane-vitality-067",
+        "name": "Flowing crystal leaves",
+        "path": "custom-icons/arcane-vitality/067-flowing-crystal-leaves.png"
+      },
+      "implemented": true
     },
     {
       "key": "base-regen",
       "purpose": "Base regeneration",
-      "where": "Flat regeneration contribution within the Spirit mana breakdown.",
+      "where": "Flat base regeneration contribution. No replacement was requested, so its original icon is retained.",
       "status": "current",
-      "note": "Currently shares the total Mana gained icon; this is separate from Base Spirit.",
+      "note": "",
       "options": [
         {
           "id": "mana-renewal-001",
           "name": "Dewdrop leaf",
-          "path": "mana-renewal/001-dewdrop-leaf.png"
+          "path": "custom-icons/mana-renewal/001-dewdrop-leaf.png"
         },
         {
           "id": "mana-renewal-017",
           "name": "Glowing blue mushrooms",
-          "path": "mana-renewal/017-glowing-blue-mushrooms.png"
+          "path": "custom-icons/mana-renewal/017-glowing-blue-mushrooms.png"
         },
         {
           "id": "mystical-healing-011",
           "name": "Dewdrop on grass",
-          "path": "mystical-healing/011-dewdrop-on-grass.png"
+          "path": "custom-icons/mystical-healing/011-dewdrop-on-grass.png"
         }
       ],
       "current": {
-        "path": "../report-icons/gained.jpg",
         "id": "arcane-vitality-037",
-        "name": "Tiered mana fountain"
-      }
+        "name": "Tiered mana fountain",
+        "path": "custom-icons/arcane-vitality/037-tiered-mana-fountain.png"
+      },
+      "implemented": true
     },
     {
       "key": "gear",
       "purpose": "Gear contribution",
-      "where": "Gear-provided Spirit and MP5 contributions in mana breakdowns.",
+      "where": "Gear-provided Spirit and MP5 contributions.",
       "status": "current",
-      "note": "Currently shares Healing per mana. A dedicated equipment symbol would be clearer.",
+      "note": "",
       "options": [
         {
           "id": "arcane-vitality-036",
           "name": "Shattered azure crystal",
-          "path": "arcane-vitality/036-shattered-azure-crystal.png"
-        },
-        {
-          "id": "mystical-healing-036",
-          "name": "Crystal healing staff",
-          "path": "mystical-healing/036-crystal-healing-staff.png"
+          "path": "custom-icons/arcane-vitality/036-shattered-azure-crystal.png"
         },
         {
           "id": "mystical-healing-049",
           "name": "Open spellbook",
-          "path": "mystical-healing/049-open-spellbook.png"
+          "path": "custom-icons/mystical-healing/049-open-spellbook.png"
+        },
+        {
+          "id": "arcane-vitality-054",
+          "name": "Leaf and water crest",
+          "path": "custom-icons/arcane-vitality/054-leaf-and-water-crest.png"
         }
       ],
       "current": {
-        "path": "../report-icons/efficiency.jpg",
-        "id": "arcane-vitality-054",
-        "name": "Leaf and water crest"
-      }
+        "id": "mystical-healing-036",
+        "name": "Crystal healing staff",
+        "path": "custom-icons/mystical-healing/036-crystal-healing-staff.png"
+      },
+      "implemented": true
     },
     {
       "key": "human",
       "purpose": "Human racial contribution",
-      "where": "Human Spirit racial contribution in mana breakdowns.",
+      "where": "Human Spirit racial contribution.",
       "status": "current",
-      "note": "Currently shares Players kept alive. Named spell and buff icons remain their own ability art.",
+      "note": "",
       "options": [
         {
           "id": "mana-renewal-067",
           "name": "Flower-crowned renewal",
-          "path": "mana-renewal/067-flower-crowned-renewal.png"
+          "path": "custom-icons/mana-renewal/067-flower-crowned-renewal.png"
         },
         {
           "id": "mystical-healing-055",
           "name": "Leaf-crowned wanderer",
-          "path": "mystical-healing/055-leaf-crowned-wanderer.png"
+          "path": "custom-icons/mystical-healing/055-leaf-crowned-wanderer.png"
         },
         {
-          "id": "mystical-healing-030",
-          "name": "Sunlit healer",
-          "path": "mystical-healing/030-sunlit-healer.png"
+          "id": "arcane-vitality-010",
+          "name": "Luminous spirit shield",
+          "path": "custom-icons/arcane-vitality/010-luminous-spirit-shield.png"
         }
       ],
       "current": {
-        "path": "../report-icons/survived.jpg",
-        "id": "arcane-vitality-010",
-        "name": "Luminous spirit shield"
-      }
+        "id": "mystical-healing-030",
+        "name": "Sunlit healer",
+        "path": "custom-icons/mystical-healing/030-sunlit-healer.png"
+      },
+      "implemented": true
     },
     {
       "key": "intellect",
       "purpose": "Intellect / Additional Intellect",
-      "where": "Additional Intellect field; a consistent custom option could also serve the character\u2019s Intellect stat.",
+      "where": "Additional Intellect field and character sheet Intellect.",
       "status": "borrowed",
-      "note": "Currently uses a Blizzard ability icon rather than a custom stat icon.",
+      "note": "",
       "options": [
         {
           "id": "arcane-vitality-062",
           "name": "Diamond arcane rune",
-          "path": "arcane-vitality/062-diamond-arcane-rune.png"
+          "path": "custom-icons/arcane-vitality/062-diamond-arcane-rune.png"
         },
         {
           "id": "mystical-healing-049",
           "name": "Open spellbook",
-          "path": "mystical-healing/049-open-spellbook.png"
+          "path": "custom-icons/mystical-healing/049-open-spellbook.png"
         },
         {
           "id": "arcane-vitality-061",
           "name": "Azure rune frame",
-          "path": "arcane-vitality/061-azure-rune-frame.png"
+          "path": "custom-icons/arcane-vitality/061-azure-rune-frame.png"
         }
       ],
       "current": {
-        "path": "../icons/spell_holy_magicalsentry.jpg",
-        "name": "Borrowed Intellect ability icon"
-      }
+        "id": "ability:spell_holy_magicalsentry",
+        "name": "Intellect ability icon",
+        "path": "icons/spell_holy_magicalsentry.jpg"
+      },
+      "implemented": true
     },
     {
       "key": "score",
       "purpose": "Healing Score",
-      "where": "The final score heading currently has text only.",
-      "status": "missing",
-      "note": "Missing custom icon; proposed placement only.",
+      "where": "Final Healing Score heading.",
+      "status": "current",
+      "note": "",
       "options": [
         {
           "id": "mystical-healing-093",
           "name": "Floating sacred temple",
-          "path": "mystical-healing/093-floating-sacred-temple.png"
-        },
-        {
-          "id": "mystical-healing-099",
-          "name": "Golden healing assembly",
-          "path": "mystical-healing/099-golden-healing-assembly.png"
+          "path": "custom-icons/mystical-healing/093-floating-sacred-temple.png"
         },
         {
           "id": "mystical-healing-005",
           "name": "Golden tree of life",
-          "path": "mystical-healing/005-golden-tree-of-life.png"
+          "path": "custom-icons/mystical-healing/005-golden-tree-of-life.png"
+        },
+        {
+          "id": "mystical-healing-034",
+          "name": "Group healing circle",
+          "path": "custom-icons/mystical-healing/034-group-healing-circle.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "mystical-healing-099",
+        "name": "Golden healing assembly",
+        "path": "custom-icons/mystical-healing/099-golden-healing-assembly.png"
+      },
+      "implemented": true
     },
     {
       "key": "efficiency-percent",
       "purpose": "Healing efficiency percentage",
-      "where": "Purple efficiency factor in the score formula currently has no icon.",
-      "status": "missing",
-      "note": "Distinct from Healing per mana: this is the effective share of total healing.",
+      "where": "Efficiency percentage in the score formula.",
+      "status": "current",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-054",
-          "name": "Leaf and water crest",
-          "path": "arcane-vitality/054-leaf-and-water-crest.png"
-        },
         {
           "id": "mana-renewal-033",
           "name": "Seedling in soil",
-          "path": "mana-renewal/033-seedling-in-soil.png"
+          "path": "custom-icons/mana-renewal/033-seedling-in-soil.png"
         },
         {
           "id": "mystical-healing-017",
           "name": "Seedling in healing hands",
-          "path": "mystical-healing/017-seedling-in-healing-hands.png"
+          "path": "custom-icons/mystical-healing/017-seedling-in-healing-hands.png"
+        },
+        {
+          "id": "mana-renewal-061",
+          "name": "Veiled water prayer",
+          "path": "custom-icons/mana-renewal/061-veiled-water-prayer.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "arcane-vitality-054",
+        "name": "Leaf and water crest",
+        "path": "custom-icons/arcane-vitality/054-leaf-and-water-crest.png"
+      },
+      "implemented": true
     },
     {
       "key": "mana-spent",
       "purpose": "Mana spent",
-      "where": "Tracked by the simulation and used for Healing per mana; no dedicated icon/display tile currently exists.",
-      "status": "missing",
-      "note": "Proposed icon for future mana-cost reporting; this does not add a new metric.",
+      "where": "Fight report: total mana spent.",
+      "status": "current",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-083",
-          "name": "Drinking mana spring",
-          "path": "arcane-vitality/083-drinking-mana-spring.png"
-        },
         {
           "id": "mana-renewal-005",
           "name": "Azure crystals",
-          "path": "mana-renewal/005-azure-crystals.png"
+          "path": "custom-icons/mana-renewal/005-azure-crystals.png"
         },
         {
           "id": "mystical-healing-051",
           "name": "Water healing hands",
-          "path": "mystical-healing/051-water-healing-hands.png"
+          "path": "custom-icons/mystical-healing/051-water-healing-hands.png"
+        },
+        {
+          "id": "arcane-vitality-089",
+          "name": "Rising mana wisp",
+          "path": "custom-icons/arcane-vitality/089-rising-mana-wisp.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "arcane-vitality-083",
+        "name": "Drinking mana spring",
+        "path": "custom-icons/arcane-vitality/083-drinking-mana-spring.png"
+      },
+      "implemented": true
     },
     {
       "key": "max-health",
       "purpose": "Health / maximum health",
-      "where": "Character sheet resource labels currently have no icons.",
-      "status": "missing",
+      "where": "Character sheet Health.",
+      "status": "current",
       "note": "",
       "options": [
         {
           "id": "arcane-vitality-009",
           "name": "Golden healing cross",
-          "path": "arcane-vitality/009-golden-healing-cross.png"
-        },
-        {
-          "id": "mystical-healing-015",
-          "name": "Radiant healing heart",
-          "path": "mystical-healing/015-radiant-healing-heart.png"
+          "path": "custom-icons/arcane-vitality/009-golden-healing-cross.png"
         },
         {
           "id": "mystical-healing-094",
           "name": "Radiant heart in hands",
-          "path": "mystical-healing/094-radiant-heart-in-hands.png"
+          "path": "custom-icons/mystical-healing/094-radiant-heart-in-hands.png"
+        },
+        {
+          "id": "arcane-vitality-001",
+          "name": "Golden healing hand",
+          "path": "custom-icons/arcane-vitality/001-golden-healing-hand.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "mystical-healing-015",
+        "name": "Radiant healing heart",
+        "path": "custom-icons/mystical-healing/015-radiant-healing-heart.png"
+      },
+      "implemented": true
     },
     {
       "key": "max-mana",
       "purpose": "Maximum mana / base mana",
-      "where": "Character sheet mana resource labels currently have no icons.",
-      "status": "missing",
-      "note": "The same mana-pool identity can serve both resource labels.",
+      "where": "Character sheet Mana and Base mana.",
+      "status": "current",
+      "note": "",
       "options": [
         {
           "id": "arcane-vitality-086",
           "name": "Round blue mana potion",
-          "path": "arcane-vitality/086-round-blue-mana-potion.png"
+          "path": "custom-icons/arcane-vitality/086-round-blue-mana-potion.png"
         },
         {
           "id": "mystical-healing-058",
           "name": "Round azure potion",
-          "path": "mystical-healing/058-round-azure-potion.png"
+          "path": "custom-icons/mystical-healing/058-round-azure-potion.png"
         },
         {
-          "id": "mana-renewal-003",
-          "name": "Blue mana potion",
-          "path": "mana-renewal/003-blue-mana-potion.png"
+          "id": "arcane-vitality-095",
+          "name": "Tall blue mana potion",
+          "path": "custom-icons/arcane-vitality/095-tall-blue-mana-potion.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "mana-renewal-003",
+        "name": "Blue mana potion",
+        "path": "custom-icons/mana-renewal/003-blue-mana-potion.png"
+      },
+      "implemented": true
     },
     {
       "key": "stamina",
       "purpose": "Stamina",
-      "where": "Character sheet attribute currently has no icon.",
-      "status": "missing",
+      "where": "Character sheet Stamina.",
+      "status": "current",
       "note": "",
       "options": [
         {
           "id": "arcane-vitality-010",
           "name": "Luminous spirit shield",
-          "path": "arcane-vitality/010-luminous-spirit-shield.png"
-        },
-        {
-          "id": "mystical-healing-023",
-          "name": "Golden forest stag",
-          "path": "mystical-healing/023-golden-forest-stag.png"
+          "path": "custom-icons/arcane-vitality/010-luminous-spirit-shield.png"
         },
         {
           "id": "mana-renewal-080",
           "name": "Golden forest deer",
-          "path": "mana-renewal/080-golden-forest-deer.png"
+          "path": "custom-icons/mana-renewal/080-golden-forest-deer.png"
+        },
+        {
+          "id": "mystical-healing-010",
+          "name": "Golden winged spirit",
+          "path": "custom-icons/mystical-healing/010-golden-winged-spirit.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "mystical-healing-023",
+        "name": "Golden forest stag",
+        "path": "custom-icons/mystical-healing/023-golden-forest-stag.png"
+      },
+      "implemented": true
     },
     {
       "key": "strength",
       "purpose": "Strength",
-      "where": "Character sheet attribute currently has no icon.",
-      "status": "missing",
-      "note": "These atlases have no literal muscle/weapon icon; these are symbolic choices.",
+      "where": "Character sheet Strength.",
+      "status": "current",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-008",
-          "name": "Sunlit protective hand",
-          "path": "arcane-vitality/008-sunlit-protective-hand.png"
-        },
         {
           "id": "mystical-healing-023",
           "name": "Golden forest stag",
-          "path": "mystical-healing/023-golden-forest-stag.png"
+          "path": "custom-icons/mystical-healing/023-golden-forest-stag.png"
         },
         {
           "id": "mystical-healing-070",
           "name": "Golden lotus in hand",
-          "path": "mystical-healing/070-golden-lotus-in-hand.png"
+          "path": "custom-icons/mystical-healing/070-golden-lotus-in-hand.png"
+        },
+        {
+          "id": "arcane-vitality-022",
+          "name": "Golden light offering",
+          "path": "custom-icons/arcane-vitality/022-golden-light-offering.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "arcane-vitality-008",
+        "name": "Sunlit protective hand",
+        "path": "custom-icons/arcane-vitality/008-sunlit-protective-hand.png"
+      },
+      "implemented": true
     },
     {
       "key": "agility",
       "purpose": "Agility",
-      "where": "Character sheet attribute currently has no icon.",
-      "status": "missing",
-      "note": "These are symbolic choices from the available atlas art.",
+      "where": "Character sheet Agility.",
+      "status": "current",
+      "note": "",
       "options": [
         {
           "id": "mystical-healing-027",
           "name": "Violet spirit butterfly",
-          "path": "mystical-healing/027-violet-spirit-butterfly.png"
+          "path": "custom-icons/mystical-healing/027-violet-spirit-butterfly.png"
         },
         {
           "id": "mystical-healing-074",
           "name": "Sleeping forest fox",
-          "path": "mystical-healing/074-sleeping-forest-fox.png"
+          "path": "custom-icons/mystical-healing/074-sleeping-forest-fox.png"
         },
         {
-          "id": "arcane-vitality-005",
-          "name": "Wings of light",
-          "path": "arcane-vitality/005-wings-of-light.png"
+          "id": "mystical-healing-066",
+          "name": "Spectral white stag",
+          "path": "custom-icons/mystical-healing/066-spectral-white-stag.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "arcane-vitality-005",
+        "name": "Wings of light",
+        "path": "custom-icons/arcane-vitality/005-wings-of-light.png"
+      },
+      "implemented": true
     },
     {
       "key": "crit-chance",
       "purpose": "Spell critical chance",
-      "where": "Character sheet percentage currently has no icon.",
-      "status": "missing",
-      "note": "Can share Critical hits if you prefer a single crit identity.",
+      "where": "Character sheet Spell crit percentage.",
+      "status": "current",
+      "note": "",
       "options": [
-        {
-          "id": "arcane-vitality-047",
-          "name": "Radiant spirit star",
-          "path": "arcane-vitality/047-radiant-spirit-star.png"
-        },
         {
           "id": "mystical-healing-029",
           "name": "Golden crystal eruption",
-          "path": "mystical-healing/029-golden-crystal-eruption.png"
+          "path": "custom-icons/mystical-healing/029-golden-crystal-eruption.png"
         },
         {
           "id": "arcane-vitality-056",
           "name": "Angular crystal crest",
-          "path": "arcane-vitality/056-angular-crystal-crest.png"
+          "path": "custom-icons/arcane-vitality/056-angular-crystal-crest.png"
+        },
+        {
+          "id": "arcane-vitality-057",
+          "name": "Deep mana vortex",
+          "path": "custom-icons/arcane-vitality/057-deep-mana-vortex.png"
         }
-      ]
+      ],
+      "current": {
+        "id": "arcane-vitality-047",
+        "name": "Radiant spirit star",
+        "path": "custom-icons/arcane-vitality/047-radiant-spirit-star.png"
+      },
+      "implemented": true
     }
-  ]
+  ],
+  "registryVersion": "959e6cf600ce"
 }
