@@ -72,6 +72,42 @@
         1101,
         1254
       ]
+    },
+    {
+      "id": "arcane-vitality",
+      "title": "Arcane Vitality",
+      "sourceFilename": "arcane-vitality.jpg",
+      "sourceSha256": "85b14bee1ae76d3dc9f1582c9566fd6f1d643c1059ce97f737ddf72dcd0080ea",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "xBoundaries": [
+        0,
+        205,
+        410,
+        614,
+        819,
+        1024,
+        1229,
+        1434,
+        1638,
+        1843,
+        2048
+      ],
+      "yBoundaries": [
+        0,
+        205,
+        410,
+        614,
+        819,
+        1024,
+        1229,
+        1434,
+        1638,
+        1843,
+        2048
+      ]
     }
   ],
   "icons": [
@@ -4442,6 +4478,2230 @@
       "tags": [
         "guardian",
         "radiant",
+        "winged"
+      ]
+    },
+    {
+      "id": "arcane-vitality-001",
+      "set": "arcane-vitality",
+      "number": 1,
+      "row": 1,
+      "column": 1,
+      "name": "Golden healing hand",
+      "path": "arcane-vitality/001-golden-healing-hand.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        0,
+        205,
+        205
+      ],
+      "tags": [
+        "golden",
+        "hand",
+        "healing"
+      ]
+    },
+    {
+      "id": "arcane-vitality-002",
+      "set": "arcane-vitality",
+      "number": 2,
+      "row": 1,
+      "column": 2,
+      "name": "Golden lotus offering",
+      "path": "arcane-vitality/002-golden-lotus-offering.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        0,
+        410,
+        205
+      ],
+      "tags": [
+        "golden",
+        "lotus",
+        "offering"
+      ]
+    },
+    {
+      "id": "arcane-vitality-003",
+      "set": "arcane-vitality",
+      "number": 3,
+      "row": 1,
+      "column": 3,
+      "name": "Golden healing flower",
+      "path": "arcane-vitality/003-golden-healing-flower.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        0,
+        614,
+        205
+      ],
+      "tags": [
+        "flower",
+        "golden",
+        "healing"
+      ]
+    },
+    {
+      "id": "arcane-vitality-004",
+      "set": "arcane-vitality",
+      "number": 4,
+      "row": 1,
+      "column": 4,
+      "name": "Nature reaching hands",
+      "path": "arcane-vitality/004-nature-reaching-hands.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        0,
+        819,
+        205
+      ],
+      "tags": [
+        "hands",
+        "nature",
+        "reaching"
+      ]
+    },
+    {
+      "id": "arcane-vitality-005",
+      "set": "arcane-vitality",
+      "number": 5,
+      "row": 1,
+      "column": 5,
+      "name": "Wings of light",
+      "path": "arcane-vitality/005-wings-of-light.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        0,
+        1024,
+        205
+      ],
+      "tags": [
+        "light",
+        "of",
+        "wings"
+      ]
+    },
+    {
+      "id": "arcane-vitality-006",
+      "set": "arcane-vitality",
+      "number": 6,
+      "row": 1,
+      "column": 6,
+      "name": "Golden winged guardian",
+      "path": "arcane-vitality/006-golden-winged-guardian.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        0,
+        1229,
+        205
+      ],
+      "tags": [
+        "golden",
+        "guardian",
+        "winged"
+      ]
+    },
+    {
+      "id": "arcane-vitality-007",
+      "set": "arcane-vitality",
+      "number": 7,
+      "row": 1,
+      "column": 7,
+      "name": "Radiant winged healer",
+      "path": "arcane-vitality/007-radiant-winged-healer.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        0,
+        1434,
+        205
+      ],
+      "tags": [
+        "healer",
+        "radiant",
+        "winged"
+      ]
+    },
+    {
+      "id": "arcane-vitality-008",
+      "set": "arcane-vitality",
+      "number": 8,
+      "row": 1,
+      "column": 8,
+      "name": "Sunlit protective hand",
+      "path": "arcane-vitality/008-sunlit-protective-hand.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        0,
+        1638,
+        205
+      ],
+      "tags": [
+        "hand",
+        "protective",
+        "sunlit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-009",
+      "set": "arcane-vitality",
+      "number": 9,
+      "row": 1,
+      "column": 9,
+      "name": "Golden healing cross",
+      "path": "arcane-vitality/009-golden-healing-cross.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        0,
+        1843,
+        205
+      ],
+      "tags": [
+        "cross",
+        "golden",
+        "healing",
+        "healing"
+      ],
+      "legacyReportPath": "../report-icons/healing.jpg"
+    },
+    {
+      "id": "arcane-vitality-010",
+      "set": "arcane-vitality",
+      "number": 10,
+      "row": 1,
+      "column": 10,
+      "name": "Luminous spirit shield",
+      "path": "arcane-vitality/010-luminous-spirit-shield.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        0,
+        2048,
+        205
+      ],
+      "tags": [
+        "luminous",
+        "shield",
+        "spirit",
+        "survived"
+      ],
+      "legacyReportPath": "../report-icons/survived.jpg"
+    },
+    {
+      "id": "arcane-vitality-011",
+      "set": "arcane-vitality",
+      "number": 11,
+      "row": 2,
+      "column": 1,
+      "name": "Hands of renewal",
+      "path": "arcane-vitality/011-hands-of-renewal.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        205,
+        205,
+        410
+      ],
+      "tags": [
+        "hands",
+        "of",
+        "renewal"
+      ]
+    },
+    {
+      "id": "arcane-vitality-012",
+      "set": "arcane-vitality",
+      "number": 12,
+      "row": 2,
+      "column": 2,
+      "name": "Golden lotus bloom",
+      "path": "arcane-vitality/012-golden-lotus-bloom.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        205,
+        410,
+        410
+      ],
+      "tags": [
+        "bloom",
+        "golden",
+        "lotus"
+      ]
+    },
+    {
+      "id": "arcane-vitality-013",
+      "set": "arcane-vitality",
+      "number": 13,
+      "row": 2,
+      "column": 3,
+      "name": "Turquoise healing flower",
+      "path": "arcane-vitality/013-turquoise-healing-flower.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        205,
+        614,
+        410
+      ],
+      "tags": [
+        "flower",
+        "healing",
+        "turquoise"
+      ]
+    },
+    {
+      "id": "arcane-vitality-014",
+      "set": "arcane-vitality",
+      "number": 14,
+      "row": 2,
+      "column": 4,
+      "name": "Nature healing breath",
+      "path": "arcane-vitality/014-nature-healing-breath.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        205,
+        819,
+        410
+      ],
+      "tags": [
+        "breath",
+        "healing",
+        "nature"
+      ]
+    },
+    {
+      "id": "arcane-vitality-015",
+      "set": "arcane-vitality",
+      "number": 15,
+      "row": 2,
+      "column": 5,
+      "name": "Azure winged guardian",
+      "path": "arcane-vitality/015-azure-winged-guardian.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        205,
+        1024,
+        410
+      ],
+      "tags": [
+        "azure",
+        "guardian",
+        "winged"
+      ]
+    },
+    {
+      "id": "arcane-vitality-016",
+      "set": "arcane-vitality",
+      "number": 16,
+      "row": 2,
+      "column": 6,
+      "name": "Turquoise leaf aura",
+      "path": "arcane-vitality/016-turquoise-leaf-aura.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        205,
+        1229,
+        410
+      ],
+      "tags": [
+        "aura",
+        "leaf",
+        "turquoise"
+      ]
+    },
+    {
+      "id": "arcane-vitality-017",
+      "set": "arcane-vitality",
+      "number": 17,
+      "row": 2,
+      "column": 7,
+      "name": "Azure mana diamond",
+      "path": "arcane-vitality/017-azure-mana-diamond.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        205,
+        1434,
+        410
+      ],
+      "tags": [
+        "azure",
+        "diamond",
+        "mana"
+      ]
+    },
+    {
+      "id": "arcane-vitality-018",
+      "set": "arcane-vitality",
+      "number": 18,
+      "row": 2,
+      "column": 8,
+      "name": "Violet mana spiral",
+      "path": "arcane-vitality/018-violet-mana-spiral.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        205,
+        1638,
+        410
+      ],
+      "tags": [
+        "mana",
+        "spiral",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-019",
+      "set": "arcane-vitality",
+      "number": 19,
+      "row": 2,
+      "column": 9,
+      "name": "Violet crystal pedestal",
+      "path": "arcane-vitality/019-violet-crystal-pedestal.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        205,
+        1843,
+        410
+      ],
+      "tags": [
+        "crystal",
+        "pedestal",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-020",
+      "set": "arcane-vitality",
+      "number": 20,
+      "row": 2,
+      "column": 10,
+      "name": "Azure crystal fountain",
+      "path": "arcane-vitality/020-azure-crystal-fountain.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        205,
+        2048,
+        410
+      ],
+      "tags": [
+        "azure",
+        "crystal",
+        "fountain"
+      ]
+    },
+    {
+      "id": "arcane-vitality-021",
+      "set": "arcane-vitality",
+      "number": 21,
+      "row": 3,
+      "column": 1,
+      "name": "Hands in golden light",
+      "path": "arcane-vitality/021-hands-in-golden-light.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        0,
+        410,
+        205,
+        614
+      ],
+      "tags": [
+        "golden",
+        "hands",
+        "in",
+        "light"
+      ]
+    },
+    {
+      "id": "arcane-vitality-022",
+      "set": "arcane-vitality",
+      "number": 22,
+      "row": 3,
+      "column": 2,
+      "name": "Golden light offering",
+      "path": "arcane-vitality/022-golden-light-offering.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        205,
+        410,
+        410,
+        614
+      ],
+      "tags": [
+        "golden",
+        "light",
+        "offering",
+        "hps"
+      ],
+      "legacyReportPath": "../report-icons/hps.jpg"
+    },
+    {
+      "id": "arcane-vitality-023",
+      "set": "arcane-vitality",
+      "number": 23,
+      "row": 3,
+      "column": 3,
+      "name": "Lotus sanctuary",
+      "path": "arcane-vitality/023-lotus-sanctuary.png",
+      "width": 204,
+      "height": 204,
+      "sourceBox": [
+        410,
+        410,
+        614,
+        614
+      ],
+      "tags": [
+        "lotus",
+        "sanctuary"
+      ]
+    },
+    {
+      "id": "arcane-vitality-024",
+      "set": "arcane-vitality",
+      "number": 24,
+      "row": 3,
+      "column": 4,
+      "name": "Green renewal vine",
+      "path": "arcane-vitality/024-green-renewal-vine.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        614,
+        410,
+        819,
+        614
+      ],
+      "tags": [
+        "green",
+        "renewal",
+        "vine"
+      ]
+    },
+    {
+      "id": "arcane-vitality-025",
+      "set": "arcane-vitality",
+      "number": 25,
+      "row": 3,
+      "column": 5,
+      "name": "Verdant healing beam",
+      "path": "arcane-vitality/025-verdant-healing-beam.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        819,
+        410,
+        1024,
+        614
+      ],
+      "tags": [
+        "beam",
+        "healing",
+        "verdant"
+      ]
+    },
+    {
+      "id": "arcane-vitality-026",
+      "set": "arcane-vitality",
+      "number": 26,
+      "row": 3,
+      "column": 6,
+      "name": "Blue spirit hand",
+      "path": "arcane-vitality/026-blue-spirit-hand.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1024,
+        410,
+        1229,
+        614
+      ],
+      "tags": [
+        "blue",
+        "hand",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-027",
+      "set": "arcane-vitality",
+      "number": 27,
+      "row": 3,
+      "column": 7,
+      "name": "Turquoise water swirl",
+      "path": "arcane-vitality/027-turquoise-water-swirl.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1229,
+        410,
+        1434,
+        614
+      ],
+      "tags": [
+        "swirl",
+        "turquoise",
+        "water"
+      ]
+    },
+    {
+      "id": "arcane-vitality-028",
+      "set": "arcane-vitality",
+      "number": 28,
+      "row": 3,
+      "column": 8,
+      "name": "Radiant mana vortex",
+      "path": "arcane-vitality/028-radiant-mana-vortex.png",
+      "width": 204,
+      "height": 204,
+      "sourceBox": [
+        1434,
+        410,
+        1638,
+        614
+      ],
+      "tags": [
+        "mana",
+        "radiant",
+        "vortex"
+      ]
+    },
+    {
+      "id": "arcane-vitality-029",
+      "set": "arcane-vitality",
+      "number": 29,
+      "row": 3,
+      "column": 9,
+      "name": "Azure light well",
+      "path": "arcane-vitality/029-azure-light-well.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1638,
+        410,
+        1843,
+        614
+      ],
+      "tags": [
+        "azure",
+        "light",
+        "well"
+      ]
+    },
+    {
+      "id": "arcane-vitality-030",
+      "set": "arcane-vitality",
+      "number": 30,
+      "row": 3,
+      "column": 10,
+      "name": "Violet leaf sigil",
+      "path": "arcane-vitality/030-violet-leaf-sigil.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1843,
+        410,
+        2048,
+        614
+      ],
+      "tags": [
+        "leaf",
+        "sigil",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-031",
+      "set": "arcane-vitality",
+      "number": 31,
+      "row": 4,
+      "column": 1,
+      "name": "Palm of golden light",
+      "path": "arcane-vitality/031-palm-of-golden-light.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        614,
+        205,
+        819
+      ],
+      "tags": [
+        "golden",
+        "light",
+        "of",
+        "palm"
+      ]
+    },
+    {
+      "id": "arcane-vitality-032",
+      "set": "arcane-vitality",
+      "number": 32,
+      "row": 4,
+      "column": 2,
+      "name": "Palm of green light",
+      "path": "arcane-vitality/032-palm-of-green-light.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        614,
+        410,
+        819
+      ],
+      "tags": [
+        "green",
+        "light",
+        "of",
+        "palm"
+      ]
+    },
+    {
+      "id": "arcane-vitality-033",
+      "set": "arcane-vitality",
+      "number": 33,
+      "row": 4,
+      "column": 3,
+      "name": "Golden light well",
+      "path": "arcane-vitality/033-golden-light-well.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        614,
+        614,
+        819
+      ],
+      "tags": [
+        "golden",
+        "light",
+        "well"
+      ]
+    },
+    {
+      "id": "arcane-vitality-034",
+      "set": "arcane-vitality",
+      "number": 34,
+      "row": 4,
+      "column": 4,
+      "name": "Protective healing bubble",
+      "path": "arcane-vitality/034-protective-healing-bubble.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        614,
+        819,
+        819
+      ],
+      "tags": [
+        "bubble",
+        "healing",
+        "protective",
+        "overheal"
+      ],
+      "legacyReportPath": "../report-icons/overheal.jpg"
+    },
+    {
+      "id": "arcane-vitality-035",
+      "set": "arcane-vitality",
+      "number": 35,
+      "row": 4,
+      "column": 5,
+      "name": "Blue violet vortex",
+      "path": "arcane-vitality/035-blue-violet-vortex.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        614,
+        1024,
+        819
+      ],
+      "tags": [
+        "blue",
+        "violet",
+        "vortex"
+      ]
+    },
+    {
+      "id": "arcane-vitality-036",
+      "set": "arcane-vitality",
+      "number": 36,
+      "row": 4,
+      "column": 6,
+      "name": "Shattered azure crystal",
+      "path": "arcane-vitality/036-shattered-azure-crystal.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        614,
+        1229,
+        819
+      ],
+      "tags": [
+        "azure",
+        "crystal",
+        "shattered"
+      ]
+    },
+    {
+      "id": "arcane-vitality-037",
+      "set": "arcane-vitality",
+      "number": 37,
+      "row": 4,
+      "column": 7,
+      "name": "Tiered mana fountain",
+      "path": "arcane-vitality/037-tiered-mana-fountain.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        614,
+        1434,
+        819
+      ],
+      "tags": [
+        "fountain",
+        "mana",
+        "tiered",
+        "gained"
+      ],
+      "legacyReportPath": "../report-icons/gained.jpg"
+    },
+    {
+      "id": "arcane-vitality-038",
+      "set": "arcane-vitality",
+      "number": 38,
+      "row": 4,
+      "column": 8,
+      "name": "Azure flame fountain",
+      "path": "arcane-vitality/038-azure-flame-fountain.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        614,
+        1638,
+        819
+      ],
+      "tags": [
+        "azure",
+        "flame",
+        "fountain"
+      ]
+    },
+    {
+      "id": "arcane-vitality-039",
+      "set": "arcane-vitality",
+      "number": 39,
+      "row": 4,
+      "column": 9,
+      "name": "Swirling spirit current",
+      "path": "arcane-vitality/039-swirling-spirit-current.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        614,
+        1843,
+        819
+      ],
+      "tags": [
+        "current",
+        "spirit",
+        "swirling"
+      ]
+    },
+    {
+      "id": "arcane-vitality-040",
+      "set": "arcane-vitality",
+      "number": 40,
+      "row": 4,
+      "column": 10,
+      "name": "Arcane lightning sigil",
+      "path": "arcane-vitality/040-arcane-lightning-sigil.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        614,
+        2048,
+        819
+      ],
+      "tags": [
+        "arcane",
+        "lightning",
+        "sigil"
+      ]
+    },
+    {
+      "id": "arcane-vitality-041",
+      "set": "arcane-vitality",
+      "number": 41,
+      "row": 5,
+      "column": 1,
+      "name": "Violet cosmic spiral",
+      "path": "arcane-vitality/041-violet-cosmic-spiral.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        819,
+        205,
+        1024
+      ],
+      "tags": [
+        "cosmic",
+        "spiral",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-042",
+      "set": "arcane-vitality",
+      "number": 42,
+      "row": 5,
+      "column": 2,
+      "name": "Azure violet spiral",
+      "path": "arcane-vitality/042-azure-violet-spiral.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        819,
+        410,
+        1024
+      ],
+      "tags": [
+        "azure",
+        "spiral",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-043",
+      "set": "arcane-vitality",
+      "number": 43,
+      "row": 5,
+      "column": 3,
+      "name": "Floating crystal shards",
+      "path": "arcane-vitality/043-floating-crystal-shards.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        819,
+        614,
+        1024
+      ],
+      "tags": [
+        "crystal",
+        "floating",
+        "shards"
+      ]
+    },
+    {
+      "id": "arcane-vitality-044",
+      "set": "arcane-vitality",
+      "number": 44,
+      "row": 5,
+      "column": 4,
+      "name": "Azure crystal crown",
+      "path": "arcane-vitality/044-azure-crystal-crown.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        819,
+        819,
+        1024
+      ],
+      "tags": [
+        "azure",
+        "crown",
+        "crystal"
+      ]
+    },
+    {
+      "id": "arcane-vitality-045",
+      "set": "arcane-vitality",
+      "number": 45,
+      "row": 5,
+      "column": 5,
+      "name": "Overflowing mana fountain",
+      "path": "arcane-vitality/045-overflowing-mana-fountain.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        819,
+        1024,
+        1024
+      ],
+      "tags": [
+        "fountain",
+        "mana",
+        "overflowing"
+      ]
+    },
+    {
+      "id": "arcane-vitality-046",
+      "set": "arcane-vitality",
+      "number": 46,
+      "row": 5,
+      "column": 6,
+      "name": "Spirit sparkles",
+      "path": "arcane-vitality/046-spirit-sparkles.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        819,
+        1229,
+        1024
+      ],
+      "tags": [
+        "sparkles",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-047",
+      "set": "arcane-vitality",
+      "number": 47,
+      "row": 5,
+      "column": 7,
+      "name": "Radiant spirit star",
+      "path": "arcane-vitality/047-radiant-spirit-star.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        819,
+        1434,
+        1024
+      ],
+      "tags": [
+        "radiant",
+        "spirit",
+        "star",
+        "crit"
+      ],
+      "legacyReportPath": "../report-icons/crit.jpg"
+    },
+    {
+      "id": "arcane-vitality-048",
+      "set": "arcane-vitality",
+      "number": 48,
+      "row": 5,
+      "column": 8,
+      "name": "Turquoise flowing current",
+      "path": "arcane-vitality/048-turquoise-flowing-current.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        819,
+        1638,
+        1024
+      ],
+      "tags": [
+        "current",
+        "flowing",
+        "turquoise"
+      ]
+    },
+    {
+      "id": "arcane-vitality-049",
+      "set": "arcane-vitality",
+      "number": 49,
+      "row": 5,
+      "column": 9,
+      "name": "Azure violet current",
+      "path": "arcane-vitality/049-azure-violet-current.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        819,
+        1843,
+        1024
+      ],
+      "tags": [
+        "azure",
+        "current",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-050",
+      "set": "arcane-vitality",
+      "number": 50,
+      "row": 5,
+      "column": 10,
+      "name": "Violet rune circle",
+      "path": "arcane-vitality/050-violet-rune-circle.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        819,
+        2048,
+        1024
+      ],
+      "tags": [
+        "circle",
+        "rune",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-051",
+      "set": "arcane-vitality",
+      "number": 51,
+      "row": 6,
+      "column": 1,
+      "name": "Square azure rune",
+      "path": "arcane-vitality/051-square-azure-rune.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        1024,
+        205,
+        1229
+      ],
+      "tags": [
+        "azure",
+        "rune",
+        "square"
+      ]
+    },
+    {
+      "id": "arcane-vitality-052",
+      "set": "arcane-vitality",
+      "number": 52,
+      "row": 6,
+      "column": 2,
+      "name": "Circular azure rune",
+      "path": "arcane-vitality/052-circular-azure-rune.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        1024,
+        410,
+        1229
+      ],
+      "tags": [
+        "azure",
+        "circular",
+        "rune"
+      ]
+    },
+    {
+      "id": "arcane-vitality-053",
+      "set": "arcane-vitality",
+      "number": 53,
+      "row": 6,
+      "column": 3,
+      "name": "Crystalline spirit star",
+      "path": "arcane-vitality/053-crystalline-spirit-star.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        1024,
+        614,
+        1229
+      ],
+      "tags": [
+        "crystalline",
+        "spirit",
+        "star"
+      ]
+    },
+    {
+      "id": "arcane-vitality-054",
+      "set": "arcane-vitality",
+      "number": 54,
+      "row": 6,
+      "column": 4,
+      "name": "Leaf and water crest",
+      "path": "arcane-vitality/054-leaf-and-water-crest.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        1024,
+        819,
+        1229
+      ],
+      "tags": [
+        "and",
+        "crest",
+        "leaf",
+        "water",
+        "efficiency"
+      ],
+      "legacyReportPath": "../report-icons/efficiency.jpg"
+    },
+    {
+      "id": "arcane-vitality-055",
+      "set": "arcane-vitality",
+      "number": 55,
+      "row": 6,
+      "column": 5,
+      "name": "Spiraling arcane leaf",
+      "path": "arcane-vitality/055-spiraling-arcane-leaf.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        1024,
+        1024,
+        1229
+      ],
+      "tags": [
+        "arcane",
+        "leaf",
+        "spiraling"
+      ]
+    },
+    {
+      "id": "arcane-vitality-056",
+      "set": "arcane-vitality",
+      "number": 56,
+      "row": 6,
+      "column": 6,
+      "name": "Angular crystal crest",
+      "path": "arcane-vitality/056-angular-crystal-crest.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        1024,
+        1229,
+        1229
+      ],
+      "tags": [
+        "angular",
+        "crest",
+        "crystal"
+      ]
+    },
+    {
+      "id": "arcane-vitality-057",
+      "set": "arcane-vitality",
+      "number": 57,
+      "row": 6,
+      "column": 7,
+      "name": "Deep mana vortex",
+      "path": "arcane-vitality/057-deep-mana-vortex.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        1024,
+        1434,
+        1229
+      ],
+      "tags": [
+        "deep",
+        "mana",
+        "vortex"
+      ]
+    },
+    {
+      "id": "arcane-vitality-058",
+      "set": "arcane-vitality",
+      "number": 58,
+      "row": 6,
+      "column": 8,
+      "name": "Spiraling water fountain",
+      "path": "arcane-vitality/058-spiraling-water-fountain.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        1024,
+        1638,
+        1229
+      ],
+      "tags": [
+        "fountain",
+        "spiraling",
+        "water",
+        "mp5"
+      ],
+      "legacyReportPath": "../report-icons/mp5.jpg"
+    },
+    {
+      "id": "arcane-vitality-059",
+      "set": "arcane-vitality",
+      "number": 59,
+      "row": 6,
+      "column": 9,
+      "name": "Violet blue stream",
+      "path": "arcane-vitality/059-violet-blue-stream.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        1024,
+        1843,
+        1229
+      ],
+      "tags": [
+        "blue",
+        "stream",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-060",
+      "set": "arcane-vitality",
+      "number": 60,
+      "row": 6,
+      "column": 10,
+      "name": "Radiant violet rune",
+      "path": "arcane-vitality/060-radiant-violet-rune.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        1024,
+        2048,
+        1229
+      ],
+      "tags": [
+        "radiant",
+        "rune",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-061",
+      "set": "arcane-vitality",
+      "number": 61,
+      "row": 7,
+      "column": 1,
+      "name": "Azure rune frame",
+      "path": "arcane-vitality/061-azure-rune-frame.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        1229,
+        205,
+        1434
+      ],
+      "tags": [
+        "azure",
+        "frame",
+        "rune"
+      ]
+    },
+    {
+      "id": "arcane-vitality-062",
+      "set": "arcane-vitality",
+      "number": 62,
+      "row": 7,
+      "column": 2,
+      "name": "Diamond arcane rune",
+      "path": "arcane-vitality/062-diamond-arcane-rune.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        1229,
+        410,
+        1434
+      ],
+      "tags": [
+        "arcane",
+        "diamond",
+        "rune"
+      ]
+    },
+    {
+      "id": "arcane-vitality-063",
+      "set": "arcane-vitality",
+      "number": 63,
+      "row": 7,
+      "column": 3,
+      "name": "Celestial crystal star",
+      "path": "arcane-vitality/063-celestial-crystal-star.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        1229,
+        614,
+        1434
+      ],
+      "tags": [
+        "celestial",
+        "crystal",
+        "star"
+      ]
+    },
+    {
+      "id": "arcane-vitality-064",
+      "set": "arcane-vitality",
+      "number": 64,
+      "row": 7,
+      "column": 4,
+      "name": "Leaf renewal shield",
+      "path": "arcane-vitality/064-leaf-renewal-shield.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        1229,
+        819,
+        1434
+      ],
+      "tags": [
+        "leaf",
+        "renewal",
+        "shield"
+      ]
+    },
+    {
+      "id": "arcane-vitality-065",
+      "set": "arcane-vitality",
+      "number": 65,
+      "row": 7,
+      "column": 5,
+      "name": "Leaf in mana vortex",
+      "path": "arcane-vitality/065-leaf-in-mana-vortex.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        1229,
+        1024,
+        1434
+      ],
+      "tags": [
+        "in",
+        "leaf",
+        "mana",
+        "vortex"
+      ]
+    },
+    {
+      "id": "arcane-vitality-066",
+      "set": "arcane-vitality",
+      "number": 66,
+      "row": 7,
+      "column": 6,
+      "name": "Spirit meditation",
+      "path": "arcane-vitality/066-spirit-meditation.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        1229,
+        1229,
+        1434
+      ],
+      "tags": [
+        "meditation",
+        "spirit",
+        "spirit"
+      ],
+      "legacyReportPath": "../report-icons/spirit.jpg"
+    },
+    {
+      "id": "arcane-vitality-067",
+      "set": "arcane-vitality",
+      "number": 67,
+      "row": 7,
+      "column": 7,
+      "name": "Flowing crystal leaves",
+      "path": "arcane-vitality/067-flowing-crystal-leaves.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        1229,
+        1434,
+        1434
+      ],
+      "tags": [
+        "crystal",
+        "flowing",
+        "leaves"
+      ]
+    },
+    {
+      "id": "arcane-vitality-068",
+      "set": "arcane-vitality",
+      "number": 68,
+      "row": 7,
+      "column": 8,
+      "name": "Arcane crystal seal",
+      "path": "arcane-vitality/068-arcane-crystal-seal.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        1229,
+        1638,
+        1434
+      ],
+      "tags": [
+        "arcane",
+        "crystal",
+        "seal"
+      ]
+    },
+    {
+      "id": "arcane-vitality-069",
+      "set": "arcane-vitality",
+      "number": 69,
+      "row": 7,
+      "column": 9,
+      "name": "Turquoise spirit spiral",
+      "path": "arcane-vitality/069-turquoise-spirit-spiral.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        1229,
+        1843,
+        1434
+      ],
+      "tags": [
+        "spiral",
+        "spirit",
+        "turquoise"
+      ]
+    },
+    {
+      "id": "arcane-vitality-070",
+      "set": "arcane-vitality",
+      "number": 70,
+      "row": 7,
+      "column": 10,
+      "name": "Angular spirit emblem",
+      "path": "arcane-vitality/070-angular-spirit-emblem.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        1229,
+        2048,
+        1434
+      ],
+      "tags": [
+        "angular",
+        "emblem",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-071",
+      "set": "arcane-vitality",
+      "number": 71,
+      "row": 8,
+      "column": 1,
+      "name": "Radiant arcane diamond",
+      "path": "arcane-vitality/071-radiant-arcane-diamond.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        0,
+        1434,
+        205,
+        1638
+      ],
+      "tags": [
+        "arcane",
+        "diamond",
+        "radiant"
+      ]
+    },
+    {
+      "id": "arcane-vitality-072",
+      "set": "arcane-vitality",
+      "number": 72,
+      "row": 8,
+      "column": 2,
+      "name": "Crystal flame seal",
+      "path": "arcane-vitality/072-crystal-flame-seal.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        205,
+        1434,
+        410,
+        1638
+      ],
+      "tags": [
+        "crystal",
+        "flame",
+        "seal"
+      ]
+    },
+    {
+      "id": "arcane-vitality-073",
+      "set": "arcane-vitality",
+      "number": 73,
+      "row": 8,
+      "column": 3,
+      "name": "Arcane snowflake",
+      "path": "arcane-vitality/073-arcane-snowflake.png",
+      "width": 204,
+      "height": 204,
+      "sourceBox": [
+        410,
+        1434,
+        614,
+        1638
+      ],
+      "tags": [
+        "arcane",
+        "snowflake"
+      ]
+    },
+    {
+      "id": "arcane-vitality-074",
+      "set": "arcane-vitality",
+      "number": 74,
+      "row": 8,
+      "column": 4,
+      "name": "Renewal leaf crest",
+      "path": "arcane-vitality/074-renewal-leaf-crest.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        614,
+        1434,
+        819,
+        1638
+      ],
+      "tags": [
+        "crest",
+        "leaf",
+        "renewal"
+      ]
+    },
+    {
+      "id": "arcane-vitality-075",
+      "set": "arcane-vitality",
+      "number": 75,
+      "row": 8,
+      "column": 5,
+      "name": "Azure flame meditation",
+      "path": "arcane-vitality/075-azure-flame-meditation.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        819,
+        1434,
+        1024,
+        1638
+      ],
+      "tags": [
+        "azure",
+        "flame",
+        "meditation"
+      ]
+    },
+    {
+      "id": "arcane-vitality-076",
+      "set": "arcane-vitality",
+      "number": 76,
+      "row": 8,
+      "column": 6,
+      "name": "Spirit halo meditation",
+      "path": "arcane-vitality/076-spirit-halo-meditation.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1024,
+        1434,
+        1229,
+        1638
+      ],
+      "tags": [
+        "halo",
+        "meditation",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-077",
+      "set": "arcane-vitality",
+      "number": 77,
+      "row": 8,
+      "column": 7,
+      "name": "Crystalline arcane lock",
+      "path": "arcane-vitality/077-crystalline-arcane-lock.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1229,
+        1434,
+        1434,
+        1638
+      ],
+      "tags": [
+        "arcane",
+        "crystalline",
+        "lock"
+      ]
+    },
+    {
+      "id": "arcane-vitality-078",
+      "set": "arcane-vitality",
+      "number": 78,
+      "row": 8,
+      "column": 8,
+      "name": "Radiant frozen lock",
+      "path": "arcane-vitality/078-radiant-frozen-lock.png",
+      "width": 204,
+      "height": 204,
+      "sourceBox": [
+        1434,
+        1434,
+        1638,
+        1638
+      ],
+      "tags": [
+        "frozen",
+        "lock",
+        "radiant"
+      ]
+    },
+    {
+      "id": "arcane-vitality-079",
+      "set": "arcane-vitality",
+      "number": 79,
+      "row": 8,
+      "column": 9,
+      "name": "Square arcane lock",
+      "path": "arcane-vitality/079-square-arcane-lock.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1638,
+        1434,
+        1843,
+        1638
+      ],
+      "tags": [
+        "arcane",
+        "lock",
+        "square"
+      ]
+    },
+    {
+      "id": "arcane-vitality-080",
+      "set": "arcane-vitality",
+      "number": 80,
+      "row": 8,
+      "column": 10,
+      "name": "Radiant crystal shards",
+      "path": "arcane-vitality/080-radiant-crystal-shards.png",
+      "width": 205,
+      "height": 204,
+      "sourceBox": [
+        1843,
+        1434,
+        2048,
+        1638
+      ],
+      "tags": [
+        "crystal",
+        "radiant",
+        "shards"
+      ]
+    },
+    {
+      "id": "arcane-vitality-081",
+      "set": "arcane-vitality",
+      "number": 81,
+      "row": 9,
+      "column": 1,
+      "name": "Blue flame well",
+      "path": "arcane-vitality/081-blue-flame-well.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        1638,
+        205,
+        1843
+      ],
+      "tags": [
+        "blue",
+        "flame",
+        "well"
+      ]
+    },
+    {
+      "id": "arcane-vitality-082",
+      "set": "arcane-vitality",
+      "number": 82,
+      "row": 9,
+      "column": 2,
+      "name": "Pouring mana hands",
+      "path": "arcane-vitality/082-pouring-mana-hands.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        1638,
+        410,
+        1843
+      ],
+      "tags": [
+        "hands",
+        "mana",
+        "pouring"
+      ]
+    },
+    {
+      "id": "arcane-vitality-083",
+      "set": "arcane-vitality",
+      "number": 83,
+      "row": 9,
+      "column": 3,
+      "name": "Drinking mana spring",
+      "path": "arcane-vitality/083-drinking-mana-spring.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        1638,
+        614,
+        1843
+      ],
+      "tags": [
+        "drinking",
+        "mana",
+        "spring"
+      ]
+    },
+    {
+      "id": "arcane-vitality-084",
+      "set": "arcane-vitality",
+      "number": 84,
+      "row": 9,
+      "column": 4,
+      "name": "Forest meditation",
+      "path": "arcane-vitality/084-forest-meditation.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        1638,
+        819,
+        1843
+      ],
+      "tags": [
+        "forest",
+        "meditation"
+      ]
+    },
+    {
+      "id": "arcane-vitality-085",
+      "set": "arcane-vitality",
+      "number": 85,
+      "row": 9,
+      "column": 5,
+      "name": "Azure arcane bonfire",
+      "path": "arcane-vitality/085-azure-arcane-bonfire.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        1638,
+        1024,
+        1843
+      ],
+      "tags": [
+        "arcane",
+        "azure",
+        "bonfire"
+      ]
+    },
+    {
+      "id": "arcane-vitality-086",
+      "set": "arcane-vitality",
+      "number": 86,
+      "row": 9,
+      "column": 6,
+      "name": "Round blue mana potion",
+      "path": "arcane-vitality/086-round-blue-mana-potion.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        1638,
+        1229,
+        1843
+      ],
+      "tags": [
+        "blue",
+        "mana",
+        "potion",
+        "round",
+        "remaining"
+      ],
+      "legacyReportPath": "../report-icons/remaining.jpg"
+    },
+    {
+      "id": "arcane-vitality-087",
+      "set": "arcane-vitality",
+      "number": 87,
+      "row": 9,
+      "column": 7,
+      "name": "Violet mana elixir",
+      "path": "arcane-vitality/087-violet-mana-elixir.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        1638,
+        1434,
+        1843
+      ],
+      "tags": [
+        "elixir",
+        "mana",
+        "violet"
+      ]
+    },
+    {
+      "id": "arcane-vitality-088",
+      "set": "arcane-vitality",
+      "number": 88,
+      "row": 9,
+      "column": 8,
+      "name": "Azure lotus blossom",
+      "path": "arcane-vitality/088-azure-lotus-blossom.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        1638,
+        1638,
+        1843
+      ],
+      "tags": [
+        "azure",
+        "blossom",
+        "lotus"
+      ]
+    },
+    {
+      "id": "arcane-vitality-089",
+      "set": "arcane-vitality",
+      "number": 89,
+      "row": 9,
+      "column": 9,
+      "name": "Rising mana wisp",
+      "path": "arcane-vitality/089-rising-mana-wisp.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        1638,
+        1843,
+        1843
+      ],
+      "tags": [
+        "mana",
+        "rising",
+        "wisp"
+      ]
+    },
+    {
+      "id": "arcane-vitality-090",
+      "set": "arcane-vitality",
+      "number": 90,
+      "row": 9,
+      "column": 10,
+      "name": "Armored spirit guardian",
+      "path": "arcane-vitality/090-armored-spirit-guardian.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        1638,
+        2048,
+        1843
+      ],
+      "tags": [
+        "armored",
+        "guardian",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-091",
+      "set": "arcane-vitality",
+      "number": 91,
+      "row": 10,
+      "column": 1,
+      "name": "Spiraling mana spring",
+      "path": "arcane-vitality/091-spiraling-mana-spring.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        0,
+        1843,
+        205,
+        2048
+      ],
+      "tags": [
+        "mana",
+        "spiraling",
+        "spring"
+      ]
+    },
+    {
+      "id": "arcane-vitality-092",
+      "set": "arcane-vitality",
+      "number": 92,
+      "row": 10,
+      "column": 2,
+      "name": "Crystal mana basin",
+      "path": "arcane-vitality/092-crystal-mana-basin.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        205,
+        1843,
+        410,
+        2048
+      ],
+      "tags": [
+        "basin",
+        "crystal",
+        "mana"
+      ]
+    },
+    {
+      "id": "arcane-vitality-093",
+      "set": "arcane-vitality",
+      "number": 93,
+      "row": 10,
+      "column": 3,
+      "name": "Spirit wisp in hand",
+      "path": "arcane-vitality/093-spirit-wisp-in-hand.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        410,
+        1843,
+        614,
+        2048
+      ],
+      "tags": [
+        "hand",
+        "in",
+        "spirit",
+        "wisp"
+      ]
+    },
+    {
+      "id": "arcane-vitality-094",
+      "set": "arcane-vitality",
+      "number": 94,
+      "row": 10,
+      "column": 4,
+      "name": "Mana crystal offering",
+      "path": "arcane-vitality/094-mana-crystal-offering.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        614,
+        1843,
+        819,
+        2048
+      ],
+      "tags": [
+        "crystal",
+        "mana",
+        "offering"
+      ]
+    },
+    {
+      "id": "arcane-vitality-095",
+      "set": "arcane-vitality",
+      "number": 95,
+      "row": 10,
+      "column": 5,
+      "name": "Tall blue mana potion",
+      "path": "arcane-vitality/095-tall-blue-mana-potion.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        819,
+        1843,
+        1024,
+        2048
+      ],
+      "tags": [
+        "blue",
+        "mana",
+        "potion",
+        "tall"
+      ]
+    },
+    {
+      "id": "arcane-vitality-096",
+      "set": "arcane-vitality",
+      "number": 96,
+      "row": 10,
+      "column": 6,
+      "name": "Luminous arcane flower",
+      "path": "arcane-vitality/096-luminous-arcane-flower.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1024,
+        1843,
+        1229,
+        2048
+      ],
+      "tags": [
+        "arcane",
+        "flower",
+        "luminous"
+      ]
+    },
+    {
+      "id": "arcane-vitality-097",
+      "set": "arcane-vitality",
+      "number": 97,
+      "row": 10,
+      "column": 7,
+      "name": "Spirit flower in hands",
+      "path": "arcane-vitality/097-spirit-flower-in-hands.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1229,
+        1843,
+        1434,
+        2048
+      ],
+      "tags": [
+        "flower",
+        "hands",
+        "in",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-098",
+      "set": "arcane-vitality",
+      "number": 98,
+      "row": 10,
+      "column": 8,
+      "name": "Radiant spirit body",
+      "path": "arcane-vitality/098-radiant-spirit-body.png",
+      "width": 204,
+      "height": 205,
+      "sourceBox": [
+        1434,
+        1843,
+        1638,
+        2048
+      ],
+      "tags": [
+        "body",
+        "radiant",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-099",
+      "set": "arcane-vitality",
+      "number": 99,
+      "row": 10,
+      "column": 9,
+      "name": "Inner spirit prayer",
+      "path": "arcane-vitality/099-inner-spirit-prayer.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1638,
+        1843,
+        1843,
+        2048
+      ],
+      "tags": [
+        "inner",
+        "prayer",
+        "spirit"
+      ]
+    },
+    {
+      "id": "arcane-vitality-100",
+      "set": "arcane-vitality",
+      "number": 100,
+      "row": 10,
+      "column": 10,
+      "name": "Winged spirit renewal",
+      "path": "arcane-vitality/100-winged-spirit-renewal.png",
+      "width": 205,
+      "height": 205,
+      "sourceBox": [
+        1843,
+        1843,
+        2048,
+        2048
+      ],
+      "tags": [
+        "renewal",
+        "spirit",
         "winged"
       ]
     }

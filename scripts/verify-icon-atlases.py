@@ -1,11 +1,11 @@
-"""Verify count, identity, crop bounds, and exact lossless reconstruction of both atlases."""
+"""Verify count, identity, crop bounds, and exact lossless reconstruction of all atlases."""
 import json,pathlib
 from PIL import Image,ImageChops
 root=pathlib.Path(__file__).resolve().parent.parent
 public=root/'public/healing/custom-icons'
 manifest=json.loads((public/'catalog.json').read_text())
-assert len(manifest['icons'])==200
-assert len({icon['id']for icon in manifest['icons']})==200
+assert len(manifest['icons'])==100*len(manifest['sets'])
+assert len({icon['id']for icon in manifest['icons']})==len(manifest['icons'])
 for spec in manifest['sets']:
     original=Image.open(root/'assets/icon-atlases'/spec['sourceFilename']).convert('RGB')
     reconstructed=Image.new('RGB',original.size)

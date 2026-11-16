@@ -1,7 +1,7 @@
 """Crop the reviewed atlas seams; generate lossless tiles and a shared visual catalog.
 Requires Pillow. Run from repository root: python scripts/split-icon-atlases.py
 """
-import csv, hashlib, html, io, json, pathlib, re, zipfile
+import csv, hashlib, json, pathlib, re, zipfile
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT=pathlib.Path(__file__).resolve().parent.parent
 source=ROOT/'assets/icon-atlases'
@@ -31,6 +31,10 @@ for spec in config['sets']:
             box=(xs[c],ys[r],xs[c+1],ys[r+1]); tile=image.crop(box)
             tile.save(directory/filename,optimize=True)
             record={'id':f"{spec['id']}-{number:03d}",'set':spec['id'],'number':number,'row':r+1,'column':c+1,'name':title,'path':spec['id']+'/'+filename,'width':tile.width,'height':tile.height,'sourceBox':list(box),'tags':sorted(set(re.findall(r'[a-z]+',title.lower())))}
+            legacy=spec.get('legacyReportIcons',{}).get(str(number))
+            if legacy:
+                record['legacyReportPath']='../report-icons/'+legacy
+                record['tags'].append(pathlib.Path(legacy).stem)
             icons.append(record);all_icons.append(record)
             thumb=ImageOps.contain(tile,(118,118),Image.Resampling.LANCZOS)
             x,y=c*130+6,r*150+32
@@ -42,7 +46,7 @@ for spec in config['sets']:
     sets.append({k:v for k,v in manifest.items() if k!='icons'})
 (output/'catalog.json').write_text(json.dumps({'version':1,'sets':sets,'icons':all_icons},indent=2)+'\n')
 with (output/'catalog.csv').open('w',newline='') as f:
-    writer=csv.DictWriter(f,fieldnames=['id','set','number','row','column','name','path','width','height']);writer.writeheader()
+    writer=csv.DictWriter(f,fieldnames=['id','set','number','row','column','name','path','width','height'],lineterminator='\n');writer.writeheader()
     writer.writerows({k:r[k] for k in writer.fieldnames}for r in all_icons)
 with zipfile.ZipFile(output/'healing-and-mana-icons.zip','w',zipfile.ZIP_DEFLATED)as archive:
     for file in sorted(output.rglob('*')):
