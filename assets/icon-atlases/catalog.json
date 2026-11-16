@@ -1,0 +1,38 @@
+{
+  "sets": [
+    {
+      "id": "mana-renewal", "title": "Mana Springs of Renewal", "source": "mana-renewal.png",
+      "x": [0,126,251,377,502,627,753,878,1004,1129,1254],
+      "y": [0,125,250,376,501,626,752,877,1003,1128,1254],
+      "rows": [
+        ["Dewdrop leaf","Forest waterfall","Blue mana potion","Flower-crowned healer","Azure crystals","Stone mana basin","Rain-fed seedling","Misty mountain river","White water lily","Water spirit"],
+        ["Sunlit forest stream","White heron","Blue dewdrop flowers","Underwater fish","Cupped water hands","Single water ripple","Glowing blue mushrooms","Blue mana vortex","Veiled spring keeper","Garden archway"],
+        ["Paired white lilies","Luminous tree roots","Moonlit lake","Seedling water orb","Pink cherry blossom","Rain-soaked wanderer","Steaming blue spring","Iridescent nautilus","Golden waterside tree","Tiered garden waterfall"],
+        ["Luminous jellyfish","Rain blessing","Seedling in soil","Steaming stone pool","Blue crystal lotus","Arcane forest roots","Stone water bearer","Dew-laden leaves","Pebble stream ripples","Round blue mana flask"],
+        ["Dewy fern","Sunrise lake","River otter family","Swirling water sphere","Dandelion blessing","Falling forest cascade","Purple water lilies","Underwater grasses","Misty blue woodland","Growing seedlings"],
+        ["Root-framed spring","Azure crystal cluster","Pink water lotus","Spectral water stag","Flower-lined stream","Hanging dewdrop","Dandelion seeds","Rocky hot spring","Waterfall in hands","Rainy cherry blossom"],
+        ["Veiled water prayer","White lily pond","Rainfall ripples","Tree in water globe","Pink rosebud","Sunbeam forest pool","Flower-crowned renewal","Overflowing stone basin","Mossy cascade","Underwater leaf sprig"],
+        ["Wisteria spring","Reflection tree","Flowing water woman","Fresh leaf buds","Mossy forest waterfall","Underwater light pillars","Dewy clover","Spiral blue mana flask","Falling water droplet","Golden forest deer"],
+        ["Hand on water","Stone spout fountain","Rosebud water globe","Dew on green leaf","Woodland brook","Blue bellflowers","Meditating sage","Twin spirit koi","Steaming waterfall pools","Mountain lake sunrise"],
+        ["Blue luminous lilies","Misty pine lake","Drinking from hands","Golden rooted tree","Deep blue vortex","Rain on white lotus","Ancient garden fountain","Pink lotus pair","Waterside blue crystals","Golden tree spring"]
+      ]
+    },
+    {
+      "id": "mystical-healing", "title": "Mystical Healing Magic", "source": "mystical-healing.png",
+      "x": [0,132,256,380,504,628,754,879,1004,1129,1254],
+      "y": [0,125,249,375,501,626,750,865,980,1101,1254],
+      "rows": [
+        ["Healing light in hands","White healing lilies","Blue crystal potion","Rainbow waterfall","Golden tree of life","Flower-crowned blessing","Blue crystal spires","White spirit dove","Herbal mortar","Golden winged spirit"],
+        ["Dewdrop on grass","Sunlit healing grove","Blue cosmic spiral","Golden healing circle","Radiant healing heart","Pink lotus","Seedling in healing hands","Moonlit water","Violet mana potion","Resting forest fawn"],
+        ["Veiled healer prayer","Steaming herbal tea","Golden forest stag","Pink blossom branch","Healing tree roots","Tiered clear cascade","Violet spirit butterfly","Glowing earth seedling","Golden crystal eruption","Sunlit healer"],
+        ["Calendula healing salve","Luminous violet flower","Green leaf vortex","Group healing circle","Flower-crowned serenity","Crystal healing staff","Blue spirit meditation","Stone spring maiden","Willow healing pool","Violet golden wisp"],
+        ["Garden healing arch","Golden healer prayer","Green herbal potion","White lotus","Shared healing light","Sunlit clear river","Golden spirit feather","Purple bellflowers","Open spellbook","Pink blossom tree"],
+        ["Water healing hands","Luminous purple mushrooms","Lotus pond ripples","Glowing spirit dove","Leaf-crowned wanderer","Forest waterfall pool","Golden lotus","Round azure potion","Golden tree roots","Healing fellowship"],
+        ["Sage and lavender herbs","Green blue vortex","Veiled golden serenity","Radiant sunrise","Violet crystal cluster","Spectral white stag","Red healing berries","Stone water spring","Blue enchanted grove","Golden lotus in hand"],
+        ["Crescent moon lake","Pink peony","Radiant group blessing","Sleeping forest fox","Flower petal potion","Deep azure vortex","Sacred forest fountain","Aurora night sky","Pink healing rosebud","Celestial healing prayer"],
+        ["Lavender sunrise valley","Healing touch","Blue dewdrop blossoms","Crystal waterfall","Golden waterside tree","Cosmic healing fellowship","Flower-crowned spirit","Steaming herbal cauldron","Radiant white lilies","Golden violet spiral"],
+        ["Stone healing fountain","Blue crystal lilies","Floating sacred temple","Radiant heart in hands","Golden spirit meditation","Spiral azure potion","Forest deer family","Violet water lotus","Golden healing assembly","Radiant winged guardian"]
+      ]
+    }
+  ]
+}

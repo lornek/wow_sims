@@ -146,3 +146,7 @@ Direct/periodic hit and crit counts use a shared tab stop beside their labels, w
 ### Score formula width fitting
 
 Keep the breakdown expression on one line and shrink its font and gaps together only when its measured natural width exceeds the available report width. `score-layout.mjs` measures every factor/operator plus gaps, respects container padding, and leaves one pixel for rounding. The desktop maximum remains 110% of the effective-healing value font. ResizeObserver, content observation, and font-load completion recalculate the fit for phone widths, orientation changes, changed score digit counts, and delayed webfonts. Disconnect observers on healer unmount. Keep the score container's minimum width at zero so intrinsic text width cannot expand the page instead of shrinking the expression.
+
+## Additional custom icon library
+
+Two additional user-provided atlases are available as 200 lossless tiles in `public/healing/custom-icons/`, with stable IDs, visual descriptions, numbered contact sheets and a searchable gallery. See [Custom icon library](custom-icon-library.md) for catalog paths and consistent-use rules. Existing semantic mappings above are preserved.
