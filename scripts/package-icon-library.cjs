@@ -19,14 +19,19 @@ if(bytes.length>25*1024*1024)throw Error('Icon ZIP exceeds Sites file limit: '+f
 fs.writeFileSync(path.join(root,filename),bytes);return bytes.length;
 }
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8')),parts=[];
-for(let offset=0;offset<catalog.sets.length;offset+=3){
- const sets=catalog.sets.slice(offset,offset+3),ids=new Set(sets.map(s=>s.id)),icons=catalog.icons.filter(i=>ids.has(i.set));
- const entries=files(root).filter(file=>ids.has(path.relative(root,file).split(path.sep)[0])).map(file=>({name:path.relative(root,file).split(path.sep).join('/'),data:fs.readFileSync(file)}));
- entries.push({name:'catalog.json',data:Buffer.from(JSON.stringify({version:1,sets,icons},null,2)+'\n')});
- const columns=['id','set','number','row','column','name','path','width','height'];
- const quote=value=>'"'+String(value).replaceAll('"','""')+'"';
- entries.push({name:'catalog.csv',data:Buffer.from([columns.join(','),...icons.map(icon=>columns.map(key=>quote(icon[key])).join(','))].join('\n')+'\n')});
- const index=parts.length+1,filename=index===1?'healing-and-mana-icons.zip':index===2?'nature-icons.zip':'icon-library-part-'+index+'.zip';
- const sizeBytes=writeZip(filename,entries);parts.push({part:index,path:filename,iconCount:icons.length,sizeBytes,sets:sets.map(s=>s.title)});
+for(const category of ['spells','equipment']){
+ const categorySets=catalog.sets.filter(set=>(set.category??'spells')===category),chunk=category==='equipment'?4:3;
+ let number=0;
+ for(let offset=0;offset<categorySets.length;offset+=chunk){
+  const sets=categorySets.slice(offset,offset+chunk),ids=new Set(sets.map(s=>s.id)),icons=catalog.icons.filter(i=>ids.has(i.set));
+  const prefixes=sets.map(set=>(set.directory??set.id)+'/');
+  const entries=files(root).filter(file=>prefixes.some(prefix=>path.relative(root,file).split(path.sep).join('/').startsWith(prefix))).map(file=>({name:path.relative(root,file).split(path.sep).join('/'),data:fs.readFileSync(file)}));
+  entries.push({name:'catalog.json',data:Buffer.from(JSON.stringify({version:1,category,sets,icons},null,2)+'\n')});
+  const columns=['id','set','number','row','column','name','path','width','height'];
+  const quote=value=>'"'+String(value).replaceAll('"','""')+'"';
+  entries.push({name:'catalog.csv',data:Buffer.from([columns.join(','),...icons.map(icon=>columns.map(key=>quote(icon[key])).join(','))].join('\n')+'\n')});
+  const index=++number,filename=category==='equipment'?'equipment-icons-part-'+index+'.zip':index===1?'healing-and-mana-icons.zip':index===2?'nature-icons.zip':'icon-library-part-'+index+'.zip';
+  const sizeBytes=writeZip(filename,entries);parts.push({category,part:index,path:filename,iconCount:icons.length,sizeBytes,sets:sets.map(s=>s.title)});
+ }
 }
 fs.writeFileSync(path.join(root,'downloads.json'),JSON.stringify({totalIcons:catalog.icons.length,parts},null,2)+'\n');

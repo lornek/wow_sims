@@ -3,8 +3,8 @@ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypt
 const root=path.resolve(__dirname,'..'),base=path.join(root,'public/healing'),dir=path.join(base,'custom-icons');
 const source=fs.readFileSync(path.join(dir,'icon-purposes.json'),'utf8'),data=JSON.parse(source);
 const catalog=JSON.parse(fs.readFileSync(path.join(dir,'catalog.json'),'utf8'));
-const available=catalog.icons.map(i=>({id:i.id,name:i.name,path:'custom-icons/'+i.path,family:i.set,filename:path.basename(i.path),tags:i.tags}));
-for(const family of ['icons','report-icons'])for(const file of fs.readdirSync(path.join(base,family)).sort())if(/\.(jpg|png|webp)$/.test(file))available.push({id:(family==='icons'?'ability:':'report:')+path.parse(file).name,name:path.parse(file).name.replaceAll('_',' '),path:family+'/'+file,family:family==='icons'?'WoW ability icons':'Legacy report icons',filename:file,tags:[]});
+const available=catalog.icons.map(i=>({id:i.id,name:i.name,path:'custom-icons/'+i.path,category:i.category??'spells',equipmentType:i.equipmentType??'',family:i.category==='equipment'?'Equipment · '+catalog.sets.find(s=>s.id===i.set).title:i.set,filename:path.basename(i.path),tags:i.tags}));
+for(const family of ['icons','report-icons'])for(const file of fs.readdirSync(path.join(base,family)).sort())if(/\.(jpg|png|webp)$/.test(file))available.push({id:(family==='icons'?'ability:':'report:')+path.parse(file).name,name:path.parse(file).name.replaceAll('_',' '),path:family+'/'+file,category:family==='icons'?'wow':'legacy',family:family==='icons'?'WoW icons':'Legacy report icons',filename:file,tags:[]});
 const byId=new Map(available.map(i=>[i.id,i]));const registry={};
 for(const row of data.rows){if(registry[row.key])throw Error('Duplicate purpose '+row.key);for(const icon of [row.current,...row.options]){if(!byId.has(icon.id)||byId.get(icon.id).path!==icon.path||!fs.existsSync(path.join(base,icon.path)))throw Error('Invalid icon '+row.key+' '+icon.id)}registry[row.key]=row.current;}
 const version=crypto.createHash('sha256').update(source).digest('hex').slice(0,12);

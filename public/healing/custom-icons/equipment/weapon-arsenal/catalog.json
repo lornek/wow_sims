@@ -1,0 +1,2575 @@
+{
+  "category": "equipment",
+  "directory": "equipment/weapon-arsenal",
+  "id": "weapon-arsenal",
+  "title": "Weapon Arsenal",
+  "sourceFilename": "weapon-arsenal.png",
+  "sourceSha256": "412bd1481edc17b0ccf4c547690579ad56f8ed99a3071eb7e232a04164a43eff",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "xBoundaries": [
+    0,
+    126,
+    252,
+    378,
+    504,
+    629,
+    755,
+    881,
+    1005,
+    1130,
+    1254
+  ],
+  "yBoundaries": [
+    0,
+    120,
+    244,
+    364,
+    491,
+    608,
+    730,
+    849,
+    971,
+    1101,
+    1254
+  ],
+  "icons": [
+    {
+      "id": "weapon-arsenal-001",
+      "set": "weapon-arsenal",
+      "number": 1,
+      "row": 1,
+      "column": 1,
+      "name": "Rusted dagger",
+      "path": "equipment/weapon-arsenal/001-rusted-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        0,
+        0,
+        126,
+        120
+      ],
+      "tags": [
+        "dagger",
+        "equipment",
+        "rusted"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-002",
+      "set": "weapon-arsenal",
+      "number": 2,
+      "row": 1,
+      "column": 2,
+      "name": "Bone fang dagger",
+      "path": "equipment/weapon-arsenal/002-bone-fang-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        126,
+        0,
+        252,
+        120
+      ],
+      "tags": [
+        "bone",
+        "dagger",
+        "equipment",
+        "fang"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-003",
+      "set": "weapon-arsenal",
+      "number": 3,
+      "row": 1,
+      "column": 3,
+      "name": "Honed steel dagger",
+      "path": "equipment/weapon-arsenal/003-honed-steel-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        252,
+        0,
+        378,
+        120
+      ],
+      "tags": [
+        "dagger",
+        "equipment",
+        "honed",
+        "steel"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-004",
+      "set": "weapon-arsenal",
+      "number": 4,
+      "row": 1,
+      "column": 4,
+      "name": "Ruby hilt dagger",
+      "path": "equipment/weapon-arsenal/004-ruby-hilt-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        378,
+        0,
+        504,
+        120
+      ],
+      "tags": [
+        "dagger",
+        "equipment",
+        "hilt",
+        "ruby"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-005",
+      "set": "weapon-arsenal",
+      "number": 5,
+      "row": 1,
+      "column": 5,
+      "name": "Serrated dark dagger",
+      "path": "equipment/weapon-arsenal/005-serrated-dark-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        504,
+        0,
+        629,
+        120
+      ],
+      "tags": [
+        "dagger",
+        "dark",
+        "equipment",
+        "serrated"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-006",
+      "set": "weapon-arsenal",
+      "number": 6,
+      "row": 1,
+      "column": 6,
+      "name": "Golden hooked dagger",
+      "path": "equipment/weapon-arsenal/006-golden-hooked-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        629,
+        0,
+        755,
+        120
+      ],
+      "tags": [
+        "dagger",
+        "equipment",
+        "golden",
+        "hooked"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-007",
+      "set": "weapon-arsenal",
+      "number": 7,
+      "row": 1,
+      "column": 7,
+      "name": "Venom fang dagger",
+      "path": "equipment/weapon-arsenal/007-venom-fang-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        755,
+        0,
+        881,
+        120
+      ],
+      "tags": [
+        "dagger",
+        "equipment",
+        "fang",
+        "venom"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-008",
+      "set": "weapon-arsenal",
+      "number": 8,
+      "row": 1,
+      "column": 8,
+      "name": "Frost curved dagger",
+      "path": "equipment/weapon-arsenal/008-frost-curved-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        881,
+        0,
+        1005,
+        120
+      ],
+      "tags": [
+        "curved",
+        "dagger",
+        "equipment",
+        "frost"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-009",
+      "set": "weapon-arsenal",
+      "number": 9,
+      "row": 1,
+      "column": 9,
+      "name": "Flame dagger",
+      "path": "equipment/weapon-arsenal/009-flame-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        1005,
+        0,
+        1130,
+        120
+      ],
+      "tags": [
+        "dagger",
+        "equipment",
+        "flame"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-010",
+      "set": "weapon-arsenal",
+      "number": 10,
+      "row": 1,
+      "column": 10,
+      "name": "Violet arcane dagger",
+      "path": "equipment/weapon-arsenal/010-violet-arcane-dagger.png",
+      "category": "equipment",
+      "equipmentType": "dagger",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        1130,
+        0,
+        1254,
+        120
+      ],
+      "tags": [
+        "arcane",
+        "dagger",
+        "equipment",
+        "violet"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-011",
+      "set": "weapon-arsenal",
+      "number": 11,
+      "row": 2,
+      "column": 1,
+      "name": "Rusted sword",
+      "path": "equipment/weapon-arsenal/011-rusted-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        0,
+        120,
+        126,
+        244
+      ],
+      "tags": [
+        "equipment",
+        "rusted",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-012",
+      "set": "weapon-arsenal",
+      "number": 12,
+      "row": 2,
+      "column": 2,
+      "name": "Iron broadsword",
+      "path": "equipment/weapon-arsenal/012-iron-broadsword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        126,
+        120,
+        252,
+        244
+      ],
+      "tags": [
+        "broadsword",
+        "equipment",
+        "iron",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-013",
+      "set": "weapon-arsenal",
+      "number": 13,
+      "row": 2,
+      "column": 3,
+      "name": "Honed steel sword",
+      "path": "equipment/weapon-arsenal/013-honed-steel-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        252,
+        120,
+        378,
+        244
+      ],
+      "tags": [
+        "equipment",
+        "honed",
+        "steel",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-014",
+      "set": "weapon-arsenal",
+      "number": 14,
+      "row": 2,
+      "column": 4,
+      "name": "Royal lion sword",
+      "path": "equipment/weapon-arsenal/014-royal-lion-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        378,
+        120,
+        504,
+        244
+      ],
+      "tags": [
+        "equipment",
+        "lion",
+        "royal",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-015",
+      "set": "weapon-arsenal",
+      "number": 15,
+      "row": 2,
+      "column": 5,
+      "name": "Engraved silver sword",
+      "path": "equipment/weapon-arsenal/015-engraved-silver-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        504,
+        120,
+        629,
+        244
+      ],
+      "tags": [
+        "engraved",
+        "equipment",
+        "silver",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-016",
+      "set": "weapon-arsenal",
+      "number": 16,
+      "row": 2,
+      "column": 6,
+      "name": "Azure crystal sword",
+      "path": "equipment/weapon-arsenal/016-azure-crystal-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        629,
+        120,
+        755,
+        244
+      ],
+      "tags": [
+        "azure",
+        "crystal",
+        "equipment",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-017",
+      "set": "weapon-arsenal",
+      "number": 17,
+      "row": 2,
+      "column": 7,
+      "name": "Golden holy sword",
+      "path": "equipment/weapon-arsenal/017-golden-holy-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        755,
+        120,
+        881,
+        244
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "holy",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-018",
+      "set": "weapon-arsenal",
+      "number": 18,
+      "row": 2,
+      "column": 8,
+      "name": "Infernal rune sword",
+      "path": "equipment/weapon-arsenal/018-infernal-rune-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 124,
+      "height": 124,
+      "sourceBox": [
+        881,
+        120,
+        1005,
+        244
+      ],
+      "tags": [
+        "equipment",
+        "infernal",
+        "rune",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-019",
+      "set": "weapon-arsenal",
+      "number": 19,
+      "row": 2,
+      "column": 9,
+      "name": "Radiant sun sword",
+      "path": "equipment/weapon-arsenal/019-radiant-sun-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1005,
+        120,
+        1130,
+        244
+      ],
+      "tags": [
+        "equipment",
+        "radiant",
+        "sun",
+        "sword"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-020",
+      "set": "weapon-arsenal",
+      "number": 20,
+      "row": 2,
+      "column": 10,
+      "name": "Violet arcane sword",
+      "path": "equipment/weapon-arsenal/020-violet-arcane-sword.png",
+      "category": "equipment",
+      "equipmentType": "sword",
+      "width": 124,
+      "height": 124,
+      "sourceBox": [
+        1130,
+        120,
+        1254,
+        244
+      ],
+      "tags": [
+        "arcane",
+        "equipment",
+        "sword",
+        "violet"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-021",
+      "set": "weapon-arsenal",
+      "number": 21,
+      "row": 3,
+      "column": 1,
+      "name": "Rusted hand axe",
+      "path": "equipment/weapon-arsenal/021-rusted-hand-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        0,
+        244,
+        126,
+        364
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "hand",
+        "rusted"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-022",
+      "set": "weapon-arsenal",
+      "number": 22,
+      "row": 3,
+      "column": 2,
+      "name": "Iron hand axe",
+      "path": "equipment/weapon-arsenal/022-iron-hand-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        126,
+        244,
+        252,
+        364
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "hand",
+        "iron"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-023",
+      "set": "weapon-arsenal",
+      "number": 23,
+      "row": 3,
+      "column": 3,
+      "name": "Engraved bronze axe",
+      "path": "equipment/weapon-arsenal/023-engraved-bronze-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        252,
+        244,
+        378,
+        364
+      ],
+      "tags": [
+        "axe",
+        "bronze",
+        "engraved",
+        "equipment"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-024",
+      "set": "weapon-arsenal",
+      "number": 24,
+      "row": 3,
+      "column": 4,
+      "name": "Spiked steel axe",
+      "path": "equipment/weapon-arsenal/024-spiked-steel-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        378,
+        244,
+        504,
+        364
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "spiked",
+        "steel"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-025",
+      "set": "weapon-arsenal",
+      "number": 25,
+      "row": 3,
+      "column": 5,
+      "name": "Double edged steel axe",
+      "path": "equipment/weapon-arsenal/025-double-edged-steel-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        504,
+        244,
+        629,
+        364
+      ],
+      "tags": [
+        "axe",
+        "double",
+        "edged",
+        "equipment",
+        "steel"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-026",
+      "set": "weapon-arsenal",
+      "number": 26,
+      "row": 3,
+      "column": 6,
+      "name": "Royal azure axe",
+      "path": "equipment/weapon-arsenal/026-royal-azure-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        629,
+        244,
+        755,
+        364
+      ],
+      "tags": [
+        "axe",
+        "azure",
+        "equipment",
+        "royal"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-027",
+      "set": "weapon-arsenal",
+      "number": 27,
+      "row": 3,
+      "column": 7,
+      "name": "Venom crescent axe",
+      "path": "equipment/weapon-arsenal/027-venom-crescent-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        755,
+        244,
+        881,
+        364
+      ],
+      "tags": [
+        "axe",
+        "crescent",
+        "equipment",
+        "venom"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-028",
+      "set": "weapon-arsenal",
+      "number": 28,
+      "row": 3,
+      "column": 8,
+      "name": "Infernal hand axe",
+      "path": "equipment/weapon-arsenal/028-infernal-hand-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        881,
+        244,
+        1005,
+        364
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "hand",
+        "infernal"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-029",
+      "set": "weapon-arsenal",
+      "number": 29,
+      "row": 3,
+      "column": 9,
+      "name": "Radiant golden axe",
+      "path": "equipment/weapon-arsenal/029-radiant-golden-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        1005,
+        244,
+        1130,
+        364
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "golden",
+        "radiant"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-030",
+      "set": "weapon-arsenal",
+      "number": 30,
+      "row": 3,
+      "column": 10,
+      "name": "Violet arcane axe",
+      "path": "equipment/weapon-arsenal/030-violet-arcane-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        1130,
+        244,
+        1254,
+        364
+      ],
+      "tags": [
+        "arcane",
+        "axe",
+        "equipment",
+        "violet"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-031",
+      "set": "weapon-arsenal",
+      "number": 31,
+      "row": 4,
+      "column": 1,
+      "name": "Rusted double axe",
+      "path": "equipment/weapon-arsenal/031-rusted-double-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 127,
+      "sourceBox": [
+        0,
+        364,
+        126,
+        491
+      ],
+      "tags": [
+        "axe",
+        "double",
+        "equipment",
+        "rusted"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-032",
+      "set": "weapon-arsenal",
+      "number": 32,
+      "row": 4,
+      "column": 2,
+      "name": "Iron double axe",
+      "path": "equipment/weapon-arsenal/032-iron-double-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 127,
+      "sourceBox": [
+        126,
+        364,
+        252,
+        491
+      ],
+      "tags": [
+        "axe",
+        "double",
+        "equipment",
+        "iron"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-033",
+      "set": "weapon-arsenal",
+      "number": 33,
+      "row": 4,
+      "column": 3,
+      "name": "Engraved double axe",
+      "path": "equipment/weapon-arsenal/033-engraved-double-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 127,
+      "sourceBox": [
+        252,
+        364,
+        378,
+        491
+      ],
+      "tags": [
+        "axe",
+        "double",
+        "engraved",
+        "equipment"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-034",
+      "set": "weapon-arsenal",
+      "number": 34,
+      "row": 4,
+      "column": 4,
+      "name": "Spiked double axe",
+      "path": "equipment/weapon-arsenal/034-spiked-double-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 127,
+      "sourceBox": [
+        378,
+        364,
+        504,
+        491
+      ],
+      "tags": [
+        "axe",
+        "double",
+        "equipment",
+        "spiked"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-035",
+      "set": "weapon-arsenal",
+      "number": 35,
+      "row": 4,
+      "column": 5,
+      "name": "Silver war axe",
+      "path": "equipment/weapon-arsenal/035-silver-war-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 125,
+      "height": 127,
+      "sourceBox": [
+        504,
+        364,
+        629,
+        491
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "silver",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-036",
+      "set": "weapon-arsenal",
+      "number": 36,
+      "row": 4,
+      "column": 6,
+      "name": "Royal azure war axe",
+      "path": "equipment/weapon-arsenal/036-royal-azure-war-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 127,
+      "sourceBox": [
+        629,
+        364,
+        755,
+        491
+      ],
+      "tags": [
+        "axe",
+        "azure",
+        "equipment",
+        "royal",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-037",
+      "set": "weapon-arsenal",
+      "number": 37,
+      "row": 4,
+      "column": 7,
+      "name": "Venom war axe",
+      "path": "equipment/weapon-arsenal/037-venom-war-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 126,
+      "height": 127,
+      "sourceBox": [
+        755,
+        364,
+        881,
+        491
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "venom",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-038",
+      "set": "weapon-arsenal",
+      "number": 38,
+      "row": 4,
+      "column": 8,
+      "name": "Infernal war axe",
+      "path": "equipment/weapon-arsenal/038-infernal-war-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 124,
+      "height": 127,
+      "sourceBox": [
+        881,
+        364,
+        1005,
+        491
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "infernal",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-039",
+      "set": "weapon-arsenal",
+      "number": 39,
+      "row": 4,
+      "column": 9,
+      "name": "Radiant golden war axe",
+      "path": "equipment/weapon-arsenal/039-radiant-golden-war-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 125,
+      "height": 127,
+      "sourceBox": [
+        1005,
+        364,
+        1130,
+        491
+      ],
+      "tags": [
+        "axe",
+        "equipment",
+        "golden",
+        "radiant",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-040",
+      "set": "weapon-arsenal",
+      "number": 40,
+      "row": 4,
+      "column": 10,
+      "name": "Violet arcane war axe",
+      "path": "equipment/weapon-arsenal/040-violet-arcane-war-axe.png",
+      "category": "equipment",
+      "equipmentType": "axe",
+      "width": 124,
+      "height": 127,
+      "sourceBox": [
+        1130,
+        364,
+        1254,
+        491
+      ],
+      "tags": [
+        "arcane",
+        "axe",
+        "equipment",
+        "violet",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-041",
+      "set": "weapon-arsenal",
+      "number": 41,
+      "row": 5,
+      "column": 1,
+      "name": "Spiked wooden club",
+      "path": "equipment/weapon-arsenal/041-spiked-wooden-club.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        0,
+        491,
+        126,
+        608
+      ],
+      "tags": [
+        "club",
+        "equipment",
+        "mace",
+        "spiked",
+        "wooden"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-042",
+      "set": "weapon-arsenal",
+      "number": 42,
+      "row": 5,
+      "column": 2,
+      "name": "Iron flanged mace",
+      "path": "equipment/weapon-arsenal/042-iron-flanged-mace.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        126,
+        491,
+        252,
+        608
+      ],
+      "tags": [
+        "equipment",
+        "flanged",
+        "iron",
+        "mace"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-043",
+      "set": "weapon-arsenal",
+      "number": 43,
+      "row": 5,
+      "column": 3,
+      "name": "Steel flanged mace",
+      "path": "equipment/weapon-arsenal/043-steel-flanged-mace.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        252,
+        491,
+        378,
+        608
+      ],
+      "tags": [
+        "equipment",
+        "flanged",
+        "mace",
+        "steel"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-044",
+      "set": "weapon-arsenal",
+      "number": 44,
+      "row": 5,
+      "column": 4,
+      "name": "Spiked iron mace",
+      "path": "equipment/weapon-arsenal/044-spiked-iron-mace.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        378,
+        491,
+        504,
+        608
+      ],
+      "tags": [
+        "equipment",
+        "iron",
+        "mace",
+        "spiked"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-045",
+      "set": "weapon-arsenal",
+      "number": 45,
+      "row": 5,
+      "column": 5,
+      "name": "Faceted steel hammer",
+      "path": "equipment/weapon-arsenal/045-faceted-steel-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        504,
+        491,
+        629,
+        608
+      ],
+      "tags": [
+        "equipment",
+        "faceted",
+        "hammer",
+        "mace",
+        "steel"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-046",
+      "set": "weapon-arsenal",
+      "number": 46,
+      "row": 5,
+      "column": 6,
+      "name": "Engraved stone hammer",
+      "path": "equipment/weapon-arsenal/046-engraved-stone-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        629,
+        491,
+        755,
+        608
+      ],
+      "tags": [
+        "engraved",
+        "equipment",
+        "hammer",
+        "mace",
+        "stone"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-047",
+      "set": "weapon-arsenal",
+      "number": 47,
+      "row": 5,
+      "column": 7,
+      "name": "Golden sapphire hammer",
+      "path": "equipment/weapon-arsenal/047-golden-sapphire-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        755,
+        491,
+        881,
+        608
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "hammer",
+        "mace",
+        "sapphire"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-048",
+      "set": "weapon-arsenal",
+      "number": 48,
+      "row": 5,
+      "column": 8,
+      "name": "Venom spike mace",
+      "path": "equipment/weapon-arsenal/048-venom-spike-mace.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 124,
+      "height": 117,
+      "sourceBox": [
+        881,
+        491,
+        1005,
+        608
+      ],
+      "tags": [
+        "equipment",
+        "mace",
+        "spike",
+        "venom"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-049",
+      "set": "weapon-arsenal",
+      "number": 49,
+      "row": 5,
+      "column": 9,
+      "name": "Molten rune hammer",
+      "path": "equipment/weapon-arsenal/049-molten-rune-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        1005,
+        491,
+        1130,
+        608
+      ],
+      "tags": [
+        "equipment",
+        "hammer",
+        "mace",
+        "molten",
+        "rune"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-050",
+      "set": "weapon-arsenal",
+      "number": 50,
+      "row": 5,
+      "column": 10,
+      "name": "Violet crystal hammer",
+      "path": "equipment/weapon-arsenal/050-violet-crystal-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 124,
+      "height": 117,
+      "sourceBox": [
+        1130,
+        491,
+        1254,
+        608
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "hammer",
+        "mace",
+        "violet"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-051",
+      "set": "weapon-arsenal",
+      "number": 51,
+      "row": 6,
+      "column": 1,
+      "name": "Rusted war hammer",
+      "path": "equipment/weapon-arsenal/051-rusted-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        0,
+        608,
+        126,
+        730
+      ],
+      "tags": [
+        "equipment",
+        "hammer",
+        "mace",
+        "rusted",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-052",
+      "set": "weapon-arsenal",
+      "number": 52,
+      "row": 6,
+      "column": 2,
+      "name": "Iron bound war hammer",
+      "path": "equipment/weapon-arsenal/052-iron-bound-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        126,
+        608,
+        252,
+        730
+      ],
+      "tags": [
+        "bound",
+        "equipment",
+        "hammer",
+        "iron",
+        "mace",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-053",
+      "set": "weapon-arsenal",
+      "number": 53,
+      "row": 6,
+      "column": 3,
+      "name": "Spiked war hammer",
+      "path": "equipment/weapon-arsenal/053-spiked-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        252,
+        608,
+        378,
+        730
+      ],
+      "tags": [
+        "equipment",
+        "hammer",
+        "mace",
+        "spiked",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-054",
+      "set": "weapon-arsenal",
+      "number": 54,
+      "row": 6,
+      "column": 4,
+      "name": "Honed steel war hammer",
+      "path": "equipment/weapon-arsenal/054-honed-steel-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        378,
+        608,
+        504,
+        730
+      ],
+      "tags": [
+        "equipment",
+        "hammer",
+        "honed",
+        "mace",
+        "steel",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-055",
+      "set": "weapon-arsenal",
+      "number": 55,
+      "row": 6,
+      "column": 5,
+      "name": "Engraved dark war hammer",
+      "path": "equipment/weapon-arsenal/055-engraved-dark-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 125,
+      "height": 122,
+      "sourceBox": [
+        504,
+        608,
+        629,
+        730
+      ],
+      "tags": [
+        "dark",
+        "engraved",
+        "equipment",
+        "hammer",
+        "mace",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-056",
+      "set": "weapon-arsenal",
+      "number": 56,
+      "row": 6,
+      "column": 6,
+      "name": "Royal azure war hammer",
+      "path": "equipment/weapon-arsenal/056-royal-azure-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        629,
+        608,
+        755,
+        730
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "hammer",
+        "mace",
+        "royal",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-057",
+      "set": "weapon-arsenal",
+      "number": 57,
+      "row": 6,
+      "column": 7,
+      "name": "Venom war hammer",
+      "path": "equipment/weapon-arsenal/057-venom-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        755,
+        608,
+        881,
+        730
+      ],
+      "tags": [
+        "equipment",
+        "hammer",
+        "mace",
+        "venom",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-058",
+      "set": "weapon-arsenal",
+      "number": 58,
+      "row": 6,
+      "column": 8,
+      "name": "Infernal war hammer",
+      "path": "equipment/weapon-arsenal/058-infernal-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 124,
+      "height": 122,
+      "sourceBox": [
+        881,
+        608,
+        1005,
+        730
+      ],
+      "tags": [
+        "equipment",
+        "hammer",
+        "infernal",
+        "mace",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-059",
+      "set": "weapon-arsenal",
+      "number": 59,
+      "row": 6,
+      "column": 9,
+      "name": "Radiant golden war hammer",
+      "path": "equipment/weapon-arsenal/059-radiant-golden-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 125,
+      "height": 122,
+      "sourceBox": [
+        1005,
+        608,
+        1130,
+        730
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "hammer",
+        "mace",
+        "radiant",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-060",
+      "set": "weapon-arsenal",
+      "number": 60,
+      "row": 6,
+      "column": 10,
+      "name": "Violet spiked war hammer",
+      "path": "equipment/weapon-arsenal/060-violet-spiked-war-hammer.png",
+      "category": "equipment",
+      "equipmentType": "mace",
+      "width": 124,
+      "height": 122,
+      "sourceBox": [
+        1130,
+        608,
+        1254,
+        730
+      ],
+      "tags": [
+        "equipment",
+        "hammer",
+        "mace",
+        "spiked",
+        "violet",
+        "war"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-061",
+      "set": "weapon-arsenal",
+      "number": 61,
+      "row": 7,
+      "column": 1,
+      "name": "Rusted spear",
+      "path": "equipment/weapon-arsenal/061-rusted-spear.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 126,
+      "height": 119,
+      "sourceBox": [
+        0,
+        730,
+        126,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "polearm",
+        "rusted",
+        "spear"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-062",
+      "set": "weapon-arsenal",
+      "number": 62,
+      "row": 7,
+      "column": 2,
+      "name": "Iron spear",
+      "path": "equipment/weapon-arsenal/062-iron-spear.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 126,
+      "height": 119,
+      "sourceBox": [
+        126,
+        730,
+        252,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "iron",
+        "polearm",
+        "spear"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-063",
+      "set": "weapon-arsenal",
+      "number": 63,
+      "row": 7,
+      "column": 3,
+      "name": "Honed steel spear",
+      "path": "equipment/weapon-arsenal/063-honed-steel-spear.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 126,
+      "height": 119,
+      "sourceBox": [
+        252,
+        730,
+        378,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "honed",
+        "polearm",
+        "spear",
+        "steel"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-064",
+      "set": "weapon-arsenal",
+      "number": 64,
+      "row": 7,
+      "column": 4,
+      "name": "Silver halberd",
+      "path": "equipment/weapon-arsenal/064-silver-halberd.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 126,
+      "height": 119,
+      "sourceBox": [
+        378,
+        730,
+        504,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "halberd",
+        "polearm",
+        "silver"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-065",
+      "set": "weapon-arsenal",
+      "number": 65,
+      "row": 7,
+      "column": 5,
+      "name": "Azure halberd",
+      "path": "equipment/weapon-arsenal/065-azure-halberd.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 125,
+      "height": 119,
+      "sourceBox": [
+        504,
+        730,
+        629,
+        849
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "halberd",
+        "polearm"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-066",
+      "set": "weapon-arsenal",
+      "number": 66,
+      "row": 7,
+      "column": 6,
+      "name": "Golden sapphire spear",
+      "path": "equipment/weapon-arsenal/066-golden-sapphire-spear.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 126,
+      "height": 119,
+      "sourceBox": [
+        629,
+        730,
+        755,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "polearm",
+        "sapphire",
+        "spear"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-067",
+      "set": "weapon-arsenal",
+      "number": 67,
+      "row": 7,
+      "column": 7,
+      "name": "Venom polearm",
+      "path": "equipment/weapon-arsenal/067-venom-polearm.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 126,
+      "height": 119,
+      "sourceBox": [
+        755,
+        730,
+        881,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "polearm",
+        "venom"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-068",
+      "set": "weapon-arsenal",
+      "number": 68,
+      "row": 7,
+      "column": 8,
+      "name": "Infernal halberd",
+      "path": "equipment/weapon-arsenal/068-infernal-halberd.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 124,
+      "height": 119,
+      "sourceBox": [
+        881,
+        730,
+        1005,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "halberd",
+        "infernal",
+        "polearm"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-069",
+      "set": "weapon-arsenal",
+      "number": 69,
+      "row": 7,
+      "column": 9,
+      "name": "Radiant golden spear",
+      "path": "equipment/weapon-arsenal/069-radiant-golden-spear.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 125,
+      "height": 119,
+      "sourceBox": [
+        1005,
+        730,
+        1130,
+        849
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "polearm",
+        "radiant",
+        "spear"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-070",
+      "set": "weapon-arsenal",
+      "number": 70,
+      "row": 7,
+      "column": 10,
+      "name": "Violet arcane halberd",
+      "path": "equipment/weapon-arsenal/070-violet-arcane-halberd.png",
+      "category": "equipment",
+      "equipmentType": "polearm",
+      "width": 124,
+      "height": 119,
+      "sourceBox": [
+        1130,
+        730,
+        1254,
+        849
+      ],
+      "tags": [
+        "arcane",
+        "equipment",
+        "halberd",
+        "polearm",
+        "violet"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-071",
+      "set": "weapon-arsenal",
+      "number": 71,
+      "row": 8,
+      "column": 1,
+      "name": "Crooked wooden staff",
+      "path": "equipment/weapon-arsenal/071-crooked-wooden-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        0,
+        849,
+        126,
+        971
+      ],
+      "tags": [
+        "crooked",
+        "equipment",
+        "staff",
+        "wooden"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-072",
+      "set": "weapon-arsenal",
+      "number": 72,
+      "row": 8,
+      "column": 2,
+      "name": "Stone sphere staff",
+      "path": "equipment/weapon-arsenal/072-stone-sphere-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        126,
+        849,
+        252,
+        971
+      ],
+      "tags": [
+        "equipment",
+        "sphere",
+        "staff",
+        "stone"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-073",
+      "set": "weapon-arsenal",
+      "number": 73,
+      "row": 8,
+      "column": 3,
+      "name": "Azure orb staff",
+      "path": "equipment/weapon-arsenal/073-azure-orb-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        252,
+        849,
+        378,
+        971
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "orb",
+        "staff"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-074",
+      "set": "weapon-arsenal",
+      "number": 74,
+      "row": 8,
+      "column": 4,
+      "name": "Silver orb staff",
+      "path": "equipment/weapon-arsenal/074-silver-orb-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        378,
+        849,
+        504,
+        971
+      ],
+      "tags": [
+        "equipment",
+        "orb",
+        "silver",
+        "staff"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-075",
+      "set": "weapon-arsenal",
+      "number": 75,
+      "row": 8,
+      "column": 5,
+      "name": "Twin crystal staff",
+      "path": "equipment/weapon-arsenal/075-twin-crystal-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 125,
+      "height": 122,
+      "sourceBox": [
+        504,
+        849,
+        629,
+        971
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "staff",
+        "twin"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-076",
+      "set": "weapon-arsenal",
+      "number": 76,
+      "row": 8,
+      "column": 6,
+      "name": "Royal azure crystal staff",
+      "path": "equipment/weapon-arsenal/076-royal-azure-crystal-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        629,
+        849,
+        755,
+        971
+      ],
+      "tags": [
+        "azure",
+        "crystal",
+        "equipment",
+        "royal",
+        "staff"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-077",
+      "set": "weapon-arsenal",
+      "number": 77,
+      "row": 8,
+      "column": 7,
+      "name": "Venom spiral staff",
+      "path": "equipment/weapon-arsenal/077-venom-spiral-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        755,
+        849,
+        881,
+        971
+      ],
+      "tags": [
+        "equipment",
+        "spiral",
+        "staff",
+        "venom"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-078",
+      "set": "weapon-arsenal",
+      "number": 78,
+      "row": 8,
+      "column": 8,
+      "name": "Flame orb staff",
+      "path": "equipment/weapon-arsenal/078-flame-orb-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 124,
+      "height": 122,
+      "sourceBox": [
+        881,
+        849,
+        1005,
+        971
+      ],
+      "tags": [
+        "equipment",
+        "flame",
+        "orb",
+        "staff"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-079",
+      "set": "weapon-arsenal",
+      "number": 79,
+      "row": 8,
+      "column": 9,
+      "name": "Radiant sun staff",
+      "path": "equipment/weapon-arsenal/079-radiant-sun-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 125,
+      "height": 122,
+      "sourceBox": [
+        1005,
+        849,
+        1130,
+        971
+      ],
+      "tags": [
+        "equipment",
+        "radiant",
+        "staff",
+        "sun"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-080",
+      "set": "weapon-arsenal",
+      "number": 80,
+      "row": 8,
+      "column": 10,
+      "name": "Violet orb staff",
+      "path": "equipment/weapon-arsenal/080-violet-orb-staff.png",
+      "category": "equipment",
+      "equipmentType": "staff",
+      "width": 124,
+      "height": 122,
+      "sourceBox": [
+        1130,
+        849,
+        1254,
+        971
+      ],
+      "tags": [
+        "equipment",
+        "orb",
+        "staff",
+        "violet"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-081",
+      "set": "weapon-arsenal",
+      "number": 81,
+      "row": 9,
+      "column": 1,
+      "name": "Plain wooden bow",
+      "path": "equipment/weapon-arsenal/081-plain-wooden-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 126,
+      "height": 130,
+      "sourceBox": [
+        0,
+        971,
+        126,
+        1101
+      ],
+      "tags": [
+        "bow",
+        "equipment",
+        "plain",
+        "wooden"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-082",
+      "set": "weapon-arsenal",
+      "number": 82,
+      "row": 9,
+      "column": 2,
+      "name": "Carved wooden bow",
+      "path": "equipment/weapon-arsenal/082-carved-wooden-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 126,
+      "height": 130,
+      "sourceBox": [
+        126,
+        971,
+        252,
+        1101
+      ],
+      "tags": [
+        "bow",
+        "carved",
+        "equipment",
+        "wooden"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-083",
+      "set": "weapon-arsenal",
+      "number": 83,
+      "row": 9,
+      "column": 3,
+      "name": "Iron reinforced bow",
+      "path": "equipment/weapon-arsenal/083-iron-reinforced-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 126,
+      "height": 130,
+      "sourceBox": [
+        252,
+        971,
+        378,
+        1101
+      ],
+      "tags": [
+        "bow",
+        "equipment",
+        "iron",
+        "reinforced"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-084",
+      "set": "weapon-arsenal",
+      "number": 84,
+      "row": 9,
+      "column": 4,
+      "name": "Azure trimmed bow",
+      "path": "equipment/weapon-arsenal/084-azure-trimmed-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 126,
+      "height": 130,
+      "sourceBox": [
+        378,
+        971,
+        504,
+        1101
+      ],
+      "tags": [
+        "azure",
+        "bow",
+        "equipment",
+        "trimmed"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-085",
+      "set": "weapon-arsenal",
+      "number": 85,
+      "row": 9,
+      "column": 5,
+      "name": "Bone longbow",
+      "path": "equipment/weapon-arsenal/085-bone-longbow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 125,
+      "height": 130,
+      "sourceBox": [
+        504,
+        971,
+        629,
+        1101
+      ],
+      "tags": [
+        "bone",
+        "bow",
+        "equipment",
+        "longbow"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-086",
+      "set": "weapon-arsenal",
+      "number": 86,
+      "row": 9,
+      "column": 6,
+      "name": "Royal azure bow",
+      "path": "equipment/weapon-arsenal/086-royal-azure-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 126,
+      "height": 130,
+      "sourceBox": [
+        629,
+        971,
+        755,
+        1101
+      ],
+      "tags": [
+        "azure",
+        "bow",
+        "equipment",
+        "royal"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-087",
+      "set": "weapon-arsenal",
+      "number": 87,
+      "row": 9,
+      "column": 7,
+      "name": "Venom vine bow",
+      "path": "equipment/weapon-arsenal/087-venom-vine-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 126,
+      "height": 130,
+      "sourceBox": [
+        755,
+        971,
+        881,
+        1101
+      ],
+      "tags": [
+        "bow",
+        "equipment",
+        "venom",
+        "vine"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-088",
+      "set": "weapon-arsenal",
+      "number": 88,
+      "row": 9,
+      "column": 8,
+      "name": "Infernal bow",
+      "path": "equipment/weapon-arsenal/088-infernal-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 124,
+      "height": 130,
+      "sourceBox": [
+        881,
+        971,
+        1005,
+        1101
+      ],
+      "tags": [
+        "bow",
+        "equipment",
+        "infernal"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-089",
+      "set": "weapon-arsenal",
+      "number": 89,
+      "row": 9,
+      "column": 9,
+      "name": "Radiant golden bow",
+      "path": "equipment/weapon-arsenal/089-radiant-golden-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 125,
+      "height": 130,
+      "sourceBox": [
+        1005,
+        971,
+        1130,
+        1101
+      ],
+      "tags": [
+        "bow",
+        "equipment",
+        "golden",
+        "radiant"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-090",
+      "set": "weapon-arsenal",
+      "number": 90,
+      "row": 9,
+      "column": 10,
+      "name": "Violet arcane bow",
+      "path": "equipment/weapon-arsenal/090-violet-arcane-bow.png",
+      "category": "equipment",
+      "equipmentType": "bow",
+      "width": 124,
+      "height": 130,
+      "sourceBox": [
+        1130,
+        971,
+        1254,
+        1101
+      ],
+      "tags": [
+        "arcane",
+        "bow",
+        "equipment",
+        "violet"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-091",
+      "set": "weapon-arsenal",
+      "number": 91,
+      "row": 10,
+      "column": 1,
+      "name": "Plain wooden crossbow",
+      "path": "equipment/weapon-arsenal/091-plain-wooden-crossbow.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        0,
+        1101,
+        126,
+        1254
+      ],
+      "tags": [
+        "crossbow",
+        "equipment",
+        "plain",
+        "ranged",
+        "wooden"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-092",
+      "set": "weapon-arsenal",
+      "number": 92,
+      "row": 10,
+      "column": 2,
+      "name": "Iron reinforced crossbow",
+      "path": "equipment/weapon-arsenal/092-iron-reinforced-crossbow.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        126,
+        1101,
+        252,
+        1254
+      ],
+      "tags": [
+        "crossbow",
+        "equipment",
+        "iron",
+        "ranged",
+        "reinforced"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-093",
+      "set": "weapon-arsenal",
+      "number": 93,
+      "row": 10,
+      "column": 3,
+      "name": "Steel crossbow",
+      "path": "equipment/weapon-arsenal/093-steel-crossbow.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        252,
+        1101,
+        378,
+        1254
+      ],
+      "tags": [
+        "crossbow",
+        "equipment",
+        "ranged",
+        "steel"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-094",
+      "set": "weapon-arsenal",
+      "number": 94,
+      "row": 10,
+      "column": 4,
+      "name": "Royal azure crossbow",
+      "path": "equipment/weapon-arsenal/094-royal-azure-crossbow.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        378,
+        1101,
+        504,
+        1254
+      ],
+      "tags": [
+        "azure",
+        "crossbow",
+        "equipment",
+        "ranged",
+        "royal"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-095",
+      "set": "weapon-arsenal",
+      "number": 95,
+      "row": 10,
+      "column": 5,
+      "name": "Golden trimmed crossbow",
+      "path": "equipment/weapon-arsenal/095-golden-trimmed-crossbow.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 125,
+      "height": 153,
+      "sourceBox": [
+        504,
+        1101,
+        629,
+        1254
+      ],
+      "tags": [
+        "crossbow",
+        "equipment",
+        "golden",
+        "ranged",
+        "trimmed"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-096",
+      "set": "weapon-arsenal",
+      "number": 96,
+      "row": 10,
+      "column": 6,
+      "name": "Brass flintlock pistol",
+      "path": "equipment/weapon-arsenal/096-brass-flintlock-pistol.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        629,
+        1101,
+        755,
+        1254
+      ],
+      "tags": [
+        "brass",
+        "equipment",
+        "flintlock",
+        "pistol",
+        "ranged"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-097",
+      "set": "weapon-arsenal",
+      "number": 97,
+      "row": 10,
+      "column": 7,
+      "name": "Engraved golden pistol",
+      "path": "equipment/weapon-arsenal/097-engraved-golden-pistol.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 126,
+      "height": 153,
+      "sourceBox": [
+        755,
+        1101,
+        881,
+        1254
+      ],
+      "tags": [
+        "engraved",
+        "equipment",
+        "golden",
+        "pistol",
+        "ranged"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-098",
+      "set": "weapon-arsenal",
+      "number": 98,
+      "row": 10,
+      "column": 8,
+      "name": "Iron flintlock pistol",
+      "path": "equipment/weapon-arsenal/098-iron-flintlock-pistol.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 124,
+      "height": 153,
+      "sourceBox": [
+        881,
+        1101,
+        1005,
+        1254
+      ],
+      "tags": [
+        "equipment",
+        "flintlock",
+        "iron",
+        "pistol",
+        "ranged"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-099",
+      "set": "weapon-arsenal",
+      "number": 99,
+      "row": 10,
+      "column": 9,
+      "name": "Royal azure pistol",
+      "path": "equipment/weapon-arsenal/099-royal-azure-pistol.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 125,
+      "height": 153,
+      "sourceBox": [
+        1005,
+        1101,
+        1130,
+        1254
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "pistol",
+        "ranged",
+        "royal"
+      ]
+    },
+    {
+      "id": "weapon-arsenal-100",
+      "set": "weapon-arsenal",
+      "number": 100,
+      "row": 10,
+      "column": 10,
+      "name": "Violet arcane pistol",
+      "path": "equipment/weapon-arsenal/100-violet-arcane-pistol.png",
+      "category": "equipment",
+      "equipmentType": "ranged",
+      "width": 124,
+      "height": 153,
+      "sourceBox": [
+        1130,
+        1101,
+        1254,
+        1254
+      ],
+      "tags": [
+        "arcane",
+        "equipment",
+        "pistol",
+        "ranged",
+        "violet"
+      ]
+    }
+  ]
+}
