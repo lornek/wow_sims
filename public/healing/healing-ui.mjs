@@ -1,3 +1,4 @@
+import {spellbookEntries, spellbookPage} from './spellbook-layout.mjs';
 import {mountGearEditor} from './gear-editor.mjs';
 import {watchScoreFormula} from './score-layout.mjs';
 import {normalizeAdditionalStats} from './additional-stats.mjs';
@@ -904,7 +905,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     return true;
   }
-  let selectedSchool = schools[0];
+  let selectedSchool = schools[0], bookPage = 0, bookStatus = 'all';
+  let bookTooltips = [];
   const allRanks = find('[data-all-ranks]');
   const bookLevel = find('[data-book-level]');
   const bookSearch = find('[data-filter]');
@@ -912,7 +914,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const button = document.createElement('button');
     button.type = 'button';
     button.append(icon(schoolIcons[index]), school);
-    button.onclick = () => { selectedSchool = school; renderBook(); };
+    button.onclick = () => { selectedSchool = school; bookPage = 0; renderBook(); };
     find('[data-schools]').append(button);
     return button;
   });
@@ -930,28 +932,54 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function renderBook() {
     const grid = find('[data-catalog]');
+    for (const tooltip of bookTooltips) tooltip.destroy();
+    bookTooltips = [];
     hideGameTooltipWithin(grid);
     grid.replaceChildren();
     schoolButtons.forEach((button, index) => button.setAttribute('aria-pressed', schools[index] === selectedSchool));
-    const level = bookLevel.valueAsNumber || 60;
-    const query = bookSearch.value.trim().toLowerCase();
-    for (const {name, school, status, ranks: entries} of bookRows) {
-      if ((!query && school !== selectedSchool.toLowerCase()) || !name.toLowerCase().includes(query)) continue;
-      const available = entries.filter(({rank}) => rank.level <= level);
-      const shown = allRanks.checked ? available : available.slice(-1);
-      for (const {rank, coefficients, row} of shown) {
-        const cell = document.createElement('details');
-        cell.className = 'book-spell';
-        const button = document.createElement('summary');
+    const level = Math.max(1, Math.min(60, bookLevel.valueAsNumber || 60));
+    const query = bookSearch.value.trim();
+    const options = {school:selectedSchool, query, level, allRanks:allRanks.checked};
+    const allEntries = spellbookEntries(bookRows, options);
+    const entries = spellbookEntries(bookRows, {...options, status:bookStatus});
+    const page = spellbookPage(entries, bookPage);
+    bookPage = page.index;
+    const title = document.createElement('header');
+    title.className = 'book-heading';
+    const heading = document.createElement('h2');
+    heading.textContent = query ? 'Search results' : selectedSchool;
+    const count = document.createElement('span');
+    count.textContent = entries.length + (allRanks.checked ? ' spell ranks' : ' spells');
+    title.append(heading, count);
+    const spread = document.createElement('div');
+    spread.className = 'book-spread';
+    function renderPage(rows, side) {
+      const list = document.createElement('div');
+      list.className = 'book-page';
+      list.setAttribute('aria-label', side + ' spellbook page');
+      for (const {name, status, rank, coefficients, row} of rows) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'book-spell';
         const label = document.createElement('span');
-        label.textContent = name + (status === 'changed' ? ' ◆' : status === 'new' ? ' ★' : '');
+        label.className = 'book-spell-label';
+        const spellName = document.createElement('strong');
+        spellName.textContent = name;
+        if (['changed','new','removed'].includes(status)) {
+          const badge = document.createElement('span');
+          badge.className = 'book-change ' + status;
+          badge.textContent = status === 'new' ? '★' : status === 'removed' ? '✕' : '◆';
+          badge.setAttribute('aria-label', status === 'new' ? 'New in Forever' : status === 'removed' ? 'Not in Forever' : 'Changed from Classic');
+          spellName.append(' ', badge);
+        }
         const sub = document.createElement('small');
-        sub.textContent = [rank.rank, 'Level ' + rank.level].filter(Boolean).join(' · ');
-        label.append(sub);
+        sub.textContent = status === 'removed' ? 'Not in Forever' : rank.rank || (rank.details?.includes('Passive') ? 'Passive' : 'Level ' + rank.level);
+        label.append(spellName, sub);
         button.append(icon(name), label);
         const render = tip => {
           tip.replaceChildren();
           tooltipLine(tip, name, 'game-tooltip-title');
+          if (status === 'removed') tooltipLine(tip, 'Not in Forever', 'game-tooltip-muted');
           tooltipLine(tip, [rank.rank, 'Level ' + rank.level].filter(Boolean).join(' · '));
           const key = healingByName.get(name);
           if (key && row) {
@@ -966,18 +994,60 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
             if (coefficients.length) tooltipLine(tip, 'Scaling · ' + coefficients.join(' / '), 'game-tooltip-reference');
           }
         };
-        const detail = document.createElement('div');
         const tooltip = attachGameTooltip(button, render);
-        cell.ontoggle = () => {
-          if (cell.open) { tooltip.hide(); render(detail); }
-        };
-        cell.append(button, detail);
-        grid.append(cell);
+        bookTooltips.push(tooltip);
+        button.onclick = () => tooltip.show();
+        list.append(button);
       }
+      return list;
     }
-    if (!grid.childElementCount) grid.textContent = 'No spells match your filters.';
+    spread.append(renderPage(page.left, 'Left'), renderPage(page.right, 'Right'));
+    const pagination = document.createElement('nav');
+    pagination.className = 'book-pagination';
+    pagination.setAttribute('aria-label', 'Spellbook pages');
+    const previous = document.createElement('button');
+    previous.type = 'button'; previous.textContent = '‹';
+    previous.setAttribute('aria-label', 'Previous spellbook page');
+    previous.disabled = page.index === 0;
+    previous.onclick = () => {bookPage--; renderBook(); find('[data-book-page-next]').focus();};
+    const position = document.createElement('span');
+    position.setAttribute('role', 'status');
+    position.textContent = 'Page ' + (page.index + 1) + '/' + page.pages;
+    const next = document.createElement('button');
+    next.type = 'button'; next.textContent = '›';
+    next.dataset.bookPageNext = '';
+    next.setAttribute('aria-label', 'Next spellbook page');
+    next.disabled = page.index === page.pages - 1;
+    next.onclick = () => {bookPage++; renderBook(); find('[data-book-page-previous]').focus();};
+    previous.dataset.bookPagePrevious = '';
+    pagination.append(previous, position, next);
+    const legend = document.createElement('nav');
+    legend.className = 'book-legend';
+    legend.setAttribute('aria-label', 'Filter spell changes');
+    for (const [key,label] of [['all','All'],['new','★ New in Forever'],['changed','◆ Changed'],['same','Same as Classic'],['removed','✕ Gone'],['unclassified','Other']]) {
+      const total = allEntries.filter(entry => key === 'all' || entry.status === key).length;
+      if (key === 'unclassified' && !total) continue;
+      const filter = document.createElement('button');
+      filter.type = 'button';
+      filter.textContent = label + ' ' + total;
+      filter.setAttribute('aria-pressed', String(bookStatus === key));
+      filter.onclick = () => {bookStatus = key; bookPage = 0; renderBook();};
+      legend.append(filter);
+    }
+    grid.append(title);
+    if (entries.length) grid.append(spread, pagination);
+    else {
+      const empty = document.createElement('p');
+      empty.className = 'book-empty';
+      empty.textContent = 'No spells match your filters. ';
+      const clear = document.createElement('button');
+      clear.type = 'button'; clear.textContent = 'Clear filters';
+      clear.onclick = () => {bookSearch.value = ''; bookStatus = 'all'; bookPage = 0; renderBook();};
+      empty.append(clear);grid.append(empty);
+    }
+    grid.append(legend);
   }
-  allRanks.onchange = bookLevel.oninput = bookSearch.oninput = renderBook;
+  allRanks.onchange = bookLevel.oninput = bookSearch.oninput = () => {bookPage = 0; renderBook();};
   mountTabs(find('.heal-menu'));
   renderBook();
 
@@ -1396,6 +1466,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     cancelAnimationFrame(animation);
     stopScoreLayout();
     gearEditor.destroy();
+    for (const tooltip of bookTooltips) tooltip.destroy();
     hideGameTooltip();
     visualPull++;
     startButton.removeEventListener('click', onStart);

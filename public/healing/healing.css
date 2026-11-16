@@ -511,3 +511,44 @@ body:has(#healing) { font-family:var(--ui); }
 .gear-choice [data-quality="3"] { color:#71aaff; }
 .gear-choice [data-quality="4"] { color:#c68aff; }
 .gear-choice [data-quality="5"] { color:#ff8000; }
+/* Spellbook: school tabs, paired six-spell pages and shared page navigation. */
+#panel-spellbook { max-width:1040px; margin-inline:auto; }
+.book-intro { text-align:center; color:var(--muted); padding:6px 0 14px; }
+.book-controls { justify-content:center; gap:14px; margin-bottom:18px; }
+.book-controls nav { justify-content:center; gap:6px; }
+.book-controls nav button { padding:10px 16px; border-radius:4px 4px 0 0; }
+.book-controls nav img { width:28px; height:28px; }
+.book-controls input[type=search] { width:220px; max-width:100%; }
+.spellbook { display:block; max-width:900px; margin:0 auto; border:1px solid #725936; border-radius:7px; background:#17120e; box-shadow:0 6px 20px #0005; overflow:hidden; }
+.book-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 22px; background:linear-gradient(#392d1e,#221a12); border-bottom:1px solid #725936; }
+.book-heading h2 { margin:0; color:var(--gold); font:700 1.2rem var(--ui); }
+.book-heading > span { color:var(--muted); font-size:.9rem; }
+.book-spread { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); background:linear-gradient(90deg,#362b1d,#241d15 48%,#100e0b 50%,#241d15 52%,#362b1d); }
+.book-page { display:grid; grid-template-rows:repeat(6,72px); padding:14px 18px; gap:2px; }
+.book-page + .book-page { border-left:1px solid #72593680; }
+.healing .spellbook .book-spell { display:flex; align-items:center; gap:12px; width:100%; min-width:0; padding:8px; border:1px solid transparent; border-radius:4px; background:transparent; text-align:left; }
+.healing .spellbook .book-spell:hover,.healing .spellbook .book-spell:focus-visible { background:#ba96541a; border-color:#a8864a; outline-offset:2px; }
+.spellbook .book-spell img { width:42px; height:42px; flex:none; margin:0; border:1px solid #b39153; border-radius:3px; box-shadow:0 2px 4px #0009; }
+.book-spell-label { min-width:0; }
+.book-spell-label strong { display:block; color:#eacb89; font:600 .98rem var(--ui); }
+.book-spell-label small { display:block; margin-top:3px; color:#c1b6a3; font:.82rem var(--ui); }
+.book-change.new { color:#79d38e; }
+.book-change.changed { color:#e8b957; }
+.book-pagination { display:flex; justify-content:center; align-items:center; gap:16px; padding:12px; border-top:1px solid #72593680; }
+.book-pagination button { min-width:40px; font-size:1.3rem; }
+.book-pagination button:disabled { opacity:.35; cursor:default; }
+.book-pagination span { min-width:80px; text-align:center; color:var(--muted); font-variant-numeric:tabular-nums; }
+.book-legend { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; padding:12px; border-top:1px solid #72593680; }
+.book-legend button { font-size:.8rem; }
+.book-legend [aria-pressed=true] { border-color:var(--gold); color:var(--gold); }
+.spellbook .book-empty { margin:0; padding:32px 16px; text-align:center; }
+@media(max-width:600px) {
+  .book-spread { grid-template-columns:minmax(0,1fr); background:linear-gradient(90deg,#302619,#211b14); }
+  .book-page { grid-template-rows:none; grid-auto-rows:72px; padding:8px 12px; }
+  .book-page:empty { display:none; }
+  .book-page + .book-page { border-left:0; padding-top:0; }
+  .book-heading { padding:12px; }
+  .book-controls nav button { padding:8px; }
+  .book-controls input[type=search] { width:180px; }
+}
+.book-change.removed { color:#df8379; }
