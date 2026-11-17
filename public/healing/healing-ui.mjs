@@ -1276,7 +1276,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         const image = document.createElement('img');
         image.src = new URL('./' + reportManaVisual(source)[0], import.meta.url);
         image.alt = '';
-        label.append(image, source);
+        label.append(image, source === 'Spirit regeneration' ? 'Spirit' : source);
         const total = document.createElement('strong');
         const children = document.createElement('div');
         summary.append(label, total);
