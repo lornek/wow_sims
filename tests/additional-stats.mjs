@@ -34,7 +34,7 @@ for(const [adapter,talents] of setups) {
  });
 }
 test('legacy custom +healing is migrated without double counting; invalid stats are bounded',()=>{
- assert.deepEqual(normalizeAdditionalStats(200),{power:200,intellect:0,spirit:0,mp5:0});
- assert.deepEqual(normalizeAdditionalStats({power:Infinity,intellect:-1,spirit:42.8,mp5:99999}),{power:0,intellect:0,spirit:42,mp5:5000});
+ assert.deepEqual(normalizeAdditionalStats(200),{power:200,intellect:0,spirit:0,mp5:0,crit:0,haste:0});
+ assert.deepEqual(normalizeAdditionalStats({power:Infinity,intellect:-1,spirit:42.8,mp5:99999}),{power:0,intellect:0,spirit:42,mp5:5000,crit:0,haste:0});
  for(const [adapter,talents] of setups){const name=Object.keys(adapter.loadouts)[0];assert.deepEqual(adapter.buildProfile(name,buffs,200,talents),adapter.buildProfile(name,buffs,{power:200},talents));}
 });

@@ -1,9 +1,9 @@
-export const additionalStatKeys = ['power', 'intellect', 'spirit', 'mp5'];
+export const additionalStatKeys = ['power', 'intellect', 'spirit', 'mp5', 'crit', 'haste'];
 export function normalizeAdditionalStats(input = {}) {
   if (typeof input === 'number') input = {power:input}; // saved pre-expansion +healing
   return Object.fromEntries(additionalStatKeys.map(key => {
     const value = Number(input?.[key] ?? 0);
-    return [key, Number.isFinite(value) ? Math.max(0,Math.min(5000,Math.floor(value))) : 0];
+    return [key, Number.isFinite(value) ? Math.max(0,Math.min(5000,(['crit','haste'].includes(key) ? Math.round(value * 100) / 100 : Math.floor(value)))) : 0];
   }));
 }
 // Adds raw stats to the gear bucket, before attribute multipliers and dependencies.

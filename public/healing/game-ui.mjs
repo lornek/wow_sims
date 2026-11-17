@@ -38,7 +38,7 @@ window.addEventListener('pointerdown', event => {
   if (activeTooltip && !activeTooltip.element.contains(event.target) && !activeTooltip.trigger.contains(event.target)) hideGameTooltip();
 });
 
-export function attachGameTooltip(button, render, {immediateLeave = false} = {}) {
+export function attachGameTooltip(button, render, {immediateLeave = false, followPointer = false} = {}) {
   const tip = document.createElement('div');
   tip.id = 'healbot-tooltip-' + ++tooltipId;
   tip.className = 'game-tooltip';
@@ -55,7 +55,17 @@ export function attachGameTooltip(button, render, {immediateLeave = false} = {})
     else button.removeAttribute('aria-describedby');
     if (activeTooltip === handle) activeTooltip = undefined;
   };
-  const show = () => {
+  let pointer;
+  const positionTip = () => {
+    const anchor = button.querySelector('.spell-art') ?? button;
+    const rect = followPointer && pointer ? {left:pointer.x,right:pointer.x,top:pointer.y,bottom:pointer.y,width:0,height:0} : anchor.getBoundingClientRect();
+    const position = tooltipPosition(rect, tip.offsetWidth, tip.offsetHeight, window.innerWidth, window.innerHeight);
+    tip.style.left = position.left + 'px'; tip.style.top = position.top + 'px';
+  };
+  const move = event => {pointer = {x:event.clientX,y:event.clientY}; if (!tip.hidden && followPointer) positionTip();};
+  const show = event => {
+    if (event?.type === 'focusin') pointer = null;
+    if (event?.clientX !== undefined) pointer = {x:event.clientX,y:event.clientY};
     cancelHide();
     if (!button.isConnected) return hide();
     if (activeTooltip !== handle) activeTooltip?.hide();
@@ -67,13 +77,12 @@ export function attachGameTooltip(button, render, {immediateLeave = false} = {})
     const descriptions = new Set((button.getAttribute('aria-describedby') ?? '').split(/\s+/).filter(Boolean));
     descriptions.add(tip.id);
     button.setAttribute('aria-describedby', [...descriptions].join(' '));
-    const position = tooltipPosition(button.getBoundingClientRect(), tip.offsetWidth, tip.offsetHeight, window.innerWidth, window.innerHeight);
-    tip.style.left = position.left + 'px';
-    tip.style.top = position.top + 'px';
+    positionTip();
   };
   const delayedHide = () => { cancelHide(); timer = setTimeout(hide, 120); };
   const escape = event => { if (event.key === 'Escape') hide(); };
   button.addEventListener('mouseenter', show);
+  if (followPointer) button.addEventListener('mousemove', move);
   button.addEventListener('mouseleave', immediateLeave ? hide : delayedHide);
   button.addEventListener('focusin', show);
   button.addEventListener('focusout', delayedHide);
@@ -84,6 +93,7 @@ export function attachGameTooltip(button, render, {immediateLeave = false} = {})
     destroy() {
       hide();
       button.removeEventListener('mouseenter', show);
+      button.removeEventListener('mousemove', move);
       button.removeEventListener('mouseleave', immediateLeave ? hide : delayedHide);
       button.removeEventListener('focusin', show);
       button.removeEventListener('focusout', delayedHide);
@@ -105,7 +115,7 @@ export function setGameTooltip(element, title, lines = []) {
       tooltipLine(tip, entry.title, 'game-tooltip-title');
       for (const line of entry.lines) tooltipLine(tip, typeof line === 'string' ? line : line.text,
         typeof line === 'string' ? 'game-tooltip-description' : line.style);
-    });
+    }, {followPointer:!!element.closest('.healing-breakdown, .healing-event-bars')});
     textTooltips.set(element, entry);
   }
   Object.assign(entry,{title,lines,signature});

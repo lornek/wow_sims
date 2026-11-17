@@ -580,3 +580,32 @@ body:has(#healing) { font-family:var(--ui); }
   .healbot-header { flex-wrap:wrap; }
   .healbot-header .class-picker { flex-basis:100%; width:100%; }
 }
+
+.game-tooltip-stat:not(.game-tooltip-reference) { margin-top:5px; }
+.game-tooltip-mana { color:#91c9f3; }
+
+/* All mana breakdown labels and amounts use the same responsive type scale. */
+.healing-score [data-mana-meter] { --mana-bar-font-size:clamp(.75rem,1.4vw,.9rem); }
+.healing-score [data-mana-meter] summary,
+.healing-score [data-mana-meter] .mana-source-bar { font:400 var(--mana-bar-font-size)/1.35 var(--ui); }
+.healing-score [data-mana-meter] .mana-pair-heading { font:inherit; }
+.healing-score [data-mana-meter] .meter-numbers,
+.healing-score [data-mana-meter] .mana-source-bar > strong { font-family:inherit; font-size:inherit; line-height:inherit; font-weight:700; }
+
+.healing-breakdown { grid-template-columns:60px minmax(0,1fr) minmax(0,1fr); }
+.healing-breakdown > div { min-width:0; grid-template-columns:24px minmax(0,1fr); gap:2px 5px; padding:5px; }
+.heal-meter .healing-breakdown img { width:24px; height:24px; }
+.healing-breakdown > div:first-child { grid-template-columns:1fr; justify-items:center; text-align:center; }
+.healing-breakdown > div:first-child img { grid-row:auto; width:22px; height:22px; }
+.healing-breakdown > div:nth-child(n+4) { grid-column:span 1; }
+.healing-breakdown dd { font-size:clamp(.8rem,1.6vw,1.05rem); }
+.healing-breakdown .hit-average { color:#8ddd98; }
+.healing-breakdown .hit-overheal { color:#c7ad92; }
+@media(max-width:480px) {
+ .healing-breakdown { grid-template-columns:44px minmax(0,1fr) minmax(0,1fr); gap:5px; }
+ .healing-breakdown > div { grid-template-columns:1fr; }
+ .healing-breakdown img { grid-row:auto; }
+ .healing-breakdown dt { font-size:.7rem; }
+}
+.healing-breakdown > div:nth-child(4) { grid-column:2; }
+.healing-breakdown > div:nth-child(5) { grid-column:3; }
