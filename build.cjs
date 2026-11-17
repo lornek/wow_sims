@@ -89,8 +89,7 @@ function healbotPage(slug, content, depth) {
 </head>
 <body class="healbot-page" data-healer="${slug}">
 <header class="healbot-header">
-  <h1>Healbot</h1>
-  <a href="${depth}icons/" target="_blank" rel="noopener">Icon library <small>(new tab)</small></a>
+  <div class="healbot-brand"><a class="healbot-home sigil" href="${depth}" aria-label="Main menu" title="Main menu"><span aria-hidden="true">∞</span></a><h1>Healbot</h1></div>
   <nav class="class-picker" aria-label="Healer class">${links}</nav>
 </header>
 <main>${content.replaceAll('="../', '="' + depth).replace('class="panel healing"', 'class="healing"').replace('  <h2>Healing practice</h2>', '')}</main>
