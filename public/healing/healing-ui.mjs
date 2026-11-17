@@ -1,5 +1,6 @@
 import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
 import {encounters, combatants} from './party-combat.mjs';
+import {nextThreat} from './threats.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
@@ -50,6 +51,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const saved = readSettings();
 
   const root = document.querySelector('#healing');
+  const cuesEnabled = params.get('cues') !== 'off';
+  root.querySelector('[data-threat]').hidden = !cuesEnabled;
+  root.querySelector('[data-feedback]').hidden = !cuesEnabled;
   root.dataset.healerClass = className;
   const find = selector => root.querySelector(selector);
   const byName = name => ranks.filter(row => row.name === name && row.level <= 60);
@@ -345,6 +349,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function reset(start = false, persist = true) {
     touchTarget = null;
+    pendingTargetSpell = null;
+    visualPull++;
     root.querySelectorAll('.heal-float, .heal-bounce').forEach(effect => effect.remove());
     configuredSpells();
     const level = Number(difficulty.value);
@@ -422,10 +428,20 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       ability.button.classList.toggle('is-enraged', !ability.clock && !!s.enraged);
     }
     find('[data-boss-percent]').textContent = Math.ceil(100 * s.boss / currentEncounter.health) + '%';
-    const specialAt = currentEncounter.id === 'patchwerk' ? s.nextSpecial : s.nextFlurry;
+    const threat = nextThreat(s, currentEncounter);
+    const tell = find('[data-threat]');
+    if (tell.textContent !== threat.text) tell.textContent = threat.text;
+    tell.dataset.urgent = threat.urgent;
+    frames.forEach((frame, index) => frame.frame.classList.toggle('threat-target', cuesEnabled && threat.urgent && threat.targets.includes(index)));
+    const feedback = find('[data-feedback]');
+    const recent = s.feedback && s.time - s.feedback.time < 2.5;
+    const feedbackText = recent ? s.feedback.text : 'Select a spell, then an ally · touch: ally, then spell';
+    if (feedback.textContent !== feedbackText) feedback.textContent = feedbackText;
+    feedback.dataset.kind = recent ? s.feedback.kind : '';
+    const specialAt = currentEncounter.id === 'patchwerk' || currentEncounter.id === 'sapphiron' ? s.nextSpecial : s.nextFlurry;
     const flurry = active && specialAt - s.time <= 2;
     fill(find('[data-boss-cast-fill]'), flurry ? 1 - (specialAt - s.time) / 2 : 0);
-    find('[data-boss-cast]').textContent = flurry ? (currentEncounter.id === 'patchwerk' ? 'Hateful Strike' : 'Blade Flurry') : '';
+    find('[data-boss-cast]').textContent = flurry ? (currentEncounter.id === 'patchwerk' ? 'Hateful Strike' : currentEncounter.id === 'sapphiron' ? 'Frost Aura' : 'Blade Flurry') : '';
     const incoming = pull.incomingHealing();
     s.party.forEach((unit, i) => {
       const frame = frames[i];
@@ -552,6 +568,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         for (const [art, label, value] of metrics) addMetric(list, art, label).textContent = value;
         result.append(heading, list);
       };
+      const timeline = document.createElement('ol');
+      const title = document.createElement('h3');
+      title.textContent = 'Last combat decisions';
+      for (const event of s.events.slice(-8)) {
+        const item = document.createElement('li');
+        item.textContent = event.time.toFixed(1) + 's · ' + event.text;
+        timeline.append(item);
+      }
+      result.append(title, timeline);
       reportGroup('Fight summary', [
         ['survived', 'Players kept alive', s.survivors + ' / ' + s.party.length],
         ['healing', 'Effective healing', whole(s.healing)],
@@ -1059,7 +1084,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function frame(now) {
     const delta = Math.min(.1, (now - last) / 1000);
     last = now;
-    if (pull.state.phase !== 'ready') {
+    if (pull.state.phase === 'active') {
       pull.step(delta);
       render();
     }

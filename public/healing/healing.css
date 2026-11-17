@@ -326,3 +326,13 @@ body:has(#healing) { font-family:var(--ui); }
 .healbot-header[aria-busy="true"] .class-pick { cursor:progress; }
 .healing-breakdown { padding-top:8px; }
 .heal-meter .healing-breakdown img { width:40px; height:40px; }
+
+/* Reserved cue space prevents health bars jumping when feedback changes. */
+.combat-cue, .combat-feedback { box-sizing:border-box; min-height:3.4em; padding:8px; background:#100d09eb; border:1px solid #786344; overflow-wrap:anywhere; }
+.combat-cue[data-urgent="true"] { border-color:#ffc56b; color:#ffe2ae; }
+.combat-feedback { min-height:3.4em; color:#d5eddb; }
+.combat-feedback[data-kind="blocked"], .combat-feedback[data-kind="death"] { color:#ffb5a7; border-color:#c77160; }
+.combat-feedback[data-kind="crit"] { color:#ffe68b; }
+.combat-feedback[data-kind="absorbed"] { color:#b5dcff; }
+.heal-party > .threat-target { outline:2px solid #ffc56b; outline-offset:2px; }
+@media (max-width:600px) { .combat-cue, .combat-feedback { min-height:4.8em; font-size:14px; } }

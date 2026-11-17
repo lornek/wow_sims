@@ -36,13 +36,13 @@ function page(title, depth, current, content) {
 <body>
 <header class="site-header"><div class="container">
 <a class="brand" href="${depth}"><span class="sigil" aria-hidden="true">∞</span><span>WoW Forever Sims<small>Class tools for World of Warcraft: Forever</small></span></a>
-<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a></nav>
+<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}icons/">Icon library</a></nav>
 </div></header>
 <main class="container">
 <section class="hero">
 <img class="hero-art" src="${depth}assets/horde.webp" alt="">
 <img class="hero-logo" src="${depth}assets/forever.webp" alt="World of Warcraft: Forever" width="190" height="155">
-<div><h1>${title}</h1><p>${current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
+<div><h1>${title}</h1><p>${title === 'Icon library' ? 'Browse spell, ability, and item artwork included with Healbot.' : current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
 </section>
 <nav class="class-picker" aria-label="Choose a class">${links}</nav>
 ${content}
@@ -83,6 +83,7 @@ function healbotPage(slug, content, depth) {
 <body class="healbot-page" data-healer="${slug}">
 <header class="healbot-header">
   <h1>Healbot</h1>
+  <a href="${depth}icons/" target="_blank" rel="noopener">Icon library <small>(new tab)</small></a>
   <nav class="class-picker" aria-label="Healer class">${links}</nav>
 </header>
 <main>${content.replaceAll('="../', '="' + depth).replace('class="panel healing"', 'class="healing"').replace('  <h2>Healing practice</h2>', '')}</main>
@@ -109,3 +110,14 @@ for (const [name] of classes) {
   const content = slug === 'warrior' ? cleave : `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
   fs.writeFileSync(path.join(directory, 'index.html'), page(`${name} Sims`, '../', slug, content));
 }
+
+// Generate from bundled assets so the library follows additions and removals.
+const iconFiles = fs.readdirSync(path.join(__dirname, 'public/healing/icons'))
+  .filter(name => /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(name)).sort();
+const escapeHtml = text => text.replace(/[&<>"']/g, character =>
+  ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[character]));
+const iconCards = iconFiles.map(name => `<a class="icon-card" href="../healing/icons/${encodeURIComponent(name)}" data-name="${escapeHtml(name.toLowerCase())}"><img src="../healing/icons/${encodeURIComponent(name)}" alt="" width="56" height="56" loading="lazy"><span>${escapeHtml(name)}</span></a>`).join('\n');
+const iconTemplate = fs.readFileSync(path.join(__dirname, 'sims/icons.html'), 'utf8');
+fs.mkdirSync(path.join(output, 'icons'), {recursive:true});
+fs.writeFileSync(path.join(output, 'icons/index.html'), page('Icon library', '../', '',
+  iconTemplate.replace('<!-- ICONS -->', iconCards).replaceAll('{{COUNT}}', String(iconFiles.length))));

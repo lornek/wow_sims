@@ -1,0 +1,9 @@
+.icon-library { display:grid; gap:12px; }
+.icon-library p { margin:0; }
+#icon-search { box-sizing:border-box; width:100%; max-width:560px; padding:12px; font:inherit; color:var(--text); background:#15100c; border:1px solid var(--border); border-radius:4px; }
+#icon-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(145px,100%),1fr)); gap:12px; }
+.icon-card { display:flex; align-items:center; flex-direction:column; gap:8px; padding:12px; border:1px solid var(--border); border-radius:4px; background:#17110d; text-align:center; }
+.icon-card span { max-width:100%; overflow-wrap:anywhere; font:12px/1.4 var(--ui); }
+.icon-card img { border:1px solid #a98449; border-radius:4px; object-fit:contain; }
+.icon-card:hover, .icon-card:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+.icon-card[hidden] { display:none; }

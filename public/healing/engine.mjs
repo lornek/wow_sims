@@ -8,7 +8,14 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
     manaGained: 0, manaPerSpirit: 0, manaPerMp5: 0,
     encounterId: encounter.id, nextPoison: encounter.id && encounter.id !== 'rend' ? Infinity : 7,
-    nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}};
+    nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}, events: [], feedback: null};
+
+  function record(kind, text) {
+    const event = {time: state.time, kind, text};
+    state.feedback = event;
+    state.events.push(event);
+    if (state.events.length > 80) state.events.shift();
+  }
 
   function meter(key) {
     return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0, mana: 0};
@@ -45,6 +52,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     unit.hp += effective;
     state.healing += effective;
     state.overheal += amount - effective;
+    record(crit ? 'crit' : 'landed', `${spell?.name ?? key} → ${unit.name}: +${effective}${crit ? ' · Critical' : ''}${amount - effective ? ' · ' + (amount - effective) + ' overheal' : ''}`);
     const stats = meter(key);
     stats.hits++;
     stats.crits += Number(crit);
@@ -195,25 +203,34 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (!spell || !unit) return;
     if (state.phase !== 'active' || !unit.hp) {
       state.message = 'Choose a living ally during the pull.';
+      record('blocked', state.message);
       return;
     }
-    if (state.cast || (!spell.offGcd && state.time < state.gcd)) return;
+    if (state.cast || (!spell.offGcd && state.time < state.gcd)) {
+      state.message = state.cast ? 'Already casting · try again when the cast finishes.' : 'Global cooldown · try again when ready.';
+      record('blocked', state.message);
+      return;
+    }
     if (spell.swiftmend && !swiftmendEffect(unit)) {
       state.message = 'Swiftmend requires your Rejuvenation or Regrowth on the target.';
+      record('blocked', state.message);
       return;
     }
     if (spell.shield && unit.weakened > state.time) {
       state.message = 'That ally has Weakened Soul.';
+      record('blocked', state.message);
       return;
     }
     const usesVigil = key === 'shock' && state.vigil?.target === unit && state.vigil.expires > state.time;
     if (!usesVigil && state.time < (state.cooldowns[key] ?? 0)) {
       state.message = 'That spell is on cooldown.';
+      record('blocked', state.message);
       return;
     }
     const focus = key !== 'focus' && state.innerFocus > state.time;
     if (!focus && state.mana < spell.cost) {
       state.message = 'Not enough mana.';
+      record('blocked', state.message);
       return;
     }
     const instant = spell.cast > 0 && state.swiftness > state.time;
@@ -230,13 +247,14 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     const prepared = focus ? {...spell, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
     state.cast = {spell: prepared, unit, end: state.time + castTime, duration: castTime, pushbacks: 0, usesVigil};
     state.message = spell.name + ' → ' + unit.name;
+    record('casting', state.message);
     if (!castTime) finishCast();
   }
 
   function finishCast() {
     const {spell, unit, usesVigil} = state.cast;
     state.cast = null;
-    if (!unit.hp) return;
+    if (!unit.hp) { record('blocked', spell.name + ' interrupted · target died.'); return; }
     state.mana -= spell.cost;
     if (spell.cost) state.lastSpend = state.time;
     state.manaSpent += spell.cost;
@@ -269,11 +287,13 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       amount -= consumed;
       const stats = meter(key);
       stats.effective += consumed;
-      if (consumed) stats.hits++;
+      if (consumed) { stats.hits++; record('absorbed', `${unit.name}: ${Math.round(consumed)} absorbed`); }
       state.healing += consumed;
     }
+    const wasAlive = unit.hp > 0;
     gainDamageRage(unit, Math.min(unit.hp, amount));
     unit.hp = Math.max(0, unit.hp - amount);
+    if (wasAlive && !unit.hp) record('death', `${unit.name} died · ${Math.round(amount)} damage`);
     if (amount > 0) triggerMending(unit);
     const cast = state.cast;
     if (amount > 0 && unit === party.at(-1) && cast && !cast.channel && cast.pushbacks < 2 &&
@@ -312,7 +332,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function step(dt) {
-    if (state.phase === 'ready') return;
+    if (state.phase !== 'active') return;
     const end = state.time + dt;
     if (state.cast && end >= state.cast.end) {
       const castEnd = Math.max(state.time, state.cast.end);

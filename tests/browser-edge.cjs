@@ -1,0 +1,15 @@
+const {chromium}=require('playwright');
+const base=process.env.HEALBOT_BASE_URL || 'http://127.0.0.1:8001';const assert=require('node:assert/strict');
+(async()=>{const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:320,height:844},hasTouch:true,isMobile:true});
+ await page.route('**/druid.mjs',r=>r.abort());await page.goto(base+'/healbot/druid/');await page.getByText('retry loading',{exact:true}).waitFor();console.log('PASS failed module displays retry');
+ await page.unroute('**/druid.mjs');await page.reload();await page.waitForFunction(()=>document.querySelector('[data-feedback]').textContent.length>0);
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await page.locator('[data-start]').click();const y=await page.locator('.heal-party').evaluate(e=>e.getBoundingClientRect().top);
+ await page.waitForTimeout(1100);assert.equal(await page.locator('.heal-party').evaluate(e=>e.getBoundingClientRect().top),y);console.log('PASS 320px width and cue layout stability');
+ await page.goto(base+'/healbot/druid/?cues=off');await page.waitForFunction(()=>document.querySelector('[data-feedback]').textContent.length>0);assert.equal(await page.locator('[data-threat]').isVisible(),false);console.log('PASS comparison mode');
+ await page.goto(base+'/baseline/healbot/druid/');await page.waitForSelector('.heal-party > button');assert.equal(await page.locator('[data-threat]').count(),0);console.log('PASS exact v58 preview');
+ await page.goto(base+'/release/');assert.equal(await page.locator('h1').innerText(),'Healbot · Anticipate the next hit');
+ await page.clock.install();await page.goto(base+'/healbot/druid/');await page.waitForFunction(()=>document.querySelector('[data-feedback]').textContent.length>0);await page.locator('[data-start]').click();await page.clock.runFor(100000);
+ assert.match(await page.locator('[data-result]').innerText(),/Last combat decisions/);const phase=await page.locator('[data-phase]').innerText();await page.clock.runFor(1000);assert.equal(await page.locator('[data-phase]').innerText(),phase);console.log('PASS terminal report and frozen clock');
+ await browser.close();})().catch(e=>{console.error(e);process.exit(1)});

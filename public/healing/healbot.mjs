@@ -94,7 +94,24 @@ window.addEventListener('popstate', () => {
 });
 
 const initial = document.body.dataset.healer;
-mount(initial, (await load(initial)).default);
+const loading = document.createElement('p');
+loading.className = 'heal-loading';
+loading.setAttribute('role', 'status');
+loading.textContent = 'Loading healer…';
+root.before(loading);
+root.inert = true;
+try {
+  mount(initial, (await load(initial)).default);
+  loading.remove();
+} catch {
+  loading.textContent = 'The healer could not load. Check your connection, then ';
+  const retry = document.createElement('a');
+  retry.href = location.href;
+  retry.textContent = 'retry loading';
+  loading.append(retry);
+} finally {
+  root.inert = false;
+}
 const connection = navigator.connection;
 if (!connection?.saveData && !['slow-2g', '2g', '3g'].includes(connection?.effectiveType)) {
   const queue = Object.keys(loaders).filter(healer => healer !== initial);
