@@ -668,7 +668,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   renderSoundToggle();
   const resetCharacterButton = find('[data-reset-character]');
   setGameTooltip(resetCharacterButton, 'Reset character', [
-    'Restore this healer’s default gear, talents, buffs, spell ranks, and Additional stats.',
+    'Restore this healer’s default gear, talents, buffs, and Additional stats.',
     'Keeps your boss, difficulty, and sound preference. Other healers are unchanged.'
   ]);
   resetCharacterButton.onclick = () => {
@@ -749,11 +749,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function updateSheet() {
     find('[data-loadout-label]').textContent = gear.value;
     const kit = gearEditor.kit;
-    const sources = [...new Set(Object.values(kit).map(item => item.source))];
-    find('[data-gear-source]').textContent = sources.includes('ForeverDB') ? 'ForeverDB level 60 PvE BiS · Includes selections from later raids and PvP' :
-      sources.length ? 'Item data · ' + sources.join(' / ') : '';
     const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
-      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor', health:'Health', mana:'Mana'};
+      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', haste:'Haste', armor:'Armor', health:'Health', mana:'Mana'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {
       const item = kit[name];
       setEquipmentImage(image, item, file);
@@ -774,7 +771,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
       for (const [key, value] of Object.entries(item.stats)) {
         const line = document.createElement('span');
-        line.textContent = '+' + Number(value.toFixed(2)) + (key === 'crit' ? '% ' : ' ') + labels[key];
+        line.textContent = '+' + Number(value.toFixed(2)) + (['crit','haste'].includes(key) ? '% ' : ' ') + labels[key];
         tip.append(line);
       }
       const linkText = document.createElement('span');
@@ -1142,11 +1139,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
             field.dataset.average = signature;
             const count = document.createElement('span'); count.className = 'hit-count';
             const countValue = document.createElement('span'); countValue.className = 'hit-value'; countValue.textContent = whole(hits);
-            count.append('Hits ', countValue);
+            count.append('Hits', countValue);
             const summary = document.createElement('span'); summary.className = 'hit-summary';
             const healing = document.createElement('span'); healing.className = 'hit-average'; healing.textContent = whole(average);
             const waste = document.createElement('span'); waste.className = 'hit-overheal'; waste.textContent = '(+' + whole(excess) + ')';
-            summary.append('Avg ', healing, ' ', waste);
+            summary.append('Avg', healing, waste);
             field.replaceChildren(count, summary);
             setGameTooltip(field.parentElement, crit ? 'Critical hits' : 'Normal hits', [hits + ' hits', whole(average) + ' average effective healing per hit', whole(excess) + ' average overhealing per hit']);
           }

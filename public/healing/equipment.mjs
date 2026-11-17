@@ -80,5 +80,5 @@ export function createGearHistory(initial) {
   let current=structuredClone(initial);const history=[];
   return {get value(){return structuredClone(current)},get canUndo(){return history.length>0},set(next){history.push(current);if(history.length>50)history.shift();current=structuredClone(next)},undo(){if(history.length)current=history.pop();return this.value}};
 }
-export const gearStatText = stats => Object.entries(stats).map(([k,v])=>`${Number(v.toFixed(2))}${k==='crit'?'%':''} ${({power:'+healing',mp5:'MP5',spellDamage:'spell damage'})[k]??k}`).join(' · ');
+export const gearStatText = stats => Object.entries(stats).map(([k,v])=>`${Number(v.toFixed(2))}${['crit','haste'].includes(k)?'%':''} ${({power:'+healing',mp5:'MP5',spellDamage:'spell damage'})[k]??k}`).join(' · ');
 export {gearIcon} from './gear-images.mjs';

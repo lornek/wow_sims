@@ -1085,10 +1085,21 @@ export const loadouts = {
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 13,
-        "mp5": 5
+        "power": 37,
+        "mp5": 5,
+        "spellDamage": 13
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230245",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 37 and damage done by up to 13 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Shoulders": {
@@ -1112,11 +1123,22 @@ export const loadouts = {
         "stamina": 10,
         "intellect": 13,
         "spirit": 11,
-        "power": 15,
+        "power": 44,
         "crit": 1,
-        "armor": 169
+        "armor": 169,
+        "spellDamage": 15
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231235",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 44 and damage done by up to 15 for all magical spells and effects. Bounty of Stormrage (0/8) Stormrage Chestguard Stormrage Boots Stormrage Handguards Stormrage Cover Stormrage Legguards Stormrage Pauldrons Stormrage Belt Stormrage Bracers (2) Set : Your healing spell critical strikes trigger the Dreamstate effect, g"
+        ]
+      },
       "acquisition": "Bounty of Stormrage"
     },
     "Back": {
@@ -1163,11 +1185,22 @@ export const loadouts = {
         "stamina": 14,
         "intellect": 15,
         "spirit": 13,
-        "power": 22,
+        "power": 66,
         "crit": 1,
-        "armor": 225
+        "armor": 225,
+        "spellDamage": 22
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231230",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Bounty of Stormrage"
     },
     "Wrists": {
@@ -1190,11 +1223,22 @@ export const loadouts = {
       "stats": {
         "stamina": 13,
         "intellect": 10,
-        "power": 11,
+        "power": 31,
         "crit": 1,
-        "armor": 98
+        "armor": 98,
+        "spellDamage": 11
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231237",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 31 and damage done by up to 11 for all magical spells and effects. Bounty of Stormrage (0/8) Stormrage Chestguard Stormrage Boots Stormrage Handguards Stormrage Cover Stormrage Legguards Stormrage Pauldrons Stormrage Belt Stormrage Bracers (2) Set : Your healing spell critical strikes trigger the Dreamstate effect, g"
+        ]
+      },
       "acquisition": "Bounty of Stormrage"
     },
     "Hands": {
@@ -1218,10 +1262,21 @@ export const loadouts = {
         "stamina": 14,
         "intellect": 16,
         "spirit": 11,
-        "power": 16,
-        "armor": 140
+        "power": 48,
+        "armor": 140,
+        "spellDamage": 16
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231232",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 48 and damage done by up to 16 for all magical spells and effects. Bounty of Stormrage (0/8) Stormrage Chestguard Stormrage Boots Stormrage Handguards Stormrage Cover Stormrage Legguards Stormrage Pauldrons Stormrage Belt Stormrage Bracers (2) Set : Your healing spell critical strikes trigger the Dreamstate effect, g"
+        ]
+      },
       "acquisition": "Bounty of Stormrage"
     },
     "Waist": {
@@ -1245,11 +1300,22 @@ export const loadouts = {
         "stamina": 10,
         "intellect": 12,
         "spirit": 12,
-        "power": 14,
+        "power": 42,
         "crit": 1,
-        "armor": 126
+        "armor": 126,
+        "spellDamage": 14
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231236",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 42 and damage done by up to 14 for all magical spells and effects. Bounty of Stormrage (0/8) Stormrage Chestguard Stormrage Boots Stormrage Handguards Stormrage Cover Stormrage Legguards Stormrage Pauldrons Stormrage Belt Stormrage Bracers (2) Set : Your healing spell critical strikes trigger the Dreamstate effect, g"
+        ]
+      },
       "acquisition": "Bounty of Stormrage"
     },
     "Legs": {
@@ -1271,11 +1337,22 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 12,
         "spirit": 24,
-        "power": 26,
+        "power": 77,
         "crit": 1,
-        "armor": 103
+        "armor": 103,
+        "spellDamage": 26
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230746",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 77 and damage done by up to 26 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Feet": {
@@ -1298,11 +1375,22 @@ export const loadouts = {
       "stats": {
         "stamina": 12,
         "intellect": 17,
-        "power": 14,
+        "power": 42,
         "crit": 1,
-        "armor": 154
+        "armor": 154,
+        "spellDamage": 14
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231231",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 42 and damage done by up to 14 for all magical spells and effects. Bounty of Stormrage (0/8) Stormrage Chestguard Stormrage Boots Stormrage Handguards Stormrage Cover Stormrage Legguards Stormrage Pauldrons Stormrage Belt Stormrage Bracers (2) Set : Your healing spell critical strikes trigger the Dreamstate effect, g"
+        ]
+      },
       "acquisition": "Bounty of Stormrage"
     },
     "Finger 1": {
@@ -1324,9 +1412,20 @@ export const loadouts = {
         "stamina": 9,
         "intellect": 11,
         "spirit": 11,
-        "power": 18
+        "power": 53,
+        "spellDamage": 18
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230811",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects. \"Flawless. Indestructible. You cannot comprehend the craftsmanship involved with the creation of this ring.\""
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Finger 2": {
@@ -1368,10 +1467,21 @@ export const loadouts = {
       "ilvl": 75,
       "twoHand": false,
       "stats": {
-        "power": 22,
-        "mp5": 9
+        "power": 66,
+        "mp5": 9,
+        "spellDamage": 22
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230269",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Main hand": {
@@ -1423,11 +1533,22 @@ export const loadouts = {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
-        "power": 32,
+        "power": 97,
         "crit": 2,
-        "armor": 205
+        "armor": 205,
+        "spellDamage": 32
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236182",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 97 and damage done by up to 32 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Neck": {
@@ -1474,11 +1595,22 @@ export const loadouts = {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
-        "power": 24,
+        "power": 70,
         "crit": 1,
-        "armor": 186
+        "armor": 186,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236189",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Back": {
@@ -1526,11 +1658,22 @@ export const loadouts = {
         "stamina": 15,
         "intellect": 16,
         "spirit": 16,
-        "power": 32,
+        "power": 97,
         "crit": 2,
-        "armor": 262
+        "armor": 262,
+        "spellDamage": 32
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236186",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 97 and damage done by up to 32 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Wrists": {
@@ -1554,11 +1697,22 @@ export const loadouts = {
         "stamina": 9,
         "intellect": 10,
         "spirit": 9,
-        "power": 16,
+        "power": 48,
         "crit": 1,
-        "armor": 111
+        "armor": 111,
+        "spellDamage": 16
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236183",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 48 and damage done by up to 16 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Hands": {
@@ -1582,11 +1736,22 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 13,
         "spirit": 12,
-        "power": 24,
+        "power": 70,
         "crit": 1,
-        "armor": 158
+        "armor": 158,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236184",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Waist": {
@@ -1610,11 +1775,22 @@ export const loadouts = {
         "stamina": 14,
         "intellect": 13,
         "spirit": 14,
-        "power": 22,
+        "power": 66,
         "crit": 1,
-        "armor": 142
+        "armor": 142,
+        "spellDamage": 22
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236187",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Legs": {
@@ -1638,11 +1814,22 @@ export const loadouts = {
         "stamina": 14,
         "intellect": 15,
         "spirit": 15,
-        "power": 31,
+        "power": 92,
         "crit": 2,
-        "armor": 221
+        "armor": 221,
+        "spellDamage": 31
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236188",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 92 and damage done by up to 31 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Feet": {
@@ -1666,11 +1853,22 @@ export const loadouts = {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
-        "power": 24,
+        "power": 70,
         "crit": 1,
-        "armor": 171
+        "armor": 171,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236185",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Finger 1": {
@@ -1692,10 +1890,21 @@ export const loadouts = {
       "twoHand": false,
       "stats": {
         "intellect": 10,
-        "power": 21,
-        "crit": 1
+        "power": 62,
+        "crit": 1,
+        "spellDamage": 21
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236190",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 62 and damage done by up to 21 for all magical spells and effects. Dreamwalker Raiment (0/9) Dreamwalker Headpiece Dreamwalker Spaulders Dreamwalker Tunic Dreamwalker Girdle Dreamwalker Legguards Dreamwalker Boots Dreamwalker Wristguards Dreamwalker Handguards Ring of the Dreamwalker (2) Set : Your Lifebloom now has "
+        ]
+      },
       "acquisition": "Dreamwalker Raiment"
     },
     "Finger 2": {
@@ -1716,10 +1925,21 @@ export const loadouts = {
       "stats": {
         "stamina": 8,
         "intellect": 8,
-        "power": 18,
-        "crit": 1
+        "power": 53,
+        "crit": 1,
+        "spellDamage": 18
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236283",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Trinket 1": {
@@ -1738,9 +1958,20 @@ export const loadouts = {
       "ilvl": 90,
       "twoHand": false,
       "stats": {
-        "power": 26
+        "power": 77,
+        "spellDamage": 26
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236329",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 77 and damage done by up to 26 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Trinket 2": {
@@ -1759,10 +1990,21 @@ export const loadouts = {
       "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "power": 23,
-        "mp5": 10
+        "power": 68,
+        "mp5": 10,
+        "spellDamage": 23
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236320",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Main hand": {
@@ -1786,9 +2028,21 @@ export const loadouts = {
         "intellect": 15,
         "spirit": 20,
         "power": 127,
-        "crit": 2
+        "crit": 2,
+        "spellDamage": 127,
+        "haste": 4
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236346",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 127."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Relic": {
@@ -1832,11 +2086,22 @@ export const loadouts = {
         "stamina": 14,
         "intellect": 16,
         "spirit": 16,
-        "power": 36,
+        "power": 108,
         "crit": 2,
-        "armor": 223
+        "armor": 223,
+        "spellDamage": 36
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240088",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 108 and damage done by up to 36 for all magical spells and effects. Waywatcher Raiment (0/8) Waywatcher Headpiece Waywatcher Spaulders Waywatcher Tunic Waywatcher Girdle Waywatcher Legguards Waywatcher Boots Waywatcher Wristguards Waywatcher Handguards (2) Set : Each time your Lifebloom heals a target, it has a 5% ch"
+        ]
+      },
       "acquisition": "Waywatcher Raiment"
     },
     "Neck": {
@@ -1856,10 +2121,21 @@ export const loadouts = {
       "stats": {
         "stamina": 9,
         "intellect": 8,
-        "power": 25,
-        "crit": 1
+        "power": 73,
+        "crit": 1,
+        "spellDamage": 25
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241073",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Shoulders": {
@@ -1881,9 +2157,21 @@ export const loadouts = {
         "stamina": 8,
         "intellect": 12,
         "power": 51,
-        "armor": 110
+        "armor": 110,
+        "spellDamage": 51,
+        "haste": 4
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241153",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 51."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Back": {
@@ -1903,11 +2191,22 @@ export const loadouts = {
       "stats": {
         "stamina": 8,
         "intellect": 10,
-        "power": 25,
+        "power": 73,
         "crit": 1,
-        "armor": 70
+        "armor": 70,
+        "spellDamage": 25
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241026",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Chest": {
@@ -1931,11 +2230,22 @@ export const loadouts = {
         "stamina": 18,
         "intellect": 21,
         "spirit": 19,
-        "power": 37,
+        "power": 110,
         "crit": 2,
-        "armor": 275
+        "armor": 275,
+        "spellDamage": 37
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240091",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 110 and damage done by up to 37 for all magical spells and effects. Waywatcher Raiment (0/8) Waywatcher Headpiece Waywatcher Spaulders Waywatcher Tunic Waywatcher Girdle Waywatcher Legguards Waywatcher Boots Waywatcher Wristguards Waywatcher Handguards (2) Set : Each time your Lifebloom heals a target, it has a 5% ch"
+        ]
+      },
       "acquisition": "Waywatcher Raiment"
     },
     "Wrists": {
@@ -1955,10 +2265,21 @@ export const loadouts = {
       "twoHand": false,
       "stats": {
         "intellect": 8,
-        "power": 25,
-        "armor": 63
+        "power": 75,
+        "armor": 63,
+        "spellDamage": 25
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241165",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 75 and damage done by up to 25 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Hands": {
@@ -1979,11 +2300,22 @@ export const loadouts = {
       "stats": {
         "stamina": 11,
         "intellect": 12,
-        "power": 30,
+        "power": 90,
         "crit": 1,
-        "armor": 86
+        "armor": 86,
+        "spellDamage": 30
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241171",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 90 and damage done by up to 30 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Waist": {
@@ -2007,11 +2339,22 @@ export const loadouts = {
         "stamina": 16,
         "intellect": 16,
         "spirit": 16,
-        "power": 26,
+        "power": 76,
         "crit": 1,
-        "armor": 155
+        "armor": 155,
+        "spellDamage": 26
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240085",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 76 and damage done by up to 26 for all magical spells and effects. Waywatcher Raiment (0/8) Waywatcher Headpiece Waywatcher Spaulders Waywatcher Tunic Waywatcher Girdle Waywatcher Legguards Waywatcher Boots Waywatcher Wristguards Waywatcher Handguards (2) Set : Each time your Lifebloom heals a target, it has a 5% cha"
+        ]
+      },
       "acquisition": "Waywatcher Raiment"
     },
     "Legs": {
@@ -2035,11 +2378,22 @@ export const loadouts = {
         "stamina": 16,
         "intellect": 20,
         "spirit": 20,
-        "power": 32,
+        "power": 97,
         "crit": 3,
-        "armor": 240
+        "armor": 240,
+        "spellDamage": 32
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240087",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 97 and damage done by up to 32 for all magical spells and effects. Waywatcher Raiment (0/8) Waywatcher Headpiece Waywatcher Spaulders Waywatcher Tunic Waywatcher Girdle Waywatcher Legguards Waywatcher Boots Waywatcher Wristguards Waywatcher Handguards (2) Set : Each time your Lifebloom heals a target, it has a 5% cha"
+        ]
+      },
       "acquisition": "Waywatcher Raiment"
     },
     "Feet": {
@@ -2062,9 +2416,21 @@ export const loadouts = {
         "intellect": 10,
         "spirit": 25,
         "power": 47,
-        "armor": 100
+        "armor": 100,
+        "spellDamage": 47,
+        "haste": 3
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241183",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 47."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Finger 1": {
@@ -2086,9 +2452,21 @@ export const loadouts = {
         "stamina": 8,
         "intellect": 8,
         "power": 35,
-        "crit": 1
+        "crit": 1,
+        "spellDamage": 35,
+        "haste": 1
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241031",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 35."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Finger 2": {
@@ -2107,9 +2485,20 @@ export const loadouts = {
       "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "power": 28
+        "power": 84,
+        "spellDamage": 28
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241032",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 84 and damage done by up to 28 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Trinket 1": {
@@ -2130,9 +2519,20 @@ export const loadouts = {
       "stats": {
         "intellect": 10,
         "spirit": 10,
-        "power": 30
+        "power": 88,
+        "spellDamage": 30
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241068",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 88 and damage done by up to 30 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Main hand": {
@@ -2155,9 +2555,21 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 28,
         "power": 169,
-        "crit": 3
+        "crit": 3,
+        "spellDamage": 169,
+        "haste": 2
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241003",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 169. "
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     }
   }

@@ -13,3 +13,7 @@ Local worktrees retained for recovery:
 - `/workspace/wow_sims`: original checkout, unchanged.
 
 Build with `node build.cjs`; run `node --test tests/*.mjs`. Existing Sites identity and audience must remain unchanged. Sites deployment requires its authenticated publishing tools and is separate from GitHub Pages. Do not claim Sites matches main solely because GitHub Pages was updated.
+
+## Exporting a player loadout
+
+Use the small download/export button immediately after **Save set** in the character panel. It exports the currently equipped gear as JSON, including exact item/source identifiers and enchant IDs, class, Priest spec when applicable, preset and set name. Saving first is optional. To export another saved set, load it before exporting. Attach the downloaded file in chat to request a matching built-in preset. This is a gear-only snapshot; talents, buffs and custom attributes are not exported. No import UI has been added.

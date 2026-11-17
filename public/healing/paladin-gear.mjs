@@ -1069,10 +1069,21 @@ export const loadouts = {
       "stats": {
         "stamina": 26,
         "intellect": 10,
-        "power": 24,
-        "armor": 3000
+        "power": 44,
+        "armor": 3000,
+        "spellDamage": 24
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=235473",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 44 and damage done by up to 24 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one."
     }
   },
@@ -1097,11 +1108,22 @@ export const loadouts = {
       "stats": {
         "stamina": 15,
         "intellect": 26,
-        "power": 21,
+        "power": 62,
         "crit": 1,
-        "armor": 696
+        "armor": 696,
+        "spellDamage": 21
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231194",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 62 and damage done by up to 21 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Neck": {
@@ -1121,10 +1143,21 @@ export const loadouts = {
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 13,
-        "mp5": 5
+        "power": 37,
+        "mp5": 5,
+        "spellDamage": 13
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230245",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 37 and damage done by up to 13 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Shoulders": {
@@ -1147,11 +1180,22 @@ export const loadouts = {
       "stats": {
         "stamina": 12,
         "intellect": 13,
-        "power": 19,
+        "power": 55,
         "crit": 1,
-        "armor": 642
+        "armor": 642,
+        "spellDamage": 19
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231192",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Back": {
@@ -1197,11 +1241,22 @@ export const loadouts = {
       "stats": {
         "stamina": 20,
         "intellect": 20,
-        "power": 22,
+        "power": 66,
         "crit": 1,
-        "armor": 857
+        "armor": 857,
+        "spellDamage": 22
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231197",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Wrists": {
@@ -1224,11 +1279,22 @@ export const loadouts = {
       "stats": {
         "stamina": 12,
         "intellect": 14,
-        "power": 9,
+        "power": 26,
         "crit": 1,
-        "armor": 375
+        "armor": 375,
+        "spellDamage": 9
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231190",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 26 and damage done by up to 9 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increase"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Hands": {
@@ -1251,11 +1317,22 @@ export const loadouts = {
       "stats": {
         "stamina": 11,
         "intellect": 19,
-        "power": 14,
+        "power": 40,
         "crit": 1,
-        "armor": 535
+        "armor": 535,
+        "spellDamage": 14
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231195",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 40 and damage done by up to 14 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Waist": {
@@ -1278,11 +1355,22 @@ export const loadouts = {
       "stats": {
         "stamina": 14,
         "intellect": 14,
-        "power": 14,
+        "power": 42,
         "crit": 1,
-        "armor": 482
+        "armor": 482,
+        "spellDamage": 14
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231191",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 42 and damage done by up to 14 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Legs": {
@@ -1305,11 +1393,22 @@ export const loadouts = {
       "stats": {
         "stamina": 14,
         "intellect": 18,
-        "power": 17,
+        "power": 51,
         "crit": 2,
-        "armor": 749
+        "armor": 749,
+        "spellDamage": 17
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231193",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 51 and damage done by up to 17 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Feet": {
@@ -1332,11 +1431,22 @@ export const loadouts = {
       "stats": {
         "stamina": 13,
         "intellect": 16,
-        "power": 15,
+        "power": 44,
         "crit": 1,
-        "armor": 589
+        "armor": 589,
+        "spellDamage": 15
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231196",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 44 and damage done by up to 15 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+        ]
+      },
       "acquisition": "Merciful Judgement"
     },
     "Finger 1": {
@@ -1401,10 +1511,21 @@ export const loadouts = {
       "ilvl": 75,
       "twoHand": false,
       "stats": {
-        "power": 22,
-        "mp5": 9
+        "power": 66,
+        "mp5": 9,
+        "spellDamage": 22
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230269",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Main hand": {
@@ -1479,11 +1600,23 @@ export const loadouts = {
       "stats": {
         "stamina": 14,
         "intellect": 14,
-        "power": 27,
+        "power": 81,
         "crit": 2,
-        "armor": 800
+        "armor": 800,
+        "spellDamage": 27,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236117",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 81 and damage done by up to 27 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Neck": {
@@ -1503,9 +1636,21 @@ export const loadouts = {
       "stats": {
         "stamina": 10,
         "intellect": 14,
-        "power": 27
+        "power": 27,
+        "spellDamage": 27,
+        "haste": 1
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236261",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 27."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Shoulders": {
@@ -1528,11 +1673,23 @@ export const loadouts = {
       "stats": {
         "stamina": 10,
         "intellect": 11,
-        "power": 20,
+        "power": 59,
         "crit": 1,
-        "armor": 722
+        "armor": 722,
+        "spellDamage": 20,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236122",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Back": {
@@ -1579,11 +1736,23 @@ export const loadouts = {
       "stats": {
         "stamina": 14,
         "intellect": 15,
-        "power": 30,
+        "power": 90,
         "crit": 2,
-        "armor": 1027
+        "armor": 1027,
+        "spellDamage": 30,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236115",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 90 and damage done by up to 30 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Wrists": {
@@ -1606,11 +1775,23 @@ export const loadouts = {
       "stats": {
         "stamina": 10,
         "intellect": 10,
-        "power": 8,
+        "power": 22,
         "crit": 1,
-        "armor": 431
+        "armor": 431,
+        "spellDamage": 8,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236119",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 22 and damage done by up to 8 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Hand"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Hands": {
@@ -1633,11 +1814,23 @@ export const loadouts = {
       "stats": {
         "stamina": 11,
         "intellect": 12,
-        "power": 20,
+        "power": 59,
         "crit": 1,
-        "armor": 615
+        "armor": 615,
+        "spellDamage": 20,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236118",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Waist": {
@@ -1660,11 +1853,23 @@ export const loadouts = {
       "stats": {
         "stamina": 13,
         "intellect": 14,
-        "power": 17,
+        "power": 51,
         "crit": 1,
-        "armor": 554
+        "armor": 554,
+        "spellDamage": 17,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236120",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 51 and damage done by up to 17 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Legs": {
@@ -1687,11 +1892,23 @@ export const loadouts = {
       "stats": {
         "stamina": 12,
         "intellect": 19,
-        "power": 24,
+        "power": 70,
         "crit": 2,
-        "armor": 861
+        "armor": 861,
+        "spellDamage": 24,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236121",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Feet": {
@@ -1714,11 +1931,23 @@ export const loadouts = {
       "stats": {
         "stamina": 10,
         "intellect": 11,
-        "power": 20,
+        "power": 59,
         "crit": 1,
-        "armor": 662
+        "armor": 662,
+        "spellDamage": 20,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236123",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Finger 1": {
@@ -1739,10 +1968,22 @@ export const loadouts = {
       "ilvl": 92,
       "twoHand": false,
       "stats": {
-        "power": 16,
-        "crit": 1
+        "power": 46,
+        "crit": 1,
+        "spellDamage": 16,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236116",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 46 and damage done by up to 16 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+        ]
+      },
       "acquisition": "Redemption Armor"
     },
     "Finger 2": {
@@ -1761,9 +2002,21 @@ export const loadouts = {
       "ilvl": 83,
       "twoHand": false,
       "stats": {
-        "power": 32
+        "power": 32,
+        "spellDamage": 32,
+        "haste": 1
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236273",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 32."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Trinket 1": {
@@ -1782,10 +2035,21 @@ export const loadouts = {
       "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "power": 23,
-        "mp5": 10
+        "power": 68,
+        "mp5": 10,
+        "spellDamage": 23
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236320",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Relic": {
@@ -1877,11 +2141,23 @@ export const loadouts = {
       "stats": {
         "stamina": 19,
         "intellect": 19,
-        "power": 35,
+        "power": 106,
         "crit": 2,
-        "armor": 886
+        "armor": 886,
+        "spellDamage": 35,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240040",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 106 and damage done by up to 35 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for"
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Neck": {
@@ -1927,11 +2203,23 @@ export const loadouts = {
       "stats": {
         "stamina": 13,
         "intellect": 14,
-        "power": 22,
+        "power": 64,
         "crit": 2,
-        "armor": 818
+        "armor": 818,
+        "spellDamage": 22,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240021",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 64 and damage done by up to 22 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Back": {
@@ -1978,11 +2266,23 @@ export const loadouts = {
       "stats": {
         "stamina": 19,
         "intellect": 20,
-        "power": 37,
+        "power": 110,
         "crit": 2,
-        "armor": 1090
+        "armor": 1090,
+        "spellDamage": 37,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240039",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 110 and damage done by up to 37 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for"
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Wrists": {
@@ -2005,10 +2305,22 @@ export const loadouts = {
       "stats": {
         "stamina": 13,
         "intellect": 13,
-        "power": 11,
-        "armor": 477
+        "power": 33,
+        "armor": 477,
+        "spellDamage": 11,
+        "haste": 3
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240042",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 33 and damage done by up to 11 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Hands": {
@@ -2031,10 +2343,22 @@ export const loadouts = {
       "stats": {
         "stamina": 14,
         "intellect": 15,
-        "power": 24,
-        "armor": 681
+        "power": 70,
+        "armor": 681,
+        "spellDamage": 24,
+        "haste": 3
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240041",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Waist": {
@@ -2057,11 +2381,23 @@ export const loadouts = {
       "stats": {
         "stamina": 14,
         "intellect": 15,
-        "power": 19,
+        "power": 55,
         "crit": 1,
-        "armor": 613
+        "armor": 613,
+        "spellDamage": 19,
+        "haste": 3
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240043",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Legs": {
@@ -2084,11 +2420,23 @@ export const loadouts = {
       "stats": {
         "stamina": 17,
         "intellect": 24,
-        "power": 33,
+        "power": 99,
         "crit": 3,
-        "armor": 954
+        "armor": 954,
+        "spellDamage": 33,
+        "haste": 1
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240020",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 99 and damage done by up to 33 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Feet": {
@@ -2111,11 +2459,23 @@ export const loadouts = {
       "stats": {
         "stamina": 13,
         "intellect": 15,
-        "power": 23,
+        "power": 68,
         "crit": 1,
-        "armor": 749
+        "armor": 749,
+        "spellDamage": 23,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240022",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+        ]
+      },
       "acquisition": "Inquisition Armor"
     },
     "Finger 1": {
@@ -2137,9 +2497,21 @@ export const loadouts = {
         "stamina": 8,
         "intellect": 8,
         "power": 35,
-        "crit": 1
+        "crit": 1,
+        "spellDamage": 35,
+        "haste": 1
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241031",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 35."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Finger 2": {
@@ -2158,9 +2530,20 @@ export const loadouts = {
       "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "power": 28
+        "power": 84,
+        "spellDamage": 28
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241032",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 84 and damage done by up to 28 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Trinket 1": {
@@ -2181,9 +2564,20 @@ export const loadouts = {
       "stats": {
         "intellect": 10,
         "spirit": 10,
-        "power": 30
+        "power": 88,
+        "spellDamage": 30
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241068",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 88 and damage done by up to 30 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Scarlet Enclave"
     },
     "Main hand": {
@@ -2206,12 +2600,19 @@ export const loadouts = {
         "stamina": 7,
         "power": 317,
         "crit": 1,
-        "spellDamage": 106
+        "spellDamage": 106,
+        "haste": 2
       },
       "effects": true,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=241006/spire-of-sacrifice",
-        "note": "Separate passive healing and damage bonuses. The DPS simulator snapshot only retains 106 generic spell power. The +200 healing sacrifice toggle and 2% casting speed are not simulated."
+        "url": "https://www.wowhead.com/classic/item=241006",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 317 and damage done by up to 106 for all magical spells and effects."
+        ]
       }
     },
     "Off hand": {

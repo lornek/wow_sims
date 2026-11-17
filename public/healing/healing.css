@@ -592,14 +592,28 @@ body:has(#healing) { font-family:var(--ui); }
 .healing-score [data-mana-meter] .meter-numbers,
 .healing-score [data-mana-meter] .mana-source-bar > strong { font-family:inherit; font-size:inherit; line-height:inherit; font-weight:700; }
 
-/* Keep the five statistics together; narrow screens scroll this row locally. */
-.healing-breakdown { grid-template-columns:54px repeat(2,minmax(220px,1.5fr)) repeat(2,minmax(130px,1fr)); gap:8px; overflow-x:auto; padding-bottom:4px; }
-.healing-breakdown > div { min-width:0; grid-template-columns:24px minmax(0,1fr); gap:2px 6px; padding:6px; }
-.heal-meter .healing-breakdown img { width:24px; height:24px; }
-.healing-breakdown > div:first-child { grid-template-columns:1fr; justify-items:center; text-align:center; }
-.healing-breakdown > div:first-child img { grid-row:auto; width:22px; height:22px; }
-.healing-breakdown dd { font-size:clamp(.8rem,1.6vw,1.05rem); color:#8ddd98; }
-.healing-breakdown dd:has(.hit-count) { display:flex; align-items:baseline; gap:18px; }
-.healing-breakdown .hit-count, .healing-breakdown .hit-summary { white-space:nowrap; color:var(--text); }
-.healing-breakdown .hit-value, .healing-breakdown .hit-average, .healing-breakdown .hit-overheal,
+/* Match the fight-total cards: artwork left, heading above its value. */
+.healing-breakdown { grid-template-columns:minmax(110px,.55fr) repeat(2,minmax(300px,1.5fr)) repeat(2,minmax(160px,1fr)); gap:8px; overflow-x:auto; padding-bottom:4px; }
+.healing-breakdown > div { min-width:0; grid-template-columns:40px minmax(0,1fr); gap:4px 10px; align-items:center; padding:7px; }
+.heal-meter .healing-breakdown img { grid-row:span 2; width:40px; height:40px; }
+.healing-breakdown dt { text-align:center; }
+.healing-breakdown dd { text-align:center; font-size:var(--report-value-size,1.15rem); color:#8ddd98; }
+.healing-breakdown dd:has(.hit-count) { display:flex; align-items:baseline; justify-content:center; gap:24px; }
+.healing-breakdown .hit-count, .healing-breakdown .hit-summary { display:inline-flex; align-items:baseline; gap:.65ch; white-space:nowrap; color:var(--text); }
+.healing-breakdown > div:first-child dd, .healing-breakdown .hit-value { color:var(--text); }
+.healing-breakdown .hit-average, .healing-breakdown .hit-overheal,
 .healing-score [data-meter] .meter-numbers { color:#8ddd98; }
+.healing-score [data-meter] .healing-event-bars .meter-numbers { color:var(--text); }
+
+.character-sheet > header { justify-content:space-between; text-align:left; flex-wrap:wrap; }
+.character-identity { display:flex; align-items:center; gap:12px; min-width:0; }
+.character-header-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-left:auto; max-width:100%; }
+.character-header-controls label { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin:0; min-width:0; }
+.character-header-controls select { max-width:min(250px,100%); min-width:0; }
+.healing .gear-icon-button { display:inline-flex; flex:none; align-items:center; justify-content:center; padding:6px; min-width:32px; min-height:32px; }
+.gear-icon-button svg { display:block; }
+@media(max-width:600px) {
+ .character-header-controls { margin-left:0; width:100%; }
+ .character-header-controls label { flex:1; }
+ .character-header-controls select { max-width:100%; width:100%; }
+}

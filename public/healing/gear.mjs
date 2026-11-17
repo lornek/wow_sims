@@ -1087,10 +1087,21 @@ export const equipmentSets = {
       "stats": {
         "stamina": 26,
         "intellect": 10,
-        "power": 24,
-        "armor": 3000
+        "power": 44,
+        "armor": 3000,
+        "spellDamage": 24
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=235473",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 44 and damage done by up to 24 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one."
     }
   },
@@ -1115,11 +1126,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 15,
         "intellect": 20,
-        "power": 26,
+        "power": 77,
         "crit": 1,
-        "armor": 392
+        "armor": 392,
+        "spellDamage": 26
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231203",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 77 and damage done by up to 26 for all magical spells and effects. Relief of the Ten Storms (0/8) Breastplate of Ten Storms Greaves of Ten Storms Gauntlets of Ten Storms Helmet of Ten Storms Legplates of Ten Storms Epaulets of Ten Storms Belt of Ten Storms Bracers of Ten Storms (2) Set : Your non-periodic damaging an"
+        ]
+      },
       "acquisition": "Relief of the Ten Storms · Blackwing Lair"
     },
     "Neck": {
@@ -1139,10 +1161,21 @@ export const equipmentSets = {
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 13,
-        "mp5": 5
+        "power": 37,
+        "mp5": 5,
+        "spellDamage": 13
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230245",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 37 and damage done by up to 13 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Shoulders": {
@@ -1212,11 +1245,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 17,
         "intellect": 14,
-        "power": 19,
+        "power": 55,
         "crit": 2,
-        "armor": 482
+        "armor": 482,
+        "spellDamage": 19
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231205",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects. Relief of the Ten Storms (0/8) Breastplate of Ten Storms Greaves of Ten Storms Gauntlets of Ten Storms Helmet of Ten Storms Legplates of Ten Storms Epaulets of Ten Storms Belt of Ten Storms Bracers of Ten Storms (2) Set : Your non-periodic damaging an"
+        ]
+      },
       "acquisition": "Relief of the Ten Storms · Blackwing Lair"
     },
     "Wrists": {
@@ -1336,11 +1380,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 12,
         "intellect": 17,
-        "power": 22,
+        "power": 64,
         "mp5": 6,
-        "armor": 81
+        "armor": 81,
+        "spellDamage": 22
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230743",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 64 and damage done by up to 22 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Finger 1": {
@@ -1385,9 +1440,20 @@ export const equipmentSets = {
         "stamina": 9,
         "intellect": 11,
         "spirit": 11,
-        "power": 18
+        "power": 53,
+        "spellDamage": 18
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230811",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects. \"Flawless. Indestructible. You cannot comprehend the craftsmanship involved with the creation of this ring.\""
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Trinket 1": {
@@ -1406,10 +1472,21 @@ export const equipmentSets = {
       "ilvl": 75,
       "twoHand": false,
       "stats": {
-        "power": 22,
-        "mp5": 9
+        "power": 66,
+        "mp5": 9,
+        "spellDamage": 22
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230269",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Trinket 2": {
@@ -1479,11 +1556,22 @@ export const equipmentSets = {
         "stamina": 6,
         "intellect": 10,
         "spirit": 5,
-        "power": 14,
+        "power": 40,
         "crit": 1,
-        "armor": 2787
+        "armor": 2787,
+        "spellDamage": 14
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230248",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 40 and damage done by up to 14 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Blackwing Lair"
     }
   },
@@ -1508,11 +1596,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 14,
         "intellect": 14,
-        "power": 27,
+        "power": 81,
         "crit": 2,
-        "armor": 449
+        "armor": 449,
+        "spellDamage": 27,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236144",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 81 and damage done by up to 27 for all magical spells and effects. The Earthshatterer (0/9) Earthshatter Headpiece Earthshatter Spaulders Earthshatter Tunic Earthshatter Girdle Earthshatter Legguards Earthshatter Boots Earthshatter Wristguards Earthshatter Handguards Ring of the Earthshatterer (2) Set : Your Earth Sh"
+        ]
+      },
       "acquisition": "The Earthshatterer · Naxxramas"
     },
     "Neck": {
@@ -1532,9 +1632,20 @@ export const equipmentSets = {
       "stats": {
         "intellect": 14,
         "spirit": 13,
-        "power": 18
+        "power": 53,
+        "spellDamage": 18
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236266",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Shoulders": {
@@ -1555,9 +1666,21 @@ export const equipmentSets = {
       "stats": {
         "stamina": 9,
         "power": 40,
-        "armor": 94
+        "armor": 94,
+        "spellDamage": 40,
+        "haste": 2
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236298",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 40."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Back": {
@@ -1577,10 +1700,22 @@ export const equipmentSets = {
       "stats": {
         "intellect": 5,
         "spirit": 5,
-        "power": 21,
-        "armor": 63
+        "power": 62,
+        "armor": 63,
+        "spellDamage": 21,
+        "haste": 1
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236289",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 62 and damage done by up to 21 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Chest": {
@@ -1601,9 +1736,21 @@ export const equipmentSets = {
       "stats": {
         "stamina": 11,
         "power": 59,
-        "armor": 128
+        "armor": 128,
+        "spellDamage": 59,
+        "haste": 2
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236267",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 59."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Wrists": {
@@ -1649,11 +1796,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 11,
         "intellect": 12,
-        "power": 20,
+        "power": 59,
         "crit": 1,
-        "armor": 346
+        "armor": 346,
+        "spellDamage": 20,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236142",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. The Earthshatterer (0/9) Earthshatter Headpiece Earthshatter Spaulders Earthshatter Tunic Earthshatter Girdle Earthshatter Legguards Earthshatter Boots Earthshatter Wristguards Earthshatter Handguards Ring of the Earthshatterer (2) Set : Your Earth Sh"
+        ]
+      },
       "acquisition": "The Earthshatterer · Naxxramas"
     },
     "Waist": {
@@ -1676,11 +1835,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 13,
         "intellect": 14,
-        "power": 17,
+        "power": 51,
         "crit": 1,
-        "armor": 311
+        "armor": 311,
+        "spellDamage": 17,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236148",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 51 and damage done by up to 17 for all magical spells and effects. The Earthshatterer (0/9) Earthshatter Headpiece Earthshatter Spaulders Earthshatter Tunic Earthshatter Girdle Earthshatter Legguards Earthshatter Boots Earthshatter Wristguards Earthshatter Handguards Ring of the Earthshatterer (2) Set : Your Earth Sh"
+        ]
+      },
       "acquisition": "The Earthshatterer · Naxxramas"
     },
     "Legs": {
@@ -1702,9 +1873,21 @@ export const equipmentSets = {
         "stamina": 14,
         "intellect": 10,
         "power": 47,
-        "armor": 112
+        "armor": 112,
+        "spellDamage": 47,
+        "haste": 3
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236303",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 47."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Feet": {
@@ -1727,11 +1910,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 10,
         "intellect": 11,
-        "power": 20,
+        "power": 59,
         "crit": 1,
-        "armor": 372
+        "armor": 372,
+        "spellDamage": 20,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236146",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. The Earthshatterer (0/9) Earthshatter Headpiece Earthshatter Spaulders Earthshatter Tunic Earthshatter Girdle Earthshatter Legguards Earthshatter Boots Earthshatter Wristguards Earthshatter Handguards Ring of the Earthshatterer (2) Set : Your Earth Sh"
+        ]
+      },
       "acquisition": "The Earthshatterer · Naxxramas"
     },
     "Finger 1": {
@@ -1752,10 +1947,22 @@ export const equipmentSets = {
       "ilvl": 92,
       "twoHand": false,
       "stats": {
-        "power": 16,
-        "crit": 1
+        "power": 46,
+        "crit": 1,
+        "spellDamage": 16,
+        "haste": 2
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236150",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 46 and damage done by up to 16 for all magical spells and effects. The Earthshatterer (0/9) Earthshatter Headpiece Earthshatter Spaulders Earthshatter Tunic Earthshatter Girdle Earthshatter Legguards Earthshatter Boots Earthshatter Wristguards Earthshatter Handguards Ring of the Earthshatterer (2) Set : Your Earth Sh"
+        ]
+      },
       "acquisition": "The Earthshatterer · Naxxramas"
     },
     "Finger 2": {
@@ -1776,9 +1983,20 @@ export const equipmentSets = {
       "stats": {
         "stamina": 11,
         "intellect": 13,
-        "power": 19
+        "power": 57,
+        "spellDamage": 19
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236259",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 57 and damage done by up to 19 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Trinket 1": {
@@ -1797,9 +2015,20 @@ export const equipmentSets = {
       "ilvl": 90,
       "twoHand": false,
       "stats": {
-        "power": 26
+        "power": 77,
+        "spellDamage": 26
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236329",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 77 and damage done by up to 26 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Trinket 2": {
@@ -1818,10 +2047,21 @@ export const equipmentSets = {
       "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "power": 23,
-        "mp5": 10
+        "power": 68,
+        "mp5": 10,
+        "spellDamage": 23
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236320",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Main hand": {
@@ -1868,10 +2108,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 10,
         "intellect": 10,
-        "power": 17,
-        "armor": 3425
+        "power": 51,
+        "armor": 3425,
+        "spellDamage": 17,
+        "haste": 2
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236347",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 51 and damage done by up to 17 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Relic": {
@@ -1914,11 +2166,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 16,
         "intellect": 17,
-        "power": 34,
+        "power": 101,
         "crit": 3,
-        "armor": 496
+        "armor": 496,
+        "spellDamage": 34,
+        "haste": 2
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240096",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 101 and damage done by up to 34 for all magical spells and effects. The Soulcrusher (0/8) Soulcrusher Headpiece Soulcrusher Spaulders Soulcrusher Tunic Soulcrusher Girdle Soulcrusher Legguards Soulcrusher Boots Soulcrusher Wristguards Soulcrusher Handguards (2) Set : Heals from your Earth Shield have a 25% chance to "
+        ]
+      }
     },
     "Neck": {
       "id": 241073,
@@ -1937,10 +2201,21 @@ export const equipmentSets = {
       "stats": {
         "stamina": 9,
         "intellect": 8,
-        "power": 25,
-        "crit": 1
+        "power": 73,
+        "crit": 1,
+        "spellDamage": 25
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241073",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects."
+        ]
+      }
     },
     "Shoulders": {
       "id": 240098,
@@ -1962,10 +2237,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 12,
         "intellect": 15,
-        "power": 22,
-        "armor": 458
+        "power": 66,
+        "armor": 458,
+        "spellDamage": 22,
+        "haste": 3
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240098",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. The Soulcrusher (0/8) Soulcrusher Headpiece Soulcrusher Spaulders Soulcrusher Tunic Soulcrusher Girdle Soulcrusher Legguards Soulcrusher Boots Soulcrusher Wristguards Soulcrusher Handguards (2) Set : Heals from your Earth Shield have a 25% chance to m"
+        ]
+      }
     },
     "Back": {
       "id": 241026,
@@ -1984,11 +2271,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 8,
         "intellect": 10,
-        "power": 25,
+        "power": 73,
         "crit": 1,
-        "armor": 70
+        "armor": 70,
+        "spellDamage": 25
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241026",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects."
+        ]
+      }
     },
     "Chest": {
       "id": 240092,
@@ -2010,11 +2308,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 19,
         "intellect": 20,
-        "power": 37,
+        "power": 110,
         "crit": 1,
-        "armor": 611
+        "armor": 611,
+        "spellDamage": 37,
+        "haste": 2
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240092",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 110 and damage done by up to 37 for all magical spells and effects. The Soulcrusher (0/8) Soulcrusher Headpiece Soulcrusher Spaulders Soulcrusher Tunic Soulcrusher Girdle Soulcrusher Legguards Soulcrusher Boots Soulcrusher Wristguards Soulcrusher Handguards (2) Set : Heals from your Earth Shield have a 25% chance to "
+        ]
+      }
     },
     "Wrists": {
       "id": 240100,
@@ -2036,10 +2346,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 13,
         "intellect": 13,
-        "power": 22,
-        "armor": 267
+        "power": 42,
+        "armor": 267,
+        "spellDamage": 22,
+        "haste": 2
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240100",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 42 and damage done by up to 22 for all magical spells and effects. The Soulcrusher (0/8) Soulcrusher Headpiece Soulcrusher Spaulders Soulcrusher Tunic Soulcrusher Girdle Soulcrusher Legguards Soulcrusher Boots Soulcrusher Wristguards Soulcrusher Handguards (2) Set : Heals from your Earth Shield have a 25% chance to m"
+        ]
+      }
     },
     "Hands": {
       "id": 240095,
@@ -2061,11 +2383,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 14,
         "intellect": 15,
-        "power": 23,
+        "power": 68,
         "crit": 2,
-        "armor": 382
+        "armor": 382,
+        "spellDamage": 23
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240095",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects. The Soulcrusher (0/8) Soulcrusher Headpiece Soulcrusher Spaulders Soulcrusher Tunic Soulcrusher Girdle Soulcrusher Legguards Soulcrusher Boots Soulcrusher Wristguards Soulcrusher Handguards (2) Set : Heals from your Earth Shield have a 25% chance to m"
+        ]
+      }
     },
     "Waist": {
       "id": 240099,
@@ -2087,11 +2420,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 15,
         "intellect": 18,
-        "power": 22,
+        "power": 64,
         "crit": 2,
-        "armor": 343
+        "armor": 343,
+        "spellDamage": 22,
+        "haste": 1
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240099",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 64 and damage done by up to 22 for all magical spells and effects. The Soulcrusher (0/8) Soulcrusher Headpiece Soulcrusher Spaulders Soulcrusher Tunic Soulcrusher Girdle Soulcrusher Legguards Soulcrusher Boots Soulcrusher Wristguards Soulcrusher Handguards (2) Set : Heals from your Earth Shield have a 25% chance to m"
+        ]
+      }
     },
     "Legs": {
       "id": 241181,
@@ -2111,10 +2456,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 10,
         "intellect": 15,
-        "power": 38,
-        "armor": 534
+        "power": 114,
+        "armor": 534,
+        "spellDamage": 38,
+        "haste": 4
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241181",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 114 and damage done by up to 38 for all magical spells and effects."
+        ]
+      }
     },
     "Feet": {
       "id": 240093,
@@ -2136,10 +2493,22 @@ export const equipmentSets = {
       "stats": {
         "stamina": 13,
         "intellect": 14,
-        "power": 30,
-        "armor": 420
+        "power": 90,
+        "armor": 420,
+        "spellDamage": 30,
+        "haste": 2
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=240093",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 90 and damage done by up to 30 for all magical spells and effects. The Soulcrusher (0/8) Soulcrusher Headpiece Soulcrusher Spaulders Soulcrusher Tunic Soulcrusher Girdle Soulcrusher Legguards Soulcrusher Boots Soulcrusher Wristguards Soulcrusher Handguards (2) Set : Heals from your Earth Shield have a 25% chance to m"
+        ]
+      }
     },
     "Finger 1": {
       "id": 236150,
@@ -2159,10 +2528,22 @@ export const equipmentSets = {
       "ilvl": 92,
       "twoHand": false,
       "stats": {
-        "power": 16,
-        "crit": 1
+        "power": 46,
+        "crit": 1,
+        "spellDamage": 16,
+        "haste": 2
       },
-      "effects": true
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236150",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 46 and damage done by up to 16 for all magical spells and effects. The Earthshatterer (0/9) Earthshatter Headpiece Earthshatter Spaulders Earthshatter Tunic Earthshatter Girdle Earthshatter Legguards Earthshatter Boots Earthshatter Wristguards Earthshatter Handguards Ring of the Earthshatterer (2) Set : Your Earth Sh"
+        ]
+      }
     },
     "Finger 2": {
       "id": 241032,
@@ -2180,9 +2561,20 @@ export const equipmentSets = {
       "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "power": 28
+        "power": 84,
+        "spellDamage": 28
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241032",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 84 and damage done by up to 28 for all magical spells and effects."
+        ]
+      }
     },
     "Trinket 1": {
       "id": 241068,
@@ -2202,9 +2594,20 @@ export const equipmentSets = {
       "stats": {
         "intellect": 10,
         "spirit": 10,
-        "power": 30
+        "power": 88,
+        "spellDamage": 30
       },
-      "effects": false
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241068",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 88 and damage done by up to 30 for all magical spells and effects."
+        ]
+      }
     },
     "Trinket 2": {
       "id": 236329,
@@ -2222,9 +2625,20 @@ export const equipmentSets = {
       "ilvl": 90,
       "twoHand": false,
       "stats": {
-        "power": 26
+        "power": 77,
+        "spellDamage": 26
       },
-      "effects": false
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236329",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 77 and damage done by up to 26 for all magical spells and effects."
+        ]
+      }
     },
     "Main hand": {
       "id": 241001,
@@ -2269,11 +2683,23 @@ export const equipmentSets = {
       "stats": {
         "stamina": 9,
         "intellect": 9,
-        "power": 20,
+        "power": 59,
         "crit": 1,
-        "armor": 3425
+        "armor": 3425,
+        "spellDamage": 20,
+        "haste": 1
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241018",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects."
+        ]
+      }
     },
     "Relic": {
       "id": 236276,
