@@ -6,7 +6,7 @@ import {mountGearEditor} from './gear-editor.mjs';
 import {watchScoreFormula} from './score-layout.mjs';
 import {normalizeAdditionalStats} from './additional-stats.mjs';
 import {setBarNumbers} from './bar-numbers.mjs';
-import {healingEventRows} from './healing-events.mjs';
+import {healingEventRows, healingMeterEntries} from './healing-events.mjs';
 import {resetHealingReport} from './report-reset.mjs';
 import {healingRange, swiftmendRange, periodicHealingPreview, periodicHealingScaling, expectedHealingPerMana} from './healing-preview.mjs';
 import {manaReportSources, spiritContribution} from './mana-report.mjs';
@@ -727,7 +727,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     Attributes: {Strength: 'strength', Agility: 'agility', Stamina: 'stamina',
       Intellect: 'intellect', Spirit: 'spirit'},
     Spell: {'Bonus healing': 'power', 'Spell crit': 'crit',
-      'Mana / 5 sec while casting': 'mp5', 'Mana / 5 sec outside five-second rule': 'resting'}
+      'Mana / 5 sec': 'resting', 'Mana / 5 sec while casting': 'mp5'}
   };
   const sheet = {};
   for (const [name, stats] of Object.entries(statGroups)) {
@@ -1056,13 +1056,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   const manaRows = new Map();
   const meterRows = new Map();
-  for (const [key, name] of [...slots, ...extraMeters]) {
+  const meterNames = new Map([...slots, ...extraMeters]);
+  const splitToggle = find('[data-detailed-split]');
+  splitToggle.onchange = () => renderMeters(pull.state);
+  function createMeterRow(key, name, baseName = name) {
     const row = document.createElement('details');
     row.className = 'meter-row';
     row.ontoggle = () => { if (row.open) renderMeters(pull.state); };
     const summary = document.createElement('summary');
     const label = document.createElement('span');
-    label.append(icon(name), name);
+    label.append(icon(baseName), name);
     const total = document.createElement('strong');
     const breakdown = document.createElement('dl');
     breakdown.className = 'healing-breakdown';
@@ -1078,23 +1081,30 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     meterRows.set(key, {row, summary, total, fields, eventBars});
   }
   function renderMeters(state) {
-    find('[data-meter-empty]').hidden = !Object.values(state.meters).every(stats => !stats.hits);
+    const ended = ['won', 'lost'].includes(state.phase);
+    find('[data-detailed-split-label]').hidden = !ended || !['druid', 'shaman'].includes(className);
+    const entries = healingMeterEntries(state.meters, ended && !find('[data-detailed-split-label]').hidden && splitToggle.checked);
+    const displayedKeys = new Set(entries.map(entry => entry.key));
+    for (const [key, {row}] of meterRows) if (!displayedKeys.has(key)) row.hidden = true;
+    find('[data-meter-empty]').hidden = entries.some(entry => entry.stats.hits);
     let meterIndex = 0;
-    for (const [key, {row, summary, total, fields, eventBars}] of [...meterRows].sort((a,b) => (state.meters[b[0]]?.effective ?? 0) - (state.meters[a[0]]?.effective ?? 0))) {
-      const stats = state.meters[key];
+    for (const {key, baseKey, label, stats, spellStats} of entries) {
+      const name = meterNames.get(baseKey) ?? baseKey;
+      if (!meterRows.has(key)) createMeterRow(key, label ? name + ' (' + label + ')' : name, name);
+      const {row, summary, total, fields, eventBars} = meterRows.get(key);
       row.hidden = !stats?.hits;
       if (row.hidden) continue;
       const container = find('[data-meter]');
       if (container.children[meterIndex] !== row) container.insertBefore(row, container.children[meterIndex] ?? null);
       meterIndex++;
-      summary.style.setProperty('--meter-color', healingColors[key] ?? '#397b42');
+      summary.style.setProperty('--meter-color', healingColors[baseKey] ?? '#397b42');
       const raw = stats.effective + stats.overheal;
       const percent = (part, all) => (all ? 100 * part / all : 0).toFixed(1) + '%';
       const share = percent(stats.effective, state.healing);
       setBarNumbers(total, whole(stats.effective), share);
-      summary.style.setProperty('--share', (100 * stats.effective / (Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1)) + '%');
+      summary.style.setProperty('--share', (100 * stats.effective / (Math.max(...entries.map(entry => entry.stats.effective)) || 1)) + '%');
       if (!row.open) continue;
-      const maxHealing = Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1;
+      const maxHealing = Math.max(...entries.map(entry => entry.stats.effective)) || 1;
       const eventSignature = JSON.stringify([stats.events, maxHealing]);
       if (eventBars.dataset.renderKey !== eventSignature || !eventBars.childElementCount) {
         hideGameTooltipWithin(eventBars);
@@ -1103,7 +1113,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         for (const event of healingEventRows(stats)) {
           const bar = document.createElement('div');
           bar.className = 'mana-source-bar healing-event-bar';
-          bar.style.setProperty('--source-color', healingColors[key] ?? '#397b42');
+          bar.style.setProperty('--source-color', healingColors[baseKey] ?? '#397b42');
           bar.style.setProperty('--share', (100 * event.effective / maxHealing) + '%');
           const label = document.createElement('span');
           const art = document.createElement('span');
@@ -1124,7 +1134,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const values = [stats.casts, stats.hits - stats.crits,
         stats.crits,
         whole(stats.overheal) + ' (' + percent(stats.overheal, raw) + ')',
-        stats.mana ? (stats.effective / stats.mana).toFixed(2) : '—'];
+        spellStats.mana ? (spellStats.effective / spellStats.mana).toFixed(2) : '—'];
       fields.forEach((field, index) => {
         if (index === 1 || index === 2) {
           const crit = index === 2;

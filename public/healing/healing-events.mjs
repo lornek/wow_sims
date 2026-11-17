@@ -21,5 +21,19 @@ export function healingEventRows(stats) {
     if (!hits && !crits) return [];
     return [{...kind, ...(stats.events?.[kind.key] ?? {count:0,effective:0,overheal:0}),
       critPercent:100 * crits / (hits + crits)}];
-  });
+  }).sort((a, b) => b.effective - a.effective);
+}
+
+// Keep aggregate meters canonical; report views never change fight totals or mana.
+export function healingMeterEntries(meters, detailedSplit = false) {
+  const parts = {regrowth: [['direct', 'direct'], ['hot', 'heal over time']],
+    chain: [['0', 'direct'], ['1', 'bounce 1'], ['2', 'bounce 2']]};
+  return Object.entries(meters).flatMap(([key, stats]) => {
+    if (!detailedSplit || !parts[key] || !stats.components) return [{key, baseKey:key, stats, spellStats:stats}];
+    return parts[key].flatMap(([part, label]) => {
+      const component = stats.components[part];
+      return component ? [{key:key + ':' + part, baseKey:key, label,
+        stats:{...component, casts:stats.casts}, spellStats:stats}] : [];
+    });
+  }).sort((a, b) => b.stats.effective - a.stats.effective);
 }

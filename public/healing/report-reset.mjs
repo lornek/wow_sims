@@ -6,7 +6,7 @@ export function resetHealingReport(root, meterRows, manaRows) {
     summary.style.setProperty('--share', '0%');
     total.textContent = '';
     eventBars?.replaceChildren();
-    for (const field of fields) field.textContent = '';
+    for (const field of fields) { field.textContent = ''; delete field.dataset.average; }
   }
   root.querySelector('[data-score-total]').textContent = '';
   root.querySelector('[data-score-heading]').hidden = true;

@@ -57,6 +57,16 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     stats.effective += effective;
     stats.overheal += amount - effective;
     recordHealingEvent(stats, periodic || !!spell?.period, crit, effective, amount - effective);
+    if (key === 'regrowth' || key === 'chain') {
+      const components = stats.components ??= {};
+      const part = key === 'regrowth' ? (periodic ? 'hot' : 'direct') : String(bounce);
+      const component = components[part] ??= {hits:0, crits:0, effective:0, overheal:0};
+      component.hits++;
+      component.crits += Number(crit);
+      component.effective += effective;
+      component.overheal += amount - effective;
+      recordHealingEvent(component, periodic, crit, effective, amount - effective);
+    }
     if (crit && spell?.illumination && random() < spell.illumination) restoreMana(.5 * spell.baseCost, 'Illumination');
     if (crit && spell?.infusion) state.infusion = state.time + 15;
     if (crit && !periodic && profile.aegis) {

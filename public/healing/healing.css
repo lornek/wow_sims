@@ -617,3 +617,6 @@ body:has(#healing) { font-family:var(--ui); }
  .character-header-controls label { flex:1; }
  .character-header-controls select { max-width:100%; width:100%; }
 }
+
+.healing-meter-heading { display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; }
+.healing-meter-heading label { font-size:.9rem; cursor:pointer; }
