@@ -1140,10 +1140,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           const signature = [hits, average, excess].join(':');
           if (field.dataset.average !== signature) {
             field.dataset.average = signature;
-            const count = document.createElement('span'); count.textContent = hits + ' ';
-            const healing = document.createElement('span'); healing.className = 'hit-average'; healing.textContent = whole(average) + ' ';
-            const waste = document.createElement('span'); waste.className = 'hit-overheal'; waste.textContent = '(' + whole(excess) + ')';
-            field.replaceChildren(count, healing, waste);
+            const count = document.createElement('span'); count.className = 'hit-count';
+            const countValue = document.createElement('span'); countValue.className = 'hit-value'; countValue.textContent = whole(hits);
+            count.append('Hits ', countValue);
+            const summary = document.createElement('span'); summary.className = 'hit-summary';
+            const healing = document.createElement('span'); healing.className = 'hit-average'; healing.textContent = whole(average);
+            const waste = document.createElement('span'); waste.className = 'hit-overheal'; waste.textContent = '(+' + whole(excess) + ')';
+            summary.append('Avg ', healing, ' ', waste);
+            field.replaceChildren(count, summary);
             setGameTooltip(field.parentElement, crit ? 'Critical hits' : 'Normal hits', [hits + ' hits', whole(average) + ' average effective healing per hit', whole(excess) + ' average overhealing per hit']);
           }
           return;

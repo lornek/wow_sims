@@ -592,20 +592,14 @@ body:has(#healing) { font-family:var(--ui); }
 .healing-score [data-mana-meter] .meter-numbers,
 .healing-score [data-mana-meter] .mana-source-bar > strong { font-family:inherit; font-size:inherit; line-height:inherit; font-weight:700; }
 
-.healing-breakdown { grid-template-columns:60px minmax(0,1fr) minmax(0,1fr); }
-.healing-breakdown > div { min-width:0; grid-template-columns:24px minmax(0,1fr); gap:2px 5px; padding:5px; }
+/* Keep the five statistics together; narrow screens scroll this row locally. */
+.healing-breakdown { grid-template-columns:54px repeat(2,minmax(220px,1.5fr)) repeat(2,minmax(130px,1fr)); gap:8px; overflow-x:auto; padding-bottom:4px; }
+.healing-breakdown > div { min-width:0; grid-template-columns:24px minmax(0,1fr); gap:2px 6px; padding:6px; }
 .heal-meter .healing-breakdown img { width:24px; height:24px; }
 .healing-breakdown > div:first-child { grid-template-columns:1fr; justify-items:center; text-align:center; }
 .healing-breakdown > div:first-child img { grid-row:auto; width:22px; height:22px; }
-.healing-breakdown > div:nth-child(n+4) { grid-column:span 1; }
-.healing-breakdown dd { font-size:clamp(.8rem,1.6vw,1.05rem); }
-.healing-breakdown .hit-average { color:#8ddd98; }
-.healing-breakdown .hit-overheal { color:#c7ad92; }
-@media(max-width:480px) {
- .healing-breakdown { grid-template-columns:44px minmax(0,1fr) minmax(0,1fr); gap:5px; }
- .healing-breakdown > div { grid-template-columns:1fr; }
- .healing-breakdown img { grid-row:auto; }
- .healing-breakdown dt { font-size:.7rem; }
-}
-.healing-breakdown > div:nth-child(4) { grid-column:2; }
-.healing-breakdown > div:nth-child(5) { grid-column:3; }
+.healing-breakdown dd { font-size:clamp(.8rem,1.6vw,1.05rem); color:#8ddd98; }
+.healing-breakdown dd:has(.hit-count) { display:flex; align-items:baseline; gap:18px; }
+.healing-breakdown .hit-count, .healing-breakdown .hit-summary { white-space:nowrap; color:var(--text); }
+.healing-breakdown .hit-value, .healing-breakdown .hit-average, .healing-breakdown .hit-overheal,
+.healing-score [data-meter] .meter-numbers { color:#8ddd98; }
