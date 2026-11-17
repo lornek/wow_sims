@@ -1,0 +1,8508 @@
+{
+  "source": {
+    "repository": "https://github.com/wowsims/sod",
+    "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+    "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+    "sha256": "1c88ec7eff80f83e127a794ada11bb7ddca3e61beab3ef3c4b04fa5a9fcd5e41",
+    "purpose": "Passive healing/damage stat audit"
+  },
+  "changedItems": [
+    {
+      "key": "Season of Discovery:224281",
+      "name": "Gla'sir",
+      "before": {
+        "stamina": 12,
+        "intellect": 26,
+        "spirit": 14,
+        "power": 77,
+        "crit": 2
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 26,
+        "spirit": 14,
+        "power": 144,
+        "crit": 2,
+        "spellDamage": 77
+      }
+    },
+    {
+      "key": "Season of Discovery:229806",
+      "name": "Truthbearer",
+      "before": {
+        "stamina": 14,
+        "intellect": 12,
+        "power": 77
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 12,
+        "power": 144,
+        "spellDamage": 77
+      }
+    },
+    {
+      "key": "Season of Discovery:230239",
+      "name": "Gloves of Rapid Evolution",
+      "before": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 20,
+        "power": 16,
+        "armor": 70
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 20,
+        "power": 46,
+        "armor": 70,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:230245",
+      "name": "Pendant of the Fallen Dragon",
+      "before": {
+        "stamina": 9,
+        "intellect": 12,
+        "power": 13,
+        "mp5": 5
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 12,
+        "power": 37,
+        "mp5": 5,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:230248",
+      "name": "Red Dragonscale Protector",
+      "before": {
+        "stamina": 6,
+        "intellect": 10,
+        "spirit": 5,
+        "power": 14,
+        "crit": 1,
+        "armor": 2787
+      },
+      "after": {
+        "stamina": 6,
+        "intellect": 10,
+        "spirit": 5,
+        "power": 40,
+        "crit": 1,
+        "armor": 2787,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:230269",
+      "name": "Rejuvenating Gem",
+      "before": {
+        "power": 22,
+        "mp5": 9
+      },
+      "after": {
+        "power": 66,
+        "mp5": 9,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:230274",
+      "name": "Black Ash Robe",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 17,
+        "power": 16,
+        "armor": 114
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 17,
+        "power": 46,
+        "armor": 114,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:230733",
+      "name": "Shroud of Pure Thought",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 12,
+        "crit": 1,
+        "armor": 57
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 35,
+        "crit": 1,
+        "armor": 57,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:230743",
+      "name": "Shimmering Geta",
+      "before": {
+        "stamina": 12,
+        "intellect": 17,
+        "power": 22,
+        "mp5": 6,
+        "armor": 81
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 17,
+        "power": 64,
+        "mp5": 6,
+        "armor": 81,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:230746",
+      "name": "Empowered Leggings",
+      "before": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 24,
+        "power": 26,
+        "crit": 1,
+        "armor": 103
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 24,
+        "power": 77,
+        "crit": 1,
+        "armor": 103,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:230811",
+      "name": "Pure Elementium Band",
+      "before": {
+        "stamina": 9,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 18
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 53,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:230843",
+      "name": "Boots of Pure Thought",
+      "before": {
+        "stamina": 9,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 22,
+        "armor": 78
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 64,
+        "armor": 78,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:230847",
+      "name": "Essence Gatherer",
+      "before": {
+        "stamina": 6,
+        "intellect": 7,
+        "power": 9
+      },
+      "after": {
+        "stamina": 6,
+        "intellect": 7,
+        "power": 26,
+        "spellDamage": 9
+      }
+    },
+    {
+      "key": "Season of Discovery:230862",
+      "name": "Zulian Headdress",
+      "before": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 14,
+        "power": 25,
+        "armor": 81
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 14,
+        "power": 75,
+        "armor": 81,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:230863",
+      "name": "Zulian Scepter of Rites",
+      "before": {
+        "stamina": 10,
+        "intellect": 9,
+        "power": 15,
+        "mp5": 5
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 9,
+        "power": 44,
+        "mp5": 5,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:230912",
+      "name": "Animist's Spaulders",
+      "before": {
+        "stamina": 10,
+        "intellect": 18,
+        "spirit": 12,
+        "power": 14,
+        "armor": 208
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 18,
+        "spirit": 12,
+        "power": 40,
+        "armor": 208,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:230915",
+      "name": "Primalist's Band",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 6,
+        "mp5": 6
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 15,
+        "mp5": 6,
+        "spellDamage": 6
+      }
+    },
+    {
+      "key": "Season of Discovery:230918",
+      "name": "Mar'li's Touch",
+      "before": {
+        "stamina": 5,
+        "spirit": 6,
+        "power": 8
+      },
+      "after": {
+        "stamina": 5,
+        "spirit": 6,
+        "power": 22,
+        "spellDamage": 8
+      }
+    },
+    {
+      "key": "Season of Discovery:230927",
+      "name": "Ritualistic Legguards",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 25,
+        "power": 22,
+        "armor": 88
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 25,
+        "power": 64,
+        "armor": 88,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:230939",
+      "name": "Will of Arlokk",
+      "before": {
+        "stamina": 15,
+        "intellect": 21,
+        "spirit": 37,
+        "power": 21
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 21,
+        "spirit": 37,
+        "power": 62,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:230941",
+      "name": "Arlokk's Hoodoo Stick",
+      "before": {
+        "stamina": 10,
+        "power": 12,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 10,
+        "power": 35,
+        "crit": 1,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:230994",
+      "name": "Animist's Leggings",
+      "before": {
+        "stamina": 17,
+        "intellect": 19,
+        "spirit": 19,
+        "power": 18,
+        "armor": 247
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 19,
+        "spirit": 19,
+        "power": 53,
+        "armor": 247,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:230998",
+      "name": "Hakkari Loa Cloak",
+      "before": {
+        "stamina": 6,
+        "intellect": 7,
+        "spirit": 8,
+        "power": 15,
+        "armor": 52
+      },
+      "after": {
+        "stamina": 6,
+        "intellect": 7,
+        "spirit": 8,
+        "power": 44,
+        "armor": 52,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231000",
+      "name": "Primalist's Seal",
+      "before": {
+        "intellect": 13,
+        "spirit": 15,
+        "power": 10
+      },
+      "after": {
+        "intellect": 13,
+        "spirit": 15,
+        "power": 29,
+        "spellDamage": 10
+      }
+    },
+    {
+      "key": "Season of Discovery:231002",
+      "name": "Jin'do's Hexxer",
+      "before": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 21,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 62,
+        "crit": 1,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231003",
+      "name": "Jin'do's Evil Eye",
+      "before": {
+        "stamina": 6,
+        "intellect": 11,
+        "spirit": 7,
+        "power": 15
+      },
+      "after": {
+        "stamina": 6,
+        "intellect": 11,
+        "spirit": 7,
+        "power": 44,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231006",
+      "name": "Animist's Boots",
+      "before": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 15,
+        "armor": 189
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 44,
+        "armor": 189,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231155",
+      "name": "Boots of Transcendence",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 18,
+        "crit": 1,
+        "armor": 80
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 53,
+        "crit": 1,
+        "armor": 80,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:231156",
+      "name": "Handguards of Transcendence",
+      "before": {
+        "stamina": 11,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 14,
+        "crit": 1,
+        "armor": 72
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 40,
+        "crit": 1,
+        "armor": 72,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231157",
+      "name": "Halo of Transcendence",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "spirit": 9,
+        "power": 26,
+        "crit": 1,
+        "armor": 94
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "spirit": 9,
+        "power": 77,
+        "crit": 1,
+        "armor": 94,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:231158",
+      "name": "Leggings of Transcendence",
+      "before": {
+        "stamina": 12,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 24,
+        "armor": 101
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 70,
+        "armor": 101,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:231159",
+      "name": "Robes of Transcendence",
+      "before": {
+        "stamina": 16,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 24,
+        "crit": 1,
+        "armor": 116
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 70,
+        "crit": 1,
+        "armor": 116,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:231160",
+      "name": "Pauldrons of Transcendence",
+      "before": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 16,
+        "armor": 87
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 46,
+        "armor": 87,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:231161",
+      "name": "Belt of Transcendence",
+      "before": {
+        "stamina": 13,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 14,
+        "armor": 65
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 42,
+        "armor": 65,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231162",
+      "name": "Bindings of Transcendence",
+      "before": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 11,
+        "armor": 51
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 31,
+        "armor": 51,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:231190",
+      "name": "Judgement Bracers",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 9,
+        "crit": 1,
+        "armor": 375
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 26,
+        "crit": 1,
+        "armor": 375,
+        "spellDamage": 9
+      }
+    },
+    {
+      "key": "Season of Discovery:231191",
+      "name": "Judgement Girdle",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 14,
+        "crit": 1,
+        "armor": 482
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 42,
+        "crit": 1,
+        "armor": 482,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231192",
+      "name": "Judgement Mantle",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 19,
+        "crit": 1,
+        "armor": 642
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 55,
+        "crit": 1,
+        "armor": 642,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:231193",
+      "name": "Judgement Plate Skirt",
+      "before": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 17,
+        "crit": 2,
+        "armor": 749
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 51,
+        "crit": 2,
+        "armor": 749,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:231194",
+      "name": "Judgement Helm",
+      "before": {
+        "stamina": 15,
+        "intellect": 26,
+        "power": 21,
+        "crit": 1,
+        "armor": 696
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 26,
+        "power": 62,
+        "crit": 1,
+        "armor": 696,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231195",
+      "name": "Judgement Gloves",
+      "before": {
+        "stamina": 11,
+        "intellect": 19,
+        "power": 14,
+        "crit": 1,
+        "armor": 535
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 19,
+        "power": 40,
+        "crit": 1,
+        "armor": 535,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231196",
+      "name": "Judgement Treads",
+      "before": {
+        "stamina": 13,
+        "intellect": 16,
+        "power": 15,
+        "crit": 1,
+        "armor": 589
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 16,
+        "power": 44,
+        "crit": 1,
+        "armor": 589,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231197",
+      "name": "Judgement Cuirass",
+      "before": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 22,
+        "crit": 1,
+        "armor": 857
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 66,
+        "crit": 1,
+        "armor": 857,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:231198",
+      "name": "Gauntlets of Ten Storms",
+      "before": {
+        "stamina": 18,
+        "intellect": 20,
+        "power": 19,
+        "armor": 301
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 20,
+        "power": 55,
+        "armor": 301,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:231199",
+      "name": "Bracers of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "power": 13,
+        "armor": 211
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "power": 37,
+        "armor": 211,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:231200",
+      "name": "Belt of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 15,
+        "crit": 1,
+        "armor": 271
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 44,
+        "crit": 1,
+        "armor": 271,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231201",
+      "name": "Epaulets of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 11,
+        "power": 19,
+        "crit": 1,
+        "armor": 362
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 11,
+        "power": 55,
+        "crit": 1,
+        "armor": 362,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:231202",
+      "name": "Legplates of Ten Storms",
+      "before": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 22,
+        "crit": 1,
+        "armor": 422
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 64,
+        "crit": 1,
+        "armor": 422,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:231203",
+      "name": "Helmet of Ten Storms",
+      "before": {
+        "stamina": 15,
+        "intellect": 20,
+        "power": 26,
+        "crit": 1,
+        "armor": 392
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 20,
+        "power": 77,
+        "crit": 1,
+        "armor": 392,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:231204",
+      "name": "Greaves of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 12,
+        "power": 17,
+        "crit": 1,
+        "armor": 332
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 12,
+        "power": 51,
+        "crit": 1,
+        "armor": 332,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:231205",
+      "name": "Breastplate of Ten Storms",
+      "before": {
+        "stamina": 17,
+        "intellect": 14,
+        "power": 19,
+        "crit": 2,
+        "armor": 482
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 14,
+        "power": 55,
+        "crit": 2,
+        "armor": 482,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:231230",
+      "name": "Stormrage Chestguard",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 13,
+        "power": 22,
+        "crit": 1,
+        "armor": 225
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 13,
+        "power": 66,
+        "crit": 1,
+        "armor": 225,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:231231",
+      "name": "Stormrage Boots",
+      "before": {
+        "stamina": 12,
+        "intellect": 17,
+        "power": 14,
+        "crit": 1,
+        "armor": 154
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 17,
+        "power": 42,
+        "crit": 1,
+        "armor": 154,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231232",
+      "name": "Stormrage Handguards",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 11,
+        "power": 16,
+        "armor": 140
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 11,
+        "power": 48,
+        "armor": 140,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:231233",
+      "name": "Stormrage Cover",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 13,
+        "power": 22,
+        "crit": 1,
+        "armor": 183
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 13,
+        "power": 66,
+        "crit": 1,
+        "armor": 183,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:231234",
+      "name": "Stormrage Legguards",
+      "before": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 20,
+        "crit": 1,
+        "armor": 197
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 59,
+        "crit": 1,
+        "armor": 197,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:231235",
+      "name": "Stormrage Pauldrons",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "spirit": 11,
+        "power": 15,
+        "crit": 1,
+        "armor": 169
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "spirit": 11,
+        "power": 44,
+        "crit": 1,
+        "armor": 169,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231236",
+      "name": "Stormrage Belt",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 14,
+        "crit": 1,
+        "armor": 126
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 42,
+        "crit": 1,
+        "armor": 126,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231237",
+      "name": "Stormrage Bracers",
+      "before": {
+        "stamina": 13,
+        "intellect": 10,
+        "power": 11,
+        "crit": 1,
+        "armor": 98
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 10,
+        "power": 31,
+        "crit": 1,
+        "armor": 98,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:231276",
+      "name": "Thoughtblighter",
+      "before": {
+        "power": 6,
+        "mp5": 5
+      },
+      "after": {
+        "power": 15,
+        "mp5": 5,
+        "spellDamage": 6
+      }
+    },
+    {
+      "key": "Season of Discovery:231279",
+      "name": "Wushoolay's Poker",
+      "before": {
+        "spirit": 8,
+        "power": 15,
+        "mp5": 6
+      },
+      "after": {
+        "spirit": 8,
+        "power": 44,
+        "mp5": 6,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231303",
+      "name": "Peacekeeper Gauntlets",
+      "before": {
+        "stamina": 8,
+        "intellect": 14,
+        "power": 20,
+        "mp5": 4,
+        "armor": 495
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 14,
+        "power": 59,
+        "mp5": 4,
+        "armor": 495,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:231332",
+      "name": "The All-Seeing Eye of Zuldazar",
+      "before": {
+        "stamina": 8,
+        "intellect": 7,
+        "spirit": 10,
+        "power": 10
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 7,
+        "spirit": 10,
+        "power": 29,
+        "spellDamage": 10
+      }
+    },
+    {
+      "key": "Season of Discovery:231333",
+      "name": "Zandalar Confessor's Mantle",
+      "before": {
+        "stamina": 10,
+        "intellect": 20,
+        "spirit": 15,
+        "power": 12,
+        "armor": 78
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 20,
+        "spirit": 15,
+        "power": 35,
+        "armor": 78,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:231334",
+      "name": "Zandalar Confessor's Bindings",
+      "before": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 20,
+        "power": 12,
+        "armor": 56
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 20,
+        "power": 35,
+        "armor": 56,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:231335",
+      "name": "Zandalar Confessor's Wraps",
+      "before": {
+        "stamina": 8,
+        "intellect": 13,
+        "spirit": 11,
+        "power": 9,
+        "armor": 41
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 13,
+        "spirit": 11,
+        "power": 26,
+        "armor": 41,
+        "spellDamage": 9
+      }
+    },
+    {
+      "key": "Season of Discovery:231460",
+      "name": "Planebreaker of Azgaloth",
+      "before": {
+        "stamina": 31,
+        "intellect": 32,
+        "power": 30,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 31,
+        "intellect": 32,
+        "power": 90,
+        "crit": 1,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:231622",
+      "name": "Field Marshal's Satin Hood",
+      "before": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 21,
+        "armor": 162
+      },
+      "after": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 62,
+        "armor": 162,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231623",
+      "name": "Marshal's Satin Handwraps",
+      "before": {
+        "stamina": 31,
+        "intellect": 13,
+        "power": 15,
+        "armor": 118
+      },
+      "after": {
+        "stamina": 31,
+        "intellect": 13,
+        "power": 44,
+        "armor": 118,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231624",
+      "name": "Field Marshal's Satin Tunic",
+      "before": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 21,
+        "armor": 183
+      },
+      "after": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 62,
+        "armor": 183,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231626",
+      "name": "Marshal's Satin Legguards",
+      "before": {
+        "stamina": 45,
+        "intellect": 21,
+        "spirit": 9,
+        "power": 20,
+        "armor": 165
+      },
+      "after": {
+        "stamina": 45,
+        "intellect": 21,
+        "spirit": 9,
+        "power": 59,
+        "armor": 165,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:231627",
+      "name": "Marshal's Satin Walkers",
+      "before": {
+        "stamina": 31,
+        "intellect": 18,
+        "power": 15,
+        "armor": 125
+      },
+      "after": {
+        "stamina": 31,
+        "intellect": 18,
+        "power": 44,
+        "armor": 125,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231628",
+      "name": "Field Marshal's Satin Mantle",
+      "before": {
+        "stamina": 33,
+        "intellect": 20,
+        "power": 16,
+        "armor": 145
+      },
+      "after": {
+        "stamina": 33,
+        "intellect": 20,
+        "power": 46,
+        "armor": 145,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:231630",
+      "name": "General's Satin Walkers",
+      "before": {
+        "stamina": 31,
+        "intellect": 18,
+        "power": 15,
+        "armor": 125
+      },
+      "after": {
+        "stamina": 31,
+        "intellect": 18,
+        "power": 44,
+        "armor": 125,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231631",
+      "name": "Warlord's Satin Mantle",
+      "before": {
+        "stamina": 33,
+        "intellect": 20,
+        "power": 16,
+        "armor": 145
+      },
+      "after": {
+        "stamina": 33,
+        "intellect": 20,
+        "power": 46,
+        "armor": 145,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:231632",
+      "name": "Warlord's Satin Tunic",
+      "before": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 21,
+        "armor": 183
+      },
+      "after": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 62,
+        "armor": 183,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231633",
+      "name": "General's Satin Handwraps",
+      "before": {
+        "stamina": 31,
+        "intellect": 13,
+        "power": 15,
+        "armor": 118
+      },
+      "after": {
+        "stamina": 31,
+        "intellect": 13,
+        "power": 44,
+        "armor": 118,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231634",
+      "name": "General's Satin Legguards",
+      "before": {
+        "stamina": 45,
+        "intellect": 21,
+        "spirit": 9,
+        "power": 20,
+        "armor": 165
+      },
+      "after": {
+        "stamina": 45,
+        "intellect": 21,
+        "spirit": 9,
+        "power": 59,
+        "armor": 165,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:231635",
+      "name": "Warlord's Satin Hood",
+      "before": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 21,
+        "armor": 162
+      },
+      "after": {
+        "stamina": 45,
+        "intellect": 28,
+        "spirit": 9,
+        "power": 62,
+        "armor": 162,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231639",
+      "name": "Marshal's Lamellar Legguards",
+      "before": {
+        "stamina": 46,
+        "intellect": 20,
+        "power": 17,
+        "crit": 1,
+        "armor": 703
+      },
+      "after": {
+        "stamina": 46,
+        "intellect": 20,
+        "power": 51,
+        "crit": 1,
+        "armor": 703,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:231640",
+      "name": "Field Marshal's Lamellar Helmet",
+      "before": {
+        "stamina": 40,
+        "intellect": 21,
+        "power": 16,
+        "mp5": 3,
+        "crit": 1,
+        "armor": 679
+      },
+      "after": {
+        "stamina": 40,
+        "intellect": 21,
+        "power": 46,
+        "mp5": 3,
+        "crit": 1,
+        "armor": 679,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:231641",
+      "name": "Field Marshal's Lamellar Chestplate",
+      "before": {
+        "stamina": 40,
+        "intellect": 21,
+        "power": 16,
+        "mp5": 3,
+        "crit": 1,
+        "armor": 835
+      },
+      "after": {
+        "stamina": 40,
+        "intellect": 21,
+        "power": 46,
+        "mp5": 3,
+        "crit": 1,
+        "armor": 835,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:231643",
+      "name": "Marshal's Lamellar Gloves",
+      "before": {
+        "stamina": 25,
+        "intellect": 18,
+        "power": 9,
+        "crit": 1,
+        "armor": 502
+      },
+      "after": {
+        "stamina": 25,
+        "intellect": 18,
+        "power": 26,
+        "crit": 1,
+        "armor": 502,
+        "spellDamage": 9
+      }
+    },
+    {
+      "key": "Season of Discovery:231645",
+      "name": "Field Marshal's Lamellar Pauldrons",
+      "before": {
+        "stamina": 39,
+        "intellect": 16,
+        "power": 14,
+        "armor": 626
+      },
+      "after": {
+        "stamina": 39,
+        "intellect": 16,
+        "power": 42,
+        "armor": 626,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231646",
+      "name": "Marshal's Lamellar Greaves",
+      "before": {
+        "stamina": 43,
+        "intellect": 16,
+        "power": 11,
+        "armor": 552
+      },
+      "after": {
+        "stamina": 43,
+        "intellect": 16,
+        "power": 33,
+        "armor": 552,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:231665",
+      "name": "Warlord's Mail Epaulets",
+      "before": {
+        "stamina": 30,
+        "intellect": 16,
+        "power": 13,
+        "crit": 1,
+        "armor": 353
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 16,
+        "power": 37,
+        "crit": 1,
+        "armor": 353,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:231666",
+      "name": "General's Mail Gloves",
+      "before": {
+        "stamina": 27,
+        "intellect": 15,
+        "power": 14,
+        "crit": 1,
+        "armor": 283
+      },
+      "after": {
+        "stamina": 27,
+        "intellect": 15,
+        "power": 40,
+        "crit": 1,
+        "armor": 283,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231667",
+      "name": "General's Mail Boots",
+      "before": {
+        "stamina": 28,
+        "intellect": 16,
+        "power": 14,
+        "armor": 311
+      },
+      "after": {
+        "stamina": 28,
+        "intellect": 16,
+        "power": 40,
+        "armor": 311,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:231668",
+      "name": "Warlord's Mail Chestguard",
+      "before": {
+        "stamina": 52,
+        "intellect": 20,
+        "power": 15,
+        "crit": 1,
+        "armor": 470
+      },
+      "after": {
+        "stamina": 52,
+        "intellect": 20,
+        "power": 44,
+        "crit": 1,
+        "armor": 470,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231669",
+      "name": "Warlord's Mail Skullcap",
+      "before": {
+        "stamina": 54,
+        "intellect": 17,
+        "power": 15,
+        "crit": 1,
+        "armor": 382
+      },
+      "after": {
+        "stamina": 54,
+        "intellect": 17,
+        "power": 44,
+        "crit": 1,
+        "armor": 382,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231670",
+      "name": "General's Mail Pants",
+      "before": {
+        "stamina": 43,
+        "intellect": 21,
+        "power": 16,
+        "crit": 1,
+        "armor": 396
+      },
+      "after": {
+        "stamina": 43,
+        "intellect": 21,
+        "power": 46,
+        "crit": 1,
+        "armor": 396,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:231671",
+      "name": "General's Dragonhide Greaves",
+      "before": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 11,
+        "armor": 186
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 31,
+        "armor": 186,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:231672",
+      "name": "Warlord's Dragonhide Pauldrons",
+      "before": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 11,
+        "armor": 215
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 33,
+        "armor": 215,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:231673",
+      "name": "General's Dragonhide Legguards",
+      "before": {
+        "stamina": 52,
+        "intellect": 16,
+        "spirit": 14,
+        "power": 15,
+        "armor": 216
+      },
+      "after": {
+        "stamina": 52,
+        "intellect": 16,
+        "spirit": 14,
+        "power": 44,
+        "armor": 216,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231674",
+      "name": "Warlord's Dragonhide Tunic",
+      "before": {
+        "stamina": 52,
+        "intellect": 20,
+        "spirit": 14,
+        "power": 15,
+        "armor": 260
+      },
+      "after": {
+        "stamina": 52,
+        "intellect": 20,
+        "spirit": 14,
+        "power": 44,
+        "armor": 260,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231675",
+      "name": "Warlord's Dragonhide Headdress",
+      "before": {
+        "stamina": 54,
+        "intellect": 16,
+        "spirit": 15,
+        "power": 15,
+        "armor": 209
+      },
+      "after": {
+        "stamina": 54,
+        "intellect": 16,
+        "spirit": 15,
+        "power": 44,
+        "armor": 209,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231676",
+      "name": "General's Dragonhide Gauntlets",
+      "before": {
+        "stamina": 30,
+        "intellect": 15,
+        "spirit": 10,
+        "power": 10,
+        "armor": 173
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 15,
+        "spirit": 10,
+        "power": 29,
+        "armor": 173,
+        "spellDamage": 10
+      }
+    },
+    {
+      "key": "Season of Discovery:231701",
+      "name": "Field Marshal's Dragonhide Headdress",
+      "before": {
+        "stamina": 54,
+        "intellect": 16,
+        "spirit": 15,
+        "power": 15,
+        "armor": 209
+      },
+      "after": {
+        "stamina": 54,
+        "intellect": 16,
+        "spirit": 15,
+        "power": 44,
+        "armor": 209,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231702",
+      "name": "Field Marshal's Dragonhide Tunic",
+      "before": {
+        "stamina": 52,
+        "intellect": 20,
+        "spirit": 14,
+        "power": 15,
+        "armor": 260
+      },
+      "after": {
+        "stamina": 52,
+        "intellect": 20,
+        "spirit": 14,
+        "power": 44,
+        "armor": 260,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231703",
+      "name": "Marshal's Dragonhide Legguards",
+      "before": {
+        "stamina": 52,
+        "intellect": 16,
+        "spirit": 14,
+        "power": 15,
+        "armor": 216
+      },
+      "after": {
+        "stamina": 52,
+        "intellect": 16,
+        "spirit": 14,
+        "power": 44,
+        "armor": 216,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231704",
+      "name": "Marshal's Dragonhide Greaves",
+      "before": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 11,
+        "armor": 186
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 31,
+        "armor": 186,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:231705",
+      "name": "Field Marshal's Dragonhide Pauldrons",
+      "before": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 11,
+        "armor": 215
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 20,
+        "spirit": 10,
+        "power": 33,
+        "armor": 215,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:231706",
+      "name": "Marshal's Dragonhide Gauntlets",
+      "before": {
+        "stamina": 30,
+        "intellect": 15,
+        "spirit": 10,
+        "power": 10,
+        "armor": 173
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 15,
+        "spirit": 10,
+        "power": 29,
+        "armor": 173,
+        "spellDamage": 10
+      }
+    },
+    {
+      "key": "Season of Discovery:231753",
+      "name": "Skywall's Solace",
+      "before": {
+        "stamina": 8,
+        "intellect": 16,
+        "spirit": 10,
+        "power": 43
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 16,
+        "spirit": 10,
+        "power": 128,
+        "spellDamage": 43
+      }
+    },
+    {
+      "key": "Season of Discovery:231777",
+      "name": "Crystallized Qiraji Limb",
+      "before": {
+        "stamina": 8,
+        "spirit": 9,
+        "power": 19
+      },
+      "after": {
+        "stamina": 8,
+        "spirit": 9,
+        "power": 55,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:231850",
+      "name": "Will of Arlokk",
+      "before": {
+        "stamina": 15,
+        "intellect": 21,
+        "spirit": 37,
+        "power": 21
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 21,
+        "spirit": 37,
+        "power": 62,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231859",
+      "name": "Jin'do's Hexxer",
+      "before": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 21,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 62,
+        "crit": 1,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:231863",
+      "name": "Thoughtblighter",
+      "before": {
+        "power": 6,
+        "mp5": 5
+      },
+      "after": {
+        "power": 15,
+        "mp5": 5,
+        "spellDamage": 6
+      }
+    },
+    {
+      "key": "Season of Discovery:231865",
+      "name": "Zulian Scepter of Rites",
+      "before": {
+        "stamina": 10,
+        "intellect": 9,
+        "power": 15,
+        "mp5": 5
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 9,
+        "power": 44,
+        "mp5": 5,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231866",
+      "name": "Mar'li's Touch",
+      "before": {
+        "stamina": 5,
+        "spirit": 6,
+        "power": 8
+      },
+      "after": {
+        "stamina": 5,
+        "spirit": 6,
+        "power": 22,
+        "spellDamage": 8
+      }
+    },
+    {
+      "key": "Season of Discovery:231871",
+      "name": "Wushoolay's Poker",
+      "before": {
+        "spirit": 8,
+        "power": 15,
+        "mp5": 6
+      },
+      "after": {
+        "spirit": 8,
+        "power": 44,
+        "mp5": 6,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231910",
+      "name": "Heart of Azgaloth",
+      "before": {
+        "power": 12,
+        "mp5": 4
+      },
+      "after": {
+        "power": 35,
+        "mp5": 4,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:231911",
+      "name": "Signet of the Legion General",
+      "before": {
+        "stamina": 10,
+        "intellect": 5,
+        "spirit": 5,
+        "power": 9
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 5,
+        "spirit": 5,
+        "power": 26,
+        "spellDamage": 9
+      }
+    },
+    {
+      "key": "Season of Discovery:231912",
+      "name": "Blade of the Pit",
+      "before": {
+        "stamina": 6,
+        "intellect": 6,
+        "spirit": 6,
+        "power": 15,
+        "mp5": 6
+      },
+      "after": {
+        "stamina": 6,
+        "intellect": 6,
+        "spirit": 6,
+        "power": 44,
+        "mp5": 6,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:231913",
+      "name": "Eye of the Observer",
+      "before": {
+        "intellect": 8,
+        "spirit": 11,
+        "power": 8
+      },
+      "after": {
+        "intellect": 8,
+        "spirit": 11,
+        "power": 22,
+        "spellDamage": 8
+      }
+    },
+    {
+      "key": "Season of Discovery:232087",
+      "name": "Stormrage Bracers",
+      "before": {
+        "stamina": 13,
+        "intellect": 10,
+        "power": 11,
+        "crit": 1,
+        "armor": 98
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 10,
+        "power": 31,
+        "crit": 1,
+        "armor": 98,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:232088",
+      "name": "Stormrage Belt",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 14,
+        "crit": 1,
+        "armor": 126
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 42,
+        "crit": 1,
+        "armor": 126,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:232089",
+      "name": "Stormrage Pauldrons",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "spirit": 11,
+        "power": 15,
+        "crit": 1,
+        "armor": 169
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "spirit": 11,
+        "power": 44,
+        "crit": 1,
+        "armor": 169,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:232090",
+      "name": "Stormrage Legguards",
+      "before": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 20,
+        "crit": 1,
+        "armor": 197
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 59,
+        "crit": 1,
+        "armor": 197,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:232091",
+      "name": "Stormrage Cover",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 13,
+        "power": 22,
+        "crit": 1,
+        "armor": 183
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 13,
+        "power": 66,
+        "crit": 1,
+        "armor": 183,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:232092",
+      "name": "Stormrage Handguards",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 11,
+        "power": 16,
+        "armor": 140
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 11,
+        "power": 48,
+        "armor": 140,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:232093",
+      "name": "Stormrage Boots",
+      "before": {
+        "stamina": 12,
+        "intellect": 17,
+        "power": 14,
+        "crit": 1,
+        "armor": 154
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 17,
+        "power": 42,
+        "crit": 1,
+        "armor": 154,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:232094",
+      "name": "Stormrage Chestguard",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 13,
+        "power": 22,
+        "crit": 1,
+        "armor": 225
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 13,
+        "power": 66,
+        "crit": 1,
+        "armor": 225,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:232151",
+      "name": "Judgement Bracers",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 9,
+        "crit": 1,
+        "armor": 375
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 26,
+        "crit": 1,
+        "armor": 375,
+        "spellDamage": 9
+      }
+    },
+    {
+      "key": "Season of Discovery:232152",
+      "name": "Judgement Girdle",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 14,
+        "crit": 1,
+        "armor": 482
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 42,
+        "crit": 1,
+        "armor": 482,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:232153",
+      "name": "Judgement Mantle",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 19,
+        "crit": 1,
+        "armor": 642
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 55,
+        "crit": 1,
+        "armor": 642,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:232154",
+      "name": "Judgement Plate Skirt",
+      "before": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 17,
+        "crit": 2,
+        "armor": 749
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 51,
+        "crit": 2,
+        "armor": 749,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:232155",
+      "name": "Judgement Helm",
+      "before": {
+        "stamina": 15,
+        "intellect": 26,
+        "power": 21,
+        "crit": 1,
+        "armor": 696
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 26,
+        "power": 62,
+        "crit": 1,
+        "armor": 696,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:232156",
+      "name": "Judgement Gloves",
+      "before": {
+        "stamina": 11,
+        "intellect": 19,
+        "power": 14,
+        "crit": 1,
+        "armor": 535
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 19,
+        "power": 40,
+        "crit": 1,
+        "armor": 535,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:232157",
+      "name": "Judgement Treads",
+      "before": {
+        "stamina": 13,
+        "intellect": 16,
+        "power": 15,
+        "crit": 1,
+        "armor": 589
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 16,
+        "power": 44,
+        "crit": 1,
+        "armor": 589,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:232158",
+      "name": "Judgement Cuirass",
+      "before": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 22,
+        "crit": 1,
+        "armor": 857
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 66,
+        "crit": 1,
+        "armor": 857,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:232175",
+      "name": "Bindings of Transcendence",
+      "before": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 11,
+        "armor": 51
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 31,
+        "armor": 51,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:232176",
+      "name": "Belt of Transcendence",
+      "before": {
+        "stamina": 13,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 14,
+        "armor": 65
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 42,
+        "armor": 65,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:232177",
+      "name": "Pauldrons of Transcendence",
+      "before": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 16,
+        "armor": 87
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 13,
+        "power": 46,
+        "armor": 87,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:232178",
+      "name": "Leggings of Transcendence",
+      "before": {
+        "stamina": 12,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 24,
+        "armor": 101
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 70,
+        "armor": 101,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:232179",
+      "name": "Halo of Transcendence",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "spirit": 9,
+        "power": 26,
+        "crit": 1,
+        "armor": 94
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "spirit": 9,
+        "power": 77,
+        "crit": 1,
+        "armor": 94,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:232180",
+      "name": "Handguards of Transcendence",
+      "before": {
+        "stamina": 11,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 14,
+        "crit": 1,
+        "armor": 72
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 40,
+        "crit": 1,
+        "armor": 72,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:232181",
+      "name": "Boots of Transcendence",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 18,
+        "crit": 1,
+        "armor": 80
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 53,
+        "crit": 1,
+        "armor": 80,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:232182",
+      "name": "Robes of Transcendence",
+      "before": {
+        "stamina": 16,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 24,
+        "crit": 1,
+        "armor": 116
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 14,
+        "spirit": 10,
+        "power": 70,
+        "crit": 1,
+        "armor": 116,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:232207",
+      "name": "Bracers of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "power": 13,
+        "armor": 211
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "power": 37,
+        "armor": 211,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:232208",
+      "name": "Belt of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 15,
+        "crit": 1,
+        "armor": 271
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 44,
+        "crit": 1,
+        "armor": 271,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:232209",
+      "name": "Epaulets of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 11,
+        "power": 19,
+        "crit": 1,
+        "armor": 362
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 11,
+        "power": 55,
+        "crit": 1,
+        "armor": 362,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:232210",
+      "name": "Legplates of Ten Storms",
+      "before": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 22,
+        "crit": 1,
+        "armor": 422
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 20,
+        "power": 64,
+        "crit": 1,
+        "armor": 422,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:232211",
+      "name": "Helmet of Ten Storms",
+      "before": {
+        "stamina": 15,
+        "intellect": 20,
+        "power": 26,
+        "crit": 1,
+        "armor": 392
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 20,
+        "power": 77,
+        "crit": 1,
+        "armor": 392,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:232212",
+      "name": "Gauntlets of Ten Storms",
+      "before": {
+        "stamina": 18,
+        "intellect": 20,
+        "power": 19,
+        "armor": 301
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 20,
+        "power": 55,
+        "armor": 301,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:232213",
+      "name": "Greaves of Ten Storms",
+      "before": {
+        "stamina": 14,
+        "intellect": 12,
+        "power": 17,
+        "crit": 1,
+        "armor": 332
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 12,
+        "power": 51,
+        "crit": 1,
+        "armor": 332,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:232214",
+      "name": "Breastplate of Ten Storms",
+      "before": {
+        "stamina": 17,
+        "intellect": 14,
+        "power": 19,
+        "crit": 2,
+        "armor": 482
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 14,
+        "power": 55,
+        "crit": 2,
+        "armor": 482,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:233382",
+      "name": "Stormcaller's Leggings",
+      "before": {
+        "stamina": 23,
+        "intellect": 27,
+        "power": 25,
+        "crit": 1,
+        "armor": 448
+      },
+      "after": {
+        "stamina": 23,
+        "intellect": 27,
+        "power": 73,
+        "crit": 1,
+        "armor": 448,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:233383",
+      "name": "Stormcaller's Pauldrons",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 21,
+        "crit": 1,
+        "armor": 371
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 62,
+        "crit": 1,
+        "armor": 371,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:233384",
+      "name": "Stormcaller's Footguards",
+      "before": {
+        "stamina": 12,
+        "intellect": 16,
+        "power": 21,
+        "crit": 1,
+        "armor": 340
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 16,
+        "power": 62,
+        "crit": 1,
+        "armor": 340,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:233385",
+      "name": "Stormcaller's Diadem",
+      "before": {
+        "stamina": 23,
+        "intellect": 24,
+        "power": 27,
+        "crit": 1,
+        "armor": 416
+      },
+      "after": {
+        "stamina": 23,
+        "intellect": 24,
+        "power": 81,
+        "crit": 1,
+        "armor": 416,
+        "spellDamage": 27
+      }
+    },
+    {
+      "key": "Season of Discovery:233386",
+      "name": "Stormcaller's Hauberk",
+      "before": {
+        "stamina": 26,
+        "intellect": 30,
+        "power": 25,
+        "crit": 1,
+        "armor": 553
+      },
+      "after": {
+        "stamina": 26,
+        "intellect": 30,
+        "power": 75,
+        "crit": 1,
+        "armor": 553,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:233517",
+      "name": "Boots of the Redeemed Prophecy",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "power": 22,
+        "armor": 589
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "power": 66,
+        "armor": 589,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:233520",
+      "name": "Robes of the Triumvirate",
+      "before": {
+        "stamina": 18,
+        "intellect": 21,
+        "power": 20,
+        "armor": 116
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 21,
+        "power": 59,
+        "armor": 116,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:233521",
+      "name": "Ternary Mantle",
+      "before": {
+        "intellect": 20,
+        "spirit": 18,
+        "power": 19,
+        "armor": 87
+      },
+      "after": {
+        "intellect": 20,
+        "spirit": 18,
+        "power": 55,
+        "armor": 87,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:233562",
+      "name": "Angelista's Charm",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 11,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 31,
+        "crit": 1,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:233567",
+      "name": "Mantle of the Desert Crusade",
+      "before": {
+        "stamina": 15,
+        "intellect": 18,
+        "power": 22,
+        "armor": 659
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 18,
+        "power": 66,
+        "armor": 659,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:233569",
+      "name": "Ring of the Devoured",
+      "before": {
+        "stamina": 8,
+        "intellect": 11,
+        "power": 15,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 11,
+        "power": 44,
+        "crit": 1,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:233578",
+      "name": "Creeping Vine Helm",
+      "before": {
+        "stamina": 20,
+        "intellect": 15,
+        "spirit": 12,
+        "power": 30,
+        "armor": 186
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 15,
+        "spirit": 12,
+        "power": 90,
+        "armor": 186,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:233581",
+      "name": "Sartura's Might",
+      "before": {
+        "stamina": 5,
+        "intellect": 7,
+        "power": 20,
+        "mp5": 3
+      },
+      "after": {
+        "stamina": 5,
+        "intellect": 7,
+        "power": 59,
+        "mp5": 3,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:233583",
+      "name": "Legplates of Blazing Light",
+      "before": {
+        "stamina": 21,
+        "intellect": 23,
+        "power": 26,
+        "crit": 1,
+        "armor": 768
+      },
+      "after": {
+        "stamina": 21,
+        "intellect": 23,
+        "power": 77,
+        "crit": 1,
+        "armor": 768,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:233594",
+      "name": "Robes of the Guardian Saint",
+      "before": {
+        "stamina": 18,
+        "intellect": 19,
+        "power": 24,
+        "crit": 2,
+        "armor": 120
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 19,
+        "power": 70,
+        "crit": 2,
+        "armor": 120,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:233607",
+      "name": "Gloves of the Messiah",
+      "before": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 14,
+        "power": 22,
+        "armor": 75
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 14,
+        "power": 64,
+        "armor": 75,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:233608",
+      "name": "Wasphide Gauntlets",
+      "before": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 13,
+        "power": 20,
+        "crit": 1,
+        "armor": 145
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 13,
+        "power": 59,
+        "crit": 1,
+        "armor": 145,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:233609",
+      "name": "Ring of the Martyr",
+      "before": {
+        "stamina": 10,
+        "power": 17,
+        "mp5": 5
+      },
+      "after": {
+        "stamina": 10,
+        "power": 51,
+        "mp5": 5,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:233617",
+      "name": "Bracelets of Royal Redemption",
+      "before": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 10,
+        "power": 18,
+        "armor": 54
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 10,
+        "power": 53,
+        "armor": 54,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:233619",
+      "name": "Regenerating Belt of Vek'nilash",
+      "before": {
+        "stamina": 16,
+        "intellect": 18,
+        "spirit": 13,
+        "power": 19,
+        "armor": 133
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 18,
+        "spirit": 13,
+        "power": 55,
+        "armor": 133,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:233623",
+      "name": "Belt of the Fallen Emperor",
+      "before": {
+        "stamina": 17,
+        "intellect": 18,
+        "power": 20,
+        "armor": 512
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 18,
+        "power": 59,
+        "armor": 512,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:233624",
+      "name": "Don Rigoberto's Lost Hat",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 30,
+        "crit": 2,
+        "armor": 100
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 88,
+        "crit": 2,
+        "armor": 100,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:233629",
+      "name": "Wormscale Blocker",
+      "before": {
+        "stamina": 7,
+        "intellect": 12,
+        "power": 16,
+        "crit": 1,
+        "armor": 3035
+      },
+      "after": {
+        "stamina": 7,
+        "intellect": 12,
+        "power": 48,
+        "crit": 1,
+        "armor": 3035,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:233632",
+      "name": "Grasp of the Old God",
+      "before": {
+        "stamina": 15,
+        "intellect": 19,
+        "power": 26,
+        "armor": 75
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 19,
+        "power": 77,
+        "armor": 75,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:233636",
+      "name": "Scepter of the False Prophet",
+      "before": {
+        "stamina": 11,
+        "intellect": 20,
+        "power": 63
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 20,
+        "power": 189,
+        "spellDamage": 63
+      }
+    },
+    {
+      "key": "Season of Discovery:233641",
+      "name": "Cloak of Clarity",
+      "before": {
+        "stamina": 7,
+        "intellect": 12,
+        "spirit": 8,
+        "power": 19,
+        "mp5": 4,
+        "armor": 66
+      },
+      "after": {
+        "stamina": 7,
+        "intellect": 12,
+        "spirit": 8,
+        "power": 55,
+        "mp5": 4,
+        "armor": 66,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:233646",
+      "name": "Gloves of the Redeemed Prophecy",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 22,
+        "crit": 1,
+        "armor": 549
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 64,
+        "crit": 1,
+        "armor": 549,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:233679",
+      "name": "Leggings of the Oracle",
+      "before": {
+        "stamina": 14,
+        "intellect": 23,
+        "spirit": 15,
+        "power": 28,
+        "crit": 1,
+        "armor": 107
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 23,
+        "spirit": 15,
+        "power": 84,
+        "crit": 1,
+        "armor": 107,
+        "spellDamage": 28
+      }
+    },
+    {
+      "key": "Season of Discovery:233680",
+      "name": "Robes of the Oracle",
+      "before": {
+        "stamina": 11,
+        "intellect": 21,
+        "spirit": 13,
+        "power": 30,
+        "crit": 2,
+        "armor": 133
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 21,
+        "spirit": 13,
+        "power": 88,
+        "crit": 2,
+        "armor": 133,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:233681",
+      "name": "Shoulderpads of the Oracle",
+      "before": {
+        "stamina": 12,
+        "intellect": 15,
+        "spirit": 12,
+        "power": 17,
+        "crit": 1,
+        "armor": 89
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 15,
+        "spirit": 12,
+        "power": 51,
+        "crit": 1,
+        "armor": 89,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:233682",
+      "name": "Crown of the Oracle",
+      "before": {
+        "stamina": 15,
+        "intellect": 28,
+        "spirit": 17,
+        "power": 29,
+        "crit": 1,
+        "armor": 100
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 28,
+        "spirit": 17,
+        "power": 86,
+        "crit": 1,
+        "armor": 100,
+        "spellDamage": 29
+      }
+    },
+    {
+      "key": "Season of Discovery:233683",
+      "name": "Slippers of the Oracle",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 22,
+        "crit": 1,
+        "armor": 82
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 66,
+        "crit": 1,
+        "armor": 82,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:233684",
+      "name": "Avenger's Mantle",
+      "before": {
+        "stamina": 12,
+        "intellect": 15,
+        "power": 21,
+        "crit": 1,
+        "armor": 659
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 15,
+        "power": 62,
+        "crit": 1,
+        "armor": 659,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:233685",
+      "name": "Avenger's Plate Pants",
+      "before": {
+        "stamina": 18,
+        "intellect": 22,
+        "power": 21,
+        "crit": 2,
+        "armor": 796
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 22,
+        "power": 62,
+        "crit": 2,
+        "armor": 796,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:233686",
+      "name": "Avenger's Treads",
+      "before": {
+        "stamina": 12,
+        "intellect": 18,
+        "power": 19,
+        "crit": 1,
+        "armor": 604
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 18,
+        "power": 57,
+        "crit": 1,
+        "armor": 604,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:233687",
+      "name": "Avenger's Helm",
+      "before": {
+        "stamina": 19,
+        "intellect": 28,
+        "power": 27,
+        "crit": 1,
+        "armor": 739
+      },
+      "after": {
+        "stamina": 19,
+        "intellect": 28,
+        "power": 79,
+        "crit": 1,
+        "armor": 739,
+        "spellDamage": 27
+      }
+    },
+    {
+      "key": "Season of Discovery:233688",
+      "name": "Avenger's Cuirass",
+      "before": {
+        "stamina": 17,
+        "intellect": 23,
+        "power": 28,
+        "crit": 2,
+        "armor": 985
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 23,
+        "power": 84,
+        "crit": 2,
+        "armor": 985,
+        "spellDamage": 28
+      }
+    },
+    {
+      "key": "Season of Discovery:233719",
+      "name": "Genesis Breeches",
+      "before": {
+        "stamina": 15,
+        "intellect": 20,
+        "spirit": 20,
+        "power": 26,
+        "crit": 1,
+        "armor": 207
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 20,
+        "spirit": 20,
+        "power": 77,
+        "crit": 1,
+        "armor": 207,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:233720",
+      "name": "Genesis Chestguard",
+      "before": {
+        "stamina": 17,
+        "intellect": 24,
+        "spirit": 19,
+        "power": 30,
+        "crit": 1,
+        "armor": 253
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 24,
+        "spirit": 19,
+        "power": 88,
+        "crit": 1,
+        "armor": 253,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:233721",
+      "name": "Genesis Greaves",
+      "before": {
+        "stamina": 10,
+        "intellect": 14,
+        "power": 22,
+        "crit": 1,
+        "armor": 158
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 14,
+        "power": 64,
+        "crit": 1,
+        "armor": 158,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:233722",
+      "name": "Genesis Pauldrons",
+      "before": {
+        "stamina": 11,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 19,
+        "crit": 1,
+        "armor": 172
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 57,
+        "crit": 1,
+        "armor": 172,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:233723",
+      "name": "Genesis Mask",
+      "before": {
+        "stamina": 17,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 27,
+        "crit": 1,
+        "armor": 192
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 79,
+        "crit": 1,
+        "armor": 192,
+        "spellDamage": 27
+      }
+    },
+    {
+      "key": "Season of Discovery:233732",
+      "name": "Blood-Caked Necklace",
+      "before": {
+        "stamina": 30,
+        "intellect": 10,
+        "power": 12
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 10,
+        "power": 35,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:233736",
+      "name": "Blood-Caked Band",
+      "before": {
+        "stamina": 30,
+        "intellect": 10,
+        "power": 12
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 10,
+        "power": 35,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:233740",
+      "name": "Blood-Caked Shroud",
+      "before": {
+        "stamina": 30,
+        "intellect": 10,
+        "power": 12,
+        "armor": 57
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 10,
+        "power": 35,
+        "armor": 57,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:233743",
+      "name": "Battle Hardened Lamellar Wrists",
+      "before": {
+        "stamina": 24,
+        "intellect": 12,
+        "power": 13,
+        "armor": 365
+      },
+      "after": {
+        "stamina": 24,
+        "intellect": 12,
+        "power": 37,
+        "armor": 365,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:233744",
+      "name": "Battle Hardened Lamellar Cord",
+      "before": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 16,
+        "crit": 1,
+        "armor": 470
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 46,
+        "crit": 1,
+        "armor": 470,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:233745",
+      "name": "Battle Hardened Mail Waistband",
+      "before": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 16,
+        "crit": 1,
+        "armor": 265
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 46,
+        "crit": 1,
+        "armor": 265,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:233748",
+      "name": "Battle Hardened Mail Bracers",
+      "before": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 13,
+        "armor": 206
+      },
+      "after": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 37,
+        "armor": 206,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:233763",
+      "name": "Battle Hardened Dragonhide Waistguard",
+      "before": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 16,
+        "crit": 1,
+        "armor": 124
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 46,
+        "crit": 1,
+        "armor": 124,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:233764",
+      "name": "Battle Hardened Dragonhide Waistguard",
+      "before": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 16,
+        "crit": 1,
+        "armor": 124
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 46,
+        "crit": 1,
+        "armor": 124,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:233767",
+      "name": "Battle Hardened Dragonhide Wrists",
+      "before": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 13,
+        "armor": 96
+      },
+      "after": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 37,
+        "armor": 96,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:233768",
+      "name": "Battle Hardened Dragonhide Wrists",
+      "before": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 13,
+        "armor": 96
+      },
+      "after": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 37,
+        "armor": 96,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:233781",
+      "name": "Battle Hardened Satin Wrists",
+      "before": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 13,
+        "armor": 50
+      },
+      "after": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 37,
+        "armor": 50,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:233782",
+      "name": "Battle Hardened Satin Wrists",
+      "before": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 13,
+        "armor": 50
+      },
+      "after": {
+        "stamina": 24,
+        "intellect": 10,
+        "power": 37,
+        "armor": 50,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:233785",
+      "name": "Battle Hardened Satin Cinch",
+      "before": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 13,
+        "crit": 1,
+        "armor": 64
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 37,
+        "crit": 1,
+        "armor": 64,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:233786",
+      "name": "Battle Hardened Satin Cinch",
+      "before": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 16,
+        "crit": 1,
+        "armor": 64
+      },
+      "after": {
+        "stamina": 30,
+        "intellect": 12,
+        "power": 46,
+        "crit": 1,
+        "armor": 64,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:233960",
+      "name": "Qiraji Silk Drape",
+      "before": {
+        "stamina": 7,
+        "intellect": 10,
+        "spirit": 8,
+        "power": 11,
+        "crit": 1,
+        "armor": 56
+      },
+      "after": {
+        "stamina": 7,
+        "intellect": 10,
+        "spirit": 8,
+        "power": 31,
+        "crit": 1,
+        "armor": 56,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:233994",
+      "name": "Ruby-Encrusted Broach",
+      "before": {
+        "intellect": 18,
+        "power": 23,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 18,
+        "power": 68,
+        "crit": 1,
+        "spellDamage": 23
+      }
+    },
+    {
+      "key": "Season of Discovery:234019",
+      "name": "Signet Ring of the Bronze Dragonflight",
+      "before": {
+        "stamina": 6,
+        "intellect": 7,
+        "power": 14,
+        "mp5": 3
+      },
+      "after": {
+        "stamina": 6,
+        "intellect": 7,
+        "power": 40,
+        "mp5": 3,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:234023",
+      "name": "Signet Ring of the Bronze Dragonflight",
+      "before": {
+        "stamina": 7,
+        "intellect": 8,
+        "power": 14,
+        "mp5": 3
+      },
+      "after": {
+        "stamina": 7,
+        "intellect": 8,
+        "power": 42,
+        "mp5": 3,
+        "spellDamage": 14
+      }
+    },
+    {
+      "key": "Season of Discovery:234025",
+      "name": "Signet Ring of the Bronze Dragonflight",
+      "before": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 16,
+        "mp5": 4
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 46,
+        "mp5": 4,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:234029",
+      "name": "Signet Ring of the Bronze Dragonflight",
+      "before": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 16,
+        "mp5": 4
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 48,
+        "mp5": 4,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:234033",
+      "name": "Signet Ring of the Bronze Dragonflight",
+      "before": {
+        "stamina": 8,
+        "intellect": 9,
+        "power": 18,
+        "mp5": 5
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 9,
+        "power": 53,
+        "mp5": 5,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:234064",
+      "name": "Belt of the Inquisition",
+      "before": {
+        "stamina": 16,
+        "intellect": 17,
+        "power": 19,
+        "armor": 64
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 17,
+        "power": 55,
+        "armor": 64,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:234070",
+      "name": "Bracers of Qiraji Command",
+      "before": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 12,
+        "armor": 50
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 35,
+        "armor": 50,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:234073",
+      "name": "Dustwind Turban",
+      "before": {
+        "stamina": 18,
+        "intellect": 20,
+        "spirit": 15,
+        "power": 22,
+        "crit": 1,
+        "armor": 93
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 20,
+        "spirit": 15,
+        "power": 66,
+        "crit": 1,
+        "armor": 93,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:234079",
+      "name": "Cloak of the Savior",
+      "before": {
+        "stamina": 10,
+        "intellect": 11,
+        "spirit": 13,
+        "power": 11,
+        "armor": 57
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 11,
+        "spirit": 13,
+        "power": 33,
+        "armor": 57,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:234100",
+      "name": "Helm of Regrowth",
+      "before": {
+        "stamina": 18,
+        "intellect": 25,
+        "spirit": 10,
+        "power": 27,
+        "armor": 180
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 25,
+        "spirit": 10,
+        "power": 79,
+        "armor": 180,
+        "spellDamage": 27
+      }
+    },
+    {
+      "key": "Season of Discovery:234105",
+      "name": "Gauntlets of New Life",
+      "before": {
+        "stamina": 19,
+        "intellect": 20,
+        "power": 19,
+        "armor": 142
+      },
+      "after": {
+        "stamina": 19,
+        "intellect": 20,
+        "power": 55,
+        "armor": 142,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:234106",
+      "name": "Gloves of Dark Wisdom",
+      "before": {
+        "stamina": 15,
+        "intellect": 19,
+        "power": 15,
+        "crit": 1,
+        "armor": 73
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 19,
+        "power": 44,
+        "crit": 1,
+        "armor": 73,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:234117",
+      "name": "Treads of the Wandering Nomad",
+      "before": {
+        "intellect": 18,
+        "spirit": 11,
+        "power": 22,
+        "armor": 79
+      },
+      "after": {
+        "intellect": 18,
+        "spirit": 11,
+        "power": 66,
+        "armor": 79,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:234119",
+      "name": "Antenna of Invigoration",
+      "before": {
+        "intellect": 4,
+        "power": 11,
+        "mp5": 2
+      },
+      "after": {
+        "intellect": 4,
+        "power": 31,
+        "mp5": 2,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:234132",
+      "name": "Drake Tooth Necklace",
+      "before": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 11
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 33,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:234134",
+      "name": "Gnomish Turban of Psychic Might",
+      "before": {
+        "stamina": 22,
+        "intellect": 22,
+        "power": 23,
+        "armor": 98
+      },
+      "after": {
+        "stamina": 22,
+        "intellect": 22,
+        "power": 68,
+        "armor": 98,
+        "spellDamage": 23
+      }
+    },
+    {
+      "key": "Season of Discovery:234137",
+      "name": "Fang of Korialstrasz",
+      "before": {
+        "stamina": 9,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 47
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 144,
+        "spellDamage": 47
+      }
+    },
+    {
+      "key": "Season of Discovery:234153",
+      "name": "Staff of Rampant Growth",
+      "before": {
+        "stamina": 15,
+        "intellect": 20,
+        "spirit": 14,
+        "power": 37,
+        "crit": 2
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 20,
+        "spirit": 14,
+        "power": 112,
+        "crit": 2,
+        "spellDamage": 37
+      }
+    },
+    {
+      "key": "Season of Discovery:234156",
+      "name": "Boots of the Endless Moor",
+      "before": {
+        "stamina": 16,
+        "intellect": 12,
+        "power": 11,
+        "armor": 327
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 12,
+        "power": 33,
+        "armor": 327,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:234164",
+      "name": "Deviate Growth Cap",
+      "before": {
+        "stamina": 16,
+        "intellect": 14,
+        "power": 25,
+        "mp5": 8,
+        "crit": 1,
+        "armor": 180
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 14,
+        "power": 73,
+        "mp5": 8,
+        "crit": 1,
+        "armor": 180,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:234165",
+      "name": "Gauntlets of the Shining Light",
+      "before": {
+        "stamina": 15,
+        "intellect": 16,
+        "power": 15,
+        "armor": 529
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 16,
+        "power": 44,
+        "armor": 529,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:234168",
+      "name": "Mendicant's Slippers",
+      "before": {
+        "stamina": 12,
+        "intellect": 24,
+        "power": 19,
+        "armor": 79
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 24,
+        "power": 55,
+        "armor": 79,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:234173",
+      "name": "Leggings of the Demented Mind",
+      "before": {
+        "stamina": 18,
+        "intellect": 26,
+        "power": 25,
+        "crit": 1,
+        "armor": 417
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 26,
+        "power": 73,
+        "crit": 1,
+        "armor": 417,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:234551",
+      "name": "High Warlord's Battle Mace",
+      "before": {
+        "stamina": 21,
+        "intellect": 8,
+        "power": 51,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 21,
+        "intellect": 8,
+        "power": 153,
+        "crit": 1,
+        "spellDamage": 51
+      }
+    },
+    {
+      "key": "Season of Discovery:234564",
+      "name": "High Warlord's Tome of Mending",
+      "before": {
+        "stamina": 23,
+        "intellect": 14,
+        "power": 15
+      },
+      "after": {
+        "stamina": 23,
+        "intellect": 14,
+        "power": 44,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:234576",
+      "name": "Grand Marshal's Warhammer",
+      "before": {
+        "stamina": 21,
+        "intellect": 8,
+        "power": 51,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 21,
+        "intellect": 8,
+        "power": 153,
+        "crit": 1,
+        "spellDamage": 51
+      }
+    },
+    {
+      "key": "Season of Discovery:234590",
+      "name": "Grand Marshal's Tome of Restoration",
+      "before": {
+        "stamina": 23,
+        "intellect": 14,
+        "power": 15
+      },
+      "after": {
+        "stamina": 23,
+        "intellect": 14,
+        "power": 44,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:234749",
+      "name": "Earthcalm Orb",
+      "before": {
+        "intellect": 12,
+        "power": 15,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 12,
+        "power": 44,
+        "crit": 1,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:234779",
+      "name": "Grace of Earth",
+      "before": {
+        "power": 19,
+        "mp5": 5
+      },
+      "after": {
+        "power": 55,
+        "mp5": 5,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:234786",
+      "name": "Band of Earthen Wrath",
+      "before": {
+        "intellect": 10,
+        "power": 12,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 10,
+        "power": 35,
+        "crit": 1,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:234800",
+      "name": "Simone's Cultivating Hammer",
+      "before": {
+        "stamina": 8,
+        "intellect": 17,
+        "power": 26
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 17,
+        "power": 76,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:234801",
+      "name": "Amulet of the Fallen God",
+      "before": {
+        "stamina": 11,
+        "power": 20,
+        "mp5": 6
+      },
+      "after": {
+        "stamina": 11,
+        "power": 59,
+        "mp5": 6,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:234809",
+      "name": "Blessed Qiraji Augur Staff",
+      "before": {
+        "stamina": 22,
+        "intellect": 30,
+        "power": 47,
+        "mp5": 6,
+        "crit": 2
+      },
+      "after": {
+        "stamina": 22,
+        "intellect": 30,
+        "power": 144,
+        "mp5": 6,
+        "crit": 2,
+        "spellDamage": 47
+      }
+    },
+    {
+      "key": "Season of Discovery:234812",
+      "name": "Amulet of the Shifting Sands",
+      "before": {
+        "power": 17,
+        "mp5": 7
+      },
+      "after": {
+        "power": 51,
+        "mp5": 7,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:235000",
+      "name": "Blessed Qiraji Augur Staff",
+      "before": {
+        "stamina": 22,
+        "intellect": 30,
+        "power": 47,
+        "mp5": 6,
+        "crit": 2
+      },
+      "after": {
+        "stamina": 22,
+        "intellect": 30,
+        "power": 144,
+        "mp5": 6,
+        "crit": 2,
+        "spellDamage": 47
+      }
+    },
+    {
+      "key": "Season of Discovery:235014",
+      "name": "Scepter of the False Prophet",
+      "before": {
+        "stamina": 11,
+        "intellect": 20,
+        "power": 63
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 20,
+        "power": 189,
+        "spellDamage": 63
+      }
+    },
+    {
+      "key": "Season of Discovery:235047",
+      "name": "Gloves of the Fallen Prophet",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 22,
+        "crit": 1,
+        "armor": 309
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 66,
+        "crit": 1,
+        "armor": 309,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:235282",
+      "name": "Antenna of Invigoration",
+      "before": {
+        "intellect": 4,
+        "power": 11,
+        "mp5": 2
+      },
+      "after": {
+        "intellect": 4,
+        "power": 31,
+        "mp5": 2,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:235473",
+      "name": "Grand Marshal's Barricade",
+      "before": {
+        "stamina": 26,
+        "intellect": 10,
+        "power": 24,
+        "armor": 3000
+      },
+      "after": {
+        "stamina": 26,
+        "intellect": 10,
+        "power": 44,
+        "armor": 3000,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:235474",
+      "name": "High Warlord's Barricade",
+      "before": {
+        "stamina": 26,
+        "intellect": 10,
+        "power": 24,
+        "armor": 3000
+      },
+      "after": {
+        "stamina": 26,
+        "intellect": 10,
+        "power": 44,
+        "armor": 3000,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:235873",
+      "name": "Crypt's Keepers",
+      "before": {
+        "intellect": 12,
+        "power": 18,
+        "crit": 1,
+        "armor": 412
+      },
+      "after": {
+        "intellect": 12,
+        "power": 53,
+        "crit": 1,
+        "armor": 412,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:235874",
+      "name": "Cultist's Handwraps",
+      "before": {
+        "intellect": 7,
+        "power": 37,
+        "crit": 1,
+        "armor": 81
+      },
+      "after": {
+        "intellect": 7,
+        "power": 37,
+        "crit": 1,
+        "armor": 81,
+        "spellDamage": 37,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:235878",
+      "name": "Malefic Belt",
+      "before": {
+        "stamina": 10,
+        "spirit": 13,
+        "power": 27,
+        "armor": 72
+      },
+      "after": {
+        "stamina": 10,
+        "spirit": 13,
+        "power": 81,
+        "armor": 72,
+        "spellDamage": 27
+      }
+    },
+    {
+      "key": "Season of Discovery:235881",
+      "name": "Dreaded Treaders",
+      "before": {
+        "intellect": 9,
+        "spirit": 10,
+        "power": 30,
+        "armor": 168
+      },
+      "after": {
+        "intellect": 9,
+        "spirit": 10,
+        "power": 88,
+        "armor": 168,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:235887",
+      "name": "Barian's Choker",
+      "before": {
+        "intellect": 10,
+        "spirit": 8,
+        "power": 21
+      },
+      "after": {
+        "intellect": 10,
+        "spirit": 8,
+        "power": 62,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:236060",
+      "name": "Plagueheart Leggings",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "spirit": 15,
+        "power": 47,
+        "crit": 1,
+        "armor": 116
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "spirit": 15,
+        "power": 47,
+        "crit": 1,
+        "armor": 116,
+        "spellDamage": 47,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236062",
+      "name": "Plagueheart Robe",
+      "before": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 20,
+        "power": 51,
+        "crit": 1,
+        "armor": 138
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 20,
+        "power": 51,
+        "crit": 1,
+        "armor": 138,
+        "spellDamage": 51,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236064",
+      "name": "Plagueheart Circlet",
+      "before": {
+        "stamina": 8,
+        "intellect": 8,
+        "spirit": 14,
+        "power": 51,
+        "crit": 1,
+        "armor": 108
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 8,
+        "spirit": 14,
+        "power": 51,
+        "crit": 1,
+        "armor": 108,
+        "spellDamage": 51,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236077",
+      "name": "Frostfire Bindings",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 30,
+        "armor": 58
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 30,
+        "armor": 58,
+        "spellDamage": 30,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236078",
+      "name": "Frostfire Belt",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 35,
+        "crit": 1,
+        "armor": 75
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 35,
+        "crit": 1,
+        "armor": 75,
+        "spellDamage": 35,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236079",
+      "name": "Frostfire Leggings",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 53,
+        "crit": 1,
+        "armor": 116
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 53,
+        "crit": 1,
+        "armor": 116,
+        "spellDamage": 53,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236080",
+      "name": "Frostfire Sandals",
+      "before": {
+        "stamina": 9,
+        "intellect": 11,
+        "power": 35,
+        "crit": 1,
+        "armor": 89
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 11,
+        "power": 35,
+        "crit": 1,
+        "armor": 89,
+        "spellDamage": 35,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236081",
+      "name": "Frostfire Robe",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 47,
+        "crit": 2,
+        "armor": 138
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 47,
+        "crit": 2,
+        "armor": 138,
+        "spellDamage": 47,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236082",
+      "name": "Frostfire Gloves",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 35,
+        "crit": 1,
+        "armor": 83
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 35,
+        "crit": 1,
+        "armor": 83,
+        "spellDamage": 35,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236083",
+      "name": "Frostfire Circlet",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 54,
+        "crit": 1,
+        "armor": 108
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "power": 54,
+        "crit": 1,
+        "armor": 108,
+        "spellDamage": 54,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236084",
+      "name": "Frostfire Shoulderpads",
+      "before": {
+        "stamina": 9,
+        "intellect": 11,
+        "power": 36,
+        "armor": 97
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 11,
+        "power": 36,
+        "armor": 97,
+        "spellDamage": 36,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236085",
+      "name": "Frostfire Ring",
+      "before": {
+        "power": 32,
+        "crit": 1
+      },
+      "after": {
+        "power": 32,
+        "crit": 1,
+        "spellDamage": 32,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236087",
+      "name": "Frostfire Wristwraps",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 23,
+        "armor": 58
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 23,
+        "armor": 58,
+        "spellDamage": 23,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236088",
+      "name": "Frostfire Waistguard",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 40,
+        "armor": 75
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 40,
+        "armor": 75,
+        "spellDamage": 40,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236089",
+      "name": "Frostfire Mantle",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 39,
+        "armor": 97
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 39,
+        "armor": 97,
+        "spellDamage": 39,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236090",
+      "name": "Frostfire Pants",
+      "before": {
+        "stamina": 12,
+        "intellect": 12,
+        "power": 59,
+        "armor": 116
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 12,
+        "power": 59,
+        "armor": 116,
+        "spellDamage": 59,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236091",
+      "name": "Frostfire Hood",
+      "before": {
+        "stamina": 11,
+        "intellect": 13,
+        "power": 59,
+        "armor": 108
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 13,
+        "power": 59,
+        "armor": 108,
+        "spellDamage": 59,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236092",
+      "name": "Frostfire Mitts",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 40,
+        "armor": 83
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 40,
+        "armor": 83,
+        "spellDamage": 40,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236093",
+      "name": "Frostfire Band",
+      "before": {
+        "power": 33
+      },
+      "after": {
+        "power": 33,
+        "spellDamage": 33,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236094",
+      "name": "Frostfire Boots",
+      "before": {
+        "stamina": 9,
+        "intellect": 10,
+        "power": 39,
+        "armor": 89
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 10,
+        "power": 39,
+        "armor": 89,
+        "spellDamage": 39,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236095",
+      "name": "Frostfire Garb",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 61,
+        "armor": 138
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 61,
+        "armor": 138,
+        "spellDamage": 61,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236097",
+      "name": "Robe of Faith",
+      "before": {
+        "stamina": 15,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 32,
+        "crit": 2,
+        "armor": 138
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 97,
+        "crit": 2,
+        "armor": 138,
+        "spellDamage": 32
+      }
+    },
+    {
+      "key": "Season of Discovery:236098",
+      "name": "Belt of Faith",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 22,
+        "crit": 1,
+        "armor": 75
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 66,
+        "crit": 1,
+        "armor": 75,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:236099",
+      "name": "Sandals of Faith",
+      "before": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 24,
+        "crit": 1,
+        "armor": 89
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 70,
+        "crit": 1,
+        "armor": 89,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236100",
+      "name": "Bindings of Faith",
+      "before": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 9,
+        "power": 16,
+        "crit": 1,
+        "armor": 58
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 9,
+        "power": 48,
+        "crit": 1,
+        "armor": 58,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:236101",
+      "name": "Leggings of Faith",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 31,
+        "crit": 2,
+        "armor": 116
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 92,
+        "crit": 2,
+        "armor": 116,
+        "spellDamage": 31
+      }
+    },
+    {
+      "key": "Season of Discovery:236102",
+      "name": "Shoulderpads of Faith",
+      "before": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 24,
+        "crit": 1,
+        "armor": 97
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 70,
+        "crit": 1,
+        "armor": 97,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236103",
+      "name": "Circlet of Faith",
+      "before": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 32,
+        "crit": 2,
+        "armor": 108
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 97,
+        "crit": 2,
+        "armor": 108,
+        "spellDamage": 32
+      }
+    },
+    {
+      "key": "Season of Discovery:236104",
+      "name": "Gloves of Faith",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 12,
+        "power": 24,
+        "crit": 1,
+        "armor": 83
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 12,
+        "power": 70,
+        "crit": 1,
+        "armor": 83,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236105",
+      "name": "Ring of Faith",
+      "before": {
+        "intellect": 10,
+        "power": 21,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 10,
+        "power": 62,
+        "crit": 1,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:236115",
+      "name": "Redemption Tunic",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 30,
+        "crit": 2,
+        "armor": 1027
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 90,
+        "crit": 2,
+        "armor": 1027,
+        "spellDamage": 30,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236116",
+      "name": "Ring of Redemption",
+      "before": {
+        "power": 16,
+        "crit": 1
+      },
+      "after": {
+        "power": 46,
+        "crit": 1,
+        "spellDamage": 16,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236117",
+      "name": "Redemption Headpiece",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 27,
+        "crit": 2,
+        "armor": 800
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 81,
+        "crit": 2,
+        "armor": 800,
+        "spellDamage": 27,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236118",
+      "name": "Redemption Handguards",
+      "before": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 20,
+        "crit": 1,
+        "armor": 615
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 59,
+        "crit": 1,
+        "armor": 615,
+        "spellDamage": 20,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236119",
+      "name": "Redemption Wristguards",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 8,
+        "crit": 1,
+        "armor": 431
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 22,
+        "crit": 1,
+        "armor": 431,
+        "spellDamage": 8,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236120",
+      "name": "Redemption Girdle",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 17,
+        "crit": 1,
+        "armor": 554
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 51,
+        "crit": 1,
+        "armor": 554,
+        "spellDamage": 17,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236121",
+      "name": "Redemption Legguards",
+      "before": {
+        "stamina": 12,
+        "intellect": 19,
+        "power": 24,
+        "crit": 2,
+        "armor": 861
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 19,
+        "power": 70,
+        "crit": 2,
+        "armor": 861,
+        "spellDamage": 24,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236122",
+      "name": "Redemption Spaulders",
+      "before": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 20,
+        "crit": 1,
+        "armor": 722
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 59,
+        "crit": 1,
+        "armor": 722,
+        "spellDamage": 20,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236123",
+      "name": "Redemption Boots",
+      "before": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 20,
+        "crit": 1,
+        "armor": 662
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 59,
+        "crit": 1,
+        "armor": 662,
+        "spellDamage": 20,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236142",
+      "name": "Earthshatter Handguards",
+      "before": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 20,
+        "crit": 1,
+        "armor": 346
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 59,
+        "crit": 1,
+        "armor": 346,
+        "spellDamage": 20,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236143",
+      "name": "Earthshatter Legguards",
+      "before": {
+        "stamina": 12,
+        "intellect": 19,
+        "power": 24,
+        "crit": 2,
+        "armor": 484
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 19,
+        "power": 70,
+        "crit": 2,
+        "armor": 484,
+        "spellDamage": 24,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236144",
+      "name": "Earthshatter Headpiece",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 27,
+        "crit": 2,
+        "armor": 449
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 81,
+        "crit": 2,
+        "armor": 449,
+        "spellDamage": 27,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236145",
+      "name": "Earthshatter Spaulders",
+      "before": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 20,
+        "crit": 1,
+        "armor": 406
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 59,
+        "crit": 1,
+        "armor": 406,
+        "spellDamage": 20,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236146",
+      "name": "Earthshatter Boots",
+      "before": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 20,
+        "crit": 1,
+        "armor": 372
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 59,
+        "crit": 1,
+        "armor": 372,
+        "spellDamage": 20,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236147",
+      "name": "Earthshatter Tunic",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 30,
+        "crit": 2,
+        "armor": 576
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 90,
+        "crit": 2,
+        "armor": 576,
+        "spellDamage": 30,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236148",
+      "name": "Earthshatter Girdle",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 17,
+        "crit": 1,
+        "armor": 311
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 51,
+        "crit": 1,
+        "armor": 311,
+        "spellDamage": 17,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236149",
+      "name": "Earthshatter Wristguards",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 8,
+        "crit": 1,
+        "armor": 242
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 22,
+        "crit": 1,
+        "armor": 242,
+        "spellDamage": 8,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236150",
+      "name": "Ring of the Earthshatterer",
+      "before": {
+        "power": 16,
+        "crit": 1
+      },
+      "after": {
+        "power": 46,
+        "crit": 1,
+        "spellDamage": 16,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236151",
+      "name": "Earthshatter Bindings",
+      "before": {
+        "stamina": 10,
+        "intellect": 26,
+        "power": 14,
+        "armor": 242
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 26,
+        "power": 14,
+        "armor": 242,
+        "spellDamage": 14,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236152",
+      "name": "Earthshatter Cord",
+      "before": {
+        "stamina": 10,
+        "intellect": 30,
+        "power": 12,
+        "crit": 1,
+        "armor": 311
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 30,
+        "power": 12,
+        "crit": 1,
+        "armor": 311,
+        "spellDamage": 12,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236153",
+      "name": "Earthshatter Mantle",
+      "before": {
+        "stamina": 9,
+        "intellect": 31,
+        "power": 13,
+        "armor": 406
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 31,
+        "power": 13,
+        "armor": 406,
+        "spellDamage": 13,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236154",
+      "name": "Earthshatter Kilt",
+      "before": {
+        "stamina": 14,
+        "intellect": 45,
+        "power": 16,
+        "crit": 1,
+        "armor": 484
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 45,
+        "power": 16,
+        "crit": 1,
+        "armor": 484,
+        "spellDamage": 16,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236155",
+      "name": "Earthshatter Crown",
+      "before": {
+        "stamina": 12,
+        "intellect": 46,
+        "power": 15,
+        "crit": 1,
+        "armor": 449
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 46,
+        "power": 15,
+        "crit": 1,
+        "armor": 449,
+        "spellDamage": 15,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236156",
+      "name": "Earthshatter Mitts",
+      "before": {
+        "stamina": 10,
+        "intellect": 30,
+        "power": 12,
+        "crit": 1,
+        "armor": 346
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 30,
+        "power": 12,
+        "crit": 1,
+        "armor": 346,
+        "spellDamage": 12,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236157",
+      "name": "Band of the Earthshatterer",
+      "before": {
+        "intellect": 27,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 27,
+        "crit": 1,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236158",
+      "name": "Earthshatter Greaves",
+      "before": {
+        "stamina": 9,
+        "intellect": 30,
+        "power": 13,
+        "crit": 1,
+        "armor": 372
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 30,
+        "power": 13,
+        "crit": 1,
+        "armor": 372,
+        "spellDamage": 13,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236159",
+      "name": "Earthshatter Embrace",
+      "before": {
+        "stamina": 12,
+        "intellect": 40,
+        "power": 16,
+        "crit": 2,
+        "armor": 576
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 40,
+        "power": 16,
+        "crit": 2,
+        "armor": 576,
+        "spellDamage": 16,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236182",
+      "name": "Dreamwalker Headpiece",
+      "before": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 32,
+        "crit": 2,
+        "armor": 205
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 97,
+        "crit": 2,
+        "armor": 205,
+        "spellDamage": 32
+      }
+    },
+    {
+      "key": "Season of Discovery:236183",
+      "name": "Dreamwalker Wristguards",
+      "before": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 9,
+        "power": 16,
+        "crit": 1,
+        "armor": 111
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 10,
+        "spirit": 9,
+        "power": 48,
+        "crit": 1,
+        "armor": 111,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:236184",
+      "name": "Dreamwalker Handguards",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 12,
+        "power": 24,
+        "crit": 1,
+        "armor": 158
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 12,
+        "power": 70,
+        "crit": 1,
+        "armor": 158,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236185",
+      "name": "Dreamwalker Boots",
+      "before": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 24,
+        "crit": 1,
+        "armor": 171
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 70,
+        "crit": 1,
+        "armor": 171,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236186",
+      "name": "Dreamwalker Tunic",
+      "before": {
+        "stamina": 15,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 32,
+        "crit": 2,
+        "armor": 262
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 97,
+        "crit": 2,
+        "armor": 262,
+        "spellDamage": 32
+      }
+    },
+    {
+      "key": "Season of Discovery:236187",
+      "name": "Dreamwalker Girdle",
+      "before": {
+        "stamina": 14,
+        "intellect": 13,
+        "spirit": 14,
+        "power": 22,
+        "crit": 1,
+        "armor": 142
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 13,
+        "spirit": 14,
+        "power": 66,
+        "crit": 1,
+        "armor": 142,
+        "spellDamage": 22
+      }
+    },
+    {
+      "key": "Season of Discovery:236188",
+      "name": "Dreamwalker Legguards",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 31,
+        "crit": 2,
+        "armor": 221
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "spirit": 15,
+        "power": 92,
+        "crit": 2,
+        "armor": 221,
+        "spellDamage": 31
+      }
+    },
+    {
+      "key": "Season of Discovery:236189",
+      "name": "Dreamwalker Spaulders",
+      "before": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 24,
+        "crit": 1,
+        "armor": 186
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 11,
+        "spirit": 11,
+        "power": 70,
+        "crit": 1,
+        "armor": 186,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236190",
+      "name": "Ring of the Dreamwalker",
+      "before": {
+        "intellect": 10,
+        "power": 21,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 10,
+        "power": 62,
+        "crit": 1,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:236259",
+      "name": "Band of Unanswered Prayers",
+      "before": {
+        "stamina": 11,
+        "intellect": 13,
+        "power": 19
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 13,
+        "power": 57,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:236261",
+      "name": "Malice Stone Pendant",
+      "before": {
+        "stamina": 10,
+        "intellect": 14,
+        "power": 27
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 14,
+        "power": 27,
+        "spellDamage": 27,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236264",
+      "name": "The Widow's Embrace",
+      "before": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 8,
+        "power": 60
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 8,
+        "power": 179,
+        "spellDamage": 60,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236265",
+      "name": "Wraith Blade",
+      "before": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 106,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 106,
+        "crit": 1,
+        "spellDamage": 106,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236266",
+      "name": "Pendant of Forgotten Names",
+      "before": {
+        "intellect": 14,
+        "spirit": 13,
+        "power": 18
+      },
+      "after": {
+        "intellect": 14,
+        "spirit": 13,
+        "power": 53,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:236267",
+      "name": "Crystal Webbed Robe",
+      "before": {
+        "stamina": 11,
+        "power": 59,
+        "armor": 128
+      },
+      "after": {
+        "stamina": 11,
+        "power": 59,
+        "armor": 128,
+        "spellDamage": 59,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236273",
+      "name": "Band of the Inevitable",
+      "before": {
+        "power": 32
+      },
+      "after": {
+        "power": 32,
+        "spellDamage": 32,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236275",
+      "name": "Noth's Frigid Heart",
+      "before": {
+        "stamina": 10,
+        "intellect": 8,
+        "power": 19
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 8,
+        "power": 55,
+        "spellDamage": 19,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236277",
+      "name": "Necklace of Necropsy",
+      "before": {
+        "stamina": 8,
+        "intellect": 9,
+        "spirit": 9,
+        "power": 11
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 9,
+        "spirit": 9,
+        "power": 33,
+        "spellDamage": 11,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236283",
+      "name": "Ring of Spiritual Fervor",
+      "before": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 18,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 53,
+        "crit": 1,
+        "spellDamage": 18
+      }
+    },
+    {
+      "key": "Season of Discovery:236289",
+      "name": "Cloak of Suturing",
+      "before": {
+        "intellect": 5,
+        "spirit": 5,
+        "power": 21,
+        "armor": 63
+      },
+      "after": {
+        "intellect": 5,
+        "spirit": 5,
+        "power": 62,
+        "armor": 63,
+        "spellDamage": 21,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236296",
+      "name": "Death's Bargain",
+      "before": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 15,
+        "crit": 1,
+        "armor": 3106
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 44,
+        "crit": 1,
+        "armor": 3106,
+        "spellDamage": 15,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236298",
+      "name": "Rime Covered Mantle",
+      "before": {
+        "stamina": 9,
+        "power": 40,
+        "armor": 94
+      },
+      "after": {
+        "stamina": 9,
+        "power": 40,
+        "armor": 94,
+        "spellDamage": 40,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236303",
+      "name": "Leggings of Polarity",
+      "before": {
+        "stamina": 14,
+        "intellect": 10,
+        "power": 47,
+        "armor": 112
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 10,
+        "power": 47,
+        "armor": 112,
+        "spellDamage": 47,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:236305",
+      "name": "Spire of Twilight",
+      "before": {
+        "stamina": 20,
+        "intellect": 13,
+        "power": 66,
+        "crit": 2
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 13,
+        "power": 198,
+        "crit": 2,
+        "spellDamage": 66,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:236310",
+      "name": "Wand of the Whispering Dead",
+      "before": {
+        "intellect": 5,
+        "spirit": 4,
+        "power": 12
+      },
+      "after": {
+        "intellect": 5,
+        "spirit": 4,
+        "power": 35,
+        "spellDamage": 12
+      }
+    },
+    {
+      "key": "Season of Discovery:236320",
+      "name": "Warmth of Forgiveness",
+      "before": {
+        "power": 23,
+        "mp5": 10
+      },
+      "after": {
+        "power": 68,
+        "mp5": 10,
+        "spellDamage": 23
+      }
+    },
+    {
+      "key": "Season of Discovery:236327",
+      "name": "Cloak of the Necropolis",
+      "before": {
+        "stamina": 6,
+        "intellect": 8,
+        "power": 27,
+        "armor": 68
+      },
+      "after": {
+        "stamina": 6,
+        "intellect": 8,
+        "power": 27,
+        "armor": 68,
+        "spellDamage": 27,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236328",
+      "name": "Sapphiron's Left Eye",
+      "before": {
+        "stamina": 10,
+        "intellect": 8,
+        "power": 25
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 8,
+        "power": 25,
+        "spellDamage": 25,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236329",
+      "name": "Eye of the Dead",
+      "before": {
+        "power": 26
+      },
+      "after": {
+        "power": 77,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:236330",
+      "name": "Sapphiron's Right Eye",
+      "before": {
+        "intellect": 9,
+        "power": 20,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 9,
+        "power": 59,
+        "crit": 1,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:236346",
+      "name": "Soulseeker",
+      "before": {
+        "stamina": 10,
+        "intellect": 15,
+        "spirit": 20,
+        "power": 127,
+        "crit": 2
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 15,
+        "spirit": 20,
+        "power": 127,
+        "crit": 2,
+        "spellDamage": 127,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:236347",
+      "name": "Shield of Condemnation",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 17,
+        "armor": 3425
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 51,
+        "armor": 3425,
+        "spellDamage": 17,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236348",
+      "name": "Hammer of the Twisting Nether",
+      "before": {
+        "stamina": 8,
+        "intellect": 11,
+        "power": 80
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 11,
+        "power": 239,
+        "spellDamage": 80,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236399",
+      "name": "Atiesh, Greatstaff of the Guardian",
+      "before": {
+        "stamina": 20,
+        "intellect": 22,
+        "spirit": 24,
+        "power": 150,
+        "crit": 3
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 22,
+        "spirit": 24,
+        "power": 362,
+        "crit": 3,
+        "spellDamage": 169
+      }
+    },
+    {
+      "key": "Season of Discovery:236400",
+      "name": "Atiesh, Greatstaff of the Guardian",
+      "before": {
+        "stamina": 21,
+        "intellect": 24,
+        "spirit": 23,
+        "power": 150
+      },
+      "after": {
+        "stamina": 21,
+        "intellect": 24,
+        "spirit": 23,
+        "power": 150,
+        "spellDamage": 150,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:236401",
+      "name": "Atiesh, Greatstaff of the Guardian",
+      "before": {
+        "stamina": 21,
+        "intellect": 25,
+        "spirit": 20,
+        "power": 150,
+        "crit": 3
+      },
+      "after": {
+        "stamina": 21,
+        "intellect": 25,
+        "spirit": 20,
+        "power": 300,
+        "crit": 3,
+        "spellDamage": 150
+      }
+    },
+    {
+      "key": "Season of Discovery:236642",
+      "name": "Mender's Handwraps",
+      "before": {
+        "stamina": 8,
+        "intellect": 17,
+        "spirit": 10,
+        "power": 24,
+        "crit": 1,
+        "armor": 81
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 17,
+        "spirit": 10,
+        "power": 70,
+        "crit": 1,
+        "armor": 81,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236644",
+      "name": "Mourner's Handguards",
+      "before": {
+        "intellect": 7,
+        "power": 24,
+        "crit": 1,
+        "armor": 338
+      },
+      "after": {
+        "intellect": 7,
+        "power": 70,
+        "crit": 1,
+        "armor": 338,
+        "spellDamage": 24,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:236645",
+      "name": "Lightwielder's Gauntlets",
+      "before": {
+        "stamina": 8,
+        "intellect": 17,
+        "power": 24,
+        "crit": 1,
+        "armor": 602
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 17,
+        "power": 70,
+        "crit": 1,
+        "armor": 602,
+        "spellDamage": 24,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:236704",
+      "name": "Frosty Wrists",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 11,
+        "armor": 53
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 33,
+        "armor": 53,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:236705",
+      "name": "Frosty Gloves",
+      "before": {
+        "stamina": 26,
+        "intellect": 12,
+        "spirit": 10,
+        "power": 16,
+        "armor": 76
+      },
+      "after": {
+        "stamina": 26,
+        "intellect": 12,
+        "spirit": 10,
+        "power": 48,
+        "armor": 76,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:236706",
+      "name": "Frosty Vest",
+      "before": {
+        "stamina": 26,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 24,
+        "armor": 121
+      },
+      "after": {
+        "stamina": 26,
+        "intellect": 20,
+        "spirit": 18,
+        "power": 70,
+        "armor": 121,
+        "spellDamage": 24
+      }
+    },
+    {
+      "key": "Season of Discovery:236719",
+      "name": "Bracers of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 15,
+        "armor": 47
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 44,
+        "armor": 47,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:236720",
+      "name": "Gloves of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 20,
+        "crit": 1,
+        "armor": 67
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 59,
+        "crit": 1,
+        "armor": 67,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:236721",
+      "name": "Robe of Undead Purification",
+      "before": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 26,
+        "crit": 1,
+        "armor": 107
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 77,
+        "crit": 1,
+        "armor": 107,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:236728",
+      "name": "Wristwraps of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 15,
+        "armor": 92
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 44,
+        "armor": 92,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:236729",
+      "name": "Handwraps of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 20,
+        "crit": 1,
+        "armor": 131
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 59,
+        "crit": 1,
+        "armor": 131,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:236730",
+      "name": "Tunic of Undead Purification",
+      "before": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 26,
+        "crit": 1,
+        "armor": 210
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 77,
+        "crit": 1,
+        "armor": 210,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:236740",
+      "name": "Wristguards of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 15,
+        "armor": 195
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 44,
+        "armor": 195,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:236741",
+      "name": "Handguards of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 20,
+        "crit": 1,
+        "armor": 279
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 59,
+        "crit": 1,
+        "armor": 279,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:236742",
+      "name": "Chestguard of Undead Purification",
+      "before": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 26,
+        "crit": 1,
+        "armor": 446
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 77,
+        "crit": 1,
+        "armor": 446,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:236743",
+      "name": "Bracers of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 15,
+        "armor": 346
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 13,
+        "power": 44,
+        "armor": 346,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:236744",
+      "name": "Gauntlets of Undead Purification",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 20,
+        "crit": 1,
+        "armor": 495
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 59,
+        "crit": 1,
+        "armor": 495,
+        "spellDamage": 20
+      }
+    },
+    {
+      "key": "Season of Discovery:236745",
+      "name": "Breastplate of Undead Purification",
+      "before": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 26,
+        "crit": 1,
+        "armor": 792
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 18,
+        "power": 77,
+        "crit": 1,
+        "armor": 792,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:237277",
+      "name": "Frosty Leggings",
+      "before": {
+        "stamina": 20,
+        "intellect": 15,
+        "spirit": 14,
+        "power": 21,
+        "armor": 106
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 15,
+        "spirit": 14,
+        "power": 62,
+        "armor": 106,
+        "spellDamage": 21
+      }
+    },
+    {
+      "key": "Season of Discovery:237281",
+      "name": "Bracers of Hope",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 13,
+        "armor": 51
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "spirit": 12,
+        "power": 37,
+        "armor": 51,
+        "spellDamage": 13
+      }
+    },
+    {
+      "key": "Season of Discovery:237286",
+      "name": "Band of Piety",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 15,
+        "mp5": 4
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "power": 44,
+        "mp5": 4,
+        "spellDamage": 15
+      }
+    },
+    {
+      "key": "Season of Discovery:237288",
+      "name": "Sanctified Leather Helm",
+      "before": {
+        "stamina": 23,
+        "intellect": 25,
+        "spirit": 18,
+        "power": 17,
+        "armor": 180
+      },
+      "after": {
+        "stamina": 23,
+        "intellect": 25,
+        "spirit": 18,
+        "power": 51,
+        "armor": 180,
+        "spellDamage": 17
+      }
+    },
+    {
+      "key": "Season of Discovery:238362",
+      "name": "Bracers of Mending",
+      "before": {
+        "stamina": 5,
+        "intellect": 8,
+        "spirit": 13,
+        "power": 11,
+        "armor": 42
+      },
+      "after": {
+        "stamina": 5,
+        "intellect": 8,
+        "spirit": 13,
+        "power": 33,
+        "armor": 42,
+        "spellDamage": 11
+      }
+    },
+    {
+      "key": "Season of Discovery:239584",
+      "name": "Gloves of Revelation",
+      "before": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 14,
+        "power": 25,
+        "crit": 2,
+        "armor": 91
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 15,
+        "spirit": 14,
+        "power": 73,
+        "crit": 2,
+        "armor": 91,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:239585",
+      "name": "Circlet of Revelation",
+      "before": {
+        "stamina": 13,
+        "intellect": 16,
+        "spirit": 14,
+        "power": 37,
+        "crit": 2,
+        "armor": 119
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 16,
+        "spirit": 14,
+        "power": 110,
+        "crit": 2,
+        "armor": 119,
+        "spellDamage": 37
+      }
+    },
+    {
+      "key": "Season of Discovery:239586",
+      "name": "Shoulderpads of Revelation",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 27,
+        "crit": 1,
+        "armor": 110
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 81,
+        "crit": 1,
+        "armor": 110,
+        "spellDamage": 27
+      }
+    },
+    {
+      "key": "Season of Discovery:239587",
+      "name": "Leggings of Revelation",
+      "before": {
+        "stamina": 17,
+        "intellect": 20,
+        "spirit": 19,
+        "power": 36,
+        "crit": 2,
+        "armor": 128
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 20,
+        "spirit": 19,
+        "power": 108,
+        "crit": 2,
+        "armor": 128,
+        "spellDamage": 36
+      }
+    },
+    {
+      "key": "Season of Discovery:239588",
+      "name": "Bindings of Revelation",
+      "before": {
+        "stamina": 12,
+        "intellect": 15,
+        "spirit": 11,
+        "power": 19,
+        "crit": 1,
+        "armor": 64
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 15,
+        "spirit": 11,
+        "power": 55,
+        "crit": 1,
+        "armor": 64,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:239589",
+      "name": "Sandals of Revelation",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 27,
+        "crit": 1,
+        "armor": 100
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "spirit": 13,
+        "power": 79,
+        "crit": 1,
+        "armor": 100,
+        "spellDamage": 27
+      }
+    },
+    {
+      "key": "Season of Discovery:239590",
+      "name": "Belt of Revelation",
+      "before": {
+        "stamina": 15,
+        "intellect": 17,
+        "spirit": 16,
+        "power": 25,
+        "crit": 1,
+        "armor": 82
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 17,
+        "spirit": 16,
+        "power": 73,
+        "crit": 1,
+        "armor": 82,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:239591",
+      "name": "Robe of Revelation",
+      "before": {
+        "stamina": 20,
+        "intellect": 21,
+        "spirit": 19,
+        "power": 51,
+        "armor": 146
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 21,
+        "spirit": 19,
+        "power": 153,
+        "armor": 146,
+        "spellDamage": 51
+      }
+    },
+    {
+      "key": "Season of Discovery:240020",
+      "name": "Inquisition Legguards",
+      "before": {
+        "stamina": 17,
+        "intellect": 24,
+        "power": 33,
+        "crit": 3,
+        "armor": 954
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 24,
+        "power": 99,
+        "crit": 3,
+        "armor": 954,
+        "spellDamage": 33,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240021",
+      "name": "Inquisition Spaulders",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 22,
+        "crit": 2,
+        "armor": 818
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 64,
+        "crit": 2,
+        "armor": 818,
+        "spellDamage": 22,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240022",
+      "name": "Inquisition Boots",
+      "before": {
+        "stamina": 13,
+        "intellect": 15,
+        "power": 23,
+        "crit": 1,
+        "armor": 749
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 15,
+        "power": 68,
+        "crit": 1,
+        "armor": 749,
+        "spellDamage": 23,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240039",
+      "name": "Inquisition Tunic",
+      "before": {
+        "stamina": 19,
+        "intellect": 20,
+        "power": 37,
+        "crit": 2,
+        "armor": 1090
+      },
+      "after": {
+        "stamina": 19,
+        "intellect": 20,
+        "power": 110,
+        "crit": 2,
+        "armor": 1090,
+        "spellDamage": 37,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240040",
+      "name": "Inquisition Headpiece",
+      "before": {
+        "stamina": 19,
+        "intellect": 19,
+        "power": 35,
+        "crit": 2,
+        "armor": 886
+      },
+      "after": {
+        "stamina": 19,
+        "intellect": 19,
+        "power": 106,
+        "crit": 2,
+        "armor": 886,
+        "spellDamage": 35,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240041",
+      "name": "Inquisition Handguards",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 24,
+        "armor": 681
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 70,
+        "armor": 681,
+        "spellDamage": 24,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240042",
+      "name": "Inquisition Wristguards",
+      "before": {
+        "stamina": 13,
+        "intellect": 13,
+        "power": 11,
+        "armor": 477
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 13,
+        "power": 33,
+        "armor": 477,
+        "spellDamage": 11,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240043",
+      "name": "Inquisition Girdle",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 19,
+        "crit": 1,
+        "armor": 613
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 55,
+        "crit": 1,
+        "armor": 613,
+        "spellDamage": 19,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240044",
+      "name": "Fireleaf Wristwraps",
+      "before": {
+        "stamina": 12,
+        "intellect": 12,
+        "power": 28,
+        "crit": 1,
+        "armor": 64
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 12,
+        "power": 28,
+        "crit": 1,
+        "armor": 64,
+        "spellDamage": 28,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240045",
+      "name": "Fireleaf Waistguard",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 44,
+        "crit": 1,
+        "armor": 82
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 44,
+        "crit": 1,
+        "armor": 82,
+        "spellDamage": 44,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240046",
+      "name": "Fireleaf Mantle",
+      "before": {
+        "stamina": 11,
+        "intellect": 14,
+        "power": 44,
+        "armor": 110
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 14,
+        "power": 44,
+        "armor": 110,
+        "spellDamage": 44,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240047",
+      "name": "Fireleaf Pants",
+      "before": {
+        "stamina": 13,
+        "intellect": 19,
+        "power": 61,
+        "armor": 128
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 19,
+        "power": 61,
+        "armor": 128,
+        "spellDamage": 61,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240048",
+      "name": "Fireleaf Hood",
+      "before": {
+        "stamina": 15,
+        "intellect": 18,
+        "power": 62,
+        "armor": 119
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 18,
+        "power": 62,
+        "armor": 119,
+        "spellDamage": 62,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:240049",
+      "name": "Fireleaf Mitts",
+      "before": {
+        "stamina": 10,
+        "intellect": 15,
+        "power": 47,
+        "crit": 1,
+        "armor": 91
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 15,
+        "power": 47,
+        "crit": 1,
+        "armor": 91,
+        "spellDamage": 47,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240050",
+      "name": "Fireleaf Boots",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 43,
+        "crit": 1,
+        "armor": 100
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "power": 43,
+        "crit": 1,
+        "armor": 100,
+        "spellDamage": 43,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240051",
+      "name": "Fireleaf Garb",
+      "before": {
+        "stamina": 17,
+        "intellect": 20,
+        "power": 65,
+        "crit": 1,
+        "armor": 146
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 20,
+        "power": 65,
+        "crit": 1,
+        "armor": 146,
+        "spellDamage": 65,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240053",
+      "name": "Fireleaf Belt",
+      "before": {
+        "stamina": 14,
+        "intellect": 13,
+        "power": 46,
+        "armor": 82
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 13,
+        "power": 46,
+        "armor": 82,
+        "spellDamage": 46,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240054",
+      "name": "Fireleaf Shoulderpads",
+      "before": {
+        "stamina": 12,
+        "intellect": 15,
+        "power": 41,
+        "crit": 1,
+        "armor": 110
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 15,
+        "power": 41,
+        "crit": 1,
+        "armor": 110,
+        "spellDamage": 41,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240055",
+      "name": "Fireleaf Leggings",
+      "before": {
+        "stamina": 19,
+        "intellect": 19,
+        "power": 60,
+        "crit": 1,
+        "armor": 128
+      },
+      "after": {
+        "stamina": 19,
+        "intellect": 19,
+        "power": 60,
+        "crit": 1,
+        "armor": 128,
+        "spellDamage": 60,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240056",
+      "name": "Fireleaf Circlet",
+      "before": {
+        "stamina": 17,
+        "intellect": 19,
+        "power": 60,
+        "crit": 1,
+        "armor": 119
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 19,
+        "power": 60,
+        "crit": 1,
+        "armor": 119,
+        "spellDamage": 60,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240057",
+      "name": "Fireleaf Gloves",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 42,
+        "crit": 2,
+        "armor": 91
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 42,
+        "crit": 2,
+        "armor": 91,
+        "spellDamage": 42,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240058",
+      "name": "Fireleaf Sandals",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 43,
+        "crit": 1,
+        "armor": 100
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 43,
+        "crit": 1,
+        "armor": 100,
+        "spellDamage": 43,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240059",
+      "name": "Fireleaf Robe",
+      "before": {
+        "stamina": 17,
+        "intellect": 19,
+        "power": 63,
+        "crit": 2,
+        "armor": 146
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 19,
+        "power": 63,
+        "crit": 2,
+        "armor": 146,
+        "spellDamage": 63,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240084",
+      "name": "Waywatcher Wristguards",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 12,
+        "power": 19,
+        "crit": 1,
+        "armor": 120
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 12,
+        "power": 55,
+        "crit": 1,
+        "armor": 120,
+        "spellDamage": 19
+      }
+    },
+    {
+      "key": "Season of Discovery:240085",
+      "name": "Waywatcher Girdle",
+      "before": {
+        "stamina": 16,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 26,
+        "crit": 1,
+        "armor": 155
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 76,
+        "crit": 1,
+        "armor": 155,
+        "spellDamage": 26
+      }
+    },
+    {
+      "key": "Season of Discovery:240086",
+      "name": "Waywatcher Spaulders",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 30,
+        "armor": 206
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 90,
+        "armor": 206,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:240087",
+      "name": "Waywatcher Legguards",
+      "before": {
+        "stamina": 16,
+        "intellect": 20,
+        "spirit": 20,
+        "power": 32,
+        "crit": 3,
+        "armor": 240
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 20,
+        "spirit": 20,
+        "power": 97,
+        "crit": 3,
+        "armor": 240,
+        "spellDamage": 32
+      }
+    },
+    {
+      "key": "Season of Discovery:240088",
+      "name": "Waywatcher Headpiece",
+      "before": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 36,
+        "crit": 2,
+        "armor": 223
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 16,
+        "spirit": 16,
+        "power": 108,
+        "crit": 2,
+        "armor": 223,
+        "spellDamage": 36
+      }
+    },
+    {
+      "key": "Season of Discovery:240089",
+      "name": "Waywatcher Handguards",
+      "before": {
+        "stamina": 13,
+        "intellect": 16,
+        "spirit": 15,
+        "power": 31,
+        "armor": 172
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 16,
+        "spirit": 15,
+        "power": 92,
+        "armor": 172,
+        "spellDamage": 31
+      }
+    },
+    {
+      "key": "Season of Discovery:240090",
+      "name": "Waywatcher Boots",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 32,
+        "armor": 189
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "spirit": 14,
+        "power": 95,
+        "armor": 189,
+        "spellDamage": 32
+      }
+    },
+    {
+      "key": "Season of Discovery:240091",
+      "name": "Waywatcher Tunic",
+      "before": {
+        "stamina": 18,
+        "intellect": 21,
+        "spirit": 19,
+        "power": 37,
+        "crit": 2,
+        "armor": 275
+      },
+      "after": {
+        "stamina": 18,
+        "intellect": 21,
+        "spirit": 19,
+        "power": 110,
+        "crit": 2,
+        "armor": 275,
+        "spellDamage": 37
+      }
+    },
+    {
+      "key": "Season of Discovery:240092",
+      "name": "Soulcrusher Tunic",
+      "before": {
+        "stamina": 19,
+        "intellect": 20,
+        "power": 37,
+        "crit": 1,
+        "armor": 611
+      },
+      "after": {
+        "stamina": 19,
+        "intellect": 20,
+        "power": 110,
+        "crit": 1,
+        "armor": 611,
+        "spellDamage": 37,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240093",
+      "name": "Soulcrusher Boots",
+      "before": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 30,
+        "armor": 420
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 14,
+        "power": 90,
+        "armor": 420,
+        "spellDamage": 30,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240095",
+      "name": "Soulcrusher Handguards",
+      "before": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 23,
+        "crit": 2,
+        "armor": 382
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 15,
+        "power": 68,
+        "crit": 2,
+        "armor": 382,
+        "spellDamage": 23
+      }
+    },
+    {
+      "key": "Season of Discovery:240096",
+      "name": "Soulcrusher Headpiece",
+      "before": {
+        "stamina": 16,
+        "intellect": 17,
+        "power": 34,
+        "crit": 3,
+        "armor": 496
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 17,
+        "power": 101,
+        "crit": 3,
+        "armor": 496,
+        "spellDamage": 34,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240097",
+      "name": "Soulcrusher Legguards",
+      "before": {
+        "stamina": 17,
+        "intellect": 24,
+        "power": 31,
+        "crit": 2,
+        "armor": 534
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 24,
+        "power": 92,
+        "crit": 2,
+        "armor": 534,
+        "spellDamage": 31,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240098",
+      "name": "Soulcrusher Spaulders",
+      "before": {
+        "stamina": 12,
+        "intellect": 15,
+        "power": 22,
+        "armor": 458
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 15,
+        "power": 66,
+        "armor": 458,
+        "spellDamage": 22,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240099",
+      "name": "Soulcrusher Girdle",
+      "before": {
+        "stamina": 15,
+        "intellect": 18,
+        "power": 22,
+        "crit": 2,
+        "armor": 343
+      },
+      "after": {
+        "stamina": 15,
+        "intellect": 18,
+        "power": 64,
+        "crit": 2,
+        "armor": 343,
+        "spellDamage": 22,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240100",
+      "name": "Soulcrusher Wristguards",
+      "before": {
+        "stamina": 13,
+        "intellect": 13,
+        "power": 22,
+        "armor": 267
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 13,
+        "power": 42,
+        "armor": 267,
+        "spellDamage": 22,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240109",
+      "name": "Soulcrusher Embrace",
+      "before": {
+        "stamina": 17,
+        "intellect": 45,
+        "power": 22,
+        "crit": 1,
+        "armor": 611
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 45,
+        "power": 22,
+        "crit": 1,
+        "armor": 611,
+        "spellDamage": 22,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240110",
+      "name": "Soulcrusher Greaves",
+      "before": {
+        "stamina": 12,
+        "intellect": 33,
+        "power": 18,
+        "armor": 420
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 33,
+        "power": 18,
+        "armor": 420,
+        "spellDamage": 18,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240122",
+      "name": "Soulcrusher Mitts",
+      "before": {
+        "stamina": 13,
+        "intellect": 33,
+        "power": 16,
+        "crit": 2,
+        "armor": 382
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 33,
+        "power": 16,
+        "crit": 2,
+        "armor": 382,
+        "spellDamage": 16,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240123",
+      "name": "Soulcrusher Crown",
+      "before": {
+        "stamina": 17,
+        "intellect": 51,
+        "power": 19,
+        "crit": 2,
+        "armor": 496
+      },
+      "after": {
+        "stamina": 17,
+        "intellect": 51,
+        "power": 19,
+        "crit": 2,
+        "armor": 496,
+        "spellDamage": 19,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240124",
+      "name": "Soulcrusher Kilt",
+      "before": {
+        "stamina": 19,
+        "intellect": 50,
+        "power": 21,
+        "armor": 534
+      },
+      "after": {
+        "stamina": 19,
+        "intellect": 50,
+        "power": 21,
+        "armor": 534,
+        "spellDamage": 21,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240125",
+      "name": "Soulcrusher Mantle",
+      "before": {
+        "stamina": 12,
+        "intellect": 34,
+        "power": 18,
+        "crit": 1,
+        "armor": 458
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 34,
+        "power": 18,
+        "crit": 1,
+        "armor": 458,
+        "spellDamage": 18,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240126",
+      "name": "Soulcrusher Cord",
+      "before": {
+        "stamina": 13,
+        "intellect": 33,
+        "power": 18,
+        "armor": 343
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 33,
+        "power": 18,
+        "armor": 343,
+        "spellDamage": 18,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240127",
+      "name": "Soulcrusher Bindings",
+      "before": {
+        "stamina": 13,
+        "intellect": 29,
+        "power": 19,
+        "armor": 267
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 29,
+        "power": 19,
+        "armor": 267,
+        "spellDamage": 19,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:240138",
+      "name": "Heretic Robe",
+      "before": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 25,
+        "power": 65,
+        "crit": 2,
+        "armor": 146
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 25,
+        "power": 65,
+        "crit": 2,
+        "armor": 146,
+        "spellDamage": 65,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240139",
+      "name": "Heretic Sandals",
+      "before": {
+        "stamina": 12,
+        "intellect": 14,
+        "spirit": 20,
+        "power": 36,
+        "armor": 100
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 14,
+        "spirit": 20,
+        "power": 36,
+        "armor": 100,
+        "spellDamage": 36,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240140",
+      "name": "Heretic Gloves",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 18,
+        "power": 37,
+        "armor": 91
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 18,
+        "power": 37,
+        "armor": 91,
+        "spellDamage": 37,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240141",
+      "name": "Heretic Cowl",
+      "before": {
+        "stamina": 13,
+        "intellect": 13,
+        "spirit": 19,
+        "power": 62,
+        "crit": 1,
+        "armor": 119
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 13,
+        "spirit": 19,
+        "power": 62,
+        "crit": 1,
+        "armor": 119,
+        "spellDamage": 62,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240142",
+      "name": "Heretic Leggings",
+      "before": {
+        "stamina": 13,
+        "intellect": 17,
+        "spirit": 20,
+        "power": 55,
+        "crit": 2,
+        "armor": 128
+      },
+      "after": {
+        "stamina": 13,
+        "intellect": 17,
+        "spirit": 20,
+        "power": 55,
+        "crit": 2,
+        "armor": 128,
+        "spellDamage": 55,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:240143",
+      "name": "Heretic Shoulderpads",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 18,
+        "power": 40,
+        "crit": 1,
+        "armor": 110
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 18,
+        "power": 40,
+        "crit": 1,
+        "armor": 110,
+        "spellDamage": 40,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:240145",
+      "name": "Heretic Bindings",
+      "before": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 13,
+        "power": 26,
+        "armor": 64
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 13,
+        "spirit": 13,
+        "power": 26,
+        "armor": 64,
+        "spellDamage": 26,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:241002",
+      "name": "Remnants of the Red",
+      "before": {
+        "stamina": 5,
+        "intellect": 10,
+        "power": 169
+      },
+      "after": {
+        "stamina": 5,
+        "intellect": 10,
+        "power": 169,
+        "spellDamage": 169,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:241003",
+      "name": "Mirage, Rod of Illusion",
+      "before": {
+        "stamina": 12,
+        "intellect": 28,
+        "power": 169,
+        "crit": 3
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 28,
+        "power": 169,
+        "crit": 3,
+        "spellDamage": 169,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:241006",
+      "name": "Spire of Sacrifice",
+      "before": {
+        "stamina": 7,
+        "power": 317,
+        "crit": 1,
+        "spellDamage": 106
+      },
+      "after": {
+        "stamina": 7,
+        "power": 317,
+        "crit": 1,
+        "spellDamage": 106,
+        "haste": 2
+      }
+    },
+    {
+      "key": "Season of Discovery:241008",
+      "name": "Condemnation",
+      "before": {
+        "stamina": 20,
+        "intellect": 30,
+        "spirit": 21,
+        "power": 106,
+        "crit": 3
+      },
+      "after": {
+        "stamina": 20,
+        "intellect": 30,
+        "spirit": 21,
+        "power": 317,
+        "crit": 3,
+        "spellDamage": 106
+      }
+    },
+    {
+      "key": "Season of Discovery:241011",
+      "name": "Greatstaff of Fealty",
+      "before": {
+        "stamina": 16,
+        "intellect": 20,
+        "spirit": 30,
+        "power": 106,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 16,
+        "intellect": 20,
+        "spirit": 30,
+        "power": 317,
+        "crit": 1,
+        "spellDamage": 106,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:241012",
+      "name": "Wand of Reanimation",
+      "before": {
+        "intellect": 6,
+        "power": 16
+      },
+      "after": {
+        "intellect": 6,
+        "power": 46,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:241017",
+      "name": "Demon's Folly",
+      "before": {
+        "stamina": 7,
+        "intellect": 22,
+        "power": 23,
+        "armor": 3425
+      },
+      "after": {
+        "stamina": 7,
+        "intellect": 22,
+        "power": 23,
+        "armor": 3425,
+        "spellDamage": 23,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:241018",
+      "name": "Nathrezim Heart",
+      "before": {
+        "stamina": 9,
+        "intellect": 9,
+        "power": 20,
+        "crit": 1,
+        "armor": 3425
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 9,
+        "power": 59,
+        "crit": 1,
+        "armor": 3425,
+        "spellDamage": 20,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:241021",
+      "name": "The Light",
+      "before": {
+        "power": 28
+      },
+      "after": {
+        "power": 84,
+        "spellDamage": 28
+      }
+    },
+    {
+      "key": "Season of Discovery:241026",
+      "name": "Cardinal's Shawl",
+      "before": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 25,
+        "crit": 1,
+        "armor": 70
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 10,
+        "power": 73,
+        "crit": 1,
+        "armor": 70,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:241031",
+      "name": "Barthalomew's Promise",
+      "before": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 35,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 35,
+        "crit": 1,
+        "spellDamage": 35,
+        "haste": 1
+      }
+    },
+    {
+      "key": "Season of Discovery:241032",
+      "name": "Ring of Resurrection",
+      "before": {
+        "power": 28
+      },
+      "after": {
+        "power": 84,
+        "spellDamage": 28
+      }
+    },
+    {
+      "key": "Season of Discovery:241039",
+      "name": "Infusion of Souls",
+      "before": {
+        "power": 26
+      },
+      "after": {
+        "power": 26,
+        "spellDamage": 26,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:241068",
+      "name": "Stiltz's Standard",
+      "before": {
+        "intellect": 10,
+        "spirit": 10,
+        "power": 30
+      },
+      "after": {
+        "intellect": 10,
+        "spirit": 10,
+        "power": 88,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:241073",
+      "name": "Touch of Light",
+      "before": {
+        "stamina": 9,
+        "intellect": 8,
+        "power": 25,
+        "crit": 1
+      },
+      "after": {
+        "stamina": 9,
+        "intellect": 8,
+        "power": 73,
+        "crit": 1,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:241077",
+      "name": "Cardinal's Chapeau",
+      "before": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 42,
+        "crit": 2,
+        "armor": 114
+      },
+      "after": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 125,
+        "crit": 2,
+        "armor": 114,
+        "spellDamage": 42
+      }
+    },
+    {
+      "key": "Season of Discovery:241153",
+      "name": "Doan's Mantle",
+      "before": {
+        "stamina": 8,
+        "intellect": 12,
+        "power": 51,
+        "armor": 110
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 12,
+        "power": 51,
+        "armor": 110,
+        "spellDamage": 51,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:241154",
+      "name": "Bearskin Mantle",
+      "before": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 35,
+        "crit": 1,
+        "armor": 203
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 8,
+        "power": 106,
+        "crit": 1,
+        "armor": 203,
+        "spellDamage": 35
+      }
+    },
+    {
+      "key": "Season of Discovery:241160",
+      "name": "Dawnworn Chainmail",
+      "before": {
+        "stamina": 12,
+        "intellect": 52,
+        "power": 29,
+        "crit": 2,
+        "armor": 611
+      },
+      "after": {
+        "stamina": 12,
+        "intellect": 52,
+        "power": 29,
+        "crit": 2,
+        "armor": 611,
+        "spellDamage": 29,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:241161",
+      "name": "Templar Breastplate",
+      "before": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 45,
+        "crit": 1,
+        "armor": 1090
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 12,
+        "power": 136,
+        "crit": 1,
+        "armor": 1090,
+        "spellDamage": 45,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:241165",
+      "name": "Penitent Wraps",
+      "before": {
+        "intellect": 8,
+        "power": 25,
+        "armor": 63
+      },
+      "after": {
+        "intellect": 8,
+        "power": 75,
+        "armor": 63,
+        "spellDamage": 25
+      }
+    },
+    {
+      "key": "Season of Discovery:241168",
+      "name": "Sunblaze Grips",
+      "before": {
+        "stamina": 8,
+        "intellect": 12,
+        "armor": 91
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 12,
+        "armor": 91,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:241171",
+      "name": "Gloves of Departed Souls",
+      "before": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 30,
+        "crit": 1,
+        "armor": 86
+      },
+      "after": {
+        "stamina": 11,
+        "intellect": 12,
+        "power": 90,
+        "crit": 1,
+        "armor": 86,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:241176",
+      "name": "Diesalven's Demise",
+      "before": {
+        "stamina": 8,
+        "intellect": 9,
+        "spirit": 18,
+        "power": 55,
+        "armor": 78
+      },
+      "after": {
+        "stamina": 8,
+        "intellect": 9,
+        "spirit": 18,
+        "power": 55,
+        "armor": 78,
+        "spellDamage": 55,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:241177",
+      "name": "Kilt of the Scarlet Arcanist",
+      "before": {
+        "stamina": 10,
+        "intellect": 9,
+        "power": 72,
+        "crit": 2,
+        "armor": 123
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 9,
+        "power": 72,
+        "crit": 2,
+        "armor": 123,
+        "spellDamage": 72,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:241181",
+      "name": "Dawnworn Chain Leggings",
+      "before": {
+        "stamina": 10,
+        "intellect": 15,
+        "power": 38,
+        "armor": 534
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 15,
+        "power": 114,
+        "armor": 534,
+        "spellDamage": 38,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:241182",
+      "name": "Templar Plate Legguards",
+      "before": {
+        "stamina": 10,
+        "intellect": 15,
+        "power": 38,
+        "armor": 954
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 15,
+        "power": 114,
+        "armor": 954,
+        "spellDamage": 38,
+        "haste": 4
+      }
+    },
+    {
+      "key": "Season of Discovery:241183",
+      "name": "Ashwalkers",
+      "before": {
+        "stamina": 10,
+        "intellect": 10,
+        "spirit": 25,
+        "power": 47,
+        "armor": 100
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 10,
+        "spirit": 25,
+        "power": 47,
+        "armor": 100,
+        "spellDamage": 47,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:241184",
+      "name": "Savior Sandals",
+      "before": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 30,
+        "crit": 2,
+        "armor": 95
+      },
+      "after": {
+        "stamina": 10,
+        "intellect": 11,
+        "power": 90,
+        "crit": 2,
+        "armor": 95,
+        "spellDamage": 30
+      }
+    },
+    {
+      "key": "Season of Discovery:242312",
+      "name": "Barthalomew Family Seal",
+      "before": {
+        "intellect": 10,
+        "power": 16,
+        "mp5": 5,
+        "crit": 1
+      },
+      "after": {
+        "intellect": 10,
+        "power": 48,
+        "mp5": 5,
+        "crit": 1,
+        "spellDamage": 16
+      }
+    },
+    {
+      "key": "Season of Discovery:242315",
+      "name": "Ashes of Arrogance",
+      "before": {
+        "power": 14,
+        "crit": 2
+      },
+      "after": {
+        "power": 14,
+        "crit": 2,
+        "spellDamage": 14,
+        "haste": 3
+      }
+    },
+    {
+      "key": "Season of Discovery:242317",
+      "name": "Desecrated Prayerbook",
+      "before": {
+        "power": 13,
+        "crit": 2
+      },
+      "after": {
+        "power": 37,
+        "crit": 2,
+        "spellDamage": 13,
+        "haste": 3
+      }
+    }
+  ]
+}

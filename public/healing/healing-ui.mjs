@@ -750,7 +750,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('[data-loadout-label]').textContent = gear.value;
     const kit = gearEditor.kit;
     const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
-      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor', health:'Health', mana:'Mana'};
+      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', haste:'Haste', armor:'Armor', health:'Health', mana:'Mana'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {
       const item = kit[name];
       setEquipmentImage(image, item, file);
@@ -771,7 +771,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
       for (const [key, value] of Object.entries(item.stats)) {
         const line = document.createElement('span');
-        line.textContent = '+' + Number(value.toFixed(2)) + (key === 'crit' ? '% ' : ' ') + labels[key];
+        line.textContent = '+' + Number(value.toFixed(2)) + (['crit','haste'].includes(key) ? '% ' : ' ') + labels[key];
         tip.append(line);
       }
       const linkText = document.createElement('span');

@@ -8,6 +8,7 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
   if (!setsSafe(stored)) stored={};
   if (!setsSafe(stored.sets)) stored.sets = {};
   let catalog,custom,history=createGearHistory({kit:loadouts[select.value],name:select.value,sets:stored.sets??{}}),sets=Object.assign(Object.create(null),stored.sets??{});
+  let enchantPending=false, enchantError=false;
   let destroyed=false, revision=0, restoring=Boolean(stored.kit);
   const toolbar=document.createElement('div');toolbar.className='gear-toolbar';
   const undo=button('Undo',()=>{if(isActive())return;const state=history.undo();custom=state.name==='Custom'?state.kit:undefined;sets=Object.assign(Object.create(null),state.sets??{});renderSets();select.value=state.name;revision++;changed(false)});
@@ -38,6 +39,12 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
   let slot,mode='items',limit=50;
   tabs.append(button('Items',()=>{mode='items';draw()}),button('Enchants',()=>{mode='enchants';draw()}),button('Unequip',()=>{commit(equipItem(custom??loadouts[select.value],slot,null));draw()}));
   async function ready(){if(!catalog)catalog=await loadGearCatalog();return catalog}
+  function ensureEnchantCatalog(kit){
+    if(catalog||enchantPending||enchantError||!Object.values(kit).some(item=>item?.enchantId))return;
+    enchantPending=true;status.textContent='Loading enchant stats…';
+    ready().then(()=>{if(!destroyed)status.textContent='';}).catch(error=>{enchantError=true;if(!destroyed)status.textContent=error.message+' Reload to retry enchant loading.';})
+      .finally(()=>{enchantPending=false;if(!destroyed)onchange()});
+  }
   function button(label,click){const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=click;return b}
   function renderSets(){saved.replaceChildren(new Option('Choose saved set',''));for(const label of Object.keys(sets))saved.add(new Option(label,label))}
   let storageOkay=true;
@@ -65,5 +72,5 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
   select.addEventListener('change',()=>{if(select.value==='Custom'&&!custom){select.value=history.value.name}else{custom=select.value==='Custom'?custom:undefined;history.set({kit:custom??loadouts[select.value],name:select.value,sets});revision++;changed()}});
   renderSets();undo.disabled=true;
   if(stored.kit){status.textContent='Restoring saved equipment…';ready().then(()=>{if(isActive()||destroyed||revision)return;custom=sanitizeEquipment(stored.kit,className,catalog);select.value='Custom';history=createGearHistory({kit:custom,name:'Custom',sets});status.textContent='Saved equipment restored.';}).catch(e=>{status.textContent=e.message}).finally(()=>{restoring=false;if(!destroyed)onchange()})}
-  return {get loading(){return restoring},destroy(){destroyed=true;dialog.close();dialog.remove()},get kit(){return effectiveEquipment(custom??loadouts[select.value]??{},catalog)},lock(active){for(const element of toolbar.querySelectorAll('input,select,button'))element.disabled=active;undo.disabled=active||!history.canUndo;for(const {slotButton}of Object.values(slots))slotButton.disabled=active;if(active)dialog.close()}};
+  return {get loading(){return restoring||enchantPending||enchantError},destroy(){destroyed=true;dialog.close();dialog.remove()},get kit(){const kit=custom??loadouts[select.value]??{};ensureEnchantCatalog(kit);return effectiveEquipment(kit,catalog)},lock(active){for(const element of toolbar.querySelectorAll('input,select,button'))element.disabled=active;undo.disabled=active||!history.canUndo;for(const {slotButton}of Object.values(slots))slotButton.disabled=active;if(active)dialog.close()}};
 }

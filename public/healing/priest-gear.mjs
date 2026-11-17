@@ -1463,11 +1463,22 @@ export const loadouts = {
         "stamina": 14,
         "intellect": 14,
         "spirit": 9,
-        "power": 26,
+        "power": 77,
         "crit": 1,
-        "armor": 94
+        "armor": 94,
+        "spellDamage": 26
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231157",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 77 and damage done by up to 26 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Neck": {
@@ -1487,10 +1498,21 @@ export const loadouts = {
       "stats": {
         "stamina": 9,
         "intellect": 12,
-        "power": 13,
-        "mp5": 5
+        "power": 37,
+        "mp5": 5,
+        "spellDamage": 13
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230245",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 37 and damage done by up to 13 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Shoulders": {
@@ -1514,10 +1536,21 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 17,
         "spirit": 13,
-        "power": 16,
-        "armor": 87
+        "power": 46,
+        "armor": 87,
+        "spellDamage": 16
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231160",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 46 and damage done by up to 16 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Back": {
@@ -1564,11 +1597,22 @@ export const loadouts = {
         "stamina": 16,
         "intellect": 14,
         "spirit": 10,
-        "power": 24,
+        "power": 70,
         "crit": 1,
-        "armor": 116
+        "armor": 116,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231159",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Wrists": {
@@ -1592,10 +1636,21 @@ export const loadouts = {
         "stamina": 10,
         "intellect": 14,
         "spirit": 13,
-        "power": 11,
-        "armor": 51
+        "power": 31,
+        "armor": 51,
+        "spellDamage": 11
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231162",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 31 and damage done by up to 11 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Hands": {
@@ -1619,11 +1674,22 @@ export const loadouts = {
         "stamina": 11,
         "intellect": 14,
         "spirit": 10,
-        "power": 14,
+        "power": 40,
         "crit": 1,
-        "armor": 72
+        "armor": 72,
+        "spellDamage": 14
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231156",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 40 and damage done by up to 14 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Waist": {
@@ -1647,10 +1713,21 @@ export const loadouts = {
         "stamina": 13,
         "intellect": 17,
         "spirit": 13,
-        "power": 14,
-        "armor": 65
+        "power": 42,
+        "armor": 65,
+        "spellDamage": 14
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231161",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 42 and damage done by up to 14 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Legs": {
@@ -1674,10 +1751,21 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 20,
         "spirit": 18,
-        "power": 24,
-        "armor": 101
+        "power": 70,
+        "armor": 101,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231158",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Feet": {
@@ -1700,11 +1788,22 @@ export const loadouts = {
       "stats": {
         "stamina": 12,
         "intellect": 14,
-        "power": 18,
+        "power": 53,
         "crit": 1,
-        "armor": 80
+        "armor": 80,
+        "spellDamage": 18
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=231155",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects. Dawn of Transcendence (0/8) Robes of Transcendence Boots of Transcendence Handguards of Transcendence Halo of Transcendence Leggings of Transcendence Pauldrons of Transcendence Belt of Transcendence Bindings of Transcendence (2) Set : Allows 15% of yo"
+        ]
+      },
       "acquisition": "Dawn of Transcendence"
     },
     "Finger 1": {
@@ -1769,10 +1868,21 @@ export const loadouts = {
       "ilvl": 75,
       "twoHand": false,
       "stats": {
-        "power": 22,
-        "mp5": 9
+        "power": 66,
+        "mp5": 9,
+        "spellDamage": 22
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230269",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. "
+        ]
+      },
       "acquisition": "Blackwing Lair"
     },
     "Main hand": {
@@ -1846,11 +1956,22 @@ export const loadouts = {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
-        "power": 32,
+        "power": 97,
         "crit": 2,
-        "armor": 108
+        "armor": 108,
+        "spellDamage": 32
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236103",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 97 and damage done by up to 32 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Neck": {
@@ -1870,9 +1991,21 @@ export const loadouts = {
       "stats": {
         "stamina": 10,
         "intellect": 14,
-        "power": 27
+        "power": 27,
+        "spellDamage": 27,
+        "haste": 1
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236261",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 27."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Shoulders": {
@@ -1896,11 +2029,22 @@ export const loadouts = {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
-        "power": 24,
+        "power": 70,
         "crit": 1,
-        "armor": 97
+        "armor": 97,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236102",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Back": {
@@ -1948,11 +2092,22 @@ export const loadouts = {
         "stamina": 15,
         "intellect": 16,
         "spirit": 16,
-        "power": 32,
+        "power": 97,
         "crit": 2,
-        "armor": 138
+        "armor": 138,
+        "spellDamage": 32
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236097",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 97 and damage done by up to 32 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Wrists": {
@@ -1976,11 +2131,22 @@ export const loadouts = {
         "stamina": 9,
         "intellect": 10,
         "spirit": 9,
-        "power": 16,
+        "power": 48,
         "crit": 1,
-        "armor": 58
+        "armor": 58,
+        "spellDamage": 16
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236100",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 48 and damage done by up to 16 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Hands": {
@@ -2004,11 +2170,22 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 13,
         "spirit": 12,
-        "power": 24,
+        "power": 70,
         "crit": 1,
-        "armor": 83
+        "armor": 83,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236104",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Waist": {
@@ -2032,11 +2209,22 @@ export const loadouts = {
         "stamina": 13,
         "intellect": 14,
         "spirit": 14,
-        "power": 22,
+        "power": 66,
         "crit": 1,
-        "armor": 75
+        "armor": 75,
+        "spellDamage": 22
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236098",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Legs": {
@@ -2060,11 +2248,22 @@ export const loadouts = {
         "stamina": 14,
         "intellect": 15,
         "spirit": 15,
-        "power": 31,
+        "power": 92,
         "crit": 2,
-        "armor": 116
+        "armor": 116,
+        "spellDamage": 31
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236101",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 92 and damage done by up to 31 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Feet": {
@@ -2088,11 +2287,22 @@ export const loadouts = {
         "stamina": 11,
         "intellect": 11,
         "spirit": 11,
-        "power": 24,
+        "power": 70,
         "crit": 1,
-        "armor": 89
+        "armor": 89,
+        "spellDamage": 24
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236099",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Finger 1": {
@@ -2114,10 +2324,21 @@ export const loadouts = {
       "twoHand": false,
       "stats": {
         "intellect": 10,
-        "power": 21,
-        "crit": 1
+        "power": 62,
+        "crit": 1,
+        "spellDamage": 21
       },
       "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236105",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 62 and damage done by up to 21 for all magical spells and effects. Vestments of Faith (0/9) Circlet of Faith Shoulderpads of Faith Belt of Faith Leggings of Faith Sandals of Faith Bindings of Faith Gloves of Faith Robe of Faith Ring of Faith (2) Set : Reduces the cooldown on your Circle of Healing and Penance abiliti"
+        ]
+      },
       "acquisition": "Vestments of Faith"
     },
     "Finger 2": {
@@ -2136,9 +2357,21 @@ export const loadouts = {
       "ilvl": 83,
       "twoHand": false,
       "stats": {
-        "power": 32
+        "power": 32,
+        "spellDamage": 32,
+        "haste": 1
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236273",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 32."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Trinket 1": {
@@ -2157,10 +2390,21 @@ export const loadouts = {
       "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "power": 23,
-        "mp5": 10
+        "power": 68,
+        "mp5": 10,
+        "spellDamage": 23
       },
-      "effects": false,
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236320",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Main hand": {
@@ -2184,9 +2428,21 @@ export const loadouts = {
         "intellect": 15,
         "spirit": 20,
         "power": 127,
-        "crit": 2
+        "crit": 2,
+        "spellDamage": 127,
+        "haste": 4
       },
       "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236346",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 127."
+        ]
+      },
       "acquisition": "Naxxramas"
     },
     "Relic": {
@@ -2212,32 +2468,29 @@ export const loadouts = {
   },
   "Tier 4 raid · SoD": {
     "Head": {
-      "id": 239585,
-      "name": "Circlet of Revelation",
+      "id": 241078,
+      "name": "Shroud of the Embalmed",
       "icon": "inv_helmet_86",
       "type": 1,
       "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        5
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 8,
-      "key": "Season of Discovery:239585",
+      "key": "Season of Discovery:241078",
       "source": "Season of Discovery",
       "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "stamina": 13,
-        "intellect": 16,
-        "spirit": 14,
-        "power": 37,
-        "crit": 2,
+        "stamina": 10,
+        "intellect": 14,
+        "power": 72,
+        "crit": 3,
         "armor": 119
       },
-      "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "effects": false,
+      "enchantId": "2590:24158"
     },
     "Neck": {
       "id": 241072,
@@ -2259,36 +2512,43 @@ export const loadouts = {
         "power": 42,
         "crit": 1
       },
-      "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "effects": false
     },
     "Shoulders": {
-      "id": 239586,
-      "name": "Shoulderpads of Revelation",
+      "id": 241153,
+      "name": "Doan's Mantle",
       "icon": "inv_shoulder_49",
       "type": 3,
       "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        5
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 8,
-      "key": "Season of Discovery:239586",
+      "key": "Season of Discovery:241153",
       "source": "Season of Discovery",
       "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "stamina": 12,
-        "intellect": 14,
-        "spirit": 13,
-        "power": 27,
-        "crit": 1,
-        "armor": 110
+        "stamina": 8,
+        "intellect": 12,
+        "power": 51,
+        "armor": 110,
+        "spellDamage": 51,
+        "haste": 4
       },
-      "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241153",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 51."
+        ]
+      },
+      "enchantId": "2715:29474"
     },
     "Back": {
       "id": 241025,
@@ -2311,35 +2571,32 @@ export const loadouts = {
         "crit": 1,
         "armor": 73
       },
-      "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "effects": false
     },
     "Chest": {
-      "id": 239591,
-      "name": "Robe of Revelation",
+      "id": 241159,
+      "name": "Monastery Garb",
       "icon": "inv_chest_cloth_61",
       "type": 5,
       "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        5
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 8,
-      "key": "Season of Discovery:239591",
+      "key": "Season of Discovery:241159",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 94,
       "twoHand": false,
       "stats": {
-        "stamina": 20,
-        "intellect": 21,
-        "spirit": 19,
-        "power": 51,
-        "armor": 146
+        "stamina": 10,
+        "intellect": 13,
+        "spirit": 30,
+        "power": 75,
+        "crit": 3,
+        "armor": 141
       },
-      "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "effects": false
     },
     "Wrists": {
       "id": 239588,
@@ -2362,12 +2619,23 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 15,
         "spirit": 11,
-        "power": 19,
+        "power": 55,
         "crit": 1,
-        "armor": 64
+        "armor": 64,
+        "spellDamage": 19
       },
       "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=239588",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects. Vestments of Revelation (0/8) Circlet of Revelation Shoulderpads of Revelation Belt of Revelation Leggings of Revelation Sandals of Revelation Bindings of Revelation Gloves of Revelation Robe of Revelation (2) Set : Your Surge of Light now also makes "
+        ]
+      },
+      "enchantId": "2566:23796"
     },
     "Hands": {
       "id": 239584,
@@ -2390,12 +2658,23 @@ export const loadouts = {
         "stamina": 13,
         "intellect": 15,
         "spirit": 14,
-        "power": 25,
+        "power": 73,
         "crit": 2,
-        "armor": 91
+        "armor": 91,
+        "spellDamage": 25
       },
       "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=239584",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects. Vestments of Revelation (0/8) Circlet of Revelation Shoulderpads of Revelation Belt of Revelation Leggings of Revelation Sandals of Revelation Bindings of Revelation Gloves of Revelation Robe of Revelation (2) Set : Your Surge of Light now also makes "
+        ]
+      },
+      "enchantId": "2617:25067"
     },
     "Waist": {
       "id": 239590,
@@ -2418,12 +2697,22 @@ export const loadouts = {
         "stamina": 15,
         "intellect": 17,
         "spirit": 16,
-        "power": 25,
+        "power": 73,
         "crit": 1,
-        "armor": 82
+        "armor": 82,
+        "spellDamage": 25
       },
       "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=239590",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects. Vestments of Revelation (0/8) Circlet of Revelation Shoulderpads of Revelation Belt of Revelation Leggings of Revelation Sandals of Revelation Bindings of Revelation Gloves of Revelation Robe of Revelation (2) Set : Your Surge of Light now also makes "
+        ]
+      }
     },
     "Legs": {
       "id": 239587,
@@ -2446,12 +2735,23 @@ export const loadouts = {
         "stamina": 17,
         "intellect": 20,
         "spirit": 19,
-        "power": 36,
+        "power": 108,
         "crit": 2,
-        "armor": 128
+        "armor": 128,
+        "spellDamage": 36
       },
       "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=239587",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 108 and damage done by up to 36 for all magical spells and effects. Vestments of Revelation (0/8) Circlet of Revelation Shoulderpads of Revelation Belt of Revelation Leggings of Revelation Sandals of Revelation Bindings of Revelation Gloves of Revelation Robe of Revelation (2) Set : Your Surge of Light now also makes"
+        ]
+      },
+      "enchantId": "2590:24158"
     },
     "Feet": {
       "id": 239589,
@@ -2474,12 +2774,22 @@ export const loadouts = {
         "stamina": 12,
         "intellect": 14,
         "spirit": 13,
-        "power": 27,
+        "power": 79,
         "crit": 1,
-        "armor": 100
+        "armor": 100,
+        "spellDamage": 27
       },
       "effects": true,
-      "acquisition": "Vestments of Revelation"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=239589",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 79 and damage done by up to 27 for all magical spells and effects. Vestments of Revelation (0/8) Circlet of Revelation Shoulderpads of Revelation Belt of Revelation Leggings of Revelation Sandals of Revelation Bindings of Revelation Gloves of Revelation Robe of Revelation (2) Set : Your Surge of Light now also makes "
+        ]
+      }
     },
     "Finger 1": {
       "id": 241031,
@@ -2500,10 +2810,21 @@ export const loadouts = {
         "stamina": 8,
         "intellect": 8,
         "power": 35,
-        "crit": 1
+        "crit": 1,
+        "spellDamage": 35,
+        "haste": 1
       },
       "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241031",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 35."
+        ]
+      }
     },
     "Finger 2": {
       "id": 241032,
@@ -2521,10 +2842,20 @@ export const loadouts = {
       "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "power": 28
+        "power": 84,
+        "spellDamage": 28
       },
       "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241032",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 84 and damage done by up to 28 for all magical spells and effects."
+        ]
+      }
     },
     "Trinket 1": {
       "id": 241068,
@@ -2544,35 +2875,60 @@ export const loadouts = {
       "stats": {
         "intellect": 10,
         "spirit": 10,
-        "power": 30
+        "power": 88,
+        "spellDamage": 30
       },
-      "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241068",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 88 and damage done by up to 30 for all magical spells and effects."
+        ]
+      }
     },
     "Main hand": {
-      "id": 241003,
-      "name": "Mirage, Rod of Illusion",
-      "icon": "inv_staff_53",
+      "id": 236399,
+      "name": "Atiesh, Greatstaff of the Guardian",
+      "icon": "inv_staff_medivh",
       "type": 13,
       "weaponType": 8,
       "handType": 4,
       "rangedWeaponType": 0,
-      "classAllowlist": [],
+      "classAllowlist": [
+        5
+      ],
       "reqLvl": 60,
-      "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:241003",
+      "quality": 5,
+      "phase": 7,
+      "key": "Season of Discovery:236399",
       "source": "Season of Discovery",
-      "ilvl": 96,
+      "ilvl": 90,
       "twoHand": true,
       "stats": {
-        "stamina": 12,
-        "intellect": 28,
-        "power": 169,
-        "crit": 3
+        "stamina": 20,
+        "intellect": 22,
+        "spirit": 24,
+        "power": 362,
+        "crit": 3,
+        "spellDamage": 169
       },
-      "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "effects": true,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236399",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 62 and damage done by up to 19 for all magical spells and effects of all party members within 30. This specific effect does not stack from multiple sources. ",
+          "Increases healing done by up to 300 and damage done by up to 150 for all magical spells and effects."
+        ]
+      },
+      "enchantId": "8212:1248636"
     },
     "Relic": {
       "id": 241004,
@@ -2592,8 +2948,25 @@ export const loadouts = {
         "stamina": -10,
         "power": 30
       },
-      "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "effects": false
+    },
+    "Trinket 2": {
+      "id": 23047,
+      "name": "Eye of the Dead",
+      "icon": "inv_trinket_naxxramas01",
+      "type": 12,
+      "unique": true,
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 2,
+      "key": "Forever:23047",
+      "source": "Forever",
+      "ilvl": 90,
+      "twoHand": false,
+      "stats": {
+        "power": 70
+      },
+      "effects": true
     }
   }
 };
