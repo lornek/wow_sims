@@ -1,0 +1,12 @@
+<section class="panel icon-library" aria-label="Browse icons">
+  <p>Browse the {{COUNT}} icons included with Healbot. Select an icon to view the full image. Original World of Warcraft artwork belongs to Blizzard Entertainment.</p>
+  <nav aria-label="Icon sections"><a href="#original">Bundled originals</a> · <a href="#spells">New spells &amp; healing</a> · <a href="#equipment">New equipment</a></nav>
+  <label for="icon-search">Search icons</label>
+  <input id="icon-search" type="search" placeholder="Try mana, shield, cloth hood, or a filename" autocomplete="off" aria-controls="icon-grid">
+  <p data-icon-count role="status">{{COUNT}} icons</p>
+  <p data-icon-empty hidden>No matching icons. Try another name or clear your search.</p>
+  <div id="icon-grid"><!-- ICONS --></div>
+  <noscript>All icons are listed below. Enable JavaScript to filter them by filename.</noscript>
+</section>
+<link rel="stylesheet" href="../assets/icons.css">
+<script type="module" src="../assets/icons.mjs"></script>
