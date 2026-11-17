@@ -572,3 +572,11 @@ body:has(#healing) { font-family:var(--ui); }
 .score-heading h2 img { object-fit:contain; border-radius:4px; }
 .score-formula > strong:not(.score-times) { display:inline-flex; align-items:center; gap:.25em; }
 .score-formula img { width:1em; height:1em; object-fit:contain; border-radius:2px; }
+
+.healbot-brand { display:flex; align-items:center; gap:8px; flex:none; }
+.healbot-home { flex:none; color:var(--gold); text-decoration:none; }
+.healbot-home:hover, .healbot-home:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+@media (max-width:360px) {
+  .healbot-header { flex-wrap:wrap; }
+  .healbot-header .class-picker { flex-basis:100%; width:100%; }
+}

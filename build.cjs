@@ -39,13 +39,13 @@ function page(title, depth, current, content) {
 <body>
 <header class="site-header"><div class="container">
 <a class="brand" href="${depth}"><span class="sigil" aria-hidden="true">∞</span><span>WoW Forever Sims<small>Class tools for World of Warcraft: Forever</small></span></a>
-<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a></nav>
+<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}icons/">Icon library</a></nav>
 </div></header>
 <main class="container">
 <section class="hero">
 <img class="hero-art" src="${depth}assets/horde.webp" alt="">
 <img class="hero-logo" src="${depth}assets/forever.webp" alt="World of Warcraft: Forever" width="190" height="155">
-<div><h1>${title}</h1><p>${current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
+<div><h1>${title}</h1><p>${title === 'Icon library' ? 'Browse original artwork and your custom spell and equipment collections.' : current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
 </section>
 <nav class="class-picker" aria-label="Choose a class">${links}</nav>
 ${content}
@@ -89,7 +89,7 @@ function healbotPage(slug, content, depth) {
 </head>
 <body class="healbot-page" data-healer="${slug}">
 <header class="healbot-header">
-  <h1>Healbot</h1>
+  <div class="healbot-brand"><a class="healbot-home sigil" href="${depth}" aria-label="Main menu" title="Main menu"><span aria-hidden="true">∞</span></a><h1>Healbot</h1></div>
   <nav class="class-picker" aria-label="Healer class">${links}</nav>
 </header>
 <main>${content.replaceAll('="../', '="' + depth).replace('class="panel healing"', 'class="healing"').replace('  <h2>Healing practice</h2>', '')}</main>
@@ -116,3 +116,32 @@ for (const [name] of classes) {
   const content = slug === 'warrior' ? cleave : `<section class="panel"><h2>${name} calculators</h2><p>Coming soon.</p></section>`;
   fs.writeFileSync(path.join(directory, 'index.html'), page(`${name} Sims`, '../', slug, content));
 }
+
+// Read the existing reviewed catalogs; do not duplicate or remap game icons.
+const escapeHtml = text => String(text).replace(/[&<>"']/g, character =>
+  ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[character]));
+const originalIcons = fs.readdirSync(path.join(__dirname, 'public/healing/icons'))
+  .filter(name => /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(name)).sort()
+  .map(name => ({name, id:name, path:'icons/' + name, tags:[]}));
+const customCatalog = require('./public/healing/custom-icons/catalog.json');
+const iconSections = [
+  {id:'original', title:'Bundled original icons', icons:originalIcons, description:'The original World of Warcraft spell, ability, and item icons included with Healbot.'},
+  {id:'spells', title:'New spell, healing & mana icons', icons:customCatalog.icons.filter(icon => icon.category === 'spells'), description:'Your custom spell, healing, mana, and combat-effect artwork.', library:'../healing/custom-icons/'},
+  {id:'equipment', title:'New equipment icons', icons:customCatalog.icons.filter(icon => icon.category === 'equipment'), description:'Your custom weapons, armor, relics, and accessories.', library:'../healing/custom-icons/equipment/'}
+];
+let iconCount = 0;
+const iconGroups = iconSections.map(section => {
+  iconCount += section.icons.length;
+  const cards = section.icons.map(icon => {
+    const localPath = section.id === 'original' ? icon.path : 'custom-icons/' + icon.path;
+    const url = '../healing/' + localPath.split('/').map(encodeURIComponent).join('/');
+    const search = [icon.name, icon.id, icon.path, icon.set, icon.equipmentType, ...icon.tags].filter(Boolean).join(' ').toLowerCase();
+    return `<a class="icon-card" href="${url}" data-name="${escapeHtml(search)}"><img src="${url}" alt="" width="56" height="56" loading="lazy"><span>${escapeHtml(icon.name)}</span><small>${escapeHtml(icon.id)}</small></a>`;
+  }).join('\n');
+  const downloads = section.library ? `<p><a href="${section.library}">Browse sets, contact sheets &amp; downloads</a></p>` : '';
+  return `<section class="icon-section" id="${section.id}" aria-labelledby="${section.id}-title"><h2 id="${section.id}-title">${escapeHtml(section.title)}</h2><p>${section.description}</p>${downloads}<p data-section-count>${section.icons.length} icons</p><p data-section-empty hidden>No matching icons in this library.</p><div class="icon-grid">${cards}</div></section>`;
+}).join('\n');
+const iconTemplate = fs.readFileSync(path.join(__dirname, 'sims/icons.html'), 'utf8');
+fs.mkdirSync(path.join(output, 'icons'), {recursive:true});
+fs.writeFileSync(path.join(output, 'icons/index.html'), page('Icon library', '../', '',
+  iconTemplate.replace('<!-- ICONS -->', iconGroups).replaceAll('{{COUNT}}', String(iconCount))));
