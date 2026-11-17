@@ -580,3 +580,6 @@ body:has(#healing) { font-family:var(--ui); }
   .healbot-header { flex-wrap:wrap; }
   .healbot-header .class-picker { flex-basis:100%; width:100%; }
 }
+
+.game-tooltip-stat:not(.game-tooltip-reference) { margin-top:5px; }
+.game-tooltip-mana { color:#91c9f3; }

@@ -67,7 +67,8 @@ export function attachGameTooltip(button, render, {immediateLeave = false} = {})
     const descriptions = new Set((button.getAttribute('aria-describedby') ?? '').split(/\s+/).filter(Boolean));
     descriptions.add(tip.id);
     button.setAttribute('aria-describedby', [...descriptions].join(' '));
-    const position = tooltipPosition(button.getBoundingClientRect(), tip.offsetWidth, tip.offsetHeight, window.innerWidth, window.innerHeight);
+    const anchor = button.querySelector('.spell-art') ?? button;
+    const position = tooltipPosition(anchor.getBoundingClientRect(), tip.offsetWidth, tip.offsetHeight, window.innerWidth, window.innerHeight);
     tip.style.left = position.left + 'px';
     tip.style.top = position.top + 'px';
   };

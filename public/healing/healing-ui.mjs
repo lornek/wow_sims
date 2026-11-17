@@ -8,7 +8,7 @@ import {normalizeAdditionalStats} from './additional-stats.mjs';
 import {setBarNumbers} from './bar-numbers.mjs';
 import {healingEventRows} from './healing-events.mjs';
 import {resetHealingReport} from './report-reset.mjs';
-import {healingRange, swiftmendRange, periodicHealingPreview, periodicHealingScaling} from './healing-preview.mjs';
+import {healingRange, swiftmendRange, periodicHealingPreview, periodicHealingScaling, expectedHealingPerMana} from './healing-preview.mjs';
 import {manaReportSources, spiritContribution} from './mana-report.mjs';
 import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
 import {healingScore} from './healing-score.mjs';
@@ -855,6 +855,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         tooltipValue(tip, 'With ' + label, formatHealingRange(amounts), 'game-tooltip-good');
       }
       tooltipValue(tip, 'Crit chance', (100 * Math.min(1,profile.crit)).toFixed(1) + '%');
+      const hpm = swiftmendPreviews().map(([, amounts]) => (amounts[0] + amounts[1]) / 2 * (1 + (.5 + (profile.critHealingBonus ?? 0)) * Math.min(1, profile.crit)) / spell.cost);
+      tooltipValue(tip, 'Avg healing per mana', hpm.length && spell.cost > 0 ? [...new Set(hpm.map(n => n.toFixed(2)))].join(' / ') : '—', 'game-tooltip-mana');
       tooltipLine(tip, 'Uses your selected HoT ranks and full duration. Leaves the HoT active; if both are present, uses the one expiring first.', 'game-tooltip-description');
       return true;
     }
@@ -887,8 +889,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (spell.mark === 'vigil') tooltipLine(tip, 'Triggered by Holy Shock on the marked ally. Mark lasts 30 sec.');
     if (spell.chain > 1) tooltipLine(tip, spell.chain + ' targets · ' + Math.round(spell.falloff * 100) + '% healing retained per jump');
     if (spell.selfCopy) tooltipLine(tip, 'Also heals you for ' + Math.round(100 * spell.selfCopy) + '% when used on another ally.');
-    const crit = spell.period && !spell.periodicCrit ? 0 : Math.min(1, profile.crit + (spell.bonusCrit ?? 0));
+    const crit = spell.period && !spell.periodicCrit ? 0 : Math.min(1, profile.crit + (spell.bonusCrit ?? 0) + (spell.boundless ?? 0));
     tooltipValue(tip, key === 'regrowth' ? 'Direct and periodic crit' : 'Crit chance', (100 * crit).toFixed(1) + '%');
+    const efficiency = expectedHealingPerMana(spell, profile);
+    tooltipValue(tip, 'Avg healing per mana', efficiency.perMana === null ? '—' : efficiency.perMana.toFixed(2), 'game-tooltip-mana');
+    tooltipLine(tip, 'Full duration and all targets, before overhealing' + (spell.illumination ? '; includes average Illumination refund.' : '.'), 'game-tooltip-muted');
     if (!spell.period) tooltipValue(tip, 'Base healing', range(0), 'game-tooltip-reference');
     if (spell.period || spell.hot) {
       const basePeriodic = periodicHealingPreview({...baseSpell, multiplier:1,
