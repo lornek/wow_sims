@@ -668,7 +668,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   renderSoundToggle();
   const resetCharacterButton = find('[data-reset-character]');
   setGameTooltip(resetCharacterButton, 'Reset character', [
-    'Restore this healer’s default gear, talents, buffs, spell ranks, and Additional stats.',
+    'Restore this healer’s default gear, talents, buffs, and Additional stats.',
     'Keeps your boss, difficulty, and sound preference. Other healers are unchanged.'
   ]);
   resetCharacterButton.onclick = () => {
@@ -749,9 +749,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function updateSheet() {
     find('[data-loadout-label]').textContent = gear.value;
     const kit = gearEditor.kit;
-    const sources = [...new Set(Object.values(kit).map(item => item.source))];
-    find('[data-gear-source]').textContent = sources.includes('ForeverDB') ? 'ForeverDB level 60 PvE BiS · Includes selections from later raids and PvP' :
-      sources.length ? 'Item data · ' + sources.join(' / ') : '';
     const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
       spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor', health:'Health', mana:'Mana'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {

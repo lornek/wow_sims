@@ -604,3 +604,16 @@ body:has(#healing) { font-family:var(--ui); }
 .healing-breakdown .hit-average, .healing-breakdown .hit-overheal,
 .healing-score [data-meter] .meter-numbers { color:#8ddd98; }
 .healing-score [data-meter] .healing-event-bars .meter-numbers { color:var(--text); }
+
+.character-sheet > header { justify-content:space-between; text-align:left; flex-wrap:wrap; }
+.character-identity { display:flex; align-items:center; gap:12px; min-width:0; }
+.character-header-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-left:auto; max-width:100%; }
+.character-header-controls label { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin:0; min-width:0; }
+.character-header-controls select { max-width:min(250px,100%); min-width:0; }
+.healing .gear-icon-button { display:inline-flex; flex:none; align-items:center; justify-content:center; padding:6px; min-width:32px; min-height:32px; }
+.gear-icon-button svg { display:block; }
+@media(max-width:600px) {
+ .character-header-controls { margin-left:0; width:100%; }
+ .character-header-controls label { flex:1; }
+ .character-header-controls select { max-width:100%; width:100%; }
+}

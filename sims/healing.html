@@ -57,14 +57,15 @@
     <div data-mana-meter></div>
   </section>
   <p>Mana-per-five effects work throughout the pull. <span data-regen-talent>Mindfulness</span> keeps a portion of Spirit regeneration active inside the five-second rule.</p>
-<section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Healer settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
-    <button type="button" data-reset-character>Reset character</button>
-    <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
-    <p data-gear-source></p>
-  <section class="character-sheet" aria-labelledby="character-title">
-    <header><img data-character-icon alt="" width="44" height="44"><div>
-      <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · <span data-loadout-label>Ungeared</span></p>
-    </div></header>
+<section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Healer settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">  <section class="character-sheet" aria-labelledby="character-title">
+    <header>
+      <div class="character-identity"><img data-character-icon alt="" width="44" height="44"><div>
+        <h2 id="character-title">Dwarf Shaman</h2><p>Level 60 · <span data-loadout-label>Ungeared</span></p>
+      </div></div>
+      <div class="character-header-controls"><label>Gear preset <select data-loadout></select></label>
+        <button type="button" class="gear-icon-button" data-reset-character aria-label="Reset character" title="Reset character"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 9M3 4v6h6"/></svg></button>
+      </div>
+    </header>
     <div class="character-body">
       <div class="paper-doll" aria-label="Equipment">
         <div data-equipment="left"></div>

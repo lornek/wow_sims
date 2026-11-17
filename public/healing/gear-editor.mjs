@@ -1,3 +1,4 @@
+import {exportGearSet} from './gear-export.mjs';
 import {setEquipmentImage} from './gear-images.mjs';
 import {loadGearCatalog,canEquip,canEnchant,sanitizeEquipment,effectiveEquipment,equipItem,createGearHistory,gearStatText} from './equipment.mjs';
 export function mountGearEditor({container,slots,className,loadouts,select,onchange,isActive}) {
@@ -16,7 +17,19 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
   const save=button('Save set',()=>{const label=name.value.trim();if(!label){status.textContent='Enter a name for this set.';name.focus();return}sets[label]=JSON.parse(JSON.stringify(custom??loadouts[select.value]));history.set({kit:custom??loadouts[select.value],name:select.value,sets});changed();renderSets();saved.value=label;if(storageOkay)status.textContent='Saved '+label+' in this browser.'});
   const load=button('Load set',async()=>{if(!saved.value)return;try{await ready();if(destroyed||isActive())return;commit(sanitizeEquipment(sets[saved.value],className,catalog));status.textContent='Loaded '+saved.value;}catch(e){status.textContent=e.message}});
   const remove=button('Delete set',()=>{if(!saved.value)return;const label=saved.value;delete sets[label];history.set({kit:custom??loadouts[select.value],name:select.value,sets});changed();renderSets();status.replaceChildren(document.createTextNode('Deleted '+label+'. '),button('Undo deletion',()=>{undo.onclick();status.textContent='Restored '+label;}))});
-  toolbar.append(undo,name,save,saved,load,remove);container.append(toolbar,status);
+  const exportButton=button('',()=>{
+    if(restoring){status.textContent='Equipment is still loading. Try exporting again in a moment.';return}
+    const data=exportGearSet({className,name:name.value.trim() || saved.value,preset:select.value,
+      equipment:custom??loadouts[select.value]??{},spec:className==='priest'?(new URLSearchParams(location.search).get('spec')==='holy'?'holy':'discipline'):null});
+    const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'});
+    const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;
+    const filename=data.name.replace(/[^a-z0-9_-]+/gi,'-').replace(/^-|-$/g,'') || 'gear-set';
+    link.download=className+'-'+filename+'.json';document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='Exported '+data.name+'.';
+  });
+  exportButton.className='gear-icon-button';exportButton.setAttribute('aria-label','Export gear set');exportButton.title='Export current gear set';
+  exportButton.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></svg>';
+  toolbar.append(undo,name,save,exportButton,saved,load,remove);container.append(toolbar,status);
   const dialog=document.createElement('dialog');dialog.className='gear-dialog';dialog.setAttribute('aria-label','Choose gear and enchants');
   const heading=document.createElement('h2');const close=button('Close',()=>dialog.close());const search=document.createElement('input');search.type='search';search.placeholder='Search item name or ID';search.setAttribute('aria-label','Search items');
   const realm=document.createElement('select');for(const r of ['Forever','Season of Discovery'])realm.add(new Option(r,r));realm.setAttribute('aria-label','Item ruleset');
