@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: '24'
       - name: Build and test main
+        env:
+          GOOGLE_TAG_MANAGER_ID: GTM-TPQ8G2DJ
         run: |
           node --test tests/*.mjs
           node build.cjs
