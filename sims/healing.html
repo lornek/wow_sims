@@ -43,7 +43,7 @@
     <div class="heal-bar cast-bar player-cast"><span data-cast-fill></span><strong data-cast></strong></div>
     <div class="heal-spells" aria-label="Select a spell"></div>
   </div>
-  <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
+  <p class="heal-credit">Hover or tap a spell to view its details. Action-bar spells always use the highest learned rank.</p>
   <section class="heal-meter healing-score" aria-labelledby="score-title">
     <header class="score-heading" data-score-heading hidden><h2 id="score-title"><img data-purpose-icon="score" src="../healing/report-icons/healing.jpg" alt="" width="36" height="36"> Healing Score</h2><strong data-score-total></strong></header>
     <div class="score-formula" data-regen-result hidden></div>
@@ -82,14 +82,10 @@
   <label><img data-purpose-icon="intellect" src="../healing/icons/spell_holy_magicalsentry.jpg" alt="" width="28" height="28"><span>Additional Intellect</span><input type="number" min="0" max="5000" step="1" value="0" data-custom-stat="intellect"></label>
   <label><img data-purpose-icon="spirit" src="../healing/report-icons/spirit.jpg" alt="" width="28" height="28"><span>Additional Spirit</span><input type="number" min="0" max="5000" step="1" value="0" data-custom-stat="spirit"></label>
   <label><img data-purpose-icon="mp5" src="../healing/report-icons/mp5.jpg" alt="" width="28" height="28"><span>Additional Mana / 5</span><input type="number" min="0" max="5000" step="1" value="0" data-custom-stat="mp5"></label>
+  <label><img data-purpose-icon="crit-chance" src="../healing/icons/spell_holy_magicalsentry.jpg" alt="" width="28" height="28"><span>Additional crit %</span><input type="number" min="0" max="5000" step="0.1" value="0" data-custom-stat="crit"></label>
+  <label><img data-purpose-icon="haste" src="../healing/icons/spell_nature_bloodlust.jpg" alt="" width="28" height="28"><span>Additional haste %</span><input type="number" min="0" max="5000" step="0.1" value="0" data-custom-stat="haste"></label>
 </div><p>Additional stats are applied like gear, before buffs and talent multipliers.</p></section></section>
-  <dialog class="spell-inspector" aria-labelledby="inspect-title">
-    <header><h2 id="inspect-title"></h2><form method="dialog"><button aria-label="Close spell inspector">Close</button></form></header>
-    <div data-inspect-rank></div>
-    <div data-inspect-stats></div>
-    <div data-inspect-chain></div>
-    <p data-inspect-meter></p>
-  </dialog>
+
   <p class="heal-credit">Spell and base-stat inputs from <a href="https://github.com/wowsims/forever">WoWSims Forever</a> and the <a data-spellbook-source href="https://wowforevertalents.com/abilities/shaman/">Forever spellbook</a>.</p>
   <noscript>Enable JavaScript to run the healing practice.</noscript>
 </section>

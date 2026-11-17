@@ -32,3 +32,4 @@ Generated from `public/healing/custom-icons/icon-purposes.json` on every build. 
 | Strength | arcane-vitality-008 | custom-icons/arcane-vitality/008-sunlit-protective-hand.png |
 | Agility | arcane-vitality-005 | custom-icons/arcane-vitality/005-wings-of-light.png |
 | Spell critical chance | arcane-vitality-047 | custom-icons/arcane-vitality/047-radiant-spirit-star.png |
+| Spell haste | ability:spell_nature_bloodlust | icons/spell_nature_bloodlust.jpg |

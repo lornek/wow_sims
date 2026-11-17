@@ -55,6 +55,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
     spiritPerRawPoint: enabled.has('kings') ? 1.1 : 1,
     baseMana: naked.baseMana, health: (gear.health ?? 0) + 1280 + 10 * stamina,
     mana: (gear.mana ?? 0) + naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
+    haste: (gear.haste ?? 0) / 100,
     crit: (2.3 + intellect * spellCritPercentPerIntellect.shaman + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
     pushbackResist: [0, .23, .46, .70][points.pushback ?? 0],

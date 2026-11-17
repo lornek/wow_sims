@@ -814,7 +814,7 @@
     {
       "key": "crit-chance",
       "purpose": "Spell critical chance",
-      "where": "Character sheet Spell crit percentage.",
+      "where": "Character sheet Spell crit percentage. Also Additional crit % in Custom character attributes.",
       "status": "current",
       "note": "",
       "options": [
@@ -840,7 +840,37 @@
         "path": "custom-icons/arcane-vitality/047-radiant-spirit-star.png"
       },
       "implemented": true
+    },
+    {
+      "key": "haste",
+      "purpose": "Spell haste",
+      "where": "Additional haste % in Custom character attributes.",
+      "status": "current",
+      "note": "Cast-time speed only; GCD stays at least 1.5 seconds and periodic effects are unchanged.",
+      "options": [
+        {
+          "id": "mana-renewal-044",
+          "name": "Swirling water sphere",
+          "path": "custom-icons/mana-renewal/044-swirling-water-sphere.png"
+        },
+        {
+          "id": "arcane-vitality-027",
+          "name": "Turquoise water swirl",
+          "path": "custom-icons/arcane-vitality/027-turquoise-water-swirl.png"
+        },
+        {
+          "id": "arcane-vitality-039",
+          "name": "Swirling spirit current",
+          "path": "custom-icons/arcane-vitality/039-swirling-spirit-current.png"
+        }
+      ],
+      "current": {
+        "id": "ability:spell_nature_bloodlust",
+        "name": "Bloodlust",
+        "path": "icons/spell_nature_bloodlust.jpg"
+      },
+      "implemented": true
     }
   ],
-  "registryVersion": "f44289b34cde"
+  "registryVersion": "34195f64ba87"
 }

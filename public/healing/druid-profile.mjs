@@ -32,6 +32,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   return {...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
     spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),
     health: (gear.health ?? 0) + 1483 + 10 * stamina, baseMana: 1244, mana: (gear.mana ?? 0) + 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
+    haste: (gear.haste ?? 0) / 100,
     crit: (1.8 + intellect * spellCritPercentPerIntellect.druid + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][talents.Reflection ?? 0],
     regen: 6.25 + spirit / 8, gearPower, power: gearPower,
