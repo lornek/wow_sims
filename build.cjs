@@ -145,3 +145,6 @@ const iconTemplate = fs.readFileSync(path.join(__dirname, 'sims/icons.html'), 'u
 fs.mkdirSync(path.join(output, 'icons'), {recursive:true});
 fs.writeFileSync(path.join(output, 'icons/index.html'), page('Icon library', '../', '',
   iconTemplate.replace('<!-- ICONS -->', iconGroups).replaceAll('{{COUNT}}', String(iconCount))));
+
+// Pages opts in through its build environment; ordinary/Sites builds stay untagged.
+require('./scripts/google-tag-manager.cjs').installGoogleTagManager(output, process.env.GOOGLE_TAG_MANAGER_ID || '');
