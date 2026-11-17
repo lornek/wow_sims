@@ -39,7 +39,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     restoreMana(profile.mana * .02, 'Water Shield');
   }
 
-  function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key]) {
+  function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key], componentKey = null) {
     if (!unit.hp) return;
     const weakened = spell?.renewedHope && unit.weakened > state.time;
     const crit = canCrit && random() < profile.crit + bonusCrit + (weakened ? .02 * spell.renewedHope : 0);
@@ -57,9 +57,10 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     stats.effective += effective;
     stats.overheal += amount - effective;
     recordHealingEvent(stats, periodic || !!spell?.period, crit, effective, amount - effective);
-    if (key === 'regrowth' || key === 'chain') {
+    if (key === 'regrowth' || key === 'chain' || (key === 'flash' && spell?.selfCopy)) {
       const components = stats.components ??= {};
-      const part = key === 'regrowth' ? (periodic ? 'hot' : 'direct') : String(bounce);
+      const part = key === 'regrowth' ? (periodic ? 'hot' : 'direct') :
+        key === 'flash' ? (componentKey ?? 'direct') : String(bounce);
       const component = components[part] ??= {hits:0, crits:0, effective:0, overheal:0};
       component.hits++;
       component.crits += Number(crit);
@@ -202,7 +203,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       }
       const targets = directTargets(spell, unit, state.time);
       targets.forEach((target, i) => heal(spell.key, target.unit, raw * target.factor, true, targets[i - 1]?.unit, i, bonusCrit));
-      if (spell.selfCopy && unit !== party.at(-1)) heal(spell.key, party.at(-1), raw * spell.selfCopy, true, null, 0, bonusCrit);
+      if (spell.selfCopy && unit !== party.at(-1)) heal(spell.key, party.at(-1), raw * spell.selfCopy, true, null, 0, bonusCrit, false, spell, 'binding');
     }
   }
 
@@ -272,7 +273,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (spell.channel) state.cast = {spell, unit, end: state.time + spell.duration, duration: spell.duration, channel: true};
   }
 
-  function damage(unit, amount, physical = true) {
+  function damage(unit, amount, physical = true, procMending = true) {
     if (physical && unit.inspiration?.expires > state.time) {
       const armor = unit.role === 'Tank' ? 4500 : 1500;
       amount *= (5500 + armor) / (5500 + armor * (1 + profile.inspiration));
@@ -298,7 +299,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     }
     gainDamageRage(unit, Math.min(unit.hp, amount));
     unit.hp = Math.max(0, unit.hp - amount);
-    if (amount > 0) triggerMending(unit);
+    if (amount > 0 && procMending) triggerMending(unit);
     const cast = state.cast;
     if (amount > 0 && unit === party.at(-1) && cast && !cast.channel && cast.pushbacks < 2 &&
         random() >= (profile.pushbackResist ?? 0)) {
@@ -306,6 +307,19 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       cast.end += .5;
       cast.duration += .5;
     }
+    return amount;
+  }
+
+  // A simultaneous party pulse may trigger the aura's starting holder only.
+  // A newly jumped-to ally must wait for a later damage/healing event.
+  function damageParty(amount, physical = true) {
+    const mendingTarget = state.mending?.target ?? null;
+    let trigger = false;
+    for (const unit of party) if (unit.hp) {
+      const dealt = damage(unit, amount, physical, false);
+      if (unit === mendingTarget && dealt > 0) trigger = true;
+    }
+    if (trigger) triggerMending(mendingTarget);
   }
 
   function spiritRegenFraction(time) {
@@ -395,7 +409,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     }
     if (state.time >= state.nextFlurry) {
       state.nextFlurry += 9 / bossSpeed;
-      for (const unit of party) damage(unit, encounter.flurry);
+      damageParty(encounter.flurry);
       state.message = 'Blade Flurry hit the party!';
     }
     if (state.time >= state.nextSpecial && encounter.id === 'patchwerk') {
@@ -406,7 +420,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     }
     if (state.time >= state.nextSpecial && encounter.id === 'sapphiron') {
       state.nextSpecial += 2;
-      for (const unit of party) if (unit.hp) damage(unit, encounter.frost, false);
+      damageParty(encounter.frost, false);
     }
     if (encounter.id) advancePartyCombat(state, dt, random);
     else state.boss = Math.max(0, state.boss - party.reduce((sum, unit) => sum + (unit.hp ? unit.dps : 0), 0) * dt);

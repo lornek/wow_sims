@@ -854,7 +854,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       tooltipValue(tip, key === 'stream' ? 'Healing per tick' : 'Healing per tick (' + periodic.ticks + ' ticks)', ticks, 'game-tooltip-good');
     }
     if (spell.party) tooltipLine(tip, 'Heals all living party members.');
-    if (spell.mending) tooltipLine(tip, 'Triggers on damage, then jumps to another ally. Up to 5 heals; 30 sec duration.');
+    if (spell.mending) tooltipLine(tip, 'Triggers on damage or non-periodic healing, then jumps to another ally. Up to 5 heals; 30 sec after each jump.');
     if (spell.mark === 'vigil') tooltipLine(tip, 'Triggered by Holy Shock on the marked ally. Mark lasts 30 sec.');
     if (spell.chain > 1) tooltipLine(tip, spell.chain + ' targets · ' + Math.round(spell.falloff * 100) + '% healing retained per jump');
     if (spell.selfCopy) tooltipLine(tip, 'Also heals you for ' + Math.round(100 * spell.selfCopy) + '% when used on another ally.');
@@ -1082,7 +1082,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   function renderMeters(state) {
     const ended = ['won', 'lost'].includes(state.phase);
-    find('[data-detailed-split-label]').hidden = !ended || !['druid', 'shaman'].includes(className);
+    const supportsSplit = ['druid', 'shaman'].includes(className) ||
+      (className === 'priest' && !!currentSpells.flash?.selfCopy);
+    find('[data-detailed-split-label]').hidden = !ended || !supportsSplit;
     const entries = healingMeterEntries(state.meters, ended && !find('[data-detailed-split-label]').hidden && splitToggle.checked);
     const displayedKeys = new Set(entries.map(entry => entry.key));
     for (const [key, {row}] of meterRows) if (!displayedKeys.has(key)) row.hidden = true;

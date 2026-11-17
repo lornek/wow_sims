@@ -27,7 +27,8 @@ export function healingEventRows(stats) {
 // Keep aggregate meters canonical; report views never change fight totals or mana.
 export function healingMeterEntries(meters, detailedSplit = false) {
   const parts = {regrowth: [['direct', 'direct'], ['hot', 'heal over time']],
-    chain: [['0', 'direct'], ['1', 'bounce 1'], ['2', 'bounce 2']]};
+    chain: [['0', 'direct'], ['1', 'bounce 1'], ['2', 'bounce 2']],
+    flash: [['direct', 'direct'], ['binding', 'holy binding']]};
   return Object.entries(meters).flatMap(([key, stats]) => {
     if (!detailedSplit || !parts[key] || !stats.components) return [{key, baseKey:key, stats, spellStats:stats}];
     return parts[key].flatMap(([part, label]) => {
