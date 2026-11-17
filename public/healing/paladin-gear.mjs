@@ -722,69 +722,80 @@ export const loadouts = {
   },
   "Tier 1 raid": {
     "Head": {
-      "id": 252561,
-      "name": "Living Crown",
+      "id": 228285,
+      "name": "Helm of the Lifegiver",
+      "icon": "inv_helmet_18",
       "type": 1,
-      "armorType": 2,
-      "reqLvl": 56,
+      "armorType": 3,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
       "quality": 4,
-      "phase": 1,
-      "key": "Forever:252561",
-      "source": "Forever",
-      "ilvl": 61,
+      "phase": 4,
+      "key": "Season of Discovery:228285",
+      "source": "Season of Discovery",
+      "ilvl": 66,
       "twoHand": false,
       "stats": {
-        "intellect": 18,
-        "power": 73,
-        "spellDamage": 25,
-        "spirit": 14,
-        "armor": 152
+        "stamina": 16,
+        "intellect": 35,
+        "spirit": 15,
+        "armor": 343,
+        "power": 44
       },
       "effects": false,
-      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300."
+      "enchantId": "1509:15403",
+      "acquisition": "Molten Core",
+      "acquisitionTier": 1
     },
     "Neck": {
-      "id": 21712,
-      "name": "Amulet of the Fallen God",
-      "icon": "inv_jewelry_necklace_ahnqiraj_02",
+      "id": 228137,
+      "name": "Heart of Golemagg",
+      "icon": "inv_jewelry_necklace_05",
       "type": 2,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 2,
-      "key": "Forever:21712",
-      "source": "Forever",
-      "ilvl": 88,
+      "phase": 4,
+      "key": "Season of Discovery:228137",
+      "source": "Season of Discovery",
+      "ilvl": 71,
       "twoHand": false,
       "stats": {
-        "stamina": 11,
-        "power": 57,
-        "mp5": 6
+        "stamina": 9,
+        "intellect": 12,
+        "spirit": 11,
+        "power": 37
       },
       "effects": false,
-      "acquisition": "Quest reward: The Savior of Kalimdor (a choice), level 60 (Classic data)."
+      "acquisition": "Molten Core",
+      "acquisitionTier": 1
     },
     "Shoulders": {
-      "id": 271957,
-      "name": "Theramore Mantle",
-      "icon": "inv_shoulder_25",
+      "id": 227859,
+      "name": "Shimmering Dawnbringer Shoulders",
+      "icon": "inv_shoulder_20",
       "type": 3,
       "armorType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 1,
-      "key": "Forever:271957",
-      "source": "Forever",
+      "phase": 4,
+      "key": "Season of Discovery:227859",
+      "source": "Season of Discovery",
       "ilvl": 65,
       "twoHand": false,
       "stats": {
-        "stamina": 24,
-        "power": 37,
-        "spellDamage": 12,
+        "intellect": 10,
         "crit": 1,
-        "armor": 553
+        "armor": 553,
+        "power": 59
       },
       "effects": false,
-      "acquisition": "Needs Exalted with Theramore Expeditionary Force (Forever client: who sells it isn't known yet)."
+      "acquisition": "Argent Dawn reputation",
+      "acquisitionTier": 1
     },
     "Back": {
       "id": 18510,
@@ -807,77 +818,96 @@ export const loadouts = {
         "armor": 48
       },
       "effects": false,
-      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300."
+      "enchantId": "1889:20015",
+      "acquisition": "Pattern from Knot Thimblejack, Dire Maul",
+      "acquisitionTier": 1
     },
     "Chest": {
-      "id": 10020,
-      "name": "Stormcloth Vest",
-      "icon": "inv_chest_cloth_08",
+      "id": 226610,
+      "name": "Lawbringer Chestplate",
+      "icon": "inv_chest_plate03",
       "type": 5,
-      "armorType": 1,
-      "reqLvl": 40,
-      "quality": 2,
-      "phase": 1,
-      "key": "Forever:10020",
-      "source": "Forever",
-      "ilvl": 45,
+      "armorType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        2
+      ],
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 4,
+      "key": "Season of Discovery:226610",
+      "source": "Season of Discovery",
+      "ilvl": 66,
       "twoHand": false,
       "stats": {
-        "stamina": 8,
-        "power": 58,
-        "spellDamage": 10,
-        "spirit": 8,
-        "armor": 59
+        "stamina": 17,
+        "intellect": 18,
+        "crit": 1,
+        "armor": 749,
+        "power": 57
       },
       "effects": true,
-      "acquisition": "Crafted: Tailoring 190 (Forever client). Learn it at skill 190."
+      "enchantId": "1893:19991",
+      "acquisition": "Molten Core vendor",
+      "acquisitionTier": 1
     },
     "Wrists": {
-      "id": 13969,
-      "name": "Loomguard Armbraces",
-      "icon": "inv_bracer_16",
+      "id": 226589,
+      "name": "Lawbringer Bracers",
+      "icon": "inv_bracer_18",
       "type": 6,
-      "armorType": 3,
-      "reqLvl": 56,
-      "quality": 3,
-      "phase": 1,
-      "key": "Forever:13969",
-      "source": "Forever",
-      "ilvl": 61,
-      "twoHand": false,
-      "stats": {
-        "stamina": 6,
-        "intellect": 7,
-        "power": 29,
-        "spellDamage": 10,
-        "armor": 157,
-        "mp5": 3
-      },
-      "effects": false,
-      "acquisition": "Drops from Kirtonos in Scholomance, 11% (Classic data)."
-    },
-    "Hands": {
-      "id": 18409,
-      "name": "Mooncloth Gloves",
-      "icon": "inv_gauntlets_17",
-      "type": 7,
-      "armorType": 1,
-      "reqLvl": 57,
-      "quality": 3,
-      "phase": 1,
-      "key": "Forever:18409",
-      "source": "Forever",
-      "ilvl": 62,
+      "armorType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        2
+      ],
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 4,
+      "key": "Season of Discovery:226589",
+      "source": "Season of Discovery",
+      "ilvl": 66,
       "twoHand": false,
       "stats": {
         "stamina": 9,
-        "intellect": 16,
-        "power": 33,
-        "spellDamage": 11,
-        "armor": 55
+        "intellect": 11,
+        "crit": 1,
+        "armor": 328,
+        "power": 22
       },
-      "effects": false,
-      "acquisition": "Crafted: Tailoring 280 (Forever client). Learn it at skill 280."
+      "effects": true,
+      "enchantId": "1901:19987",
+      "acquisition": "Molten Core vendor",
+      "acquisitionTier": 1
+    },
+    "Hands": {
+      "id": 226591,
+      "name": "Lawbringer Gauntlets",
+      "icon": "inv_gauntlets_29",
+      "type": 7,
+      "armorType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        2
+      ],
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 4,
+      "key": "Season of Discovery:226591",
+      "source": "Season of Discovery",
+      "ilvl": 66,
+      "twoHand": false,
+      "stats": {
+        "stamina": 12,
+        "intellect": 15,
+        "crit": 1,
+        "armor": 468,
+        "power": 37
+      },
+      "effects": true,
+      "enchantId": "8490:19057",
+      "acquisition": "Molten Core vendor",
+      "acquisitionTier": 1
     },
     "Waist": {
       "id": 19162,
@@ -899,51 +929,66 @@ export const loadouts = {
         "armor": 118
       },
       "effects": false,
-      "acquisition": "Crafted: Leatherworking 300 (Forever client). Learn it at skill 300."
+      "acquisition": "Thorium Brotherhood pattern; Molten Core materials",
+      "acquisitionTier": 1
     },
     "Legs": {
-      "id": 250600,
-      "name": "Martyr's Legplates",
+      "id": 226594,
+      "name": "Lawbringer Legplates",
+      "icon": "inv_pants_04",
       "type": 9,
       "armorType": 4,
-      "reqLvl": 56,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        2
+      ],
+      "reqLvl": 60,
       "quality": 4,
-      "phase": 1,
-      "key": "Forever:250600",
-      "source": "Forever",
-      "ilvl": 61,
+      "phase": 4,
+      "key": "Season of Discovery:226594",
+      "source": "Season of Discovery",
+      "ilvl": 66,
       "twoHand": false,
       "stats": {
-        "intellect": 14,
-        "power": 73,
-        "spellDamage": 25,
-        "spirit": 18,
-        "armor": 608
+        "stamina": 21,
+        "intellect": 19,
+        "crit": 1,
+        "armor": 655,
+        "power": 48
       },
-      "effects": false,
-      "acquisition": "Crafted: Blacksmithing 300 (Forever client). Learn it at skill 300."
+      "effects": true,
+      "enchantId": "1509:15403",
+      "acquisition": "Molten Core vendor",
+      "acquisitionTier": 1
     },
     "Feet": {
-      "id": 13954,
-      "name": "Verdant Footpads",
-      "icon": "inv_boots_08",
+      "id": 226593,
+      "name": "Lawbringer Boots",
+      "icon": "inv_boots_plate_09",
       "type": 10,
-      "armorType": 2,
-      "reqLvl": 57,
-      "quality": 3,
-      "phase": 1,
-      "key": "Forever:13954",
-      "source": "Forever",
-      "ilvl": 62,
+      "armorType": 4,
+      "rangedWeaponType": 0,
+      "classAllowlist": [
+        2
+      ],
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 4,
+      "key": "Season of Discovery:226593",
+      "source": "Season of Discovery",
+      "ilvl": 66,
       "twoHand": false,
       "stats": {
-        "power": 38,
-        "spellDamage": 12,
-        "armor": 120,
-        "mp5": 5
+        "stamina": 13,
+        "intellect": 15,
+        "crit": 1,
+        "armor": 515,
+        "power": 37
       },
-      "effects": false,
-      "acquisition": "Drops from Stonespine in Stratholme, 33% (Classic data)."
+      "effects": true,
+      "enchantId": "851:13368",
+      "acquisition": "Molten Core vendor",
+      "acquisitionTier": 1
     },
     "Finger 1": {
       "id": 19140,
@@ -964,96 +1009,119 @@ export const loadouts = {
         "spellDamage": 15
       },
       "effects": false,
-      "acquisition": "Drops from Flamewaker Elite, 0.46% (Classic data)."
+      "acquisition": "Molten Core · Majordomo Executus",
+      "acquisitionTier": 1
     },
     "Finger 2": {
-      "id": 21210,
-      "name": "Signet Ring of the Bronze Dragonflight",
-      "icon": "inv_jewelry_ring_40",
+      "id": 19140,
+      "name": "Cauterizing Band",
+      "icon": "inv_jewelry_ring_39",
       "type": 11,
-      "unique": true,
       "reqLvl": 60,
       "quality": 4,
       "phase": 2,
-      "key": "Forever:21210",
+      "key": "Forever:19140",
       "source": "Forever",
-      "ilvl": 80,
+      "ilvl": 71,
       "twoHand": false,
       "stats": {
-        "stamina": 8,
-        "intellect": 9,
-        "power": 28,
-        "spellDamage": 28,
-        "mp5": 5
+        "stamina": 9,
+        "intellect": 12,
+        "power": 46,
+        "spellDamage": 15
       },
       "effects": false,
-      "acquisition": "Quest reward: The Grand Invoker, level 60 (Classic data)."
+      "acquisition": "Molten Core · Majordomo Executus",
+      "acquisitionTier": 1
     },
     "Trinket 1": {
-      "id": 18472,
-      "name": "Royal Seal of Eldre'Thalas",
-      "icon": "inv_jewelry_talisman_10",
+      "id": 228298,
+      "name": "Shard of the Scale",
+      "icon": "inv_misc_monsterscales_15",
       "type": 12,
-      "classAllowlist": [
-        2
-      ],
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
       "unique": true,
-      "quality": 3,
-      "phase": 1,
-      "key": "Forever:18472",
-      "source": "Forever",
-      "ilvl": 62,
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 4,
+      "key": "Season of Discovery:228298",
+      "source": "Season of Discovery",
+      "ilvl": 77,
       "twoHand": false,
       "stats": {
-        "power": 22,
-        "spellDamage": 7
+        "mp5": 16
       },
-      "effects": false,
-      "acquisition": "Quest reward: The Light and How To Swing It, level 60 (Classic data)."
+      "effects": true,
+      "acquisition": "Onyxia's Lair · Onyxia",
+      "acquisitionTier": 1
     },
     "Trinket 2": {
-      "id": 272439,
-      "name": "Serenity Field",
-      "icon": "inv_misc_enggizmos_36",
+      "id": 18371,
+      "name": "Mindtap Talisman",
+      "icon": "inv_battery_02",
       "type": 12,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 56,
+      "quality": 3,
+      "phase": 1,
+      "key": "Season of Discovery:18371",
+      "source": "Season of Discovery",
+      "ilvl": 61,
+      "twoHand": false,
+      "stats": {
+        "mp5": 11
+      },
+      "effects": false,
+      "acquisition": "Dire Maul · Magister Kalendris",
+      "acquisitionTier": 1
+    },
+    "Relic": {
+      "id": 23201,
+      "name": "Libram of Divinity",
+      "icon": "inv_relics_libramofhope",
+      "type": 14,
+      "rangedWeaponType": 7,
       "reqLvl": 60,
       "quality": 3,
       "phase": 1,
-      "key": "Forever:272439",
+      "key": "Forever:23201",
       "source": "Forever",
       "ilvl": 65,
       "twoHand": false,
-      "stats": {
-        "power": 21,
-        "spellDamage": 7
-      },
+      "stats": {},
       "effects": true,
-      "acquisition": "Sold by Pix Xizzix in Stranglethorn Vale (28.5, 75.8) (Seen in Forever)."
+      "acquisition": "Scholomance · Instructor Malicia",
+      "acquisitionTier": 1
     },
     "Main hand": {
-      "id": 2816,
-      "name": "Death Speaker Scepter",
-      "icon": "inv_mace_07",
+      "id": 11923,
+      "name": "The Hammer of Grace",
+      "icon": "inv_hammer_07",
       "type": 13,
       "weaponType": 4,
       "handType": 1,
-      "reqLvl": 28,
+      "reqLvl": 52,
       "quality": 3,
       "phase": 1,
-      "key": "Forever:2816",
+      "key": "Forever:11923",
       "source": "Forever",
-      "ilvl": 33,
+      "ilvl": 57,
       "twoHand": false,
       "stats": {
-        "power": 68
+        "power": 124,
+        "spellDamage": 41
       },
-      "effects": false,
-      "acquisition": "Drops from Death Speaker Jargba in Razorfen Kraul, 20% (Classic data)."
+      "effects": true,
+      "enchantId": "2568:23798",
+      "acquisition": "Blackrock Depths · Dark Coffer",
+      "acquisitionTier": 1
     },
     "Off hand": {
-      "id": 235473,
-      "name": "Grand Marshal's Barricade",
-      "icon": "inv_shield_05",
+      "id": 228294,
+      "name": "Malistar's Defender",
+      "icon": "inv_shield_08",
       "type": 13,
       "weaponType": 7,
       "handType": 3,
@@ -1061,30 +1129,22 @@ export const loadouts = {
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 6,
-      "key": "Season of Discovery:235473",
+      "phase": 4,
+      "key": "Season of Discovery:228294",
       "source": "Season of Discovery",
-      "ilvl": 80,
+      "ilvl": 77,
       "twoHand": false,
       "stats": {
-        "stamina": 26,
-        "intellect": 10,
-        "power": 44,
-        "armor": 3000,
-        "spellDamage": 24
+        "stamina": 9,
+        "intellect": 12,
+        "mp5": 5,
+        "armor": 2893,
+        "power": 42
       },
       "effects": false,
-      "verification": {
-        "url": "https://www.wowhead.com/classic/item=235473",
-        "repository": "https://github.com/wowsims/sod",
-        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
-        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
-        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
-        "passiveBonuses": [
-          "Increases healing done by up to 44 and damage done by up to 24 for all magical spells and effects. "
-        ]
-      },
-      "acquisition": "Where it comes from isn't known yet: the Companion and Helper addons record it when players get one."
+      "enchantId": "1890:19986",
+      "acquisition": "Molten Core",
+      "acquisitionTier": 1
     }
   },
   "Tier 2 raid": {
@@ -1124,7 +1184,9 @@ export const loadouts = {
           "Increases healing done by up to 62 and damage done by up to 21 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
         ]
       },
-      "acquisition": "Merciful Judgement"
+      "enchantId": "1483:15345",
+      "acquisition": "Blackwing Lair vendor",
+      "acquisitionTier": 2
     },
     "Neck": {
       "id": 230245,
@@ -1158,7 +1220,8 @@ export const loadouts = {
           "Increases healing done by up to 37 and damage done by up to 13 for all magical spells and effects. "
         ]
       },
-      "acquisition": "Blackwing Lair"
+      "acquisition": "Blackwing Lair · Vaelastrasz the Corrupt",
+      "acquisitionTier": 2
     },
     "Shoulders": {
       "id": 231192,
@@ -1196,30 +1259,45 @@ export const loadouts = {
           "Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
         ]
       },
-      "acquisition": "Merciful Judgement"
+      "acquisition": "Blackwing Lair vendor",
+      "acquisitionTier": 2
     },
     "Back": {
-      "id": 230804,
-      "name": "Cloak of the Brood Lord",
-      "icon": "inv_misc_cape_20",
+      "id": 230733,
+      "name": "Shroud of Pure Thought",
+      "icon": "inv_misc_cape_16",
       "type": 4,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 5,
-      "key": "Season of Discovery:230804",
+      "key": "Season of Discovery:230733",
       "source": "Season of Discovery",
-      "ilvl": 83,
+      "ilvl": 75,
       "twoHand": false,
       "stats": {
         "stamina": 10,
-        "intellect": 13,
-        "power": 30,
-        "armor": 63
+        "intellect": 10,
+        "power": 35,
+        "crit": 1,
+        "armor": 57,
+        "spellDamage": 12
       },
       "effects": false,
-      "acquisition": "Blackwing Lair"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230733",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 35 and damage done by up to 12 for all magical spells and effects. "
+        ]
+      },
+      "enchantId": "1889:20015",
+      "acquisition": "Blackwing Lair · Flamegor",
+      "acquisitionTier": 2
     },
     "Chest": {
       "id": 231197,
@@ -1257,7 +1335,9 @@ export const loadouts = {
           "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
         ]
       },
-      "acquisition": "Merciful Judgement"
+      "enchantId": "1893:19991",
+      "acquisition": "Blackwing Lair vendor",
+      "acquisitionTier": 2
     },
     "Wrists": {
       "id": 231190,
@@ -1295,7 +1375,9 @@ export const loadouts = {
           "Increases healing done by up to 26 and damage done by up to 9 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increase"
         ]
       },
-      "acquisition": "Merciful Judgement"
+      "enchantId": "1901:19987",
+      "acquisition": "Blackwing Lair vendor",
+      "acquisitionTier": 2
     },
     "Hands": {
       "id": 231195,
@@ -1333,126 +1415,115 @@ export const loadouts = {
           "Increases healing done by up to 40 and damage done by up to 14 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
         ]
       },
-      "acquisition": "Merciful Judgement"
+      "enchantId": "8490:19057",
+      "acquisition": "Blackwing Lair vendor",
+      "acquisitionTier": 2
     },
     "Waist": {
-      "id": 231191,
-      "name": "Judgement Girdle",
-      "icon": "inv_belt_27",
+      "id": 19162,
+      "name": "Corehound Belt",
+      "icon": "inv_belt_24",
       "type": 8,
-      "armorType": 4,
+      "armorType": 2,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 5,
-      "key": "Season of Discovery:231191",
+      "phase": 1,
+      "key": "Season of Discovery:19162",
       "source": "Season of Discovery",
-      "ilvl": 76,
+      "ilvl": 70,
       "twoHand": false,
       "stats": {
-        "stamina": 14,
-        "intellect": 14,
-        "power": 42,
-        "crit": 1,
-        "armor": 482,
-        "spellDamage": 14
+        "intellect": 16,
+        "armor": 118,
+        "power": 62
       },
-      "effects": true,
-      "verification": {
-        "url": "https://www.wowhead.com/classic/item=231191",
-        "repository": "https://github.com/wowsims/sod",
-        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
-        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
-        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
-        "passiveBonuses": [
-          "Increases healing done by up to 42 and damage done by up to 14 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
-        ]
-      },
-      "acquisition": "Merciful Judgement"
+      "effects": false,
+      "acquisition": "Thorium Brotherhood pattern; Molten Core materials",
+      "acquisitionTier": 1
     },
     "Legs": {
-      "id": 231193,
-      "name": "Judgement Plate Skirt",
-      "icon": "inv_pants_04",
+      "id": 230746,
+      "name": "Empowered Leggings",
+      "icon": "inv_pants_cloth_19",
       "type": 9,
-      "armorType": 4,
+      "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 5,
-      "key": "Season of Discovery:231193",
+      "key": "Season of Discovery:230746",
       "source": "Season of Discovery",
-      "ilvl": 76,
+      "ilvl": 77,
       "twoHand": false,
       "stats": {
-        "stamina": 14,
-        "intellect": 18,
-        "power": 51,
-        "crit": 2,
-        "armor": 749,
-        "spellDamage": 17
+        "stamina": 12,
+        "intellect": 12,
+        "spirit": 24,
+        "power": 77,
+        "crit": 1,
+        "armor": 103,
+        "spellDamage": 26
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=231193",
+        "url": "https://www.wowhead.com/classic/item=230746",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 51 and damage done by up to 17 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+          "Increases healing done by up to 77 and damage done by up to 26 for all magical spells and effects. "
         ]
       },
-      "acquisition": "Merciful Judgement"
+      "enchantId": "1483:15345",
+      "acquisition": "Blackwing Lair · Chromaggus",
+      "acquisitionTier": 2
     },
     "Feet": {
-      "id": 231196,
-      "name": "Judgement Treads",
-      "icon": "inv_boots_plate_09",
+      "id": 230743,
+      "name": "Shimmering Geta",
+      "icon": "inv_boots_cloth_01",
       "type": 10,
-      "armorType": 4,
+      "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 5,
-      "key": "Season of Discovery:231196",
+      "key": "Season of Discovery:230743",
       "source": "Season of Discovery",
-      "ilvl": 76,
+      "ilvl": 77,
       "twoHand": false,
       "stats": {
-        "stamina": 13,
-        "intellect": 16,
-        "power": 44,
-        "crit": 1,
-        "armor": 589,
-        "spellDamage": 15
+        "stamina": 12,
+        "intellect": 17,
+        "power": 64,
+        "mp5": 6,
+        "armor": 81,
+        "spellDamage": 22
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=231196",
+        "url": "https://www.wowhead.com/classic/item=230743",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 44 and damage done by up to 15 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increas"
+          "Increases healing done by up to 64 and damage done by up to 22 for all magical spells and effects. "
         ]
       },
-      "acquisition": "Merciful Judgement"
+      "enchantId": "851:13368",
+      "acquisition": "Blackwing Lair",
+      "acquisitionTier": 2
     },
     "Finger 1": {
-      "id": 230257,
-      "name": "Ring of Blackrock",
-      "icon": "inv_jewelry_ring_43",
+      "id": 230811,
+      "name": "Pure Elementium Band",
+      "icon": "inv_jewelry_ring_42",
       "type": 11,
       "rangedWeaponType": 0,
       "classAllowlist": [],
@@ -1460,40 +1531,54 @@ export const loadouts = {
       "reqLvl": 60,
       "quality": 4,
       "phase": 5,
-      "key": "Season of Discovery:230257",
+      "key": "Season of Discovery:230811",
       "source": "Season of Discovery",
-      "ilvl": 75,
+      "ilvl": 83,
       "twoHand": false,
       "stats": {
-        "intellect": 12,
+        "stamina": 9,
+        "intellect": 11,
         "spirit": 11,
-        "power": 26
+        "power": 53,
+        "spellDamage": 18
       },
       "effects": false,
-      "acquisition": "Blackwing Lair"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230811",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects. \"Flawless. Indestructible. You cannot comprehend the craftsmanship involved with the creation of this ring.\""
+        ]
+      },
+      "acquisition": "Blackwing Lair · Nefarian",
+      "acquisitionTier": 2
     },
     "Finger 2": {
-      "id": 230281,
-      "name": "Band of Forced Concentration",
-      "icon": "inv_jewelry_ring_34",
+      "id": 228274,
+      "name": "Cauterizing Band",
+      "icon": "inv_jewelry_ring_39",
       "type": 11,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "unique": true,
       "reqLvl": 60,
       "quality": 4,
-      "phase": 5,
-      "key": "Season of Discovery:230281",
+      "phase": 4,
+      "key": "Season of Discovery:228274",
       "source": "Season of Discovery",
-      "ilvl": 75,
+      "ilvl": 71,
       "twoHand": false,
       "stats": {
-        "stamina": 8,
+        "stamina": 9,
         "intellect": 12,
-        "power": 23
+        "power": 46
       },
       "effects": false,
-      "acquisition": "Blackwing Lair"
+      "acquisition": "Molten Core",
+      "acquisitionTier": 1
     },
     "Trinket 1": {
       "id": 230269,
@@ -1526,7 +1611,48 @@ export const loadouts = {
           "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. "
         ]
       },
-      "acquisition": "Blackwing Lair"
+      "acquisition": "Blackwing Lair",
+      "acquisitionTier": 2
+    },
+    "Trinket 2": {
+      "id": 228298,
+      "name": "Shard of the Scale",
+      "icon": "inv_misc_monsterscales_15",
+      "type": 12,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 4,
+      "key": "Season of Discovery:228298",
+      "source": "Season of Discovery",
+      "ilvl": 77,
+      "twoHand": false,
+      "stats": {
+        "mp5": 16
+      },
+      "effects": true,
+      "acquisition": "Onyxia's Lair · Onyxia",
+      "acquisitionTier": 1
+    },
+    "Relic": {
+      "id": 23201,
+      "name": "Libram of Divinity",
+      "icon": "inv_relics_libramofhope",
+      "type": 14,
+      "rangedWeaponType": 7,
+      "reqLvl": 60,
+      "quality": 3,
+      "phase": 1,
+      "key": "Forever:23201",
+      "source": "Forever",
+      "ilvl": 65,
+      "twoHand": false,
+      "stats": {},
+      "effects": true,
+      "acquisition": "Scholomance · Instructor Malicia",
+      "acquisitionTier": 1
     },
     "Main hand": {
       "id": 230838,
@@ -1551,12 +1677,15 @@ export const loadouts = {
         "spirit": 8,
         "power": 86
       },
-      "effects": false
+      "effects": false,
+      "enchantId": "2568:23798",
+      "acquisition": "Blackwing Lair · Nefarian",
+      "acquisitionTier": 2
     },
     "Off hand": {
-      "id": 228294,
-      "name": "Malistar's Defender",
-      "icon": "inv_shield_08",
+      "id": 230248,
+      "name": "Red Dragonscale Protector",
+      "icon": "inv_shield_20",
       "type": 13,
       "weaponType": 7,
       "handType": 3,
@@ -1564,26 +1693,41 @@ export const loadouts = {
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 4,
-      "key": "Season of Discovery:228294",
+      "phase": 5,
+      "key": "Season of Discovery:230248",
       "source": "Season of Discovery",
-      "ilvl": 77,
+      "ilvl": 74,
       "twoHand": false,
       "stats": {
-        "stamina": 9,
-        "intellect": 12,
-        "mp5": 5,
-        "armor": 2893,
-        "power": 42
+        "stamina": 6,
+        "intellect": 10,
+        "spirit": 5,
+        "power": 40,
+        "crit": 1,
+        "armor": 2787,
+        "spellDamage": 14
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230248",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 40 and damage done by up to 14 for all magical spells and effects."
+        ]
+      },
+      "enchantId": "1890:19986",
+      "acquisition": "Blackwing Lair · Vaelastrasz the Corrupt",
+      "acquisitionTier": 2
     }
   },
   "Tier 3 raid": {
     "Head": {
-      "id": 236117,
-      "name": "Redemption Headpiece",
-      "icon": "inv_helmet_15",
+      "id": 233687,
+      "name": "Avenger's Helm",
+      "icon": "inv_helmet_72",
       "type": 1,
       "armorType": 4,
       "rangedWeaponType": 0,
@@ -1592,71 +1736,72 @@ export const loadouts = {
       ],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 7,
-      "key": "Season of Discovery:236117",
+      "phase": 6,
+      "key": "Season of Discovery:233687",
       "source": "Season of Discovery",
-      "ilvl": 88,
+      "ilvl": 81,
       "twoHand": false,
       "stats": {
-        "stamina": 14,
-        "intellect": 14,
-        "power": 81,
-        "crit": 2,
-        "armor": 800,
-        "spellDamage": 27,
-        "haste": 2
+        "stamina": 19,
+        "intellect": 28,
+        "power": 79,
+        "crit": 1,
+        "armor": 739,
+        "spellDamage": 27
       },
       "effects": true,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236117",
+        "url": "https://www.wowhead.com/classic/item=233687",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 81 and damage done by up to 27 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+          "Increases healing done by up to 79 and damage done by up to 27 for all magical spells and effects. Avenger's Mercy (0/5) Avenger's Helm Avenger's Mantle Avenger's Cuirass Avenger's Plate Pants Avenger's Treads (2) Set : Reduces the cooldown on Divine Light by 25%. (4) Set : Your heals on your Beacon of Light target also heal the nearest friendly in"
         ]
       },
-      "acquisition": "Redemption Armor"
+      "enchantId": "1483:15345",
+      "acquisition": "Ahn'Qiraj vendor",
+      "acquisitionTier": 3
     },
     "Neck": {
-      "id": 236261,
-      "name": "Malice Stone Pendant",
-      "icon": "inv_jewelry_necklace_29naxxramas",
+      "id": 236266,
+      "name": "Pendant of Forgotten Names",
+      "icon": "inv_jewelry_necklace_28naxxramas",
       "type": 2,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 7,
-      "key": "Season of Discovery:236261",
+      "key": "Season of Discovery:236266",
       "source": "Season of Discovery",
-      "ilvl": 83,
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "stamina": 10,
         "intellect": 14,
-        "power": 27,
-        "spellDamage": 27,
-        "haste": 1
+        "spirit": 13,
+        "power": 53,
+        "spellDamage": 18
       },
       "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236261",
+        "url": "https://www.wowhead.com/classic/item=236266",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases damage and healing done by magical spells and effects by up to 27."
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects."
         ]
       },
-      "acquisition": "Naxxramas"
+      "acquisition": "Naxxramas · Maexxna",
+      "acquisitionTier": 3
     },
     "Shoulders": {
-      "id": 236122,
-      "name": "Redemption Spaulders",
-      "icon": "inv_shoulder_14",
+      "id": 236228,
+      "name": "Spaulders of the Grand Crusader",
+      "icon": "inv_shoulder_22",
       "type": 3,
       "armorType": 4,
       "rangedWeaponType": 0,
@@ -1666,60 +1811,63 @@ export const loadouts = {
       "reqLvl": 60,
       "quality": 4,
       "phase": 7,
-      "key": "Season of Discovery:236122",
+      "key": "Season of Discovery:236228",
       "source": "Season of Discovery",
-      "ilvl": 86,
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "stamina": 10,
-        "intellect": 11,
-        "power": 59,
-        "crit": 1,
-        "armor": 722,
-        "spellDamage": 20,
-        "haste": 2
+        "intellect": 29,
+        "power": 12,
+        "crit": 2,
+        "armor": 714
       },
-      "effects": true,
-      "verification": {
-        "url": "https://www.wowhead.com/classic/item=236122",
-        "repository": "https://github.com/wowsims/sod",
-        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
-        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
-        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
-        "passiveBonuses": [
-          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
-        ]
-      },
-      "acquisition": "Redemption Armor"
+      "effects": false,
+      "enchantId": "2715:29474",
+      "acquisition": "Naxxramas · Anub'Rekhan",
+      "acquisitionTier": 3
     },
     "Back": {
-      "id": 236307,
-      "name": "Veil of Eclipse",
-      "icon": "inv_misc_cape_naxxramas_01",
+      "id": 233641,
+      "name": "Cloak of Clarity",
+      "icon": "inv_misc_cape_02",
       "type": 4,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 7,
-      "key": "Season of Discovery:236307",
+      "phase": 6,
+      "key": "Season of Discovery:233641",
       "source": "Season of Discovery",
-      "ilvl": 83,
+      "ilvl": 88,
       "twoHand": false,
       "stats": {
-        "stamina": 8,
-        "intellect": 8,
-        "power": 28,
-        "crit": 1,
-        "armor": 63
+        "stamina": 7,
+        "intellect": 12,
+        "spirit": 8,
+        "power": 55,
+        "mp5": 4,
+        "armor": 66,
+        "spellDamage": 19
       },
       "effects": false,
-      "acquisition": "Naxxramas"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=233641",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects. "
+        ]
+      },
+      "enchantId": "1889:20015",
+      "acquisition": "Ahn'Qiraj · C'Thun",
+      "acquisitionTier": 3
     },
     "Chest": {
-      "id": 236115,
-      "name": "Redemption Tunic",
-      "icon": "inv_chest_chain_15",
+      "id": 233688,
+      "name": "Avenger's Cuirass",
+      "icon": "inv_chest_plate03",
       "type": 5,
       "armorType": 4,
       "rangedWeaponType": 0,
@@ -1728,37 +1876,38 @@ export const loadouts = {
       ],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 7,
-      "key": "Season of Discovery:236115",
+      "phase": 6,
+      "key": "Season of Discovery:233688",
       "source": "Season of Discovery",
-      "ilvl": 92,
+      "ilvl": 88,
       "twoHand": false,
       "stats": {
-        "stamina": 14,
-        "intellect": 15,
-        "power": 90,
+        "stamina": 17,
+        "intellect": 23,
+        "power": 84,
         "crit": 2,
-        "armor": 1027,
-        "spellDamage": 30,
-        "haste": 2
+        "armor": 985,
+        "spellDamage": 28
       },
       "effects": true,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236115",
+        "url": "https://www.wowhead.com/classic/item=233688",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 90 and damage done by up to 30 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+          "Increases healing done by up to 84 and damage done by up to 28 for all magical spells and effects. Avenger's Mercy (0/5) Avenger's Helm Avenger's Mantle Avenger's Cuirass Avenger's Plate Pants Avenger's Treads (2) Set : Reduces the cooldown on Divine Light by 25%. (4) Set : Your heals on your Beacon of Light target also heal the nearest friendly in"
         ]
       },
-      "acquisition": "Redemption Armor"
+      "enchantId": "1893:19991",
+      "acquisition": "Ahn'Qiraj vendor",
+      "acquisitionTier": 3
     },
     "Wrists": {
-      "id": 236119,
-      "name": "Redemption Wristguards",
-      "icon": "inv_bracer_02",
+      "id": 231190,
+      "name": "Judgement Bracers",
+      "icon": "inv_bracer_18",
       "type": 6,
       "armorType": 4,
       "rangedWeaponType": 0,
@@ -1767,115 +1916,101 @@ export const loadouts = {
       ],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 7,
-      "key": "Season of Discovery:236119",
+      "phase": 5,
+      "key": "Season of Discovery:231190",
       "source": "Season of Discovery",
-      "ilvl": 88,
+      "ilvl": 76,
       "twoHand": false,
       "stats": {
-        "stamina": 10,
-        "intellect": 10,
-        "power": 22,
+        "stamina": 12,
+        "intellect": 14,
+        "power": 26,
         "crit": 1,
-        "armor": 431,
-        "spellDamage": 8,
-        "haste": 2
+        "armor": 375,
+        "spellDamage": 9
       },
       "effects": true,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236119",
+        "url": "https://www.wowhead.com/classic/item=231190",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 22 and damage done by up to 8 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Hand"
+          "Increases healing done by up to 26 and damage done by up to 9 for all magical spells and effects. Merciful Judgement (0/8) Judgement Cuirass Judgement Treads Judgement Gloves Judgement Helm Judgement Plate Skirt Judgement Mantle Judgement Girdle Judgement Bracers (2) Set : Increases the critical strike chance of Holy Shock by 5%. (4) Set : Increase"
         ]
       },
-      "acquisition": "Redemption Armor"
+      "enchantId": "1901:19987",
+      "acquisition": "Blackwing Lair vendor",
+      "acquisitionTier": 2
     },
     "Hands": {
-      "id": 236118,
-      "name": "Redemption Handguards",
-      "icon": "inv_gauntlets_25",
+      "id": 233607,
+      "name": "Gloves of the Messiah",
+      "icon": "inv_gauntlets_17",
       "type": 7,
-      "armorType": 4,
+      "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 7,
-      "key": "Season of Discovery:236118",
+      "phase": 6,
+      "key": "Season of Discovery:233607",
       "source": "Season of Discovery",
-      "ilvl": 88,
+      "ilvl": 79,
       "twoHand": false,
       "stats": {
-        "stamina": 11,
-        "intellect": 12,
-        "power": 59,
-        "crit": 1,
-        "armor": 615,
-        "spellDamage": 20,
-        "haste": 2
+        "stamina": 12,
+        "intellect": 17,
+        "spirit": 14,
+        "power": 64,
+        "armor": 75,
+        "spellDamage": 22
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236118",
+        "url": "https://www.wowhead.com/classic/item=233607",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+          "Increases healing done by up to 64 and damage done by up to 22 for all magical spells and effects."
         ]
       },
-      "acquisition": "Redemption Armor"
+      "enchantId": "2617:25067",
+      "acquisition": "Ahn'Qiraj · Princess Huhuran",
+      "acquisitionTier": 3
     },
     "Waist": {
-      "id": 236120,
-      "name": "Redemption Girdle",
-      "icon": "inv_belt_22",
+      "id": 236225,
+      "name": "Girdle of Elemental Fury",
+      "icon": "inv_belt_32",
       "type": 8,
-      "armorType": 4,
+      "armorType": 3,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 7,
-      "key": "Season of Discovery:236120",
+      "key": "Season of Discovery:236225",
       "source": "Season of Discovery",
-      "ilvl": 88,
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "stamina": 13,
-        "intellect": 14,
-        "power": 51,
-        "crit": 1,
-        "armor": 554,
-        "spellDamage": 17,
-        "haste": 2
+        "intellect": 29,
+        "power": 12,
+        "crit": 2,
+        "armor": 301
       },
-      "effects": true,
-      "verification": {
-        "url": "https://www.wowhead.com/classic/item=236120",
-        "repository": "https://github.com/wowsims/sod",
-        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
-        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
-        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
-        "passiveBonuses": [
-          "Increases healing done by up to 51 and damage done by up to 17 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
-        ]
-      },
-      "acquisition": "Redemption Armor"
+      "effects": false,
+      "acquisition": "Naxxramas · Gothik the Harvester",
+      "acquisitionTier": 3
     },
     "Legs": {
-      "id": 236121,
-      "name": "Redemption Legguards",
-      "icon": "inv_pants_mail_15",
+      "id": 236229,
+      "name": "Leggings of the Grand Crusader",
+      "icon": "inv_pants_04",
       "type": 9,
       "armorType": 4,
       "rangedWeaponType": 0,
@@ -1885,111 +2020,99 @@ export const loadouts = {
       "reqLvl": 60,
       "quality": 4,
       "phase": 7,
-      "key": "Season of Discovery:236121",
+      "key": "Season of Discovery:236229",
       "source": "Season of Discovery",
-      "ilvl": 88,
+      "ilvl": 85,
+      "twoHand": false,
+      "stats": {
+        "intellect": 44,
+        "power": 18,
+        "crit": 2,
+        "armor": 833
+      },
+      "effects": false,
+      "enchantId": "1483:15345",
+      "acquisition": "Naxxramas · Noth the Plaguebringer",
+      "acquisitionTier": 3
+    },
+    "Feet": {
+      "id": 230743,
+      "name": "Shimmering Geta",
+      "icon": "inv_boots_cloth_01",
+      "type": 10,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230743",
+      "source": "Season of Discovery",
+      "ilvl": 77,
       "twoHand": false,
       "stats": {
         "stamina": 12,
-        "intellect": 19,
-        "power": 70,
-        "crit": 2,
-        "armor": 861,
-        "spellDamage": 24,
-        "haste": 2
+        "intellect": 17,
+        "power": 64,
+        "mp5": 6,
+        "armor": 81,
+        "spellDamage": 22
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236121",
+        "url": "https://www.wowhead.com/classic/item=230743",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+          "Increases healing done by up to 64 and damage done by up to 22 for all magical spells and effects. "
         ]
       },
-      "acquisition": "Redemption Armor"
-    },
-    "Feet": {
-      "id": 236123,
-      "name": "Redemption Boots",
-      "icon": "inv_boots_chain_05",
-      "type": 10,
-      "armorType": 4,
-      "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
-      "reqLvl": 60,
-      "quality": 4,
-      "phase": 7,
-      "key": "Season of Discovery:236123",
-      "source": "Season of Discovery",
-      "ilvl": 86,
-      "twoHand": false,
-      "stats": {
-        "stamina": 10,
-        "intellect": 11,
-        "power": 59,
-        "crit": 1,
-        "armor": 662,
-        "spellDamage": 20,
-        "haste": 2
-      },
-      "effects": true,
-      "verification": {
-        "url": "https://www.wowhead.com/classic/item=236123",
-        "repository": "https://github.com/wowsims/sod",
-        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
-        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
-        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
-        "passiveBonuses": [
-          "Increases healing done by up to 59 and damage done by up to 20 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
-        ]
-      },
-      "acquisition": "Redemption Armor"
+      "enchantId": "851:13368",
+      "acquisition": "Blackwing Lair",
+      "acquisitionTier": 2
     },
     "Finger 1": {
-      "id": 236116,
-      "name": "Ring of Redemption",
-      "icon": "inv_jewelry_ring_51naxxramas",
+      "id": 233569,
+      "name": "Ring of the Devoured",
+      "icon": "inv_jewelry_ring_ahnqiraj_05",
       "type": 11,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "unique": true,
       "reqLvl": 60,
       "quality": 4,
-      "phase": 7,
-      "key": "Season of Discovery:236116",
+      "phase": 6,
+      "key": "Season of Discovery:233569",
       "source": "Season of Discovery",
-      "ilvl": 92,
+      "ilvl": 78,
       "twoHand": false,
       "stats": {
-        "power": 46,
+        "stamina": 8,
+        "intellect": 11,
+        "power": 44,
         "crit": 1,
-        "spellDamage": 16,
-        "haste": 2
+        "spellDamage": 15
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236116",
+        "url": "https://www.wowhead.com/classic/item=233569",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 46 and damage done by up to 16 for all magical spells and effects. Redemption Armor (0/9) Redemption Headpiece Redemption Spaulders Redemption Tunic Redemption Girdle Redemption Legguards Redemption Boots Redemption Wristguards Redemption Handguards Ring of Redemption (2) Set : Reduces the cooldown on your Lay on Han"
+          "Increases healing done by up to 44 and damage done by up to 15 for all magical spells and effects."
         ]
       },
-      "acquisition": "Redemption Armor"
+      "acquisition": "Ahn'Qiraj",
+      "acquisitionTier": 3
     },
     "Finger 2": {
-      "id": 236273,
-      "name": "Band of the Inevitable",
-      "icon": "inv_jewelry_ring_53naxxramas",
+      "id": 236283,
+      "name": "Ring of Spiritual Fervor",
+      "icon": "inv_jewelry_ring_52naxxramas",
       "type": 11,
       "rangedWeaponType": 0,
       "classAllowlist": [],
@@ -1997,27 +2120,30 @@ export const loadouts = {
       "reqLvl": 60,
       "quality": 4,
       "phase": 7,
-      "key": "Season of Discovery:236273",
+      "key": "Season of Discovery:236283",
       "source": "Season of Discovery",
-      "ilvl": 83,
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "power": 32,
-        "spellDamage": 32,
-        "haste": 1
+        "stamina": 8,
+        "intellect": 8,
+        "power": 53,
+        "crit": 1,
+        "spellDamage": 18
       },
       "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=236273",
+        "url": "https://www.wowhead.com/classic/item=236283",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases damage and healing done by magical spells and effects by up to 32."
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects."
         ]
       },
-      "acquisition": "Naxxramas"
+      "acquisition": "Naxxramas · Loatheb",
+      "acquisitionTier": 3
     },
     "Trinket 1": {
       "id": 236320,
@@ -2050,7 +2176,42 @@ export const loadouts = {
           "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects."
         ]
       },
-      "acquisition": "Naxxramas"
+      "acquisition": "Naxxramas",
+      "acquisitionTier": 3
+    },
+    "Trinket 2": {
+      "id": 230269,
+      "name": "Rejuvenating Gem",
+      "icon": "inv_misc_gem_topaz_02",
+      "type": 12,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 5,
+      "key": "Season of Discovery:230269",
+      "source": "Season of Discovery",
+      "ilvl": 75,
+      "twoHand": false,
+      "stats": {
+        "power": 66,
+        "mp5": 9,
+        "spellDamage": 22
+      },
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=230269",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 66 and damage done by up to 22 for all magical spells and effects. "
+        ]
+      },
+      "acquisition": "Blackwing Lair",
+      "acquisitionTier": 2
     },
     "Relic": {
       "id": 236271,
@@ -2068,12 +2229,13 @@ export const loadouts = {
       "twoHand": false,
       "stats": {},
       "effects": false,
-      "acquisition": "Naxxramas"
+      "acquisition": "Naxxramas · Noth the Plaguebringer",
+      "acquisitionTier": 3
     },
     "Main hand": {
-      "id": 236297,
-      "name": "The End of Dreams",
-      "icon": "inv_mace_1h_stratholme_d_02",
+      "id": 236348,
+      "name": "Hammer of the Twisting Nether",
+      "icon": "inv_mace_27",
       "type": 13,
       "weaponType": 4,
       "handType": 1,
@@ -2082,22 +2244,36 @@ export const loadouts = {
       "reqLvl": 60,
       "quality": 4,
       "phase": 7,
-      "key": "Season of Discovery:236297",
+      "key": "Season of Discovery:236348",
       "source": "Season of Discovery",
-      "ilvl": 83,
+      "ilvl": 89,
       "twoHand": false,
       "stats": {
-        "stamina": 10,
-        "intellect": 13,
-        "power": 96,
-        "crit": 1
+        "stamina": 8,
+        "intellect": 11,
+        "power": 239,
+        "spellDamage": 80,
+        "haste": 2
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=236348",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 239 and damage done by up to 80 for all magical spells and effects."
+        ]
+      },
+      "enchantId": "2568:23798",
+      "acquisition": "Naxxramas · Kel'Thuzad",
+      "acquisitionTier": 3
     },
     "Off hand": {
-      "id": 228294,
-      "name": "Malistar's Defender",
-      "icon": "inv_shield_08",
+      "id": 233629,
+      "name": "Wormscale Blocker",
+      "icon": "inv_shield_24",
       "type": 13,
       "weaponType": 7,
       "handType": 3,
@@ -2105,88 +2281,113 @@ export const loadouts = {
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 4,
-      "key": "Season of Discovery:228294",
+      "phase": 6,
+      "key": "Season of Discovery:233629",
       "source": "Season of Discovery",
-      "ilvl": 77,
+      "ilvl": 81,
       "twoHand": false,
       "stats": {
-        "stamina": 9,
+        "stamina": 7,
         "intellect": 12,
-        "mp5": 5,
-        "armor": 2893,
-        "power": 42
+        "power": 48,
+        "crit": 1,
+        "armor": 3035,
+        "spellDamage": 16
       },
-      "effects": false
-    }
-  },
-  "Tier 4 raid · SoD": {
-    "Head": {
-      "id": 240040,
-      "name": "Inquisition Headpiece",
-      "icon": "inv_helmet_98",
-      "type": 1,
-      "armorType": 4,
-      "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
-      "reqLvl": 60,
-      "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:240040",
-      "source": "Season of Discovery",
-      "ilvl": 98,
-      "twoHand": false,
-      "stats": {
-        "stamina": 19,
-        "intellect": 19,
-        "power": 106,
-        "crit": 2,
-        "armor": 886,
-        "spellDamage": 35,
-        "haste": 2
-      },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=240040",
+        "url": "https://www.wowhead.com/classic/item=233629",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 106 and damage done by up to 35 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for"
+          "Increases healing done by up to 48 and damage done by up to 16 for all magical spells and effects."
         ]
       },
-      "acquisition": "Inquisition Armor"
+      "enchantId": "1890:19986",
+      "acquisition": "Ahn'Qiraj · Ouro",
+      "acquisitionTier": 3
+    }
+  },
+  "Tier 4 raid · SoD": {
+    "Head": {
+      "id": 241077,
+      "name": "Cardinal's Chapeau",
+      "icon": "inv_helmet_12",
+      "type": 1,
+      "armorType": 1,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241077",
+      "source": "Season of Discovery",
+      "ilvl": 94,
+      "twoHand": false,
+      "stats": {
+        "stamina": 14,
+        "intellect": 14,
+        "power": 125,
+        "crit": 2,
+        "armor": 114,
+        "spellDamage": 42
+      },
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241077",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 125 and damage done by up to 42 for all magical spells and effects."
+        ]
+      },
+      "enchantId": "1483:15345",
+      "acquisition": "Scarlet Enclave · High Commander Beatrix",
+      "acquisitionTier": 4
     },
     "Neck": {
-      "id": 241072,
-      "name": "Vial of Pus",
-      "icon": "inv_potion_19",
+      "id": 241073,
+      "name": "Touch of Light",
+      "icon": "inv_jewelry_necklace_12",
       "type": 2,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "reqLvl": 0,
       "quality": 4,
       "phase": 8,
-      "key": "Season of Discovery:241072",
+      "key": "Season of Discovery:241073",
       "source": "Season of Discovery",
       "ilvl": 98,
       "twoHand": false,
       "stats": {
-        "stamina": 6,
+        "stamina": 9,
         "intellect": 8,
-        "power": 42,
-        "crit": 1
+        "power": 73,
+        "crit": 1,
+        "spellDamage": 25
       },
       "effects": false,
-      "acquisition": "Scarlet Enclave"
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241073",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects."
+        ]
+      },
+      "acquisition": "Scarlet Enclave · Solistrasza",
+      "acquisitionTier": 4
     },
     "Shoulders": {
-      "id": 240021,
-      "name": "Inquisition Spaulders",
-      "icon": "inv_shoulder_62",
+      "id": 236228,
+      "name": "Spaulders of the Grand Crusader",
+      "icon": "inv_shoulder_22",
       "type": 3,
       "armorType": 4,
       "rangedWeaponType": 0,
@@ -2195,210 +2396,198 @@ export const loadouts = {
       ],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:240021",
+      "phase": 7,
+      "key": "Season of Discovery:236228",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "stamina": 13,
-        "intellect": 14,
-        "power": 64,
+        "intellect": 29,
+        "power": 12,
         "crit": 2,
-        "armor": 818,
-        "spellDamage": 22,
-        "haste": 2
+        "armor": 714
       },
-      "effects": true,
-      "verification": {
-        "url": "https://www.wowhead.com/classic/item=240021",
-        "repository": "https://github.com/wowsims/sod",
-        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
-        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
-        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
-        "passiveBonuses": [
-          "Increases healing done by up to 64 and damage done by up to 22 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
-        ]
-      },
-      "acquisition": "Inquisition Armor"
+      "effects": false,
+      "enchantId": "2715:29474",
+      "acquisition": "Naxxramas · Anub'Rekhan",
+      "acquisitionTier": 3
     },
     "Back": {
-      "id": 241025,
-      "name": "Flag of the Broken Admiral",
-      "icon": "spell_misc_warsongfocus",
+      "id": 241026,
+      "name": "Cardinal's Shawl",
+      "icon": "inv_misc_cape_18",
       "type": 4,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 8,
-      "key": "Season of Discovery:241025",
+      "key": "Season of Discovery:241026",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 94,
       "twoHand": false,
       "stats": {
-        "stamina": 7,
+        "stamina": 8,
         "intellect": 10,
-        "power": 35,
+        "power": 73,
         "crit": 1,
-        "armor": 73
+        "armor": 70,
+        "spellDamage": 25
       },
       "effects": false,
-      "acquisition": "Scarlet Enclave"
-    },
-    "Chest": {
-      "id": 240039,
-      "name": "Inquisition Tunic",
-      "icon": "inv_chest_plate_23",
-      "type": 5,
-      "armorType": 4,
-      "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
-      "reqLvl": 60,
-      "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:240039",
-      "source": "Season of Discovery",
-      "ilvl": 98,
-      "twoHand": false,
-      "stats": {
-        "stamina": 19,
-        "intellect": 20,
-        "power": 110,
-        "crit": 2,
-        "armor": 1090,
-        "spellDamage": 37,
-        "haste": 2
-      },
-      "effects": true,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=240039",
+        "url": "https://www.wowhead.com/classic/item=241026",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 110 and damage done by up to 37 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for"
+          "Increases healing done by up to 73 and damage done by up to 25 for all magical spells and effects."
         ]
       },
-      "acquisition": "Inquisition Armor"
+      "enchantId": "1889:20015",
+      "acquisition": "Scarlet Enclave · High Commander Beatrix",
+      "acquisitionTier": 4
+    },
+    "Chest": {
+      "id": 241160,
+      "name": "Dawnworn Chainmail",
+      "icon": "inv_chest_chain_15",
+      "type": 5,
+      "armorType": 3,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 8,
+      "key": "Season of Discovery:241160",
+      "source": "Season of Discovery",
+      "ilvl": 98,
+      "twoHand": false,
+      "stats": {
+        "stamina": 12,
+        "intellect": 52,
+        "power": 29,
+        "crit": 2,
+        "armor": 611,
+        "spellDamage": 29,
+        "haste": 4
+      },
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=241160",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases damage and healing done by magical spells and effects by up to 29."
+        ]
+      },
+      "enchantId": "1893:19991",
+      "acquisition": "Scarlet Enclave · Lillian Voss",
+      "acquisitionTier": 4
     },
     "Wrists": {
-      "id": 240042,
-      "name": "Inquisition Wristguards",
-      "icon": "inv_bracer_15",
+      "id": 235873,
+      "name": "Crypt's Keepers",
+      "icon": "inv_bracer_29",
       "type": 6,
       "armorType": 4,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:240042",
+      "phase": 7,
+      "key": "Season of Discovery:235873",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 84,
       "twoHand": false,
       "stats": {
-        "stamina": 13,
-        "intellect": 13,
-        "power": 33,
-        "armor": 477,
-        "spellDamage": 11,
-        "haste": 3
+        "intellect": 12,
+        "power": 53,
+        "crit": 1,
+        "armor": 412,
+        "spellDamage": 18
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=240042",
+        "url": "https://www.wowhead.com/classic/item=235873",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 33 and damage done by up to 11 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects. \"Yesterday's shackles are today's fashion.\""
         ]
       },
-      "acquisition": "Inquisition Armor"
+      "enchantId": "1901:19987",
+      "acquisition": "Karazhan Crypts",
+      "acquisitionTier": 4
     },
     "Hands": {
-      "id": 240041,
-      "name": "Inquisition Handguards",
-      "icon": "inv_gauntlets_62",
+      "id": 236642,
+      "name": "Mender's Handwraps",
+      "icon": "inv_gauntlets_06",
       "type": 7,
-      "armorType": 4,
+      "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:240041",
+      "phase": 7,
+      "key": "Season of Discovery:236642",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 86,
       "twoHand": false,
       "stats": {
-        "stamina": 14,
-        "intellect": 15,
+        "stamina": 8,
+        "intellect": 17,
+        "spirit": 10,
         "power": 70,
-        "armor": 681,
-        "spellDamage": 24,
-        "haste": 3
+        "crit": 1,
+        "armor": 81,
+        "spellDamage": 24
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=240041",
+        "url": "https://www.wowhead.com/classic/item=236642",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+          "Increases healing done by up to 70 and damage done by up to 24 for all magical spells and effects."
         ]
       },
-      "acquisition": "Inquisition Armor"
+      "enchantId": "2617:25067",
+      "acquisition": "Karazhan Crypts",
+      "acquisitionTier": 4
     },
     "Waist": {
-      "id": 240043,
-      "name": "Inquisition Girdle",
-      "icon": "inv_belt_27",
+      "id": 236225,
+      "name": "Girdle of Elemental Fury",
+      "icon": "inv_belt_32",
       "type": 8,
-      "armorType": 4,
+      "armorType": 3,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:240043",
+      "phase": 7,
+      "key": "Season of Discovery:236225",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
-        "stamina": 14,
-        "intellect": 15,
-        "power": 55,
-        "crit": 1,
-        "armor": 613,
-        "spellDamage": 19,
-        "haste": 3
+        "intellect": 29,
+        "power": 12,
+        "crit": 2,
+        "armor": 301
       },
-      "effects": true,
-      "verification": {
-        "url": "https://www.wowhead.com/classic/item=240043",
-        "repository": "https://github.com/wowsims/sod",
-        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
-        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
-        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
-        "passiveBonuses": [
-          "Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
-        ]
-      },
-      "acquisition": "Inquisition Armor"
+      "effects": false,
+      "acquisition": "Naxxramas · Gothik the Harvester",
+      "acquisitionTier": 3
     },
     "Legs": {
       "id": 240020,
@@ -2437,116 +2626,156 @@ export const loadouts = {
           "Increases healing done by up to 99 and damage done by up to 33 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
         ]
       },
-      "acquisition": "Inquisition Armor"
+      "enchantId": "1483:15345",
+      "acquisition": "SoD vendor · phase 8",
+      "acquisitionTier": 4
     },
     "Feet": {
-      "id": 240022,
-      "name": "Inquisition Boots",
-      "icon": "inv_boots_plate_06",
+      "id": 241184,
+      "name": "Savior Sandals",
+      "icon": "inv_boots_fabric_01",
       "type": 10,
-      "armorType": 4,
+      "armorType": 1,
       "rangedWeaponType": 0,
-      "classAllowlist": [
-        2
-      ],
+      "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
       "phase": 8,
-      "key": "Season of Discovery:240022",
+      "key": "Season of Discovery:241184",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 92,
       "twoHand": false,
       "stats": {
-        "stamina": 13,
-        "intellect": 15,
-        "power": 68,
-        "crit": 1,
-        "armor": 749,
-        "spellDamage": 23,
-        "haste": 2
+        "stamina": 10,
+        "intellect": 11,
+        "power": 90,
+        "crit": 2,
+        "armor": 95,
+        "spellDamage": 30
       },
-      "effects": true,
+      "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=240022",
+        "url": "https://www.wowhead.com/classic/item=241184",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects. Inquisition Armor (0/8) Inquisition Headpiece Inquisition Spaulders Inquisition Tunic Inquisition Girdle Inquisition Legguards Inquisition Boots Inquisition Wristguards Inquisition Handguards (2) Set : Lay on Hands also grants you 20% spell haste for "
+          "Increases healing done by up to 90 and damage done by up to 30 for all magical spells and effects."
         ]
       },
-      "acquisition": "Inquisition Armor"
+      "enchantId": "8492:1254770",
+      "acquisition": "Scarlet Enclave · Balnazzar",
+      "acquisitionTier": 4
     },
     "Finger 1": {
-      "id": 241031,
-      "name": "Barthalomew's Promise",
-      "icon": "inv_jewelry_ring_63",
+      "id": 233569,
+      "name": "Ring of the Devoured",
+      "icon": "inv_jewelry_ring_ahnqiraj_05",
       "type": 11,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "unique": true,
       "reqLvl": 60,
       "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:241031",
+      "phase": 6,
+      "key": "Season of Discovery:233569",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 78,
+      "twoHand": false,
+      "stats": {
+        "stamina": 8,
+        "intellect": 11,
+        "power": 44,
+        "crit": 1,
+        "spellDamage": 15
+      },
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=233569",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 44 and damage done by up to 15 for all magical spells and effects."
+        ]
+      },
+      "acquisition": "Ahn'Qiraj",
+      "acquisitionTier": 3
+    },
+    "Finger 2": {
+      "id": 236283,
+      "name": "Ring of Spiritual Fervor",
+      "icon": "inv_jewelry_ring_52naxxramas",
+      "type": 11,
+      "rangedWeaponType": 0,
+      "classAllowlist": [],
+      "unique": true,
+      "reqLvl": 60,
+      "quality": 4,
+      "phase": 7,
+      "key": "Season of Discovery:236283",
+      "source": "Season of Discovery",
+      "ilvl": 85,
       "twoHand": false,
       "stats": {
         "stamina": 8,
         "intellect": 8,
-        "power": 35,
+        "power": 53,
         "crit": 1,
-        "spellDamage": 35,
-        "haste": 1
+        "spellDamage": 18
       },
       "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=241031",
+        "url": "https://www.wowhead.com/classic/item=236283",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases damage and healing done by magical spells and effects by up to 35."
+          "Increases healing done by up to 53 and damage done by up to 18 for all magical spells and effects."
         ]
       },
-      "acquisition": "Scarlet Enclave"
+      "acquisition": "Naxxramas · Loatheb",
+      "acquisitionTier": 3
     },
-    "Finger 2": {
-      "id": 241032,
-      "name": "Ring of Resurrection",
-      "icon": "inv_jewelry_ring_72",
-      "type": 11,
+    "Trinket 1": {
+      "id": 233994,
+      "name": "Ruby-Encrusted Broach",
+      "icon": "inv_jewelry_necklace_15",
+      "type": 12,
       "rangedWeaponType": 0,
       "classAllowlist": [],
       "unique": true,
       "reqLvl": 60,
       "quality": 4,
-      "phase": 8,
-      "key": "Season of Discovery:241032",
+      "phase": 6,
+      "key": "Season of Discovery:233994",
       "source": "Season of Discovery",
-      "ilvl": 98,
+      "ilvl": 80,
       "twoHand": false,
       "stats": {
-        "power": 84,
-        "spellDamage": 28
+        "intellect": 18,
+        "power": 68,
+        "crit": 1,
+        "spellDamage": 23
       },
       "effects": false,
       "verification": {
-        "url": "https://www.wowhead.com/classic/item=241032",
+        "url": "https://www.wowhead.com/classic/item=233994",
         "repository": "https://github.com/wowsims/sod",
         "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
         "file": "assets/db_inputs/wowhead_item_tooltips.csv",
         "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
         "passiveBonuses": [
-          "Increases healing done by up to 84 and damage done by up to 28 for all magical spells and effects."
+          "Increases healing done by up to 68 and damage done by up to 23 for all magical spells and effects."
         ]
       },
-      "acquisition": "Scarlet Enclave"
+      "acquisition": "Crafted · SoD phase 6",
+      "acquisitionTier": 4
     },
-    "Trinket 1": {
+    "Trinket 2": {
       "id": 241068,
       "name": "Stiltz's Standard",
       "icon": "inv_misc_token_scarletcrusade",
@@ -2578,7 +2807,31 @@ export const loadouts = {
           "Increases healing done by up to 88 and damage done by up to 30 for all magical spells and effects."
         ]
       },
-      "acquisition": "Scarlet Enclave"
+      "acquisition": "Scarlet Enclave · High Commander Beatrix",
+      "acquisitionTier": 4
+    },
+    "Relic": {
+      "id": 226545,
+      "name": "Dalton's Horn",
+      "icon": "inv_misc_horn_04",
+      "type": 14,
+      "rangedWeaponType": 7,
+      "classAllowlist": [
+        2
+      ],
+      "reqLvl": 50,
+      "quality": 4,
+      "phase": 4,
+      "key": "Season of Discovery:226545",
+      "source": "Season of Discovery",
+      "ilvl": 60,
+      "twoHand": false,
+      "stats": {
+        "intellect": 5
+      },
+      "effects": false,
+      "acquisition": "Quest · A Lesson in Grace",
+      "acquisitionTier": 4
     },
     "Main hand": {
       "id": 241006,
@@ -2613,12 +2866,15 @@ export const loadouts = {
         "passiveBonuses": [
           "Increases healing done by up to 317 and damage done by up to 106 for all magical spells and effects."
         ]
-      }
+      },
+      "enchantId": "2568:23798",
+      "acquisition": "Scarlet Enclave · Grand Crusader Caldoran",
+      "acquisitionTier": 4
     },
     "Off hand": {
-      "id": 228294,
-      "name": "Malistar's Defender",
-      "icon": "inv_shield_08",
+      "id": 233629,
+      "name": "Wormscale Blocker",
+      "icon": "inv_shield_24",
       "type": 13,
       "weaponType": 7,
       "handType": 3,
@@ -2626,19 +2882,33 @@ export const loadouts = {
       "classAllowlist": [],
       "reqLvl": 60,
       "quality": 4,
-      "phase": 4,
-      "key": "Season of Discovery:228294",
+      "phase": 6,
+      "key": "Season of Discovery:233629",
       "source": "Season of Discovery",
-      "ilvl": 77,
+      "ilvl": 81,
       "twoHand": false,
       "stats": {
-        "stamina": 9,
+        "stamina": 7,
         "intellect": 12,
-        "mp5": 5,
-        "armor": 2893,
-        "power": 42
+        "power": 48,
+        "crit": 1,
+        "armor": 3035,
+        "spellDamage": 16
       },
-      "effects": false
+      "effects": false,
+      "verification": {
+        "url": "https://www.wowhead.com/classic/item=233629",
+        "repository": "https://github.com/wowsims/sod",
+        "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e",
+        "file": "assets/db_inputs/wowhead_item_tooltips.csv",
+        "note": "Passive Equip bonuses from cached tooltip; no Use, proc or set bonuses. Atiesh includes its always-on owner party aura once.",
+        "passiveBonuses": [
+          "Increases healing done by up to 48 and damage done by up to 16 for all magical spells and effects."
+        ]
+      },
+      "enchantId": "7603:463873",
+      "acquisition": "Ahn'Qiraj · Ouro",
+      "acquisitionTier": 3
     }
   }
 };

@@ -1,7 +1,7 @@
 """Normalize pinned WoWSims snapshots. Usage: python scripts/import-gear-catalog.py /tmp/healbot-catalog"""
 import json,sys,pathlib,hashlib,re
 root=pathlib.Path(sys.argv[1]); out=pathlib.Path('public/healing/catalog')
-modern={0:'strength',1:'agility',2:'stamina',3:'intellect',4:'power',5:'spellDamage',13:'spirit',18:'crit',27:'armor',29:'health',30:'mana',31:'mp5'}
+modern={0:'strength',1:'agility',2:'stamina',3:'intellect',4:'power',5:'spellDamage',13:'spirit',18:'crit',27:'armor',28:'armor',29:'health',30:'mana',31:'mp5'}
 old={0:'strength',1:'agility',2:'stamina',3:'intellect',4:'spirit',5:'power',12:'mp5',14:'crit',23:'mana',26:'armor',34:'health',41:'power',42:'spellDamage'}
 def stats(raw,mapping,modern=False):
  result={}
