@@ -1,0 +1,4716 @@
+{
+  "method": "Mean normalized 60/90/120-second full-cast healing potential using default talents, no external buffs, and the class direct heal(s). Mana budget includes starting mana, casting Spirit regen, MP5 and average Illumination. No overheal, procs, set bonuses or cooldowns credited. Coordinate search; not a universal BiS proof.",
+  "sources": {
+    "Forever": {
+      "sha256": "6ee80e9cceb4bbf6b128219bc6db647536427c302b12af4382c73d9f500780dc",
+      "file": "assets/database/db.json",
+      "revision": "a3c1c57df7fb712133593a1bf6c6898ab76f12ea"
+    },
+    "Season of Discovery": {
+      "sha256": "71395a1d280d139d4bb9bce445851f7afdcb0382729eeabdca5c6bea18a5e225",
+      "file": "assets/database/db.json",
+      "revision": "0e3f6eff5fa3ad356664a1c2abbd02903d4cc97e"
+    }
+  },
+  "presets": [
+    {
+      "className": "shaman",
+      "name": "Tier 1 raid",
+      "tier": 1,
+      "realm": "Forever with source-verified SoD Molten Core supplement",
+      "relativePotential": 4.538812281201516,
+      "previousPotential": 3.0572658914080506,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:228285",
+          "name": "Helm of the Lifegiver",
+          "stats": {
+            "stamina": 16,
+            "intellect": 35,
+            "spirit": 15,
+            "armor": 343,
+            "power": 44
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:228137",
+          "name": "Heart of Golemagg",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "spirit": 11,
+            "power": 37
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 228435,
+            "label": "Molten Core"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:228283",
+          "name": "Wild Growth Spaulders",
+          "stats": {
+            "stamina": 11,
+            "intellect": 12,
+            "armor": 159,
+            "power": 62
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 179703,
+            "label": "Molten Core"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:220608",
+          "name": "Featherskin Drape",
+          "stats": {
+            "intellect": 10,
+            "spirit": 7,
+            "armor": 41,
+            "power": 35
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 1477,
+            "npcId": 221394,
+            "label": "The Temple of Atal'Hakkar · Avatar of Hakkar"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:226617",
+          "name": "Earthfury Vestments",
+          "stats": {
+            "stamina": 12,
+            "intellect": 23,
+            "crit": 1,
+            "armor": 422,
+            "power": 55
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Forever:12626",
+          "name": "Funeral Cuffs",
+          "stats": {
+            "intellect": 14,
+            "power": 18,
+            "spellDamage": 6,
+            "armor": 37
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 1583,
+            "npcId": 9236,
+            "label": "Blackrock Spire · Shadow Hunter Vosh'gajin"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:226615",
+          "name": "Earthfury Gauntlets",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "crit": 1,
+            "armor": 264,
+            "power": 33
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "8490:19057",
+            "name": "Rugged Armor Kit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Forever:19162",
+          "name": "Corehound Belt",
+          "stats": {
+            "intellect": 16,
+            "power": 62,
+            "spellDamage": 21,
+            "armor": 118
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 1,
+            "spellId": 23709,
+            "label": "Thorium Brotherhood pattern; Molten Core materials"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:226614",
+          "name": "Earthfury Legguards",
+          "stats": {
+            "stamina": 19,
+            "intellect": 23,
+            "crit": 1,
+            "armor": 369,
+            "power": 46
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:227862",
+          "name": "Incandescent Mooncloth Boots",
+          "stats": {
+            "stamina": 12,
+            "intellect": 14,
+            "spirit": 14,
+            "armor": 69,
+            "power": 44
+          },
+          "source": {
+            "kind": "reputation",
+            "tier": 1,
+            "factionId": 576,
+            "label": "Timbermaw Hold reputation"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Forever:19140",
+          "name": "Cauterizing Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 46,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 12018,
+            "label": "Molten Core · Majordomo Executus"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Forever:19140",
+          "name": "Cauterizing Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 46,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 12018,
+            "label": "Molten Core · Majordomo Executus"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:228298",
+          "name": "Shard of the Scale",
+          "stats": {
+            "mp5": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:18371",
+          "name": "Mindtap Talisman",
+          "stats": {
+            "mp5": 11
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2557,
+            "npcId": 11487,
+            "label": "Dire Maul · Magister Kalendris"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:209575",
+          "name": "Carved Driftwood Icon",
+          "stats": {
+            "mp5": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 719,
+            "npcId": 207356,
+            "label": "Blackfathom Deeps · Lorgus Jett"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Forever:13360",
+          "name": "Gift of the Elven Magi",
+          "stats": {
+            "stamina": 6,
+            "intellect": 10,
+            "power": 135,
+            "spellDamage": 45,
+            "spirit": 7
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2017,
+            "npcId": 10812,
+            "label": "Stratholme · Balnazzar"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:228294",
+          "name": "Malistar's Defender",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "mp5": 5,
+            "armor": 2893,
+            "power": 42
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "1890:19986",
+            "name": "Enchant Shield - Superior Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 705,
+        "healing": 705,
+        "mana": 7345,
+        "mp5": 34,
+        "crit": 21.8403,
+        "haste": 0
+      }
+    },
+    {
+      "className": "shaman",
+      "name": "Tier 2 raid",
+      "tier": 2,
+      "realm": "Season of Discovery",
+      "relativePotential": 4.971388066351578,
+      "previousPotential": 3.762410222341534,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:228285",
+          "name": "Helm of the Lifegiver",
+          "stats": {
+            "stamina": 16,
+            "intellect": 35,
+            "spirit": 15,
+            "armor": 343,
+            "power": 44
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:230245",
+          "name": "Pendant of the Fallen Dragon",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 37,
+            "mp5": 5,
+            "spellDamage": 13
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 13020,
+            "label": "Blackwing Lair · Vaelastrasz the Corrupt"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:228283",
+          "name": "Wild Growth Spaulders",
+          "stats": {
+            "stamina": 11,
+            "intellect": 12,
+            "armor": 159,
+            "power": 62
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 179703,
+            "label": "Molten Core"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:230733",
+          "name": "Shroud of Pure Thought",
+          "stats": {
+            "stamina": 10,
+            "intellect": 10,
+            "power": 35,
+            "crit": 1,
+            "armor": 57,
+            "spellDamage": 12
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11981,
+            "label": "Blackwing Lair · Flamegor"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:226617",
+          "name": "Earthfury Vestments",
+          "stats": {
+            "stamina": 12,
+            "intellect": 23,
+            "crit": 1,
+            "armor": 422,
+            "power": 55
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:231199",
+          "name": "Bracers of Ten Storms",
+          "stats": {
+            "stamina": 14,
+            "intellect": 16,
+            "power": 37,
+            "armor": 211,
+            "spellDamage": 13
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:231198",
+          "name": "Gauntlets of Ten Storms",
+          "stats": {
+            "stamina": 18,
+            "intellect": 20,
+            "power": 55,
+            "armor": 301,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "8490:19057",
+            "name": "Rugged Armor Kit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:19162",
+          "name": "Corehound Belt",
+          "stats": {
+            "intellect": 16,
+            "armor": 118,
+            "power": 62
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 1,
+            "spellId": 23709,
+            "label": "Thorium Brotherhood pattern; Molten Core materials"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:230746",
+          "name": "Empowered Leggings",
+          "stats": {
+            "stamina": 12,
+            "intellect": 12,
+            "spirit": 24,
+            "power": 77,
+            "crit": 1,
+            "armor": 103,
+            "spellDamage": 26
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 14020,
+            "label": "Blackwing Lair · Chromaggus"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:230743",
+          "name": "Shimmering Geta",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "power": 64,
+            "mp5": 6,
+            "armor": 81,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:230811",
+          "name": "Pure Elementium Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:228274",
+          "name": "Cauterizing Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 46
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 179703,
+            "label": "Molten Core"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:230269",
+          "name": "Rejuvenating Gem",
+          "stats": {
+            "power": 66,
+            "mp5": 9,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:228298",
+          "name": "Shard of the Scale",
+          "stats": {
+            "mp5": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:209575",
+          "name": "Carved Driftwood Icon",
+          "stats": {
+            "mp5": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 719,
+            "npcId": 207356,
+            "label": "Blackfathom Deeps · Lorgus Jett"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:230838",
+          "name": "Lok'amir il Romathis",
+          "stats": {
+            "stamina": 10,
+            "intellect": 18,
+            "spirit": 8,
+            "power": 86
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:228294",
+          "name": "Malistar's Defender",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "mp5": 5,
+            "armor": 2893,
+            "power": 42
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "1890:19986",
+            "name": "Enchant Shield - Superior Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 821,
+        "healing": 821,
+        "mana": 7405,
+        "mp5": 43,
+        "crit": 21.907899999999998,
+        "haste": 0
+      }
+    },
+    {
+      "className": "shaman",
+      "name": "Tier 3 raid",
+      "tier": 3,
+      "realm": "Season of Discovery",
+      "relativePotential": 6.561233454854243,
+      "previousPotential": 3.249689538294938,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:236155",
+          "name": "Earthshatter Crown",
+          "stats": {
+            "stamina": 12,
+            "intellect": 46,
+            "power": 15,
+            "crit": 1,
+            "armor": 449,
+            "spellDamage": 15,
+            "haste": 2
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3456,
+            "vendorZoneId": 139,
+            "label": "Naxxramas tier-token turn-in · Eastern Plaguelands"
+          },
+          "enchant": {
+            "id": "2587:24155",
+            "name": "Vodouisant's Vigilant Embrace",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:236266",
+          "name": "Pendant of Forgotten Names",
+          "stats": {
+            "intellect": 14,
+            "spirit": 13,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15952,
+            "label": "Naxxramas · Maexxna"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:233521",
+          "name": "Ternary Mantle",
+          "stats": {
+            "intellect": 20,
+            "spirit": 18,
+            "power": 55,
+            "armor": 87,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 0,
+            "label": "Ahn'Qiraj"
+          },
+          "enchant": {
+            "id": "2715:29474",
+            "name": "Resilience of the Scourge",
+            "tier": 3,
+            "label": "Naxxramas · Sapphiron enchant"
+          }
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:233641",
+          "name": "Cloak of Clarity",
+          "stats": {
+            "stamina": 7,
+            "intellect": 12,
+            "spirit": 8,
+            "power": 55,
+            "mp5": 4,
+            "armor": 66,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15727,
+            "label": "Ahn'Qiraj · C'Thun"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:233386",
+          "name": "Stormcaller's Hauberk",
+          "stats": {
+            "stamina": 26,
+            "intellect": 30,
+            "power": 75,
+            "crit": 1,
+            "armor": 553,
+            "spellDamage": 25
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3428,
+            "label": "Ahn'Qiraj vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:233617",
+          "name": "Bracelets of Royal Redemption",
+          "stats": {
+            "stamina": 9,
+            "intellect": 10,
+            "spirit": 10,
+            "power": 53,
+            "armor": 54,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 0,
+            "label": "Ahn'Qiraj"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:233607",
+          "name": "Gloves of the Messiah",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "spirit": 14,
+            "power": 64,
+            "armor": 75,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15509,
+            "label": "Ahn'Qiraj · Princess Huhuran"
+          },
+          "enchant": {
+            "id": "2617:25067",
+            "name": "Enchant Gloves - Healing Power",
+            "tier": 3,
+            "label": "Formula: Enchant Gloves - Healing Power · Ahn'Qiraj"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:233632",
+          "name": "Grasp of the Old God",
+          "stats": {
+            "stamina": 15,
+            "intellect": 19,
+            "power": 77,
+            "armor": 75,
+            "spellDamage": 26
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15727,
+            "label": "Ahn'Qiraj · C'Thun"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:236230",
+          "name": "Leggings of Elemental Fury",
+          "stats": {
+            "intellect": 44,
+            "power": 18,
+            "crit": 2,
+            "armor": 468
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15954,
+            "label": "Naxxramas · Noth the Plaguebringer"
+          },
+          "enchant": {
+            "id": "2587:24155",
+            "name": "Vodouisant's Vigilant Embrace",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:230743",
+          "name": "Shimmering Geta",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "power": 64,
+            "mp5": 6,
+            "armor": 81,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:230811",
+          "name": "Pure Elementium Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:234033",
+          "name": "Signet Ring of the Bronze Dragonflight",
+          "stats": {
+            "stamina": 8,
+            "intellect": 9,
+            "power": 53,
+            "mp5": 5,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "reputation",
+            "tier": 3,
+            "factionId": 910,
+            "label": "Brood of Nozdormu reputation"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:236320",
+          "name": "Warmth of Forgiveness",
+          "stats": {
+            "power": 68,
+            "mp5": 10,
+            "spellDamage": 23
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 181366,
+            "label": "Naxxramas"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:230269",
+          "name": "Rejuvenating Gem",
+          "stats": {
+            "power": 66,
+            "mp5": 9,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:209575",
+          "name": "Carved Driftwood Icon",
+          "stats": {
+            "mp5": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 719,
+            "npcId": 207356,
+            "label": "Blackfathom Deeps · Lorgus Jett"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:236348",
+          "name": "Hammer of the Twisting Nether",
+          "stats": {
+            "stamina": 8,
+            "intellect": 11,
+            "power": 239,
+            "spellDamage": 80,
+            "haste": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15990,
+            "label": "Naxxramas · Kel'Thuzad"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:228294",
+          "name": "Malistar's Defender",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "mp5": 5,
+            "armor": 2893,
+            "power": 42
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "1890:19986",
+            "name": "Enchant Shield - Superior Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 1142,
+        "healing": 1142,
+        "mana": 8365,
+        "mp5": 46,
+        "crit": 24.3275,
+        "haste": 4
+      }
+    },
+    {
+      "className": "shaman",
+      "name": "Tier 4 raid · SoD",
+      "tier": 4,
+      "realm": "Season of Discovery",
+      "relativePotential": 7.496784551742188,
+      "previousPotential": 4.595087855349845,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:240123",
+          "name": "Soulcrusher Crown",
+          "stats": {
+            "stamina": 17,
+            "intellect": 51,
+            "power": 19,
+            "crit": 2,
+            "armor": 496,
+            "spellDamage": 19,
+            "haste": 2
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "2587:24155",
+            "name": "Vodouisant's Vigilant Embrace",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:236266",
+          "name": "Pendant of Forgotten Names",
+          "stats": {
+            "intellect": 14,
+            "spirit": 13,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15952,
+            "label": "Naxxramas · Maexxna"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:240125",
+          "name": "Soulcrusher Mantle",
+          "stats": {
+            "stamina": 12,
+            "intellect": 34,
+            "power": 18,
+            "crit": 1,
+            "armor": 458,
+            "spellDamage": 18,
+            "haste": 1
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "2715:29474",
+            "name": "Resilience of the Scourge",
+            "tier": 3,
+            "label": "Naxxramas · Sapphiron enchant"
+          }
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:233641",
+          "name": "Cloak of Clarity",
+          "stats": {
+            "stamina": 7,
+            "intellect": 12,
+            "spirit": 8,
+            "power": 55,
+            "mp5": 4,
+            "armor": 66,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15727,
+            "label": "Ahn'Qiraj · C'Thun"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:241160",
+          "name": "Dawnworn Chainmail",
+          "stats": {
+            "stamina": 12,
+            "intellect": 52,
+            "power": 29,
+            "crit": 2,
+            "armor": 611,
+            "spellDamage": 29,
+            "haste": 4
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 243021,
+            "label": "Scarlet Enclave · Lillian Voss"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:240127",
+          "name": "Soulcrusher Bindings",
+          "stats": {
+            "stamina": 13,
+            "intellect": 29,
+            "power": 19,
+            "armor": 267,
+            "spellDamage": 19,
+            "haste": 1
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:240122",
+          "name": "Soulcrusher Mitts",
+          "stats": {
+            "stamina": 13,
+            "intellect": 33,
+            "power": 16,
+            "crit": 2,
+            "armor": 382,
+            "spellDamage": 16,
+            "haste": 1
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "2617:25067",
+            "name": "Enchant Gloves - Healing Power",
+            "tier": 3,
+            "label": "Formula: Enchant Gloves - Healing Power · Ahn'Qiraj"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:240099",
+          "name": "Soulcrusher Girdle",
+          "stats": {
+            "stamina": 15,
+            "intellect": 18,
+            "power": 64,
+            "crit": 2,
+            "armor": 343,
+            "spellDamage": 22,
+            "haste": 1
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:240097",
+          "name": "Soulcrusher Legguards",
+          "stats": {
+            "stamina": 17,
+            "intellect": 24,
+            "power": 92,
+            "crit": 2,
+            "armor": 534,
+            "spellDamage": 31,
+            "haste": 2
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "2587:24155",
+            "name": "Vodouisant's Vigilant Embrace",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:241184",
+          "name": "Savior Sandals",
+          "stats": {
+            "stamina": 10,
+            "intellect": 11,
+            "power": 90,
+            "crit": 2,
+            "armor": 95,
+            "spellDamage": 30
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 240811,
+            "label": "Scarlet Enclave · Balnazzar"
+          },
+          "enchant": {
+            "id": "8492:1254770",
+            "name": "Mystic Rugged Armor Kit",
+            "tier": 4,
+            "label": "Later/custom formula; conservatively T4 only"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:236259",
+          "name": "Band of Unanswered Prayers",
+          "stats": {
+            "stamina": 11,
+            "intellect": 13,
+            "power": 57,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15956,
+            "label": "Naxxramas · Anub'Rekhan"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:230811",
+          "name": "Pure Elementium Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:233994",
+          "name": "Ruby-Encrusted Broach",
+          "stats": {
+            "intellect": 18,
+            "power": 68,
+            "crit": 1,
+            "spellDamage": 23
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 4,
+            "label": "Crafted · SoD phase 6",
+            "details": {
+              "crafted": {
+                "profession": 3,
+                "spellId": 1213603
+              }
+            }
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:241068",
+          "name": "Stiltz's Standard",
+          "stats": {
+            "intellect": 10,
+            "spirit": 10,
+            "power": 88,
+            "spellDamage": 30
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 240812,
+            "label": "Scarlet Enclave · High Commander Beatrix"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:209575",
+          "name": "Carved Driftwood Icon",
+          "stats": {
+            "mp5": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 719,
+            "npcId": 207356,
+            "label": "Blackfathom Deeps · Lorgus Jett"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:241006",
+          "name": "Spire of Sacrifice",
+          "stats": {
+            "stamina": 7,
+            "power": 317,
+            "crit": 1,
+            "spellDamage": 106,
+            "haste": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 241006,
+            "label": "Scarlet Enclave · Grand Crusader Caldoran"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:228294",
+          "name": "Malistar's Defender",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "mp5": 5,
+            "armor": 2893,
+            "power": 42
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "7603:463873",
+            "name": "Enchant Shield - Law of Nature",
+            "tier": 4,
+            "label": "Later/custom formula; conservatively T4 only"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 1233,
+        "healing": 1233,
+        "mana": 9520,
+        "mp5": 16,
+        "crit": 36.6288,
+        "haste": 14.000000000000002
+      }
+    },
+    {
+      "className": "druid",
+      "name": "Tier 1 raid",
+      "tier": 1,
+      "realm": "Forever with source-verified SoD Molten Core supplement",
+      "relativePotential": 3.423776109921736,
+      "previousPotential": 2.6648213178133138,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:226647",
+          "name": "Cenarion Helm",
+          "stats": {
+            "stamina": 19,
+            "intellect": 22,
+            "spirit": 17,
+            "armor": 163,
+            "power": 42
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:228137",
+          "name": "Heart of Golemagg",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "spirit": 11,
+            "power": 37
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 228435,
+            "label": "Molten Core"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:226644",
+          "name": "Cenarion Spaulders",
+          "stats": {
+            "stamina": 12,
+            "intellect": 14,
+            "spirit": 12,
+            "armor": 150,
+            "power": 40
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:17078",
+          "name": "Sapphiron Drape",
+          "stats": {
+            "stamina": 10,
+            "intellect": 17,
+            "power": 14,
+            "armor": 55
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:221785",
+          "name": "Cenarion Vestments",
+          "stats": {
+            "stamina": 11,
+            "intellect": 17,
+            "spirit": 15,
+            "armor": 200,
+            "power": 62
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:226649",
+          "name": "Cenarion Bracers",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "armor": 88,
+            "power": 29
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:226648",
+          "name": "Cenarion Gloves",
+          "stats": {
+            "stamina": 12,
+            "intellect": 14,
+            "spirit": 10,
+            "armor": 125,
+            "power": 44
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "8490:19057",
+            "name": "Rugged Armor Kit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Forever:19162",
+          "name": "Corehound Belt",
+          "stats": {
+            "intellect": 16,
+            "power": 62,
+            "spellDamage": 21,
+            "armor": 118
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 1,
+            "spellId": 23709,
+            "label": "Thorium Brotherhood pattern; Molten Core materials"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:226646",
+          "name": "Cenarion Leggings",
+          "stats": {
+            "stamina": 17,
+            "intellect": 19,
+            "spirit": 19,
+            "armor": 175,
+            "power": 48
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:226645",
+          "name": "Cenarion Boots",
+          "stats": {
+            "stamina": 13,
+            "intellect": 17,
+            "spirit": 13,
+            "armor": 138,
+            "power": 37
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Forever:19138",
+          "name": "Band of Sulfuras",
+          "stats": {
+            "stamina": 13,
+            "intellect": 23,
+            "spirit": 10
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 11502,
+            "label": "Molten Core · Ragnaros"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Forever:19140",
+          "name": "Cauterizing Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 46,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 12018,
+            "label": "Molten Core · Majordomo Executus"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:228298",
+          "name": "Shard of the Scale",
+          "stats": {
+            "mp5": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:18371",
+          "name": "Mindtap Talisman",
+          "stats": {
+            "mp5": 11
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2557,
+            "npcId": 11487,
+            "label": "Dire Maul · Magister Kalendris"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Forever:22398",
+          "name": "Idol of Rejuvenation",
+          "stats": {},
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 1583,
+            "npcId": 16080,
+            "label": "Blackrock Spire · Mor Grayhoof"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Forever:18717",
+          "name": "Hammer of the Grand Crusader",
+          "stats": {
+            "stamina": 10,
+            "intellect": 26,
+            "power": 135,
+            "spellDamage": 45,
+            "spirit": 17
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2017,
+            "npcId": 10812,
+            "label": "Stratholme · Balnazzar"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 596,
+        "healing": 596,
+        "mana": 7219,
+        "mp5": 27,
+        "crit": 12.4299,
+        "haste": 0
+      }
+    },
+    {
+      "className": "druid",
+      "name": "Tier 2 raid",
+      "tier": 2,
+      "realm": "Season of Discovery",
+      "relativePotential": 3.581661994760142,
+      "previousPotential": 2.988632707254285,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:230812",
+          "name": "Mish'undare, Circlet of the Mind Flayer",
+          "stats": {
+            "stamina": 14,
+            "intellect": 20,
+            "spirit": 12,
+            "power": 37,
+            "crit": 2,
+            "armor": 102
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:230245",
+          "name": "Pendant of the Fallen Dragon",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 37,
+            "mp5": 5,
+            "spellDamage": 13
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 13020,
+            "label": "Blackwing Lair · Vaelastrasz the Corrupt"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:231235",
+          "name": "Stormrage Pauldrons",
+          "stats": {
+            "stamina": 10,
+            "intellect": 13,
+            "spirit": 11,
+            "power": 44,
+            "crit": 1,
+            "armor": 169,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:17078",
+          "name": "Sapphiron Drape",
+          "stats": {
+            "stamina": 10,
+            "intellect": 17,
+            "power": 14,
+            "armor": 55
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:221785",
+          "name": "Cenarion Vestments",
+          "stats": {
+            "stamina": 11,
+            "intellect": 17,
+            "spirit": 15,
+            "armor": 200,
+            "power": 62
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:226649",
+          "name": "Cenarion Bracers",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "armor": 88,
+            "power": 29
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:231232",
+          "name": "Stormrage Handguards",
+          "stats": {
+            "stamina": 14,
+            "intellect": 16,
+            "spirit": 11,
+            "power": 48,
+            "armor": 140,
+            "spellDamage": 16
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "8490:19057",
+            "name": "Rugged Armor Kit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:19162",
+          "name": "Corehound Belt",
+          "stats": {
+            "intellect": 16,
+            "armor": 118,
+            "power": 62
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 1,
+            "spellId": 23709,
+            "label": "Thorium Brotherhood pattern; Molten Core materials"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:230746",
+          "name": "Empowered Leggings",
+          "stats": {
+            "stamina": 12,
+            "intellect": 12,
+            "spirit": 24,
+            "power": 77,
+            "crit": 1,
+            "armor": 103,
+            "spellDamage": 26
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 14020,
+            "label": "Blackwing Lair · Chromaggus"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:230743",
+          "name": "Shimmering Geta",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "power": 64,
+            "mp5": 6,
+            "armor": 81,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:230811",
+          "name": "Pure Elementium Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:230257",
+          "name": "Ring of Blackrock",
+          "stats": {
+            "intellect": 12,
+            "spirit": 11,
+            "power": 26
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:230269",
+          "name": "Rejuvenating Gem",
+          "stats": {
+            "power": 66,
+            "mp5": 9,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:228298",
+          "name": "Shard of the Scale",
+          "stats": {
+            "mp5": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:22398",
+          "name": "Idol of Rejuvenation",
+          "stats": {},
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 1583,
+            "npcId": 16080,
+            "label": "Blackrock Spire · Mor Grayhoof"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:230270",
+          "name": "Shadow Wing Focus Staff",
+          "stats": {
+            "stamina": 19,
+            "intellect": 36,
+            "spirit": 22,
+            "power": 60,
+            "crit": 1
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 679,
+        "healing": 679,
+        "mana": 7054,
+        "mp5": 36,
+        "crit": 17.2462,
+        "haste": 0
+      }
+    },
+    {
+      "className": "druid",
+      "name": "Tier 3 raid",
+      "tier": 3,
+      "realm": "Season of Discovery",
+      "relativePotential": 4.555817281789319,
+      "previousPotential": 3.07235222376222,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:233723",
+          "name": "Genesis Mask",
+          "stats": {
+            "stamina": 17,
+            "intellect": 20,
+            "spirit": 18,
+            "power": 79,
+            "crit": 1,
+            "armor": 192,
+            "spellDamage": 27
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3428,
+            "label": "Ahn'Qiraj vendor"
+          },
+          "enchant": {
+            "id": "2591:24159",
+            "name": "Animist's Caress",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:236266",
+          "name": "Pendant of Forgotten Names",
+          "stats": {
+            "intellect": 14,
+            "spirit": 13,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15952,
+            "label": "Naxxramas · Maexxna"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:233521",
+          "name": "Ternary Mantle",
+          "stats": {
+            "intellect": 20,
+            "spirit": 18,
+            "power": 55,
+            "armor": 87,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 0,
+            "label": "Ahn'Qiraj"
+          },
+          "enchant": {
+            "id": "2715:29474",
+            "name": "Resilience of the Scourge",
+            "tier": 3,
+            "label": "Naxxramas · Sapphiron enchant"
+          }
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:233641",
+          "name": "Cloak of Clarity",
+          "stats": {
+            "stamina": 7,
+            "intellect": 12,
+            "spirit": 8,
+            "power": 55,
+            "mp5": 4,
+            "armor": 66,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15727,
+            "label": "Ahn'Qiraj · C'Thun"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:233720",
+          "name": "Genesis Chestguard",
+          "stats": {
+            "stamina": 17,
+            "intellect": 24,
+            "spirit": 19,
+            "power": 88,
+            "crit": 1,
+            "armor": 253,
+            "spellDamage": 30
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3428,
+            "label": "Ahn'Qiraj vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:236183",
+          "name": "Dreamwalker Wristguards",
+          "stats": {
+            "stamina": 9,
+            "intellect": 10,
+            "spirit": 9,
+            "power": 48,
+            "crit": 1,
+            "armor": 111,
+            "spellDamage": 16
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3456,
+            "vendorZoneId": 139,
+            "label": "Naxxramas tier-token turn-in · Eastern Plaguelands"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:233607",
+          "name": "Gloves of the Messiah",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "spirit": 14,
+            "power": 64,
+            "armor": 75,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15509,
+            "label": "Ahn'Qiraj · Princess Huhuran"
+          },
+          "enchant": {
+            "id": "2617:25067",
+            "name": "Enchant Gloves - Healing Power",
+            "tier": 3,
+            "label": "Formula: Enchant Gloves - Healing Power · Ahn'Qiraj"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:233619",
+          "name": "Regenerating Belt of Vek'nilash",
+          "stats": {
+            "stamina": 16,
+            "intellect": 18,
+            "spirit": 13,
+            "power": 55,
+            "armor": 133,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 0,
+            "label": "Ahn'Qiraj"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:233719",
+          "name": "Genesis Breeches",
+          "stats": {
+            "stamina": 15,
+            "intellect": 20,
+            "spirit": 20,
+            "power": 77,
+            "crit": 1,
+            "armor": 207,
+            "spellDamage": 26
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3428,
+            "label": "Ahn'Qiraj vendor"
+          },
+          "enchant": {
+            "id": "2591:24159",
+            "name": "Animist's Caress",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:230743",
+          "name": "Shimmering Geta",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "power": 64,
+            "mp5": 6,
+            "armor": 81,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:231000",
+          "name": "Primalist's Seal",
+          "stats": {
+            "intellect": 13,
+            "spirit": 15,
+            "power": 29,
+            "spellDamage": 10
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 1977,
+            "npcId": 11382,
+            "label": "Zul'Gurub · Bloodlord Mandokir"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:230811",
+          "name": "Pure Elementium Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:236320",
+          "name": "Warmth of Forgiveness",
+          "stats": {
+            "power": 68,
+            "mp5": 10,
+            "spellDamage": 23
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 181366,
+            "label": "Naxxramas"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:230269",
+          "name": "Rejuvenating Gem",
+          "stats": {
+            "power": 66,
+            "mp5": 9,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:236308",
+          "name": "Idol of Longevity",
+          "stats": {},
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 16061,
+            "label": "Naxxramas · Instructor Razuvious"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:236401",
+          "name": "Atiesh, Greatstaff of the Guardian",
+          "stats": {
+            "stamina": 21,
+            "intellect": 25,
+            "spirit": 20,
+            "power": 300,
+            "crit": 3,
+            "spellDamage": 150
+          },
+          "source": {
+            "kind": "quest",
+            "tier": 3,
+            "questId": 87443,
+            "label": "Atiesh quest · Naxxramas and AQ40 bosses"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 1268,
+        "healing": 1268,
+        "mana": 7264,
+        "mp5": 34,
+        "crit": 19.814,
+        "haste": 0
+      }
+    },
+    {
+      "className": "druid",
+      "name": "Tier 4 raid · SoD",
+      "tier": 4,
+      "realm": "Season of Discovery",
+      "relativePotential": 5.008294365191382,
+      "previousPotential": 3.2863394275079156,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:240088",
+          "name": "Waywatcher Headpiece",
+          "stats": {
+            "stamina": 14,
+            "intellect": 16,
+            "spirit": 16,
+            "power": 108,
+            "crit": 2,
+            "armor": 223,
+            "spellDamage": 36
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "2591:24159",
+            "name": "Animist's Caress",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:236266",
+          "name": "Pendant of Forgotten Names",
+          "stats": {
+            "intellect": 14,
+            "spirit": 13,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15952,
+            "label": "Naxxramas · Maexxna"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:233521",
+          "name": "Ternary Mantle",
+          "stats": {
+            "intellect": 20,
+            "spirit": 18,
+            "power": 55,
+            "armor": 87,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 0,
+            "label": "Ahn'Qiraj"
+          },
+          "enchant": {
+            "id": "2715:29474",
+            "name": "Resilience of the Scourge",
+            "tier": 3,
+            "label": "Naxxramas · Sapphiron enchant"
+          }
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:233641",
+          "name": "Cloak of Clarity",
+          "stats": {
+            "stamina": 7,
+            "intellect": 12,
+            "spirit": 8,
+            "power": 55,
+            "mp5": 4,
+            "armor": 66,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15727,
+            "label": "Ahn'Qiraj · C'Thun"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:240091",
+          "name": "Waywatcher Tunic",
+          "stats": {
+            "stamina": 18,
+            "intellect": 21,
+            "spirit": 19,
+            "power": 110,
+            "crit": 2,
+            "armor": 275,
+            "spellDamage": 37
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:240084",
+          "name": "Waywatcher Wristguards",
+          "stats": {
+            "stamina": 12,
+            "intellect": 13,
+            "spirit": 12,
+            "power": 55,
+            "crit": 1,
+            "armor": 120,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:240089",
+          "name": "Waywatcher Handguards",
+          "stats": {
+            "stamina": 13,
+            "intellect": 16,
+            "spirit": 15,
+            "power": 92,
+            "armor": 172,
+            "spellDamage": 31
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "2617:25067",
+            "name": "Enchant Gloves - Healing Power",
+            "tier": 3,
+            "label": "Formula: Enchant Gloves - Healing Power · Ahn'Qiraj"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:240085",
+          "name": "Waywatcher Girdle",
+          "stats": {
+            "stamina": 16,
+            "intellect": 16,
+            "spirit": 16,
+            "power": 76,
+            "crit": 1,
+            "armor": 155,
+            "spellDamage": 26
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:240087",
+          "name": "Waywatcher Legguards",
+          "stats": {
+            "stamina": 16,
+            "intellect": 20,
+            "spirit": 20,
+            "power": 97,
+            "crit": 3,
+            "armor": 240,
+            "spellDamage": 32
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "2591:24159",
+            "name": "Animist's Caress",
+            "tier": 3,
+            "label": "Zul'Gurub reputation/class enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:240090",
+          "name": "Waywatcher Boots",
+          "stats": {
+            "stamina": 13,
+            "intellect": 14,
+            "spirit": 14,
+            "power": 95,
+            "armor": 189,
+            "spellDamage": 32
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:230811",
+          "name": "Pure Elementium Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:231000",
+          "name": "Primalist's Seal",
+          "stats": {
+            "intellect": 13,
+            "spirit": 15,
+            "power": 29,
+            "spellDamage": 10
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 1977,
+            "npcId": 11382,
+            "label": "Zul'Gurub · Bloodlord Mandokir"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:233994",
+          "name": "Ruby-Encrusted Broach",
+          "stats": {
+            "intellect": 18,
+            "power": 68,
+            "crit": 1,
+            "spellDamage": 23
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 4,
+            "label": "Crafted · SoD phase 6",
+            "details": {
+              "crafted": {
+                "profession": 3,
+                "spellId": 1213603
+              }
+            }
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:241068",
+          "name": "Stiltz's Standard",
+          "stats": {
+            "intellect": 10,
+            "spirit": 10,
+            "power": 88,
+            "spellDamage": 30
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 240812,
+            "label": "Scarlet Enclave · High Commander Beatrix"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:236308",
+          "name": "Idol of Longevity",
+          "stats": {},
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 16061,
+            "label": "Naxxramas · Instructor Razuvious"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:241008",
+          "name": "Condemnation",
+          "stats": {
+            "stamina": 20,
+            "intellect": 30,
+            "spirit": 21,
+            "power": 317,
+            "crit": 3,
+            "spellDamage": 106
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 241768,
+            "label": "Scarlet Enclave · Reborn Council"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 1465,
+        "healing": 1465,
+        "mana": 7639,
+        "mp5": 9,
+        "crit": 26.2315,
+        "haste": 0
+      }
+    },
+    {
+      "className": "paladin",
+      "name": "Tier 1 raid",
+      "tier": 1,
+      "realm": "Forever with source-verified SoD Molten Core supplement",
+      "relativePotential": 4.75666103544044,
+      "previousPotential": 3.1695978302317,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:228285",
+          "name": "Helm of the Lifegiver",
+          "stats": {
+            "stamina": 16,
+            "intellect": 35,
+            "spirit": 15,
+            "armor": 343,
+            "power": 44
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "1509:15403",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:228137",
+          "name": "Heart of Golemagg",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "spirit": 11,
+            "power": 37
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 228435,
+            "label": "Molten Core"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:227859",
+          "name": "Shimmering Dawnbringer Shoulders",
+          "stats": {
+            "intellect": 10,
+            "crit": 1,
+            "armor": 553,
+            "power": 59
+          },
+          "source": {
+            "kind": "reputation",
+            "tier": 1,
+            "factionId": 529,
+            "label": "Argent Dawn reputation"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Back",
+          "key": "Forever:18510",
+          "name": "Hide of the Wild",
+          "stats": {
+            "stamina": 8,
+            "intellect": 10,
+            "power": 42,
+            "spellDamage": 14,
+            "armor": 48
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 1,
+            "spellId": 22927,
+            "label": "Pattern from Knot Thimblejack, Dire Maul"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:226610",
+          "name": "Lawbringer Chestplate",
+          "stats": {
+            "stamina": 17,
+            "intellect": 18,
+            "crit": 1,
+            "armor": 749,
+            "power": 57
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:226589",
+          "name": "Lawbringer Bracers",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "crit": 1,
+            "armor": 328,
+            "power": 22
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:226591",
+          "name": "Lawbringer Gauntlets",
+          "stats": {
+            "stamina": 12,
+            "intellect": 15,
+            "crit": 1,
+            "armor": 468,
+            "power": 37
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "8490:19057",
+            "name": "Rugged Armor Kit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Forever:19162",
+          "name": "Corehound Belt",
+          "stats": {
+            "intellect": 16,
+            "power": 62,
+            "spellDamage": 21,
+            "armor": 118
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 1,
+            "spellId": 23709,
+            "label": "Thorium Brotherhood pattern; Molten Core materials"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:226594",
+          "name": "Lawbringer Legplates",
+          "stats": {
+            "stamina": 21,
+            "intellect": 19,
+            "crit": 1,
+            "armor": 655,
+            "power": 48
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "1509:15403",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:226593",
+          "name": "Lawbringer Boots",
+          "stats": {
+            "stamina": 13,
+            "intellect": 15,
+            "crit": 1,
+            "armor": 515,
+            "power": 37
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 1,
+            "zoneId": 2717,
+            "label": "Molten Core vendor"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Forever:19140",
+          "name": "Cauterizing Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 46,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 12018,
+            "label": "Molten Core · Majordomo Executus"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Forever:19140",
+          "name": "Cauterizing Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 46,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 12018,
+            "label": "Molten Core · Majordomo Executus"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:228298",
+          "name": "Shard of the Scale",
+          "stats": {
+            "mp5": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:18371",
+          "name": "Mindtap Talisman",
+          "stats": {
+            "mp5": 11
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2557,
+            "npcId": 11487,
+            "label": "Dire Maul · Magister Kalendris"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Forever:23201",
+          "name": "Libram of Divinity",
+          "stats": {},
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2057,
+            "npcId": 10505,
+            "label": "Scholomance · Instructor Malicia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Forever:11923",
+          "name": "The Hammer of Grace",
+          "stats": {
+            "power": 124,
+            "spellDamage": 41
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 1584,
+            "npcId": 9438,
+            "label": "Blackrock Depths · Dark Coffer"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:228294",
+          "name": "Malistar's Defender",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "mp5": 5,
+            "armor": 2893,
+            "power": 42
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 0,
+            "label": "Molten Core"
+          },
+          "enchant": {
+            "id": "1890:19986",
+            "name": "Enchant Shield - Superior Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 703,
+        "healing": 703,
+        "mana": 6572,
+        "mp5": 32,
+        "crit": 22.4452,
+        "haste": 0
+      }
+    },
+    {
+      "className": "paladin",
+      "name": "Tier 2 raid",
+      "tier": 2,
+      "realm": "Season of Discovery",
+      "relativePotential": 5.326651724583604,
+      "previousPotential": 4.409957795427091,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:231194",
+          "name": "Judgement Helm",
+          "stats": {
+            "stamina": 15,
+            "intellect": 26,
+            "power": 62,
+            "crit": 1,
+            "armor": 696,
+            "spellDamage": 21
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:230245",
+          "name": "Pendant of the Fallen Dragon",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 37,
+            "mp5": 5,
+            "spellDamage": 13
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 13020,
+            "label": "Blackwing Lair · Vaelastrasz the Corrupt"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:231192",
+          "name": "Judgement Mantle",
+          "stats": {
+            "stamina": 12,
+            "intellect": 13,
+            "power": 55,
+            "crit": 1,
+            "armor": 642,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:230733",
+          "name": "Shroud of Pure Thought",
+          "stats": {
+            "stamina": 10,
+            "intellect": 10,
+            "power": 35,
+            "crit": 1,
+            "armor": 57,
+            "spellDamage": 12
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11981,
+            "label": "Blackwing Lair · Flamegor"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:231197",
+          "name": "Judgement Cuirass",
+          "stats": {
+            "stamina": 20,
+            "intellect": 20,
+            "power": 66,
+            "crit": 1,
+            "armor": 857,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:231190",
+          "name": "Judgement Bracers",
+          "stats": {
+            "stamina": 12,
+            "intellect": 14,
+            "power": 26,
+            "crit": 1,
+            "armor": 375,
+            "spellDamage": 9
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:231195",
+          "name": "Judgement Gloves",
+          "stats": {
+            "stamina": 11,
+            "intellect": 19,
+            "power": 40,
+            "crit": 1,
+            "armor": 535,
+            "spellDamage": 14
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "8490:19057",
+            "name": "Rugged Armor Kit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:19162",
+          "name": "Corehound Belt",
+          "stats": {
+            "intellect": 16,
+            "armor": 118,
+            "power": 62
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 1,
+            "spellId": 23709,
+            "label": "Thorium Brotherhood pattern; Molten Core materials"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:230746",
+          "name": "Empowered Leggings",
+          "stats": {
+            "stamina": 12,
+            "intellect": 12,
+            "spirit": 24,
+            "power": 77,
+            "crit": 1,
+            "armor": 103,
+            "spellDamage": 26
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 14020,
+            "label": "Blackwing Lair · Chromaggus"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:230743",
+          "name": "Shimmering Geta",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "power": 64,
+            "mp5": 6,
+            "armor": 81,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:230811",
+          "name": "Pure Elementium Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 11,
+            "spirit": 11,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:228274",
+          "name": "Cauterizing Band",
+          "stats": {
+            "stamina": 9,
+            "intellect": 12,
+            "power": 46
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2717,
+            "npcId": 179703,
+            "label": "Molten Core"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:230269",
+          "name": "Rejuvenating Gem",
+          "stats": {
+            "power": 66,
+            "mp5": 9,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:228298",
+          "name": "Shard of the Scale",
+          "stats": {
+            "mp5": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2159,
+            "npcId": 10184,
+            "label": "Onyxia's Lair · Onyxia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Forever:23201",
+          "name": "Libram of Divinity",
+          "stats": {},
+          "source": {
+            "kind": "drop",
+            "tier": 1,
+            "zoneId": 2057,
+            "npcId": 10505,
+            "label": "Scholomance · Instructor Malicia"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:230838",
+          "name": "Lok'amir il Romathis",
+          "stats": {
+            "stamina": 10,
+            "intellect": 18,
+            "spirit": 8,
+            "power": 86
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 11583,
+            "label": "Blackwing Lair · Nefarian"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:230248",
+          "name": "Red Dragonscale Protector",
+          "stats": {
+            "stamina": 6,
+            "intellect": 10,
+            "spirit": 5,
+            "power": 40,
+            "crit": 1,
+            "armor": 2787,
+            "spellDamage": 14
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 13020,
+            "label": "Blackwing Lair · Vaelastrasz the Corrupt"
+          },
+          "enchant": {
+            "id": "1890:19986",
+            "name": "Enchant Shield - Superior Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 815,
+        "healing": 815,
+        "mana": 6827,
+        "mp5": 36,
+        "crit": 24.3951,
+        "haste": 0
+      }
+    },
+    {
+      "className": "paladin",
+      "name": "Tier 3 raid",
+      "tier": 3,
+      "realm": "Season of Discovery",
+      "relativePotential": 6.787402538713775,
+      "previousPotential": 4.199534620012828,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:233687",
+          "name": "Avenger's Helm",
+          "stats": {
+            "stamina": 19,
+            "intellect": 28,
+            "power": 79,
+            "crit": 1,
+            "armor": 739,
+            "spellDamage": 27
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3428,
+            "label": "Ahn'Qiraj vendor"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:236266",
+          "name": "Pendant of Forgotten Names",
+          "stats": {
+            "intellect": 14,
+            "spirit": 13,
+            "power": 53,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15952,
+            "label": "Naxxramas · Maexxna"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:236228",
+          "name": "Spaulders of the Grand Crusader",
+          "stats": {
+            "intellect": 29,
+            "power": 12,
+            "crit": 2,
+            "armor": 714
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15956,
+            "label": "Naxxramas · Anub'Rekhan"
+          },
+          "enchant": {
+            "id": "2715:29474",
+            "name": "Resilience of the Scourge",
+            "tier": 3,
+            "label": "Naxxramas · Sapphiron enchant"
+          }
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:233641",
+          "name": "Cloak of Clarity",
+          "stats": {
+            "stamina": 7,
+            "intellect": 12,
+            "spirit": 8,
+            "power": 55,
+            "mp5": 4,
+            "armor": 66,
+            "spellDamage": 19
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15727,
+            "label": "Ahn'Qiraj · C'Thun"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:233688",
+          "name": "Avenger's Cuirass",
+          "stats": {
+            "stamina": 17,
+            "intellect": 23,
+            "power": 84,
+            "crit": 2,
+            "armor": 985,
+            "spellDamage": 28
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 3,
+            "zoneId": 3428,
+            "label": "Ahn'Qiraj vendor"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:231190",
+          "name": "Judgement Bracers",
+          "stats": {
+            "stamina": 12,
+            "intellect": 14,
+            "power": 26,
+            "crit": 1,
+            "armor": 375,
+            "spellDamage": 9
+          },
+          "source": {
+            "kind": "vendor",
+            "tier": 2,
+            "zoneId": 2677,
+            "label": "Blackwing Lair vendor"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:233607",
+          "name": "Gloves of the Messiah",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "spirit": 14,
+            "power": 64,
+            "armor": 75,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15509,
+            "label": "Ahn'Qiraj · Princess Huhuran"
+          },
+          "enchant": {
+            "id": "2617:25067",
+            "name": "Enchant Gloves - Healing Power",
+            "tier": 3,
+            "label": "Formula: Enchant Gloves - Healing Power · Ahn'Qiraj"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:236225",
+          "name": "Girdle of Elemental Fury",
+          "stats": {
+            "intellect": 29,
+            "power": 12,
+            "crit": 2,
+            "armor": 301
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 16060,
+            "label": "Naxxramas · Gothik the Harvester"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:236229",
+          "name": "Leggings of the Grand Crusader",
+          "stats": {
+            "intellect": 44,
+            "power": 18,
+            "crit": 2,
+            "armor": 833
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15954,
+            "label": "Naxxramas · Noth the Plaguebringer"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:230743",
+          "name": "Shimmering Geta",
+          "stats": {
+            "stamina": 12,
+            "intellect": 17,
+            "power": 64,
+            "mp5": 6,
+            "armor": 81,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": {
+            "id": "851:13368",
+            "name": "Enchant Boots - Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:233569",
+          "name": "Ring of the Devoured",
+          "stats": {
+            "stamina": 8,
+            "intellect": 11,
+            "power": 44,
+            "crit": 1,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 0,
+            "label": "Ahn'Qiraj"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:236283",
+          "name": "Ring of Spiritual Fervor",
+          "stats": {
+            "stamina": 8,
+            "intellect": 8,
+            "power": 53,
+            "crit": 1,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 16011,
+            "label": "Naxxramas · Loatheb"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:236320",
+          "name": "Warmth of Forgiveness",
+          "stats": {
+            "power": 68,
+            "mp5": 10,
+            "spellDamage": 23
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 181366,
+            "label": "Naxxramas"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:230269",
+          "name": "Rejuvenating Gem",
+          "stats": {
+            "power": 66,
+            "mp5": 9,
+            "spellDamage": 22
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 2,
+            "zoneId": 2677,
+            "npcId": 0,
+            "label": "Blackwing Lair"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:236271",
+          "name": "Libram of Light",
+          "stats": {},
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15954,
+            "label": "Naxxramas · Noth the Plaguebringer"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:236348",
+          "name": "Hammer of the Twisting Nether",
+          "stats": {
+            "stamina": 8,
+            "intellect": 11,
+            "power": 239,
+            "spellDamage": 80,
+            "haste": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15990,
+            "label": "Naxxramas · Kel'Thuzad"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:233629",
+          "name": "Wormscale Blocker",
+          "stats": {
+            "stamina": 7,
+            "intellect": 12,
+            "power": 48,
+            "crit": 1,
+            "armor": 3035,
+            "spellDamage": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15517,
+            "label": "Ahn'Qiraj · Ouro"
+          },
+          "enchant": {
+            "id": "1890:19986",
+            "name": "Enchant Shield - Superior Spirit",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 1051,
+        "healing": 1051,
+        "mana": 7802,
+        "mp5": 34,
+        "crit": 30.480599999999995,
+        "haste": 2
+      }
+    },
+    {
+      "className": "paladin",
+      "name": "Tier 4 raid · SoD",
+      "tier": 4,
+      "realm": "Season of Discovery",
+      "relativePotential": 8.106186958927399,
+      "previousPotential": 5.449671800441738,
+      "items": [
+        {
+          "slot": "Head",
+          "key": "Season of Discovery:241077",
+          "name": "Cardinal's Chapeau",
+          "stats": {
+            "stamina": 14,
+            "intellect": 14,
+            "power": 125,
+            "crit": 2,
+            "armor": 114,
+            "spellDamage": 42
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 240812,
+            "label": "Scarlet Enclave · High Commander Beatrix"
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Neck",
+          "key": "Season of Discovery:241073",
+          "name": "Touch of Light",
+          "stats": {
+            "stamina": 9,
+            "intellect": 8,
+            "power": 73,
+            "crit": 1,
+            "spellDamage": 25
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 238954,
+            "label": "Scarlet Enclave · Solistrasza"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Shoulders",
+          "key": "Season of Discovery:236228",
+          "name": "Spaulders of the Grand Crusader",
+          "stats": {
+            "intellect": 29,
+            "power": 12,
+            "crit": 2,
+            "armor": 714
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 15956,
+            "label": "Naxxramas · Anub'Rekhan"
+          },
+          "enchant": {
+            "id": "2715:29474",
+            "name": "Resilience of the Scourge",
+            "tier": 3,
+            "label": "Naxxramas · Sapphiron enchant"
+          }
+        },
+        {
+          "slot": "Back",
+          "key": "Season of Discovery:241026",
+          "name": "Cardinal's Shawl",
+          "stats": {
+            "stamina": 8,
+            "intellect": 10,
+            "power": 73,
+            "crit": 1,
+            "armor": 70,
+            "spellDamage": 25
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 240812,
+            "label": "Scarlet Enclave · High Commander Beatrix"
+          },
+          "enchant": {
+            "id": "1889:20015",
+            "name": "Enchant Cloak - Superior Defense",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Chest",
+          "key": "Season of Discovery:241160",
+          "name": "Dawnworn Chainmail",
+          "stats": {
+            "stamina": 12,
+            "intellect": 52,
+            "power": 29,
+            "crit": 2,
+            "armor": 611,
+            "spellDamage": 29,
+            "haste": 4
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 243021,
+            "label": "Scarlet Enclave · Lillian Voss"
+          },
+          "enchant": {
+            "id": "1893:19991",
+            "name": "Enchant Chest - Major Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Wrists",
+          "key": "Season of Discovery:235873",
+          "name": "Crypt's Keepers",
+          "stats": {
+            "intellect": 12,
+            "power": 53,
+            "crit": 1,
+            "armor": 412,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16074,
+            "npcId": 0,
+            "label": "Karazhan Crypts"
+          },
+          "enchant": {
+            "id": "1901:19987",
+            "name": "Enchant Bracer - Superior Intellect",
+            "tier": 1,
+            "label": "Classic trainer/world/dungeon enchant"
+          }
+        },
+        {
+          "slot": "Hands",
+          "key": "Season of Discovery:236642",
+          "name": "Mender's Handwraps",
+          "stats": {
+            "stamina": 8,
+            "intellect": 17,
+            "spirit": 10,
+            "power": 70,
+            "crit": 1,
+            "armor": 81,
+            "spellDamage": 24
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16074,
+            "npcId": 237439,
+            "label": "Karazhan Crypts"
+          },
+          "enchant": {
+            "id": "2617:25067",
+            "name": "Enchant Gloves - Healing Power",
+            "tier": 3,
+            "label": "Formula: Enchant Gloves - Healing Power · Ahn'Qiraj"
+          }
+        },
+        {
+          "slot": "Waist",
+          "key": "Season of Discovery:236225",
+          "name": "Girdle of Elemental Fury",
+          "stats": {
+            "intellect": 29,
+            "power": 12,
+            "crit": 2,
+            "armor": 301
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 16060,
+            "label": "Naxxramas · Gothik the Harvester"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Legs",
+          "key": "Season of Discovery:240020",
+          "name": "Inquisition Legguards",
+          "stats": {
+            "stamina": 17,
+            "intellect": 24,
+            "power": 99,
+            "crit": 3,
+            "armor": 954,
+            "spellDamage": 33,
+            "haste": 1
+          },
+          "source": {
+            "kind": "soldBy",
+            "tier": 4,
+            "label": "SoD vendor · phase 8",
+            "details": {
+              "soldBy": {
+                "zoneId": 139
+              }
+            }
+          },
+          "enchant": {
+            "id": "1483:15345",
+            "name": "Lesser Arcane Amalgamation",
+            "tier": 1,
+            "label": "Burning Steppes · classic Libram enchant"
+          }
+        },
+        {
+          "slot": "Feet",
+          "key": "Season of Discovery:241184",
+          "name": "Savior Sandals",
+          "stats": {
+            "stamina": 10,
+            "intellect": 11,
+            "power": 90,
+            "crit": 2,
+            "armor": 95,
+            "spellDamage": 30
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 240811,
+            "label": "Scarlet Enclave · Balnazzar"
+          },
+          "enchant": {
+            "id": "8492:1254770",
+            "name": "Mystic Rugged Armor Kit",
+            "tier": 4,
+            "label": "Later/custom formula; conservatively T4 only"
+          }
+        },
+        {
+          "slot": "Finger 1",
+          "key": "Season of Discovery:233569",
+          "name": "Ring of the Devoured",
+          "stats": {
+            "stamina": 8,
+            "intellect": 11,
+            "power": 44,
+            "crit": 1,
+            "spellDamage": 15
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 0,
+            "label": "Ahn'Qiraj"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Finger 2",
+          "key": "Season of Discovery:236283",
+          "name": "Ring of Spiritual Fervor",
+          "stats": {
+            "stamina": 8,
+            "intellect": 8,
+            "power": 53,
+            "crit": 1,
+            "spellDamage": 18
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3456,
+            "npcId": 16011,
+            "label": "Naxxramas · Loatheb"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 1",
+          "key": "Season of Discovery:233994",
+          "name": "Ruby-Encrusted Broach",
+          "stats": {
+            "intellect": 18,
+            "power": 68,
+            "crit": 1,
+            "spellDamage": 23
+          },
+          "source": {
+            "kind": "crafted",
+            "tier": 4,
+            "label": "Crafted · SoD phase 6",
+            "details": {
+              "crafted": {
+                "profession": 3,
+                "spellId": 1213603
+              }
+            }
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Trinket 2",
+          "key": "Season of Discovery:241068",
+          "name": "Stiltz's Standard",
+          "stats": {
+            "intellect": 10,
+            "spirit": 10,
+            "power": 88,
+            "spellDamage": 30
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 240812,
+            "label": "Scarlet Enclave · High Commander Beatrix"
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Relic",
+          "key": "Season of Discovery:226545",
+          "name": "Dalton's Horn",
+          "stats": {
+            "intellect": 5
+          },
+          "source": {
+            "kind": "quest",
+            "tier": 4,
+            "label": "Quest · A Lesson in Grace",
+            "details": {
+              "quest": {
+                "id": 84008,
+                "name": "A Lesson in Grace"
+              }
+            }
+          },
+          "enchant": null
+        },
+        {
+          "slot": "Main hand",
+          "key": "Season of Discovery:241006",
+          "name": "Spire of Sacrifice",
+          "stats": {
+            "stamina": 7,
+            "power": 317,
+            "crit": 1,
+            "spellDamage": 106,
+            "haste": 2
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 4,
+            "zoneId": 16236,
+            "npcId": 241006,
+            "label": "Scarlet Enclave · Grand Crusader Caldoran"
+          },
+          "enchant": {
+            "id": "2568:23798",
+            "name": "Enchant Weapon - Mighty Intellect",
+            "tier": 1,
+            "label": "Timbermaw Hold reputation formula"
+          }
+        },
+        {
+          "slot": "Off hand",
+          "key": "Season of Discovery:233629",
+          "name": "Wormscale Blocker",
+          "stats": {
+            "stamina": 7,
+            "intellect": 12,
+            "power": 48,
+            "crit": 1,
+            "armor": 3035,
+            "spellDamage": 16
+          },
+          "source": {
+            "kind": "drop",
+            "tier": 3,
+            "zoneId": 3428,
+            "npcId": 15517,
+            "label": "Ahn'Qiraj · Ouro"
+          },
+          "enchant": {
+            "id": "7603:463873",
+            "name": "Enchant Shield - Law of Nature",
+            "tier": 4,
+            "label": "Later/custom formula; conservatively T4 only"
+          }
+        }
+      ],
+      "summary": {
+        "gearHealing": 1381,
+        "healing": 1381,
+        "mana": 7817,
+        "mp5": 5,
+        "crit": 39.497299999999996,
+        "haste": 7.000000000000001
+      }
+    }
+  ]
+}

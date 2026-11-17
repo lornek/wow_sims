@@ -44,7 +44,10 @@ export function canEquip(item, slot, className) {
   return true;
 }
 export function canEnchant(enchant,item,className) {
-  if (!item || enchant.classAllowlist?.length && !enchant.classAllowlist.includes(ids[className])) return false;
+  return !!item && !(enchant.classAllowlist?.length && !enchant.classAllowlist.includes(ids[className])) && enchantFitsItem(enchant,item);
+}
+function enchantFitsItem(enchant,item) {
+  if (!item) return false;
   if (![enchant.type,...(enchant.extraTypes ?? [])].includes(item.type)) return false;
   const kind=enchant.enchantType ?? 0;
   return kind === 1 ? item.twoHand : kind === 2 ? item.weaponType === 7 : kind === 4 ? item.weaponType === 8 : kind === 5 ? item.weaponType === 5 : item.type !== 13 || ![5,7].includes(item.weaponType) || kind === 3;
@@ -56,7 +59,7 @@ export function sanitizeEquipment(kit,className,catalog) {
     const item=catalog.items.find(i=>i.key===raw.key) ?? catalog.items.find(i=>i.id===raw.id && i.source===raw.source);
     if (!canEquip(item,slot,className) || item.unique && unique.has(item.id)) continue;
     unique.add(item.id);
-    const enchant=catalog.enchants.find(e=>e.id===raw.enchantId);
+    const enchant=catalog.enchants.find(e=>e.id===raw.enchantId&&canEnchant(e,item,className));
     result[slot]={...item,...(enchant && canEnchant(enchant,item,className)?{enchantId:enchant.id}:{} )};
   }
   if(result['Main hand']?.twoHand) delete result['Off hand'];
@@ -64,7 +67,7 @@ export function sanitizeEquipment(kit,className,catalog) {
 }
 export function effectiveEquipment(kit,catalog) {
   return Object.fromEntries(Object.entries(kit).map(([slot,item])=>{
-    const stats={...item.stats};const enchant=catalog?.enchants.find(e=>e.id===item.enchantId);
+    const stats={...item.stats};const enchant=catalog?.enchants.find(e=>e.id===item.enchantId&&enchantFitsItem(e,item));
     if(enchant)for(const [key,value] of Object.entries(enchant.stats))stats[key]=(stats[key]??0)+value;
     return [slot,{...item,stats}];
   }));
