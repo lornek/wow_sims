@@ -17,10 +17,12 @@ const slots = [
   ['swiftness', "Nature's Swiftness", 'Activate'],
   ['tide', 'Mana Tide Totem', 'Activate'],
   ['waterShield', 'Water Shield', 'Activate'],
-  ['potion', 'Major Mana Potion', 'Activate']
+  ['potion', 'Major Mana Potion', 'Activate'],
+  ['spring', 'Mana Spring Totem', 'Activate']
 ];
 const utility = {
   stream: {self:true},
+  spring: {party:true, waterTotem:true, period:2},
   waterShield: {waterShield:true},
   swiftness: {offGcd: true, swiftness: true},
   tide: {party: true, waterTotem: true, period: 3, duration: 12, manaTick: 290},
@@ -40,7 +42,7 @@ export default {
   schools: ['Enhancement', 'Restoration', 'Elemental Combat'],
   schoolIcons: ['Lightning Shield', 'Healing Wave', 'Lightning Bolt'],
   unlocks: ['riptide', 'swiftness', 'tide', 'waterShield'],
-  configureSpell: spell => spell.key === 'riptide' ? {...spell, periodicCrit: true} : spell,
-  auras: [['riptide', 'Riptide'], ['stream', 'Healing Stream Totem'], ['tide', 'Mana Tide Totem']],
+  configureSpell: spell => ['riptide', 'stream'].includes(spell.key) ? {...spell, periodicCrit: true} : spell,
+  auras: [['riptide', 'Riptide'], ['stream', 'Healing Stream Totem'], ['tide', 'Mana Tide Totem'], ['spring', 'Mana Spring Totem']],
   healingKeys: ['wave', 'lesser', 'chain', 'riptide', 'stream']
 };

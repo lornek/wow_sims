@@ -11,6 +11,12 @@ function filter() {
     card.hidden = !words.every(word => card.dataset.name.includes(word));
     if (!card.hidden) matches++;
   }
+  for (const section of document.querySelectorAll('.icon-section')) {
+    const icons = [...section.querySelectorAll('.icon-card')];
+    const visible = icons.filter(icon => !icon.hidden).length;
+    section.querySelector('[data-section-count]').textContent = visible + ' of ' + icons.length + ' icons';
+    section.querySelector('[data-section-empty]').hidden = visible !== 0;
+  }
   count.textContent = matches + ' of ' + cards.length + ' icons';
   empty.hidden = matches !== 0;
   const url = new URL(location.href);

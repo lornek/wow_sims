@@ -27,7 +27,7 @@ const header = document.querySelector('.healbot-header');
 const root = document.querySelector('#healing');
 const links = [...header.querySelectorAll('[data-healbot-class]')];
 const dynamicAreas = [
-  '.heal-menu', '.spell-inspector', '.heal-spells', '[data-buffs]', '.fight-report', '[data-meter]'
+  '.heal-menu', '.spell-inspector', '.heal-spells', '[data-buffs]', '.healing-score'
 ].map(selector => [selector, root.querySelector(selector).cloneNode(true)]);
 const encounter = root.querySelector('[data-encounter]');
 const difficulty = root.querySelector('[data-difficulty]');
@@ -94,24 +94,7 @@ window.addEventListener('popstate', () => {
 });
 
 const initial = document.body.dataset.healer;
-const loading = document.createElement('p');
-loading.className = 'heal-loading';
-loading.setAttribute('role', 'status');
-loading.textContent = 'Loading healer…';
-root.before(loading);
-root.inert = true;
-try {
-  mount(initial, (await load(initial)).default);
-  loading.remove();
-} catch {
-  loading.textContent = 'The healer could not load. Check your connection, then ';
-  const retry = document.createElement('a');
-  retry.href = location.href;
-  retry.textContent = 'retry loading';
-  loading.append(retry);
-} finally {
-  root.inert = false;
-}
+mount(initial, (await load(initial)).default);
 const connection = navigator.connection;
 if (!connection?.saveData && !['slow-2g', '2g', '3g'].includes(connection?.effectiveType)) {
   const queue = Object.keys(loaders).filter(healer => healer !== initial);

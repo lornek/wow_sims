@@ -1,0 +1,2623 @@
+{
+  "category": "equipment",
+  "directory": "equipment/armor-wardrobe",
+  "id": "armor-wardrobe",
+  "title": "Armor Wardrobe",
+  "sourceFilename": "armor-wardrobe.png",
+  "sourceSha256": "fb2bec153653db8c5bece892baf0aa8623e23b3a8e522070be6e090b31d75d90",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "xBoundaries": [
+    0,
+    126,
+    251,
+    376,
+    502,
+    627,
+    753,
+    879,
+    1004,
+    1129,
+    1254
+  ],
+  "yBoundaries": [
+    0,
+    124,
+    247,
+    371,
+    499,
+    623,
+    744,
+    856,
+    973,
+    1104,
+    1254
+  ],
+  "icons": [
+    {
+      "id": "armor-wardrobe-001",
+      "set": "armor-wardrobe",
+      "number": 1,
+      "row": 1,
+      "column": 1,
+      "name": "Cloth hood",
+      "path": "equipment/armor-wardrobe/001-cloth-hood.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        0,
+        0,
+        126,
+        124
+      ],
+      "tags": [
+        "cloth",
+        "equipment",
+        "head",
+        "hood"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-002",
+      "set": "armor-wardrobe",
+      "number": 2,
+      "row": 1,
+      "column": 2,
+      "name": "Stitched leather cap",
+      "path": "equipment/armor-wardrobe/002-stitched-leather-cap.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        126,
+        0,
+        251,
+        124
+      ],
+      "tags": [
+        "cap",
+        "equipment",
+        "head",
+        "leather",
+        "stitched"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-003",
+      "set": "armor-wardrobe",
+      "number": 3,
+      "row": 1,
+      "column": 3,
+      "name": "Iron nasal helmet",
+      "path": "equipment/armor-wardrobe/003-iron-nasal-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        251,
+        0,
+        376,
+        124
+      ],
+      "tags": [
+        "equipment",
+        "head",
+        "helmet",
+        "iron",
+        "nasal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-004",
+      "set": "armor-wardrobe",
+      "number": 4,
+      "row": 1,
+      "column": 4,
+      "name": "Steel visor helmet",
+      "path": "equipment/armor-wardrobe/004-steel-visor-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        376,
+        0,
+        502,
+        124
+      ],
+      "tags": [
+        "equipment",
+        "head",
+        "helmet",
+        "steel",
+        "visor"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-005",
+      "set": "armor-wardrobe",
+      "number": 5,
+      "row": 1,
+      "column": 5,
+      "name": "Winged azure helmet",
+      "path": "equipment/armor-wardrobe/005-winged-azure-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        502,
+        0,
+        627,
+        124
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "head",
+        "helmet",
+        "winged"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-006",
+      "set": "armor-wardrobe",
+      "number": 6,
+      "row": 1,
+      "column": 6,
+      "name": "Golden horned helmet",
+      "path": "equipment/armor-wardrobe/006-golden-horned-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        627,
+        0,
+        753,
+        124
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "head",
+        "helmet",
+        "horned"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-007",
+      "set": "armor-wardrobe",
+      "number": 7,
+      "row": 1,
+      "column": 7,
+      "name": "Bronze horned helmet",
+      "path": "equipment/armor-wardrobe/007-bronze-horned-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        753,
+        0,
+        879,
+        124
+      ],
+      "tags": [
+        "bronze",
+        "equipment",
+        "head",
+        "helmet",
+        "horned"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-008",
+      "set": "armor-wardrobe",
+      "number": 8,
+      "row": 1,
+      "column": 8,
+      "name": "Infernal horned helmet",
+      "path": "equipment/armor-wardrobe/008-infernal-horned-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        879,
+        0,
+        1004,
+        124
+      ],
+      "tags": [
+        "equipment",
+        "head",
+        "helmet",
+        "horned",
+        "infernal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-009",
+      "set": "armor-wardrobe",
+      "number": 9,
+      "row": 1,
+      "column": 9,
+      "name": "Radiant golden helmet",
+      "path": "equipment/armor-wardrobe/009-radiant-golden-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1004,
+        0,
+        1129,
+        124
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "head",
+        "helmet",
+        "radiant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-010",
+      "set": "armor-wardrobe",
+      "number": 10,
+      "row": 1,
+      "column": 10,
+      "name": "Violet crystal helmet",
+      "path": "equipment/armor-wardrobe/010-violet-crystal-helmet.png",
+      "category": "equipment",
+      "equipmentType": "head",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1129,
+        0,
+        1254,
+        124
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "head",
+        "helmet",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-011",
+      "set": "armor-wardrobe",
+      "number": 11,
+      "row": 2,
+      "column": 1,
+      "name": "Leather shoulder guard",
+      "path": "equipment/armor-wardrobe/011-leather-shoulder-guard.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        0,
+        124,
+        126,
+        247
+      ],
+      "tags": [
+        "equipment",
+        "guard",
+        "leather",
+        "shoulder",
+        "shoulders"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-012",
+      "set": "armor-wardrobe",
+      "number": 12,
+      "row": 2,
+      "column": 2,
+      "name": "Reinforced leather shoulder",
+      "path": "equipment/armor-wardrobe/012-reinforced-leather-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        126,
+        124,
+        251,
+        247
+      ],
+      "tags": [
+        "equipment",
+        "leather",
+        "reinforced",
+        "shoulder",
+        "shoulders"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-013",
+      "set": "armor-wardrobe",
+      "number": 13,
+      "row": 2,
+      "column": 3,
+      "name": "Iron plate shoulder",
+      "path": "equipment/armor-wardrobe/013-iron-plate-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        251,
+        124,
+        376,
+        247
+      ],
+      "tags": [
+        "equipment",
+        "iron",
+        "plate",
+        "shoulder",
+        "shoulders"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-014",
+      "set": "armor-wardrobe",
+      "number": 14,
+      "row": 2,
+      "column": 4,
+      "name": "Azure cloth shoulder",
+      "path": "equipment/armor-wardrobe/014-azure-cloth-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        376,
+        124,
+        502,
+        247
+      ],
+      "tags": [
+        "azure",
+        "cloth",
+        "equipment",
+        "shoulder",
+        "shoulders"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-015",
+      "set": "armor-wardrobe",
+      "number": 15,
+      "row": 2,
+      "column": 5,
+      "name": "Silver plate shoulder",
+      "path": "equipment/armor-wardrobe/015-silver-plate-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        502,
+        124,
+        627,
+        247
+      ],
+      "tags": [
+        "equipment",
+        "plate",
+        "shoulder",
+        "shoulders",
+        "silver"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-016",
+      "set": "armor-wardrobe",
+      "number": 16,
+      "row": 2,
+      "column": 6,
+      "name": "Golden dragon shoulder",
+      "path": "equipment/armor-wardrobe/016-golden-dragon-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        627,
+        124,
+        753,
+        247
+      ],
+      "tags": [
+        "dragon",
+        "equipment",
+        "golden",
+        "shoulder",
+        "shoulders"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-017",
+      "set": "armor-wardrobe",
+      "number": 17,
+      "row": 2,
+      "column": 7,
+      "name": "Horned spiked shoulder",
+      "path": "equipment/armor-wardrobe/017-horned-spiked-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        753,
+        124,
+        879,
+        247
+      ],
+      "tags": [
+        "equipment",
+        "horned",
+        "shoulder",
+        "shoulders",
+        "spiked"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-018",
+      "set": "armor-wardrobe",
+      "number": 18,
+      "row": 2,
+      "column": 8,
+      "name": "Infernal dragon shoulder",
+      "path": "equipment/armor-wardrobe/018-infernal-dragon-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        879,
+        124,
+        1004,
+        247
+      ],
+      "tags": [
+        "dragon",
+        "equipment",
+        "infernal",
+        "shoulder",
+        "shoulders"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-019",
+      "set": "armor-wardrobe",
+      "number": 19,
+      "row": 2,
+      "column": 9,
+      "name": "Radiant golden shoulder",
+      "path": "equipment/armor-wardrobe/019-radiant-golden-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        1004,
+        124,
+        1129,
+        247
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "radiant",
+        "shoulder",
+        "shoulders"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-020",
+      "set": "armor-wardrobe",
+      "number": 20,
+      "row": 2,
+      "column": 10,
+      "name": "Violet dragon shoulder",
+      "path": "equipment/armor-wardrobe/020-violet-dragon-shoulder.png",
+      "category": "equipment",
+      "equipmentType": "shoulders",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        1129,
+        124,
+        1254,
+        247
+      ],
+      "tags": [
+        "dragon",
+        "equipment",
+        "shoulder",
+        "shoulders",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-021",
+      "set": "armor-wardrobe",
+      "number": 21,
+      "row": 3,
+      "column": 1,
+      "name": "Rough cloth tunic",
+      "path": "equipment/armor-wardrobe/021-rough-cloth-tunic.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        0,
+        247,
+        126,
+        371
+      ],
+      "tags": [
+        "chest",
+        "cloth",
+        "equipment",
+        "rough",
+        "tunic"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-022",
+      "set": "armor-wardrobe",
+      "number": 22,
+      "row": 3,
+      "column": 2,
+      "name": "Leather jerkin",
+      "path": "equipment/armor-wardrobe/022-leather-jerkin.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        126,
+        247,
+        251,
+        371
+      ],
+      "tags": [
+        "chest",
+        "equipment",
+        "jerkin",
+        "leather"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-023",
+      "set": "armor-wardrobe",
+      "number": 23,
+      "row": 3,
+      "column": 3,
+      "name": "Reinforced leather vest",
+      "path": "equipment/armor-wardrobe/023-reinforced-leather-vest.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        251,
+        247,
+        376,
+        371
+      ],
+      "tags": [
+        "chest",
+        "equipment",
+        "leather",
+        "reinforced",
+        "vest"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-024",
+      "set": "armor-wardrobe",
+      "number": 24,
+      "row": 3,
+      "column": 4,
+      "name": "Chainmail shirt",
+      "path": "equipment/armor-wardrobe/024-chainmail-shirt.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        376,
+        247,
+        502,
+        371
+      ],
+      "tags": [
+        "chainmail",
+        "chest",
+        "equipment",
+        "shirt"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-025",
+      "set": "armor-wardrobe",
+      "number": 25,
+      "row": 3,
+      "column": 5,
+      "name": "Silver plate chest",
+      "path": "equipment/armor-wardrobe/025-silver-plate-chest.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        502,
+        247,
+        627,
+        371
+      ],
+      "tags": [
+        "chest",
+        "equipment",
+        "plate",
+        "silver"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-026",
+      "set": "armor-wardrobe",
+      "number": 26,
+      "row": 3,
+      "column": 6,
+      "name": "Royal azure breastplate",
+      "path": "equipment/armor-wardrobe/026-royal-azure-breastplate.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        627,
+        247,
+        753,
+        371
+      ],
+      "tags": [
+        "azure",
+        "breastplate",
+        "chest",
+        "equipment",
+        "royal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-027",
+      "set": "armor-wardrobe",
+      "number": 27,
+      "row": 3,
+      "column": 7,
+      "name": "Verdant leaf vest",
+      "path": "equipment/armor-wardrobe/027-verdant-leaf-vest.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        753,
+        247,
+        879,
+        371
+      ],
+      "tags": [
+        "chest",
+        "equipment",
+        "leaf",
+        "verdant",
+        "vest"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-028",
+      "set": "armor-wardrobe",
+      "number": 28,
+      "row": 3,
+      "column": 8,
+      "name": "Infernal plate chest",
+      "path": "equipment/armor-wardrobe/028-infernal-plate-chest.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        879,
+        247,
+        1004,
+        371
+      ],
+      "tags": [
+        "chest",
+        "equipment",
+        "infernal",
+        "plate"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-029",
+      "set": "armor-wardrobe",
+      "number": 29,
+      "row": 3,
+      "column": 9,
+      "name": "Radiant golden breastplate",
+      "path": "equipment/armor-wardrobe/029-radiant-golden-breastplate.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1004,
+        247,
+        1129,
+        371
+      ],
+      "tags": [
+        "breastplate",
+        "chest",
+        "equipment",
+        "golden",
+        "radiant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-030",
+      "set": "armor-wardrobe",
+      "number": 30,
+      "row": 3,
+      "column": 10,
+      "name": "Violet crystal breastplate",
+      "path": "equipment/armor-wardrobe/030-violet-crystal-breastplate.png",
+      "category": "equipment",
+      "equipmentType": "chest",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1129,
+        247,
+        1254,
+        371
+      ],
+      "tags": [
+        "breastplate",
+        "chest",
+        "crystal",
+        "equipment",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-031",
+      "set": "armor-wardrobe",
+      "number": 31,
+      "row": 4,
+      "column": 1,
+      "name": "Cloth handwraps",
+      "path": "equipment/armor-wardrobe/031-cloth-handwraps.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 126,
+      "height": 128,
+      "sourceBox": [
+        0,
+        371,
+        126,
+        499
+      ],
+      "tags": [
+        "cloth",
+        "equipment",
+        "hands",
+        "handwraps"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-032",
+      "set": "armor-wardrobe",
+      "number": 32,
+      "row": 4,
+      "column": 2,
+      "name": "Soft leather gloves",
+      "path": "equipment/armor-wardrobe/032-soft-leather-gloves.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 125,
+      "height": 128,
+      "sourceBox": [
+        126,
+        371,
+        251,
+        499
+      ],
+      "tags": [
+        "equipment",
+        "gloves",
+        "hands",
+        "leather",
+        "soft"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-033",
+      "set": "armor-wardrobe",
+      "number": 33,
+      "row": 4,
+      "column": 3,
+      "name": "Studded leather gloves",
+      "path": "equipment/armor-wardrobe/033-studded-leather-gloves.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 125,
+      "height": 128,
+      "sourceBox": [
+        251,
+        371,
+        376,
+        499
+      ],
+      "tags": [
+        "equipment",
+        "gloves",
+        "hands",
+        "leather",
+        "studded"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-034",
+      "set": "armor-wardrobe",
+      "number": 34,
+      "row": 4,
+      "column": 4,
+      "name": "Chainmail gloves",
+      "path": "equipment/armor-wardrobe/034-chainmail-gloves.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 126,
+      "height": 128,
+      "sourceBox": [
+        376,
+        371,
+        502,
+        499
+      ],
+      "tags": [
+        "chainmail",
+        "equipment",
+        "gloves",
+        "hands"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-035",
+      "set": "armor-wardrobe",
+      "number": 35,
+      "row": 4,
+      "column": 5,
+      "name": "Steel gauntlets",
+      "path": "equipment/armor-wardrobe/035-steel-gauntlets.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 125,
+      "height": 128,
+      "sourceBox": [
+        502,
+        371,
+        627,
+        499
+      ],
+      "tags": [
+        "equipment",
+        "gauntlets",
+        "hands",
+        "steel"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-036",
+      "set": "armor-wardrobe",
+      "number": 36,
+      "row": 4,
+      "column": 6,
+      "name": "Royal azure gauntlets",
+      "path": "equipment/armor-wardrobe/036-royal-azure-gauntlets.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 126,
+      "height": 128,
+      "sourceBox": [
+        627,
+        371,
+        753,
+        499
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "gauntlets",
+        "hands",
+        "royal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-037",
+      "set": "armor-wardrobe",
+      "number": 37,
+      "row": 4,
+      "column": 7,
+      "name": "Verdant leaf gloves",
+      "path": "equipment/armor-wardrobe/037-verdant-leaf-gloves.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 126,
+      "height": 128,
+      "sourceBox": [
+        753,
+        371,
+        879,
+        499
+      ],
+      "tags": [
+        "equipment",
+        "gloves",
+        "hands",
+        "leaf",
+        "verdant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-038",
+      "set": "armor-wardrobe",
+      "number": 38,
+      "row": 4,
+      "column": 8,
+      "name": "Infernal gauntlets",
+      "path": "equipment/armor-wardrobe/038-infernal-gauntlets.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 125,
+      "height": 128,
+      "sourceBox": [
+        879,
+        371,
+        1004,
+        499
+      ],
+      "tags": [
+        "equipment",
+        "gauntlets",
+        "hands",
+        "infernal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-039",
+      "set": "armor-wardrobe",
+      "number": 39,
+      "row": 4,
+      "column": 9,
+      "name": "Radiant golden gauntlets",
+      "path": "equipment/armor-wardrobe/039-radiant-golden-gauntlets.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 125,
+      "height": 128,
+      "sourceBox": [
+        1004,
+        371,
+        1129,
+        499
+      ],
+      "tags": [
+        "equipment",
+        "gauntlets",
+        "golden",
+        "hands",
+        "radiant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-040",
+      "set": "armor-wardrobe",
+      "number": 40,
+      "row": 4,
+      "column": 10,
+      "name": "Violet crystal gauntlets",
+      "path": "equipment/armor-wardrobe/040-violet-crystal-gauntlets.png",
+      "category": "equipment",
+      "equipmentType": "hands",
+      "width": 125,
+      "height": 128,
+      "sourceBox": [
+        1129,
+        371,
+        1254,
+        499
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "gauntlets",
+        "hands",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-041",
+      "set": "armor-wardrobe",
+      "number": 41,
+      "row": 5,
+      "column": 1,
+      "name": "Rope belt",
+      "path": "equipment/armor-wardrobe/041-rope-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        0,
+        499,
+        126,
+        623
+      ],
+      "tags": [
+        "belt",
+        "equipment",
+        "rope",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-042",
+      "set": "armor-wardrobe",
+      "number": 42,
+      "row": 5,
+      "column": 2,
+      "name": "Leather buckle belt",
+      "path": "equipment/armor-wardrobe/042-leather-buckle-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        126,
+        499,
+        251,
+        623
+      ],
+      "tags": [
+        "belt",
+        "buckle",
+        "equipment",
+        "leather",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-043",
+      "set": "armor-wardrobe",
+      "number": 43,
+      "row": 5,
+      "column": 3,
+      "name": "Iron ring belt",
+      "path": "equipment/armor-wardrobe/043-iron-ring-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        251,
+        499,
+        376,
+        623
+      ],
+      "tags": [
+        "belt",
+        "equipment",
+        "iron",
+        "ring",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-044",
+      "set": "armor-wardrobe",
+      "number": 44,
+      "row": 5,
+      "column": 4,
+      "name": "Reinforced leather belt",
+      "path": "equipment/armor-wardrobe/044-reinforced-leather-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        376,
+        499,
+        502,
+        623
+      ],
+      "tags": [
+        "belt",
+        "equipment",
+        "leather",
+        "reinforced",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-045",
+      "set": "armor-wardrobe",
+      "number": 45,
+      "row": 5,
+      "column": 5,
+      "name": "Silver lion belt",
+      "path": "equipment/armor-wardrobe/045-silver-lion-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        502,
+        499,
+        627,
+        623
+      ],
+      "tags": [
+        "belt",
+        "equipment",
+        "lion",
+        "silver",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-046",
+      "set": "armor-wardrobe",
+      "number": 46,
+      "row": 5,
+      "column": 6,
+      "name": "Royal azure gem belt",
+      "path": "equipment/armor-wardrobe/046-royal-azure-gem-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        627,
+        499,
+        753,
+        623
+      ],
+      "tags": [
+        "azure",
+        "belt",
+        "equipment",
+        "gem",
+        "royal",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-047",
+      "set": "armor-wardrobe",
+      "number": 47,
+      "row": 5,
+      "column": 7,
+      "name": "Verdant leaf belt",
+      "path": "equipment/armor-wardrobe/047-verdant-leaf-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        753,
+        499,
+        879,
+        623
+      ],
+      "tags": [
+        "belt",
+        "equipment",
+        "leaf",
+        "verdant",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-048",
+      "set": "armor-wardrobe",
+      "number": 48,
+      "row": 5,
+      "column": 8,
+      "name": "Infernal ruby belt",
+      "path": "equipment/armor-wardrobe/048-infernal-ruby-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        879,
+        499,
+        1004,
+        623
+      ],
+      "tags": [
+        "belt",
+        "equipment",
+        "infernal",
+        "ruby",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-049",
+      "set": "armor-wardrobe",
+      "number": 49,
+      "row": 5,
+      "column": 9,
+      "name": "Radiant azure gem belt",
+      "path": "equipment/armor-wardrobe/049-radiant-azure-gem-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1004,
+        499,
+        1129,
+        623
+      ],
+      "tags": [
+        "azure",
+        "belt",
+        "equipment",
+        "gem",
+        "radiant",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-050",
+      "set": "armor-wardrobe",
+      "number": 50,
+      "row": 5,
+      "column": 10,
+      "name": "Violet crystal belt",
+      "path": "equipment/armor-wardrobe/050-violet-crystal-belt.png",
+      "category": "equipment",
+      "equipmentType": "waist",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1129,
+        499,
+        1254,
+        623
+      ],
+      "tags": [
+        "belt",
+        "crystal",
+        "equipment",
+        "violet",
+        "waist"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-051",
+      "set": "armor-wardrobe",
+      "number": 51,
+      "row": 6,
+      "column": 1,
+      "name": "Tattered cloth trousers",
+      "path": "equipment/armor-wardrobe/051-tattered-cloth-trousers.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 126,
+      "height": 121,
+      "sourceBox": [
+        0,
+        623,
+        126,
+        744
+      ],
+      "tags": [
+        "cloth",
+        "equipment",
+        "legs",
+        "tattered",
+        "trousers"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-052",
+      "set": "armor-wardrobe",
+      "number": 52,
+      "row": 6,
+      "column": 2,
+      "name": "Leather leggings",
+      "path": "equipment/armor-wardrobe/052-leather-leggings.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 125,
+      "height": 121,
+      "sourceBox": [
+        126,
+        623,
+        251,
+        744
+      ],
+      "tags": [
+        "equipment",
+        "leather",
+        "leggings",
+        "legs"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-053",
+      "set": "armor-wardrobe",
+      "number": 53,
+      "row": 6,
+      "column": 3,
+      "name": "Reinforced leather leggings",
+      "path": "equipment/armor-wardrobe/053-reinforced-leather-leggings.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 125,
+      "height": 121,
+      "sourceBox": [
+        251,
+        623,
+        376,
+        744
+      ],
+      "tags": [
+        "equipment",
+        "leather",
+        "leggings",
+        "legs",
+        "reinforced"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-054",
+      "set": "armor-wardrobe",
+      "number": 54,
+      "row": 6,
+      "column": 4,
+      "name": "Chainmail leggings",
+      "path": "equipment/armor-wardrobe/054-chainmail-leggings.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 126,
+      "height": 121,
+      "sourceBox": [
+        376,
+        623,
+        502,
+        744
+      ],
+      "tags": [
+        "chainmail",
+        "equipment",
+        "leggings",
+        "legs"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-055",
+      "set": "armor-wardrobe",
+      "number": 55,
+      "row": 6,
+      "column": 5,
+      "name": "Steel plate leggings",
+      "path": "equipment/armor-wardrobe/055-steel-plate-leggings.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 125,
+      "height": 121,
+      "sourceBox": [
+        502,
+        623,
+        627,
+        744
+      ],
+      "tags": [
+        "equipment",
+        "leggings",
+        "legs",
+        "plate",
+        "steel"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-056",
+      "set": "armor-wardrobe",
+      "number": 56,
+      "row": 6,
+      "column": 6,
+      "name": "Royal azure legplates",
+      "path": "equipment/armor-wardrobe/056-royal-azure-legplates.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 126,
+      "height": 121,
+      "sourceBox": [
+        627,
+        623,
+        753,
+        744
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "legplates",
+        "legs",
+        "royal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-057",
+      "set": "armor-wardrobe",
+      "number": 57,
+      "row": 6,
+      "column": 7,
+      "name": "Verdant leaf leggings",
+      "path": "equipment/armor-wardrobe/057-verdant-leaf-leggings.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 126,
+      "height": 121,
+      "sourceBox": [
+        753,
+        623,
+        879,
+        744
+      ],
+      "tags": [
+        "equipment",
+        "leaf",
+        "leggings",
+        "legs",
+        "verdant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-058",
+      "set": "armor-wardrobe",
+      "number": 58,
+      "row": 6,
+      "column": 8,
+      "name": "Infernal legplates",
+      "path": "equipment/armor-wardrobe/058-infernal-legplates.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 125,
+      "height": 121,
+      "sourceBox": [
+        879,
+        623,
+        1004,
+        744
+      ],
+      "tags": [
+        "equipment",
+        "infernal",
+        "legplates",
+        "legs"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-059",
+      "set": "armor-wardrobe",
+      "number": 59,
+      "row": 6,
+      "column": 9,
+      "name": "Radiant golden legplates",
+      "path": "equipment/armor-wardrobe/059-radiant-golden-legplates.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 125,
+      "height": 121,
+      "sourceBox": [
+        1004,
+        623,
+        1129,
+        744
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "legplates",
+        "legs",
+        "radiant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-060",
+      "set": "armor-wardrobe",
+      "number": 60,
+      "row": 6,
+      "column": 10,
+      "name": "Violet crystal legplates",
+      "path": "equipment/armor-wardrobe/060-violet-crystal-legplates.png",
+      "category": "equipment",
+      "equipmentType": "legs",
+      "width": 125,
+      "height": 121,
+      "sourceBox": [
+        1129,
+        623,
+        1254,
+        744
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "legplates",
+        "legs",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-061",
+      "set": "armor-wardrobe",
+      "number": 61,
+      "row": 7,
+      "column": 1,
+      "name": "Cloth wrapped boots",
+      "path": "equipment/armor-wardrobe/061-cloth-wrapped-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 126,
+      "height": 112,
+      "sourceBox": [
+        0,
+        744,
+        126,
+        856
+      ],
+      "tags": [
+        "boots",
+        "cloth",
+        "equipment",
+        "feet",
+        "wrapped"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-062",
+      "set": "armor-wardrobe",
+      "number": 62,
+      "row": 7,
+      "column": 2,
+      "name": "Soft leather boots",
+      "path": "equipment/armor-wardrobe/062-soft-leather-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 125,
+      "height": 112,
+      "sourceBox": [
+        126,
+        744,
+        251,
+        856
+      ],
+      "tags": [
+        "boots",
+        "equipment",
+        "feet",
+        "leather",
+        "soft"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-063",
+      "set": "armor-wardrobe",
+      "number": 63,
+      "row": 7,
+      "column": 3,
+      "name": "Reinforced leather boots",
+      "path": "equipment/armor-wardrobe/063-reinforced-leather-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 125,
+      "height": 112,
+      "sourceBox": [
+        251,
+        744,
+        376,
+        856
+      ],
+      "tags": [
+        "boots",
+        "equipment",
+        "feet",
+        "leather",
+        "reinforced"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-064",
+      "set": "armor-wardrobe",
+      "number": 64,
+      "row": 7,
+      "column": 4,
+      "name": "Iron plate boots",
+      "path": "equipment/armor-wardrobe/064-iron-plate-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 126,
+      "height": 112,
+      "sourceBox": [
+        376,
+        744,
+        502,
+        856
+      ],
+      "tags": [
+        "boots",
+        "equipment",
+        "feet",
+        "iron",
+        "plate"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-065",
+      "set": "armor-wardrobe",
+      "number": 65,
+      "row": 7,
+      "column": 5,
+      "name": "Steel plate boots",
+      "path": "equipment/armor-wardrobe/065-steel-plate-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 125,
+      "height": 112,
+      "sourceBox": [
+        502,
+        744,
+        627,
+        856
+      ],
+      "tags": [
+        "boots",
+        "equipment",
+        "feet",
+        "plate",
+        "steel"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-066",
+      "set": "armor-wardrobe",
+      "number": 66,
+      "row": 7,
+      "column": 6,
+      "name": "Royal azure boots",
+      "path": "equipment/armor-wardrobe/066-royal-azure-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 126,
+      "height": 112,
+      "sourceBox": [
+        627,
+        744,
+        753,
+        856
+      ],
+      "tags": [
+        "azure",
+        "boots",
+        "equipment",
+        "feet",
+        "royal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-067",
+      "set": "armor-wardrobe",
+      "number": 67,
+      "row": 7,
+      "column": 7,
+      "name": "Verdant leaf boots",
+      "path": "equipment/armor-wardrobe/067-verdant-leaf-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 126,
+      "height": 112,
+      "sourceBox": [
+        753,
+        744,
+        879,
+        856
+      ],
+      "tags": [
+        "boots",
+        "equipment",
+        "feet",
+        "leaf",
+        "verdant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-068",
+      "set": "armor-wardrobe",
+      "number": 68,
+      "row": 7,
+      "column": 8,
+      "name": "Infernal plate boots",
+      "path": "equipment/armor-wardrobe/068-infernal-plate-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 125,
+      "height": 112,
+      "sourceBox": [
+        879,
+        744,
+        1004,
+        856
+      ],
+      "tags": [
+        "boots",
+        "equipment",
+        "feet",
+        "infernal",
+        "plate"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-069",
+      "set": "armor-wardrobe",
+      "number": 69,
+      "row": 7,
+      "column": 9,
+      "name": "Radiant golden boots",
+      "path": "equipment/armor-wardrobe/069-radiant-golden-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 125,
+      "height": 112,
+      "sourceBox": [
+        1004,
+        744,
+        1129,
+        856
+      ],
+      "tags": [
+        "boots",
+        "equipment",
+        "feet",
+        "golden",
+        "radiant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-070",
+      "set": "armor-wardrobe",
+      "number": 70,
+      "row": 7,
+      "column": 10,
+      "name": "Violet crystal boots",
+      "path": "equipment/armor-wardrobe/070-violet-crystal-boots.png",
+      "category": "equipment",
+      "equipmentType": "feet",
+      "width": 125,
+      "height": 112,
+      "sourceBox": [
+        1129,
+        744,
+        1254,
+        856
+      ],
+      "tags": [
+        "boots",
+        "crystal",
+        "equipment",
+        "feet",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-071",
+      "set": "armor-wardrobe",
+      "number": 71,
+      "row": 8,
+      "column": 1,
+      "name": "Tattered brown cloak",
+      "path": "equipment/armor-wardrobe/071-tattered-brown-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        0,
+        856,
+        126,
+        973
+      ],
+      "tags": [
+        "back",
+        "brown",
+        "cloak",
+        "equipment",
+        "tattered"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-072",
+      "set": "armor-wardrobe",
+      "number": 72,
+      "row": 8,
+      "column": 2,
+      "name": "Green cloth cloak",
+      "path": "equipment/armor-wardrobe/072-green-cloth-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        126,
+        856,
+        251,
+        973
+      ],
+      "tags": [
+        "back",
+        "cloak",
+        "cloth",
+        "equipment",
+        "green"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-073",
+      "set": "armor-wardrobe",
+      "number": 73,
+      "row": 8,
+      "column": 3,
+      "name": "Azure trimmed cloak",
+      "path": "equipment/armor-wardrobe/073-azure-trimmed-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        251,
+        856,
+        376,
+        973
+      ],
+      "tags": [
+        "azure",
+        "back",
+        "cloak",
+        "equipment",
+        "trimmed"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-074",
+      "set": "armor-wardrobe",
+      "number": 74,
+      "row": 8,
+      "column": 4,
+      "name": "Fur lined red cloak",
+      "path": "equipment/armor-wardrobe/074-fur-lined-red-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        376,
+        856,
+        502,
+        973
+      ],
+      "tags": [
+        "back",
+        "cloak",
+        "equipment",
+        "fur",
+        "lined",
+        "red"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-075",
+      "set": "armor-wardrobe",
+      "number": 75,
+      "row": 8,
+      "column": 5,
+      "name": "Royal lion cloak",
+      "path": "equipment/armor-wardrobe/075-royal-lion-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        502,
+        856,
+        627,
+        973
+      ],
+      "tags": [
+        "back",
+        "cloak",
+        "equipment",
+        "lion",
+        "royal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-076",
+      "set": "armor-wardrobe",
+      "number": 76,
+      "row": 8,
+      "column": 6,
+      "name": "White feather cloak",
+      "path": "equipment/armor-wardrobe/076-white-feather-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        627,
+        856,
+        753,
+        973
+      ],
+      "tags": [
+        "back",
+        "cloak",
+        "equipment",
+        "feather",
+        "white"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-077",
+      "set": "armor-wardrobe",
+      "number": 77,
+      "row": 8,
+      "column": 7,
+      "name": "Verdant leaf cloak",
+      "path": "equipment/armor-wardrobe/077-verdant-leaf-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 126,
+      "height": 117,
+      "sourceBox": [
+        753,
+        856,
+        879,
+        973
+      ],
+      "tags": [
+        "back",
+        "cloak",
+        "equipment",
+        "leaf",
+        "verdant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-078",
+      "set": "armor-wardrobe",
+      "number": 78,
+      "row": 8,
+      "column": 8,
+      "name": "Infernal flame cloak",
+      "path": "equipment/armor-wardrobe/078-infernal-flame-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        879,
+        856,
+        1004,
+        973
+      ],
+      "tags": [
+        "back",
+        "cloak",
+        "equipment",
+        "flame",
+        "infernal"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-079",
+      "set": "armor-wardrobe",
+      "number": 79,
+      "row": 8,
+      "column": 9,
+      "name": "Radiant feather cloak",
+      "path": "equipment/armor-wardrobe/079-radiant-feather-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        1004,
+        856,
+        1129,
+        973
+      ],
+      "tags": [
+        "back",
+        "cloak",
+        "equipment",
+        "feather",
+        "radiant"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-080",
+      "set": "armor-wardrobe",
+      "number": 80,
+      "row": 8,
+      "column": 10,
+      "name": "Violet arcane cloak",
+      "path": "equipment/armor-wardrobe/080-violet-arcane-cloak.png",
+      "category": "equipment",
+      "equipmentType": "back",
+      "width": 125,
+      "height": 117,
+      "sourceBox": [
+        1129,
+        856,
+        1254,
+        973
+      ],
+      "tags": [
+        "arcane",
+        "back",
+        "cloak",
+        "equipment",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-081",
+      "set": "armor-wardrobe",
+      "number": 81,
+      "row": 9,
+      "column": 1,
+      "name": "Wooden round shield",
+      "path": "equipment/armor-wardrobe/081-wooden-round-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        0,
+        973,
+        126,
+        1104
+      ],
+      "tags": [
+        "equipment",
+        "round",
+        "shield",
+        "wooden"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-082",
+      "set": "armor-wardrobe",
+      "number": 82,
+      "row": 9,
+      "column": 2,
+      "name": "Iron bound wooden shield",
+      "path": "equipment/armor-wardrobe/082-iron-bound-wooden-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        126,
+        973,
+        251,
+        1104
+      ],
+      "tags": [
+        "bound",
+        "equipment",
+        "iron",
+        "shield",
+        "wooden"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-083",
+      "set": "armor-wardrobe",
+      "number": 83,
+      "row": 9,
+      "column": 3,
+      "name": "Steel kite shield",
+      "path": "equipment/armor-wardrobe/083-steel-kite-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        251,
+        973,
+        376,
+        1104
+      ],
+      "tags": [
+        "equipment",
+        "kite",
+        "shield",
+        "steel"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-084",
+      "set": "armor-wardrobe",
+      "number": 84,
+      "row": 9,
+      "column": 4,
+      "name": "Royal lion shield",
+      "path": "equipment/armor-wardrobe/084-royal-lion-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        376,
+        973,
+        502,
+        1104
+      ],
+      "tags": [
+        "equipment",
+        "lion",
+        "royal",
+        "shield"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-085",
+      "set": "armor-wardrobe",
+      "number": 85,
+      "row": 9,
+      "column": 5,
+      "name": "Silver star shield",
+      "path": "equipment/armor-wardrobe/085-silver-star-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        502,
+        973,
+        627,
+        1104
+      ],
+      "tags": [
+        "equipment",
+        "shield",
+        "silver",
+        "star"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-086",
+      "set": "armor-wardrobe",
+      "number": 86,
+      "row": 9,
+      "column": 6,
+      "name": "Royal azure gem shield",
+      "path": "equipment/armor-wardrobe/086-royal-azure-gem-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        627,
+        973,
+        753,
+        1104
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "gem",
+        "royal",
+        "shield"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-087",
+      "set": "armor-wardrobe",
+      "number": 87,
+      "row": 9,
+      "column": 7,
+      "name": "Verdant wooden shield",
+      "path": "equipment/armor-wardrobe/087-verdant-wooden-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        753,
+        973,
+        879,
+        1104
+      ],
+      "tags": [
+        "equipment",
+        "shield",
+        "verdant",
+        "wooden"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-088",
+      "set": "armor-wardrobe",
+      "number": 88,
+      "row": 9,
+      "column": 8,
+      "name": "Infernal dragon shield",
+      "path": "equipment/armor-wardrobe/088-infernal-dragon-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        879,
+        973,
+        1004,
+        1104
+      ],
+      "tags": [
+        "dragon",
+        "equipment",
+        "infernal",
+        "shield"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-089",
+      "set": "armor-wardrobe",
+      "number": 89,
+      "row": 9,
+      "column": 9,
+      "name": "Radiant golden shield",
+      "path": "equipment/armor-wardrobe/089-radiant-golden-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        1004,
+        973,
+        1129,
+        1104
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "radiant",
+        "shield"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-090",
+      "set": "armor-wardrobe",
+      "number": 90,
+      "row": 9,
+      "column": 10,
+      "name": "Violet crystal shield",
+      "path": "equipment/armor-wardrobe/090-violet-crystal-shield.png",
+      "category": "equipment",
+      "equipmentType": "shield",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        1129,
+        973,
+        1254,
+        1104
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "shield",
+        "violet"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-091",
+      "set": "armor-wardrobe",
+      "number": 91,
+      "row": 10,
+      "column": 1,
+      "name": "Laced leather bracer",
+      "path": "equipment/armor-wardrobe/091-laced-leather-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 126,
+      "height": 150,
+      "sourceBox": [
+        0,
+        1104,
+        126,
+        1254
+      ],
+      "tags": [
+        "bracer",
+        "equipment",
+        "laced",
+        "leather",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-092",
+      "set": "armor-wardrobe",
+      "number": 92,
+      "row": 10,
+      "column": 2,
+      "name": "Studded leather bracer",
+      "path": "equipment/armor-wardrobe/092-studded-leather-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 125,
+      "height": 150,
+      "sourceBox": [
+        126,
+        1104,
+        251,
+        1254
+      ],
+      "tags": [
+        "bracer",
+        "equipment",
+        "leather",
+        "studded",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-093",
+      "set": "armor-wardrobe",
+      "number": 93,
+      "row": 10,
+      "column": 3,
+      "name": "Engraved steel bracer",
+      "path": "equipment/armor-wardrobe/093-engraved-steel-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 125,
+      "height": 150,
+      "sourceBox": [
+        251,
+        1104,
+        376,
+        1254
+      ],
+      "tags": [
+        "bracer",
+        "engraved",
+        "equipment",
+        "steel",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-094",
+      "set": "armor-wardrobe",
+      "number": 94,
+      "row": 10,
+      "column": 4,
+      "name": "Azure engraved bracer",
+      "path": "equipment/armor-wardrobe/094-azure-engraved-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 126,
+      "height": 150,
+      "sourceBox": [
+        376,
+        1104,
+        502,
+        1254
+      ],
+      "tags": [
+        "azure",
+        "bracer",
+        "engraved",
+        "equipment",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-095",
+      "set": "armor-wardrobe",
+      "number": 95,
+      "row": 10,
+      "column": 5,
+      "name": "Royal azure bracer",
+      "path": "equipment/armor-wardrobe/095-royal-azure-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 125,
+      "height": 150,
+      "sourceBox": [
+        502,
+        1104,
+        627,
+        1254
+      ],
+      "tags": [
+        "azure",
+        "bracer",
+        "equipment",
+        "royal",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-096",
+      "set": "armor-wardrobe",
+      "number": 96,
+      "row": 10,
+      "column": 6,
+      "name": "Golden azure gem bracer",
+      "path": "equipment/armor-wardrobe/096-golden-azure-gem-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 126,
+      "height": 150,
+      "sourceBox": [
+        627,
+        1104,
+        753,
+        1254
+      ],
+      "tags": [
+        "azure",
+        "bracer",
+        "equipment",
+        "gem",
+        "golden",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-097",
+      "set": "armor-wardrobe",
+      "number": 97,
+      "row": 10,
+      "column": 7,
+      "name": "Verdant bark bracer",
+      "path": "equipment/armor-wardrobe/097-verdant-bark-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 126,
+      "height": 150,
+      "sourceBox": [
+        753,
+        1104,
+        879,
+        1254
+      ],
+      "tags": [
+        "bark",
+        "bracer",
+        "equipment",
+        "verdant",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-098",
+      "set": "armor-wardrobe",
+      "number": 98,
+      "row": 10,
+      "column": 8,
+      "name": "Infernal plate bracer",
+      "path": "equipment/armor-wardrobe/098-infernal-plate-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 125,
+      "height": 150,
+      "sourceBox": [
+        879,
+        1104,
+        1004,
+        1254
+      ],
+      "tags": [
+        "bracer",
+        "equipment",
+        "infernal",
+        "plate",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-099",
+      "set": "armor-wardrobe",
+      "number": 99,
+      "row": 10,
+      "column": 9,
+      "name": "Radiant golden bracer",
+      "path": "equipment/armor-wardrobe/099-radiant-golden-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 125,
+      "height": 150,
+      "sourceBox": [
+        1004,
+        1104,
+        1129,
+        1254
+      ],
+      "tags": [
+        "bracer",
+        "equipment",
+        "golden",
+        "radiant",
+        "wrists"
+      ]
+    },
+    {
+      "id": "armor-wardrobe-100",
+      "set": "armor-wardrobe",
+      "number": 100,
+      "row": 10,
+      "column": 10,
+      "name": "Violet crystal bracer",
+      "path": "equipment/armor-wardrobe/100-violet-crystal-bracer.png",
+      "category": "equipment",
+      "equipmentType": "wrists",
+      "width": 125,
+      "height": 150,
+      "sourceBox": [
+        1129,
+        1104,
+        1254,
+        1254
+      ],
+      "tags": [
+        "bracer",
+        "crystal",
+        "equipment",
+        "violet",
+        "wrists"
+      ]
+    }
+  ]
+}

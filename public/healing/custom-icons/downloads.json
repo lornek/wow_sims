@@ -1,0 +1,42 @@
+{
+  "totalIcons": 1000,
+  "parts": [
+    {
+      "category": "spells",
+      "part": 1,
+      "path": "healing-and-mana-icons.zip",
+      "iconCount": 300,
+      "sizeBytes": 17063081,
+      "sets": [
+        "Mana Springs of Renewal",
+        "Mystical Healing Magic",
+        "Arcane Vitality"
+      ]
+    },
+    {
+      "category": "spells",
+      "part": 2,
+      "path": "nature-icons.zip",
+      "iconCount": 300,
+      "sizeBytes": 11984623,
+      "sets": [
+        "Neon Nature",
+        "Mystical Nature",
+        "Luminous Healing"
+      ]
+    },
+    {
+      "category": "equipment",
+      "part": 1,
+      "path": "equipment-icons-part-1.zip",
+      "iconCount": 400,
+      "sizeBytes": 15419772,
+      "sets": [
+        "Armor Wardrobe",
+        "Druidic Relics",
+        "Relics and Accessories",
+        "Weapon Arsenal"
+      ]
+    }
+  ]
+}

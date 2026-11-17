@@ -1,0 +1,2626 @@
+{
+  "category": "equipment",
+  "directory": "equipment/relics-accessories",
+  "id": "relics-accessories",
+  "title": "Relics and Accessories",
+  "sourceFilename": "relics-accessories.png",
+  "sourceSha256": "fe2b341b801e38dbd20f7a32c0e9ecf569421aa7b0849261e879880157f52d19",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "xBoundaries": [
+    0,
+    127,
+    253,
+    378,
+    503,
+    629,
+    753,
+    879,
+    1005,
+    1129,
+    1254
+  ],
+  "yBoundaries": [
+    0,
+    123,
+    246,
+    370,
+    501,
+    619,
+    741,
+    857,
+    977,
+    1100,
+    1254
+  ],
+  "icons": [
+    {
+      "id": "relics-accessories-001",
+      "set": "relics-accessories",
+      "number": 1,
+      "row": 1,
+      "column": 1,
+      "name": "Plain bronze ring",
+      "path": "equipment/relics-accessories/001-plain-bronze-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 127,
+      "height": 123,
+      "sourceBox": [
+        0,
+        0,
+        127,
+        123
+      ],
+      "tags": [
+        "bronze",
+        "equipment",
+        "finger",
+        "plain",
+        "ring"
+      ]
+    },
+    {
+      "id": "relics-accessories-002",
+      "set": "relics-accessories",
+      "number": 2,
+      "row": 1,
+      "column": 2,
+      "name": "Studded bronze ring",
+      "path": "equipment/relics-accessories/002-studded-bronze-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        127,
+        0,
+        253,
+        123
+      ],
+      "tags": [
+        "bronze",
+        "equipment",
+        "finger",
+        "ring",
+        "studded"
+      ]
+    },
+    {
+      "id": "relics-accessories-003",
+      "set": "relics-accessories",
+      "number": 3,
+      "row": 1,
+      "column": 3,
+      "name": "Engraved silver ring",
+      "path": "equipment/relics-accessories/003-engraved-silver-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        253,
+        0,
+        378,
+        123
+      ],
+      "tags": [
+        "engraved",
+        "equipment",
+        "finger",
+        "ring",
+        "silver"
+      ]
+    },
+    {
+      "id": "relics-accessories-004",
+      "set": "relics-accessories",
+      "number": 4,
+      "row": 1,
+      "column": 4,
+      "name": "Emerald silver ring",
+      "path": "equipment/relics-accessories/004-emerald-silver-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        378,
+        0,
+        503,
+        123
+      ],
+      "tags": [
+        "emerald",
+        "equipment",
+        "finger",
+        "ring",
+        "silver"
+      ]
+    },
+    {
+      "id": "relics-accessories-005",
+      "set": "relics-accessories",
+      "number": 5,
+      "row": 1,
+      "column": 5,
+      "name": "Ruby silver ring",
+      "path": "equipment/relics-accessories/005-ruby-silver-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        503,
+        0,
+        629,
+        123
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "ring",
+        "ruby",
+        "silver"
+      ]
+    },
+    {
+      "id": "relics-accessories-006",
+      "set": "relics-accessories",
+      "number": 6,
+      "row": 1,
+      "column": 6,
+      "name": "Royal sapphire ring",
+      "path": "equipment/relics-accessories/006-royal-sapphire-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        629,
+        0,
+        753,
+        123
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "ring",
+        "royal",
+        "sapphire"
+      ]
+    },
+    {
+      "id": "relics-accessories-007",
+      "set": "relics-accessories",
+      "number": 7,
+      "row": 1,
+      "column": 7,
+      "name": "Iron spike ring",
+      "path": "equipment/relics-accessories/007-iron-spike-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        753,
+        0,
+        879,
+        123
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "iron",
+        "ring",
+        "spike"
+      ]
+    },
+    {
+      "id": "relics-accessories-008",
+      "set": "relics-accessories",
+      "number": 8,
+      "row": 1,
+      "column": 8,
+      "name": "Ruby skull ring",
+      "path": "equipment/relics-accessories/008-ruby-skull-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        879,
+        0,
+        1005,
+        123
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "ring",
+        "ruby",
+        "skull"
+      ]
+    },
+    {
+      "id": "relics-accessories-009",
+      "set": "relics-accessories",
+      "number": 9,
+      "row": 1,
+      "column": 9,
+      "name": "Radiant sapphire ring",
+      "path": "equipment/relics-accessories/009-radiant-sapphire-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        1005,
+        0,
+        1129,
+        123
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "radiant",
+        "ring",
+        "sapphire"
+      ]
+    },
+    {
+      "id": "relics-accessories-010",
+      "set": "relics-accessories",
+      "number": 10,
+      "row": 1,
+      "column": 10,
+      "name": "Violet crystal ring",
+      "path": "equipment/relics-accessories/010-violet-crystal-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        1129,
+        0,
+        1254,
+        123
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "finger",
+        "ring",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-011",
+      "set": "relics-accessories",
+      "number": 11,
+      "row": 2,
+      "column": 1,
+      "name": "Stitched leather ring",
+      "path": "equipment/relics-accessories/011-stitched-leather-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 127,
+      "height": 123,
+      "sourceBox": [
+        0,
+        123,
+        127,
+        246
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "leather",
+        "ring",
+        "stitched"
+      ]
+    },
+    {
+      "id": "relics-accessories-012",
+      "set": "relics-accessories",
+      "number": 12,
+      "row": 2,
+      "column": 2,
+      "name": "Bone claw ring",
+      "path": "equipment/relics-accessories/012-bone-claw-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        127,
+        123,
+        253,
+        246
+      ],
+      "tags": [
+        "bone",
+        "claw",
+        "equipment",
+        "finger",
+        "ring"
+      ]
+    },
+    {
+      "id": "relics-accessories-013",
+      "set": "relics-accessories",
+      "number": 13,
+      "row": 2,
+      "column": 3,
+      "name": "Moonstone silver ring",
+      "path": "equipment/relics-accessories/013-moonstone-silver-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        253,
+        123,
+        378,
+        246
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "moonstone",
+        "ring",
+        "silver"
+      ]
+    },
+    {
+      "id": "relics-accessories-014",
+      "set": "relics-accessories",
+      "number": 14,
+      "row": 2,
+      "column": 4,
+      "name": "Living leaf ring",
+      "path": "equipment/relics-accessories/014-living-leaf-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        378,
+        123,
+        503,
+        246
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "leaf",
+        "living",
+        "ring"
+      ]
+    },
+    {
+      "id": "relics-accessories-015",
+      "set": "relics-accessories",
+      "number": 15,
+      "row": 2,
+      "column": 5,
+      "name": "Flame ruby ring",
+      "path": "equipment/relics-accessories/015-flame-ruby-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        503,
+        123,
+        629,
+        246
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "flame",
+        "ring",
+        "ruby"
+      ]
+    },
+    {
+      "id": "relics-accessories-016",
+      "set": "relics-accessories",
+      "number": 16,
+      "row": 2,
+      "column": 6,
+      "name": "Azure crystal ring",
+      "path": "equipment/relics-accessories/016-azure-crystal-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        629,
+        123,
+        753,
+        246
+      ],
+      "tags": [
+        "azure",
+        "crystal",
+        "equipment",
+        "finger",
+        "ring"
+      ]
+    },
+    {
+      "id": "relics-accessories-017",
+      "set": "relics-accessories",
+      "number": 17,
+      "row": 2,
+      "column": 7,
+      "name": "Emerald serpent ring",
+      "path": "equipment/relics-accessories/017-emerald-serpent-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        753,
+        123,
+        879,
+        246
+      ],
+      "tags": [
+        "emerald",
+        "equipment",
+        "finger",
+        "ring",
+        "serpent"
+      ]
+    },
+    {
+      "id": "relics-accessories-018",
+      "set": "relics-accessories",
+      "number": 18,
+      "row": 2,
+      "column": 8,
+      "name": "Molten lava ring",
+      "path": "equipment/relics-accessories/018-molten-lava-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        879,
+        123,
+        1005,
+        246
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "lava",
+        "molten",
+        "ring"
+      ]
+    },
+    {
+      "id": "relics-accessories-019",
+      "set": "relics-accessories",
+      "number": 19,
+      "row": 2,
+      "column": 9,
+      "name": "Golden sun ring",
+      "path": "equipment/relics-accessories/019-golden-sun-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        1005,
+        123,
+        1129,
+        246
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "golden",
+        "ring",
+        "sun"
+      ]
+    },
+    {
+      "id": "relics-accessories-020",
+      "set": "relics-accessories",
+      "number": 20,
+      "row": 2,
+      "column": 10,
+      "name": "Violet vortex ring",
+      "path": "equipment/relics-accessories/020-violet-vortex-ring.png",
+      "category": "equipment",
+      "equipmentType": "finger",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        1129,
+        123,
+        1254,
+        246
+      ],
+      "tags": [
+        "equipment",
+        "finger",
+        "ring",
+        "violet",
+        "vortex"
+      ]
+    },
+    {
+      "id": "relics-accessories-021",
+      "set": "relics-accessories",
+      "number": 21,
+      "row": 3,
+      "column": 1,
+      "name": "Ivory fang necklace",
+      "path": "equipment/relics-accessories/021-ivory-fang-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 127,
+      "height": 124,
+      "sourceBox": [
+        0,
+        246,
+        127,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "fang",
+        "ivory",
+        "neck",
+        "necklace"
+      ]
+    },
+    {
+      "id": "relics-accessories-022",
+      "set": "relics-accessories",
+      "number": 22,
+      "row": 3,
+      "column": 2,
+      "name": "Spiral medallion",
+      "path": "equipment/relics-accessories/022-spiral-medallion.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        127,
+        246,
+        253,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "medallion",
+        "neck",
+        "spiral"
+      ]
+    },
+    {
+      "id": "relics-accessories-023",
+      "set": "relics-accessories",
+      "number": 23,
+      "row": 3,
+      "column": 3,
+      "name": "Silver star necklace",
+      "path": "equipment/relics-accessories/023-silver-star-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        253,
+        246,
+        378,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "neck",
+        "necklace",
+        "silver",
+        "star"
+      ]
+    },
+    {
+      "id": "relics-accessories-024",
+      "set": "relics-accessories",
+      "number": 24,
+      "row": 3,
+      "column": 4,
+      "name": "Golden tree necklace",
+      "path": "equipment/relics-accessories/024-golden-tree-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        378,
+        246,
+        503,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "neck",
+        "necklace",
+        "tree"
+      ]
+    },
+    {
+      "id": "relics-accessories-025",
+      "set": "relics-accessories",
+      "number": 25,
+      "row": 3,
+      "column": 5,
+      "name": "Silver feather necklace",
+      "path": "equipment/relics-accessories/025-silver-feather-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        503,
+        246,
+        629,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "feather",
+        "neck",
+        "necklace",
+        "silver"
+      ]
+    },
+    {
+      "id": "relics-accessories-026",
+      "set": "relics-accessories",
+      "number": 26,
+      "row": 3,
+      "column": 6,
+      "name": "Golden lion necklace",
+      "path": "equipment/relics-accessories/026-golden-lion-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 124,
+      "height": 124,
+      "sourceBox": [
+        629,
+        246,
+        753,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "lion",
+        "neck",
+        "necklace"
+      ]
+    },
+    {
+      "id": "relics-accessories-027",
+      "set": "relics-accessories",
+      "number": 27,
+      "row": 3,
+      "column": 7,
+      "name": "Crescent star necklace",
+      "path": "equipment/relics-accessories/027-crescent-star-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        753,
+        246,
+        879,
+        370
+      ],
+      "tags": [
+        "crescent",
+        "equipment",
+        "neck",
+        "necklace",
+        "star"
+      ]
+    },
+    {
+      "id": "relics-accessories-028",
+      "set": "relics-accessories",
+      "number": 28,
+      "row": 3,
+      "column": 8,
+      "name": "Golden sun necklace",
+      "path": "equipment/relics-accessories/028-golden-sun-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 124,
+      "sourceBox": [
+        879,
+        246,
+        1005,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "neck",
+        "necklace",
+        "sun"
+      ]
+    },
+    {
+      "id": "relics-accessories-029",
+      "set": "relics-accessories",
+      "number": 29,
+      "row": 3,
+      "column": 9,
+      "name": "Violet crystal necklace",
+      "path": "equipment/relics-accessories/029-violet-crystal-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 124,
+      "height": 124,
+      "sourceBox": [
+        1005,
+        246,
+        1129,
+        370
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "neck",
+        "necklace",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-030",
+      "set": "relics-accessories",
+      "number": 30,
+      "row": 3,
+      "column": 10,
+      "name": "Violet eye necklace",
+      "path": "equipment/relics-accessories/030-violet-eye-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 125,
+      "height": 124,
+      "sourceBox": [
+        1129,
+        246,
+        1254,
+        370
+      ],
+      "tags": [
+        "equipment",
+        "eye",
+        "neck",
+        "necklace",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-031",
+      "set": "relics-accessories",
+      "number": 31,
+      "row": 4,
+      "column": 1,
+      "name": "Drawstring pouch necklace",
+      "path": "equipment/relics-accessories/031-drawstring-pouch-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 127,
+      "height": 131,
+      "sourceBox": [
+        0,
+        370,
+        127,
+        501
+      ],
+      "tags": [
+        "drawstring",
+        "equipment",
+        "neck",
+        "necklace",
+        "pouch"
+      ]
+    },
+    {
+      "id": "relics-accessories-032",
+      "set": "relics-accessories",
+      "number": 32,
+      "row": 4,
+      "column": 2,
+      "name": "Red potion necklace",
+      "path": "equipment/relics-accessories/032-red-potion-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        127,
+        370,
+        253,
+        501
+      ],
+      "tags": [
+        "equipment",
+        "neck",
+        "necklace",
+        "potion",
+        "red"
+      ]
+    },
+    {
+      "id": "relics-accessories-033",
+      "set": "relics-accessories",
+      "number": 33,
+      "row": 4,
+      "column": 3,
+      "name": "Blue vial necklace",
+      "path": "equipment/relics-accessories/033-blue-vial-necklace.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        253,
+        370,
+        378,
+        501
+      ],
+      "tags": [
+        "blue",
+        "equipment",
+        "neck",
+        "necklace",
+        "vial"
+      ]
+    },
+    {
+      "id": "relics-accessories-034",
+      "set": "relics-accessories",
+      "number": 34,
+      "row": 4,
+      "column": 4,
+      "name": "Azure crystal pendant",
+      "path": "equipment/relics-accessories/034-azure-crystal-pendant.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        378,
+        370,
+        503,
+        501
+      ],
+      "tags": [
+        "azure",
+        "crystal",
+        "equipment",
+        "neck",
+        "pendant"
+      ]
+    },
+    {
+      "id": "relics-accessories-035",
+      "set": "relics-accessories",
+      "number": 35,
+      "row": 4,
+      "column": 5,
+      "name": "Golden sapphire cross",
+      "path": "equipment/relics-accessories/035-golden-sapphire-cross.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        503,
+        370,
+        629,
+        501
+      ],
+      "tags": [
+        "cross",
+        "equipment",
+        "golden",
+        "neck",
+        "sapphire"
+      ]
+    },
+    {
+      "id": "relics-accessories-036",
+      "set": "relics-accessories",
+      "number": 36,
+      "row": 4,
+      "column": 6,
+      "name": "Living leaf pendant",
+      "path": "equipment/relics-accessories/036-living-leaf-pendant.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 124,
+      "height": 131,
+      "sourceBox": [
+        629,
+        370,
+        753,
+        501
+      ],
+      "tags": [
+        "equipment",
+        "leaf",
+        "living",
+        "neck",
+        "pendant"
+      ]
+    },
+    {
+      "id": "relics-accessories-037",
+      "set": "relics-accessories",
+      "number": 37,
+      "row": 4,
+      "column": 7,
+      "name": "Silver skull pendant",
+      "path": "equipment/relics-accessories/037-silver-skull-pendant.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        753,
+        370,
+        879,
+        501
+      ],
+      "tags": [
+        "equipment",
+        "neck",
+        "pendant",
+        "silver",
+        "skull"
+      ]
+    },
+    {
+      "id": "relics-accessories-038",
+      "set": "relics-accessories",
+      "number": 38,
+      "row": 4,
+      "column": 8,
+      "name": "Crimson crystal pendant",
+      "path": "equipment/relics-accessories/038-crimson-crystal-pendant.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 126,
+      "height": 131,
+      "sourceBox": [
+        879,
+        370,
+        1005,
+        501
+      ],
+      "tags": [
+        "crimson",
+        "crystal",
+        "equipment",
+        "neck",
+        "pendant"
+      ]
+    },
+    {
+      "id": "relics-accessories-039",
+      "set": "relics-accessories",
+      "number": 39,
+      "row": 4,
+      "column": 9,
+      "name": "Coiled dragon pendant",
+      "path": "equipment/relics-accessories/039-coiled-dragon-pendant.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 124,
+      "height": 131,
+      "sourceBox": [
+        1005,
+        370,
+        1129,
+        501
+      ],
+      "tags": [
+        "coiled",
+        "dragon",
+        "equipment",
+        "neck",
+        "pendant"
+      ]
+    },
+    {
+      "id": "relics-accessories-040",
+      "set": "relics-accessories",
+      "number": 40,
+      "row": 4,
+      "column": 10,
+      "name": "Violet spiral pendant",
+      "path": "equipment/relics-accessories/040-violet-spiral-pendant.png",
+      "category": "equipment",
+      "equipmentType": "neck",
+      "width": 125,
+      "height": 131,
+      "sourceBox": [
+        1129,
+        370,
+        1254,
+        501
+      ],
+      "tags": [
+        "equipment",
+        "neck",
+        "pendant",
+        "spiral",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-041",
+      "set": "relics-accessories",
+      "number": 41,
+      "row": 5,
+      "column": 1,
+      "name": "Golden compass",
+      "path": "equipment/relics-accessories/041-golden-compass.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 127,
+      "height": 118,
+      "sourceBox": [
+        0,
+        501,
+        127,
+        619
+      ],
+      "tags": [
+        "compass",
+        "equipment",
+        "golden",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-042",
+      "set": "relics-accessories",
+      "number": 42,
+      "row": 5,
+      "column": 2,
+      "name": "Brass spyglass",
+      "path": "equipment/relics-accessories/042-brass-spyglass.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 118,
+      "sourceBox": [
+        127,
+        501,
+        253,
+        619
+      ],
+      "tags": [
+        "brass",
+        "equipment",
+        "spyglass",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-043",
+      "set": "relics-accessories",
+      "number": 43,
+      "row": 5,
+      "column": 3,
+      "name": "Sand hourglass",
+      "path": "equipment/relics-accessories/043-sand-hourglass.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 118,
+      "sourceBox": [
+        253,
+        501,
+        378,
+        619
+      ],
+      "tags": [
+        "equipment",
+        "hourglass",
+        "sand",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-044",
+      "set": "relics-accessories",
+      "number": 44,
+      "row": 5,
+      "column": 4,
+      "name": "Carved drinking horn",
+      "path": "equipment/relics-accessories/044-carved-drinking-horn.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 118,
+      "sourceBox": [
+        378,
+        501,
+        503,
+        619
+      ],
+      "tags": [
+        "carved",
+        "drinking",
+        "equipment",
+        "horn",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-045",
+      "set": "relics-accessories",
+      "number": 45,
+      "row": 5,
+      "column": 5,
+      "name": "Leather coin pouch",
+      "path": "equipment/relics-accessories/045-leather-coin-pouch.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 118,
+      "sourceBox": [
+        503,
+        501,
+        629,
+        619
+      ],
+      "tags": [
+        "coin",
+        "equipment",
+        "leather",
+        "pouch",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-046",
+      "set": "relics-accessories",
+      "number": 46,
+      "row": 5,
+      "column": 6,
+      "name": "Golden ornate key",
+      "path": "equipment/relics-accessories/046-golden-ornate-key.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 124,
+      "height": 118,
+      "sourceBox": [
+        629,
+        501,
+        753,
+        619
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "key",
+        "ornate",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-047",
+      "set": "relics-accessories",
+      "number": 47,
+      "row": 5,
+      "column": 7,
+      "name": "Key ring",
+      "path": "equipment/relics-accessories/047-key-ring.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 118,
+      "sourceBox": [
+        753,
+        501,
+        879,
+        619
+      ],
+      "tags": [
+        "equipment",
+        "key",
+        "ring",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-048",
+      "set": "relics-accessories",
+      "number": 48,
+      "row": 5,
+      "column": 8,
+      "name": "Iron lockbox",
+      "path": "equipment/relics-accessories/048-iron-lockbox.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 118,
+      "sourceBox": [
+        879,
+        501,
+        1005,
+        619
+      ],
+      "tags": [
+        "equipment",
+        "iron",
+        "lockbox",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-049",
+      "set": "relics-accessories",
+      "number": 49,
+      "row": 5,
+      "column": 9,
+      "name": "Brass gear",
+      "path": "equipment/relics-accessories/049-brass-gear.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 124,
+      "height": 118,
+      "sourceBox": [
+        1005,
+        501,
+        1129,
+        619
+      ],
+      "tags": [
+        "brass",
+        "equipment",
+        "gear",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-050",
+      "set": "relics-accessories",
+      "number": 50,
+      "row": 5,
+      "column": 10,
+      "name": "Golden armillary sphere",
+      "path": "equipment/relics-accessories/050-golden-armillary-sphere.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 118,
+      "sourceBox": [
+        1129,
+        501,
+        1254,
+        619
+      ],
+      "tags": [
+        "armillary",
+        "equipment",
+        "golden",
+        "sphere",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-051",
+      "set": "relics-accessories",
+      "number": 51,
+      "row": 6,
+      "column": 1,
+      "name": "Carved wooden whistle",
+      "path": "equipment/relics-accessories/051-carved-wooden-whistle.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 127,
+      "height": 122,
+      "sourceBox": [
+        0,
+        619,
+        127,
+        741
+      ],
+      "tags": [
+        "carved",
+        "equipment",
+        "trinket",
+        "whistle",
+        "wooden"
+      ]
+    },
+    {
+      "id": "relics-accessories-052",
+      "set": "relics-accessories",
+      "number": 52,
+      "row": 6,
+      "column": 2,
+      "name": "Engraved flame lighter",
+      "path": "equipment/relics-accessories/052-engraved-flame-lighter.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        127,
+        619,
+        253,
+        741
+      ],
+      "tags": [
+        "engraved",
+        "equipment",
+        "flame",
+        "lighter",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-053",
+      "set": "relics-accessories",
+      "number": 53,
+      "row": 6,
+      "column": 3,
+      "name": "Bound parchment scroll",
+      "path": "equipment/relics-accessories/053-bound-parchment-scroll.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 122,
+      "sourceBox": [
+        253,
+        619,
+        378,
+        741
+      ],
+      "tags": [
+        "bound",
+        "equipment",
+        "parchment",
+        "scroll",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-054",
+      "set": "relics-accessories",
+      "number": 54,
+      "row": 6,
+      "column": 4,
+      "name": "Royal lion wax seal",
+      "path": "equipment/relics-accessories/054-royal-lion-wax-seal.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 122,
+      "sourceBox": [
+        378,
+        619,
+        503,
+        741
+      ],
+      "tags": [
+        "equipment",
+        "lion",
+        "royal",
+        "seal",
+        "trinket",
+        "wax"
+      ]
+    },
+    {
+      "id": "relics-accessories-055",
+      "set": "relics-accessories",
+      "number": 55,
+      "row": 6,
+      "column": 5,
+      "name": "Sealed letter",
+      "path": "equipment/relics-accessories/055-sealed-letter.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        503,
+        619,
+        629,
+        741
+      ],
+      "tags": [
+        "equipment",
+        "letter",
+        "sealed",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-056",
+      "set": "relics-accessories",
+      "number": 56,
+      "row": 6,
+      "column": 6,
+      "name": "Brass binoculars",
+      "path": "equipment/relics-accessories/056-brass-binoculars.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 124,
+      "height": 122,
+      "sourceBox": [
+        629,
+        619,
+        753,
+        741
+      ],
+      "tags": [
+        "binoculars",
+        "brass",
+        "equipment",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-057",
+      "set": "relics-accessories",
+      "number": 57,
+      "row": 6,
+      "column": 7,
+      "name": "Silver magnifying glass",
+      "path": "equipment/relics-accessories/057-silver-magnifying-glass.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        753,
+        619,
+        879,
+        741
+      ],
+      "tags": [
+        "equipment",
+        "glass",
+        "magnifying",
+        "silver",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-058",
+      "set": "relics-accessories",
+      "number": 58,
+      "row": 6,
+      "column": 8,
+      "name": "Violet scrying lens",
+      "path": "equipment/relics-accessories/058-violet-scrying-lens.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 122,
+      "sourceBox": [
+        879,
+        619,
+        1005,
+        741
+      ],
+      "tags": [
+        "equipment",
+        "lens",
+        "scrying",
+        "trinket",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-059",
+      "set": "relics-accessories",
+      "number": 59,
+      "row": 6,
+      "column": 9,
+      "name": "Golden flame lantern",
+      "path": "equipment/relics-accessories/059-golden-flame-lantern.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 124,
+      "height": 122,
+      "sourceBox": [
+        1005,
+        619,
+        1129,
+        741
+      ],
+      "tags": [
+        "equipment",
+        "flame",
+        "golden",
+        "lantern",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-060",
+      "set": "relics-accessories",
+      "number": 60,
+      "row": 6,
+      "column": 10,
+      "name": "Violet spirit lantern",
+      "path": "equipment/relics-accessories/060-violet-spirit-lantern.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 122,
+      "sourceBox": [
+        1129,
+        619,
+        1254,
+        741
+      ],
+      "tags": [
+        "equipment",
+        "lantern",
+        "spirit",
+        "trinket",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-061",
+      "set": "relics-accessories",
+      "number": 61,
+      "row": 7,
+      "column": 1,
+      "name": "Leather bound journal",
+      "path": "equipment/relics-accessories/061-leather-bound-journal.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 127,
+      "height": 116,
+      "sourceBox": [
+        0,
+        741,
+        127,
+        857
+      ],
+      "tags": [
+        "bound",
+        "equipment",
+        "journal",
+        "leather",
+        "offhand"
+      ]
+    },
+    {
+      "id": "relics-accessories-062",
+      "set": "relics-accessories",
+      "number": 62,
+      "row": 7,
+      "column": 2,
+      "name": "Iron bound tome",
+      "path": "equipment/relics-accessories/062-iron-bound-tome.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 126,
+      "height": 116,
+      "sourceBox": [
+        127,
+        741,
+        253,
+        857
+      ],
+      "tags": [
+        "bound",
+        "equipment",
+        "iron",
+        "offhand",
+        "tome"
+      ]
+    },
+    {
+      "id": "relics-accessories-063",
+      "set": "relics-accessories",
+      "number": 63,
+      "row": 7,
+      "column": 3,
+      "name": "Violet moon spellbook",
+      "path": "equipment/relics-accessories/063-violet-moon-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 125,
+      "height": 116,
+      "sourceBox": [
+        253,
+        741,
+        378,
+        857
+      ],
+      "tags": [
+        "equipment",
+        "moon",
+        "offhand",
+        "spellbook",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-064",
+      "set": "relics-accessories",
+      "number": 64,
+      "row": 7,
+      "column": 4,
+      "name": "Azure star spellbook",
+      "path": "equipment/relics-accessories/064-azure-star-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 125,
+      "height": 116,
+      "sourceBox": [
+        378,
+        741,
+        503,
+        857
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "offhand",
+        "spellbook",
+        "star"
+      ]
+    },
+    {
+      "id": "relics-accessories-065",
+      "set": "relics-accessories",
+      "number": 65,
+      "row": 7,
+      "column": 5,
+      "name": "Verdant leaf spellbook",
+      "path": "equipment/relics-accessories/065-verdant-leaf-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 126,
+      "height": 116,
+      "sourceBox": [
+        503,
+        741,
+        629,
+        857
+      ],
+      "tags": [
+        "equipment",
+        "leaf",
+        "offhand",
+        "spellbook",
+        "verdant"
+      ]
+    },
+    {
+      "id": "relics-accessories-066",
+      "set": "relics-accessories",
+      "number": 66,
+      "row": 7,
+      "column": 6,
+      "name": "Crimson flame spellbook",
+      "path": "equipment/relics-accessories/066-crimson-flame-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 124,
+      "height": 116,
+      "sourceBox": [
+        629,
+        741,
+        753,
+        857
+      ],
+      "tags": [
+        "crimson",
+        "equipment",
+        "flame",
+        "offhand",
+        "spellbook"
+      ]
+    },
+    {
+      "id": "relics-accessories-067",
+      "set": "relics-accessories",
+      "number": 67,
+      "row": 7,
+      "column": 7,
+      "name": "Bone skull spellbook",
+      "path": "equipment/relics-accessories/067-bone-skull-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 126,
+      "height": 116,
+      "sourceBox": [
+        753,
+        741,
+        879,
+        857
+      ],
+      "tags": [
+        "bone",
+        "equipment",
+        "offhand",
+        "skull",
+        "spellbook"
+      ]
+    },
+    {
+      "id": "relics-accessories-068",
+      "set": "relics-accessories",
+      "number": 68,
+      "row": 7,
+      "column": 8,
+      "name": "Golden sun spellbook",
+      "path": "equipment/relics-accessories/068-golden-sun-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 126,
+      "height": 116,
+      "sourceBox": [
+        879,
+        741,
+        1005,
+        857
+      ],
+      "tags": [
+        "equipment",
+        "golden",
+        "offhand",
+        "spellbook",
+        "sun"
+      ]
+    },
+    {
+      "id": "relics-accessories-069",
+      "set": "relics-accessories",
+      "number": 69,
+      "row": 7,
+      "column": 9,
+      "name": "Azure crystal spellbook",
+      "path": "equipment/relics-accessories/069-azure-crystal-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 124,
+      "height": 116,
+      "sourceBox": [
+        1005,
+        741,
+        1129,
+        857
+      ],
+      "tags": [
+        "azure",
+        "crystal",
+        "equipment",
+        "offhand",
+        "spellbook"
+      ]
+    },
+    {
+      "id": "relics-accessories-070",
+      "set": "relics-accessories",
+      "number": 70,
+      "row": 7,
+      "column": 10,
+      "name": "Violet vortex spellbook",
+      "path": "equipment/relics-accessories/070-violet-vortex-spellbook.png",
+      "category": "equipment",
+      "equipmentType": "offhand",
+      "width": 125,
+      "height": 116,
+      "sourceBox": [
+        1129,
+        741,
+        1254,
+        857
+      ],
+      "tags": [
+        "equipment",
+        "offhand",
+        "spellbook",
+        "violet",
+        "vortex"
+      ]
+    },
+    {
+      "id": "relics-accessories-071",
+      "set": "relics-accessories",
+      "number": 71,
+      "row": 8,
+      "column": 1,
+      "name": "Carved spiral runestone",
+      "path": "equipment/relics-accessories/071-carved-spiral-runestone.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 127,
+      "height": 120,
+      "sourceBox": [
+        0,
+        857,
+        127,
+        977
+      ],
+      "tags": [
+        "carved",
+        "equipment",
+        "relic",
+        "runestone",
+        "spiral"
+      ]
+    },
+    {
+      "id": "relics-accessories-072",
+      "set": "relics-accessories",
+      "number": 72,
+      "row": 8,
+      "column": 2,
+      "name": "Crystal scrying orb",
+      "path": "equipment/relics-accessories/072-crystal-scrying-orb.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        127,
+        857,
+        253,
+        977
+      ],
+      "tags": [
+        "crystal",
+        "equipment",
+        "orb",
+        "relic",
+        "scrying"
+      ]
+    },
+    {
+      "id": "relics-accessories-073",
+      "set": "relics-accessories",
+      "number": 73,
+      "row": 8,
+      "column": 3,
+      "name": "Blue water basin",
+      "path": "equipment/relics-accessories/073-blue-water-basin.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        253,
+        857,
+        378,
+        977
+      ],
+      "tags": [
+        "basin",
+        "blue",
+        "equipment",
+        "relic",
+        "water"
+      ]
+    },
+    {
+      "id": "relics-accessories-074",
+      "set": "relics-accessories",
+      "number": 74,
+      "row": 8,
+      "column": 4,
+      "name": "Azure armillary orb",
+      "path": "equipment/relics-accessories/074-azure-armillary-orb.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        378,
+        857,
+        503,
+        977
+      ],
+      "tags": [
+        "armillary",
+        "azure",
+        "equipment",
+        "orb",
+        "relic"
+      ]
+    },
+    {
+      "id": "relics-accessories-075",
+      "set": "relics-accessories",
+      "number": 75,
+      "row": 8,
+      "column": 5,
+      "name": "Violet armillary gem",
+      "path": "equipment/relics-accessories/075-violet-armillary-gem.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        503,
+        857,
+        629,
+        977
+      ],
+      "tags": [
+        "armillary",
+        "equipment",
+        "gem",
+        "relic",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-076",
+      "set": "relics-accessories",
+      "number": 76,
+      "row": 8,
+      "column": 6,
+      "name": "Azure crystal altar",
+      "path": "equipment/relics-accessories/076-azure-crystal-altar.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        629,
+        857,
+        753,
+        977
+      ],
+      "tags": [
+        "altar",
+        "azure",
+        "crystal",
+        "equipment",
+        "relic"
+      ]
+    },
+    {
+      "id": "relics-accessories-077",
+      "set": "relics-accessories",
+      "number": 77,
+      "row": 8,
+      "column": 7,
+      "name": "Azure obelisk",
+      "path": "equipment/relics-accessories/077-azure-obelisk.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        753,
+        857,
+        879,
+        977
+      ],
+      "tags": [
+        "azure",
+        "equipment",
+        "obelisk",
+        "relic"
+      ]
+    },
+    {
+      "id": "relics-accessories-078",
+      "set": "relics-accessories",
+      "number": 78,
+      "row": 8,
+      "column": 8,
+      "name": "Violet rune cube",
+      "path": "equipment/relics-accessories/078-violet-rune-cube.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 120,
+      "sourceBox": [
+        879,
+        857,
+        1005,
+        977
+      ],
+      "tags": [
+        "cube",
+        "equipment",
+        "relic",
+        "rune",
+        "violet"
+      ]
+    },
+    {
+      "id": "relics-accessories-079",
+      "set": "relics-accessories",
+      "number": 79,
+      "row": 8,
+      "column": 9,
+      "name": "Golden flame pyramid",
+      "path": "equipment/relics-accessories/079-golden-flame-pyramid.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 124,
+      "height": 120,
+      "sourceBox": [
+        1005,
+        857,
+        1129,
+        977
+      ],
+      "tags": [
+        "equipment",
+        "flame",
+        "golden",
+        "pyramid",
+        "relic"
+      ]
+    },
+    {
+      "id": "relics-accessories-080",
+      "set": "relics-accessories",
+      "number": 80,
+      "row": 8,
+      "column": 10,
+      "name": "Violet vortex relic",
+      "path": "equipment/relics-accessories/080-violet-vortex-relic.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 125,
+      "height": 120,
+      "sourceBox": [
+        1129,
+        857,
+        1254,
+        977
+      ],
+      "tags": [
+        "equipment",
+        "relic",
+        "violet",
+        "vortex"
+      ]
+    },
+    {
+      "id": "relics-accessories-081",
+      "set": "relics-accessories",
+      "number": 81,
+      "row": 9,
+      "column": 1,
+      "name": "Fur claw charm",
+      "path": "equipment/relics-accessories/081-fur-claw-charm.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 127,
+      "height": 123,
+      "sourceBox": [
+        0,
+        977,
+        127,
+        1100
+      ],
+      "tags": [
+        "charm",
+        "claw",
+        "equipment",
+        "fur",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-082",
+      "set": "relics-accessories",
+      "number": 82,
+      "row": 9,
+      "column": 2,
+      "name": "Azure feather charm",
+      "path": "equipment/relics-accessories/082-azure-feather-charm.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        127,
+        977,
+        253,
+        1100
+      ],
+      "tags": [
+        "azure",
+        "charm",
+        "equipment",
+        "feather",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-083",
+      "set": "relics-accessories",
+      "number": 83,
+      "row": 9,
+      "column": 3,
+      "name": "Feather dreamcatcher",
+      "path": "equipment/relics-accessories/083-feather-dreamcatcher.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        253,
+        977,
+        378,
+        1100
+      ],
+      "tags": [
+        "dreamcatcher",
+        "equipment",
+        "feather",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-084",
+      "set": "relics-accessories",
+      "number": 84,
+      "row": 9,
+      "column": 4,
+      "name": "Four leaf clover charm",
+      "path": "equipment/relics-accessories/084-four-leaf-clover-charm.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        378,
+        977,
+        503,
+        1100
+      ],
+      "tags": [
+        "charm",
+        "clover",
+        "equipment",
+        "four",
+        "leaf",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-085",
+      "set": "relics-accessories",
+      "number": 85,
+      "row": 9,
+      "column": 5,
+      "name": "Lucky horseshoe",
+      "path": "equipment/relics-accessories/085-lucky-horseshoe.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        503,
+        977,
+        629,
+        1100
+      ],
+      "tags": [
+        "equipment",
+        "horseshoe",
+        "lucky",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-086",
+      "set": "relics-accessories",
+      "number": 86,
+      "row": 9,
+      "column": 6,
+      "name": "Carved stone idol",
+      "path": "equipment/relics-accessories/086-carved-stone-idol.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        629,
+        977,
+        753,
+        1100
+      ],
+      "tags": [
+        "carved",
+        "equipment",
+        "idol",
+        "stone",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-087",
+      "set": "relics-accessories",
+      "number": 87,
+      "row": 9,
+      "column": 7,
+      "name": "Carved wooden totem",
+      "path": "equipment/relics-accessories/087-carved-wooden-totem.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        753,
+        977,
+        879,
+        1100
+      ],
+      "tags": [
+        "carved",
+        "equipment",
+        "totem",
+        "trinket",
+        "wooden"
+      ]
+    },
+    {
+      "id": "relics-accessories-088",
+      "set": "relics-accessories",
+      "number": 88,
+      "row": 9,
+      "column": 8,
+      "name": "Bound ritual doll",
+      "path": "equipment/relics-accessories/088-bound-ritual-doll.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 126,
+      "height": 123,
+      "sourceBox": [
+        879,
+        977,
+        1005,
+        1100
+      ],
+      "tags": [
+        "bound",
+        "doll",
+        "equipment",
+        "ritual",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-089",
+      "set": "relics-accessories",
+      "number": 89,
+      "row": 9,
+      "column": 9,
+      "name": "Azure crystal charm",
+      "path": "equipment/relics-accessories/089-azure-crystal-charm.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 124,
+      "height": 123,
+      "sourceBox": [
+        1005,
+        977,
+        1129,
+        1100
+      ],
+      "tags": [
+        "azure",
+        "charm",
+        "crystal",
+        "equipment",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-090",
+      "set": "relics-accessories",
+      "number": 90,
+      "row": 9,
+      "column": 10,
+      "name": "Golden blossom amulet",
+      "path": "equipment/relics-accessories/090-golden-blossom-amulet.png",
+      "category": "equipment",
+      "equipmentType": "trinket",
+      "width": 125,
+      "height": 123,
+      "sourceBox": [
+        1129,
+        977,
+        1254,
+        1100
+      ],
+      "tags": [
+        "amulet",
+        "blossom",
+        "equipment",
+        "golden",
+        "trinket"
+      ]
+    },
+    {
+      "id": "relics-accessories-091",
+      "set": "relics-accessories",
+      "number": 91,
+      "row": 10,
+      "column": 1,
+      "name": "Engraved silver heart",
+      "path": "equipment/relics-accessories/091-engraved-silver-heart.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 127,
+      "height": 154,
+      "sourceBox": [
+        0,
+        1100,
+        127,
+        1254
+      ],
+      "tags": [
+        "engraved",
+        "equipment",
+        "heart",
+        "relic",
+        "silver"
+      ]
+    },
+    {
+      "id": "relics-accessories-092",
+      "set": "relics-accessories",
+      "number": 92,
+      "row": 10,
+      "column": 2,
+      "name": "Amber dragon eye",
+      "path": "equipment/relics-accessories/092-amber-dragon-eye.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 154,
+      "sourceBox": [
+        127,
+        1100,
+        253,
+        1254
+      ],
+      "tags": [
+        "amber",
+        "dragon",
+        "equipment",
+        "eye",
+        "relic"
+      ]
+    },
+    {
+      "id": "relics-accessories-093",
+      "set": "relics-accessories",
+      "number": 93,
+      "row": 10,
+      "column": 3,
+      "name": "Green alchemy flask",
+      "path": "equipment/relics-accessories/093-green-alchemy-flask.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 125,
+      "height": 154,
+      "sourceBox": [
+        253,
+        1100,
+        378,
+        1254
+      ],
+      "tags": [
+        "alchemy",
+        "equipment",
+        "flask",
+        "green",
+        "relic"
+      ]
+    },
+    {
+      "id": "relics-accessories-094",
+      "set": "relics-accessories",
+      "number": 94,
+      "row": 10,
+      "column": 4,
+      "name": "Flame spirit relic",
+      "path": "equipment/relics-accessories/094-flame-spirit-relic.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 125,
+      "height": 154,
+      "sourceBox": [
+        378,
+        1100,
+        503,
+        1254
+      ],
+      "tags": [
+        "equipment",
+        "flame",
+        "relic",
+        "spirit"
+      ]
+    },
+    {
+      "id": "relics-accessories-095",
+      "set": "relics-accessories",
+      "number": 95,
+      "row": 10,
+      "column": 5,
+      "name": "Water spirit relic",
+      "path": "equipment/relics-accessories/095-water-spirit-relic.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 154,
+      "sourceBox": [
+        503,
+        1100,
+        629,
+        1254
+      ],
+      "tags": [
+        "equipment",
+        "relic",
+        "spirit",
+        "water"
+      ]
+    },
+    {
+      "id": "relics-accessories-096",
+      "set": "relics-accessories",
+      "number": 96,
+      "row": 10,
+      "column": 6,
+      "name": "Lightning spirit relic",
+      "path": "equipment/relics-accessories/096-lightning-spirit-relic.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 124,
+      "height": 154,
+      "sourceBox": [
+        629,
+        1100,
+        753,
+        1254
+      ],
+      "tags": [
+        "equipment",
+        "lightning",
+        "relic",
+        "spirit"
+      ]
+    },
+    {
+      "id": "relics-accessories-097",
+      "set": "relics-accessories",
+      "number": 97,
+      "row": 10,
+      "column": 7,
+      "name": "Ruby dragon claw",
+      "path": "equipment/relics-accessories/097-ruby-dragon-claw.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 154,
+      "sourceBox": [
+        753,
+        1100,
+        879,
+        1254
+      ],
+      "tags": [
+        "claw",
+        "dragon",
+        "equipment",
+        "relic",
+        "ruby"
+      ]
+    },
+    {
+      "id": "relics-accessories-098",
+      "set": "relics-accessories",
+      "number": 98,
+      "row": 10,
+      "column": 8,
+      "name": "Molten heartstone",
+      "path": "equipment/relics-accessories/098-molten-heartstone.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 126,
+      "height": 154,
+      "sourceBox": [
+        879,
+        1100,
+        1005,
+        1254
+      ],
+      "tags": [
+        "equipment",
+        "heartstone",
+        "molten",
+        "relic"
+      ]
+    },
+    {
+      "id": "relics-accessories-099",
+      "set": "relics-accessories",
+      "number": 99,
+      "row": 10,
+      "column": 9,
+      "name": "Golden winged sword charm",
+      "path": "equipment/relics-accessories/099-golden-winged-sword-charm.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 124,
+      "height": 154,
+      "sourceBox": [
+        1005,
+        1100,
+        1129,
+        1254
+      ],
+      "tags": [
+        "charm",
+        "equipment",
+        "golden",
+        "relic",
+        "sword",
+        "winged"
+      ]
+    },
+    {
+      "id": "relics-accessories-100",
+      "set": "relics-accessories",
+      "number": 100,
+      "row": 10,
+      "column": 10,
+      "name": "Violet crystal crown",
+      "path": "equipment/relics-accessories/100-violet-crystal-crown.png",
+      "category": "equipment",
+      "equipmentType": "relic",
+      "width": 125,
+      "height": 154,
+      "sourceBox": [
+        1129,
+        1100,
+        1254,
+        1254
+      ],
+      "tags": [
+        "crown",
+        "crystal",
+        "equipment",
+        "relic",
+        "violet"
+      ]
+    }
+  ]
+}

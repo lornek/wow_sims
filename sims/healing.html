@@ -18,9 +18,7 @@
     </select>
   </div>
   <div class="heal-stage">
-    <p class="combat-cue" data-threat aria-label="Next threat"></p>
-    <p class="combat-feedback" data-feedback role="status" aria-live="polite" aria-atomic="true"></p>
-    <div class="heal-top"><button type="button" data-start>⚔ PULL! ⚔</button><strong data-phase></strong></div>
+    <div class="heal-top"><div class="battlefield-controls"><button type="button" data-start>⚔ PULL! ⚔</button><button type="button" class="sound-toggle" data-sound aria-label="Mute healing sounds" aria-pressed="true" title="Mute healing sounds"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="currentColor"/><path data-sound-on d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14"/><path data-sound-off d="m16 9 6 6m0-6-6 6" hidden/></svg></button></div><strong data-phase></strong></div>
     <aside class="combat-sidebar">
       <div class="combat-buffs" data-buffs aria-label="Buffs"></div>
     </aside>
@@ -46,16 +44,21 @@
     <div class="heal-spells" aria-label="Select a spell"></div>
   </div>
   <p class="heal-credit">Right-click a spell to inspect its stats and change rank. Keyboard shortcut: Shift + F10.</p>
-  <label class="heal-sound"><input type="checkbox" data-sound> Healing sound effects</label>
-  <section class="fight-report" data-result aria-live="polite" hidden></section>
-  <section class="heal-meter" aria-labelledby="meter-title">
-    <h2 id="meter-title">Healing done</h2>
+  <section class="heal-meter healing-score" aria-labelledby="score-title">
+    <header class="score-heading" data-score-heading hidden><h2 id="score-title"><img data-purpose-icon="score" src="../healing/report-icons/healing.jpg" alt="" width="36" height="36"> Healing Score</h2><strong data-score-total></strong></header>
+    <div class="score-formula" data-regen-result hidden></div>
+    <div class="fight-report" data-result aria-live="polite" hidden></div>
+    <h3 id="meter-title">Healing done</h3>
     <p>Expand a spell to see casts, hits, crits, and overhealing.</p>
     <p data-meter-empty>No healing recorded yet.</p>
     <div data-meter></div>
+    <h3 class="mana-total-bar"><span><img data-purpose-icon="gained" src="../healing/report-icons/gained.jpg" alt="" width="28" height="28">Mana gained</span><strong data-mana-gained-total>0</strong></h3>
+    <p data-mana-empty>No mana gained yet.</p>
+    <div data-mana-meter></div>
   </section>
   <p>Mana-per-five effects work throughout the pull. <span data-regen-talent>Mindfulness</span> keeps a portion of Spirit regeneration active inside the five-second rule.</p>
 <section class="heal-menu"><div class="heal-tabs" role="tablist" aria-label="Healer settings"><button type="button" role="tab" id="tab-character" aria-controls="panel-character">Character</button><button type="button" role="tab" id="tab-talents" aria-controls="panel-talents">Talents</button><button type="button" role="tab" id="tab-spellbook" aria-controls="panel-spellbook">Spellbook</button><button type="button" role="tab" id="tab-custom" aria-controls="panel-custom">Custom</button></div><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-character" aria-labelledby="tab-character">    <label>Gear preset <select data-loadout></select></label>
+    <button type="button" data-reset-character>Reset character</button>
     <p>Hover or focus an item to see its stats and source. Set bonuses and active trinket effects are outside this model.</p>
     <p data-gear-source></p>
   <section class="character-sheet" aria-labelledby="character-title">
@@ -74,7 +77,12 @@
       <div class="character-stats" data-profile></div>
     </div>
   </section>
-</section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-talents" aria-labelledby="tab-talents" hidden><p>Click to spend a point, right-click or press Delete to remove one, and Shift-click to fill a talent.</p><div data-talents></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-spellbook" aria-labelledby="tab-spellbook" hidden><div class="book-controls"><nav data-schools aria-label="Spell schools"></nav><label><input type="checkbox" data-all-ranks> Show all spell ranks</label><label>Search spells <input type="search" data-filter></label><label>Level <input type="number" min="1" max="60" value="60" data-book-level></label></div><div class="spellbook" data-catalog></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-custom" aria-labelledby="tab-custom" hidden><label>Bonus healing <input type="number" min="0" max="5000" step="1" value="0" data-power></label></section></section>
+</section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-talents" aria-labelledby="tab-talents" hidden><p>Click to spend a point, right-click or press Delete to remove one, and Shift-click to fill a talent.</p><div data-talents></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-spellbook" aria-labelledby="tab-spellbook" hidden><h2 class="book-title" data-book-title>Spellbook</h2><p class="book-intro">Forever spells and active talent abilities. Hover or tap a spell for its tooltip.</p><div class="book-shell"><div class="book-controls"><nav data-schools role="tablist" aria-label="Spell schools"></nav><label><input type="checkbox" data-all-ranks> Show all spell ranks</label><label class="book-search"><span>Search spells</span><input type="search" placeholder="Search spells" data-filter></label><label>Level <input type="number" min="1" max="60" value="60" data-book-level></label></div><div class="spellbook" id="forever-spellbook" role="tabpanel" data-catalog></div></div><div data-book-legend></div></section><section class="heal-settings heal-tab-panel" role="tabpanel" id="panel-custom" aria-labelledby="tab-custom" hidden><div class="additional-stats">
+  <label><img data-purpose-icon="healing" src="../healing/report-icons/healing.jpg" alt="" width="28" height="28"><span>Additional +healing</span><input type="number" min="0" max="5000" step="1" value="0" data-power data-custom-stat="power"></label>
+  <label><img data-purpose-icon="intellect" src="../healing/icons/spell_holy_magicalsentry.jpg" alt="" width="28" height="28"><span>Additional Intellect</span><input type="number" min="0" max="5000" step="1" value="0" data-custom-stat="intellect"></label>
+  <label><img data-purpose-icon="spirit" src="../healing/report-icons/spirit.jpg" alt="" width="28" height="28"><span>Additional Spirit</span><input type="number" min="0" max="5000" step="1" value="0" data-custom-stat="spirit"></label>
+  <label><img data-purpose-icon="mp5" src="../healing/report-icons/mp5.jpg" alt="" width="28" height="28"><span>Additional Mana / 5</span><input type="number" min="0" max="5000" step="1" value="0" data-custom-stat="mp5"></label>
+</div><p>Additional stats are applied like gear, before buffs and talent multipliers.</p></section></section>
   <dialog class="spell-inspector" aria-labelledby="inspect-title">
     <header><h2 id="inspect-title"></h2><form method="dialog"><button aria-label="Close spell inspector">Close</button></form></header>
     <div data-inspect-rank></div>

@@ -1,3 +1,4 @@
+import {recordHealingEvent} from './healing-events.mjs';
 import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-combat.mjs';
 
 export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}) {
@@ -6,25 +7,23 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
-    manaGained: 0, manaPerSpirit: 0, manaPerMp5: 0,
+    manaPerSpirit: 0, manaPerMp5: 0, manaGained: 0, manaSources: {}, waterShieldUptime: 0, survivalSeconds: 0, focusSpend: -Infinity,
     encounterId: encounter.id, nextPoison: encounter.id && encounter.id !== 'rend' ? Infinity : 7,
-    nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}, events: [], feedback: null};
-
-  function record(kind, text) {
-    const event = {time: state.time, kind, text};
-    state.feedback = event;
-    state.events.push(event);
-    if (state.events.length > 80) state.events.shift();
-  }
+    nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}};
 
   function meter(key) {
     return state.meters[key] ??= {casts: 0, hits: 0, crits: 0, effective: 0, overheal: 0, mana: 0};
   }
 
-  function restoreMana(amount) {
-    const previous = state.mana;
-    state.mana = Math.min(profile.mana, state.mana + amount);
-    state.manaGained += state.mana - previous;
+  function creditMana(source, amount) {
+    state.manaSources[source] = (state.manaSources[source] ?? 0) + amount;
+    state.manaGained += amount;
+  }
+
+  function restoreMana(amount, source) {
+    const gained = Math.max(0, Math.min(profile.mana - state.mana, amount));
+    state.mana += gained;
+    if (source && state.phase === 'active') creditMana(source, gained);
   }
 
   function applyWaterShield() {
@@ -37,14 +36,14 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (!shield?.charges || shield.expires <= state.time || state.time < (state.waterShieldNext ?? 0)) return;
     shield.charges--;
     state.waterShieldNext = state.time + 3.5;
-    restoreMana(profile.mana * .02);
+    restoreMana(profile.mana * .02, 'Water Shield');
   }
 
   function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key]) {
     if (!unit.hp) return;
     const weakened = spell?.renewedHope && unit.weakened > state.time;
     const crit = canCrit && random() < profile.crit + bonusCrit + (weakened ? .02 * spell.renewedHope : 0);
-    if (crit) triggerWaterShield();
+    if (crit && key !== 'stream' && !(key === 'riptide' && periodic)) triggerWaterShield();
     if (weakened && !spell.channel) unit.weakened = Math.max(state.time, unit.weakened - spell.renewedHope);
     if (crit && !periodic && profile.grace) state.graceUntil = state.time + 3;
     const amount = Math.round(raw * (party.at(-1).powerInfusion?.expires > state.time ? 1.2 : 1) * (crit ? 1.5 + (profile.critHealingBonus ?? 0) : 1));
@@ -52,13 +51,13 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     unit.hp += effective;
     state.healing += effective;
     state.overheal += amount - effective;
-    record(crit ? 'crit' : 'landed', `${spell?.name ?? key} → ${unit.name}: +${effective}${crit ? ' · Critical' : ''}${amount - effective ? ' · ' + (amount - effective) + ' overheal' : ''}`);
     const stats = meter(key);
     stats.hits++;
     stats.crits += Number(crit);
     stats.effective += effective;
     stats.overheal += amount - effective;
-    if (crit && spell?.illumination && random() < spell.illumination) restoreMana(.5 * spell.baseCost);
+    recordHealingEvent(stats, periodic || !!spell?.period, crit, effective, amount - effective);
+    if (crit && spell?.illumination && random() < spell.illumination) restoreMana(.5 * spell.baseCost, 'Illumination');
     if (crit && spell?.infusion) state.infusion = state.time + 15;
     if (crit && !periodic && profile.aegis) {
       const existing = unit.aegis?.expires > state.time ? unit.aegis.amount : 0;
@@ -90,7 +89,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     const others = spell.chain > 1 ? party.filter(member => member !== unit && member.hp > 0)
       .sort((a, b) => (b.max - b.hp) - (a.max - a.hp)).slice(0, spell.chain - 1) : [];
     return [{unit, factor: 1 + bonus}, ...others.map((target, index) =>
-      ({unit: target, factor: spell.falloff ** (index + 1)}))];
+      ({unit: target, factor: (1 + bonus) * spell.falloff ** (index + 1)}))];
   }
 
   function incomingHealing() {
@@ -141,7 +140,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     } else if (spell.layOnHands) {
       state.mana = 0;
       heal(spell.key, unit, party.at(-1).max);
-      if (unit === party.at(-1)) restoreMana(spell.layOnHands);
+      if (unit === party.at(-1)) restoreMana(spell.layOnHands, 'Lay on Hands');
     } else if (spell.swiftness) {
       state.swiftness = Infinity;
     } else if (spell.innervate) {
@@ -150,7 +149,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       const effect = swiftmendEffect(unit);
       if (effect) heal(spell.key, unit, effect.amount * effect.ticks, true);
     } else if (spell.manaRange) {
-      restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]));
+      restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]), spell.name);
     } else if (spell.dispel) {
       unit.poison = 0;
       if (spell.abolishPoison) {
@@ -203,34 +202,25 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (!spell || !unit) return;
     if (state.phase !== 'active' || !unit.hp) {
       state.message = 'Choose a living ally during the pull.';
-      record('blocked', state.message);
       return;
     }
-    if (state.cast || (!spell.offGcd && state.time < state.gcd)) {
-      state.message = state.cast ? 'Already casting · try again when the cast finishes.' : 'Global cooldown · try again when ready.';
-      record('blocked', state.message);
-      return;
-    }
+    if (state.cast || (!spell.offGcd && state.time < state.gcd)) return;
     if (spell.swiftmend && !swiftmendEffect(unit)) {
       state.message = 'Swiftmend requires your Rejuvenation or Regrowth on the target.';
-      record('blocked', state.message);
       return;
     }
     if (spell.shield && unit.weakened > state.time) {
       state.message = 'That ally has Weakened Soul.';
-      record('blocked', state.message);
       return;
     }
     const usesVigil = key === 'shock' && state.vigil?.target === unit && state.vigil.expires > state.time;
     if (!usesVigil && state.time < (state.cooldowns[key] ?? 0)) {
       state.message = 'That spell is on cooldown.';
-      record('blocked', state.message);
       return;
     }
     const focus = key !== 'focus' && state.innerFocus > state.time;
     if (!focus && state.mana < spell.cost) {
       state.message = 'Not enough mana.';
-      record('blocked', state.message);
       return;
     }
     const instant = spell.cast > 0 && state.swiftness > state.time;
@@ -244,17 +234,20 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (infused) state.infusion = 0;
     if (focus) state.innerFocus = 0;
     const castTime = instant ? 0 : (spell.cast - (infused ? spell.infusionReduction : 0)) / speed;
-    const prepared = focus ? {...spell, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
+    const prepared = focus ? {...spell, focusCost: spell.cost, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
     state.cast = {spell: prepared, unit, end: state.time + castTime, duration: castTime, pushbacks: 0, usesVigil};
     state.message = spell.name + ' → ' + unit.name;
-    record('casting', state.message);
     if (!castTime) finishCast();
   }
 
   function finishCast() {
     const {spell, unit, usesVigil} = state.cast;
     state.cast = null;
-    if (!unit.hp) { record('blocked', spell.name + ' interrupted · target died.'); return; }
+    if (!unit.hp) return;
+    if (spell.focusCost > 0) {
+      creditMana('Inner Focus · spell cost', spell.focusCost);
+      state.focusSpend = state.time;
+    }
     state.mana -= spell.cost;
     if (spell.cost) state.lastSpend = state.time;
     state.manaSpent += spell.cost;
@@ -262,7 +255,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     meter(spell.key).casts++;
     meter(spell.key).mana += spell.cost;
     if (spell.litany) {
-      if (state.lastHeal && state.lastHeal !== spell.key && spell.cost) restoreMana(spell.baseCost * spell.litany);
+      if (state.lastHeal && state.lastHeal !== spell.key && spell.cost) restoreMana(spell.baseCost * spell.litany, 'Litany');
       state.lastHeal = spell.key;
     }
     resolve(spell, unit);
@@ -287,17 +280,18 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       amount -= consumed;
       const stats = meter(key);
       stats.effective += consumed;
-      if (consumed) { stats.hits++; record('absorbed', `${unit.name}: ${Math.round(consumed)} absorbed`); }
+      if (consumed) {
+        stats.hits++;
+        recordHealingEvent(stats, false, false, consumed, 0);
+      }
       state.healing += consumed;
     }
-    const wasAlive = unit.hp > 0;
     gainDamageRage(unit, Math.min(unit.hp, amount));
     unit.hp = Math.max(0, unit.hp - amount);
-    if (wasAlive && !unit.hp) record('death', `${unit.name} died · ${Math.round(amount)} damage`);
     if (amount > 0) triggerMending(unit);
     const cast = state.cast;
     if (amount > 0 && unit === party.at(-1) && cast && !cast.channel && cast.pushbacks < 2 &&
-        profile.pushbackResist !== undefined && random() >= profile.pushbackResist) {
+        random() >= (profile.pushbackResist ?? 0)) {
       cast.pushbacks++;
       cast.end += .5;
       cast.duration += .5;
@@ -317,8 +311,12 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     while (from < to) {
       const innervated = from < state.innervateUntil;
       const restricted = from < state.lastSpend + 5;
-      const end = Math.min(to, innervated ? state.innervateUntil : restricted ? state.lastSpend + 5 : to);
+      const boundaries = [to, state.innervateUntil, state.lastSpend + 5, state.focusSpend + 5];
+      const end = Math.min(...boundaries.filter(time => time > from));
       const seconds = end - from;
+      if (state.phase === 'active' && state.waterShield?.charges > 0) {
+        state.waterShieldUptime += Math.max(0, Math.min(end, state.waterShield.expires) - from);
+      }
       const spiritFraction = spiritRegenFraction(from);
       const regen = manaRegenRate(from) * seconds;
       if (state.phase === 'active') {
@@ -326,13 +324,29 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
         state.manaPerSpirit += Math.min(headroom, (profile.spiritPerRawPoint ?? 1) * spiritFraction * seconds * (profile.spiritRegenCoefficient ?? .125));
         state.manaPerMp5 += Math.min(headroom, seconds / 5);
       }
+      const normalFraction = restricted ? (profile.castingRegen ?? 0) : 1;
+      // Credit the free-cast window until the next paid spell lands.
+      const withoutFocus = state.focusSpend > state.lastSpend ? (profile.castingRegen ?? 0) : normalFraction;
+      const focusBonus = Math.max(0, normalFraction - withoutFocus);
+      const components = {
+        'Spirit regeneration': profile.regen * (normalFraction - focusBonus) * seconds,
+        'Mana / 5': (profile.mp5 ?? 0) / 5 * seconds,
+        'Innervate': innervated ? profile.regen * (5 - normalFraction) * seconds : 0,
+        'Inner Focus · Spirit regeneration': innervated ? 0 : profile.regen * focusBonus * seconds
+      };
+      // Innervate supersedes the free-cast benefit; retain the baseline Spirit rate.
+      if (innervated) components['Spirit regeneration'] += profile.regen * focusBonus * seconds;
+      const usable = regen > 0 ? Math.min(1, Math.max(0, profile.mana - state.mana) / regen) : 0;
+      for (const [source, amount] of Object.entries(components)) {
+        if (amount > 0 && state.phase === 'active') creditMana(source, amount * usable);
+      }
       restoreMana(regen);
       from = end;
     }
   }
 
   function step(dt) {
-    if (state.phase !== 'active') return;
+    if (state.phase === 'ready') return;
     const end = state.time + dt;
     if (state.cast && end >= state.cast.end) {
       const castEnd = Math.max(state.time, state.cast.end);
@@ -344,10 +358,11 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     regenerate(state.time, end);
     state.time = end;
     if (state.phase !== 'active') return;
+    state.survivalSeconds += party.filter(unit => unit.hp).length * dt;
     for (const effect of state.effects) {
       if (state.time < effect.next) continue;
       if (effect.abolishPoison) effect.target.poison = 0;
-      else if (effect.manaTick) restoreMana(effect.manaTick);
+      else if (effect.manaTick) restoreMana(effect.manaTick, spells[effect.key]?.name ?? effect.key);
       else for (const unit of effect.target ? [effect.target] : party) heal(effect.key, unit, tickAmount(effect),
         effect.periodicCrit, null, 0, effect.bonusCrit, !spells[effect.key]?.immediateTick);
       effect.next += effect.period;

@@ -1,6 +1,19 @@
-import {mountTabs, attachGameTooltip, tooltipLine} from './game-ui.mjs';
+import {setEquipmentImage} from './gear-images.mjs';
+import {purposeIconPath} from './purpose-icons.mjs';
+import {foreverSpellbook} from './forever-spellbook.mjs';
+import {spellbookEntries, spellbookPage} from './spellbook-layout.mjs';
+import {mountGearEditor} from './gear-editor.mjs';
+import {watchScoreFormula} from './score-layout.mjs';
+import {normalizeAdditionalStats} from './additional-stats.mjs';
+import {setBarNumbers} from './bar-numbers.mjs';
+import {healingEventRows} from './healing-events.mjs';
+import {resetHealingReport} from './report-reset.mjs';
+import {healingRange, swiftmendRange, periodicHealingPreview, periodicHealingScaling} from './healing-preview.mjs';
+import {manaReportSources, spiritContribution} from './mana-report.mjs';
+import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
+import {healingScore} from './healing-score.mjs';
+import {mountTabs, attachGameTooltip, tooltipLine, tooltipValue, setGameTooltip, hideGameTooltip, hideGameTooltipWithin} from './game-ui.mjs';
 import {encounters, combatants} from './party-combat.mjs';
-import {nextThreat} from './threats.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
@@ -49,13 +62,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
   }
   const saved = readSettings();
+  let soundEnabled = saved.sound !== false;
 
   const root = document.querySelector('#healing');
-  const cuesEnabled = params.get('cues') !== 'off';
-  root.querySelector('[data-threat]').hidden = !cuesEnabled;
-  root.querySelector('[data-feedback]').hidden = !cuesEnabled;
   root.dataset.healerClass = className;
+  for (const image of root.querySelectorAll('[data-purpose-icon]')) image.src = new URL('./' + purposeIconPath(image.dataset.purposeIcon), import.meta.url);
   const find = selector => root.querySelector(selector);
+  const customInputs = [...root.querySelectorAll('[data-custom-stat]')];
+  const readAdditionalStats = () => normalizeAdditionalStats(Object.fromEntries(customInputs.map(input =>
+    [input.dataset.customStat, input.validity.valid ? Number(input.value) : 0])));
   const byName = name => ranks.filter(row => row.name === name && row.level <= 60);
   const whole = number => Math.floor(number).toLocaleString('en-US');
   const clamp = number => Math.min(1, Math.max(0, number));
@@ -92,6 +107,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       coefficient: effect?.coefficient ?? 0, period: effect?.period, chain: effect?.chain,
       falloff: effect?.falloff, party: key === 'stream', waterTotem: key === 'stream', dispel: key === 'poison',
       ...utility[key],
+      ...(key === 'spring' ? {manaTick: Number(tooltip?.description.match(/restores (\d+) mana/)?.[1] ?? 0)} : {}),
       directChainBonus: key === 'riptide' ? .25 : 0}, row, tooltip, profile);
   }
 
@@ -104,15 +120,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     (!event.pointerType && matchMedia('(pointer: coarse)').matches);
   let pendingTargetSpell = null;
   let pull;
+  let visualPull = 0;
   let currentSpells;
   let enabled = new Set();
   let inspected = null;
   let last = performance.now();
 
-  function icon(name) {
+  function icon(name, entry = catalog[name]) {
     const image = document.createElement('img');
     const fallback = {"Nature's Swiftness": 'spell_nature_ravenform.jpg', 'Major Mana Potion': 'inv_potion_76.jpg'};
-    image.src = new URL('./icons/' + (catalog[name]?.icon ?? fallback[name]), import.meta.url);
+    image.src = new URL('./icons/' + (entry?.icon ?? fallback[name]), import.meta.url);
     image.alt = '';
     image.width = image.height = 34;
     return image;
@@ -143,11 +160,12 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const row = rows[select.selectedIndex];
       const spell = currentSpells[key];
       tooltipLine(tip, name + (row.rank ? ' · ' + row.rank : ''), 'game-tooltip-title');
-      tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.cast ? spell.cast + ' sec cast' : 'Instant'));
+      tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.channel ? spell.duration + ' sec channel' : spell.cast ? spell.cast + ' sec cast' : 'Instant'));
       if (spell.cooldown) tooltipLine(tip, spell.cooldown + ' sec cooldown');
       const description = catalog[name]?.ranks?.find(entry => entry.rank === row.rank)?.description;
-      if (description) tooltipLine(tip, description, 'game-tooltip-description');
-      renderHealingBreakdown(tip, name, row);
+      const healing = renderHealingBreakdown(tip, name, row);
+      if (description && !healing) tooltipLine(tip, description, 'game-tooltip-description');
+      tooltipLine(tip, 'Right-click for spell details', 'game-tooltip-muted');
     });
     button.onclick = event => {
       if (pull.state.phase === 'ready' && touchInput(event)) {
@@ -335,9 +353,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   let talentPoints;
   function configuredSpells() {
     const points = talentPoints = Object.fromEntries(talents.map(([key, name]) => [key, talentTree.build[name] ?? 0]));
-    const power = find('[data-power]');
     enabled = new Set([...root.querySelectorAll('[data-buff]:checked')].map(input => input.value));
-    profile = buildProfile(gear.value, enabled, power.validity.valid ? Number(power.value) : 0, points);
+    profile = buildProfile(gearEditor.kit, enabled, readAdditionalStats(), points);
     currentSpells = Object.fromEntries(selects.map(({select, rows, key, name}) =>
       [key, applyTalents(spellFor(key, name, rows[select.selectedIndex]), points)]));
     if (!enabled.has('potion')) delete currentSpells.potion;
@@ -348,11 +365,12 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function reset(start = false, persist = true) {
-    touchTarget = null;
-    pendingTargetSpell = null;
     visualPull++;
+    hideGameTooltip();
+    touchTarget = null;
     root.querySelectorAll('.heal-float, .heal-bounce').forEach(effect => effect.remove());
     configuredSpells();
+    resetHealingReport(root, meterRows, manaRows);
     const level = Number(difficulty.value);
     const id = encounterSelect.value;
     const boss = encounters[id];
@@ -395,7 +413,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function addMetric(list, art, label) {
     const metric = document.createElement('div');
     const image = document.createElement('img');
-    image.src = new URL('./report-icons/' + art + '.jpg', import.meta.url);
+    image.src = new URL('./' + purposeIconPath(art), import.meta.url);
     image.alt = '';
     image.width = image.height = 40;
     const term = document.createElement('dt');
@@ -428,20 +446,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       ability.button.classList.toggle('is-enraged', !ability.clock && !!s.enraged);
     }
     find('[data-boss-percent]').textContent = Math.ceil(100 * s.boss / currentEncounter.health) + '%';
-    const threat = nextThreat(s, currentEncounter);
-    const tell = find('[data-threat]');
-    if (tell.textContent !== threat.text) tell.textContent = threat.text;
-    tell.dataset.urgent = threat.urgent;
-    frames.forEach((frame, index) => frame.frame.classList.toggle('threat-target', cuesEnabled && threat.urgent && threat.targets.includes(index)));
-    const feedback = find('[data-feedback]');
-    const recent = s.feedback && s.time - s.feedback.time < 2.5;
-    const feedbackText = recent ? s.feedback.text : 'Select a spell, then an ally · touch: ally, then spell';
-    if (feedback.textContent !== feedbackText) feedback.textContent = feedbackText;
-    feedback.dataset.kind = recent ? s.feedback.kind : '';
-    const specialAt = currentEncounter.id === 'patchwerk' || currentEncounter.id === 'sapphiron' ? s.nextSpecial : s.nextFlurry;
+    const specialAt = currentEncounter.id === 'patchwerk' ? s.nextSpecial : s.nextFlurry;
     const flurry = active && specialAt - s.time <= 2;
     fill(find('[data-boss-cast-fill]'), flurry ? 1 - (specialAt - s.time) / 2 : 0);
-    find('[data-boss-cast]').textContent = flurry ? (currentEncounter.id === 'patchwerk' ? 'Hateful Strike' : currentEncounter.id === 'sapphiron' ? 'Frost Aura' : 'Blade Flurry') : '';
+    find('[data-boss-cast]').textContent = flurry ? (currentEncounter.id === 'patchwerk' ? 'Hateful Strike' : 'Blade Flurry') : '';
     const incoming = pull.incomingHealing();
     s.party.forEach((unit, i) => {
       const frame = frames[i];
@@ -451,13 +459,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       frame.label.textContent = unit.name + (currentEncounter.id === 'patchwerk' && i === 1 ? ' · Off-tank' : '');
       if (frame.resource && unit.resource) {
         fill(frame.resource, unit.resource.value / unit.resource.max);
-        frame.resource.parentElement.title = unit.resource.type + ' · ' + whole(unit.resource.value) + ' / ' + unit.resource.max;
+        setGameTooltip(frame.resource.parentElement, unit.resource.type, [whole(unit.resource.value) + ' / ' + unit.resource.max]);
         const entry = damageRows[i];
         const {row, value, breakdown} = entry;
         const abilities = Object.entries(unit.damage);
         const total = abilities.reduce((sum, [, ability]) => sum + ability.total, 0);
         entry.dps = total / (s.endedAt || s.time || 1);
-        value.textContent = whole(total) + ' · ' + whole(entry.dps) + ' DPS';
+        setBarNumbers(value, whole(total), whole(entry.dps) + ' DPS');
         if (row.open) {
           const damageByAbility = new Map();
           for (const [name, data] of abilities) {
@@ -473,7 +481,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
               const image = document.createElement('img');
               image.src = new URL('./icons/' + (damageIcons[name] ?? damageIcons.Melee) + '.jpg', import.meta.url);
               image.alt = name;
-              image.title = name;
+              setGameTooltip(element, name, ['Damage and DPS for this ability.']);
               const numbers = document.createElement('span');
               element.append(image, numbers);
               line = {element, numbers};
@@ -482,7 +490,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
             line.element.style.setProperty('--damage-hue', (index % 5 * (unit.name === 'Jaina' ? -10 : 7)) + 'deg');
             line.element.style.setProperty('--ability-share', (100 * damage / damaging[0][1]) + '%');
             line.element.style.setProperty('--damage-tint', (28 + index % 5 * 7) + '%');
-            line.numbers.textContent = whole(damage) + ' · ' + whole(damage / (s.endedAt || s.time || 1)) + ' DPS';
+            setBarNumbers(line.numbers, whole(damage), whole(damage / (s.endedAt || s.time || 1)) + ' DPS');
             const current = breakdown.children[index];
             if (current !== line.element) breakdown.insertBefore(line.element, current ?? null);
           });
@@ -510,7 +518,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
             s[key]?.spell?.duration ?? currentSpells[key]?.duration ?? (key === 'abolish' ? currentSpells.poison?.duration : 0);
           sweep(badge, Number.isFinite(expires) && duration > 0 ? 1 - (expires - s.time) / duration : 0);
           timer.textContent = Number.isFinite(expires) ? countdown(expires - s.time) : '✓';
-          badge.title = name + ' · ' + timer.textContent;
+          setGameTooltip(badge, name, [timer.textContent + ' remaining']);
         }
         aura.expires = badge.hidden ? null : expires;
       }
@@ -552,12 +560,16 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       button.setAttribute('aria-pressed', selected === index);
     });
     selects.forEach(({select}) => select.disabled = active);
-    find('[data-power]').disabled = active;
+    for (const input of customInputs) input.disabled = active;
     find('[data-loadout]').disabled = active;
+    find('[data-reset-character]').disabled = active;
+    gearEditor.lock(active || gearEditor.loading);
+    find('[data-start]').disabled = gearEditor.loading;
     encounterSelect.disabled = difficulty.disabled = active;
     for (const input of root.querySelectorAll('[data-buff]')) input.disabled = active;
     talentTree.setLocked(active);
     renderMeters(s);
+    renderManaMeters(s);
     if (inspected !== null) updateInspectorMeter(s);
     const result = find('[data-result]');
     if (ended && result.hidden) {
@@ -568,32 +580,58 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         for (const [art, label, value] of metrics) addMetric(list, art, label).textContent = value;
         result.append(heading, list);
       };
-      const timeline = document.createElement('ol');
-      const title = document.createElement('h3');
-      title.textContent = 'Last combat decisions';
-      for (const event of s.events.slice(-8)) {
-        const item = document.createElement('li');
-        item.textContent = event.time.toFixed(1) + 's · ' + event.text;
-        timeline.append(item);
-      }
-      result.append(title, timeline);
-      reportGroup('Fight summary', [
+      reportGroup('Fight totals', [
         ['survived', 'Players kept alive', s.survivors + ' / ' + s.party.length],
         ['healing', 'Effective healing', whole(s.healing)],
         ['hps', 'Healing per second', whole(s.healing / s.endedAt)],
         ['overheal', 'Overhealing', whole(s.overheal)],
-        ['efficiency', 'Healing per mana', s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) : '—'],
-        ['remaining', 'Mana remaining', whole(s.manaAtEnd)]
-      ]);
-      reportGroup('Mana gained during fight · ' + whole(s.manaGained), [
+        ['hpm', 'Healing per mana', s.manaSpent ? (s.healing / s.manaSpent).toFixed(2) : '—'],
+        ['remaining', 'Mana remaining', whole(s.manaAtEnd)],
         ['gained', 'Total mana gained', whole(s.manaGained)],
-        ['spirit', 'Mana per +1 raw Spirit', s.manaPerSpirit.toFixed(2)],
-        ['mp5', 'Mana per +1 mana / 5 sec', s.manaPerMp5.toFixed(2)]
+        ['mana-spent', 'Mana spent', whole(s.manaSpent)]
       ]);
+
     } else if (!ended && !result.hidden) {
       result.replaceChildren();
     }
     result.hidden = !ended;
+    const regenResult = find('[data-regen-result]');
+    const won = s.phase === 'won';
+    regenResult.hidden = !won;
+    find('[data-score-heading]').hidden = !won;
+    if (won && !regenResult.childElementCount) {
+      const score = healingScore(s);
+      find('[data-score-total]').textContent = whole(score.total);
+      regenResult.replaceChildren();
+      const terms = [
+        ['score-healing', '(' + whole(s.healing) + ')', 'Effective healing'],
+        ['score-mana', '(' + whole(score.manaGained) + ')', 'Mana gained excluding mana potions'],
+        ['score-efficiency', '(' + (100 * score.efficiency).toFixed(1) + '% efficiency)', 'Effective healing / total healing'],
+        ['score-survival', '(' + score.survivors + '/' + s.party.length + ' survived)', 'Party members alive at victory']
+      ];
+      for (const [index, [style, text, title]] of terms.entries()) {
+        if (index) {
+          const times = document.createElement('span');
+          times.className = 'score-times'; times.textContent = '×';
+          regenResult.append(times);
+        }
+        const term = document.createElement('strong');
+        term.className = style; term.textContent = text; term.tabIndex = 0;
+        const image = document.createElement('img');
+        image.src = new URL('./' + purposeIconPath(({'score-healing':'healing','score-mana':'gained','score-efficiency':'efficiency-percent','score-survival':'survived'})[style]), import.meta.url);
+        image.alt = ''; term.prepend(image);
+        setGameTooltip(term, title, [text]);
+        regenResult.append(term);
+      }
+      const divisor = document.createElement('strong');
+      divisor.className = 'score-times'; divisor.textContent = '/ 1000';
+      regenResult.append(divisor);
+
+    } else if (!won) {
+      find('[data-score-total]').textContent = '';
+      regenResult.replaceChildren();
+      regenResult.removeAttribute('title');
+    }
   }
 
   const equipment = {
@@ -619,7 +657,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     image.src = new URL('./icons/' + iconFile + '.jpg', import.meta.url);
     image.alt = '';
     image.width = image.height = 24;
-    label.title = name + ' · ' + description;
+    setGameTooltip(label, name, [description]);
     input.setAttribute('aria-label', name);
     label.append(input, image);
     if (key === 'waterShield') {
@@ -643,14 +681,33 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     label.append('Talent preset ', select);
     find('[data-talents]').before(label);
   }
-  if (Number.isInteger(saved.power) && saved.power >= 0 && saved.power <= 5000) find('[data-power]').value = saved.power;
+  const savedAdditionalStats = normalizeAdditionalStats(saved.additionalStats ?? saved.power ?? 0);
+  for (const input of customInputs) input.value = savedAdditionalStats[input.dataset.customStat];
   const savedSlot = typeof saved.selected === 'string' ? slots.findIndex(([key]) => key === saved.selected) :
     Number.isInteger(saved.selected) && saved.selected !== 5 ? saved.selected - Number(saved.selected > 5) : -1;
   if (slots[savedSlot] && !utility[slots[savedSlot][0]]) selected = savedSlot;
-  find('[data-sound]').checked = saved.sound !== false;
+  renderSoundToggle();
+  const resetCharacterButton = find('[data-reset-character]');
+  setGameTooltip(resetCharacterButton, 'Reset character', [
+    'Restore this healer’s default gear, talents, buffs, spell ranks, and Additional stats.',
+    'Keeps your boss, difficulty, and sound preference. Other healers are unchanged.'
+  ]);
+  resetCharacterButton.onclick = () => {
+    try {
+      const gearKey = 'wow-forever-sims.gear.' + className + '.v1';
+      const library = JSON.parse(localStorage.getItem(gearKey) ?? '{}');
+      localStorage.setItem(gearKey, JSON.stringify({sets:library.sets ?? {}}));
+      localStorage.setItem(settingsKey, JSON.stringify({sound:soundEnabled,
+        encounter:encounterSelect.value, difficulty:Number(difficulty.value)}));
+    } catch { /* Defaults still load when storage is unavailable. */ }
+    const url = new URL(location.href);
+    url.searchParams.set('encounter', encounterSelect.value);
+    url.searchParams.set('difficulty', difficulty.value);
+    history.replaceState(null, '', url);
+    location.reload();
+  };
 
   function saveSettings() {
-    const power = find('[data-power]');
     try {
       localStorage.setItem(settingsKey, JSON.stringify({
         loadout: gear.value,
@@ -658,8 +715,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         difficulty: Number(difficulty.value),
         buffs: [...enabled],
         buffDefaults: true,
-        power: power.validity.valid ? Number(power.value) : 0,
-        sound: find('[data-sound]').checked,
+        additionalStats: readAdditionalStats(),
+        sound: soundEnabled,
         selected: slots[selected][0],
         talents: talentTree.build,
         ranks: Object.fromEntries(selects.map(({key, select}) => [key, select.value]))
@@ -680,12 +737,12 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       image.alt = '';
       image.width = image.height = 36;
       const tip = document.createElement('span');
-      tip.className = 'equipment-tooltip';
-      slotButton.append(image, tip);
+      slotButton.append(image);
       gearSlots[name] = {image, slotButton, tip, file};
       find('[data-equipment="' + group + '"]').append(slotButton);
     }
   }
+  const gearEditor = mountGearEditor({container:find('.character-sheet'), slots:gearSlots, className, loadouts, select:gear, onchange:()=>reset(), isActive:()=>pull?.state.phase === 'active'});
   const statGroups = {
     Resources: {Health: 'health', Mana: 'mana', 'Base mana': 'baseMana'},
     Attributes: {Strength: 'strength', Agility: 'agility', Stamina: 'stamina',
@@ -701,7 +758,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const [label, value] of Object.entries(stats)) {
       const term = document.createElement('dt');
       const description = document.createElement('dd');
-      term.textContent = label;
+      const statIcon = document.createElement('img');
+      statIcon.src = new URL('./' + purposeIconPath(({health:'max-health',mana:'max-mana',baseMana:'max-mana',power:'healing',crit:'crit-chance',resting:'mp5'})[value] ?? value), import.meta.url);
+      statIcon.alt = ''; statIcon.width = statIcon.height = 24;
+      term.append(statIcon, label);
       sheet[value] = description;
       list.append(term, description);
     }
@@ -709,22 +769,22 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   function updateSheet() {
     find('[data-loadout-label]').textContent = gear.value;
-    const kit = loadouts[gear.value];
+    const kit = gearEditor.kit;
     const sources = [...new Set(Object.values(kit).map(item => item.source))];
     find('[data-gear-source]').textContent = sources.includes('ForeverDB') ? 'ForeverDB level 60 PvE BiS · Includes selections from later raids and PvP' :
       sources.length ? 'Item data · ' + sources.join(' / ') : '';
     const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
-      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor'};
+      spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', armor:'Armor', health:'Health', mana:'Mana'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {
       const item = kit[name];
-      image.src = new URL(item ? './icons/' + item.icon + '.jpg' : './slots/' + file + '.jpg', import.meta.url);
+      setEquipmentImage(image, item, file);
       slotButton.dataset.quality = item?.quality ?? '';
       slotButton.setAttribute('aria-label', name + ' · ' + (item?.name ?? 'Empty'));
       tip.replaceChildren();
       const title = document.createElement('strong');
       title.textContent = item?.name ?? name + ' · Empty';
       tip.append(title);
-      if (!item) continue;
+      if (!item) { setGameTooltip(slotButton, name, ['Empty equipment slot']); continue; }
       const info = document.createElement('span');
       info.textContent = [name, item.ilvl ? 'Item level ' + item.ilvl : '', item.source].filter(Boolean).join(' · ');
       tip.append(info);
@@ -735,12 +795,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       }
       for (const [key, value] of Object.entries(item.stats)) {
         const line = document.createElement('span');
-        line.textContent = '+' + value + (key === 'crit' ? '% ' : ' ') + labels[key];
+        line.textContent = '+' + Number(value.toFixed(2)) + (key === 'crit' ? '% ' : ' ') + labels[key];
         tip.append(line);
       }
       const linkText = document.createElement('span');
-      linkText.textContent = 'Item ID ' + item.id;
+      linkText.textContent = 'Item ID ' + item.id + (item.enchantId ? ' · Enchanted (stats included above)' : '');
       tip.append(linkText);
+      setGameTooltip(slotButton, title.textContent, [...tip.children].slice(1).map(line => line.textContent));
     }
     for (const [key, field] of Object.entries(sheet)) {
       field.textContent = key === 'crit' ? (100 * profile.crit).toFixed(2) + '%' :
@@ -748,8 +809,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           key === 'mp5' ? (profile.mp5 + 5 * profile.regen * profile.castingRegen).toFixed(1) : whole(profile[key]);
     }
   }
-  find('[data-power]').oninput = () => reset();
-  gear.onchange = () => reset();
+  for (const input of customInputs) input.oninput = () => reset();
+
   find('[data-buffs]').onchange = () => reset();
   find('[data-talents]').onchange = () => reset();
   find('[data-start]').onclick = () => reset(pull.state.phase === 'ready');
@@ -774,53 +835,115 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     return '+' + Math.round((spell.multiplier - 1) * 100) + '%';
   }
 
-  const healingByName = new Map(slots.filter(([key]) => healingKeys.includes(key))
-    .map(([key, name]) => [name, key]));
+  const healingByName = new Map(slots.map(([key, name]) => [name, key]));
+  function formatHealingRange([low, high]) {
+    return low === high ? whole(low) : whole(low) + '–' + whole(high);
+  }
+  function swiftmendPreviews() {
+    return [['regrowth', 'Regrowth'], ['rejuvenation', 'Rejuvenation']].flatMap(([key, label]) => {
+      const source = currentSpells?.[key];
+      return source ? [[label, swiftmendRange(source, profile.power)]] : [];
+    });
+  }
   function renderHealingBreakdown(tip, name, row) {
     const key = healingByName.get(name);
     if (!key || !row) return;
-    const spell = applyTalents(spellFor(key, name, row), talentPoints);
-    const unit = spell.period ? ' per tick per target' : spell.chain > 1 ? ' on the primary target' : '';
-    const range = (power, multiplier = 1) => {
-      const bonus = power * spell.coefficient;
-      const low = whole(Math.round((spell.low + bonus) * multiplier));
-      const high = whole(Math.round((spell.high + bonus) * multiplier));
-      return (low === high ? low : low + '–' + high) + unit;
-    };
-    tooltipLine(tip, 'Base healing · ' + range(0));
-    tooltipLine(tip, 'With gear (+' + whole(profile.gearPower) + ' healing) · ' + range(profile.gearPower));
-    const talentPower = profile.talentPower ?? 0;
-    if (profile.power !== profile.gearPower + talentPower) {
-      tooltipLine(tip, 'With Custom bonus · ' + range(profile.power - talentPower));
+    const baseSpell = spellFor(key, name, row);
+    const spell = applyTalents(baseSpell, talentPoints);
+    if (spell.swiftmend) {
+      for (const [label, amounts] of swiftmendPreviews()) {
+        tooltipValue(tip, 'With ' + label, formatHealingRange(amounts), 'game-tooltip-good');
+      }
+      tooltipValue(tip, 'Crit chance', (100 * Math.min(1,profile.crit)).toFixed(1) + '%');
+      tooltipLine(tip, 'Uses your selected HoT ranks and full duration. Leaves the HoT active; if both are present, uses the one expiring first.', 'game-tooltip-description');
+      return true;
     }
-    tooltipLine(tip, 'With talents (×' + Number(spell.multiplier.toFixed(3)) + ') · ' +
-      range(profile.power, spell.multiplier), 'game-tooltip-good');
-    if (spell.hot) {
-      const tick = Math.round((spell.hot.low + profile.power * spell.hot.coefficient) * spell.hot.multiplier);
-      tooltipLine(tip, 'Periodic healing with gear and talents · ' + whole(tick) + ' every ' + spell.hot.period +
-        ' sec for ' + spell.duration + ' sec', 'game-tooltip-good');
+    if (spell.shield) {
+      tooltipValue(tip, 'Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)), 'game-tooltip-good');
+      tooltipLine(tip, spell.duration + ' sec duration · prevents another shield for 15 sec');
+      tooltipValue(tip, 'Base absorb', whole(spell.shield), 'game-tooltip-reference');
+      return true;
+    }
+    if (key === 'hands') {
+      tooltipValue(tip, 'Healing', whole(profile.health), 'game-tooltip-good');
+      tooltipLine(tip, 'Spends all remaining mana. Restores ' + whole(spell.layOnHands) + ' mana when used on yourself.');
+      return true;
+    }
+    if (!healingKeys.includes(key)) return;
+    const range = (power, multiplier = 1) => formatHealingRange(healingRange({...spell, multiplier}, power));
+    if (!spell.period) tooltipValue(tip, spell.chain > 1 ? 'Healing (primary)' : 'Healing', formatHealingRange(healingRange(spell, profile.power)), 'game-tooltip-good');
+    if (key === 'chain') {
+      tooltipValue(tip, 'Healing (1st bounce)', formatHealingRange(healingRange(spell, profile.power, spell.falloff)), 'game-tooltip-good');
+      tooltipValue(tip, 'Healing (2nd bounce)', formatHealingRange(healingRange(spell, profile.power, spell.falloff ** 2)), 'game-tooltip-good');
+    }
+    if (spell.period || spell.hot) {
+      const periodic = periodicHealingPreview(spell, profile.power);
+      const ticks = spell.decay ? formatHealingRange(periodic.first) + ' → ' + formatHealingRange(periodic.last) : formatHealingRange(periodic.first);
+      if (key !== 'stream') tooltipValue(tip, 'Heal over time (' + periodic.duration + 'sec)', formatHealingRange(periodic.total), 'game-tooltip-good');
+      tooltipValue(tip, key === 'stream' ? 'Healing per tick' : 'Healing per tick (' + periodic.ticks + ' ticks)', ticks, 'game-tooltip-good');
+    }
+    if (spell.party) tooltipLine(tip, 'Heals all living party members.');
+    if (spell.mending) tooltipLine(tip, 'Triggers on damage, then jumps to another ally. Up to 5 heals; 30 sec duration.');
+    if (spell.mark === 'vigil') tooltipLine(tip, 'Triggered by Holy Shock on the marked ally. Mark lasts 30 sec.');
+    if (spell.chain > 1) tooltipLine(tip, spell.chain + ' targets · ' + Math.round(spell.falloff * 100) + '% healing retained per jump');
+    if (spell.selfCopy) tooltipLine(tip, 'Also heals you for ' + Math.round(100 * spell.selfCopy) + '% when used on another ally.');
+    const crit = spell.period && !spell.periodicCrit ? 0 : Math.min(1, profile.crit + (spell.bonusCrit ?? 0));
+    tooltipValue(tip, key === 'regrowth' ? 'Direct and periodic crit' : 'Crit chance', (100 * crit).toFixed(1) + '%');
+    if (!spell.period) tooltipValue(tip, 'Base healing', range(0), 'game-tooltip-reference');
+    if (spell.period || spell.hot) {
+      const basePeriodic = periodicHealingPreview({...baseSpell, multiplier:1,
+        hot:baseSpell.hot && {...baseSpell.hot, multiplier:1}}, 0);
+      tooltipValue(tip, key === 'stream' ? 'Base heal per tick' : 'Base heal over time (' + basePeriodic.duration + 'sec)', formatHealingRange(key === 'stream' ? basePeriodic.first : basePeriodic.total),
+        spell.period ? 'game-tooltip-reference' : 'game-tooltip-muted');
+    }
+    tooltipValue(tip, 'Bonus healing', '+' + whole(profile.power), 'game-tooltip-muted');
+    if (key === 'regrowth') {
+      tooltipValue(tip, 'Scaling (direct)', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
+      tooltipValue(tip, 'Scaling (HoT)', (periodicHealingScaling(spell) * 100).toFixed(2) + '%', 'game-tooltip-muted');
+      tooltipValue(tip, 'Talent multiplier (direct)', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
+      tooltipValue(tip, 'Talent multiplier (HoT)', '×' + Number(spell.hot.multiplier.toFixed(3)), 'game-tooltip-muted');
+    } else {
+      const fullDuration = !!spell.period && key !== 'stream';
+      tooltipValue(tip, key === 'stream' ? 'Scaling (per tick)' : fullDuration ? 'Scaling (full duration)' : 'Scaling',
+        ((fullDuration ? periodicHealingScaling(spell) : spell.coefficient) * 100).toFixed(2) + '%', 'game-tooltip-muted');
+      tooltipValue(tip, 'Talent multiplier', '×' + Number(spell.multiplier.toFixed(3)), 'game-tooltip-muted');
     }
     if (key === 'chain') {
-      tooltipLine(tip, 'With Riptide (+25% first hit) · ' +
-        range(profile.power, spell.multiplier * 1.25), 'game-tooltip-good');
+      for (const [index, label] of ['primary', '1st bounce', '2nd bounce'].entries()) {
+        tooltipValue(tip, 'With Riptide (' + label + ')',
+          formatHealingRange(healingRange(spell, profile.power, 1.25 * spell.falloff ** index)), 'game-tooltip-good');
+      }
     }
+    return true;
   }
-  let selectedSchool = schools[0];
+  let selectedSchool = schools[0], bookPage = 0, bookStatus = 'all';
+  let bookTooltips = [];
+  find('[data-book-title]').textContent = className[0].toUpperCase() + className.slice(1) + ' spellbook';
   const allRanks = find('[data-all-ranks]');
   const bookLevel = find('[data-book-level]');
   const bookSearch = find('[data-filter]');
   const schoolButtons = schools.map((school, index) => {
     const button = document.createElement('button');
     button.type = 'button';
+    button.id = 'book-school-' + index;
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-controls', 'forever-spellbook');
     button.append(icon(schoolIcons[index]), school);
-    button.onclick = () => { selectedSchool = school; renderBook(); };
+    button.onkeydown = event => {
+      const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+      if (!step && !['Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      const target = event.key === 'Home' ? 0 : event.key === 'End' ? schools.length - 1 : (index + step + schools.length) % schools.length;
+      schoolButtons[target].click(); schoolButtons[target].focus();
+    };
+    button.onclick = () => { selectedSchool = school; bookPage = 0; renderBook(); };
     find('[data-schools]').append(button);
     return button;
   });
-  const resurrection = new Set(['Ancestral Spirit', 'Rebirth', 'Redemption', 'Resurrection']);
-  const bookRows = Object.entries(catalog).filter(([name]) => !resurrection.has(name)).map(([name, entry]) => {
-    const [school, status] = spellGroups[name] ?? ['enhancement', ''];
-    return {name, school, status, ranks: entry.ranks.map(rank => {
+  const bookCatalog = foreverSpellbook(className, catalog, trees, spellGroups);
+  const bookRows = Object.entries(bookCatalog).map(([name, entry]) => {
+    const [school, status] = spellGroups[name] ?? [entry.school ?? schools[0].toLowerCase(), ''];
+    return {name, school, status, talentAbility:entry.talentAbility, ranks: entry.ranks.map(rank => {
       const row = byName(name).find(candidate => candidate.rank === rank.rank);
       const effects = row?.effects.filter(effect => effect.coefficient) ?? [];
       const coefficients = effects.map(effect => (effect.coefficient * 100).toFixed(1) + '%' +
@@ -831,45 +954,129 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function renderBook() {
     const grid = find('[data-catalog]');
+    for (const tooltip of bookTooltips) tooltip.destroy();
+    bookTooltips = [];
+    hideGameTooltipWithin(grid);
     grid.replaceChildren();
-    schoolButtons.forEach((button, index) => button.setAttribute('aria-pressed', schools[index] === selectedSchool));
-    const level = bookLevel.valueAsNumber || 60;
-    const query = bookSearch.value.trim().toLowerCase();
-    for (const {name, school, status, ranks: entries} of bookRows) {
-      if ((!query && school !== selectedSchool.toLowerCase()) || !name.toLowerCase().includes(query)) continue;
-      const available = entries.filter(({rank}) => rank.level <= level);
-      const shown = allRanks.checked ? available : available.slice(-1);
-      for (const {rank, coefficients, row} of shown) {
-        const cell = document.createElement('details');
-        cell.className = 'book-spell';
-        const button = document.createElement('summary');
+    schoolButtons.forEach((button, index) => {
+      const selected = schools[index] === selectedSchool;
+      button.setAttribute('aria-pressed', selected);
+      button.setAttribute('aria-selected', selected);
+      button.tabIndex = selected ? 0 : -1;
+      if (selected) grid.setAttribute('aria-labelledby', button.id);
+    });
+    const level = Math.max(1, Math.min(60, bookLevel.valueAsNumber || 60));
+    const query = bookSearch.value.trim();
+    const options = {school:selectedSchool, query, level, allRanks:allRanks.checked};
+    const allEntries = spellbookEntries(bookRows, options);
+    const entries = spellbookEntries(bookRows, {...options, status:bookStatus});
+    const page = spellbookPage(entries, bookPage);
+    bookPage = page.index;
+    const title = document.createElement('header');
+    title.className = 'book-heading';
+    const heading = document.createElement('h2');
+    heading.textContent = query ? 'Search results' : selectedSchool;
+    const count = document.createElement('span');
+    count.textContent = entries.length + (allRanks.checked ? ' spell ranks' : ' spells');
+    title.append(heading, count);
+    const spread = document.createElement('div');
+    spread.className = 'book-spread';
+    function renderPage(rows, side) {
+      const list = document.createElement('div');
+      list.className = 'book-page';
+      list.setAttribute('aria-label', side + ' spellbook page');
+      for (const {name, status, rank, coefficients, row, talentAbility} of rows) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'book-spell';
         const label = document.createElement('span');
-        label.textContent = name + (status === 'changed' ? ' ◆' : status === 'new' ? ' ★' : '');
+        label.className = 'book-spell-label';
+        const spellName = document.createElement('strong');
+        spellName.textContent = name;
+        if (['changed','new','removed'].includes(status)) {
+          const badge = document.createElement('span');
+          badge.className = 'book-change ' + status;
+          badge.textContent = status === 'new' ? '★' : status === 'removed' ? '✕' : '◆';
+          badge.setAttribute('aria-label', status === 'new' ? 'New in Forever' : status === 'removed' ? 'Not in Forever' : 'Changed from Classic');
+          spellName.append(' ', badge);
+        }
         const sub = document.createElement('small');
-        sub.textContent = [rank.rank, 'Level ' + rank.level].filter(Boolean).join(' · ');
-        label.append(sub);
-        button.append(icon(name), label);
+        sub.textContent = status === 'removed' ? 'Not in Forever' : rank.rank || (rank.details?.includes('Passive') ? 'Passive' : 'Level ' + rank.level);
+        if (talentAbility) sub.textContent += ' · Talent ability';
+        label.append(spellName, sub);
+        button.append(icon(name, bookCatalog[name]), label);
         const render = tip => {
           tip.replaceChildren();
           tooltipLine(tip, name, 'game-tooltip-title');
+          if (status === 'removed') tooltipLine(tip, 'Not in Forever', 'game-tooltip-muted');
           tooltipLine(tip, [rank.rank, 'Level ' + rank.level].filter(Boolean).join(' · '));
-          tooltipLine(tip, rank.details || '');
-          tooltipLine(tip, rank.description || '', 'game-tooltip-description');
-          if (coefficients.length) tooltipLine(tip, 'Coefficient · ' + coefficients.join(' / '));
-          renderHealingBreakdown(tip, name, row);
+          const key = healingByName.get(name);
+          if (key && row) {
+            const spell = applyTalents(spellFor(key, name, row), talentPoints);
+            tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.channel ? spell.duration + ' sec channel' : spell.cast ? spell.cast + ' sec cast' : 'Instant'));
+            if (spell.cooldown) tooltipLine(tip, spell.cooldown + ' sec cooldown');
+          }
+          const healing = renderHealingBreakdown(tip, name, row);
+          if (!healing) {
+            if (!key && rank.details) tooltipLine(tip, rank.details);
+            tooltipLine(tip, rank.description || '', 'game-tooltip-description');
+            if (coefficients.length) tooltipLine(tip, 'Scaling · ' + coefficients.join(' / '), 'game-tooltip-reference');
+          }
         };
-        const detail = document.createElement('div');
         const tooltip = attachGameTooltip(button, render);
-        cell.ontoggle = () => {
-          if (cell.open) { tooltip.hide(); render(detail); }
-        };
-        cell.append(button, detail);
-        grid.append(cell);
+        bookTooltips.push(tooltip);
+        button.onclick = () => tooltip.show();
+        list.append(button);
       }
+      return list;
     }
-    if (!grid.childElementCount) grid.textContent = 'No spells match your filters.';
+    spread.append(renderPage([...page.left,...page.right], 'Spells'));
+    const pagination = document.createElement('nav');
+    pagination.className = 'book-pagination';
+    pagination.setAttribute('aria-label', 'Spellbook pages');
+    const previous = document.createElement('button');
+    previous.type = 'button'; previous.textContent = '‹';
+    previous.setAttribute('aria-label', 'Previous spellbook page');
+    previous.disabled = page.index === 0;
+    previous.onclick = () => {bookPage--; renderBook(); find('[data-book-page-next]').focus();};
+    const position = document.createElement('span');
+    position.setAttribute('role', 'status');
+    position.textContent = 'Page ' + (page.index + 1) + '/' + page.pages;
+    const next = document.createElement('button');
+    next.type = 'button'; next.textContent = '›';
+    next.dataset.bookPageNext = '';
+    next.setAttribute('aria-label', 'Next spellbook page');
+    next.disabled = page.index === page.pages - 1;
+    next.onclick = () => {bookPage++; renderBook(); find('[data-book-page-previous]').focus();};
+    previous.dataset.bookPagePrevious = '';
+    pagination.append(previous, position, next);
+    const legend = document.createElement('nav');
+    legend.className = 'book-legend';
+    legend.setAttribute('aria-label', 'Filter spell changes');
+    for (const [key,label] of [['all','All'],['new','★ New in Forever'],['changed','◆ Changed'],['same','Same as Classic'],['unclassified','Other']]) {
+      const total = allEntries.filter(entry => key === 'all' || entry.status === key).length;
+      if (key === 'unclassified' && !total) continue;
+      const filter = document.createElement('button');
+      filter.type = 'button';
+      filter.textContent = label + ' ' + total;
+      filter.setAttribute('aria-pressed', String(bookStatus === key));
+      filter.onclick = () => {bookStatus = key; bookPage = 0; renderBook();};
+      legend.append(filter);
+    }
+    grid.append(title);
+    if (entries.length) grid.append(spread, pagination);
+    else {
+      const empty = document.createElement('p');
+      empty.className = 'book-empty';
+      empty.textContent = 'No spells match your filters. ';
+      const clear = document.createElement('button');
+      clear.type = 'button'; clear.textContent = 'Clear filters';
+      clear.onclick = () => {bookSearch.value = ''; bookStatus = 'all'; bookPage = 0; renderBook();};
+      empty.append(clear);grid.append(empty);
+    }
+    find('[data-book-legend]').replaceChildren(legend);
   }
-  allRanks.onchange = bookLevel.oninput = bookSearch.oninput = renderBook;
+  allRanks.onchange = bookLevel.oninput = bookSearch.oninput = () => {bookPage = 0; renderBook();};
   mountTabs(find('.heal-menu'));
   renderBook();
 
@@ -913,29 +1120,30 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       add(spell.period ? 'Non-crit healing per tick' : 'Non-crit primary heal', range());
       if (spell.period) add('Ticks per target', ticks + ' × every ' + spell.period + ' sec');
       if (spell.mark === 'vigil') add('Trigger', 'Holy Shock on the marked ally · 30 sec mark · no Holy Shock cooldown');
-      add('Base coefficient', (spell.coefficient * 100).toFixed(1) + '%' + (spell.period ? ' per tick' : ''));
+      add(key === 'stream' ? 'Scaling (per tick)' : spell.period ? 'Scaling (full duration)' : 'Scaling (direct)',
+        ((spell.period && key !== 'stream' ? periodicHealingScaling(spell) : spell.coefficient) * 100).toFixed(2) + '%');
       if (spell.hot) {
         add('Non-crit periodic healing', whole(Math.round(hotTick)) + ' × ' + hotTicks + ' ticks');
-        add('Periodic coefficient', (spell.hot.coefficient * 100).toFixed(1) + '% per tick');
+        add('Scaling (HoT)', (periodicHealingScaling(spell) * 100).toFixed(2) + '%');
       }
       if (key === 'stream') {
         add('Restorative Totems', healingMultiplier(spell));
         add('Effective coefficient', (spell.coefficient * spell.multiplier * 100).toFixed(2) + '% per tick');
       }
-      add('Healing crit chance', (crit * 100).toFixed(2) + '%');
+      add(key === 'regrowth' ? 'Direct and periodic crit chance' : 'Healing crit chance', (crit * 100).toFixed(2) + '%');
       add('Expected healing per mana', hpm(ticks) + (spell.party ? ' per party member' : ' on primary'));
       const chain = find('[data-inspect-chain]');
       chain.replaceChildren();
       if (spell.chain > 1) {
         const table = document.createElement('table');
         table.className = 'table table-sm';
-        table.innerHTML = '<caption>Chain Heal before overhealing. HPM includes crits. Riptide boosts the primary hit only.</caption><thead><tr><th>Targets hit</th><th>Normal healing</th><th>HPM</th><th>Riptide healing</th><th>HPM</th></tr></thead><tbody></tbody>';
+        table.innerHTML = '<caption>Chain Heal before overhealing. HPM includes crits. Riptide on the primary target boosts the entire chain by 25%.</caption><thead><tr><th>Targets hit</th><th>Normal healing</th><th>HPM</th><th>Riptide healing</th><th>HPM</th></tr></thead><tbody></tbody>';
         let total = 0;
         for (let targets = 1; targets <= spell.chain; targets++) {
           total += spell.falloff ** (targets - 1);
           const row = table.tBodies[0].insertRow();
           for (const value of [targets === 1 ? '1 · primary' : targets + ' · ' + (targets - 1) + ' jumps',
-            range(total), hpm(total), range(total + .25), hpm(total + .25)]) row.insertCell().textContent = value;
+            range(total), hpm(total), range(total * 1.25), hpm(total * 1.25)]) row.insertCell().textContent = value;
         }
         chain.append(table);
       }
@@ -945,7 +1153,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (spell.dispel) add('Dispel', spell.abolishPoison ? 'Removes one poison now and every 2 sec for 8 sec' : 'Removes one ' + hazard + ' effect');
       if (spell.shield) add('Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)) +
         ' damage · ' + spell.duration + ' sec · 15 sec Weakened Soul before talents');
-      if (spell.swiftmend) add('Effect', 'Heals for the full value of your active Rejuvenation or Regrowth HoT and leaves it active');
+      if (spell.swiftmend) {
+        for (const [label, amounts] of swiftmendPreviews()) add('With ' + label + ' (non-crit)', formatHealingRange(amounts));
+        add('Effect', 'Heals for the full value of your active Rejuvenation or Regrowth HoT and leaves it active; uses the HoT expiring first. Values use selected HoT ranks.');
+      }
       if (spell.innervate) add('Effect', '500% of normal Spirit mana regeneration for 20 sec, including while casting');
       if (spell.swiftness) add('Effect', 'Makes your next cast-time Nature heal instant');
       if (spell.manaTick) add('Mana restored', spell.manaTick + ' every ' + spell.period + ' sec for ' + spell.duration + ' sec');
@@ -966,6 +1177,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (field.textContent !== value) field.textContent = value;
   }
 
+  const manaRows = new Map();
   const meterRows = new Map();
   for (const [key, name] of [...slots, ...extraMeters]) {
     const row = document.createElement('details');
@@ -978,27 +1190,61 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const breakdown = document.createElement('dl');
     breakdown.className = 'healing-breakdown';
     const fields = [
-      ['hps', 'Casts'], ['healing', 'Healing events'], ['survived', 'Normal hits'],
-      ['crit', 'Critical hits'], ['overheal', 'Overhealing'], ['efficiency', 'Healing per mana']
+      ['casts', 'Casts'], ['normal-hits', 'Normal hits'],
+      ['crits', 'Critical hits'], ['overheal', 'Overhealing'], ['hpm', 'Healing per mana']
     ].map(([art, title]) => addMetric(breakdown, art, title));
     summary.append(label, total);
-    row.append(summary, breakdown);
+    const eventBars = document.createElement('div');
+    eventBars.className = 'healing-event-bars';
+    row.append(summary, eventBars, breakdown);
     find('[data-meter]').append(row);
-    meterRows.set(key, {row, summary, total, fields});
+    meterRows.set(key, {row, summary, total, fields, eventBars});
   }
   function renderMeters(state) {
     find('[data-meter-empty]').hidden = !Object.values(state.meters).every(stats => !stats.hits);
-    for (const [key, {row, summary, total, fields}] of meterRows) {
+    let meterIndex = 0;
+    for (const [key, {row, summary, total, fields, eventBars}] of [...meterRows].sort((a,b) => (state.meters[b[0]]?.effective ?? 0) - (state.meters[a[0]]?.effective ?? 0))) {
       const stats = state.meters[key];
       row.hidden = !stats?.hits;
       if (row.hidden) continue;
+      const container = find('[data-meter]');
+      if (container.children[meterIndex] !== row) container.insertBefore(row, container.children[meterIndex] ?? null);
+      meterIndex++;
+      summary.style.setProperty('--meter-color', healingColors[key] ?? '#397b42');
       const raw = stats.effective + stats.overheal;
       const percent = (part, all) => (all ? 100 * part / all : 0).toFixed(1) + '%';
       const share = percent(stats.effective, state.healing);
-      total.textContent = whole(stats.effective) + ' · ' + share;
-      summary.style.setProperty('--share', share);
+      setBarNumbers(total, whole(stats.effective), share);
+      summary.style.setProperty('--share', (100 * stats.effective / (Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1)) + '%');
       if (!row.open) continue;
-      const values = [stats.casts, stats.hits, stats.hits - stats.crits,
+      const maxHealing = Math.max(...Object.values(state.meters).map(entry => entry.effective)) || 1;
+      const eventSignature = JSON.stringify([stats.events, maxHealing]);
+      if (eventBars.dataset.renderKey !== eventSignature || !eventBars.childElementCount) {
+        hideGameTooltipWithin(eventBars);
+        eventBars.replaceChildren();
+        eventBars.dataset.renderKey = eventSignature;
+        for (const event of healingEventRows(stats)) {
+          const bar = document.createElement('div');
+          bar.className = 'mana-source-bar healing-event-bar';
+          bar.style.setProperty('--source-color', healingColors[key] ?? '#397b42');
+          bar.style.setProperty('--share', (100 * event.effective / maxHealing) + '%');
+          const label = document.createElement('span');
+          const art = document.createElement('span');
+          art.className = 'healing-event-icon';
+          const image = document.createElement('img');
+          image.src = new URL('./' + event.icon, import.meta.url);
+          image.alt = '';
+          art.append(image);
+          label.append(art, event.label);
+          const count = document.createElement('strong');
+          setBarNumbers(count, event.count, event.crit ? '(' + Number(event.critPercent.toFixed(1)) + '%)' : '', '');
+          bar.tabIndex = 0;
+          setGameTooltip(bar, event.label, [whole(event.effective) + ' effective healing', whole(event.overheal) + ' overhealing']);
+          bar.append(label, count);
+          eventBars.append(bar);
+        }
+      }
+      const values = [stats.casts, stats.hits - stats.crits,
         stats.crits + ' (' + percent(stats.crits, stats.hits) + ')',
         whole(stats.overheal) + ' (' + percent(stats.overheal, raw) + ')',
         stats.mana ? (stats.effective / stats.mana).toFixed(2) : '—'];
@@ -1009,22 +1255,169 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
   }
 
+  function renderManaMeters(state) {
+    find('[data-mana-gained-total]').textContent = whole(state.manaGained);
+    find('[data-mana-empty]').hidden = state.manaGained > 0;
+    const sources = manaReportSources(state.manaSources);
+    if (currentSpells.waterShield && !sources.some(([source]) => source === 'Water Shield')) sources.push(['Water Shield', 0]);
+    for (const {row} of manaRows.values()) row.hidden = true;
+    let sourceIndex = 0;
+    for (const [source, value] of sources) {
+      if (!manaRows.has(source)) {
+        const row = document.createElement('details');
+        row.className = 'meter-row';
+        const summary = document.createElement('summary');
+        const label = document.createElement('span');
+        const image = document.createElement('img');
+        image.src = new URL('./' + reportManaVisual(source)[0], import.meta.url);
+        image.alt = '';
+        label.append(image, source);
+        const total = document.createElement('strong');
+        const children = document.createElement('div');
+        summary.append(label, total);
+        row.append(summary, children);
+        let innervateTotal;
+        if (source === 'Spirit regeneration') {
+          const normal = document.createElement('span');
+          normal.className = 'mana-pair-heading';
+          normal.append(label, total);
+          const boosted = document.createElement('span');
+          boosted.className = 'mana-pair-heading';
+          const boostedLabel = document.createElement('span');
+          const boostedIcon = document.createElement('img');
+          boostedIcon.src = new URL('./' + reportManaVisual('Innervate')[0], import.meta.url);
+          boostedIcon.alt = '';
+          boostedLabel.append(boostedIcon, 'Innervate');
+          innervateTotal = document.createElement('strong');
+          boosted.append(boostedLabel, innervateTotal);
+          summary.replaceChildren(normal, boosted);
+          row.classList.add('mana-spirit-pair');
+        }
+        let gearing;
+        if (source === 'Spirit regeneration' || source === 'Mana / 5') {
+          gearing = document.createElement('button');
+          gearing.type = 'button';
+          gearing.className = 'mana-gearing';
+          const art = document.createElement('img');
+          art.src = new URL('./' + purposeIconPath(source === 'Spirit regeneration' ? 'spirit' : 'mp5'), import.meta.url);
+          art.alt = '';
+          const amount = document.createElement('strong');
+          gearing.append(art, amount);
+          gearing.onclick = event => { event.preventDefault(); event.stopPropagation(); };
+          total.parentElement.insertBefore(gearing, total);
+        }
+        manaRows.set(source, {row, summary, total, children, innervateTotal, gearing, sourceLabel:label});
+      }
+      const {row, summary, total, children, innervateTotal, gearing, sourceLabel} = manaRows.get(source);
+      if (source === 'Water Shield') {
+        const duration = state.endedAt ?? state.time;
+        const uptime = duration > 0 ? Math.min(100, 100 * state.waterShieldUptime / duration) : 0;
+        sourceLabel.lastChild.textContent = 'Water Shield (' + Math.round(uptime) + '% Uptime)';
+        sourceLabel.tabIndex = 0;
+        setGameTooltip(sourceLabel, 'Water Shield uptime', [state.waterShieldUptime.toFixed(1) + ' / ' + duration.toFixed(1) + ' combat seconds active', 'Active while at least one charge remains. The proc cooldown counts as active time.']);
+      }
+      if (gearing) {
+        const spirit = source === 'Spirit regeneration';
+        const value = (spirit ? state.manaPerSpirit : state.manaPerMp5) ?? 0;
+        const amount = value.toLocaleString('en-US', {minimumFractionDigits:1, maximumFractionDigits:1});
+        gearing.lastElementChild.textContent = amount + (spirit ? ' / Spirit' : ' / MP5');
+        const explanation = amount + ' additional mana per +1 ' + (spirit ? 'base Spirit' : 'mana / 5') + ' over this pull. ' +
+          (spirit ? 'Includes Spirit multipliers, casting regeneration, and Innervate.' : 'Mana / 5 regeneration continues while casting.') +
+          ' Excludes regeneration lost at full mana; stops accumulating when the encounter ends.';
+        setGameTooltip(gearing, spirit ? 'Mana per +1 base Spirit' : 'Mana per +1 Mana / 5', [amount + ' additional mana this fight', spirit ? 'Includes Spirit multipliers, casting regeneration, and Innervate.' : 'Continues regenerating mana while casting.', 'Excludes mana lost at the cap. Final value freezes at fight end.']);
+        gearing.setAttribute('aria-label', explanation);
+      }
+      row.hidden = false;
+      const share = (100 * value / (state.manaGained || 1)).toFixed(1) + '%';
+      setBarNumbers(total, whole(value), share);
+      summary.style.setProperty('--share', share);
+      summary.style.setProperty('--meter-color', reportManaVisual(source)[1]);
+      const innervate = source === 'Spirit regeneration' ? state.manaSources.Innervate ?? 0 : 0;
+      const normal = value - innervate;
+      if (innervateTotal) {
+        setBarNumbers(total, whole(normal), (100 * normal / state.manaGained).toFixed(1) + '%');
+        setBarNumbers(innervateTotal, whole(innervate), (100 * innervate / state.manaGained).toFixed(1) + '%');
+        const rightmostTotal = innervate ? innervateTotal : total;
+        rightmostTotal.parentElement.insertBefore(gearing, rightmostTotal);
+        summary.style.setProperty('--normal-share', (100 * normal / state.manaGained) + '%');
+        summary.style.setProperty('--innervate-color', reportManaVisual('Innervate')[1]);
+        innervateTotal.parentElement.hidden = !innervate;
+      }
+      const weights = source === 'Spirit regeneration' ? profile.spiritRates : source === 'Mana / 5' ? profile.mp5Sources : null;
+      const childSignature = JSON.stringify([source, value, weights, normal, innervate, state.manaGained]);
+      if (children.dataset.renderKey !== childSignature) {
+        hideGameTooltipWithin(children);
+        children.replaceChildren();
+        children.dataset.renderKey = childSignature;
+        if (weights) {
+          const sum = Object.values(weights).reduce((a, b) => a + b, 0);
+          for (const [name, weight] of Object.entries(weights).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])) {
+            const bar = document.createElement('div');
+            bar.className = 'mana-source-bar';
+            bar.style.setProperty('--source-color', contributionColor(source, name));
+            const split = spiritContribution(normal, innervate, weight, sum, state.manaGained);
+            const contribution = split.normalMana + split.innervateMana;
+            const totalShare = split.totalShare;
+            if (source === 'Spirit regeneration') {
+              bar.classList.add('mana-split-bar');
+              bar.style.setProperty('--normal-share', split.normalShare + '%');
+              bar.style.setProperty('--innervate-color', reportManaVisual('Innervate')[1]);
+            }
+            bar.style.setProperty('--share', totalShare + '%');
+            bar.tabIndex = 0;
+            setGameTooltip(bar, name, [(100 * weight / sum).toFixed(1) + '% of ' + source,
+              totalShare.toFixed(1) + '% of total mana gained',
+              ...(source === 'Spirit regeneration' ? ['Normal: ' + whole(split.normalMana) + ' · Innervate: ' + whole(split.innervateMana)] : [])]);
+            const label = document.createElement('span');
+            const image = document.createElement('img');
+            image.src = new URL('./' + (contributionIcons[name] ?? purposeIconPath('gained')), import.meta.url);
+            image.alt = '';
+            label.append(image, name);
+            const amount = document.createElement('strong');
+            setBarNumbers(amount, whole(contribution), totalShare.toFixed(1) + '%');
+            bar.append(label, amount);
+            children.append(bar);
+          }
+        } else {
+          const note = document.createElement('p');
+          note.textContent = source === 'Inner Focus · spell cost' ? 'Mana saved by free casts; included in total mana gained.' : source === 'Inner Focus · Spirit regeneration' ? 'Extra Spirit regeneration until the next paid spell lands, relative to five-second-rule regeneration; excludes overlap with Innervate and mana lost to the cap.' : 'Mana restored after the mana cap; excess regeneration is excluded.';
+          children.append(note);
+        }
+      }
+      const container = find('[data-mana-meter]');
+      if (container.children[sourceIndex] !== row) container.insertBefore(row, container.children[sourceIndex] ?? null);
+      sourceIndex++;
+    }
+  }
+
   let audio;
   function enableAudio() {
-    if (!find('[data-sound]').checked) return;
+    if (!soundEnabled) return;
     if (!window.AudioContext) {
-      find('[data-sound]').checked = false;
+      soundEnabled = false;
+      renderSoundToggle();
       return;
     }
     audio ??= new AudioContext();
     audio.resume().catch(() => {});
   }
-  find('[data-sound]').onchange = () => {
+  function renderSoundToggle() {
+    const button = find('[data-sound]');
+    const label = soundEnabled ? 'Mute healing sounds' : 'Unmute healing sounds';
+    button.setAttribute('aria-pressed', String(soundEnabled));
+    button.setAttribute('aria-label', label);
+    setGameTooltip(button, label, [soundEnabled ? 'Healing sounds are on.' : 'Healing sounds are muted.']);
+    button.querySelector('[data-sound-on]').toggleAttribute('hidden', !soundEnabled);
+    button.querySelector('[data-sound-off]').toggleAttribute('hidden', soundEnabled);
+  }
+  find('[data-sound]').onclick = () => {
+    soundEnabled = !soundEnabled;
+    renderSoundToggle();
     enableAudio();
     saveSettings();
   };
   function playHealSound(crit, bounce) {
-    if (audio?.state !== 'running' || !find('[data-sound]').checked) return;
+    if (audio?.state !== 'running' || !soundEnabled) return;
     const start = audio.currentTime;
     const tone = audio.createOscillator();
     const volume = audio.createGain();
@@ -1038,9 +1431,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     tone.stop(start + .23);
   }
 
-  let visualPull = 0;
   const startButton = find('[data-start]');
-  const onStart = () => { visualPull++; enableAudio(); };
+  const onStart = () => { enableAudio(); };
   startButton.addEventListener('click', onStart);
   function showHeal(event) {
     const pullId = visualPull;
@@ -1084,15 +1476,20 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function frame(now) {
     const delta = Math.min(.1, (now - last) / 1000);
     last = now;
-    if (pull.state.phase === 'active') {
+    if (pull.state.phase !== 'ready') {
       pull.step(delta);
       render();
     }
     animation = requestAnimationFrame(frame);
   }
+  const stopScoreLayout = watchScoreFormula(find('[data-regen-result]'));
   let animation = requestAnimationFrame(frame);
   return () => {
     cancelAnimationFrame(animation);
+    stopScoreLayout();
+    gearEditor.destroy();
+    for (const tooltip of bookTooltips) tooltip.destroy();
+    hideGameTooltip();
     visualPull++;
     startButton.removeEventListener('click', onStart);
     audio?.close();
