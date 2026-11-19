@@ -12,8 +12,7 @@ export const buffs = [
   ['kings', 'Blessing of Kings', '+10% attributes', 'spell_magic_magearmor'],
   ['intellect', 'Arcane Intellect', '+31 Intellect', 'spell_holy_magicalsentry'],
   ['flask', 'Flask of Distilled Wisdom', '+2,000 mana', 'inv_potion_97'],
-  ['mageblood', 'Mageblood Elixir', '+12 mana / 5 sec', 'inv_potion_45'],
-  ['potion', 'Major Mana Potion', '1,350–2,250 mana on use', 'inv_potion_76']
+  ['mageblood', 'Mageblood Elixir', '+12 mana / 5 sec', 'inv_potion_45']
 ];
 
 export const talents = [

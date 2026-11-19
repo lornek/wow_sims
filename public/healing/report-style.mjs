@@ -14,6 +14,7 @@ export const manaVisuals = {
   'Lay on Hands': ['icons/spell_holy_layonhands.jpg', '#3d4695'],
   'Mana Spring Totem': ['icons/spell_nature_manaregentotem.jpg', '#197c99'],
   'Mana Tide Totem': ['icons/spell_frost_summonwaterelemental.jpg', '#3155a0'],
+  'Dark Rune': ['icons/spell_shadow_sealofkings.jpg', '#71529c'],
   'Major Mana Potion': ['icons/inv_potion_76.jpg', '#59479b']
 };
 export const contributionIcons = {

@@ -162,6 +162,12 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       if (effect) heal(spell.key, unit, effect.amount * effect.ticks, true);
     } else if (spell.manaRange) {
       restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]), spell.name);
+      if (spell.healthCost) {
+        const caster = party.at(-1);
+        const cost = Math.round(spell.healthCost[0] + random() * (spell.healthCost[1] - spell.healthCost[0]));
+        damage(caster, cost, false);
+        state.message = spell.name + ' · ' + cost + ' self-damage';
+      }
     } else if (spell.dispel) {
       unit.poison = 0;
       if (spell.abolishPoison) {
@@ -285,6 +291,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.message = 'Clearcasting! Your next spell costs no mana.';
     }
     if (spell.channel) state.cast = {spell, unit, end: state.time + spell.duration, duration: spell.duration, channel: true};
+    if (!party.at(-1).hp) checkFightEnd();
   }
 
   function damage(unit, amount, physical = true, procMending = true) {
@@ -447,6 +454,10 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       }
       state.message = 'Rend Blackhand enrages!';
     }
+    checkFightEnd();
+  }
+
+  function checkFightEnd() {
     if (!party.at(-1).hp || state.time >= encounter.limit || !state.boss) {
       state.phase = !state.boss && party.at(-1).hp ? 'won' : 'lost';
       state.cast = null;

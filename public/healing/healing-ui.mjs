@@ -1,3 +1,4 @@
+import {manaConsumables} from './consumables.mjs';
 import {mountHotkeys} from './hotkeys.mjs';
 import {setEquipmentImage} from './gear-images.mjs';
 import {purposeIconPath} from './purpose-icons.mjs';
@@ -44,6 +45,9 @@ const damageIcons = {
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
   configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison'}) {
+  slots = [...slots, ['darkRune', 'Dark Rune', 'Activate']];
+  utility = {...utility, ...manaConsumables};
+  catalog = {...catalog, ...Object.fromEntries(Object.values(manaConsumables).map(item => [item.name, {icon:item.icon, ranks:[{rank:'',level:1,details:'Instant · 2 min cooldown',description:item.healthCost ? 'Restores 900–1,500 mana at the cost of 600–1,000 life. Separate cooldown from mana potions.' : 'Restores 1,350–2,250 mana.'}]}]))};
   const params = new URLSearchParams(location.search);
   const priestSpec = params.get('spec') === 'holy' ? 'holy' : 'discipline';
   const settingsKey = 'wow-forever-sims.' + className + '.v1' +
@@ -197,7 +201,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     find('.heal-spells').append(button);
     spellButtons.push({button, art, timer, cooldown, key, name, binding, tooltip, chargesLabel});
 
-    const rows = key === 'potion' ? [{rank: '', cast: 0, gcd: 0, cooldown: 60, cost: 0, effects: []}] :
+    const rows = manaConsumables[key] ? [{...manaConsumables[key],rank:''}] :
       byName(name).sort((a, b) => a.level - b.level || a.id - b.id).filter(row => key !== 'tide' || row.rank === 'Rank 4');
     spellEntries.push({row:rows.at(-1), key, name});
   }
@@ -347,7 +351,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     profile = buildProfile(gearEditor.kit, enabled, readAdditionalStats(), points);
     currentSpells = Object.fromEntries(spellEntries.map(({row, key, name}) =>
       [key, applyTalents(spellFor(key, name, row), points)]));
-    if (!enabled.has('potion')) delete currentSpells.potion;
     for (const [key, name] of slots.filter(([key]) => unlocks.includes(key))) {
       if (!talentTree.build[name]) delete currentSpells[key];
     }
@@ -609,7 +612,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       regenResult.replaceChildren();
       const terms = [
         ['score-healing', '(' + whole(s.healing) + ')', 'Effective healing'],
-        ['score-mana', '(' + whole(score.manaGained) + ')', 'Mana gained excluding mana potions'],
+        ['score-mana', '(' + whole(score.manaGained) + ')', 'Mana gained excluding mana potions and Dark Rune'],
         ['score-efficiency', '(' + (100 * score.efficiency).toFixed(1) + '% efficiency)', 'Effective healing / total healing'],
         ['score-survival', '(' + score.survivors + '/' + s.party.length + ' survived)', 'Party members alive at victory']
       ];
