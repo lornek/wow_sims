@@ -641,7 +641,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const defaultBuff = {priest:'spirit', paladin:'wisdom', druid:'mark', shaman:'waterShield'}[className];
   const buffList = className === 'shaman' ? [...buffs,
     ['waterShield','Water Shield','Start with three charges. Recast from the action bar.','ability_shaman_watershield']] : className === 'druid' ? [...buffs,
-    ['omen','Omen of Clarity','Estimated from pooled Forever logs: 5% per cast, 8% Regrowth; 10 sec internal cooldown. Clearcasting makes your next spell free for up to 15 sec.','spell_shadow_manaburn']] : buffs;
+    ['omen','Omen of Clarity','Estimated from pooled Forever logs: 5% per cast, 8% Regrowth; 10 sec internal cooldown. Clearcasting makes your next spell free for up to 15 sec.','inv_misc_orb_01']] : buffs;
   let waterBuff;
   let omenBuff;
   for (const [key, name, description, iconFile] of buffList) {

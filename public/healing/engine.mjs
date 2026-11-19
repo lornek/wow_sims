@@ -386,7 +386,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function step(dt) {
-    if (state.phase === 'ready') return;
+    if (state.phase !== 'active') return;
     const end = state.time + dt;
     if (state.cast && end >= state.cast.end) {
       const castEnd = Math.max(state.time, state.cast.end);

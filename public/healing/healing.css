@@ -635,8 +635,8 @@ body:has(#healing) { font-family:var(--ui); }
   .hotkey-settings, .hotkey-panel { display:none; }
 }
 
-.combat-buffs .omen-buff:not(.buff-live) img { filter:grayscale(1) brightness(.55); }
-.combat-buffs .omen-buff.buff-live { border-color:#8dddbe; box-shadow:0 0 7px #6fdbad88; }
+.combat-buffs .omen-buff:has(input:checked) img { filter:none; }
+.combat-buffs .omen-buff.buff-live { border-color:#6ccaff; box-shadow:0 0 0 1px #6ccaff,0 0 10px #259dffb3; }
 /* Battlefield controls and compact combat clock. */
 .heal-stage { position:relative; }
 .heal-top { align-items:flex-start; gap:10px; }
@@ -644,7 +644,7 @@ body:has(#healing) { font-family:var(--ui); }
 .battlefield-controls [data-start] { order:0; }
 .battlefield-controls .sound-toggle { order:1; }
 .battlefield-controls .hotkey-settings { order:2; margin:0; }
-.heal-top [data-phase] { font:700 .9rem/1.5 var(--ui); font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:5px; }
+.heal-top [data-phase] { font:700 1.08rem/1.5 var(--ui); font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:5px; }
 .combat-buffs { display:grid; grid-template-rows:repeat(2,auto); grid-auto-flow:column; grid-auto-columns:max-content; justify-content:end; gap:4px; }
 .combat-buffs img { width:28px; height:28px; }
 .heal-spells button.clearcasting-free { border-color:#6ccaff; box-shadow:0 0 0 1px #6ccaff,0 0 10px #259dffb3; }
@@ -665,4 +665,15 @@ body:has(#healing) { font-family:var(--ui); }
   .healing .heal-spells button { padding:0; overflow:hidden; min-height:0; aspect-ratio:1; }
   .heal-spells .spell-art { width:100%; max-width:none; }
   .heal-spells .spell-art img { width:100%; height:auto; border:0; border-radius:0; display:block; }
+}
+
+.battlefield-controls .sound-toggle, .battlefield-controls .hotkey-settings { box-sizing:border-box; width:34px; height:34px; padding:4px; align-items:center; justify-content:center; }
+.healing .battlefield-controls [data-start] { box-sizing:border-box; width:124px; height:38px; padding:5px 8px; white-space:nowrap; text-align:center; }
+.combat-damage .meter-numbers { display:inline-grid; grid-template-columns:6ch .6ch 6.5ch; column-gap:2px; font-size:inherit; }
+.heal-stage > .combat-damage { box-sizing:border-box; width:21ch; }
+.combat-damage summary { display:flex; flex-wrap:nowrap; gap:4px; white-space:nowrap; }
+.combat-damage summary > span:first-child { min-width:0; flex:1; }
+@media(max-width:650px), (pointer:coarse) {
+  .heal-stage > .combat-damage { width:clamp(138px,37vw,172px); }
+  .combat-damage .meter-numbers { display:inline-grid; grid-template-columns:6ch .5ch 6.5ch; column-gap:1px; margin-left:4px; }
 }

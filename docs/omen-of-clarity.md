@@ -9,7 +9,7 @@ a countdown while Clearcasting is available.
 Imported Forever spell records identify Omen (16864) triggering Clearcasting
 (16870), with a 15-second aura and a -100% cost modifier. Omen is a trained
 ability in the imported dataset, not a selectable node in the current talent
-tree. The normal spell icon is `spell_shadow_manaburn`.
+tree. The normal spell icon is `inv_misc_orb_01` (the bundled crystal-ball icon selected by the user).
 
 Proc rates come from the user's pasted pooled-log analysis dated 2026-10-05:
 12,310 eligible spell events, 657 procs, excluding the 10-second internal
