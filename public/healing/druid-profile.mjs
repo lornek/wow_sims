@@ -1,3 +1,4 @@
+import {equippedEnchantEffects,enchantPassiveModifiers} from './enchant-effects.mjs';
 import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {loadouts} from './druid-gear.mjs';
@@ -29,7 +30,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   const spirit = stat('spirit', 110 + (buffs.has('spirit') ? 40 : 0), livingSpirit);
   const stamina = stat('stamina', 69);
   const gearPower = gear.power ?? 0;
-  return {...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
+  return {className:'druid', enchantEffects:equippedEnchantEffects(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...enchantPassiveModifiers(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
     spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),
     health: (gear.health ?? 0) + 1483 + 10 * stamina, baseMana: 1244, mana: (gear.mana ?? 0) + 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
     omen: buffs.has('omen'),
@@ -38,6 +39,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
     castingRegen: [0, .17, .33, .50][talents.Reflection ?? 0],
     regen: 6.25 + spirit / 8, gearPower, power: gearPower,
     pushbackResist: .14 * (talents["Nature's Focus"] ?? 0), grace: !!talents["Nature's Grace"],
+    bloomPerSpirit:talents.Bloom ? 1 + .02 * (talents['Gift of Nature'] ?? 0) : 0,
     bloom: talents.Bloom ? spirit * (1 + .02 * (talents['Gift of Nature'] ?? 0)) : 0,
     mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? 12 : 0)};
 }

@@ -1,7 +1,8 @@
+import {healerEnchantChoices} from './healer-enchants.mjs';
 import {hideGameTooltip} from './game-ui.mjs';
 import {exportGearSet} from './gear-export.mjs';
 import {setEquipmentImage} from './gear-images.mjs';
-import {loadGearCatalog,canEquip,canEnchant,sanitizeEquipment,effectiveEquipment,equipItem,createGearHistory,gearStatText} from './equipment.mjs';
+import {loadGearCatalog,canEquip,sanitizeEquipment,effectiveEquipment,equipItem,createGearHistory,gearStatText} from './equipment.mjs';
 export function mountGearEditor({container,slots,className,loadouts,select,onchange,isActive}) {
   function setsSafe(value){return value && typeof value==='object' && !Array.isArray(value)}
   const key='wow-forever-sims.gear.'+className+'.v1';
@@ -57,8 +58,8 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
     search.hidden=realm.hidden=mode==='enchants';
     if(mode==='enchants'){
       results.append(button('Remove enchant',()=>{const next=structuredClone(kit);if(next[slot])delete next[slot].enchantId;commit(next);draw()}));
-      for(const e of catalog.enchants.filter(e=>canEnchant(e,current,className)))results.append(row(e,()=>{commit({...kit,[slot]:{...current,enchantId:e.id}});draw()},e.id===current?.enchantId));
-      if(results.children.length===1)results.append(document.createTextNode('No supported stat enchants for this item.'));
+      for(const e of healerEnchantChoices(catalog.enchants,current,className))results.append(row(e,()=>{commit({...kit,[slot]:{...current,enchantId:e.id}});draw()},e.id===current?.enchantId));
+      if(results.children.length===1)results.append(document.createTextNode('No high-level healer enchants available for this item.'));
       return;
     }
     const query=search.value.trim().toLowerCase();const matches=catalog.items.filter(i=>i.source===realm.value&&canEquip(i,slot,className)&&(!query||i.name.toLowerCase().includes(query)||String(i.id)===query)).sort((a,b)=>(b.stats.power??0)-(a.stats.power??0)||(b.ilvl??0)-(a.ilvl??0)||a.name.localeCompare(b.name));
@@ -66,7 +67,7 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
     for(const i of matches.slice(0,limit))results.append(row(i,()=>{commit(equipItem(kit,slot,i));draw()},i.key===current?.key));
     if(matches.length>limit)results.append(button('Show more',()=>{limit+=50;draw()}));
   }
-  function row(item,click,selected){const b=button('',click);b.className='gear-choice';b.setAttribute('aria-pressed',String(selected));const img=document.createElement('img');setEquipmentImage(img,item);img.alt='';img.loading='lazy';const text=document.createElement('span');const title=document.createElement('strong');title.textContent=item.name;title.dataset.quality=item.quality??'';const stats=document.createElement('small');stats.textContent=gearStatText(item.stats);text.append(title,stats);if(item.ilvl){const details=document.createElement('small');details.textContent='Item level '+item.ilvl+' · '+item.source;text.append(details);const current=(custom??loadouts[select.value])[slot];const delta=document.createElement('small');delta.textContent=['power','intellect','spirit','mp5','crit'].filter(key=>item.stats[key]||current?.stats[key]).map(key=>{const value=item.stats[key]??0;return [key,value]}).map(([key,value])=>{const d=value-(current?.stats[key]??0);return (d>=0?'+':'')+Number(d.toFixed(2))+' '+({power:'+healing'}[key]??key)}).join(' · ');if(delta.textContent)text.append(delta);}if(item.effects){const note=document.createElement('small');note.textContent='May have effects not simulated';text.append(note)}b.append(img,text);return b}
+  function row(item,click,selected){const b=button('',click);b.className='gear-choice';b.setAttribute('aria-pressed',String(selected));const img=document.createElement('img');setEquipmentImage(img,item);img.alt='';img.loading='lazy';const text=document.createElement('span');const title=document.createElement('strong');title.textContent=item.name;title.dataset.quality=item.quality??'';const stats=document.createElement('small');stats.textContent=gearStatText(item.stats);text.append(title,stats);if(item.ilvl){const details=document.createElement('small');details.textContent='Item level '+item.ilvl+' · '+item.source;text.append(details);const current=(custom??loadouts[select.value])[slot];const delta=document.createElement('small');delta.textContent=['power','intellect','spirit','mp5','crit'].filter(key=>item.stats[key]||current?.stats[key]).map(key=>{const value=item.stats[key]??0;return [key,value]}).map(([key,value])=>{const d=value-(current?.stats[key]??0);return (d>=0?'+':'')+Number(d.toFixed(2))+' '+({power:'+healing'}[key]??key)}).join(' · ');if(delta.textContent)text.append(delta);}if(item.description){const note=document.createElement('small');note.textContent=item.description;text.append(note)}if(item.effects){const note=document.createElement('small');note.textContent='May have effects not simulated';text.append(note)}b.append(img,text);return b}
   search.oninput=()=>{limit=50;draw()};realm.onchange=()=>{limit=50;draw()};
   const touchCleanups=[];
   async function openSlot(s,touch=false){
@@ -98,5 +99,5 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
   select.addEventListener('change',()=>{if(select.value==='Custom'&&!custom){select.value=history.value.name}else{custom=select.value==='Custom'?custom:undefined;history.set({kit:custom??loadouts[select.value],name:select.value,sets});revision++;changed()}});
   renderSets();undo.disabled=true;
   if(stored.kit){status.textContent='Restoring saved equipment…';ready().then(()=>{if(isActive()||destroyed||revision)return;custom=sanitizeEquipment(stored.kit,className,catalog);select.value='Custom';history=createGearHistory({kit:custom,name:'Custom',sets});status.textContent='Saved equipment restored.';}).catch(e=>{status.textContent=e.message}).finally(()=>{restoring=false;if(!destroyed)onchange()})}
-  return {get loading(){return restoring||enchantPending||enchantError},destroy(){destroyed=true;for(const cancel of touchCleanups)cancel();dialog.close();dialog.remove()},get kit(){const kit=custom??loadouts[select.value]??{};ensureEnchantCatalog(kit);return effectiveEquipment(kit,catalog)},lock(active){for(const element of toolbar.querySelectorAll('input,select,button'))element.disabled=active;undo.disabled=active||!history.canUndo;for(const {slotButton}of Object.values(slots))slotButton.disabled=active;if(active)dialog.close()}};
+  return {get loading(){return restoring||enchantPending||enchantError},destroy(){destroyed=true;for(const cancel of touchCleanups)cancel();dialog.close();dialog.remove()},get baseKit(){return custom??loadouts[select.value]??{}},enchantFor(item){return catalog?.enchants.find(e=>e.id===item?.enchantId)},get kit(){const kit=custom??loadouts[select.value]??{};ensureEnchantCatalog(kit);return effectiveEquipment(kit,catalog)},lock(active){for(const element of toolbar.querySelectorAll('input,select,button'))element.disabled=active;undo.disabled=active||!history.canUndo;for(const {slotButton}of Object.values(slots))slotButton.disabled=active;if(active)dialog.close()}};
 }

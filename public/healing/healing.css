@@ -709,3 +709,14 @@ body:has(#healing) { font-family:var(--ui); }
   scrollbar-gutter:stable;
   overscroll-behavior-y:contain;
 }
+
+.game-tooltip-title[data-quality="0"] { color:#9d9d9d; }
+.game-tooltip-title[data-quality="1"] { color:#fff; }
+.game-tooltip-title[data-quality="2"] { color:#1eff00; }
+.game-tooltip-title[data-quality="3"] { color:#0070dd; }
+.game-tooltip-title[data-quality="4"] { color:#a335ee; }
+.game-tooltip-title[data-quality="5"] { color:#ff8000; }
+.game-tooltip-title[data-quality="6"] { color:#e6cc80; }
+
+.combat-buffs .enchant-buff { position:relative; display:grid; border:1px solid #68b6d1; border-radius:4px; box-shadow:0 0 5px #4caaff66; }
+.combat-buffs .enchant-buff[hidden] { display:none; }

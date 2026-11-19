@@ -46,8 +46,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
   configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison'}) {
   slots = [...slots, ['darkRune', 'Dark Rune', 'Activate']];
+  extraMeters = [...extraMeters, ['enchantAbsorb','Enchant: Absorption']];
   utility = {...utility, ...manaConsumables};
   catalog = {...catalog, ...Object.fromEntries(Object.values(manaConsumables).map(item => [item.name, {icon:item.icon, ranks:[{rank:'',level:1,details:'Instant · 2 min cooldown',description:item.healthCost ? 'Restores 900–1,500 mana at the cost of 600–1,000 life. Separate cooldown from mana potions.' : 'Restores 1,350–2,250 mana.'}]}]))};
+  catalog['Enchant: Absorption'] = {icon:'inv_misc_note_01.jpg',ranks:[]};
   const params = new URLSearchParams(location.search);
   const priestSpec = params.get('spec') === 'holy' ? 'holy' : 'discipline';
   const settingsKey = 'wow-forever-sims.' + className + '.v1' +
@@ -420,6 +422,21 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function render() {
     const s = pull.state;
     const charges = s.waterShield?.expires > s.time ? s.waterShield.charges : 0;
+    for (const row of enchantBuffRows.values()) row.label.hidden = true;
+    for (const effect of profile.enchantEffects ?? []) {
+      const aura = s.enchantAuras[effect.id];
+      const shield = effect.kind==='absorb' ? s.party.at(-1).enchantAbsorb : null;
+      if (!(aura?.expires>s.time || shield?.amount>0)) continue;
+      if (!enchantBuffRows.has(effect.id)) {
+        const label=document.createElement('span');label.className='enchant-buff';label.tabIndex=0;
+        const image=document.createElement('img');image.src=new URL('./icons/'+effect.icon+'.jpg',import.meta.url);image.alt='';
+        const count=document.createElement('small');label.append(image,count);find('[data-buffs]').append(label);
+        enchantBuffRows.set(effect.id,{label,count});
+      }
+      const row=enchantBuffRows.get(effect.id);row.label.hidden=false;
+      row.count.textContent=shield?whole(shield.amount):countdown(aura.expires-s.time);
+      setGameTooltip(row.label,effect.name,[effect.description]);
+    }
     if (omenBuff) {
       const remaining = Math.max(0, s.clearcastingUntil - s.time);
       omenBuff.label.classList.toggle('buff-live', remaining > 0);
@@ -655,6 +672,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     ['omen','Omen of Clarity','Estimated from pooled Forever logs: 5% per cast, 8% Regrowth; 10 sec internal cooldown. Clearcasting makes your next spell free for up to 15 sec.','inv_misc_orb_01']] : buffs;
   let waterBuff;
   let omenBuff;
+  const enchantBuffRows = new Map();
   for (const [key, name, description, iconFile] of buffList) {
     const label = document.createElement('label');
     const input = document.createElement('input');
@@ -783,7 +801,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   function updateSheet() {
     find('[data-loadout-label]').textContent = gear.value;
-    const kit = gearEditor.kit;
+    const kit = gearEditor.baseKit;
     const labels = {strength:'Strength', agility:'Agility', stamina:'Stamina', intellect:'Intellect',
       spirit:'Spirit', power:'Healing power', spellDamage:'Spell damage', mp5:'Mana / 5 sec', crit:'Crit', haste:'Haste', armor:'Armor', health:'Health', mana:'Mana'};
     for (const [name, {image, slotButton, tip, file}] of Object.entries(gearSlots)) {
@@ -810,9 +828,18 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         tip.append(line);
       }
       const linkText = document.createElement('span');
-      linkText.textContent = 'Item ID ' + item.id + (item.enchantId ? ' · Enchanted (stats included above)' : '');
+      linkText.textContent = 'Item ID ' + item.id;
+      const enchant = gearEditor.enchantFor(item);
+      if (enchant) {
+        const line = document.createElement('span');
+        line.textContent = 'Enchantment: ' + enchant.name;tip.append(line);
+        for (const [key,value] of Object.entries(enchant.stats)) {
+          const bonus = document.createElement('span');bonus.textContent = 'Enchant: +' + value + (['crit','haste'].includes(key) ? '% ' : ' ') + (labels[key] ?? key);tip.append(bonus);
+        }
+        if (enchant.description) {const effect=document.createElement('span');effect.textContent=enchant.description;tip.append(effect);}
+      } else if(item.enchantId) { const line=document.createElement('span');line.textContent='Enchantment: loading…';tip.append(line); }
       tip.append(linkText);
-      gearSlots[name].tooltip = setGameTooltip(slotButton, title.textContent, [...tip.children].slice(1).map(line => line.textContent));
+      gearSlots[name].tooltip = setGameTooltip(slotButton, title.textContent, [...tip.children].slice(1).map(line => line.textContent), {quality:item.quality});
     }
     for (const [key, field] of Object.entries(sheet)) {
       field.textContent = key === 'crit' ? (100 * profile.crit).toFixed(2) + '%' :
@@ -849,6 +876,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     });
   }
   function renderHealingBreakdown(tip, name, row) {
+    const previewProfile = {...profile,power:pull?.state.phase==='active' ? pull.healingPower() : profile.power};
     const key = healingByName.get(name);
     if (!key || !row) return;
     const baseSpell = spellFor(key, name, row);
@@ -864,8 +892,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       return true;
     }
     if (spell.shield) {
-      tooltipValue(tip, 'Absorb', whole(Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier)), 'game-tooltip-good');
-      tooltipValue(tip, 'Avg absorb per mana', spell.cost > 0 ? (Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier) / spell.cost).toFixed(2) : '—', 'game-tooltip-mana');
+      tooltipValue(tip, 'Absorb', whole(Math.round((spell.shield + spell.coefficient * previewProfile.power) * spell.multiplier)), 'game-tooltip-good');
+      tooltipValue(tip, 'Avg absorb per mana', spell.cost > 0 ? (Math.round((spell.shield + spell.coefficient * previewProfile.power) * spell.multiplier) / spell.cost).toFixed(2) : '—', 'game-tooltip-mana');
       tooltipLine(tip, spell.duration + ' sec duration · prevents another shield for 15 sec');
       tooltipValue(tip, 'Base absorb', whole(spell.shield), 'game-tooltip-reference');
       return true;
@@ -877,13 +905,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     }
     if (!healingKeys.includes(key)) return;
     const range = (power, multiplier = 1) => formatHealingRange(healingRange({...spell, multiplier}, power));
-    if (!spell.period) tooltipValue(tip, spell.chain > 1 ? 'Healing (primary)' : 'Healing', formatHealingRange(healingRange(spell, profile.power)), 'game-tooltip-good');
+    if (!spell.period) tooltipValue(tip, spell.chain > 1 ? 'Healing (primary)' : 'Healing', formatHealingRange(healingRange(spell, previewProfile.power)), 'game-tooltip-good');
     if (key === 'chain') {
-      tooltipValue(tip, 'Healing (1st bounce)', formatHealingRange(healingRange(spell, profile.power, spell.falloff)), 'game-tooltip-good');
-      tooltipValue(tip, 'Healing (2nd bounce)', formatHealingRange(healingRange(spell, profile.power, spell.falloff ** 2)), 'game-tooltip-good');
+      tooltipValue(tip, 'Healing (1st bounce)', formatHealingRange(healingRange(spell, previewProfile.power, spell.falloff)), 'game-tooltip-good');
+      tooltipValue(tip, 'Healing (2nd bounce)', formatHealingRange(healingRange(spell, previewProfile.power, spell.falloff ** 2)), 'game-tooltip-good');
     }
     if (spell.period || spell.hot) {
-      const periodic = periodicHealingPreview(spell, profile.power);
+      const periodic = periodicHealingPreview(spell, previewProfile.power);
       const ticks = spell.decay ? formatHealingRange(periodic.first) + ' → ' + formatHealingRange(periodic.last) : formatHealingRange(periodic.first);
       if (key !== 'stream') tooltipValue(tip, 'Heal over time (' + periodic.duration + 'sec)', formatHealingRange(periodic.total), 'game-tooltip-good');
       tooltipValue(tip, key === 'stream' ? 'Healing per tick' : 'Healing per tick (' + periodic.ticks + ' ticks)', ticks, 'game-tooltip-good');
@@ -895,7 +923,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (spell.selfCopy) tooltipLine(tip, 'Also heals you for ' + Math.round(100 * spell.selfCopy) + '% when used on another ally.');
     const crit = spell.period && !spell.periodicCrit ? 0 : Math.min(1, profile.crit + (spell.bonusCrit ?? 0) + (spell.boundless ?? 0));
     tooltipValue(tip, key === 'regrowth' ? 'Direct and periodic crit' : 'Crit chance', (100 * crit).toFixed(1) + '%');
-    const efficiency = expectedHealingPerMana(spell, profile);
+    const efficiency = expectedHealingPerMana(spell, previewProfile);
     tooltipValue(tip, 'Avg healing per mana', efficiency.perMana === null ? '—' : efficiency.perMana.toFixed(2), 'game-tooltip-mana');
     tooltipLine(tip, 'Full duration and all targets, before overhealing' + (spell.illumination ? '; includes average Illumination refund.' : '.'), 'game-tooltip-muted');
     if (!spell.period) tooltipValue(tip, 'Base healing', range(0), 'game-tooltip-reference');
@@ -905,7 +933,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       tooltipValue(tip, key === 'stream' ? 'Base heal per tick' : 'Base heal over time (' + basePeriodic.duration + 'sec)', formatHealingRange(key === 'stream' ? basePeriodic.first : basePeriodic.total),
         spell.period ? 'game-tooltip-reference' : 'game-tooltip-muted');
     }
-    tooltipValue(tip, 'Bonus healing', '+' + whole(profile.power), 'game-tooltip-muted');
+    tooltipValue(tip, 'Bonus healing', '+' + whole(previewProfile.power), 'game-tooltip-muted');
     if (key === 'regrowth') {
       tooltipValue(tip, 'Scaling (direct)', (spell.coefficient * 100).toFixed(1) + '%', 'game-tooltip-muted');
       tooltipValue(tip, 'Scaling (HoT)', (periodicHealingScaling(spell) * 100).toFixed(2) + '%', 'game-tooltip-muted');
@@ -920,7 +948,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (key === 'chain') {
       for (const [index, label] of ['primary', '1st bounce', '2nd bounce'].entries()) {
         tooltipValue(tip, 'With Riptide (' + label + ')',
-          formatHealingRange(healingRange(spell, profile.power, 1.25 * spell.falloff ** index)), 'game-tooltip-good');
+          formatHealingRange(healingRange(spell, previewProfile.power, 1.25 * spell.falloff ** index)), 'game-tooltip-good');
       }
     }
     return true;

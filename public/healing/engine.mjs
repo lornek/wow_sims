@@ -1,3 +1,4 @@
+import {revelationSpells} from './enchant-effects.mjs';
 import {omenModel, omenChance} from './omen-of-clarity.mjs';
 import {recordHealingEvent} from './healing-events.mjs';
 import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-combat.mjs';
@@ -6,6 +7,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   const party = encounter.party.map(unit => ({...unit, hp: unit.max, poison: 0}));
   if (encounter.id) setupPartyCombat(party);
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
+    enchantAuras:{}, enchantNext:{}, enchantProcs:{},
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
     manaPerSpirit: 0, manaPerMp5: 0, manaGained: 0, manaSources: {}, waterShieldUptime: 0, survivalSeconds: 0, focusSpend: -Infinity, clearcastingSpend: -Infinity, clearcastingUntil: 0, omenNext: 0, omenProcs: 0, clearcastingUses: 0,
@@ -38,6 +40,27 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     shield.charges--;
     state.waterShieldNext = state.time + 3.5;
     restoreMana(profile.mana * .02, 'Water Shield');
+  }
+
+  const enchants = [...new Map((profile.enchantEffects ?? []).map(effect=>[effect.id,effect])).values()];
+  function extraSpirit(time = state.time) {
+    return Object.values(state.enchantAuras).some(aura=>aura.kind==='spirit' && aura.expires>time) ? (profile.spirit ?? 0) : 0;
+  }
+  function healingPower() {
+    return profile.power + Object.values(state.enchantAuras).reduce((sum,aura)=>sum+(aura.expires>state.time?(aura.power??0):0),0) + extraSpirit()*(profile.spiritHealingRatio??0);
+  }
+  function triggerEnchants(spell, crit) {
+    for (const effect of enchants) {
+      if (!['power','spirit','revelation'].includes(effect.kind) || state.time < (state.enchantNext[effect.id] ?? 0)) continue;
+      if (effect.kind === 'revelation' && crit) continue;
+      const levelShare = effect.kind==='revelation' ? Math.max(0,Math.min(1,((spell.level??60)+32-(profile.level??60))/20)) : 1;
+      if (random() >= effect.chance * levelShare) continue;
+      state.enchantNext[effect.id] = state.time + effect.icd;
+      state.enchantAuras[effect.id] = {...effect,expires:state.time+effect.duration};
+      state.enchantProcs[effect.id] = (state.enchantProcs[effect.id]??0)+1;
+      if (effect.mana) restoreMana(Math.round(effect.mana[0]+random()*(effect.mana[1]-effect.mana[0])),effect.name);
+      state.message = effect.name + ' activated';
+    }
   }
 
   function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key], componentKey = null) {
@@ -78,6 +101,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (crit && !periodic && profile.inspiration) unit.inspiration = {expires:state.time + 15};
     onHeal({key, target: party.indexOf(unit), from: from ? party.indexOf(from) : null, bounce, amount, effective, crit});
     if (!periodic && key !== 'mending') triggerMending(unit);
+    if (!periodic && spell && componentKey !== 'binding' && !['mending','vigil','bloom'].includes(key)) triggerEnchants(spell,crit);
   }
 
   function triggerMending(unit) {
@@ -92,7 +116,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
 
   function healingAmount(spell, roll) {
     return ((spell.low ?? 0) + roll * ((spell.high ?? spell.low ?? 0) - (spell.low ?? 0)) +
-      (spell.coefficient ?? 0) * profile.power) * (spell.multiplier ?? 1);
+      (spell.coefficient ?? 0) * healingPower()) * (spell.multiplier ?? 1);
   }
 
   function directTargets(spell, unit, time) {
@@ -138,7 +162,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (spell.waterShield) {
       applyWaterShield();
     } else if (spell.shield) {
-      unit.shield = {amount: Math.round((spell.shield + spell.coefficient * profile.power) * spell.multiplier), expires: state.time + spell.duration};
+      unit.shield = {amount: Math.round((spell.shield + spell.coefficient * healingPower()) * spell.multiplier), expires: state.time + spell.duration};
       unit.weakened = state.time + 15;
     } else if (spell.mark) {
       state[spell.mark] = {target: unit, expires: state.time + spell.duration, spell};
@@ -159,7 +183,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.innervateUntil = state.time + spell.duration;
     } else if (spell.swiftmend) {
       const effect = swiftmendEffect(unit);
-      if (effect) heal(spell.key, unit, effect.amount * effect.ticks, true);
+      if (effect) heal(spell.key, unit, effect.amount * effect.ticks, true, null, 0, spell.revelationCrit?1:0);
     } else if (spell.manaRange) {
       restoreMana(spell.manaRange[0] + random() * (spell.manaRange[1] - spell.manaRange[0]), spell.name);
       if (spell.healthCost) {
@@ -177,7 +201,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
           next: state.time + period, expires: state.time + spell.duration, left: Math.floor(spell.duration / period)});
       }
     } else if (spell.period || spell.hot) {
-      if (spell.hot) heal(spell.key, unit, healingAmount(spell, random()), true, null, 0, spell.bonusCrit);
+      if (spell.hot) heal(spell.key, unit, healingAmount(spell, random()), true, null, 0, (spell.bonusCrit??0)+(spell.revelationCrit?1:0));
       const periodic = spell.hot ?? spell;
       const target = spell.party ? null : unit;
       state.effects = state.effects.filter(e => (e.key !== spell.key || e.target !== target) &&
@@ -185,19 +209,19 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       const ticks = Math.floor(spell.duration / periodic.period);
       const effect = {key: spell.key, target, next: state.time + periodic.period, period: periodic.period,
         expires: state.time + spell.duration, left: ticks, ticks, decay: spell.decay,
-        periodicCrit: spell.periodicCrit, bonusCrit: spell.bonusCrit, swiftmendable: spell.swiftmendable,
+        periodicCrit: spell.periodicCrit, bonusCrit: (spell.bonusCrit??0)+(spell.channel&&spell.revelationCrit?1:0), swiftmendable: spell.swiftmendable,
         amount: healingAmount(periodic, random()), manaTick: spell.manaTick, waterTotem: spell.waterTotem,
         directChainBonus: spell.directChainBonus ?? 0};
       state.effects.push(effect);
       if (spell.immediateTick) {
-        heal(spell.key, unit, effect.amount, true, null, 0, spell.bonusCrit, false, spell);
+        heal(spell.key, unit, effect.amount, true, null, 0, effect.bonusCrit, false, spell);
         if (spell.renewedHope && unit.weakened > state.time) unit.weakened = Math.max(state.time, unit.weakened - spell.renewedHope);
       }
     } else {
       const oath = state.oath?.target === unit && state.oath.expires > state.time;
       const favor = spell.favor && state.divineFavor > state.time;
       if (favor) state.divineFavor = 0;
-      const bonusCrit = (spell.bonusCrit ?? 0) + (favor ? 1 : 0) + (oath ? 0 : spell.boundless ?? 0);
+      const bonusCrit = (spell.bonusCrit ?? 0) + (spell.revelationCrit ? 1 : 0) + (favor ? 1 : 0) + (oath ? 0 : spell.boundless ?? 0);
       const vigil = spell.key === 'shock' && state.vigil?.target === unit && state.vigil.expires > state.time ? state.vigil.spell : null;
       if (vigil) {
         state.vigil = null;
@@ -210,7 +234,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       }
       const targets = directTargets(spell, unit, state.time);
       targets.forEach((target, i) => heal(spell.key, target.unit, raw * target.factor, true, targets[i - 1]?.unit, i, bonusCrit));
-      if (spell.selfCopy && unit !== party.at(-1)) heal(spell.key, party.at(-1), raw * spell.selfCopy, true, null, 0, bonusCrit, false, spell, 'binding');
+      if (spell.selfCopy && unit !== party.at(-1)) heal(spell.key, party.at(-1), raw * spell.selfCopy, true, null, 0, spell.bonusCrit ?? 0, false, spell, 'binding');
     }
   }
 
@@ -261,7 +285,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function finishCast() {
-    const {spell, unit, usesVigil} = state.cast;
+    let {spell, unit, usesVigil} = state.cast;
     state.cast = null;
     if (!unit.hp) return;
     if (spell.focusCost > 0) {
@@ -283,6 +307,10 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       if (state.lastHeal && state.lastHeal !== spell.key && spell.cost) restoreMana(spell.baseCost * spell.litany, 'Litany');
       state.lastHeal = spell.key;
     }
+    const revelation = enchants.find(effect=>effect.kind==='revelation' && state.enchantAuras[effect.id]?.expires>state.time);
+    if (revelation && (revelationSpells[profile.className]??[]).includes(spell.name)) {
+      spell = {...spell,revelationCrit:true};state.enchantAuras[revelation.id].expires=0;
+    }
     resolve(spell, unit);
     if (profile.omen && spell.omenEligible && state.time >= state.omenNext && random() < omenChance(spell, profile.level ?? 60)) {
       state.clearcastingUntil = state.time + omenModel.duration;
@@ -295,6 +323,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function damage(unit, amount, physical = true, procMending = true) {
+    const incomingAmount = amount;
     if (physical && unit.inspiration?.expires > state.time) {
       const armor = unit.role === 'Tank' ? 4500 : 1500;
       amount *= (5500 + armor) / (5500 + armor * (1 + profile.inspiration));
@@ -304,7 +333,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       unit.rotation.revengeUntil = state.time + 5;
     }
     if (amount > 0 && unit === party.at(-1)) triggerWaterShield();
-    for (const key of ['shield', 'aegis']) {
+    for (const key of ['shield', 'aegis', ...(physical ? ['enchantAbsorb'] : [])]) {
       const absorb = unit[key];
       if (!(absorb?.amount > 0 && absorb.expires > state.time)) continue;
       const consumed = Math.min(amount, absorb.amount);
@@ -328,6 +357,14 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       cast.end += .5;
       cast.duration += .5;
     }
+    if (physical && incomingAmount > 0 && unit === party.at(-1) && unit.hp) {
+      for (const effect of enchants.filter(effect=>effect.kind==='absorb')) {
+        if (state.time < (state.enchantNext[effect.id]??0) || random()>=effect.chance) continue;
+        state.enchantNext[effect.id]=state.time+effect.icd;
+        unit.enchantAbsorb={amount:effect.absorb,expires:Infinity};
+        state.enchantProcs[effect.id]=(state.enchantProcs[effect.id]??0)+1;
+      }
+    }
     return amount;
   }
 
@@ -349,14 +386,14 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   }
 
   function manaRegenRate(time = state.time) {
-    return (profile.mp5 ?? 0) / 5 + profile.regen * spiritRegenFraction(time);
+    return (profile.mp5 ?? 0) / 5 + (profile.regen + extraSpirit(time)*(profile.spiritRegenCoefficient??.125)) * spiritRegenFraction(time);
   }
 
   function regenerate(from, to) {
     while (from < to) {
       const innervated = from < state.innervateUntil;
       const restricted = from < state.lastSpend + 5;
-      const boundaries = [to, state.innervateUntil, state.lastSpend + 5, state.focusSpend + 5, state.clearcastingSpend + 5];
+      const boundaries = [to, state.innervateUntil, state.lastSpend + 5, state.focusSpend + 5, state.clearcastingSpend + 5, ...Object.values(state.enchantAuras).map(aura=>aura.expires)];
       const end = Math.min(...boundaries.filter(time => time > from));
       const seconds = end - from;
       if (state.phase === 'active' && state.waterShield?.charges > 0) {
@@ -377,6 +414,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       const focusBonus = Math.max(0, normalFraction - withoutFocus);
       const components = {
         'Spirit regeneration': profile.regen * (normalFraction - focusBonus) * seconds,
+        'Enchant Weapon - Insight': extraSpirit(from)*(profile.spiritRegenCoefficient??.125)*spiritFraction*seconds,
         'Mana / 5': (profile.mp5 ?? 0) / 5 * seconds,
         'Innervate': innervated ? profile.regen * (5 - normalFraction) * seconds : 0,
         [freeCastSource]: innervated ? 0 : profile.regen * focusBonus * seconds
@@ -414,7 +452,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
         effect.periodicCrit, null, 0, effect.bonusCrit, !spells[effect.key]?.immediateTick);
       effect.next += effect.period;
       effect.left--;
-      if (!effect.left && effect.swiftmendable && profile.bloom) heal('bloom', effect.target, profile.bloom);
+      if (!effect.left && effect.swiftmendable && profile.bloom) heal('bloom', effect.target, profile.bloom + extraSpirit()*(profile.bloomPerSpirit??0));
     }
     state.effects = state.effects.filter(effect => effect.left > 0);
     const bossSpeed = state.enraged ? 1.2 : 1;
@@ -469,5 +507,5 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.manaAtEnd = state.mana;
     }
   }
-  return {state, cast, step, incomingHealing, manaRegenRate, start() { if (state.phase === 'ready') state.phase = 'active'; }};
+  return {state, cast, step, incomingHealing, manaRegenRate, healingPower, start() { if (state.phase === 'ready') state.phase = 'active'; }};
 }

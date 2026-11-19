@@ -1,3 +1,4 @@
+import {equippedEnchantEffects,enchantPassiveModifiers} from './enchant-effects.mjs';
 import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {buffs} from './profile.mjs';
@@ -25,11 +26,12 @@ export function humanProfile(className, loadouts) {
     const gearPower = gear.power ?? 0;
     const talentPower = spirit * .05 * rank('Spiritual Guidance');
     const spiritRegenCoefficient = .125;
-    return {...manaSourceProfile(naked.spirit, gear, buffs, spirit, {human: 1.1}), strength: stat('strength', 0, 1 + .02 * rank('Divine Strength')), agility: stat('agility'), intellect, spirit, stamina,
+    return {className, enchantEffects:equippedEnchantEffects(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...enchantPassiveModifiers(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...manaSourceProfile(naked.spirit, gear, buffs, spirit, {human: 1.1}), strength: stat('strength', 0, 1 + .02 * rank('Divine Strength')), agility: stat('agility'), intellect, spirit, stamina,
       health: (gear.health ?? 0) + naked.health + 10 * (stamina - 20), baseMana: naked.mana,
       mana: (gear.mana ?? 0) + naked.mana + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
       haste: (gear.haste ?? 0) / 100,
     crit: (naked.crit + 1 + intellect * spellCritPercentPerIntellect[className] + (gear.crit ?? 0) + rank('Holy Specialization') + 2 * rank('Conviction') + (buffs.has('moonkin') ? 3 : 0)) / 100,
+      spiritHealingRatio:.05 * rank('Spiritual Guidance'),
       critHealingBonus: .05 * rank('Holy Power'),
       spiritPerRawPoint: 1.1 * kings, spiritRegenCoefficient,
       regen: 6.25 + spirit * spiritRegenCoefficient,

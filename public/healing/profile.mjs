@@ -1,3 +1,4 @@
+import {equippedEnchantEffects,enchantPassiveModifiers} from './enchant-effects.mjs';
 import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {equipmentSets} from './gear.mjs';
@@ -51,7 +52,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0, 1 + .02 * (points.ancestral ?? 0));
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
   const stamina = stat('stamina');
-  return {...manaSourceProfile(naked.spirit, gear, enabled, spirit), strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
+  return {className:'shaman', enchantEffects:equippedEnchantEffects(typeof loadout === 'object' ? loadout : equipmentSets[loadout]), ...enchantPassiveModifiers(typeof loadout === 'object' ? loadout : equipmentSets[loadout]), ...manaSourceProfile(naked.spirit, gear, enabled, spirit), strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
     spiritPerRawPoint: enabled.has('kings') ? 1.1 : 1,
     baseMana: naked.baseMana, health: (gear.health ?? 0) + 1280 + 10 * stamina,
     mana: (gear.mana ?? 0) + naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
