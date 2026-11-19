@@ -1460,6 +1460,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   hotkeys = mountHotkeys({root, storageKey:settingsKey, spells:spellButtons,
     isAvailable:key => !!currentSpells?.[key],
+    targetFor:(key,index) => utility[key] ? encounter.party.length - 1 : index,
     cast:(key,index) => { pendingTargetSpell = null; pull.cast(key,index); render(); }});
   damageText = mountDamageText(find('.boss-crest'), damageIcons);
   reset(false, false);

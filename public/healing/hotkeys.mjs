@@ -18,7 +18,7 @@ export function assignHotkey(bindings, key, binding) {
   return {...Object.fromEntries(Object.entries(bindings).filter(([other,value]) => other !== key && value !== binding)),[key]:binding};
 }
 
-export function mountHotkeys({root, storageKey, spells, isAvailable, cast}) {
+export function mountHotkeys({root, storageKey, spells, isAvailable, cast, targetFor = (_key,index)=>index}) {
   const toggle = root.querySelector('[data-hotkey-settings]');
   const panel = root.querySelector('[data-hotkey-panel]');
   let bindings = {};
@@ -78,21 +78,23 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast}) {
     if (!desktop() || event.repeat || event.isComposing) return;
     if (event.code === 'Escape' && !panel.hidden) { event.preventDefault();close();return; }
     if (event.target.closest('input,select,textarea,[contenteditable="true"]')) return;
-    if (event.target.closest('[data-close],[data-defaults],[data-configure],[data-hotkey-settings]')) return;
+    if (!panel.hidden && event.target.closest('[data-close],[data-defaults],[data-configure],[data-hotkey-settings]')) return;
     if (editing) {
       const binding = hotkey(event);
       if (selected && binding) { event.preventDefault();event.stopPropagation();capture(binding); }
       return;
     }
     if (!panel.hidden) return;
-    const key = boundKey(hotkey(event)), target = hoveredTarget();
+    const key = boundKey(hotkey(event));
+    const target = key ? targetFor(key,hoveredTarget()) : -1;
     if (key && target >= 0) { event.preventDefault();cast(key,target); }
   }
   // Cancel side-button navigation at pointerdown, before the browser's auxclick.
   // Some mouse drivers intercept these buttons before a page receives them.
   function sideButton(event) {
     if (!desktop() || event.button < 3 || event.button > 4) return;
-    const key = boundKey(hotkey(event,true)), target = hoveredTarget();
+    const key = boundKey(hotkey(event,true));
+    const target = key ? targetFor(key,hoveredTarget()) : -1;
     const buttonCode = hotkey({button:event.button},true);
     const reserved = Object.values(bindings).some(binding => binding.split('+').at(-1) === buttonCode);
     if (!editing && !reserved) return;
@@ -101,6 +103,18 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast}) {
     if (editing) capture(hotkey(event,true));
     else if (key && target >= 0) cast(key,target);
   }
+  function untargetedMouse(event) {
+    if (!desktop() || event.pointerType==='touch' || editing || !panel.hidden || event.button>=3 || hoveredTarget()>=0) return;
+    // Keep normal interactions with controls, text fields and links intact.
+    if (event.target.closest('button,input,select,textarea,label,a,summary,dialog,[contenteditable="true"]')) return;
+    const key=boundKey(hotkey(event,true));
+    const target=key ? targetFor(key,-1) : -1;
+    if (!key || target<0) return;
+    event.preventDefault();event.stopImmediatePropagation();
+    if (event.type==='pointerdown') cast(key,target);
+  }
+  const mouseEvents=['pointerdown','pointerup','mousedown','mouseup','click','auxclick','contextmenu'];
+  for (const type of mouseEvents) document.addEventListener(type,untargetedMouse,true);
   document.addEventListener('keydown',onKey,true);
   for (const type of ['pointerdown','pointerup','mousedown','mouseup','auxclick']) document.addEventListener(type,sideButton,true);
   update();
@@ -115,11 +129,14 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast}) {
       if (event.button >= 3) return true;
       const key = boundKey(hotkey(event,true));
       if (!key) return false;
-      event.preventDefault();cast(key,index);return true;
+      const target = targetFor(key,index);
+      if (target < 0) return false;
+      event.preventDefault();cast(key,target);return true;
     },
     has: key => !!bindings[key],
     destroy() {
       document.removeEventListener('keydown',onKey,true);
+      for (const type of mouseEvents) document.removeEventListener(type,untargetedMouse,true);
       for (const type of ['pointerdown','pointerup','mousedown','mouseup','auxclick']) document.removeEventListener(type,sideButton,true);
       close();toggle.onclick = null;panel.replaceChildren();
     }
