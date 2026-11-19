@@ -1,3 +1,4 @@
+import {mountDamageText} from './damage-text.mjs';
 import {mountCustomStatsLayout} from './custom-stats-layout.mjs';
 import {enchantIconPath} from './enchant-icons.mjs';
 import {manaConsumables} from './consumables.mjs';
@@ -41,7 +42,9 @@ const damageIcons = {
   'Ice Lance': 'spell_frost_frostblast',
   'Arcane Shot': 'ability_impalingbolt',
   'Serpent Sting': 'ability_hunter_quickshot',
-  'Pet': 'ability_druid_rake'
+  'Pet': 'ability_druid_rake',
+  'Pet: Claw': 'ability_druid_rake',
+  'Pet: Melee': 'ability_hunter_pet_cat'
 };
 
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
@@ -130,6 +133,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     (!event.pointerType && matchMedia('(pointer: coarse)').matches);
   let pendingTargetSpell = null;
   let pull;
+  let damageText;
   let visualPull = 0;
   let currentSpells;
   let enabled = new Set();
@@ -264,7 +268,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   damageMeter.replaceChildren();
   const damageRows = [];
   for (const [index, unit] of encounter.party.entries()) {
-    const frame = find('.heal-party').children[index] ?? document.createElement('button');
+    const frame = find('.heal-party').querySelector('[data-party-index="'+index+'"]') ?? document.createElement('button');
+    frame.dataset.partyIndex = String(index);
     frame.type = 'button';
     frame.className = 'heal-frame';
     frame.style.setProperty('--unit', unit.color);
@@ -327,6 +332,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       health: frame.querySelector(':scope > small'), resource, status, nextAuraOrder: () => ++auraOrder, auras: badges});
   }
 
+  find('.heal-party').replaceChildren(...[0,1,4,2,3].map(index=>frames[index].frame));
+
   function attempt(event, index, right) {
     if (hotkeys?.mouse(event, index)) return;
     if (!right && pendingTargetSpell && currentSpells[pendingTargetSpell]) {
@@ -363,6 +370,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function reset(start = false, persist = true) {
     visualPull++;
+    damageText?.clear();
     hideGameTooltip();
     touchTarget = null;
     root.querySelectorAll('.heal-float, .heal-bounce').forEach(effect => effect.remove());
@@ -400,7 +408,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const portrait = find('[data-boss-portrait]');
     const portraitUrl = new URL('./portraits/' + id + '.jpg', import.meta.url).href;
     if (portrait.src !== portraitUrl) portrait.src = portraitUrl;
-    pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal);
+    pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal, event=>damageText?.show(event));
     updateSheet();
     if (start) pull.start();
     render();
@@ -1453,6 +1461,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   hotkeys = mountHotkeys({root, storageKey:settingsKey, spells:spellButtons,
     isAvailable:key => !!currentSpells?.[key],
     cast:(key,index) => { pendingTargetSpell = null; pull.cast(key,index); render(); }});
+  damageText = mountDamageText(find('.boss-crest'), damageIcons);
   reset(false, false);
   function frame(now) {
     const delta = Math.min(.1, (now - last) / 1000);
@@ -1468,6 +1477,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   return () => {
     cancelAnimationFrame(animation);
     stopScoreLayout();
+    damageText.destroy();
     stopCustomStatsLayout();
     gearEditor.destroy();
     hotkeys.destroy();

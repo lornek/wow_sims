@@ -731,3 +731,20 @@ body:has(#healing) { font-family:var(--ui); }
 .custom-stats-body .additional-stats { width:100%; }
 .custom-stats-body .additional-stats label { margin:6px 0; grid-template-columns:28px minmax(0,1fr) 76px; gap:8px; }
 .custom-stats-body > p { margin:12px 0 0; color:var(--muted); font-size:.9rem; }
+.party-damage-text { position:absolute; inset:0; z-index:4; pointer-events:none; overflow:visible; }
+.damage-text-lane { position:absolute; width:50%; height:50%; }
+.damage-text-lane.top-left { left:0; top:0; }
+.damage-text-lane.bottom-left { left:0; bottom:0; }
+.damage-text-lane.top-right { right:0; top:0; }
+.damage-text-lane.bottom-right { right:0; bottom:0; }
+.party-damage-float { position:absolute; left:50%; top:15%; margin-top:var(--hit-y); white-space:nowrap; animation:party-damage-rise 1.45s ease-out both; font:800 1.1rem/1 var(--ui); text-shadow:-1px -1px 1px #000,1px -1px 1px #000,-1px 1px 1px #000,1px 1px 1px #000,0 2px 4px #000; }
+.damage-hit { display:flex; align-items:center; gap:4px; }
+.damage-hit img { width:19px; height:19px; border:1px solid #b49a57; border-radius:3px; box-shadow:0 1px 3px #000; }
+.party-damage-float.is-crit { font-size:1.45rem; }
+.party-damage-float.is-crit .damage-hit { animation:party-damage-crit .6s ease-out both; }
+@keyframes party-damage-rise { 0% { opacity:0; transform:translate(-50%,8px); } 10% { opacity:1; } 70% { opacity:1; } 100% { opacity:0; transform:translate(-50%,-16px); } }
+@keyframes party-damage-crit { 0% { transform:scale(.6); } 15% { transform:scale(1.4); } 28% { transform:translate(-3px,1px) scale(1.12); } 40% { transform:translate(3px,-1px) scale(1.12); } 52% { transform:translate(-2px,1px) scale(1.08); } 64% { transform:translate(2px,-1px) scale(1.04); } 80%,100% { transform:translate(0) scale(1); } }
+@media(max-width:650px) { .party-damage-float { font-size:.95rem; } .party-damage-float.is-crit { font-size:1.2rem; } .damage-hit img { width:16px; height:16px; } }
+@media(prefers-reduced-motion:reduce) { .party-damage-float, .party-damage-float.is-crit .damage-hit { animation:none; } .party-damage-float { transform:translate(-50%,0); } }
+
+.damage-text-lane.top-left .party-damage-float, .damage-text-lane.top-right .party-damage-float { top:45%; }

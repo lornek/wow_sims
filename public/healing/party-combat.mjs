@@ -56,7 +56,7 @@ export function setupPartyCombat(party) {
   }
 }
 
-export function advancePartyCombat(state, dt, random) {
+export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
   const now = state.time;
   if (!(state.sunderUntil > now)) state.sunderStacks = 0;
   for (const unit of state.party) {
@@ -74,6 +74,7 @@ export function advancePartyCombat(state, dt, random) {
       meter.crits += Number(crit);
       meter.total += damage;
       state.boss -= damage;
+      if (damage > 0) onDamage({source:unit.name,sourceIndex:state.party.indexOf(unit),color:unit.color,spell,amount:damage,crit,time:state.time});
     }
     function hit(spell, base, {ignite = false, bonusCrit = 0, magic = false, auto = false, critMultiplier = 2, spread = .05, grantsRage = false} = {}) {
       const meter = unit.damage[spell] ??= {attempts:0, hits:0, crits:0, total:0};

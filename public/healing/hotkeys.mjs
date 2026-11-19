@@ -68,7 +68,11 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast}) {
   find('[data-configure]').onclick = () => { editing = true;update(); };
   find('[data-close]').onclick = close;
   find('[data-defaults]').onclick = () => { bindings = {};save();selected = null;status.textContent = 'Defaults restored.';update(); };
-  function hoveredTarget() { return [...root.querySelectorAll('.heal-party > button')].findIndex(frame => frame.matches(':hover')); }
+  function hoveredTarget() {
+    const frames = [...root.querySelectorAll('.heal-party > button')];
+    const frame = frames.find(frame=>frame.matches(':hover'));
+    return frame ? Number(frame.dataset.partyIndex ?? frames.indexOf(frame)) : -1;
+  }
   function boundKey(binding) { return Object.keys(bindings).find(key => bindings[key] === binding && isAvailable(key)); }
   function onKey(event) {
     if (!desktop() || event.repeat || event.isComposing) return;

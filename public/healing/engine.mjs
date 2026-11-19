@@ -3,7 +3,7 @@ import {omenModel, omenChance} from './omen-of-clarity.mjs';
 import {recordHealingEvent} from './healing-events.mjs';
 import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-combat.mjs';
 
-export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}) {
+export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}, onDamage = () => {}) {
   const party = encounter.party.map(unit => ({...unit, hp: unit.max, poison: 0}));
   if (encounter.id) setupPartyCombat(party);
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
@@ -483,7 +483,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.nextSpecial += 2;
       damageParty(encounter.frost, false);
     }
-    if (encounter.id) advancePartyCombat(state, dt, random);
+    if (encounter.id) advancePartyCombat(state, dt, random, onDamage);
     else state.boss = Math.max(0, state.boss - party.reduce((sum, unit) => sum + (unit.hp ? unit.dps : 0), 0) * dt);
     if ((!encounter.id || encounter.id === 'rend') && !state.enraged && state.boss > 0 && state.boss <= encounter.health * .35) {
       state.enraged = true;
