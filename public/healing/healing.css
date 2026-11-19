@@ -683,3 +683,17 @@ body:has(#healing) { font-family:var(--ui); }
 .heal-spells button.water-shield-empty { border-color:#67c9ff; animation:water-shield-warning 1s ease-in-out infinite; }
 @keyframes water-shield-warning { 0%,100% { box-shadow:0 0 0 1px #67c9ff,0 0 2px #259dff55; } 50% { box-shadow:0 0 0 2px #9ddeff,0 0 13px #259dff; } }
 @media(prefers-reduced-motion:reduce) { .heal-spells button.water-shield-empty { animation:none; box-shadow:0 0 0 2px #67c9ff,0 0 7px #259dff; } }
+
+/* Compact, locally bundled spellbook heading and UI typography. */
+@font-face { font-family:'Healbot Cinzel'; src:url('./fonts/cinzel-latin-600-normal.woff2') format('woff2'); font-style:normal; font-weight:600; font-display:swap; }
+@font-face { font-family:'Healbot Cinzel'; src:url('./fonts/cinzel-latin-700-normal.woff2') format('woff2'); font-style:normal; font-weight:700; font-display:swap; }
+@font-face { font-family:'Healbot Open Sans'; src:url('./fonts/open-sans-latin-400-normal.woff2') format('woff2'); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:'Healbot Open Sans'; src:url('./fonts/open-sans-latin-600-normal.woff2') format('woff2'); font-style:normal; font-weight:600; font-display:swap; }
+.heal-menu { width:100%; min-width:0; }
+.heal-menu > .heal-tabs { width:100%; box-sizing:border-box; }
+#panel-spellbook { width:100%; max-width:none; min-width:0; margin:0; font-family:'Healbot Open Sans','Segoe UI',sans-serif; }
+#panel-spellbook .book-title, #panel-spellbook .book-heading h2 { font-family:'Healbot Cinzel',Georgia,serif; font-weight:600; letter-spacing:normal; }
+#panel-spellbook .book-title { font-size:clamp(1.4rem,2.6vw,1.85rem); }
+#panel-spellbook .book-spell-label strong { font-family:'Healbot Open Sans','Segoe UI',sans-serif; font-weight:600; letter-spacing:normal; }
+#panel-spellbook .book-spell-label small, #panel-spellbook button, #panel-spellbook input, #panel-spellbook select { font-family:'Healbot Open Sans','Segoe UI',sans-serif; }
+#panel-spellbook .book-heading > span, #panel-spellbook .book-pagination span { letter-spacing:normal; }
