@@ -32,6 +32,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   return {...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
     spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),
     health: (gear.health ?? 0) + 1483 + 10 * stamina, baseMana: 1244, mana: (gear.mana ?? 0) + 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
+    omen: buffs.has('omen'),
     haste: (gear.haste ?? 0) / 100,
     crit: (1.8 + intellect * spellCritPercentPerIntellect.druid + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,
     castingRegen: [0, .17, .33, .50][talents.Reflection ?? 0],
@@ -49,6 +50,7 @@ export function applyTalents(spell, talents) {
   const periodicMultiplier = (1 + .02 * rank('Genesis')) *
     (spell.key === 'rejuvenation' ? 1 + .05 * rank('Improved Rejuvenation') : 1);
   return {...spell,
+    omenEligible: ['touch','regrowth','rejuvenation','poison','swiftmend','growth','tranquility'].includes(spell.key),
     cast: touchOrWild ? spell.cast - .1 * rank('Naturalist') : spell.cast,
     cost: touchOrTranquility ? Math.round(spell.cost * (1 - .02 * rank('Tranquil Spirit'))) : spell.cost,
     cooldown: spell.key === 'tranquility' ? spell.cooldown * (1 - .3 * rank('Improved Tranquility')) : spell.cooldown,

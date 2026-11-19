@@ -1,3 +1,4 @@
+import {omenModel, omenChance} from './omen-of-clarity.mjs';
 import {recordHealingEvent} from './healing-events.mjs';
 import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-combat.mjs';
 
@@ -7,7 +8,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
     cast: null, gcd: 0, lastSpend: -Infinity, cooldowns: {}, effects: [],
     healing: 0, overheal: 0, manaSpent: 0, message: '', nextSwing: 2, innervateUntil: 0, graceUntil: 0,
-    manaPerSpirit: 0, manaPerMp5: 0, manaGained: 0, manaSources: {}, waterShieldUptime: 0, survivalSeconds: 0, focusSpend: -Infinity,
+    manaPerSpirit: 0, manaPerMp5: 0, manaGained: 0, manaSources: {}, waterShieldUptime: 0, survivalSeconds: 0, focusSpend: -Infinity, clearcastingSpend: -Infinity, clearcastingUntil: 0, omenNext: 0, omenProcs: 0, clearcastingUses: 0,
     encounterId: encounter.id, nextPoison: encounter.id && encounter.id !== 'rend' ? Infinity : 7,
     nextFlurry: encounter.firstFlurry ?? Infinity, nextSpecial: encounter.id === 'patchwerk' ? 3 : 2, swiftness: 0, meters: {}};
 
@@ -230,7 +231,8 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       return;
     }
     const focus = key !== 'focus' && state.innerFocus > state.time;
-    if (!focus && state.mana < spell.cost) {
+    const clearcasting = profile.omen && spell.omenEligible && spell.cost > 0 && state.clearcastingUntil > state.time;
+    if (!focus && !clearcasting && state.mana < spell.cost) {
       state.message = 'Not enough mana.';
       return;
     }
@@ -244,8 +246,9 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     const infused = key === 'holyLight' && state.infusion > state.time;
     if (infused) state.infusion = 0;
     if (focus) state.innerFocus = 0;
+    else if (clearcasting) state.clearcastingUntil = 0;
     const castTime = instant ? 0 : (spell.cast - (infused ? spell.infusionReduction : 0)) / speed;
-    const prepared = focus ? {...spell, focusCost: spell.cost, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
+    const prepared = clearcasting && !focus ? {...spell, clearcastingCost:spell.cost, cost:0} : focus ? {...spell, focusCost: spell.cost, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
     state.cast = {spell: prepared, unit, end: state.time + castTime, duration: castTime, pushbacks: 0, usesVigil};
     state.message = spell.name + ' → ' + unit.name;
     if (!castTime) finishCast();
@@ -259,6 +262,11 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       creditMana('Inner Focus · spell cost', spell.focusCost);
       state.focusSpend = state.time;
     }
+    if (spell.clearcastingCost > 0) {
+      creditMana('Omen of Clarity · spell cost', spell.clearcastingCost);
+      state.clearcastingSpend = state.time;
+      state.clearcastingUses++;
+    }
     state.mana -= spell.cost;
     if (spell.cost) state.lastSpend = state.time;
     state.manaSpent += spell.cost;
@@ -270,6 +278,12 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.lastHeal = spell.key;
     }
     resolve(spell, unit);
+    if (profile.omen && spell.omenEligible && state.time >= state.omenNext && random() < omenChance(spell, profile.level ?? 60)) {
+      state.clearcastingUntil = state.time + omenModel.duration;
+      state.omenNext = state.time + omenModel.internalCooldown;
+      state.omenProcs++;
+      state.message = 'Clearcasting! Your next spell costs no mana.';
+    }
     if (spell.channel) state.cast = {spell, unit, end: state.time + spell.duration, duration: spell.duration, channel: true};
   }
 
@@ -335,7 +349,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     while (from < to) {
       const innervated = from < state.innervateUntil;
       const restricted = from < state.lastSpend + 5;
-      const boundaries = [to, state.innervateUntil, state.lastSpend + 5, state.focusSpend + 5];
+      const boundaries = [to, state.innervateUntil, state.lastSpend + 5, state.focusSpend + 5, state.clearcastingSpend + 5];
       const end = Math.min(...boundaries.filter(time => time > from));
       const seconds = end - from;
       if (state.phase === 'active' && state.waterShield?.charges > 0) {
@@ -350,13 +364,15 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       }
       const normalFraction = restricted ? (profile.castingRegen ?? 0) : 1;
       // Credit the free-cast window until the next paid spell lands.
-      const withoutFocus = state.focusSpend > state.lastSpend ? (profile.castingRegen ?? 0) : normalFraction;
+      const freeCastSpend = Math.max(state.focusSpend, state.clearcastingSpend);
+      const freeCastSource = state.clearcastingSpend > state.focusSpend ? 'Omen of Clarity · Spirit regeneration' : 'Inner Focus · Spirit regeneration';
+      const withoutFocus = freeCastSpend > state.lastSpend && (state.focusSpend >= state.clearcastingSpend || from < freeCastSpend + 5) ? (profile.castingRegen ?? 0) : normalFraction;
       const focusBonus = Math.max(0, normalFraction - withoutFocus);
       const components = {
         'Spirit regeneration': profile.regen * (normalFraction - focusBonus) * seconds,
         'Mana / 5': (profile.mp5 ?? 0) / 5 * seconds,
         'Innervate': innervated ? profile.regen * (5 - normalFraction) * seconds : 0,
-        'Inner Focus · Spirit regeneration': innervated ? 0 : profile.regen * focusBonus * seconds
+        [freeCastSource]: innervated ? 0 : profile.regen * focusBonus * seconds
       };
       // Innervate supersedes the free-cast benefit; retain the baseline Spirit rate.
       if (innervated) components['Spirit regeneration'] += profile.regen * focusBonus * seconds;

@@ -160,6 +160,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const spell = currentSpells[key];
       tooltipLine(tip, name + (row.rank ? ' · ' + row.rank : ''), 'game-tooltip-title');
       tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.channel ? spell.duration + ' sec channel' : spell.cast ? Number((spell.cast / (1 + (profile.haste ?? 0))).toFixed(2)) + ' sec cast' : 'Instant'));
+      if (profile.omen && spell.omenEligible && pull?.state.clearcastingUntil > pull?.state.time) tooltipLine(tip, 'Clearcasting · this cast costs no mana.', 'game-tooltip-mana');
       if (spell.cooldown) tooltipLine(tip, spell.cooldown + ' sec cooldown');
       const description = catalog[name]?.ranks?.find(entry => entry.rank === row.rank)?.description;
       const healing = renderHealingBreakdown(tip, name, row);
@@ -413,6 +414,15 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function render() {
     const s = pull.state;
     const charges = s.waterShield?.expires > s.time ? s.waterShield.charges : 0;
+    if (omenBuff) {
+      const remaining = Math.max(0, s.clearcastingUntil - s.time);
+      omenBuff.label.classList.toggle('buff-live', remaining > 0);
+      omenBuff.count.textContent = remaining ? countdown(remaining) : '';
+      setGameTooltip(omenBuff.label, remaining ? 'Clearcasting · next spell is free' : 'Omen of Clarity',
+        ['Log-based estimate: 5% per completed cast; Regrowth 8%. 10 sec internal cooldown.',
+         remaining ? countdown(remaining) + ' remaining. Next eligible spell costs no mana.' : '15 sec Clearcasting duration. HoT ticks do not proc it.',
+         s.omenProcs + ' procs · ' + s.clearcastingUses + ' free casts this fight.']);
+    }
     if (waterBuff) {
       waterBuff.label.classList.toggle('buff-live', !!charges);
       waterBuff.count.textContent = currentSpells.waterShield ? charges : '';
@@ -539,7 +549,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       button.hidden = !spell;
       if (!spell) tooltip.hide();
       sweep(art, remaining && base ? 1 - remaining / base : gcd ? 1 - gcd / s.gcdDuration : 0);
-      const needsMana = !!spell && s.mana < spell.cost && !(key !== 'focus' && s.innerFocus > s.time);
+      const needsMana = !!spell && s.mana < spell.cost && !(key !== 'focus' && s.innerFocus > s.time) && !(profile.omen && spell.omenEligible && s.clearcastingUntil > s.time);
       art.classList.toggle('low-mana', needsMana);
       timer.textContent = needsMana ? whole(Math.ceil(spell.cost - s.mana)) : remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
       cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
@@ -629,15 +639,17 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   gear.value = Object.hasOwn(loadouts, saved.loadout) ? saved.loadout : 'Level 60 dungeon';
   const defaultBuff = {priest:'spirit', paladin:'wisdom', druid:'mark', shaman:'waterShield'}[className];
   const buffList = className === 'shaman' ? [...buffs,
-    ['waterShield','Water Shield','Start with three charges. Recast from the action bar.','ability_shaman_watershield']] : buffs;
+    ['waterShield','Water Shield','Start with three charges. Recast from the action bar.','ability_shaman_watershield']] : className === 'druid' ? [...buffs,
+    ['omen','Omen of Clarity','Estimated from pooled Forever logs: 5% per cast, 8% Regrowth; 10 sec internal cooldown. Clearcasting makes your next spell free for up to 15 sec.','spell_shadow_manaburn']] : buffs;
   let waterBuff;
+  let omenBuff;
   for (const [key, name, description, iconFile] of buffList) {
     const label = document.createElement('label');
     const input = document.createElement('input');
     input.type = 'checkbox';
     input.value = key;
     input.dataset.buff = '';
-    input.checked = Array.isArray(saved.buffs) && (key !== defaultBuff || saved.buffDefaults) ? saved.buffs.includes(key) : key === defaultBuff;
+    input.checked = key === 'omen' && !saved.omenConfigured ? true : Array.isArray(saved.buffs) && (key !== defaultBuff || saved.buffDefaults) ? saved.buffs.includes(key) : key === defaultBuff;
     const image = document.createElement('img');
     image.src = new URL('./icons/' + iconFile + '.jpg', import.meta.url);
     image.alt = '';
@@ -645,6 +657,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     setGameTooltip(label, name, [description]);
     input.setAttribute('aria-label', name);
     label.append(input, image);
+    if (key === 'omen') {
+      const count = document.createElement('small');label.append(count);
+      omenBuff = {label,count};label.classList.add('omen-buff');
+    }
     if (key === 'waterShield') {
       const count = document.createElement('small');
       label.append(count);
@@ -700,6 +716,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         difficulty: Number(difficulty.value),
         buffs: [...enabled],
         buffDefaults: true,
+        ...(className === 'druid' ? {omenConfigured:true} : {}),
         additionalStats: readAdditionalStats(),
         sound: soundEnabled,
         selected: slots[selected][0],
@@ -1298,7 +1315,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           }
         } else {
           const note = document.createElement('p');
-          note.textContent = source === 'Inner Focus · spell cost' ? 'Mana saved by free casts; included in total mana gained.' : source === 'Inner Focus · Spirit regeneration' ? 'Extra Spirit regeneration until the next paid spell lands, relative to five-second-rule regeneration; excludes overlap with Innervate and mana lost to the cap.' : 'Mana restored after the mana cap; excess regeneration is excluded.';
+          note.textContent = source.endsWith(' · spell cost') ? 'Mana saved by free casts; included in total mana gained.' : source.endsWith(' · Spirit regeneration') ? (source.startsWith('Omen') ? 'Extra usable Spirit regeneration during the five seconds after a free spell lands, relative to that spell costing mana; excludes overlap with Innervate and mana lost to the cap.' : 'Extra Spirit regeneration until the next paid spell lands, relative to five-second-rule regeneration; excludes overlap with Innervate and mana lost to the cap.') : 'Mana restored after the mana cap; excess regeneration is excluded.';
           children.append(note);
         }
       }

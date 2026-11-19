@@ -6,6 +6,8 @@ export const manaVisuals = {
   'Innervate': ['icons/spell_nature_lightning.jpg', '#193b86'],
   'Inner Focus · spell cost': ['icons/spell_frost_windwalkon.jpg', '#51458f'],
   'Inner Focus · Spirit regeneration': ['icons/spell_frost_windwalkon.jpg', '#4265a4'],
+  'Omen of Clarity · spell cost': ['icons/spell_shadow_manaburn.jpg', '#347a73'],
+  'Omen of Clarity · Spirit regeneration': ['icons/spell_shadow_manaburn.jpg', '#398f80'],
   'Water Shield': ['icons/ability_shaman_watershield.jpg', '#258dba'],
   'Illumination': ['icons/spell_holy_greaterheal.jpg', '#4b58a3'],
   'Litany': ['icons/inv_scroll_07.jpg', '#397caf'],

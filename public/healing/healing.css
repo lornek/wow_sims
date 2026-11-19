@@ -634,3 +634,6 @@ body:has(#healing) { font-family:var(--ui); }
 @media (hover:none), (pointer:coarse) {
   .hotkey-settings, .hotkey-panel { display:none; }
 }
+
+.combat-buffs .omen-buff:not(.buff-live) img { filter:grayscale(1) brightness(.55); }
+.combat-buffs .omen-buff.buff-live { border-color:#8dddbe; box-shadow:0 0 7px #6fdbad88; }
