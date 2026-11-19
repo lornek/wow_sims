@@ -620,3 +620,17 @@ body:has(#healing) { font-family:var(--ui); }
 
 .healing-meter-heading { display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; }
 .healing-meter-heading label { font-size:.9rem; cursor:pointer; }
+
+.battlefield-controls { grid-template-columns:auto auto; justify-items:start; align-items:center; }
+.battlefield-controls .sound-toggle { grid-column:1; grid-row:1; }
+.battlefield-controls [data-start] { grid-column:2; grid-row:1; }
+.battlefield-controls .hotkey-settings { grid-column:2; grid-row:2; justify-self:start; font-size:1.25rem; line-height:1; padding:6px 9px; }
+.hotkey-panel { padding:12px; border:1px solid var(--border); background:#17110bee; border-radius:4px; }
+.hotkey-panel h3 { margin:0 0 8px; }
+.hotkey-panel p { margin:8px 0; }
+.hotkey-panel button { margin:4px 6px 4px 0; }
+.hotkey-configuring .heal-spells button { outline:1px dashed #dbb55e; }
+.hotkey-configuring .heal-spells .hotkey-selected { outline:3px solid #84cfff; outline-offset:2px; }
+@media (hover:none), (pointer:coarse) {
+  .hotkey-settings, .hotkey-panel { display:none; }
+}

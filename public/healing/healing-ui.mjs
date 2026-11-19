@@ -1,3 +1,4 @@
+import {mountHotkeys} from './hotkeys.mjs';
 import {setEquipmentImage} from './gear-images.mjs';
 import {purposeIconPath} from './purpose-icons.mjs';
 import {foreverSpellbook} from './forever-spellbook.mjs';
@@ -114,6 +115,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const spellButtons = [];
   const spellEntries = [];
   const frames = [];
+  let hotkeys;
   let selected = 0;
   let touchTarget = null;
   const touchInput = event => event.pointerType === 'touch' ||
@@ -164,6 +166,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (description && !healing) tooltipLine(tip, description, 'game-tooltip-description');
     });
     button.onclick = event => {
+      if (hotkeys?.choose(key)) { tooltip.hide(); pendingTargetSpell = null; return; }
       if (pull.state.phase === 'ready' && touchInput(event)) {
         tooltip.show();
         return;
@@ -188,7 +191,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     };
     button.oncontextmenu = event => event.preventDefault();
     find('.heal-spells').append(button);
-    spellButtons.push({button, art, timer, cooldown, key, tooltip});
+    spellButtons.push({button, art, timer, cooldown, key, name, binding, tooltip});
 
     const rows = key === 'potion' ? [{rank: '', cast: 0, gcd: 0, cooldown: 60, cost: 0, effects: []}] :
       byName(name).sort((a, b) => a.level - b.level || a.id - b.id).filter(row => key !== 'tide' || row.rank === 'Rank 4');
@@ -289,6 +292,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       touchTarget = index;
       render();
     };
+    frame.onauxclick = event => { if (event.button !== 2) hotkeys?.mouse(event, index); };
     frame.oncontextmenu = event => {
       event.preventDefault();
       attempt(event, index, true);
@@ -312,6 +316,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function attempt(event, index, right) {
+    if (hotkeys?.mouse(event, index)) return;
     if (!right && pendingTargetSpell && currentSpells[pendingTargetSpell]) {
       const key = pendingTargetSpell;
       pendingTargetSpell = null;
@@ -324,8 +329,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const binding = event.altKey && !right ? 'Alt + Left' : event.ctrlKey ? 'Ctrl + ' + button :
       event.shiftKey ? 'Shift + ' + button : right ? 'Right click' : '';
     const active = slots[selected];
-    const key = !binding || (active[2] === binding && currentSpells[active[0]]) ? active[0] :
-      slots.find(([key, , shortcut]) => shortcut === binding && currentSpells[key])?.[0];
+    const key = !binding || (active[2] === binding && currentSpells[active[0]]) ?
+      (hotkeys?.has(active[0]) ? null : active[0]) :
+      slots.find(([key, , shortcut]) => shortcut === binding && currentSpells[key] && !hotkeys?.has(key))?.[0];
     if (key) pull.cast(key, index);
     render();
   }
@@ -1384,6 +1390,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     else draw();
   }
 
+  hotkeys = mountHotkeys({root, storageKey:settingsKey, spells:spellButtons,
+    isAvailable:key => !!currentSpells?.[key],
+    cast:(key,index) => { pendingTargetSpell = null; pull.cast(key,index); render(); }});
   reset(false, false);
   function frame(now) {
     const delta = Math.min(.1, (now - last) / 1000);
@@ -1400,6 +1409,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     cancelAnimationFrame(animation);
     stopScoreLayout();
     gearEditor.destroy();
+    hotkeys.destroy();
     for (const tooltip of bookTooltips) tooltip.destroy();
     hideGameTooltip();
     visualPull++;
