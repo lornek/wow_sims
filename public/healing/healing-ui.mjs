@@ -1,3 +1,5 @@
+import {mountCustomStatsLayout} from './custom-stats-layout.mjs';
+import {enchantIconPath} from './enchant-icons.mjs';
 import {manaConsumables} from './consumables.mjs';
 import {mountHotkeys} from './hotkeys.mjs';
 import {setEquipmentImage} from './gear-images.mjs';
@@ -49,7 +51,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   extraMeters = [...extraMeters, ['enchantAbsorb','Enchant: Absorption']];
   utility = {...utility, ...manaConsumables};
   catalog = {...catalog, ...Object.fromEntries(Object.values(manaConsumables).map(item => [item.name, {icon:item.icon, ranks:[{rank:'',level:1,details:'Instant · 2 min cooldown',description:item.healthCost ? 'Restores 900–1,500 mana at the cost of 600–1,000 life. Separate cooldown from mana potions.' : 'Restores 1,350–2,250 mana.'}]}]))};
-  catalog['Enchant: Absorption'] = {icon:'inv_misc_note_01.jpg',ranks:[]};
+  catalog['Enchant: Absorption'] = {icon:'inv_misc_note_01.jpg',iconPath:purposeIconPath('enchant-absorption'),ranks:[]};
   const params = new URLSearchParams(location.search);
   const priestSpec = params.get('spec') === 'holy' ? 'holy' : 'discipline';
   const settingsKey = 'wow-forever-sims.' + className + '.v1' +
@@ -136,7 +138,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function icon(name, entry = catalog[name]) {
     const image = document.createElement('img');
     const fallback = {"Nature's Swiftness": 'spell_nature_ravenform.jpg', 'Major Mana Potion': 'inv_potion_76.jpg'};
-    image.src = new URL('./icons/' + (entry?.icon ?? fallback[name]), import.meta.url);
+    image.src = new URL('./' + (entry?.iconPath ?? ('icons/' + (entry?.icon ?? fallback[name]))), import.meta.url);
     image.alt = '';
     image.width = image.height = 34;
     return image;
@@ -429,7 +431,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (!(aura?.expires>s.time || shield?.amount>0)) continue;
       if (!enchantBuffRows.has(effect.id)) {
         const label=document.createElement('span');label.className='enchant-buff';label.tabIndex=0;
-        const image=document.createElement('img');image.src=new URL('./icons/'+effect.icon+'.jpg',import.meta.url);image.alt='';
+        const image=document.createElement('img');image.src=new URL('./'+(enchantIconPath(effect) ?? ('icons/'+effect.icon+'.jpg')),import.meta.url);image.alt='';
         const count=document.createElement('small');label.append(image,count);find('[data-buffs]').append(label);
         enchantBuffRows.set(effect.id,{label,count});
       }
@@ -1115,6 +1117,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   allRanks.onchange = bookLevel.oninput = bookSearch.oninput = () => {bookPage = 0; renderBook();};
   mountTabs(find('.heal-menu'));
+  const stopCustomStatsLayout = mountCustomStatsLayout(find('.heal-menu'));
   renderBook();
 
   const manaRows = new Map();
@@ -1465,6 +1468,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   return () => {
     cancelAnimationFrame(animation);
     stopScoreLayout();
+    stopCustomStatsLayout();
     gearEditor.destroy();
     hotkeys.destroy();
     for (const tooltip of bookTooltips) tooltip.destroy();

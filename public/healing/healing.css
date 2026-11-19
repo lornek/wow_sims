@@ -720,3 +720,14 @@ body:has(#healing) { font-family:var(--ui); }
 
 .combat-buffs .enchant-buff { position:relative; display:grid; border:1px solid #68b6d1; border-radius:4px; box-shadow:0 0 5px #4caaff66; }
 .combat-buffs .enchant-buff[hidden] { display:none; }
+
+.character-layout { min-width:0; }
+.character-layout.has-custom-stats { display:grid; grid-template-columns:minmax(0,780px) minmax(280px,340px); gap:18px; align-items:start; justify-content:center; max-width:1138px; margin:18px auto 0; }
+.character-layout.has-custom-stats > .character-sheet { width:100%; margin:0; }
+.custom-stats-card { width:100%; max-width:480px; min-width:0; margin:0 auto; border:1px solid var(--border); border-radius:4px; background:#160f0a; text-align:left; }
+.custom-stats-card > header { padding:12px; border-bottom:1px solid var(--border); background:linear-gradient(#312214,#1a130d); }
+.custom-stats-card h2 { margin:0; color:var(--gold); font:1.2rem var(--display); }
+.custom-stats-body { padding:12px; }
+.custom-stats-body .additional-stats { width:100%; }
+.custom-stats-body .additional-stats label { margin:6px 0; grid-template-columns:28px minmax(0,1fr) 76px; gap:8px; }
+.custom-stats-body > p { margin:12px 0 0; color:var(--muted); font-size:.9rem; }

@@ -33,3 +33,12 @@ Generated from `public/healing/custom-icons/icon-purposes.json` on every build. 
 | Agility | arcane-vitality-005 | custom-icons/arcane-vitality/005-wings-of-light.png |
 | Spell critical chance | arcane-vitality-047 | custom-icons/arcane-vitality/047-radiant-spirit-star.png |
 | Spell haste | ability:spell_nature_bloodlust | icons/spell_nature_bloodlust.jpg |
+| Enchant · Grand Arcanist | arcane-vitality-040 | custom-icons/arcane-vitality/040-arcane-lightning-sigil.png |
+| Enchant · Grand Sorcerer | arcane-vitality-060 | custom-icons/arcane-vitality/060-radiant-violet-rune.png |
+| Enchant · Insight | arcane-vitality-076 | custom-icons/arcane-vitality/076-spirit-halo-meditation.png |
+| Enchant · Revelation | arcane-vitality-063 | custom-icons/arcane-vitality/063-celestial-crystal-star.png |
+| Enchant · Absorption | arcane-vitality-064 | custom-icons/arcane-vitality/064-leaf-renewal-shield.png |
+| Enchant · Shield Critical Strike | arcane-vitality-071 | custom-icons/arcane-vitality/071-radiant-arcane-diamond.png |
+| Enchant · Gloves casting haste | arcane-vitality-055 | custom-icons/arcane-vitality/055-spiraling-arcane-leaf.png |
+| Enchant · Boots Speed | arcane-vitality-100 | custom-icons/arcane-vitality/100-winged-spirit-renewal.png |
+| Enchant · Cloak Subtlety | arcane-vitality-077 | custom-icons/arcane-vitality/077-crystalline-arcane-lock.png |

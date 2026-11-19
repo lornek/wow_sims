@@ -14,9 +14,9 @@ export const manaVisuals = {
   'Lay on Hands': ['icons/spell_holy_layonhands.jpg', '#3d4695'],
   'Mana Spring Totem': ['icons/spell_nature_manaregentotem.jpg', '#197c99'],
   'Mana Tide Totem': ['icons/spell_frost_summonwaterelemental.jpg', '#3155a0'],
-  'Enchant Weapon - Insight': ['icons/inv_misc_note_01.jpg','#4e83a2'],
-  'Enchant Weapon - Grand Sorcerer': ['icons/inv_misc_enchantedscroll.jpg','#6f63ad'],
-  'Enchant 2H Weapon - Grand Arcanist': ['icons/inv_misc_enchantedscroll.jpg','#8370b8'],
+  'Enchant Weapon - Insight': [purposeIconPath('enchant-insight'),'#4e83a2'],
+  'Enchant Weapon - Grand Sorcerer': [purposeIconPath('enchant-grand-sorcerer'),'#6f63ad'],
+  'Enchant 2H Weapon - Grand Arcanist': [purposeIconPath('enchant-grand-arcanist'),'#8370b8'],
   'Dark Rune': ['icons/spell_shadow_sealofkings.jpg', '#71529c'],
   'Major Mana Potion': ['icons/inv_potion_76.jpg', '#59479b']
 };
