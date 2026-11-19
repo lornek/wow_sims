@@ -1,3 +1,4 @@
+import {hideGameTooltip} from './game-ui.mjs';
 import {exportGearSet} from './gear-export.mjs';
 import {setEquipmentImage} from './gear-images.mjs';
 import {loadGearCatalog,canEquip,canEnchant,sanitizeEquipment,effectiveEquipment,equipItem,createGearHistory,gearStatText} from './equipment.mjs';
@@ -15,7 +16,7 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
   const name=document.createElement('input');name.placeholder='Gear set name';name.maxLength=60;name.setAttribute('aria-label','Gear set name');
   const saved=document.createElement('select');saved.setAttribute('aria-label','Saved gear sets');
   const status=document.createElement('p');status.className='gear-status';status.setAttribute('role','status');
-  const save=button('Save set',()=>{const label=name.value.trim();if(!label){status.textContent='Enter a name for this set.';name.focus();return}sets[label]=JSON.parse(JSON.stringify(custom??loadouts[select.value]));history.set({kit:custom??loadouts[select.value],name:select.value,sets});changed();renderSets();saved.value=label;if(storageOkay)status.textContent='Saved '+label+' in this browser.'});
+  const save=button('Save set',()=>{const label=name.value.trim();if(!label){status.textContent='Enter a name for this set.';if(!matchMedia('(pointer:coarse)').matches)name.focus();return}sets[label]=JSON.parse(JSON.stringify(custom??loadouts[select.value]));history.set({kit:custom??loadouts[select.value],name:select.value,sets});changed();renderSets();saved.value=label;if(storageOkay)status.textContent='Saved '+label+' in this browser.'});
   const load=button('Load set',async()=>{if(!saved.value)return;try{await ready();if(destroyed||isActive())return;commit(sanitizeEquipment(sets[saved.value],className,catalog));status.textContent='Loaded '+saved.value;}catch(e){status.textContent=e.message}});
   const remove=button('Delete set',()=>{if(!saved.value)return;const label=saved.value;delete sets[label];history.set({kit:custom??loadouts[select.value],name:select.value,sets});changed();renderSets();status.replaceChildren(document.createTextNode('Deleted '+label+'. '),button('Undo deletion',()=>{undo.onclick();status.textContent='Restored '+label;}))});
   const exportButton=button('',()=>{
@@ -67,10 +68,35 @@ export function mountGearEditor({container,slots,className,loadouts,select,oncha
   }
   function row(item,click,selected){const b=button('',click);b.className='gear-choice';b.setAttribute('aria-pressed',String(selected));const img=document.createElement('img');setEquipmentImage(img,item);img.alt='';img.loading='lazy';const text=document.createElement('span');const title=document.createElement('strong');title.textContent=item.name;title.dataset.quality=item.quality??'';const stats=document.createElement('small');stats.textContent=gearStatText(item.stats);text.append(title,stats);if(item.ilvl){const details=document.createElement('small');details.textContent='Item level '+item.ilvl+' · '+item.source;text.append(details);const current=(custom??loadouts[select.value])[slot];const delta=document.createElement('small');delta.textContent=['power','intellect','spirit','mp5','crit'].filter(key=>item.stats[key]||current?.stats[key]).map(key=>{const value=item.stats[key]??0;return [key,value]}).map(([key,value])=>{const d=value-(current?.stats[key]??0);return (d>=0?'+':'')+Number(d.toFixed(2))+' '+({power:'+healing'}[key]??key)}).join(' · ');if(delta.textContent)text.append(delta);}if(item.effects){const note=document.createElement('small');note.textContent='May have effects not simulated';text.append(note)}b.append(img,text);return b}
   search.oninput=()=>{limit=50;draw()};realm.onchange=()=>{limit=50;draw()};
-  for(const [s,{slotButton}]of Object.entries(slots))slotButton.onclick=async()=>{if(isActive()||destroyed)return;slot=s;mode='items';search.value='';limit=50;status.textContent='Loading item catalog…';try{await ready();if(destroyed||isActive())return;status.textContent='';realm.value=(custom??loadouts[select.value])[slot]?.source==='Season of Discovery'?'Season of Discovery':'Forever';draw();dialog.showModal();search.focus()}catch(e){status.textContent=e.message}};
-  select.add(new Option('Custom','Custom'));
+  const touchCleanups=[];
+  async function openSlot(s,touch=false){
+    if(isActive()||destroyed)return;
+    slot=s;mode='items';search.value='';limit=50;status.textContent='Loading item catalog…';
+    try{await ready();if(destroyed||isActive())return;status.textContent='';realm.value=(custom??loadouts[select.value])[slot]?.source==='Season of Discovery'?'Season of Discovery':'Forever';draw();hideGameTooltip();dialog.showModal();if(touch)close.focus({preventScroll:true});else search.focus()}
+    catch(e){status.textContent=e.message}
+  }
+  for(const [s,entry]of Object.entries(slots)){
+    const {slotButton}=entry;
+    let timer, touch=false, held=false, start;
+    const cancel=()=>{clearTimeout(timer);timer=null};
+    slotButton.onpointerdown=event=>{
+      touch=event.pointerType==='touch';held=false;cancel();
+      if(!touch)return;
+      start={x:event.clientX,y:event.clientY};
+      timer=setTimeout(()=>{held=true;openSlot(s,true)},550);
+    };
+    slotButton.onpointermove=event=>{if(start&&Math.hypot(event.clientX-start.x,event.clientY-start.y)>10)cancel()};
+    slotButton.onpointerup=cancel;slotButton.onpointercancel=cancel;
+    slotButton.oncontextmenu=event=>{if(touch)event.preventDefault()};
+    slotButton.onclick=event=>{
+      if(touch){event.preventDefault();cancel();if(!held)entry.tooltip?.show();return}
+      openSlot(s);
+    };
+    touchCleanups.push(cancel);
+  }
+
   select.addEventListener('change',()=>{if(select.value==='Custom'&&!custom){select.value=history.value.name}else{custom=select.value==='Custom'?custom:undefined;history.set({kit:custom??loadouts[select.value],name:select.value,sets});revision++;changed()}});
   renderSets();undo.disabled=true;
   if(stored.kit){status.textContent='Restoring saved equipment…';ready().then(()=>{if(isActive()||destroyed||revision)return;custom=sanitizeEquipment(stored.kit,className,catalog);select.value='Custom';history=createGearHistory({kit:custom,name:'Custom',sets});status.textContent='Saved equipment restored.';}).catch(e=>{status.textContent=e.message}).finally(()=>{restoring=false;if(!destroyed)onchange()})}
-  return {get loading(){return restoring||enchantPending||enchantError},destroy(){destroyed=true;dialog.close();dialog.remove()},get kit(){const kit=custom??loadouts[select.value]??{};ensureEnchantCatalog(kit);return effectiveEquipment(kit,catalog)},lock(active){for(const element of toolbar.querySelectorAll('input,select,button'))element.disabled=active;undo.disabled=active||!history.canUndo;for(const {slotButton}of Object.values(slots))slotButton.disabled=active;if(active)dialog.close()}};
+  return {get loading(){return restoring||enchantPending||enchantError},destroy(){destroyed=true;for(const cancel of touchCleanups)cancel();dialog.close();dialog.remove()},get kit(){const kit=custom??loadouts[select.value]??{};ensureEnchantCatalog(kit);return effectiveEquipment(kit,catalog)},lock(active){for(const element of toolbar.querySelectorAll('input,select,button'))element.disabled=active;undo.disabled=active||!history.canUndo;for(const {slotButton}of Object.values(slots))slotButton.disabled=active;if(active)dialog.close()}};
 }

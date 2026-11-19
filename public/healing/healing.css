@@ -637,3 +637,32 @@ body:has(#healing) { font-family:var(--ui); }
 
 .combat-buffs .omen-buff:not(.buff-live) img { filter:grayscale(1) brightness(.55); }
 .combat-buffs .omen-buff.buff-live { border-color:#8dddbe; box-shadow:0 0 7px #6fdbad88; }
+/* Battlefield controls and compact combat clock. */
+.heal-stage { position:relative; }
+.heal-top { align-items:flex-start; gap:10px; }
+.battlefield-controls { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.battlefield-controls [data-start] { order:0; }
+.battlefield-controls .sound-toggle { order:1; }
+.battlefield-controls .hotkey-settings { order:2; margin:0; }
+.heal-top [data-phase] { font:700 .9rem/1.5 var(--ui); font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:5px; }
+.combat-buffs { display:grid; grid-template-rows:repeat(2,auto); grid-auto-flow:column; grid-auto-columns:max-content; justify-content:end; gap:4px; }
+.combat-buffs img { width:28px; height:28px; }
+.heal-spells button.clearcasting-free { border-color:#6ccaff; box-shadow:0 0 0 1px #6ccaff,0 0 10px #259dffb3; }
+.heal-spells button.clearcasting-free .spell-art img { border-color:#6ccaff; }
+.healing .hotkey-panel { position:fixed; z-index:50; box-sizing:border-box; width:180px; height:62px; padding:8px; background:#17110bf7; box-shadow:0 8px 25px #000a; }
+.healing .hotkey-panel.keybindings-open { width:360px; height:190px; }
+.hotkey-panel [data-config] p { font-size:.85rem; line-height:1.5; margin:8px 0; }
+.keybinding-status { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.equipment-slot { touch-action:pan-y; -webkit-touch-callout:none; user-select:none; }
+@media(max-width:650px), (pointer:coarse) {
+  .combat-sidebar .combat-buffs { gap:3px; }
+  .combat-sidebar .combat-buffs img { width:clamp(20px,5.4vw,28px); height:auto; }
+  .combat-buffs label img { border:0; }
+  .heal-stage > .combat-damage { width:clamp(145px,39vw,190px); max-width:none; }
+  .combat-damage .meter-row summary { display:flex; flex-wrap:nowrap; gap:4px; white-space:nowrap; font-size:clamp(.6rem,1.8vw,.75rem); padding:3px 2px; }
+  .combat-damage summary > span:first-child { flex:1; min-width:0; white-space:nowrap; }
+  .combat-damage .meter-numbers { display:inline-flex; font-size:inherit; gap:2px; margin-left:auto; }
+  .healing .heal-spells button { padding:0; overflow:hidden; min-height:0; aspect-ratio:1; }
+  .heal-spells .spell-art { width:100%; max-width:none; }
+  .heal-spells .spell-art img { width:100%; height:auto; border:0; border-radius:0; display:block; }
+}

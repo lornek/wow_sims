@@ -430,8 +430,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const active = s.phase === 'active';
     const ended = ['won', 'lost'].includes(s.phase);
     find('[data-start]').textContent = s.phase === 'ready' ? '⚔ PULL! ⚔' : 'Reset';
-    find('[data-phase]').textContent = active ? whole(s.time) + ' sec · ' + (s.enraged ? 'Enraged' : 'In combat') :
-      s.phase === 'won' ? 'Boss defeated' : s.phase === 'lost' ? 'Wipe' : '';
+    find('[data-phase]').textContent = String(Math.floor(s.time / 60)).padStart(2,'0') + ':' + String(Math.floor(s.time % 60)).padStart(2,'0');
+    find('[data-phase]').setAttribute('aria-label', 'Fight time');
     fill(find('[data-boss-fill]'), s.boss / currentEncounter.health);
     find('[data-boss]').textContent = whole(s.boss) + ' / ' + whole(currentEncounter.health);
     for (const ability of bossAbilityRows) {
@@ -550,6 +550,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (!spell) tooltip.hide();
       sweep(art, remaining && base ? 1 - remaining / base : gcd ? 1 - gcd / s.gcdDuration : 0);
       const needsMana = !!spell && s.mana < spell.cost && !(key !== 'focus' && s.innerFocus > s.time) && !(profile.omen && spell.omenEligible && s.clearcastingUntil > s.time);
+      button.classList.toggle('clearcasting-free', !!(profile.omen && spell?.omenEligible && spell.cost > 0 && s.clearcastingUntil > s.time));
       art.classList.toggle('low-mana', needsMana);
       timer.textContent = needsMana ? whole(Math.ceil(spell.cost - s.mana)) : remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
       cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
@@ -783,7 +784,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const title = document.createElement('strong');
       title.textContent = item?.name ?? name + ' · Empty';
       tip.append(title);
-      if (!item) { setGameTooltip(slotButton, name, ['Empty equipment slot']); continue; }
+      if (!item) { gearSlots[name].tooltip = setGameTooltip(slotButton, name, ['Empty equipment slot']); continue; }
       const info = document.createElement('span');
       info.textContent = [name, item.ilvl ? 'Item level ' + item.ilvl : '', item.source].filter(Boolean).join(' · ');
       tip.append(info);
@@ -800,7 +801,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const linkText = document.createElement('span');
       linkText.textContent = 'Item ID ' + item.id + (item.enchantId ? ' · Enchanted (stats included above)' : '');
       tip.append(linkText);
-      setGameTooltip(slotButton, title.textContent, [...tip.children].slice(1).map(line => line.textContent));
+      gearSlots[name].tooltip = setGameTooltip(slotButton, title.textContent, [...tip.children].slice(1).map(line => line.textContent));
     }
     for (const [key, field] of Object.entries(sheet)) {
       field.textContent = key === 'crit' ? (100 * profile.crit).toFixed(2) + '%' :
