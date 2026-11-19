@@ -29,7 +29,7 @@ export function humanProfile(className, loadouts) {
       health: (gear.health ?? 0) + naked.health + 10 * (stamina - 20), baseMana: naked.mana,
       mana: (gear.mana ?? 0) + naked.mana + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
       haste: (gear.haste ?? 0) / 100,
-    crit: (naked.crit + 1 + intellect * spellCritPercentPerIntellect[className] + (gear.crit ?? 0) + rank('Holy Specialization') + 2 * rank('Conviction')) / 100,
+    crit: (naked.crit + 1 + intellect * spellCritPercentPerIntellect[className] + (gear.crit ?? 0) + rank('Holy Specialization') + 2 * rank('Conviction') + (buffs.has('moonkin') ? 3 : 0)) / 100,
       critHealingBonus: .05 * rank('Holy Power'),
       spiritPerRawPoint: 1.1 * kings, spiritRegenCoefficient,
       regen: 6.25 + spirit * spiritRegenCoefficient,

@@ -5,6 +5,7 @@ import {equipmentSets} from './gear.mjs';
 export const naked = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99, baseMana: 1520};
 export const loadouts = equipmentSets;
 export const buffs = [
+  ['moonkin', 'Moonkin Aura', '+3 percentage points of spell crit', 'spell_nature_moonglow'],
   ['mark', 'Mark of the Wild', '+16 to all attributes', 'spell_nature_regeneration'],
   ['wisdom', 'Blessing of Wisdom', '+40 mana / 5 sec', 'spell_holy_sealofwisdom'],
   ['spirit', 'Divine Spirit', '+40 Spirit', 'spell_holy_divinespirit'],
@@ -56,7 +57,7 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
     baseMana: naked.baseMana, health: (gear.health ?? 0) + 1280 + 10 * stamina,
     mana: (gear.mana ?? 0) + naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
     haste: (gear.haste ?? 0) / 100,
-    crit: (2.3 + intellect * spellCritPercentPerIntellect.shaman + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
+    crit: (2.3 + intellect * spellCritPercentPerIntellect.shaman + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0) + (enabled.has('moonkin') ? 3 : 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
     pushbackResist: [0, .23, .46, .70][points.pushback ?? 0],
     regen: 6.25 + spirit / 8, gearPower: gear.power ?? 0, power: gear.power ?? 0,

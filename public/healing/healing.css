@@ -677,3 +677,9 @@ body:has(#healing) { font-family:var(--ui); }
   .heal-stage > .combat-damage { width:clamp(138px,37vw,172px); }
   .combat-damage .meter-numbers { display:inline-grid; grid-template-columns:6ch .5ch 6.5ch; column-gap:1px; margin-left:4px; }
 }
+
+.heal-spells .spell-charges { position:absolute; right:2px; bottom:1px; z-index:2; padding:0 2px; margin:0; border-radius:2px; background:#07131dbb; color:#fff; font:800 .9rem/1.2 var(--ui); text-shadow:0 1px 2px #000; pointer-events:none; }
+.heal-spells .spell-charges[hidden] { display:none; }
+.heal-spells button.water-shield-empty { border-color:#67c9ff; animation:water-shield-warning 1s ease-in-out infinite; }
+@keyframes water-shield-warning { 0%,100% { box-shadow:0 0 0 1px #67c9ff,0 0 2px #259dff55; } 50% { box-shadow:0 0 0 2px #9ddeff,0 0 13px #259dff; } }
+@media(prefers-reduced-motion:reduce) { .heal-spells button.water-shield-empty { animation:none; box-shadow:0 0 0 2px #67c9ff,0 0 7px #259dff; } }

@@ -89,11 +89,13 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast}) {
   function sideButton(event) {
     if (!desktop() || event.button < 3 || event.button > 4) return;
     const key = boundKey(hotkey(event,true)), target = hoveredTarget();
-    if (!(editing || (key && target >= 0))) return;
+    const buttonCode = hotkey({button:event.button},true);
+    const reserved = Object.values(bindings).some(binding => binding.split('+').at(-1) === buttonCode);
+    if (!editing && !reserved) return;
     event.preventDefault();event.stopImmediatePropagation();
     if (event.type !== 'pointerdown') return;
     if (editing) capture(hotkey(event,true));
-    else cast(key,target);
+    else if (key && target >= 0) cast(key,target);
   }
   document.addEventListener('keydown',onKey,true);
   for (const type of ['pointerdown','pointerup','mousedown','mouseup','auxclick']) document.addEventListener(type,sideButton,true);

@@ -34,7 +34,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
     health: (gear.health ?? 0) + 1483 + 10 * stamina, baseMana: 1244, mana: (gear.mana ?? 0) + 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
     omen: buffs.has('omen'),
     haste: (gear.haste ?? 0) / 100,
-    crit: (1.8 + intellect * spellCritPercentPerIntellect.druid + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,
+    crit: (1.8 + intellect * spellCritPercentPerIntellect.druid + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0) + (buffs.has('moonkin') ? 3 : 0)) / 100,
     castingRegen: [0, .17, .33, .50][talents.Reflection ?? 0],
     regen: 6.25 + spirit / 8, gearPower, power: gearPower,
     pushbackResist: .14 * (talents["Nature's Focus"] ?? 0), grace: !!talents["Nature's Grace"],

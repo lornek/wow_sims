@@ -144,7 +144,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     art.className = 'spell-art';
     const timer = document.createElement('span');
     timer.className = 'spell-timer';
+    const chargesLabel = document.createElement('b');
+    chargesLabel.className = 'spell-charges';chargesLabel.hidden = true;chargesLabel.setAttribute('aria-hidden','true');
     art.append(icon(name), timer);
+    if (key === 'waterShield') art.append(chargesLabel);
     button.append(art);
     const label = document.createElement('span');
     label.className = 'spell-label';
@@ -192,7 +195,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     };
     button.oncontextmenu = event => event.preventDefault();
     find('.heal-spells').append(button);
-    spellButtons.push({button, art, timer, cooldown, key, name, binding, tooltip});
+    spellButtons.push({button, art, timer, cooldown, key, name, binding, tooltip, chargesLabel});
 
     const rows = key === 'potion' ? [{rank: '', cast: 0, gcd: 0, cooldown: 60, cost: 0, effects: []}] :
       byName(name).sort((a, b) => a.level - b.level || a.id - b.id).filter(row => key !== 'tide' || row.rank === 'Rank 4');
@@ -540,7 +543,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const gcdRemaining = active ? Math.max(0, s.gcd - s.time) : 0;
     fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : gcdRemaining ? 1 - gcdRemaining / s.gcdDuration : 0);
     find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : gcdRemaining ? 'Global cooldown · ' + gcdRemaining.toFixed(2) + ' sec' : active ? 'Ready to cast' : 'Cast bar';
-    spellButtons.forEach(({button, art, timer, cooldown, key, tooltip}, index) => {
+    spellButtons.forEach(({button, art, timer, cooldown, key, tooltip, chargesLabel}, index) => {
       const {row} = spellEntries[index];
       const base = currentSpells[key]?.cooldown ?? row.cooldown;
       const remaining = Math.max(0, (s.cooldowns[key] ?? 0) - s.time);
@@ -550,6 +553,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (!spell) tooltip.hide();
       sweep(art, remaining && base ? 1 - remaining / base : gcd ? 1 - gcd / s.gcdDuration : 0);
       const needsMana = !!spell && s.mana < spell.cost && !(key !== 'focus' && s.innerFocus > s.time) && !(profile.omen && spell.omenEligible && s.clearcastingUntil > s.time);
+      if (key === 'waterShield') {
+        chargesLabel.hidden = s.phase === 'ready';
+        chargesLabel.textContent = String(charges);
+        button.classList.toggle('water-shield-empty', active && charges === 0);
+      }
       button.classList.toggle('clearcasting-free', !!(profile.omen && spell?.omenEligible && spell.cost > 0 && s.clearcastingUntil > s.time));
       art.classList.toggle('low-mana', needsMana);
       timer.textContent = needsMana ? whole(Math.ceil(spell.cost - s.mana)) : remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
