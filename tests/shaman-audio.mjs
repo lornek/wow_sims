@@ -1,22 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createShamanAudio,shamanSoundIds} from '../public/healing/shaman-audio.mjs';
+import {createShamanAudio,shamanSoundUrl} from '../public/healing/shaman-audio.mjs';
 function fixture(reject=false) {
- let enabled=true, fallback=0;const clips=[];
- const player=createShamanAudio({enabled:()=>enabled,fallback:()=>fallback++,createAudio:url=>{
+ let enabled=true, fallback=0;const clips=[], statuses=[];
+ const player=createShamanAudio({enabled:()=>enabled,onStatus:status=>statuses.push(status),fallback:()=>fallback++,createAudio:url=>{
   const clip={url,paused:false,play:()=>reject?Promise.reject(Error('offline')):Promise.resolve(),pause(){this.paused=true;},removeAttribute(){},load(){}};
   clips.push(clip);return clip;
  }});
- return {player,clips,get fallback(){return fallback;},mute(){enabled=false;player.stop();}};
+ return {player,clips,statuses,get fallback(){return fallback;},mute(){enabled=false;player.stop();}};
 }
 test('Shaman audio chooses traced sounds and ignores unmapped consumables',()=>{
  const f=fixture();assert.equal(f.player.play('Chain Heal'),true);
- assert.match(f.clips[0].url,new RegExp('/'+shamanSoundIds['Chain Heal']+'$'));
+ assert.equal(f.clips[0].url,'https://wow.zamimg.com/sound-ids/live/enus/84/567124/blastedlandslightningbolt01stand-bolt1.ogg');
+ assert.equal(shamanSoundUrl(569207),'https://wow.zamimg.com/sound-ids/live/enus/119/569207/watershield_impact_base.ogg');
+ assert.equal(shamanSoundUrl(0),null);
  assert.equal(f.player.play('Mana Potion'),false);assert.equal(f.clips.length,1);
 });
 test('unavailable audio falls back once and avoids repeated failing requests',async()=>{
  const f=fixture(true);f.player.play('Healing Wave');await Promise.resolve();
- f.clips[0].onerror();assert.equal(f.fallback,1);
+ f.clips[0].onerror();assert.equal(f.fallback,1);assert.deepEqual(f.statuses,['fallback']);
  f.player.play('Lesser Healing Wave');assert.equal(f.fallback,2);assert.equal(f.clips.length,1);
 });
 test('reset and mute cancel late failures and stop playback',async()=>{
@@ -39,3 +41,9 @@ test('spell audio notification happens on completion, never on rejected casts',a
  p.step(2);assert.deepEqual(events,[{key:'wave',name:'Healing Wave'}]);
  p.state.mana=0;p.cast('wave',0);p.step(3);assert.equal(events.length,1);
 });
+
+ test('sound status reports actual playback and ignores events after reset',()=>{
+ const f=fixture();f.player.play('Water Shield');assert.deepEqual(f.statuses,[]);
+ f.clips[0].onplaying();assert.deepEqual(f.statuses,['playing']);
+ f.player.stop();f.clips[0].onplaying();assert.deepEqual(f.statuses,['playing']);
+ });

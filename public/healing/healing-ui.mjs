@@ -76,7 +76,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   const saved = readSettings();
   let soundEnabled = saved.sound !== false;
-  const shamanAudio = className === 'shaman' ? createShamanAudio({enabled:()=>soundEnabled, fallback:()=>playHealSound(false,0)}) : null;
+  let shamanSoundStatus = 'pending';
+  const shamanAudio = className === 'shaman' ? createShamanAudio({enabled:()=>soundEnabled, fallback:()=>playHealSound(false,0), onStatus:status=>{shamanSoundStatus=status;renderSoundToggle();}}) : null;
 
   const root = document.querySelector('#healing');
   root.dataset.healerClass = className;
@@ -1395,7 +1396,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const label = soundEnabled ? 'Mute healing sounds' : 'Unmute healing sounds';
     button.setAttribute('aria-pressed', String(soundEnabled));
     button.setAttribute('aria-label', label);
-    setGameTooltip(button, label, [soundEnabled ? 'Healing sounds are on.' : 'Healing sounds are muted.']);
+    setGameTooltip(button, label, [soundEnabled ? (shamanSoundStatus === 'fallback' ? 'Spell audio could not load. Using fallback tones.' : shamanSoundStatus === 'playing' ? 'Shaman spell audio is playing.' : 'Healing sounds are on.') : 'Healing sounds are muted.']);
     button.querySelector('[data-sound-on]').toggleAttribute('hidden', !soundEnabled);
     button.querySelector('[data-sound-off]').toggleAttribute('hidden', soundEnabled);
   }

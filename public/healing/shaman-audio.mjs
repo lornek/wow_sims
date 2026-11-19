@@ -12,8 +12,23 @@ export const shamanSoundIds = Object.freeze({
   "Nature's Swiftness": 569767,
 });
 
+const soundFiles = Object.freeze({
+  568917: 'restorationimpact.ogg',
+  567124: 'blastedlandslightningbolt01stand-bolt1.ogg',
+  568126: 'mage_riptide_impact.ogg',
+  569632: 'nullifypoison.ogg',
+  569207: 'watershield_impact_base.ogg',
+  562732: 'totembirthgenerica.ogg',
+  569767: 'naturecast.ogg',
+});
+
+export function shamanSoundUrl(id) {
+  const file = soundFiles[id];
+  return file ? `https://wow.zamimg.com/sound-ids/live/enus/${id % 256}/${id}/${file}` : null;
+}
+
 // HTMLAudio permits ordinary cross-origin playback without a Web Audio CORS fetch.
-export function createShamanAudio({enabled, fallback, createAudio = url => new Audio(url)}) {
+export function createShamanAudio({enabled, fallback, onStatus = () => {}, createAudio = url => new Audio(url)}) {
   const active = new Set(), unavailable = new Set();
   let generation = 0;
   function stop() {
@@ -28,17 +43,18 @@ export function createShamanAudio({enabled, fallback, createAudio = url => new A
     if (unavailable.has(id)) { fallback(); return true; }
     // Cap simultaneous voices without combining combat events or changing simulation RNG.
     if (active.size >= 6) { const oldest = active.values().next().value; oldest.pause(); active.delete(oldest); }
-    const clip = createAudio(`https://wow.zamimg.com/sound-ids/live/enus/${id}`);
+    const clip = createAudio(shamanSoundUrl(id));
     const version = generation;
     clip.volume = .35;
     active.add(clip);
     const release = () => active.delete(clip);
     clip.onended = release;
+    clip.onplaying = () => { if (version === generation && enabled()) onStatus('playing'); };
     let failed = false;
     const fail = () => {
       if (failed) return;
       failed = true; release(); unavailable.add(id);
-      if (version === generation && enabled()) fallback();
+      if (version === generation && enabled()) { onStatus('fallback'); fallback(); }
     };
     clip.onerror = fail;
     try { Promise.resolve(clip.play()).catch(fail); } catch { fail(); }

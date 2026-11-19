@@ -2,7 +2,7 @@
 
 The existing sound toggle controls a Shaman-only remote-audio experiment. One sound plays per completed spell, including utility casts through keybindings. HoT ticks, totem pulses and Chain Heal bounces do not restart clips. Other classes retain their synthesized healing tones. Failed remote clips fall back to a tone, and reset/mute/unmount stop active playback. No audio choices consume simulator RNG.
 
-This is **stock client reference audio, not verified Forever audio**. The execution environment blocks the audio CDN, so the actual recordings and browser delivery must still be auditioned on the published site. Files are streamed from `https://wow.zamimg.com/sound-ids/live/enus/<FileDataID>`; no recordings were downloaded, bundled, or claimed as newly licensed assets. A blocked CDN/ad blocker leaves the game playable with tones. Replacing these URLs with locally supplied, authorized Forever assets is the preferred follow-up if the pilot sounds right.
+This is **stock client reference audio, not verified Forever audio**. The execution environment blocks the audio CDN, so the actual recordings and browser delivery must still be auditioned on the published site. Files are streamed from `https://wow.zamimg.com/sound-ids/live/enus/<FileDataID % 256>/<FileDataID>/<filename>.ogg`; no recordings were downloaded, bundled, or claimed as newly licensed assets. A blocked CDN/ad blocker leaves the game playable with tones. Replacing these URLs with locally supplied, authorized Forever assets is the preferred follow-up if the pilot sounds right.
 
 ## Traceable mappings
 
@@ -24,3 +24,7 @@ Spell → SpellVisual → SpellVisualKit → SoundEntries was traced using:
 Only the selected completion/impact clip is used for this first pass. Continuous precast sounds, Water Shield orb consumption and crit variants are deferred until listening feedback. The manifest and player live in `public/healing/shaman-audio.mjs`; removing the Shaman player restores synthesized audio without changing mechanics.
 
 Try Healing Wave, Chain Heal, Riptide, Water Shield and a totem, then mute/reset during playback. Compare the sound timing and volume. A tone instead of a recording indicates unavailable remote media; it does not establish that the authentic clip worked.
+
+## Delivery fix
+
+The first pilot omitted the bucket and filename, causing remote playback to fail and leaving only fallback tones. URL construction now follows the FileDataID CDN layout also used by [Epsilook](https://github.com/Natans8/Epsilook/blob/main/src/app/tags.ts). Exact URL tests guard the directory and filename. The mute button tooltip reports when clip loading fails. Mocked playback checks do not establish that the remote media can be downloaded or played; real delivery remains pending while the environment blocks the CDN.
