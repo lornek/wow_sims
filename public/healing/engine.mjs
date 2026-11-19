@@ -3,7 +3,7 @@ import {omenModel, omenChance} from './omen-of-clarity.mjs';
 import {recordHealingEvent} from './healing-events.mjs';
 import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-combat.mjs';
 
-export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}, onDamage = () => {}) {
+export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}, onDamage = () => {}, onSpell = () => {}) {
   const party = encounter.party.map(unit => ({...unit, hp: unit.max, poison: 0}));
   if (encounter.id) setupPartyCombat(party);
   const state = {party, phase: 'ready', time: 0, mana: profile.mana, boss: encounter.health,
@@ -312,6 +312,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       spell = {...spell,revelationCrit:true};state.enchantAuras[revelation.id].expires=0;
     }
     resolve(spell, unit);
+    onSpell({key:spell.key, name:spell.name});
     if (profile.omen && spell.omenEligible && state.time >= state.omenNext && random() < omenChance(spell, profile.level ?? 60)) {
       state.clearcastingUntil = state.time + omenModel.duration;
       state.omenNext = state.time + omenModel.internalCooldown;

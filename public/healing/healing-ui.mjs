@@ -1,3 +1,4 @@
+import {createShamanAudio, shamanSoundIds} from './shaman-audio.mjs';
 import {mountDamageText} from './damage-text.mjs';
 import {mountCustomStatsLayout} from './custom-stats-layout.mjs';
 import {enchantIconPath} from './enchant-icons.mjs';
@@ -75,6 +76,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   const saved = readSettings();
   let soundEnabled = saved.sound !== false;
+  const shamanAudio = className === 'shaman' ? createShamanAudio({enabled:()=>soundEnabled, fallback:()=>playHealSound(false,0)}) : null;
 
   const root = document.querySelector('#healing');
   root.dataset.healerClass = className;
@@ -191,7 +193,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       if (utility[key]) {
         const previous = pull.state.meters[key]?.casts;
         pull.cast(key, encounter.party.length - 1);
-        if (pull.state.meters[key]?.casts !== previous) playHealSound(false, 0);
+        if (pull.state.meters[key]?.casts !== previous && !(shamanAudio && shamanSoundIds[currentSpells[key]?.name])) playHealSound(false, 0);
       } else if (touchInput(event)) {
         if (touchTarget === null || !pull.state.party[touchTarget].hp) {
           pull.state.message = 'Tap a living party member first.';
@@ -370,6 +372,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   function reset(start = false, persist = true) {
     visualPull++;
+    shamanAudio?.stop();
     damageText?.clear();
     hideGameTooltip();
     touchTarget = null;
@@ -408,7 +411,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const portrait = find('[data-boss-portrait]');
     const portraitUrl = new URL('./portraits/' + id + '.jpg', import.meta.url).href;
     if (portrait.src !== portraitUrl) portrait.src = portraitUrl;
-    pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal, event=>damageText?.show(event));
+    pull = createPull(profile, currentSpells, currentEncounter, Math.random, showHeal, event=>damageText?.show(event), event=>shamanAudio?.play(event.name));
     updateSheet();
     if (start) pull.start();
     render();
@@ -1398,6 +1401,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
   find('[data-sound]').onclick = () => {
     soundEnabled = !soundEnabled;
+    if (!soundEnabled) shamanAudio?.stop();
     renderSoundToggle();
     enableAudio();
     saveSettings();
@@ -1452,7 +1456,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         stage.append(beam);
         setTimeout(() => beam.remove(), 500);
       }
-      if (event.key !== 'stream' || event.target === frames.length - 1) playHealSound(event.crit, event.bounce);
+      if (!(shamanAudio && shamanSoundIds[currentSpells[event.key]?.name]) && (event.key !== 'stream' || event.target === frames.length - 1)) playHealSound(event.crit, event.bounce);
     };
     if (event.bounce) setTimeout(draw, event.bounce * 145);
     else draw();
@@ -1486,6 +1490,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     hideGameTooltip();
     visualPull++;
     startButton.removeEventListener('click', onStart);
+    shamanAudio?.stop();
     audio?.close();
     for (const {tooltip} of [...spellButtons, ...bossAbilityRows]) tooltip.hide();
     delete bossActions.dataset.encounter;
