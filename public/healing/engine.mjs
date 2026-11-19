@@ -322,7 +322,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (!party.at(-1).hp) checkFightEnd();
   }
 
-  function damage(unit, amount, physical = true, procMending = true) {
+  function damage(unit, amount, physical = true, procMending = true, canPushback = true) {
     const incomingAmount = amount;
     if (physical && unit.inspiration?.expires > state.time) {
       const armor = unit.role === 'Tank' ? 4500 : 1500;
@@ -351,7 +351,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     unit.hp = Math.max(0, unit.hp - amount);
     if (amount > 0 && procMending) triggerMending(unit);
     const cast = state.cast;
-    if (amount > 0 && unit === party.at(-1) && cast && !cast.channel && cast.pushbacks < 2 &&
+    if (canPushback && amount > 0 && unit === party.at(-1) && cast && !cast.channel && cast.pushbacks < 2 &&
         random() >= (profile.pushbackResist ?? 0)) {
       cast.pushbacks++;
       cast.end += .5;
@@ -370,11 +370,11 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
 
   // A simultaneous party pulse may trigger the aura's starting holder only.
   // A newly jumped-to ally must wait for a later damage/healing event.
-  function damageParty(amount, physical = true) {
+  function damageParty(amount, physical = true, canPushback = true) {
     const mendingTarget = state.mending?.target ?? null;
     let trigger = false;
     for (const unit of party) if (unit.hp) {
-      const dealt = damage(unit, amount, physical, false);
+      const dealt = damage(unit, amount, physical, false, canPushback);
       if (unit === mendingTarget && dealt > 0) trigger = true;
     }
     if (trigger) triggerMending(mendingTarget);
@@ -481,7 +481,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     }
     if (state.time >= state.nextSpecial && encounter.id === 'sapphiron') {
       state.nextSpecial += 2;
-      damageParty(encounter.frost, false);
+      damageParty(encounter.frost, false, false);
     }
     if (encounter.id) advancePartyCombat(state, dt, random, onDamage);
     else state.boss = Math.max(0, state.boss - party.reduce((sum, unit) => sum + (unit.hp ? unit.dps : 0), 0) * dt);
