@@ -8,7 +8,9 @@ export function createHealingSoundscape({className,enabled,context,storage,event
  events.addEventListener('storage',reload);
  function syncCast(value){
   const next=enabled()&&value&&!value.channel?value:null;
-  if(next===cast)return;cast=next;casting.stop();if(!cast)return;
+  if(next===cast)return;
+  if(cast&&enabled())casting.fadeOut(220);else casting.stop();
+  cast=next;if(!cast)return;
   let choice=settings.casting;
   if(choice==='auto')choice=className==='shaman'?(cast.spell.key==='chain'?'568440':'568291'):'none';
   casting.play(choice,{loop:true,fallback:null});

@@ -13,14 +13,17 @@ test('hit and periodic crit cues are independent',()=>{
  assert.deepEqual([{},{crit:true},{periodic:true},{periodic:true,crit:true}].map(healingSoundEvent),['hit','crit','tick','critTick']);
 });
 function audioFixture(){const clips=[];return {clips,createAudio:url=>{const c={url,paused:false,play:()=>Promise.resolve(),pause(){this.paused=true;},removeAttribute(){},load(){}};clips.push(c);return c;}};}
-test('casting sound continues across renders and stops on completion, interruption, mute and reset',()=>{
+test('casting sound fades on completion and stops immediately on mute and reset',t=>{
+ t.mock.timers.enable({apis:['setInterval']});
  const f=audioFixture();let enabled=true;
  const events=new EventTarget(),scene=createHealingSoundscape({className:'shaman',enabled:()=>enabled,context:()=>null,storage:{getItem:()=>null},events,createAudio:f.createAudio});
  const cast={spell:{key:'wave'}};scene.syncCast(cast);scene.syncCast(cast);
  assert.equal(f.clips.length,1);assert.equal(f.clips[0].loop,true);assert.match(f.clips[0].url,/precastnaturemagichigh.ogg$/);
- scene.syncCast(null);assert.equal(f.clips[0].paused,true);
+ scene.syncCast(null);assert.equal(f.clips[0].paused,false);
+ t.mock.timers.tick(112);assert.ok(f.clips[0].volume>0&&f.clips[0].volume<.2);
+ t.mock.timers.tick(112);assert.equal(f.clips[0].paused,true);
  scene.syncCast({spell:{key:'chain'}});assert.match(f.clips[1].url,/precastholymagichigh.ogg$/);
- enabled=false;scene.syncCast(cast);assert.equal(f.clips[1].paused,true);assert.equal(f.clips.length,2);
+ enabled=false;scene.stop();scene.syncCast(cast);assert.equal(f.clips[1].paused,true);assert.equal(f.clips.length,2);
  enabled=true;scene.syncCast(cast);scene.stop();assert.equal(f.clips[2].paused,true);scene.destroy();
 });
 test('audio layers cap voices and ignore cancelled late errors',async()=>{
@@ -41,4 +44,11 @@ test('engine marks direct and periodic audio events without changing heal or cri
  const p=createPull({mana:1000,regen:0,mp5:0,power:0,crit:1},{heal},{party:Array.from({length:5},(_,i)=>({name:String(i),max:10000,dps:0})),health:1e9,swing:0,limit:100},()=>.5,event=>events.push(event));
  p.start();p.cast('heal',0);p.step(3);
  assert.deepEqual(events.map(e=>[e.periodic,e.crit,e.amount]),[[false,true,150],[true,true,75]]);
+});
+
+test('landing audio overlaps the fading cast and reset clears its fade timer',t=>{
+ t.mock.timers.enable({apis:['setInterval']});const f=audioFixture();const layer=createSoundLayer(f);
+ layer.play('568291',{loop:true});layer.fadeOut(220);layer.play('568917');
+ assert.equal(f.clips.filter(c=>!c.paused).length,2);t.mock.timers.tick(80);assert.ok(f.clips[0].volume<.2);
+ layer.stop();assert.ok(f.clips.every(c=>c.paused));const volume=f.clips[0].volume;t.mock.timers.tick(500);assert.equal(f.clips[0].volume,volume);
 });

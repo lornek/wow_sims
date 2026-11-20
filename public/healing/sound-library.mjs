@@ -40,12 +40,17 @@ export function createSoundLayer({enabled=()=>true,context=()=>null,createAudio=
    active.add(cancel);tone.onended=cancel;tone.start();tone.stop(start+sound.duration+.01);return;
   }
   const clip=createAudio(clientSoundUrl(id));clip.volume=loop ? .2 : .3;clip.loop=loop;
-  let done=false;
-  const cancel=()=>{if(done)return;done=true;active.delete(cancel);clip.onended=clip.onerror=clip.onplaying=null;clip.pause();clip.removeAttribute('src');clip.load();};
+  let done=false,retiring=false,fadeTimer;
+  const cancel=()=>{if(done)return;done=true;clearInterval(fadeTimer);active.delete(cancel);clip.onended=clip.onerror=clip.onplaying=null;clip.pause();clip.removeAttribute('src');clip.load();};
+  cancel.fade = milliseconds => {
+   if(done||retiring)return;retiring=true;
+   const steps=Math.max(1,Math.ceil(milliseconds/16)),initial=clip.volume;let step=0;
+   fadeTimer=setInterval(()=>{if(++step>=steps){cancel();return;}clip.volume=initial*(1-step/steps);},16);
+  };
   active.add(cancel);clip.onended=cancel;
   clip.onplaying=()=>{if(version===generation)onStatus('playing');};
-  const fail=()=>{if(done)return;cancel();if(version===generation&&enabled()){onStatus('fallback');if(fallback&&fallback!==id)play(fallback,{fallback:null});}};
+  const fail=()=>{if(done)return;cancel();if(!retiring&&version===generation&&enabled()){onStatus('fallback');if(fallback&&fallback!==id)play(fallback,{fallback:null});}};
   clip.onerror=fail;try{Promise.resolve(clip.play()).catch(fail);}catch{fail();}
  }
- return {play,stop};
+ return {play,stop,fadeOut(milliseconds=220){for(const voice of [...active]){if(voice.fade)voice.fade(milliseconds);else voice();}}};
 }

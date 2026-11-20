@@ -14,11 +14,12 @@ test('Shaman audio chooses traced sounds and ignores unmapped consumables',()=>{
  assert.equal(f.clips[0].url,'https://wow.zamimg.com/sound-ids/live/enus/84/567124/blastedlandslightningbolt01stand-bolt1.ogg');
  assert.equal(shamanSoundUrl(569207),'https://wow.zamimg.com/sound-ids/live/enus/119/569207/watershield_impact_base.ogg');
  assert.equal(shamanSoundUrl(0),null);
- assert.equal(f.player.play('Mana Potion'),false);assert.equal(f.clips.length,1);
+ assert.equal(f.player.play('Mana Potion'),false);assert.equal(f.clips.length,2);
+ assert.match(f.clips[1].url,/naturecast.ogg$/);
 });
 test('unavailable audio falls back once and avoids repeated failing requests',async()=>{
- const f=fixture(true);f.player.play('Healing Wave');await Promise.resolve();
- f.clips[0].onerror();assert.equal(f.fallback,1);assert.deepEqual(f.statuses,['fallback']);
+ const f=fixture(true);f.player.play('Healing Wave');const error=f.clips[0].onerror;await Promise.resolve();
+ error();assert.equal(f.fallback,1);assert.deepEqual(f.statuses,['fallback']);
  f.player.play('Lesser Healing Wave');assert.equal(f.fallback,2);assert.equal(f.clips.length,1);
 });
 test('reset and mute cancel late failures and stop playback',async()=>{
@@ -45,5 +46,12 @@ test('spell audio notification happens on completion, never on rejected casts',a
  test('sound status reports actual playback and ignores events after reset',()=>{
  const f=fixture();f.player.play('Water Shield');assert.deepEqual(f.statuses,[]);
  f.clips[0].onplaying();assert.deepEqual(f.statuses,['playing']);
- f.player.stop();f.clips[0].onplaying();assert.deepEqual(f.statuses,['playing']);
+ const playing=f.clips[0].onplaying;f.player.stop();playing();assert.deepEqual(f.statuses,['playing']);
  });
+
+test('Healing Stream queues Renew only after totem birth ends and cancels on reset',()=>{
+ const f=fixture();f.player.play('Healing Stream Totem');assert.equal(f.clips.length,1);
+ assert.match(f.clips[0].url,/totembirthgenerica.ogg$/);
+ f.clips[0].onended();assert.equal(f.clips.length,2);assert.match(f.clips[1].url,/renew.ogg$/);
+ f.player.play('Healing Stream Totem');const ended=f.clips[2].onended;f.player.stop();ended();assert.equal(f.clips.length,3);
+});
