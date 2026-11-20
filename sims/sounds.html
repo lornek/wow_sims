@@ -1,0 +1,12 @@
+<section class="panel sound-library" aria-labelledby="sound-library-title">
+ <h2 id="sound-library-title">Healing sound workshop</h2>
+ <p>Preview a sound, then assign it to an event. Changes save automatically in this browser and apply to every healer, including open game tabs.</p>
+ <p>Client clips stream from the audio library; these stock references have not been verified against the Forever client. Synthesized cues play locally.</p>
+ <section aria-labelledby="sound-assignment-title"><h3 id="sound-assignment-title">Your healing cues</h3><div id="sound-assignments" class="sound-assignments"></div><button id="sound-defaults" type="button">Restore defaults</button> <button id="sound-stop" type="button">Stop preview</button></section>
+ <p id="sound-status" role="status" aria-live="polite">Choose Preview to listen.</p>
+ <div class="sound-search"><label>Search sounds <input id="sound-search" type="search" placeholder="Nature, water, chime…"></label><label>Collection <select id="sound-group"><option value="">All sounds</option></select></label></div>
+ <p id="sound-count"></p><div id="sound-cards" class="sound-cards"></div>
+ <noscript>Enable JavaScript to preview and assign sounds.</noscript>
+</section>
+<link rel="stylesheet" href="../assets/sounds.css">
+<script type="module" src="../assets/sounds.mjs"></script>

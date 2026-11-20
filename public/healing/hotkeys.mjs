@@ -29,6 +29,10 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast, targe
   } catch {}
   let editing = false, selected = null;
   panel.innerHTML = '<div data-settings-menu><button type="button" data-configure>Keybindings</button></div><div data-config hidden><h3>Keybindings</h3><p>Click on a spell, press a key, or Shift/Ctrl/Alt + key</p><p>Spells cast on mouseover targets</p><span class="keybinding-status" data-binding-status role="status"></span><button type="button" data-defaults>Restore defaults</button><button type="button" data-close>Close</button></div>';
+  const soundLibrary = document.createElement('a');
+  soundLibrary.href = new URL('../sounds/', import.meta.url).href;
+  soundLibrary.target = '_blank';soundLibrary.rel = 'noopener';soundLibrary.textContent = 'Sound library ↗';
+  panel.querySelector('[data-settings-menu]').append(soundLibrary);
   const find = selector => panel.querySelector(selector);
   const status = find('[data-binding-status]');
   const desktop = () => matchMedia('(hover: hover) and (pointer: fine)').matches;

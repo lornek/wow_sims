@@ -1,3 +1,4 @@
+import {createHealingSoundscape} from './healing-soundscape.mjs';
 import {createShamanAudio, shamanSoundIds} from './shaman-audio.mjs';
 import {mountDamageText} from './damage-text.mjs';
 import {mountCustomStatsLayout} from './custom-stats-layout.mjs';
@@ -78,6 +79,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   let soundEnabled = saved.sound !== false;
   let shamanSoundStatus = 'pending';
   const shamanAudio = className === 'shaman' ? createShamanAudio({enabled:()=>soundEnabled, fallback:()=>playHealSound(false,0), onStatus:status=>{shamanSoundStatus=status;renderSoundToggle();}}) : null;
+
+  const soundscape = createHealingSoundscape({className,enabled:()=>soundEnabled,context:()=>audio,storage:localStorage,onStatus:status=>{shamanSoundStatus=status;renderSoundToggle();}});
 
   const root = document.querySelector('#healing');
   root.dataset.healerClass = className;
@@ -374,6 +377,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function reset(start = false, persist = true) {
     visualPull++;
     shamanAudio?.stop();
+    soundscape.stop();
     damageText?.clear();
     hideGameTooltip();
     touchTarget = null;
@@ -434,6 +438,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   function render() {
+    soundscape.syncCast(pull.state.cast);
     const s = pull.state;
     const charges = s.waterShield?.expires > s.time ? s.waterShield.charges : 0;
     for (const row of enchantBuffRows.values()) row.label.hidden = true;
@@ -1396,13 +1401,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const label = soundEnabled ? 'Mute healing sounds' : 'Unmute healing sounds';
     button.setAttribute('aria-pressed', String(soundEnabled));
     button.setAttribute('aria-label', label);
-    setGameTooltip(button, label, [soundEnabled ? (shamanSoundStatus === 'fallback' ? 'Spell audio could not load. Using fallback tones.' : shamanSoundStatus === 'playing' ? 'Shaman spell audio is playing.' : 'Healing sounds are on.') : 'Healing sounds are muted.']);
+    setGameTooltip(button, label, [soundEnabled ? (shamanSoundStatus === 'fallback' ? 'Spell audio could not load. Using fallback tones.' : shamanSoundStatus === 'playing' ? 'Client spell audio is playing.' : 'Healing sounds are on.') : 'Healing sounds are muted.']);
     button.querySelector('[data-sound-on]').toggleAttribute('hidden', !soundEnabled);
     button.querySelector('[data-sound-off]').toggleAttribute('hidden', soundEnabled);
   }
   find('[data-sound]').onclick = () => {
     soundEnabled = !soundEnabled;
-    if (!soundEnabled) shamanAudio?.stop();
+    if (!soundEnabled) {shamanAudio?.stop();soundscape.stop();}
     renderSoundToggle();
     enableAudio();
     saveSettings();
@@ -1457,7 +1462,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         stage.append(beam);
         setTimeout(() => beam.remove(), 500);
       }
-      if (!(shamanAudio && shamanSoundIds[currentSpells[event.key]?.name]) && (event.key !== 'stream' || event.target === frames.length - 1)) playHealSound(event.crit, event.bounce);
+      soundscape.heal(event);
     };
     if (event.bounce) setTimeout(draw, event.bounce * 145);
     else draw();
@@ -1492,6 +1497,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     visualPull++;
     startButton.removeEventListener('click', onStart);
     shamanAudio?.stop();
+    soundscape.destroy();
     audio?.close();
     for (const {tooltip} of [...spellButtons, ...bossAbilityRows]) tooltip.hide();
     delete bossActions.dataset.encounter;

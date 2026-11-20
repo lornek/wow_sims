@@ -63,7 +63,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     }
   }
 
-  function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key], componentKey = null) {
+  function heal(key, unit, raw, canCrit = false, from = null, bounce = 0, bonusCrit = 0, periodic = false, spell = spells[key], componentKey = null, isTick = periodic) {
     if (!unit.hp) return;
     const weakened = spell?.renewedHope && unit.weakened > state.time;
     const crit = canCrit && random() < profile.crit + bonusCrit + (weakened ? .02 * spell.renewedHope : 0);
@@ -99,7 +99,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       unit.aegis = {amount: Math.min(1200, existing + amount * profile.aegis), expires: state.time + 12};
     }
     if (crit && !periodic && profile.inspiration) unit.inspiration = {expires:state.time + 15};
-    onHeal({key, target: party.indexOf(unit), from: from ? party.indexOf(from) : null, bounce, amount, effective, crit});
+    onHeal({key, target: party.indexOf(unit), from: from ? party.indexOf(from) : null, bounce, amount, effective, crit, periodic:isTick});
     if (!periodic && key !== 'mending') triggerMending(unit);
     if (!periodic && spell && componentKey !== 'binding' && !['mending','vigil','bloom'].includes(key)) triggerEnchants(spell,crit);
   }
@@ -214,7 +214,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
         directChainBonus: spell.directChainBonus ?? 0};
       state.effects.push(effect);
       if (spell.immediateTick) {
-        heal(spell.key, unit, effect.amount, true, null, 0, effect.bonusCrit, false, spell);
+        heal(spell.key, unit, effect.amount, true, null, 0, effect.bonusCrit, false, spell, null, true);
         if (spell.renewedHope && unit.weakened > state.time) unit.weakened = Math.max(state.time, unit.weakened - spell.renewedHope);
       }
     } else {
@@ -450,7 +450,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       if (effect.abolishPoison) effect.target.poison = 0;
       else if (effect.manaTick) restoreMana(effect.manaTick, spells[effect.key]?.name ?? effect.key);
       else for (const unit of effect.target ? [effect.target] : party) heal(effect.key, unit, tickAmount(effect),
-        effect.periodicCrit, null, 0, effect.bonusCrit, !spells[effect.key]?.immediateTick);
+        effect.periodicCrit, null, 0, effect.bonusCrit, !spells[effect.key]?.immediateTick, spells[effect.key], null, true);
       effect.next += effect.period;
       effect.left--;
       if (!effect.left && effect.swiftmendable && profile.bloom) heal('bloom', effect.target, profile.bloom + extraSpirit()*(profile.bloomPerSpirit??0));

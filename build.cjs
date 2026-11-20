@@ -39,13 +39,13 @@ function page(title, depth, current, content) {
 <body>
 <header class="site-header"><div class="container">
 <a class="brand" href="${depth}"><span class="sigil" aria-hidden="true">∞</span><span>WoW Forever Sims<small>Class tools for World of Warcraft: Forever</small></span></a>
-<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}icons/">Icon library</a></nav>
+<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}icons/">Icon library</a> <a class="nav-link" href="${depth}sounds/">Sound library</a></nav>
 </div></header>
 <main class="container">
 <section class="hero">
 <img class="hero-art" src="${depth}assets/horde.webp" alt="">
 <img class="hero-logo" src="${depth}assets/forever.webp" alt="World of Warcraft: Forever" width="190" height="155">
-<div><h1>${title}</h1><p>${title === 'Icon library' ? 'Browse original artwork and your custom spell and equipment collections.' : current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
+<div><h1>${title}</h1><p>${title === 'Icon library' ? 'Browse original artwork and your custom spell and equipment collections.' : title === 'Sound library' ? 'Preview healing sounds and choose your casting, hit, crit, and tick cues.' : current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
 </section>
 <nav class="class-picker" aria-label="Choose a class">${links}</nav>
 ${content}
@@ -145,6 +145,9 @@ const iconTemplate = fs.readFileSync(path.join(__dirname, 'sims/icons.html'), 'u
 fs.mkdirSync(path.join(output, 'icons'), {recursive:true});
 fs.writeFileSync(path.join(output, 'icons/index.html'), page('Icon library', '../', '',
   iconTemplate.replace('<!-- ICONS -->', iconGroups).replaceAll('{{COUNT}}', String(iconCount))));
+
+fs.mkdirSync(path.join(output, 'sounds'), {recursive:true});
+fs.writeFileSync(path.join(output, 'sounds/index.html'), page('Sound library', '../', '', fs.readFileSync(path.join(__dirname, 'sims/sounds.html'), 'utf8')));
 
 // Pages opts in through its build environment; ordinary/Sites builds stay untagged.
 require('./scripts/google-tag-manager.cjs').installGoogleTagManager(output, process.env.GOOGLE_TAG_MANAGER_ID || '');
