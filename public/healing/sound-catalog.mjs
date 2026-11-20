@@ -209,5 +209,82 @@ export const clientSounds = [
     "group": "Healing & holy",
     "file": "holylight_low_head.ogg",
     "sourcePath": "sound/spells/holylight_low_head.ogg"
+  },
+  {
+    "id": "569594",
+    "name": "Rejuvenation",
+    "group": "Healing & holy",
+    "file": "rejuvenation.ogg",
+    "sourcePath": "sound/spells/rejuvenation.ogg"
+  },
+  {
+    "id": "569008",
+    "name": "Wild Growth \u00b7 Flourish",
+    "group": "Water & nature",
+    "file": "druid_flourish.ogg",
+    "sourcePath": "sound/spells/druid_flourish.ogg"
+  },
+  {
+    "id": "568379",
+    "name": "Tranquility",
+    "group": "Water & nature",
+    "file": "tranquility.ogg",
+    "sourcePath": "sound/spells/tranquility.ogg"
+  },
+  {
+    "id": "569738",
+    "name": "Divine Shield \u00b7 barrier",
+    "group": "Healing & holy",
+    "file": "divineshield.ogg",
+    "sourcePath": "sound/spells/divineshield.ogg"
+  },
+  {
+    "id": "569611",
+    "name": "Prayer of Mending impact",
+    "group": "Healing & holy",
+    "file": "prayerofmending_impact_head.ogg",
+    "sourcePath": "sound/spells/prayerofmending_impact_head.ogg"
+  },
+  {
+    "id": "568145",
+    "name": "Lay on Hands",
+    "group": "Healing & holy",
+    "file": "layonhands_low_chest.ogg",
+    "sourcePath": "sound/spells/layonhands_low_chest.ogg"
+  },
+  {
+    "id": "569015",
+    "name": "Inner Fire \u00b7 focus",
+    "group": "Healing & holy",
+    "file": "innerfirea.ogg",
+    "sourcePath": "sound/spells/innerfirea.ogg"
+  },
+  {
+    "id": "568392",
+    "name": "Dispel Magic",
+    "group": "Healing & holy",
+    "file": "dispel_low_base.ogg",
+    "sourcePath": "sound/spells/dispel_low_base.ogg"
+  },
+  {
+    "id": "569763",
+    "name": "Holy release",
+    "group": "Healing & holy",
+    "file": "holycast.ogg",
+    "sourcePath": "sound/spells/cast/holycast.ogg"
+  },
+  {
+    "id": "569771",
+    "name": "Holy Nova impact",
+    "group": "Healing & holy",
+    "file": "holyimpactddhigh.ogg",
+    "sourcePath": "sound/spells/directdamage/holyimpactddhigh.ogg"
+  },
+  {
+    "id": "567492",
+    "name": "Drinking \u00b7 potion",
+    "group": "Items",
+    "file": "idrinking1.ogg",
+    "sourcePath": "sound/interface/idrinking1.ogg"
   }
 ];

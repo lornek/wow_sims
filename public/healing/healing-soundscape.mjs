@@ -1,3 +1,4 @@
+import {spellCastingSound} from './spell-sounds.mjs';
 import {createSoundLayer,readSoundSettings,healingSoundEvent,soundStorageKey} from './sound-library.mjs';
 export function createHealingSoundscape({className,enabled,context,storage,events=globalThis,createAudio,onStatus}) {
  let settings=readSoundSettings(storage),cast=null;
@@ -7,12 +8,12 @@ export function createHealingSoundscape({className,enabled,context,storage,event
  function reload(event){if(event?.key&&event.key!==soundStorageKey)return;settings=readSoundSettings(storage);stop();}
  events.addEventListener('storage',reload);
  function syncCast(value){
-  const next=enabled()&&value&&!value.channel?value:null;
+  const next=enabled()&&value?value:null;
   if(next===cast)return;
   if(cast&&enabled())casting.fadeOut(220);else casting.stop();
   cast=next;if(!cast)return;
   let choice=settings.casting;
-  if(choice==='auto')choice=className==='shaman'?(cast.spell.key==='chain'?'568440':'568291'):'none';
+  if(choice==='auto')choice=String(spellCastingSound(cast.spell,!!cast.channel) ?? 'none');
   casting.play(choice,{loop:true,fallback:null});
  }
  return {syncCast,heal(event){healing.play(settings[healingSoundEvent(event)]);},stop,

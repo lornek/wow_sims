@@ -9,7 +9,7 @@ function save(){try{localStorage.setItem(soundStorageKey,JSON.stringify(settings
 for(const [key,label] of Object.entries(soundEvents)){
  const wrap=document.createElement('label');wrap.textContent=label;
  const select=document.createElement('select');select.setAttribute('aria-label',label+' sound');
- select.append(option('none','Silent'));if(key==='casting')select.append(option('auto','Automatic Shaman casting'));
+ select.append(option('none','Silent'));if(key==='casting')select.append(option('auto','Automatic spell casting'));
  for(const sound of soundCatalog)select.append(option(sound.id,sound.name));
  select.value=settings[key];select.onchange=()=>{settings[key]=select.value;save();};selects.set(key,select);wrap.append(select);find('#sound-assignments').append(wrap);
 }
