@@ -17,7 +17,7 @@ test('every playable healer spell and consumable has a resolvable client sound p
 });
 test('Druid and Paladin casts select nature and holy, while channel loops use their channel kit',()=>{
  assert.equal(spellCastingSound({name:'Regrowth'}),568291);
- assert.equal(spellCastingSound({name:'Holy Light'}),568915);
+ assert.equal(spellCastingSound({name:'Holy Light'}),568440);
  assert.equal(spellCastingSound({name:'Penance'},true),568915);
  assert.equal(spellCastingSound({name:'Tranquility'},true),568291);
 });
@@ -28,7 +28,7 @@ test('channel pulses and Mending procs play their native impacts without replayi
  audio.heal('Regrowth');assert.equal(f.clips.length,2);audio.stop();
 });
 test('automatic sound covers every class; explicit casting overrides and silence remain intact',()=>{
- for(const [cls,name,file]of [['druid','Regrowth','precastnaturemagichigh'],['priest','Greater Heal','precastholymagiclow'],['paladin','Holy Light','precastholymagiclow']]){
+ for(const [cls,name,file]of [['druid','Regrowth','precastnaturemagichigh'],['priest','Greater Heal','precastholymagichigh'],['paladin','Holy Light','precastholymagichigh']]){
   const f=fixture(),scene=createHealingSoundscape({...f,className:cls,enabled:()=>true,context:()=>null,storage:{getItem:()=>null},events:new EventTarget()});
   scene.syncCast({spell:{name}});assert.match(f.clips[0].url,new RegExp(file));scene.destroy();
  }
