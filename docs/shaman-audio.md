@@ -52,3 +52,9 @@ Additional traces use the same pinned sources above. Reference spell IDs: Druid 
 Forever-only Light's Vigil uses Holy Cast and holy precast, Oath of Light uses Divine Shield, and Bloom uses Rejuvenation. These three are explicitly marked `custom` in `spell-sounds.mjs`: Blizzard recordings chosen to fit, **not verified Forever sound bindings**. Standard stock mappings are also reference data, not a claim that the installed Forever client is identical. The shared catalogue now includes 41 client recordings and six synthesized choices (47 total); all new client clips are available in the sound workshop. No downloaded audio files are bundled.
 
 Greater Heal, Prayer of Healing and Holy Light use Holy casting · strong (568440) as a player-requested sound choice, overriding their stock low-kit reference. Saved custom casting assignments still take precedence.
+
+## Buff audio
+
+Clearcasting (reference spell 16870) resolves to SoundEntries 4874, `Clearcasting_Impact_Chest.wav` / FileDataID 569649. Druid Omen proc-count increases trigger this one-shot, including refreshed Clearcasting; rendering the same state does not replay it. Inner Focus (14751) has StateKit SoundEntries 3136, `PreCastMageLow.wav` / FileDataID 568938, played as a loop while the actual Priest buff is active. Consuming the buff, ending/resetting a fight, mute and class teardown stop it. Muted procs are not queued for later playback. Both recordings are now in the library (49 choices total).
+
+Divine Favor (20216) shares Inner Focus's activation/impact reference, but has no StateKit sound in the pinned client data. Its existing activation sound is retained; no persistent loop is asserted or added for it. These are stock references rather than verification of the Forever client.

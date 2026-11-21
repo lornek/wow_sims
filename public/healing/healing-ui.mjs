@@ -441,6 +441,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   function render() {
     soundscape.syncCast(pull.state.cast);
     const s = pull.state;
+    soundscape.syncBuffs(s);
     const charges = s.waterShield?.expires > s.time ? s.waterShield.charges : 0;
     for (const row of enchantBuffRows.values()) row.label.hidden = true;
     for (const effect of profile.enchantEffects ?? []) {

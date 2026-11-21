@@ -286,5 +286,19 @@ export const clientSounds = [
     "group": "Items",
     "file": "idrinking1.ogg",
     "sourcePath": "sound/interface/idrinking1.ogg"
+  },
+  {
+    "id": "569649",
+    "name": "Clearcasting proc",
+    "group": "Buffs & procs",
+    "file": "clearcasting_impact_chest.ogg",
+    "sourcePath": "sound/spells/clearcasting_impact_chest.ogg"
+  },
+  {
+    "id": "568938",
+    "name": "Inner Focus \u00b7 sustained magic",
+    "group": "Buffs & procs",
+    "file": "precastmagelow.ogg",
+    "sourcePath": "sound/spells/precastmagelow.ogg"
   }
 ];
