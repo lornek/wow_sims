@@ -1,3 +1,4 @@
+import {greaterMageblood} from './consumable-buffs.mjs';
 import {purposeIconPath} from './purpose-icons.mjs';
 // Stable semantic identities: never assign report visuals by rank or render order.
 export const manaVisuals = {
@@ -31,13 +32,13 @@ export const contributionIcons = {
   'Divine Spirit': 'icons/spell_holy_divinespirit.jpg',
   'Blessing of Kings': 'icons/spell_magic_magearmor.jpg',
   'Blessing of Wisdom': 'icons/spell_holy_sealofwisdom.jpg',
-  'Mageblood Elixir': 'icons/inv_potion_45.jpg'
+  [greaterMageblood.name]: `icons/${greaterMageblood.icon}.jpg`
 };
 const contributionOffsets = {
   'Base Spirit': [0, 0, 0], 'Base regeneration': [-4, -8, -5], Gear: [4, -6, 3],
   'Human racial': [-6, 3, -3], 'Spirit talents': [5, -4, -2], 'Living Spirit': [5, 3, -3],
   'Mark of the Wild': [-5, -3, 4], 'Divine Spirit': [3, 5, -1],
-  'Blessing of Kings': [-3, 2, 2], 'Blessing of Wisdom': [4, 3, 2], 'Mageblood Elixir': [-5, -4, 4]
+  'Blessing of Kings': [-3, 2, 2], 'Blessing of Wisdom': [4, 3, 2], [greaterMageblood.name]: [-5, -4, 4]
 };
 export function contributionColor(parent, name) {
   const [h, s, l] = parent === 'Spirit regeneration' ? [181, 73, 33] : [211, 64, 37];

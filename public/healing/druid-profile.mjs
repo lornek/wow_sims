@@ -1,3 +1,4 @@
+import {greaterMageblood} from './consumable-buffs.mjs';
 import {equippedEnchantEffects,enchantPassiveModifiers} from './enchant-effects.mjs';
 import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
@@ -41,7 +42,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
     pushbackResist: .14 * (talents["Nature's Focus"] ?? 0), grace: !!talents["Nature's Grace"],
     bloomPerSpirit:talents.Bloom ? 1 + .02 * (talents['Gift of Nature'] ?? 0) : 0,
     bloom: talents.Bloom ? spirit * (1 + .02 * (talents['Gift of Nature'] ?? 0)) : 0,
-    mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? 12 : 0)};
+    mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? greaterMageblood.mp5 : 0)};
 }
 
 export function applyTalents(spell, talents) {

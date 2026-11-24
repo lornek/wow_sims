@@ -1,3 +1,4 @@
+import {greaterMageblood} from './consumable-buffs.mjs';
 import {equippedEnchantEffects,enchantPassiveModifiers} from './enchant-effects.mjs';
 import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
@@ -40,7 +41,7 @@ export function humanProfile(className, loadouts) {
       aegis: .05 * rank('Divine Aegis'),
       inspiration: [0,.08,.16,.25][rank('Inspiration')],
       gearPower, talentPower, power: gearPower + talentPower,
-      mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? 12 : 0)};
+      mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? greaterMageblood.mp5 : 0)};
   };
 }
 

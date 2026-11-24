@@ -17502,6 +17502,15 @@
       "tags": []
     },
     {
+      "id": "ability:inv_potion_168",
+      "name": "inv potion 168",
+      "path": "icons/inv_potion_168.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "inv_potion_168.jpg",
+      "tags": []
+    },
+    {
       "id": "ability:inv_potion_19",
       "name": "inv potion 19",
       "path": "icons/inv_potion_19.jpg",

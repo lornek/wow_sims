@@ -1,3 +1,4 @@
+import {greaterMageblood} from './consumable-buffs.mjs';
 // Attribute additive stats first, then multiplier increments. Allocate final rounding
 // proportionally so the displayed source contributions sum to the actual stat.
 export function manaSourceProfile(base, gear, buffs, spirit, {human = 1, talent = 1, talentName = 'Spirit talents'} = {}) {
@@ -12,5 +13,5 @@ export function manaSourceProfile(base, gear, buffs, spirit, {human = 1, talent 
   const spiritRates = Object.fromEntries(Object.entries(parts).map(([key, value]) => [key, total ? value * spirit / total * coefficient : 0]));
   spiritRates['Base regeneration'] = 6.25;
   return {spiritRates, mp5Sources: {'Gear': gear.mp5 ?? 0, 'Blessing of Wisdom': buffs.has('wisdom') ? 40 : 0,
-    'Mageblood Elixir': buffs.has('mageblood') ? 12 : 0}};
+    [greaterMageblood.name]: buffs.has('mageblood') ? greaterMageblood.mp5 : 0}};
 }

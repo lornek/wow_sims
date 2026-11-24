@@ -52,7 +52,7 @@ test('all mana returns have named sources', () => {
 test('Spirit and MP5 drilldowns reconcile with profile totals including multipliers and rounding', () => {
   const result = manaSourceProfile(125, {spirit:100,mp5:30}, new Set(['mark','spirit','kings','wisdom','mageblood']), 340, {human:1.1});
   close(Object.values(result.spiritRates).reduce((a,b)=>a+b), 6.25 + 340 / 8);
-  close(Object.values(result.mp5Sources).reduce((a,b)=>a+b), 82);
+  close(Object.values(result.mp5Sources).reduce((a,b)=>a+b), 90);
   assert.ok(result.spiritRates['Human racial'] > 0);
 });
 test('score is uncapped and rewards healing, efficiency and mana recovery', () => {

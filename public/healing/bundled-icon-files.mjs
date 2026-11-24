@@ -248,6 +248,7 @@ export const bundledIconFiles = {
   "inv_pants_mail_19": "icons/inv_pants_mail_19.jpg",
   "inv_pants_plate_03": "icons/inv_pants_plate_03.jpg",
   "inv_pants_plate_27": "icons/inv_pants_plate_27.jpg",
+  "inv_potion_168": "icons/inv_potion_168.jpg",
   "inv_potion_19": "icons/inv_potion_19.jpg",
   "inv_potion_45": "icons/inv_potion_45.jpg",
   "inv_potion_76": "icons/inv_potion_76.jpg",
