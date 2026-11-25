@@ -48,7 +48,7 @@ function gain(unit, amount) {
 
 export function setupPartyCombat(party) {
   for (const unit of party) {
-    const stats = combatants[unit.name];
+    const stats = combatants[unit.combatantKey ?? unit.name];
     if (!stats) continue;
     unit.resource = {type:stats.resource, max:stats.max, value:stats.resource === 'Rage' ? 0 : stats.max};
     unit.rotation = {action:0, swing:stats.swingInterval ?? stats.speed ?? Infinity, offSwing:stats.offSpeed ?? Infinity, cooldowns:{}, combo:0};
@@ -61,7 +61,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
   if (!(state.sunderUntil > now)) state.sunderStacks = 0;
   for (const unit of state.party) {
     if (!unit.hp || !unit.rotation || !state.boss) continue;
-    const stats = combatants[unit.name];
+    const stats = combatants[unit.combatantKey ?? unit.name];
     const rotation = unit.rotation;
     gain(unit, stats.regen * dt * (rotation.adrenalineUntil > now ? 2 : 1));
     if (rotation.evocationUntil > now) gain(unit, unit.resource.max * .075 * dt);
@@ -89,7 +89,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
       const damage = base * (1 - spread + 2 * spread * random()) *
         (magic ? 1 : 5500 / (5500 + bossArmor(state))) * (crit ? critMultiplier : glance ? .7 : 1) * (infused ? 1.2 : 1);
       recordDamage(spell, damage, crit);
-      if (unit.name === 'Jaina' && random() < .1) rotation.clearcasting = true;
+      if ((unit.combatantKey ?? unit.name) === 'Jaina' && random() < .1) rotation.clearcasting = true;
       if (ignite && crit) {
         gain(unit, (rotation.mageCastCost ?? 0) * .3);
         rotation.ignitePool = (rotation.ignitePool ?? 0) + damage * .4;
@@ -108,7 +108,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
       rotation.cooldowns[spell] = now + cooldown;
       rotation.action = now + gcd;
     }
-    if (unit.name === 'Cairne') {
+    if ((unit.combatantKey ?? unit.name) === 'Cairne') {
       if (rotation.opened === undefined) {
         rotation.opened = true;
         rotation.swingRage = 0;
@@ -154,7 +154,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
         const revenge = 152.5 + .25 * stats.ap;
         hit('Revenge', revenge * .9, {spread:15.5 / revenge});
       }
-    } else if (unit.name === 'Illidan') {
+    } else if ((unit.combatantKey ?? unit.name) === 'Illidan') {
       if ((rotation.cooldowns['Adrenaline Rush'] ?? 0) <= now && unit.resource.value <= 40) {
         rotation.adrenalineUntil = now + 15;
         rotation.cooldowns['Adrenaline Rush'] = now + 300;
@@ -183,7 +183,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
         spend('Sinister Strike', 40, 0, 1);
         if (hit('Sinister Strike', weapon(2.4) + 68, {critMultiplier:2.3})) rotation.combo++;
       }
-    } else if (unit.name === 'Sylvanas') {
+    } else if ((unit.combatantKey ?? unit.name) === 'Sylvanas') {
       // ForeverDB's ranged priority assumes Hunter's Mark, Hawk and Improved Tracking.
       const ranged = (speed, bonus = 0) => (weapon(speed) + 263 * speed / 14 + bonus) * 1.05;
       if (now >= (rotation.petSwing ?? 2)) {
@@ -224,7 +224,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
         spend('Aimed Shot', 310, 6, 2);
         rotation.aimedUntil = now + 2;
       }
-    } else if (unit.name === 'Jaina') {
+    } else if ((unit.combatantKey ?? unit.name) === 'Jaina') {
       const fire = state.encounterId === 'sapphiron';
       if (rotation.igniteTicks && now >= rotation.igniteTick) {
         const tick = rotation.ignitePool / rotation.igniteTicks;

@@ -39,7 +39,7 @@ function page(title, depth, current, content) {
 <body>
 <header class="site-header"><div class="container">
 <a class="brand" href="${depth}"><span class="sigil" aria-hidden="true">∞</span><span>WoW Forever Sims<small>Class tools for World of Warcraft: Forever</small></span></a>
-<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}icons/">Icon library</a> <a class="nav-link" href="${depth}sounds/">Sound library</a></nav>
+<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}healbot-raid/">Healbot Raid</a> <a class="nav-link" href="${depth}icons/">Icon library</a> <a class="nav-link" href="${depth}sounds/">Sound library</a></nav>
 </div></header>
 <main class="container">
 <section class="hero">
@@ -103,7 +103,15 @@ for (const slug of healers) {
   fs.writeFileSync(path.join(directory, 'index.html'), healbotPage(slug, healing, slug === 'shaman' ? '../' : '../../'));
 }
 
-fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./healbot/">Shaman · Healing practice</a></p><p><a href="./healbot/druid/">Druid · Healing practice</a></p><p><a href="./healbot/paladin/">Paladin · Healing practice</a></p><p><a href="./healbot/priest/">Priest · Healing practice</a></p></section>'));
+for (const slug of healers) {
+ const directory=path.join(output,slug==='shaman'?'healbot-raid':`healbot-raid/${slug}`);
+ fs.mkdirSync(directory,{recursive:true});
+ const depth=slug==='shaman'?'../':'../../';
+ const html=healbotPage(slug,healing.replace('Keep the party alive','Keep the raid alive'),depth).replaceAll('Healbot ·','Healbot Raid ·').replace('<h1>Healbot</h1>','<h1>Healbot Raid</h1>').replace('data-healer="'+slug+'"','data-raid="true" data-healer="'+slug+'"').replaceAll('href="'+depth+'healbot/','href="'+depth+'healbot-raid/').replace('</head>','<link rel="stylesheet" href="'+depth+'healing/raid.css"></head>');
+ fs.writeFileSync(path.join(directory,'index.html'),html);
+}
+
+fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./healbot-raid/">Healbot Raid · 10 &amp; 20 players</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./healbot/">Shaman · Healing practice</a></p><p><a href="./healbot/druid/">Druid · Healing practice</a></p><p><a href="./healbot/paladin/">Paladin · Healing practice</a></p><p><a href="./healbot/priest/">Priest · Healing practice</a></p></section>'));
 for (const [name] of classes) {
   const slug = name.toLowerCase();
   const directory = path.join(output, slug);

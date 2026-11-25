@@ -1,0 +1,192 @@
+{
+  "validationDate": "2026-11-25",
+  "baselineCommit": "83da80b",
+  "testCount": 205,
+  "seededPlayer": "chooseHeal policy, Tier-2-average gear; not human win-rate evidence",
+  "seeds": [
+    17,
+    91,
+    503
+  ],
+  "normal": {
+    "runs": 72,
+    "elapsedMs": 1273,
+    "groups": [
+      {
+        "size": 20,
+        "className": "shaman",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 20,
+        "meanTeamOverhealPct": 29.2,
+        "minPlayerMana": 5303
+      },
+      {
+        "size": 20,
+        "className": "druid",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 20,
+        "meanTeamOverhealPct": 33.5,
+        "minPlayerMana": 1609
+      },
+      {
+        "size": 20,
+        "className": "priest",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 20,
+        "meanTeamOverhealPct": 34.7,
+        "minPlayerMana": 60
+      },
+      {
+        "size": 20,
+        "className": "paladin",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 20,
+        "meanTeamOverhealPct": 28.5,
+        "minPlayerMana": 2415
+      },
+      {
+        "size": 10,
+        "className": "shaman",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 10,
+        "meanTeamOverhealPct": 21.1,
+        "minPlayerMana": 4313
+      },
+      {
+        "size": 10,
+        "className": "druid",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 10,
+        "meanTeamOverhealPct": 31.8,
+        "minPlayerMana": 2580
+      },
+      {
+        "size": 10,
+        "className": "priest",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 10,
+        "meanTeamOverhealPct": 32.4,
+        "minPlayerMana": 1645
+      },
+      {
+        "size": 10,
+        "className": "paladin",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 10,
+        "meanTeamOverhealPct": 21.0,
+        "minPlayerMana": 2761
+      }
+    ]
+  },
+  "higherPressure": {
+    "runs": 72,
+    "elapsedMs": 1418,
+    "groups": [
+      {
+        "size": 20,
+        "className": "shaman",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 20,
+        "meanTeamOverhealPct": 15.5,
+        "minPlayerMana": 2286
+      },
+      {
+        "size": 20,
+        "className": "druid",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 20,
+        "meanTeamOverhealPct": 22.8,
+        "minPlayerMana": 6
+      },
+      {
+        "size": 20,
+        "className": "priest",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 19,
+        "meanTeamOverhealPct": 18.2,
+        "minPlayerMana": 65
+      },
+      {
+        "size": 20,
+        "className": "paladin",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 16,
+        "meanTeamOverhealPct": 17.9,
+        "minPlayerMana": 119
+      },
+      {
+        "size": 10,
+        "className": "shaman",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 10,
+        "meanTeamOverhealPct": 11.7,
+        "minPlayerMana": 2084
+      },
+      {
+        "size": 10,
+        "className": "druid",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 10,
+        "meanTeamOverhealPct": 21.6,
+        "minPlayerMana": 1521
+      },
+      {
+        "size": 10,
+        "className": "priest",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 9,
+        "meanTeamOverhealPct": 18.3,
+        "minPlayerMana": 85
+      },
+      {
+        "size": 10,
+        "className": "paladin",
+        "runs": 9,
+        "wins": 9,
+        "minSurvivors": 4,
+        "meanTeamOverhealPct": 20.7,
+        "minPlayerMana": 1290
+      }
+    ]
+  },
+  "browserChecks": {
+    "widths": [
+      1440,
+      390
+    ],
+    "layouts": [
+      "groups",
+      "columns",
+      "left"
+    ],
+    "playerClassInputs": [
+      "shaman",
+      "druid",
+      "paladin",
+      "priest"
+    ],
+    "raidSizes": [
+      10,
+      20
+    ],
+    "originalPracticeFrames": 5,
+    "groupSwapPersists": true,
+    "draftSizeDoesNotApplyUntilConfirmed": true,
+    "pageErrors": 0
+  }
+}
