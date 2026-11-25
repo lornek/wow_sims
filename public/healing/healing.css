@@ -748,3 +748,24 @@ body:has(#healing) { font-family:var(--ui); }
 @media(prefers-reduced-motion:reduce) { .party-damage-float, .party-damage-float.is-crit .damage-hit { animation:none; } .party-damage-float { transform:translate(-50%,0); } }
 
 .damage-text-lane.top-left .party-damage-float, .damage-text-lane.top-right .party-damage-float { top:45%; }
+
+/* Keep the paired Spirit/Innervate report readable on narrow screens. */
+@media (max-width:900px) {
+  .healing-score .mana-spirit-pair summary { flex-direction:column; align-items:stretch; background:none; }
+  .healing-score .mana-spirit-pair summary .mana-pair-heading {
+    display:grid; flex:none; grid-template-columns:minmax(0,1fr) auto;
+    align-items:center; gap:4px 8px; padding:5px 8px;
+    background:linear-gradient(90deg,var(--meter-color) var(--normal-share),#271a10 var(--normal-share));
+  }
+  .healing-score .mana-spirit-pair summary .mana-pair-heading[hidden] { display:none; }
+  .healing-score .mana-spirit-pair summary .mana-pair-heading + .mana-pair-heading {
+    background:linear-gradient(90deg,var(--innervate-color) calc(var(--share) - var(--normal-share)),#271a10 calc(var(--share) - var(--normal-share)));
+  }
+  .healing-score .mana-spirit-pair summary .mana-pair-heading > span:not(.meter-numbers) {
+    white-space:nowrap; overflow-wrap:normal;
+  }
+  .healing-score .mana-spirit-pair summary .mana-pair-heading > .meter-numbers { grid-column:2; grid-row:1; }
+  .healing-score .mana-spirit-pair summary .mana-pair-heading > .mana-gearing {
+    grid-column:1 / -1; grid-row:2; justify-self:end;
+  }
+}
