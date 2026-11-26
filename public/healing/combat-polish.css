@@ -246,3 +246,9 @@
  .healing.raid-mode .heal-frame>small{position:absolute;bottom:10px;left:0;right:0;white-space:nowrap}
  .healing.raid-mode .heal-frame .raid-auras{height:20px;min-height:20px;align-content:center}
 }
+
+/* Match the frame and resource trim; lift the whole frame off the battlefield. */
+.healing .heal-frame,.healing .heal-bar.party-resource{border-color:#e4ba5b}
+.healing .heal-frame{box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 4px 12px #000d}
+
+.healing.raid-mode .heal-frame[data-is-player]{box-shadow:inset 0 0 0 2px #ffe19a,0 4px 12px #000d}
