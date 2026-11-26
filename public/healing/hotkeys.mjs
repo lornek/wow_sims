@@ -46,7 +46,7 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast,cancel
     find('[data-settings-menu]').hidden = editing;
     for (const spell of spells) {
       spell.button.classList.toggle('hotkey-selected', editing && selected === spell.key);
-      spell.button.querySelector('.spell-shortcut').textContent = bindings[spell.key] ? hotkeyLabel(bindings[spell.key]) : spell.binding;
+      const shortcut=spell.button.querySelector('.spell-shortcut');shortcut.textContent=bindings[spell.key] ? hotkeyLabel(bindings[spell.key]) : spell.binding;shortcut.title=shortcut.textContent;
     }
     find('[data-cancel-binding]').textContent='Cancel cast: Esc / '+(cancelBinding?hotkeyLabel(cancelBinding):'Space');
     if (!panel.hidden) position();

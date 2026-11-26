@@ -120,14 +120,14 @@
 .healing .co-healer-button{font-size:.85rem;white-space:nowrap;padding-inline:4px}
 /* Palette and shallow depth from the user-authored Warcraft frame CSS showcase. */
 .healing .heal-frame{--frame-top:var(--class-light);--frame-bottom:var(--class-dark)}
-.healing .heal-frame[data-frame-class=warrior]{--frame-top:#bd8c58;--frame-bottom:#714d2d}
+.healing .heal-frame[data-frame-class=warrior]{--frame-top:#b78148;--frame-bottom:#684729}
 .healing .heal-frame[data-frame-class=paladin]{--frame-top:#f684b6;--frame-bottom:#b14777}
 .healing .heal-frame[data-frame-class=mage]{--frame-top:#58c4f6;--frame-bottom:#1c75bc}
-.healing .heal-frame[data-frame-class=druid]{--frame-top:#ff8c24;--frame-bottom:#b84a00}
+.healing .heal-frame[data-frame-class=druid]{--frame-top:#ff800d;--frame-bottom:#a94400}
 .healing .heal-frame[data-frame-class=priest]{--frame-top:#e8dfcb;--frame-bottom:#b8ab8c}
 .healing .heal-frame[data-frame-class=hunter]{--frame-top:#95d660;--frame-bottom:#51882e}
 .healing .heal-frame[data-frame-class=warlock]{--frame-top:#8a6fcf;--frame-bottom:#4f3888}
-.healing .heal-frame[data-frame-class=shaman]{--frame-top:#007efd;--frame-bottom:#0040a1}
+.healing .heal-frame[data-frame-class=shaman]{--frame-top:#0071e4;--frame-bottom:#003a91}
 .healing .heal-frame[data-frame-class=rogue]{--frame-top:#ddca5e;--frame-bottom:#8e7b24}
 .healing .heal-frame .unit-fill{background:linear-gradient(165deg,var(--frame-top) 0%,var(--unit) 52%,var(--frame-bottom) 100%)}
 .healing .heal-frame>strong,.healing .heal-frame>small{paint-order:stroke fill;-webkit-text-stroke:1px #211a16;text-shadow:0 2px 4px #000c,0 3px 6px #000a}
@@ -197,3 +197,19 @@
 .healing.raid-mode .unit-status .unit-aura{left:auto;right:calc(var(--aura-index,0) * clamp(0px,(100% - 23px) / var(--aura-gaps,1),26px));top:0}
 @media(max-width:760px){.healing.raid-mode .raid-aura{width:clamp(14px,4vw,20px);height:clamp(14px,4vw,20px)}.healing.raid-mode .heal-frame .raid-auras{left:1px;width:calc(50% - 1px);gap:1px;height:42px;min-height:42px}}
 .healing.raid-mode[data-raid-layout=left] .raid-aura{width:clamp(14px,calc((100% - 2px)/2),20px);height:auto;aspect-ratio:1}
+/* Spell cards wrap before their labels become tall, keeping the text inside the icon height. */
+@media(min-width:761px){
+ .healing .heal-spells{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+ .healing .heal-spells button{box-sizing:border-box;min-width:0;height:74px;min-height:74px;padding:8px;gap:10px;align-items:flex-start;overflow-wrap:normal}
+ .healing .heal-spells .spell-art{width:56px;height:56px;max-width:none;flex:none}
+ .healing .heal-spells .spell-art img{width:56px;height:56px;box-sizing:border-box;display:block}
+ .healing .heal-spells .spell-label{display:flex;flex-direction:column;justify-content:flex-start;min-width:0;flex:1;height:56px;font-size:.95rem;line-height:1.2}
+ .healing .heal-spells .spell-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;line-height:1.2;flex:none}
+ .healing .heal-spells .spell-details{display:flex;align-items:baseline;gap:5px;min-width:0;margin-top:2px;line-height:1.2}
+ .healing .heal-spells .spell-details small{display:block;font-size:.74rem;line-height:1.2;margin:0;min-height:0}
+ .healing .heal-spells .spell-shortcut{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .healing .heal-spells .spell-cooldown{flex:none;white-space:nowrap}
+}
+@media(max-width:760px){.healing .heal-spells{grid-template-columns:repeat(auto-fit,minmax(56px,1fr));gap:5px}}
+.healing .heal-frame .unit-you{font:inherit}
+.healing .heal-frame>strong,.healing .heal-frame>small,.healing .combat-damage .damage-breakdown>div,.healing .raid-aura small{paint-order:stroke fill;-webkit-text-stroke:1.1px #18110d;text-shadow:-.5px 1px 0 #18110d,.5px 1px 0 #18110d,0 1.5px 0 #18110d,0 3px 5px #000b}

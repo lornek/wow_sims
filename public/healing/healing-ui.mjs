@@ -110,6 +110,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const clamp = number => Math.min(1, Math.max(0, number));
   const fill = (element, fraction) => element.style.width = (100 * clamp(fraction)) + '%';
   const countdown = seconds => seconds >= 60 ? Math.ceil(seconds / 60) + 'm' : Math.ceil(seconds) + 's';
+  const hotbarCooldown=seconds=>{if(!seconds)return '';const minutes=Number((seconds/60).toFixed(1));return '('+(seconds>=60?minutes+(minutes===1?'min':'mins'):Math.ceil(seconds)+'sec')+')';};
   const sweep = (icon, fraction) => icon.style.setProperty('--cooldown-sweep', (100 * clamp(fraction)) + '%');
   let profile = buildProfile('Ungeared', new Set(), 0);
   const encounter = {party: [
@@ -186,12 +187,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     button.append(art);
     const label = document.createElement('span');
     label.className = 'spell-label';
-    label.textContent = name;
+    const spellName=document.createElement('span');spellName.className='spell-name';spellName.textContent=name;label.append(spellName);
     const shortcut = document.createElement('small');
     shortcut.className = 'spell-shortcut';
     shortcut.textContent = binding;
-    const cooldown = document.createElement('small');
-    label.append(shortcut, cooldown);
+    const cooldown = document.createElement('small');cooldown.className='spell-cooldown';const details=document.createElement('span');details.className='spell-details';details.append(shortcut,cooldown);label.append(details);
     button.append(label);
     const tooltip = attachGameTooltip(button, tip => {
       const {row} = spellEntries[index];
@@ -615,8 +615,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       button.classList.toggle('clearcasting-free', !!(profile.omen && spell?.omenEligible && spell.cost > 0 && s.clearcastingUntil > s.time));
       art.classList.toggle('low-mana', needsMana);
       timer.textContent = needsMana ? whole(Math.ceil(spell.cost - s.mana)) : remaining ? countdown(remaining) : gcd ? gcd.toFixed(1) : '';
-      cooldown.textContent = remaining ? 'Cooldown · ' + countdown(remaining) :
-        base ? countdown(base) + ' cooldown' : '';
+      cooldown.textContent = hotbarCooldown(remaining || base);
       button.setAttribute('aria-pressed', selected === index);
     });
     for (const input of customInputs) input.disabled = active;

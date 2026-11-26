@@ -1,11 +1,11 @@
 {
-  "warrior": "#956a42",
+  "warrior": "#89623d",
   "paladin": "#d96499",
   "mage": "#349cd9",
-  "druid": "#df6b0e",
+  "druid": "#cd620d",
   "priest": "#d8ccb1",
   "hunter": "#72af47",
   "rogue": "#c4ad32",
-  "shaman": "#085ec5",
+  "shaman": "#0755b1",
   "warlock": "#6b50ad"
 }
