@@ -1,0 +1,37 @@
+/* Shared frame and meter treatment; spell bars retain the five-player layout. */
+.healing .heal-frame{box-sizing:border-box;min-width:0;isolation:isolate;border-radius:5px;border:1px solid #a88a4d;box-shadow:inset 0 1px 0 #fff9,inset 1px 0 0 #fff3,inset 0 -3px 4px #0009,0 2px 4px #0006;background:linear-gradient(#ffffff29,transparent 35%,#0004 95%),#171414}
+.healing .heal-frame .unit-fill{background:linear-gradient(#ffffff55 0%,#ffffff18 16%,transparent 46%,#0004 95%),var(--unit);box-shadow:inset 0 1px 0 #fff7,inset 0 -3px 4px #0005;border-radius:4px 4px 2px 2px}
+.healing .heal-frame>strong{font-weight:800;line-height:1.35;text-shadow:0 2px 2px #000,0 0 6px #000c,0 3px 8px #000c;white-space:nowrap;min-height:22px}
+.healing .heal-frame .unit-role{width:22px;height:22px;object-fit:contain;vertical-align:middle;flex:none;filter:drop-shadow(0 2px 2px #0009)}
+.healing .heal-frame>small{white-space:nowrap;min-height:16px;line-height:16px;text-shadow:0 1px 3px #000,0 2px 6px #000b}
+.healing .heal-frame .unit-status{height:25px;min-height:25px;overflow:hidden}
+.healing .heal-frame .raid-auras{height:18px;min-height:18px;overflow:hidden}
+.healing .combat-damage{box-sizing:border-box;height:260px;max-height:260px;overflow:auto;scrollbar-gutter:stable;border-color:#ae8d45;box-shadow:inset 0 1px 0 #fff3,inset 0 -1px 4px #0008,0 3px 9px #0006;background:linear-gradient(#3d2f1d66,#100d09dd 20%),#100d09}
+.healing .combat-damage h3{min-height:20px;line-height:20px;text-shadow:0 2px 4px #000}
+.healing .combat-damage summary{min-height:22px;box-sizing:border-box;font-weight:700;line-height:1.4;border-radius:2px;box-shadow:inset 0 1px 0 #fff3,inset 0 -1px 1px #0008;background:linear-gradient(#ffffff26,transparent 50%,#0003),linear-gradient(90deg,var(--damage-class) var(--share),#241b13 var(--share));text-shadow:0 1px 2px #000,0 2px 5px #000b}
+.healing .combat-damage .damage-breakdown>div{min-height:22px;box-shadow:inset 0 1px 0 #fff1,inset 0 -1px 0 #0005}
+.healing .combat-damage [data-damage-meter]{max-height:none;overflow:visible}
+.healing:not(.raid-mode) .combat-healing{margin-top:7px;padding-top:5px;border-top:1px solid #9e7d3b}
+.healing.raid-mode .heal-stage>.combat-healing{grid-column:1;grid-row:2;justify-self:start;align-self:center;z-index:2;width:23ch;height:280px;max-height:280px}
+.healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing){height:280px;max-height:280px;width:23ch}
+.healing.raid-mode .heal-stage>.heal-boss{min-height:360px}
+.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{grid-column:2;grid-row:2}
+.healing.raid-mode .heal-frame{height:100px;min-height:100px}
+.healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-rows:repeat(var(--raid-column-rows,10),100px)}
+@media(max-width:760px){
+ .healing .heal-frame .unit-role{width:17px;height:17px}
+ .healing .heal-frame>strong{font-size:.78rem;text-shadow:0 1px 2px #000,0 2px 5px #000,0 4px 7px #000b}
+ .healing .combat-damage{height:260px;width:clamp(140px,38vw,180px)}
+ .healing.raid-mode .heal-stage,.healing.raid-mode[data-raid-layout=left] .heal-stage{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .healing.raid-mode .heal-stage>.heal-boss,.healing.raid-mode[data-raid-layout=left] .heal-stage>.heal-boss{grid-column:1 / -1;grid-row:2;min-height:355px}
+ .healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{grid-column:1;grid-row:3;width:100%;height:240px;max-height:240px;justify-self:stretch}
+ .healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing),.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-damage:not(.combat-healing){grid-column:2;grid-row:3;width:100%;height:240px;max-height:240px;justify-self:stretch}
+ .healing.raid-mode .heal-stage>.heal-party,.healing.raid-mode[data-raid-layout=left] .heal-stage>.heal-party{grid-column:1 / -1;grid-row:4}
+ .healing.raid-mode .heal-stage>.combat-sidebar,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-sidebar{grid-column:2;grid-row:1}
+ .healing.raid-mode .heal-frame{height:104px;min-height:104px}
+ .healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-rows:repeat(var(--raid-column-rows,10),104px)}
+ .healing .combat-damage .meter-numbers{grid-template-columns:6ch .5ch 6ch;column-gap:1px;font-size:.66rem}
+}
+.healing .heal-spells .spell-label>small:last-child{display:block;min-height:1.25em;line-height:1.25}
+.healing .heal-stage .cast-bar{height:28px;min-height:28px;box-sizing:border-box}
+.healing .heal-stage .cast-bar strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

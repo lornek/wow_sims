@@ -23,7 +23,7 @@ export function humanProfile(className, loadouts) {
     const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra + (buffs.has('mark') ? 16 : 0)) * multiplier * kings);
     const intellect = stat('intellect', buffs.has('intellect') ? 31 : 0, 1 + .02 * (rank('Mental Strength') + rank('Divine Intellect')));
     const spirit = stat('spirit', buffs.has('spirit') ? 40 : 0, 1.1);
-    const stamina = stat('stamina');
+    const stamina = stat('stamina',buffs.has('fortitude')?70:0);
     const gearPower = gear.power ?? 0;
     const talentPower = spirit * .05 * rank('Spiritual Guidance');
     const spiritRegenCoefficient = .125;

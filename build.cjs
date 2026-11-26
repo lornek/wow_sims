@@ -4,11 +4,13 @@ require('./scripts/sync-icon-purposes.cjs');
 require('./scripts/package-icon-library.cjs');
 const iconPurposes = require('./public/healing/custom-icons/icon-purposes.json');
 
+const classColors=JSON.parse(fs.readFileSync(path.join(__dirname,'public/healing/class-colors.json'),'utf8'));
+fs.writeFileSync(path.join(__dirname,'public/healing/class-colors.mjs'),'// Generated from class-colors.json by build.cjs.\nexport const classColors=Object.freeze('+JSON.stringify(classColors)+');\n');
 const classes = [
   ['Warrior', '#C79C6E'], ['Paladin', '#F58CBA'], ['Hunter', '#ABD473'],
   ['Rogue', '#FFF569'], ['Priest', '#FFFFFF'], ['Shaman', '#0070DE'],
   ['Mage', '#69CCF0'], ['Warlock', '#9482C9'], ['Druid', '#FF7D0A']
-];
+].map(([name,color])=>[name,classColors[name.toLowerCase()]??color]);
 
 const output = path.join(__dirname, 'dist');
 fs.cpSync(path.join(__dirname, 'public'), output, {recursive: true});

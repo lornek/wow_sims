@@ -29,7 +29,7 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   const intellect = stat('intellect', 100 + (buffs.has('intellect') ? 31 : 0), 1 + .02 * (talents['Heart of the Wild'] ?? 0));
   const livingSpirit = 1 + .05 * (talents['Living Spirit'] ?? 0);
   const spirit = stat('spirit', 110 + (buffs.has('spirit') ? 40 : 0), livingSpirit);
-  const stamina = stat('stamina', 69);
+  const stamina = stat('stamina', 69+(buffs.has('fortitude')?70:0));
   const gearPower = gear.power ?? 0;
   return {className:'druid', enchantEffects:equippedEnchantEffects(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...enchantPassiveModifiers(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
     spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),

@@ -1140,6 +1140,96 @@
         "path": "custom-icons/arcane-vitality/077-crystalline-arcane-lock.png"
       },
       "implemented": true
+    },
+    {
+      "key": "role-tank",
+      "purpose": "Tank role emblem",
+      "where": "Party and raid frames; all DPS use crossed swords.",
+      "status": "current",
+      "note": "Cropped from reference/ui/healbot_ui_ref_001.png, supplied by the user. Original screenshot and Blizzard UI artwork retain their original ownership.",
+      "options": [
+        {
+          "id": "report:role-tank-native",
+          "name": "Tank \u00b7 native",
+          "path": "report-icons/role-tank-native.png"
+        },
+        {
+          "id": "report:role-tank-portrait",
+          "name": "Tank \u00b7 portrait",
+          "path": "report-icons/role-tank-portrait.png"
+        },
+        {
+          "id": "ability:spell_holy_powerwordshield",
+          "name": "Tank \u00b7 classic ability",
+          "path": "icons/spell_holy_powerwordshield.jpg"
+        }
+      ],
+      "current": {
+        "id": "report:role-tank",
+        "name": "Tank role emblem",
+        "path": "report-icons/role-tank.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "role-healer",
+      "purpose": "Healer role emblem",
+      "where": "Party and raid frames; all DPS use crossed swords.",
+      "status": "current",
+      "note": "Cropped from reference/ui/healbot_ui_ref_001.png, supplied by the user. Original screenshot and Blizzard UI artwork retain their original ownership.",
+      "options": [
+        {
+          "id": "report:role-healer-native",
+          "name": "Healer \u00b7 native",
+          "path": "report-icons/role-healer-native.png"
+        },
+        {
+          "id": "report:role-healer-portrait",
+          "name": "Healer \u00b7 portrait",
+          "path": "report-icons/role-healer-portrait.png"
+        },
+        {
+          "id": "ability:spell_holy_flashheal",
+          "name": "Healer \u00b7 classic ability",
+          "path": "icons/spell_holy_flashheal.jpg"
+        }
+      ],
+      "current": {
+        "id": "report:role-healer",
+        "name": "Healer role emblem",
+        "path": "report-icons/role-healer.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "role-dps",
+      "purpose": "Dps role emblem",
+      "where": "Party and raid frames; all DPS use crossed swords.",
+      "status": "current",
+      "note": "Cropped from reference/ui/healbot_ui_ref_001.png, supplied by the user. Original screenshot and Blizzard UI artwork retain their original ownership.",
+      "options": [
+        {
+          "id": "report:role-dps-native",
+          "name": "Dps \u00b7 native",
+          "path": "report-icons/role-dps-native.png"
+        },
+        {
+          "id": "report:role-dps-portrait",
+          "name": "Dps \u00b7 portrait",
+          "path": "report-icons/role-dps-portrait.png"
+        },
+        {
+          "id": "ability:ability_meleedamage",
+          "name": "Dps \u00b7 classic ability",
+          "path": "icons/ability_meleedamage.jpg"
+        }
+      ],
+      "current": {
+        "id": "report:role-dps",
+        "name": "Dps role emblem",
+        "path": "report-icons/role-dps.png"
+      },
+      "implemented": true
     }
   ]
 }

@@ -42,3 +42,6 @@ Generated from `public/healing/custom-icons/icon-purposes.json` on every build. 
 | Enchant · Gloves casting haste | arcane-vitality-055 | custom-icons/arcane-vitality/055-spiraling-arcane-leaf.png |
 | Enchant · Boots Speed | arcane-vitality-100 | custom-icons/arcane-vitality/100-winged-spirit-renewal.png |
 | Enchant · Cloak Subtlety | arcane-vitality-077 | custom-icons/arcane-vitality/077-crystalline-arcane-lock.png |
+| Tank role emblem | report:role-tank | report-icons/role-tank.png |
+| Healer role emblem | report:role-healer | report-icons/role-healer.png |
+| Dps role emblem | report:role-dps | report-icons/role-dps.png |

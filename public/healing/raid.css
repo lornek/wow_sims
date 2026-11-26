@@ -5,9 +5,6 @@
 .healing.raid-mode .boss-crest{width:min(100%,250px)}
 .healing.raid-mode .heal-frame{min-height:68px;box-sizing:border-box}
 .healing.raid-mode .heal-frame[data-is-player]{box-shadow:inset 0 0 0 2px #ffe19a}
-.healing.raid-mode .heal-spells{grid-template-columns:repeat(auto-fit,minmax(56px,1fr))}
-.healing.raid-mode .heal-spells button{min-height:60px;display:flex;justify-content:center;padding:3px}
-.healing.raid-mode .heal-spells .spell-label{display:none}
 .healing.raid-mode .heal-frame .unit-status{min-height:16px}
 .healing.raid-mode .raid-auras{min-height:12px}
 @media(max-width:760px){.healing.raid-mode .heal-frame{min-height:76px}.healing.raid-mode .combat-damage{max-height:260px}.healing.raid-mode .combat-damage [data-damage-meter]{max-height:100px}.healing.raid-mode .boss-crest{width:min(100%,250px)}}

@@ -1,3 +1,4 @@
+import {raidDpsStats,advanceRaidDps} from './raid-dps.mjs';
 import {warriorGear} from './warrior-gear.mjs';
 
 export const encounters = {
@@ -24,7 +25,7 @@ export function bossArmor(state) {
   return Math.max(0, 3731 - stacks * sunderArmor);
 }
 
-export const combatants = {
+export const combatants = {...raidDpsStats,
   Cairne: {resource:'Rage', max:100, regen:0, ap:160 + 2 * warriorStrength + gearStat('ap'),
     crit:(warriorAgility * .05 + gearStat('critRating') / 14) / 100,
     hit:.94 + gearStat('hitRating') / 1000, expertise:gearStat('expertiseRating') / 1000,
@@ -48,7 +49,7 @@ function gain(unit, amount) {
 
 export function setupPartyCombat(party) {
   for (const unit of party) {
-    const stats = combatants[unit.combatantKey ?? unit.name];
+    const stats = unit.combatStats ?? combatants[unit.combatantKey ?? unit.name];
     if (!stats) continue;
     unit.resource = {type:stats.resource, max:stats.max, value:stats.resource === 'Rage' ? 0 : stats.max};
     unit.rotation = {action:0, swing:stats.swingInterval ?? stats.speed ?? Infinity, offSwing:stats.offSpeed ?? Infinity, cooldowns:{}, combo:0};
@@ -56,12 +57,13 @@ export function setupPartyCombat(party) {
   }
 }
 
-export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
+export function advancePartyCombat(state, dt, random, onDamage = () => {},onSelfDamage = () => {}) {
   const now = state.time;
   if (!(state.sunderUntil > now)) state.sunderStacks = 0;
   for (const unit of state.party) {
     if (!unit.hp || !unit.rotation || !state.boss) continue;
-    const stats = combatants[unit.combatantKey ?? unit.name];
+    const stats = unit.combatStats ?? combatants[unit.combatantKey ?? unit.name];
+    if(raidDpsStats[unit.spec]){advanceRaidDps(state,unit,dt,random,onDamage,bossArmor(state),onSelfDamage);continue;}
     const rotation = unit.rotation;
     gain(unit, stats.regen * dt * (rotation.adrenalineUntil > now ? 2 : 1));
     if (rotation.evocationUntil > now) gain(unit, unit.resource.max * .075 * dt);
@@ -83,7 +85,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {}) {
       const miss = 1 - stats.hit + (auto && stats.offHand ? .19 : 0) +
         (stats.expertise === undefined ? 0 : Math.max(0, .065 - stats.expertise));
       if (roll < miss) return false;
-      const crit = roll < miss + stats.crit + bonusCrit;
+      const crit = roll < miss + stats.crit + bonusCrit + (magic?(stats.spellCritBonus??0):0);
       const glance = !crit && auto && stats.resource !== 'Mana' && roll < miss + stats.crit + .4;
       const infused = magic && unit.powerInfusion?.expires > now;
       const damage = base * (1 - spread + 2 * spread * random()) *

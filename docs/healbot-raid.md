@@ -1,4 +1,6 @@
-# Healbot Raid v1
+# Healbot Raid
+
+The current refinement is documented in [healbot-raid-v2.md](healbot-raid-v2.md); the iteration evidence below records the original v1 baseline.
 
 Entry points: `/healbot-raid/` (Shaman), `/healbot-raid/druid/`, `/healbot-raid/paladin/`, `/healbot-raid/priest/` (Holy/Discipline links retain spec query). The existing `/healbot/` experience stays five-player. Raid encounter/buff/keybinding preferences use separate `.raid` settings; character gear and saved gear sets remain shared by class.
 
@@ -12,9 +14,9 @@ Companion equipment picks the nearest average item level among that class's exis
 
 ## Rules and boundaries
 
-Boss health is exactly 4× the selected encounter/difficulty health in 10m and 12× in 20m. The practice time limit is 2×/4× respectively. Existing damage patterns are expanded to the raid; this is invented raid practice scaling, not a claim to reproduce authentic 10/20-player bosses. Party-limited Prayer of Healing, Holy Nova, Tranquility, Light's Vigil and totems use the caster's five-player group; Wild Growth picks up to five wounded raid members. Chain Heal retains its three-target raid bounce model.
+Boss health is exactly 4× the selected encounter/difficulty health in 10m and 12× in 20m. The practice time limit is 2×/4× respectively. Existing damage patterns are expanded to the raid; this is invented raid practice scaling, not a claim to reproduce authentic 10/20-player bosses. Wild Growth, Prayer of Healing, Chain Heal, Healing Stream and Light's Vigil use the selected target's five-player group. Prayer of Mending can bounce raid-wide. Holy Nova, Tranquility and mana totems retain their five-player group scope.
 
-DPS members reuse the tested Warrior/Rogue/Hunter/Mage combat templates under curated Warcraft hero names; DPS Shamans currently use a caster proxy, with modeled Mana Spring (20 mana per two seconds to grouped healer actors). These are not complete class-specific DPS rotations. Companion shields credit their caster's effective healing. One simultaneous AoE pulse can trigger each companion Mending aura only once. Healer death stops their subsequent actions. Raid outcome currently follows player death/boss death/time limit, as in original Healbot.
+DPS members now include ten additional distinct, reduced Forever-source rotations under curated Warcraft hero names; see the v2 notes and pinned data manifest for their boundaries. Mana Spring supplies grouped healer actors without double-stacking with another Spring. Companion shields credit their caster's effective healing. One simultaneous AoE pulse can trigger each companion Mending aura only once. Healer death stops their subsequent actions. Raid outcome currently follows player death/boss death/time limit, as in original Healbot.
 
 ## Iteration evidence
 
