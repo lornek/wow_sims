@@ -83,11 +83,22 @@ export function chooseHeal(actor,party,incoming){
  if(injured.length>=3){for(const key of ['chain','growth']){const sp=spells[key];if(!sp)continue;const total=estimate(key)*(key==='chain'?1+(sp.falloff??.5)+(sp.falloff??.5)**2:5*Math.floor(sp.duration/sp.period));if(!emergency&&groupDeficit<total*(.65+.2*conservation))continue;if(injured.filter(t=>t.unit.group===target.unit.group).length<3)continue;const choice=cast(key,target.unit);if(choice)return choice;}}
  for(const key of ['riptide','rejuvenation','renew'])if(can(key)&&target.deficit>Math.max(key==='rejuvenation'?650:500,estimate(key)*Math.floor(spells[key].duration/(spells[key].period||spells[key].duration))*(.35+.35*conservation))&&!s.effects.some(e=>e.key===key&&e.target===target.unit))return cast(key,target.unit);
  const keys=emergency?['shock','flash','lesser','regrowth','greater','holyLight','wave','touch','heal']:['holyLight','greater','wave','touch','heal','lesser','flash','regrowth'];
- // Rank max-level choices by useful healing/mana, allowing for crit refunds.
- if(!emergency)keys.sort((a,b)=>{const score=k=>{const sp=spells[k];if(!sp)return -1;const expected=estimate(k);if(target.deficit<expected*fit)return -1;return Math.min(expected,target.deficit)/Math.max(1,sp.cost*(1-(sp.illumination??0)*(actor.profile.crit??0)));};return score(b)-score(a);});
- for(const key of keys){if(!can(key))continue;const expected=estimate(key);
-  if(emergency||target.deficit>=expected*fit)return cast(key,target.unit);
+ // Include Holy Binding only when the caster can use the copied healing.
+ const usefulHealing=(key,expected)=>{
+  const copy=target.unit!==unit?Math.min(need(unit),expected*(spells[key].selfCopy??0)):0;
+  return Math.min(expected,target.deficit)+copy;
+ };
+ const fits=(key,expected)=>usefulHealing(key,expected)>=expected*fit;
+ if(!emergency){
+  const score=key=>{
+   if(!can(key))return -1;
+   const sp=spells[key],expected=estimate(key);
+   if(!fits(key,expected))return -1;
+   return usefulHealing(key,expected)/Math.max(1,sp.cost*(1-(sp.illumination??0)*(actor.profile.crit??0)));
+  };
+  keys.sort((a,b)=>score(b)-score(a));
  }
+ for(const key of keys)if(can(key)&&(emergency||fits(key,estimate(key))))return cast(key,target.unit);
  return null;
 }
 export function createRaidPull(profile,spells,encounter,random,onHeal,onDamage,onSpell,adapters,average,enabledBuffs=new Set(['mageblood'])){
