@@ -59,7 +59,7 @@ function mount(healer, config) {
     else link.removeAttribute('aria-current');
   }
   document.title = (isRaid?'Healbot Raid · ':'Healbot · ') + (healer === 'priest' ? (spec === 'holy' ? 'Holy Priest' : 'Discipline Priest') : title.split(' ').at(-1));
-  unmount = mountHealing({...config,...(isRaid?{raid:raidConfig,raidAdapters}:{})});
+  unmount = mountHealing({...config,...(isRaid?{raid:raidConfig,raidAdapters,onRaidChange:next=>{raidConfig=raidSettings(next);queueMicrotask(()=>mount(healer,config));}}:{})});
 }
 
 async function navigate(healer, destination) {

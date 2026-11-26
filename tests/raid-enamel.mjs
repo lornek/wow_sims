@@ -25,7 +25,7 @@ test('Fire mages cast fire on every boss; both rogue profiles deal poison damage
 });
 test('preset-derived health differs by spec and difficulty tuning never changes party HP',()=>{
  const roster=raidRoster(raidSettings({healers:[{className:'none'},{className:'none'},{className:'none'}]}),{name:'Player',max:4000});assert.ok(new Set(roster.slice(0,-1).map(u=>u.max)).size>=10);
- assert.equal(combatantVitals('shadow').max,2337);assert.equal(combatantVitals('Cairne').max,4179);
+ assert.equal(combatantVitals('shadow').max,2337);assert.equal(combatantVitals('Cairne').max,5018);
  const before=roster.map(u=>u.max);for(let level=0;level<5;level++)encounterTuning(encounters.rend,level,20);assert.deepEqual(roster.map(u=>u.max),before);
  assert.equal(encounters.rend.health,42000);assert.equal(encounters.patchwerk.health,45000);assert.equal(encounters.sapphiron.health,45000);
  assert.ok(encounterTuning(encounters.rend,3,20).swing>encounterTuning(encounters.rend,3,5).swing*2.4);

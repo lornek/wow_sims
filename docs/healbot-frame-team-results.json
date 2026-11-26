@@ -1,0 +1,159 @@
+{
+  "standard": {
+    "runs": 90,
+    "outcomes": {
+      "won": 90
+    },
+    "summaries": [
+      {
+        "size": 5,
+        "spec": "druid",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 20.4
+      },
+      {
+        "size": 5,
+        "spec": "shaman",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 5.8
+      },
+      {
+        "size": 5,
+        "spec": "paladin",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 13.3
+      },
+      {
+        "size": 5,
+        "spec": "discipline",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 24.2
+      },
+      {
+        "size": 5,
+        "spec": "holy",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 35.1
+      },
+      {
+        "size": 20,
+        "spec": "druid",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 31.5
+      },
+      {
+        "size": 20,
+        "spec": "shaman",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 23.7
+      },
+      {
+        "size": 20,
+        "spec": "paladin",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 22.3
+      },
+      {
+        "size": 20,
+        "spec": "discipline",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 26.6
+      },
+      {
+        "size": 20,
+        "spec": "holy",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 32.3
+      }
+    ]
+  },
+  "legendary": {
+    "runs": 90,
+    "outcomes": {
+      "won": 58,
+      "lost": 32
+    },
+    "summaries": [
+      {
+        "size": 5,
+        "spec": "druid",
+        "runs": 9,
+        "completed": 9,
+        "meanOverhealPct": 11.7
+      },
+      {
+        "size": 5,
+        "spec": "shaman",
+        "runs": 9,
+        "completed": 6,
+        "meanOverhealPct": 3.9
+      },
+      {
+        "size": 5,
+        "spec": "paladin",
+        "runs": 9,
+        "completed": 6,
+        "meanOverhealPct": 4.3
+      },
+      {
+        "size": 5,
+        "spec": "discipline",
+        "runs": 9,
+        "completed": 7,
+        "meanOverhealPct": 10.9
+      },
+      {
+        "size": 5,
+        "spec": "holy",
+        "runs": 9,
+        "completed": 8,
+        "meanOverhealPct": 20.4
+      },
+      {
+        "size": 20,
+        "spec": "druid",
+        "runs": 9,
+        "completed": 5,
+        "meanOverhealPct": 17.3
+      },
+      {
+        "size": 20,
+        "spec": "shaman",
+        "runs": 9,
+        "completed": 6,
+        "meanOverhealPct": 11.4
+      },
+      {
+        "size": 20,
+        "spec": "paladin",
+        "runs": 9,
+        "completed": 3,
+        "meanOverhealPct": 11.6
+      },
+      {
+        "size": 20,
+        "spec": "discipline",
+        "runs": 9,
+        "completed": 3,
+        "meanOverhealPct": 13.8
+      },
+      {
+        "size": 20,
+        "spec": "holy",
+        "runs": 9,
+        "completed": 5,
+        "meanOverhealPct": 15.2
+      }
+    ]
+  }
+}

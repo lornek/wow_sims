@@ -16,7 +16,7 @@ export const spellSounds = Object.freeze({
  'Rejuvenation':{landing:[569594]},
  'Abolish Poison':{landing:[569632]},
  'Swiftmend':{landing:[568917]},
- 'Wild Growth':{landing:[569008]},
+ 'Wild Growth':{casting:nature,landing:[569008,568917]},
  'Tranquility':{casting:nature,channel:nature,landing:[568379,569376]},
  'Innervate':{landing:[568917]},
  'Flash Heal':{casting:holy,landing:[569419]},

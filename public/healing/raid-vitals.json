@@ -3,10 +3,22 @@
   "databaseSha256": "f99e3e06a1bd0927527268bc906d35e532d815092a0508471c694f5948ace09c",
   "profiles": {
     "Cairne": {
+      "healthMultiplier": 1.05,
+      "enchantEffects": [
+        1503,
+        1503,
+        1892,
+        1886,
+        929,
+        7663
+      ],
+      "enchantStamina": 38,
+      "enchantHealth": 200,
+      "racialStamina": 2,
       "className": "warrior",
       "baseHealth": 1689,
-      "stamina": 269,
-      "gearHealth": 0,
+      "stamina": 309,
+      "gearHealth": 200,
       "source": "ui/specs/warrior/protection/gear_sets/prebis_balanced.gear.json",
       "items": [
         12640,
@@ -30,6 +42,11 @@
       "unresolved": []
     },
     "fury": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "warrior",
       "baseHealth": 1689,
       "stamina": 175,
@@ -57,10 +74,22 @@
       "unresolved": []
     },
     "protectionPaladin": {
+      "healthMultiplier": 1,
+      "enchantEffects": [
+        1503,
+        1503,
+        1892,
+        1886,
+        929,
+        7663
+      ],
+      "enchantStamina": 38,
+      "enchantHealth": 200,
+      "racialStamina": 0,
       "className": "paladin",
       "baseHealth": 1381,
-      "stamina": 254,
-      "gearHealth": 0,
+      "stamina": 292,
+      "gearHealth": 200,
       "source": "ui/specs/paladin/protection/gear_sets/default.gear.siml",
       "items": [
         250599,
@@ -85,6 +114,11 @@
       ]
     },
     "retribution": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "paladin",
       "baseHealth": 1381,
       "stamina": 182,
@@ -111,6 +145,11 @@
       "unresolved": []
     },
     "Sylvanas": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "hunter",
       "baseHealth": 1467,
       "stamina": 148,
@@ -137,6 +176,11 @@
       "unresolved": []
     },
     "Jaina": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "mage",
       "baseHealth": 1370,
       "stamina": 136,
@@ -163,6 +207,11 @@
       "unresolved": []
     },
     "Illidan": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "rogue",
       "baseHealth": 1523,
       "stamina": 189,
@@ -190,6 +239,11 @@
       "unresolved": []
     },
     "mutilate": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "rogue",
       "baseHealth": 1523,
       "stamina": 185,
@@ -217,6 +271,11 @@
       "unresolved": []
     },
     "enhancement": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "shaman",
       "baseHealth": 1280,
       "stamina": 205,
@@ -243,6 +302,11 @@
       "unresolved": []
     },
     "elemental": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "shaman",
       "baseHealth": 1280,
       "stamina": 206,
@@ -269,6 +333,11 @@
       "unresolved": []
     },
     "shadow": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "priest",
       "baseHealth": 1397,
       "stamina": 114,
@@ -295,6 +364,11 @@
       "unresolved": []
     },
     "balance": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "druid",
       "baseHealth": 1483,
       "stamina": 189,
@@ -321,6 +395,11 @@
       "unresolved": []
     },
     "affliction": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "warlock",
       "baseHealth": 1414,
       "stamina": 150,
@@ -348,6 +427,11 @@
       "unresolved": []
     },
     "destruction": {
+      "healthMultiplier": 1,
+      "enchantEffects": [],
+      "enchantStamina": 0,
+      "enchantHealth": 0,
+      "racialStamina": 0,
       "className": "warlock",
       "baseHealth": 1414,
       "stamina": 121,

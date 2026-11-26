@@ -60,7 +60,7 @@ const damageIcons = {...raidDpsIcons,
 
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
-  configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison', raid=null, raidAdapters=null}) {
+  configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison', raid=null, raidAdapters=null,onRaidChange}) {
   utility={...utility};if(raid)for(const key of ['growth','prayer','stream'])delete utility[key];
   healerColor=classColors[className]??healerColor;
   slots = [...slots, ['darkRune', 'Dark Rune', 'Activate']];
@@ -116,9 +116,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       {name: 'Illidan', role: 'Damage', max: 2450, dps: 92, color:classColors.rogue},
       {name: 'Sylvanas', role: 'Damage', max: 2350, dps: 86, color:classColors.hunter},
       {name: 'Jaina', role: 'Damage', max: 2200, dps: 86, color:classColors.mage},
-      {name: healer, className,spec:className==='priest'?priestSpec:className, role: 'Healer', max: profile.health, dps: 0, color: healerColor}
+      {name: healer+' (You)', className,spec:className==='priest'?priestSpec:className, role: 'Healer', max: profile.health, dps: 0, color: healerColor}
     ]};
-  if(raid){encounter.party=raidRoster(raid,encounter.party.at(-1));raidSetup=mountRaidSetup(root,raid,encounter.party.at(-1));}
+  if(raid){encounter.party=raidRoster(raid,encounter.party.at(-1));raidSetup=mountRaidSetup(root,raid,encounter.party.at(-1),{onApply:onRaidChange});}
   let currentEncounter = encounter;
   const difficulty = find('[data-difficulty]');
   const encounterSelect = find('[data-encounter]');
@@ -292,9 +292,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     frame.dataset.partyIndex = String(index);
     frame.type = 'button';
     frame.className = 'heal-frame';
-    frame.style.setProperty('--unit', unit.color);classShades(frame,unit.color);
+    frame.dataset.frameClass=unit.className??({Cairne:'warrior',Illidan:'rogue',Sylvanas:'hunter',Jaina:'mage'})[unit.name]??className;frame.style.setProperty('--unit', unit.color);classShades(frame,unit.color);
     if (!frame.firstElementChild) frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
       '<strong><img class="unit-role" src="'+new URL('./'+purposeIconPath('role-'+(unit.role==='Tank'?'tank':unit.role==='Healer'?'healer':'dps')),import.meta.url)+'" alt="'+unit.role+'" width="22" height="22"><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
+    if(index===encounter.party.length-1){frame.dataset.isPlayer='true';if(!frame.querySelector('.unit-you')){const tag=document.createElement('span');tag.className='unit-you';tag.textContent='(You)';frame.querySelector('strong').append(tag);}}
     let resource;
     if (combatants[unit.combatantKey ?? unit.name]) {
       const track = document.createElement('span');
@@ -503,7 +504,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       fill(frame.fill, unit.hp / unit.max);
       frame.incoming.style.left = (100 * unit.hp / unit.max) + '%';
       fill(frame.incoming, incoming[i] / unit.max);
-      frame.label.textContent = unit.name + (currentEncounter.id === 'patchwerk' && i === 1 ? ' · Off-tank' : '');
+      frame.label.textContent = unit.name.replace(/ \(You\)$/,'') + (currentEncounter.id === 'patchwerk' && i === 1 ? ' · Off-tank' : '');
       if (frame.resource && unit.resource) {
         fill(frame.resource, unit.resource.value / unit.resource.max);
         setGameTooltip(frame.resource.parentElement, unit.resource.type, [whole(unit.resource.value) + ' / ' + unit.resource.max]);
@@ -1482,6 +1483,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   hotkeys = mountHotkeys({root, storageKey:settingsKey, spells:spellButtons,
     isAvailable:key => !!currentSpells?.[key],
+    cancelCast:()=>{pendingTargetSpell=null;pull.cancelCast();soundscape.syncCast(null);render();},
     targetFor:(key,index) => utility[key] ? encounter.party.length - 1 : index,
     cast:(key,index) => { pendingTargetSpell = null; pull.cast(key,index); render(); }});
   damageText = mountDamageText(find('.boss-crest'), damageIcons);

@@ -54,5 +54,7 @@ export const healingColors = {
   mending: '#285c42', bloom: '#3b7948', vigil: '#316c4c'
 };
 export function reportManaVisual(name) {
+  if(name.startsWith('Mana Tide'))return manaVisuals['Mana Tide Totem'];
+  if(name.startsWith('Mana Spring'))return manaVisuals['Mana Spring Totem'];
   return manaVisuals[name] ?? [purposeIconPath('gained'), '#3d669e'];
 }

@@ -21,7 +21,12 @@ paths={'Cairne':('warrior',1689,110,'warrior/protection/gear_sets/prebis_balance
 out={}
 for spec,(cls,hp,sta,path)in paths.items():
  it=items(path);gear=sum(i.get('scalingOptions',{}).get('0',{}).get('stats',{}).get('2',0)for i in it);health=sum(i.get('scalingOptions',{}).get('0',{}).get('stats',{}).get('29',0)for i in it)
- out[spec]={'className':cls,'baseHealth':hp,'stamina':sta+gear,'gearHealth':health,'source':'ui/specs/'+path,'items':[i['id'] for i in it if i['id']],'unresolved':[i['name'] for i in it if i.get('unresolved')]}
+ enchantStamina=38 if spec in ['Cairne','protectionPaladin'] else 0
+ enchantHealth=200 if enchantStamina else 0
+ racialStamina=2 if spec=='Cairne' else 0
+ healthMultiplier=1.05 if spec=='Cairne' else 1
+ health+=enchantHealth
+ out[spec]={'healthMultiplier':healthMultiplier,'enchantEffects':[1503,1503,1892,1886,929,7663] if enchantStamina else [],'enchantStamina':enchantStamina,'enchantHealth':enchantHealth,'racialStamina':racialStamina,'className':cls,'baseHealth':hp,'stamina':sta+gear+enchantStamina+racialStamina,'gearHealth':health,'source':'ui/specs/'+path,'items':[i['id'] for i in it if i['id']],'unresolved':[i['name'] for i in it if i.get('unresolved')]}
  print(spec,len(it),'sta',sta+gear,'hp',hp+max(0,sta+gear-20)*10+health,'unresolved',[i['name'] for i in it if i.get('unresolved')])
 (r/'public/healing/raid-vitals.json').write_text(json.dumps({'revision':'6fdf2180b86b67b2589b43294308e90194240f5c','databaseSha256':hashlib.sha256(pathlib.Path(args.database).read_bytes()).hexdigest(),'profiles':out},indent=2)+'\n')
-(r/'public/healing/raid-vitals.mjs').write_text('// Item Stamina from WoWSims preset equipment; provenance in raid-vitals.json.\nexport const raidVitals='+json.dumps(out,separators=(',',':'))+';\nexport function combatantVitals(spec){const p=raidVitals[spec];return p?{stamina:p.stamina,max:p.baseHealth+Math.max(0,p.stamina-20)*10+p.gearHealth}:{};}\n')
+(r/'public/healing/raid-vitals.mjs').write_text('// Item Stamina from WoWSims preset equipment; provenance in raid-vitals.json.\nexport const raidVitals='+json.dumps(out,separators=(',',':'))+';\nexport function combatantVitals(spec){const p=raidVitals[spec];return p?{stamina:p.stamina,healthMultiplier:p.healthMultiplier??1,max:Math.round((p.baseHealth+Math.max(0,p.stamina-20)*10+p.gearHealth)*(p.healthMultiplier??1))}:{};}\n')

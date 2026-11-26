@@ -43,10 +43,15 @@ export function chooseHeal(actor,party,incoming){
  // PI is useful before damage starts; subsequent uses follow measured caster output.
  if(can('pi')){const casters=party.filter(u=>u.hp&&u.role==='Damage'&&['mage','priest','warlock','druid','shaman'].includes(u.className)&&(u.className!=='shaman'||u.spec==='elemental'));const output=u=>Object.values(u.damage??{}).reduce((n,m)=>n+m.total,0);const recipient=s.time<5?casters.find(u=>u.className==='mage'):casters.sort((a,b)=>output(b)-output(a))[0];if(recipient)return cast('pi',recipient);}
  if(s.gcd>s.time)return null;
- if(s.mana<actor.profile.mana*.28){for(const key of ['innervate','tide','focus','potion',...(unit.hp>1000?['darkRune']:[])]){const choice=cast(key);if(choice)return choice;}}
+ if(s.mana<actor.profile.mana*.28){for(const key of ['innervate','tide',...(!spells.prayer?['focus']:[]),'potion',...(unit.hp>1000?['darkRune']:[])]){const choice=cast(key);if(choice)return choice;}}
  if(spells.waterShield&&(!s.waterShield?.charges||s.waterShield.expires<=s.time)){const choice=cast('waterShield');if(choice)return choice;}
- const candidates=party.filter(u=>u.hp&&(focus==='tanks'?u.role==='Tank'||u===unit&&u.hp/u.max<.4:focus==='group'?u.group===unit.group:true));
- const targets=candidates.map(u=>({unit:u,deficit:Math.max(0,u.max-u.hp-(incoming[party.indexOf(u)]??0))})).sort((a,b)=>(b.deficit/b.unit.max+(b.unit.role==='Tank'?.12:0)+(b.unit===unit&&unit.hp/unit.max<.25?.5:0))-(a.deficit/a.unit.max+(a.unit.role==='Tank'?.12:0)+(a.unit===unit&&unit.hp/unit.max<.25?.5:0)));
+ const estimate=key=>{const sp=spells[key];if(!sp)return 0;return ((sp.low+sp.high)/2+(sp.coefficient??0)*actor.profile.power)*(sp.multiplier??1)*(1+.5*((actor.profile.crit??0)+(sp.bonusCrit??0)));};
+ const tankHealThreshold=Math.max(300,.85*estimate(['flash','lesser','penance','regrowth','touch'].find(key=>spells[key])));
+ const alive=party.filter(u=>u.hp),need=u=>Math.max(0,u.max-u.hp-(incoming[party.indexOf(u)]??0));
+ // A tank assignment is a priority, not an exclusion of the rest of the raid.
+ const candidates=alive.filter(u=>focus!=='group'||u.group===unit.group);
+ if(can('oath')&&(!(s.oath?.expires>s.time)||!s.oath.target.hp)){const tank=alive.find(u=>u.role==='Tank');if(tank)return cast('oath',tank);}
+ const targets=candidates.map(u=>({unit:u,deficit:Math.max(0,u.max-u.hp-(incoming[party.indexOf(u)]??0))})).sort((a,b)=>(b.deficit/b.unit.max+(b.unit.role==='Tank'?(focus==='tanks'&&b.deficit>=tankHealThreshold?.45:.12):0)+(b.unit===unit&&unit.hp/unit.max<.25?.5:0))-(a.deficit/a.unit.max+(a.unit.role==='Tank'?(focus==='tanks'&&a.deficit>=tankHealThreshold?.45:.12):0)+(a.unit===unit&&unit.hp/unit.max<.25?.5:0)));
  const target=targets[0];if(!target)return null;
  const injured=targets.filter(t=>t.deficit>t.unit.max*.2);
  const dispel=candidates.find(u=>u.poison>s.time);
@@ -55,19 +60,20 @@ export function chooseHeal(actor,party,incoming){
  if(can('stream')&&groupHurt>=2&&!s.effects.some(e=>['stream','tide'].includes(e.key)))return cast('stream',target.unit);
  if(can('spring')&&!injured.length&&!s.effects.some(e=>e.waterTotem))return cast('spring');
  if(target.deficit<Math.max(220,target.unit.max*.08))return null;
- const estimate=key=>{const sp=spells[key];if(!sp)return 0;return ((sp.low+sp.high)/2+(sp.coefficient??0)*actor.profile.power)*(sp.multiplier??1)*(1+.5*((actor.profile.crit??0)+(sp.bonusCrit??0)));};
- if(can('oath')&&target.unit.role==='Tank'&&(!(s.oath?.expires>s.time)||!s.oath.target.hp)&&target.deficit>500)return cast('oath',target.unit);
+
  // Vigil's mark primes Holy Shock: use the pair only when its group heal is useful.
  if(can('shock')&&s.vigil?.expires>s.time){const marked=s.vigil.target;const hurt=party.filter(u=>u.hp&&u.group===marked.group&&u.max-u.hp>300);if(hurt.length>=2||marked.max-marked.hp>estimate('shock')*.85)return cast('shock',marked);}
- if(can('vigil')&&can('shock')&&groupHurt>=3&&!(s.vigil?.expires>s.time))return cast('vigil',target.unit);
- if(can('mending')&&!s.mending&&groupHurt>=2)return cast('mending',target.unit);
+ if(can('vigil')&&can('shock')&&groupHurt>=4&&party.filter(u=>u.hp&&u.group===target.unit.group).reduce((n,u)=>n+need(u),0)>estimate('vigil')*3.5&&!(s.vigil?.expires>s.time))return cast('vigil',target.unit);
+ if(can('mending')&&party.some(u=>u.hp&&need(u)>180))return cast('mending',target.unit);
  if(can('swiftmend')&&target.unit.hp/target.unit.max<.5&&s.effects.some(e=>['regrowth','rejuvenation'].includes(e.key)&&e.target===target.unit))return cast('swiftmend',target.unit);
  if(can('shock')&&target.deficit>estimate('shock')*.85)return cast('shock',target.unit);
  if(can('penance')&&target.deficit>650)return cast('penance',target.unit);
  if(can('tranquility')&&ownGroupHurt>=3)return cast('tranquility',unit);
  if(can('favor')&&target.deficit>1400&&!(s.divineFavor>s.time))return cast('favor');
  if(can('shield')&&target.unit.hp/target.unit.max<.55&&!(target.unit.weakened>s.time))return cast('shield',target.unit);
- if(injured.length>=3){for(const key of ['chain','growth','prayer']){if(injured.filter(t=>t.unit.group===target.unit.group).length<3)continue;const choice=cast(key,target.unit);if(choice)return choice;}}
+ const groupDeficit=party.filter(u=>u.hp&&u.group===target.unit.group).reduce((n,u)=>n+need(u),0);
+ if(can('prayer')&&groupHurt>=3&&groupDeficit>estimate('prayer')*3){if(s.innerFocus>s.time)return cast('prayer',target.unit);if(can('focus'))return cast('focus');}
+ if(injured.length>=3){for(const key of ['chain','growth']){if(injured.filter(t=>t.unit.group===target.unit.group).length<3)continue;const choice=cast(key,target.unit);if(choice)return choice;}}
  for(const key of ['riptide','rejuvenation','renew'])if(can(key)&&target.deficit>(key==='rejuvenation'?650:500)&&!s.effects.some(e=>e.key===key&&e.target===target.unit))return cast(key,target.unit);
  const emergency=target.unit.hp/target.unit.max<.4;
  const keys=emergency?['shock','flash','lesser','regrowth','greater','holyLight','touch']:['holyLight','greater','touch','lesser','flash','regrowth'];
@@ -101,6 +107,6 @@ export function createRaidPull(profile,spells,encounter,random,onHeal,onDamage,o
  }};
 }
 
-export function raidMemberMax(unit,buffs){const base=unit.stamina??180,bonus=(buffs.has('fortitude')?70:0)+(buffs.has('mark')?16:0),stamina=Math.floor((base+bonus)*(buffs.has('kings')?1.1:1));return unit.max+(stamina-base)*10;}
+export function raidMemberMax(unit,buffs){const base=unit.stamina??180,bonus=(buffs.has('fortitude')?70:0)+(buffs.has('mark')?16:0),stamina=Math.floor((base+bonus)*(buffs.has('kings')?1.1:1));return Math.round(unit.max+(stamina-base)*10*(unit.healthMultiplier??1));}
 
 export const raidSpecLabels={fury:'Fury Warrior',mutilate:'Mutilate Rogue',enhancement:'Enhancement Shaman',elemental:'Elemental Shaman',balance:'Balance Druid',shadow:'Shadow Priest',affliction:'Affliction Warlock',destruction:'Destruction Warlock',retribution:'Retribution Paladin',protectionPaladin:'Protection Paladin',Cairne:'Protection Warrior',Illidan:'Combat Rogue',Sylvanas:'Hunter',Jaina:'Mage'};
