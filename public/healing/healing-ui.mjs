@@ -97,7 +97,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const root = document.querySelector('#healing');
   root.dataset.healerClass = className;
   let raidSetup,raidHud,combatHealing;
-  if(raid){root.classList.add('raid-mode');root.dataset.raidLayout=raid.layout;root.style.setProperty('--raid-column-rows',raid.size/2);findRaidFrames();}
+  if(raid){root.classList.add('raid-mode');root.dataset.raidLayout=raid.layout;root.style.setProperty('--raid-bottom-columns',raid.size/2);findRaidFrames();}
   function findRaidFrames(){root.querySelector('.heal-party').replaceChildren();}
 
   for (const image of root.querySelectorAll('[data-purpose-icon]')) image.src = new URL('./' + purposeIconPath(image.dataset.purposeIcon), import.meta.url);
