@@ -1,2 +1,2 @@
 // Generated from class-colors.json by build.cjs.
-export const classColors=Object.freeze({"warrior":"#99603c","paladin":"#e77cae","mage":"#36bce5","druid":"#d8670b","priest":"#e8e4db","hunter":"#88bf46","rogue":"#f4dc43","shaman":"#2955c8","warlock":"#7440b5"});
+export const classColors=Object.freeze({"warrior":"#a17650","paladin":"#cc83a4","mage":"#3db7da","druid":"#e97c17","priest":"#d8ccb1","hunter":"#91b94a","rogue":"#f0d947","shaman":"#2955c8","warlock":"#8052b5"});

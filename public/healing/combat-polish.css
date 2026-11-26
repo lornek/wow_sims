@@ -87,3 +87,34 @@
  .healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{grid-row:3;width:calc(50% - 5px);max-width:330px;align-self:start}
  .healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-damage:not(.combat-healing){grid-row:3;width:calc(50% - 5px);max-width:330px;align-self:start}
 }
+/* Flat enamel faces with a narrow, directional bevel at the edges. */
+.healing .heal-frame{border-radius:3px;border-color:#9c8250;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 3px 5px -2px #0008;background:#1b1713;overflow:hidden}
+.healing .heal-frame .unit-fill{border-radius:2px;background:linear-gradient(var(--class-light) 0 2px,var(--unit) 2px, color-mix(in srgb,var(--unit) 92%,var(--class-dark)) calc(100% - 3px),var(--class-dark) calc(100% - 3px));box-shadow:inset 1px 0 0 var(--class-light),inset -1px 0 0 var(--class-dark)}
+.healing .heal-frame>strong,.healing .heal-frame>small{overflow:visible;text-shadow:0 2px 3px #000b,0 3px 5px #0007}
+.healing .heal-frame>strong{line-height:1.6;min-height:26px;padding-inline:2px}
+.healing .heal-party{padding:3px 3px 6px;margin-inline:-3px;box-sizing:border-box;overflow:visible}
+.healing .combat-damage summary{box-shadow:inset 0 1px 0 var(--class-light),inset 0 -1px 0 var(--class-dark);background:linear-gradient(90deg,transparent var(--share),#211a12 var(--share)),linear-gradient(var(--class-light) 0 1px,var(--damage-class) 1px calc(100% - 2px),var(--class-dark) calc(100% - 2px));padding-inline:0 3px}
+.healing .combat-damage summary::marker{content:''}
+.healing .combat-damage summary::-webkit-details-marker{display:none}
+.healing .combat-damage .damage-breakdown>div{display:grid;grid-template-columns:19px minmax(0,1fr) auto;gap:4px;padding-inline:0 3px;min-height:24px}
+.healing .combat-damage .damage-breakdown>div::before{display:none}
+.healing .combat-damage .meter-ability-name{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.healing .combat-damage [data-damage-meter],.healing .combat-healing [data-healing-meter]{width:100%;box-sizing:border-box;scrollbar-gutter:auto;scrollbar-width:thin;scrollbar-color:#897044 #1a140d}
+.healing .combat-damage *::-webkit-scrollbar,.healing .combat-damage::-webkit-scrollbar{width:5px;height:5px}
+.healing .combat-damage *::-webkit-scrollbar-button,.healing .combat-damage::-webkit-scrollbar-button{display:none;width:0;height:0}
+.healing .combat-damage *::-webkit-scrollbar-track,.healing .combat-damage::-webkit-scrollbar-track{background:#1a140d}
+.healing .combat-damage *::-webkit-scrollbar-thumb,.healing .combat-damage::-webkit-scrollbar-thumb{background:#897044;border-radius:3px}
+.healing.raid-mode .heal-stage>.combat-healing{height:280px;max-height:280px;align-self:start;display:flex;flex-direction:column}
+.healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing){align-self:start}
+.healing.raid-mode .combat-healing [data-healing-meter]{height:auto;max-height:none;min-height:0;flex:1;overflow:auto}
+.healing.raid-mode .combat-healing .co-healer-button{flex:none}
+@media(max-width:760px){
+ .healing .heal-frame>strong{font-size:.76rem;line-height:1.6;padding-top:2px}
+ .healing .combat-damage .damage-breakdown>div{grid-template-columns:14px minmax(0,1fr);gap:3px;font-size:.62rem}
+ .healing .combat-damage .damage-breakdown .combat-numbers{grid-column:2;font-size:.6rem}
+ .healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{height:240px;max-height:240px}
+}
+.healing .heal-frame .unit-name{padding:2px 5px;margin:-2px -5px}
+.healing .heal-frame::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:3px;box-shadow:inset 2px 2px 0 color-mix(in srgb,var(--class-light) 75%,transparent),inset -2px -3px 0 color-mix(in srgb,var(--class-dark) 80%,transparent)}
+.healing .combat-damage .damage-breakdown>div{font-weight:600;text-shadow:0 1px 2px #000,0 2px 3px #0009}
+.healing .co-healer-button{font-size:.85rem;white-space:nowrap;padding-inline:4px}

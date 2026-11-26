@@ -1,3 +1,4 @@
+import {combatantVitals} from './raid-vitals.mjs';
 import {raidCombatStats} from './raid-dps.mjs';
 import {combatants} from './party-combat.mjs';
 import {classColors} from './class-colors.mjs';
@@ -13,7 +14,7 @@ export function raidSettings(value={}){
 const heroes=[['Cairne','warrior','Cairne'],['Gavinrad','paladin','protectionPaladin'],['Sylvanas','hunter','Sylvanas'],['Jaina','mage','Jaina'],['Krag’jin','shaman','enhancement'],['Illidan','rogue','Illidan'],['Rexxar','hunter','Sylvanas'],['Kael','mage','Jaina'],['Grom','warrior','fury'],['Drek’Thar','shaman','elemental'],['Califax','druid','balance'],['Kathris','priest','shadow'],['Kel’Thuzad','warlock','affliction'],['Gul’dan','warlock','destruction'],['Turalyon','paladin','retribution'],['Maiev','rogue','mutilate'],['Antonidas','mage','Jaina'],['Vashj','hunter','Sylvanas'],['Rokhan','shaman','elemental']];
 const healerNames={paladin:'Tirion',priest:'Tyrande',druid:'Cenarius',shaman:'Rehgar'};
 export function raidRoster(settings,hero){
- const config=raidSettings(settings),members=(config.size===10?[0,1,2,3,5,9,10,12,14].map(i=>heroes[i]):heroes.slice(0,config.size-1)).map(([name,className,combatantKey],i)=>({name,className,combatantKey,spec:combatantKey,role:i<2?'Tank':'Damage',max:i<2?4100:2900,stamina:i<2?260:180,dps:0,color:raidColors[className],group:config.groups[i]}));
+ const config=raidSettings(settings),members=(config.size===10?[0,1,2,3,5,9,10,12,14].map(i=>heroes[i]):heroes.slice(0,config.size-1)).map(([name,className,combatantKey],i)=>({name,className,combatantKey,spec:combatantKey,role:i<2?'Tank':'Damage',...combatantVitals(combatantKey),dps:0,color:raidColors[className],group:config.groups[i]}));
  config.healers.forEach((spec,i)=>{if(spec.className==='none')return;const index=config.size-2-i;members[index]={name:healerNames[spec.className]+(config.healers.filter(h=>h.className===spec.className).length>1?' '+['I','II','III'][config.healers.slice(0,i).filter(h=>h.className===spec.className).length]:''),className:spec.className,spec:spec.className==='priest'?spec.spec:spec.className,role:'Healer',max:3000,dps:0,color:raidColors[spec.className],group:config.groups[index],support:i,focus:spec.focus};});
  members.push({...hero,group:config.groups[config.size-1]});return members;
 }

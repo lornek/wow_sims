@@ -1,3 +1,4 @@
+import {combatantVitals} from './raid-vitals.mjs';
 import {combatNumbers,classShades,specIcon} from './combat-appearance.mjs';
 import {raidDpsIcons} from './raid-dps-icons.mjs';
 import {mountCombatHealingMeter} from './combat-healing-meter.mjs';
@@ -27,12 +28,12 @@ import {manaReportSources, spiritContribution} from './mana-report.mjs';
 import {reportManaVisual, contributionIcons, contributionColor, healingColors} from './report-style.mjs';
 import {healingScore} from './healing-score.mjs';
 import {mountTabs, attachGameTooltip, tooltipLine, tooltipValue, setGameTooltip, hideGameTooltip, hideGameTooltipWithin} from './game-ui.mjs';
-import {encounters, combatants} from './party-combat.mjs';
+import {encounters, combatants,encounterTuning} from './party-combat.mjs';
 import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
 const damageIcons = {...raidDpsIcons,
-  'Windfury Totem':'spell_nature_windfury','Windfury Attack':'spell_nature_cyclone','Seal of Command':'spell_holy_auraoflight','Seal of Righteousness':'spell_holy_righteousnessaura',
+  'Instant Poison':'ability_poisons','Deadly Poison':'ability_poisons','Searing Totem':'spell_fire_searingtotem','Windfury Totem':'spell_nature_windfury','Windfury Attack':'spell_nature_cyclone','Seal of Command':'spell_holy_auraoflight','Seal of Righteousness':'spell_holy_righteousnessaura',
   'Melee': 'ability_meleedamage',
   'Heroic Strike': 'ability_rogue_ambush',
   'Shield Slam': 'inv_shield_05',
@@ -400,19 +401,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     const level = Number(difficulty.value);
     const id = encounterSelect.value;
     const boss = encounters[id];
-    const damage = 1.1 * (1.15 * 1.1) ** level;
-    const health = 1.3 ** level;
-    const allyHealth = 1.1 ** level;
-    const tankHealth = 1.16 ** level;
     const party = encounter.party.map((unit, index) => ({
       ...unit,
-      max: Math.round(index === encounter.party.length - 1 ? profile.health : (raid?raidMemberMax(unit,enabled):unit.max) * (unit.role === 'Tank' || id === 'patchwerk' && index === 1 ? tankHealth : allyHealth) * (id === 'patchwerk' && index === 1 ? 1.3 : 1))
+      max: Math.round(index === encounter.party.length - 1 ? profile.health : raidMemberMax({...unit,...(!raid?combatantVitals(unit.name):{})},enabled))
     }));
-    currentEncounter = {...boss, id, party, hazard, mitigation:true, windfuryTotem:enabled.has('windfury'), startWaterShield: enabled.has('waterShield'),
-      health: Math.round(boss.health * health * (raid?(raid.size===20?12:4):1)), limit: boss.limit * health * (raid?(raid.size===20?4:2):1)};
-    for (const key of ['swing', 'flurry', 'poisonTick', 'strike', 'frost']) {
-      if (boss[key]) currentEncounter[key] = Math.round(boss[key] * damage);
-    }
+    currentEncounter = {...encounterTuning(boss,level,raid?.size??5),id,party,hazard,mitigation:true,windfuryTotem:enabled.has('windfury'),startWaterShield:enabled.has('waterShield')};
     find('[data-boss-name]').textContent = boss.name;
     difficulty.dataset.level = difficulty.value;
     mountBossAbilities(id);
@@ -536,8 +529,8 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
               image.src = new URL('./icons/' + (damageIcons[name] ?? damageIcons[name.replace(/ · (off hand|Overload)$/,'')] ?? damageIcons.Melee) + '.jpg', import.meta.url);
               image.alt = name;
               setGameTooltip(element, name, ['Damage and DPS for this ability.']);
-              const numbers = document.createElement('span');
-              element.append(image, numbers);
+              const numbers = document.createElement('span'),label=document.createElement('span');label.className='meter-ability-name';label.textContent=name;
+              element.append(image,label,numbers);
               line = {element, numbers};
               entry.lines.set(name, line);
             }
@@ -555,7 +548,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
       for (const aura of frame.auras) {
         const {key, name, badge, timer} = aura;
-        const effect = s.effects.find(effect => effect.key === key && (!effect.target || effect.target === unit));
+        const effect = s.effects.find(effect => effect.key === key && (effect.target===unit||!effect.target&&(!effect.members||effect.members.includes(unit))));
         const expires = key === 'swiftness' ? (i === frames.length - 1 ? s.swiftness : 0) :
           key === 'poison' ? unit.poison :
           key === 'innervate' && unit === s.party.at(-1) ? s.innervateUntil :

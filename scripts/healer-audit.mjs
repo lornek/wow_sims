@@ -4,18 +4,19 @@ import {pathToFileURL} from 'node:url';
 import {resolve} from 'node:path';
 const base=process.env.HEALBOT_SOURCE??resolve(import.meta.dirname,'..');
 const mod=name=>import(pathToFileURL(resolve(base,'public/healing/'+name+'.mjs')));
-const {buffs}=await mod('profile'),{encounters}=await mod('party-combat'),{createPull}=await mod('engine');
+const {buffs}=await mod('profile'),{encounters,encounterTuning}=await mod('party-combat'),{createPull}=await mod('engine');
 const {raidSettings,raidRoster,raidMemberMax,createRaidPull,companionBuild,chooseHeal}=await mod('raid');
 const adapters={};for(const cls of ['druid','shaman','paladin','priest'])adapters[cls]=(await mod(cls)).default;
 const selected=new Set(buffs.map(([key])=>key));
 function rng(seed){return()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
 const stress=process.argv.includes('--stress');
+const {combatantVitals}=await mod('raid-vitals');
 const results=[],begin=performance.now();
 for(const size of [5,20])for(const [cls,spec]of [['druid','druid'],['shaman','shaman'],['paladin','paladin'],['priest','discipline'],['priest','holy']])for(const boss of ['rend','patchwerk','sapphiron'])for(const seed of [17,91,503]){
  const build=companionBuild(adapters[cls],75,selected,spec),hero={name:'Player',className:cls,spec,role:'Healer',max:build.profile.health,color:'#f90',dps:0};
  let party=size===20?raidRoster(raidSettings({size}),hero):[{name:'Cairne',className:'warrior',role:'Tank',max:4000},{name:'Illidan',className:'rogue',role:'Damage',max:3200},{name:'Sylvanas',className:'hunter',role:'Damage',max:3200},{name:'Jaina',className:'mage',role:'Damage',max:3000},hero];
- if(size===20)for(const u of party)if(u.role!=='Healer')u.max=raidMemberMax(u,selected);
- const encounter={...encounters[boss],id:boss,party,health:encounters[boss].health*(size===20?12:1),limit:400,mitigation:true,windfuryTotem:true};
+ for(const u of party)if(u.role!=='Healer'){if(size===5)Object.assign(u,combatantVitals(u.name));u.max=raidMemberMax(u,selected);}
+ const encounter={...encounterTuning(encounters[boss],process.argv.includes('--legendary')?3:0,size),id:boss,party,mitigation:true,windfuryTotem:true};
  if(stress)for(const key of ['swing','strike','frost','flurry','poisonTick'])if(encounter[key])encounter[key]*=2.5;
  const args=[build.profile,build.spells,encounter,rng(seed),()=>{},()=>{},()=>{}];
  const p=size===20?createRaidPull(...args,adapters,75,selected):createPull(...args);p.start();const actor={...build,pull:p,unit:p.state.party.at(-1),focus:'raid'};

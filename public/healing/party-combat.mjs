@@ -2,13 +2,21 @@ import {raidDpsStats,advanceRaidDps} from './raid-dps.mjs';
 import {warriorGear} from './warrior-gear.mjs';
 
 export const encounters = {
-  rend: {name:'Rend Blackhand', health:28000, limit:85, swing:225, firstFlurry:17, flurry:265, poisonTick:100,
+  rend: {name:'Rend Blackhand', health:42000, limit:85, swing:225, firstFlurry:17, flurry:265, poisonTick:100,
     description:'Tank damage, Blade Flurry, and a dispellable debuff. Enrages at 35%.'},
-  patchwerk: {name:'Patchwerk', health:30000, limit:90, swing:360, strike:680,
+  patchwerk: {name:'Patchwerk', health:45000, limit:90, swing:360, strike:680,
     description:'Cairne takes melee swings. Illidan serves as the off-tank for Hateful Strike.'},
-  sapphiron: {name:'Sapphiron', health:30000, limit:95, swing:200, frost:105,
+  sapphiron: {name:'Sapphiron', health:45000, limit:95, swing:200, frost:105,
     description:'Frost Aura steadily damages the entire party.'}
 };
+
+// Shared tuning for the browser and deterministic replay tools. HP never scales with difficulty.
+export function encounterTuning(boss,level=0,size=5){
+ const health=1.3**level,damage=1.1*(1.15*1.1)**level,raid=size===20?12:size===10?4:1,melee=size===20?2.5:size===10?1.5:1;
+ const result={...boss,health:Math.round(boss.health*health*raid),limit:boss.limit*health*(size===20?4:size===10?2:1)};
+ for(const key of ['swing','flurry','poisonTick','strike','frost'])if(boss[key])result[key]=Math.round(boss[key]*damage*(['swing','strike'].includes(key)?melee:1));
+ return result;
+}
 
 // Level 60 Tauren Warrior base stats and Forever combat rating conversions.
 const gearStat = key => warriorGear.reduce((sum, item) => sum + (item[key] ?? 0), 0);
@@ -107,6 +115,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {},onSelf
         const extra=(stats.weapon??((stats.weaponMin+stats.weaponMax)/2))+(stats.ap+246)*stats.speed/14;
         hit('Windfury Totem',extra,{spread:.05});
       }
+      if(damage>0&&(unit.combatantKey??unit.name)==='Illidan'&&['Main-hand swing','Off-hand swing','Sinister Strike'].includes(spell)&&random()<.2)hit('Instant Poison',88+.01*stats.ap,{magic:true});
       return damage;
     }
     function spend(spell, cost, cooldown = 0, gcd = 1.5) {
@@ -231,7 +240,7 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {},onSelf
         rotation.aimedUntil = now + 2;
       }
     } else if ((unit.combatantKey ?? unit.name) === 'Jaina') {
-      const fire = state.encounterId === 'sapphiron';
+      const fire = unit.spec!=='frost';
       if (rotation.igniteTicks && now >= rotation.igniteTick) {
         const tick = rotation.ignitePool / rotation.igniteTicks;
         recordDamage('Ignite', tick);
