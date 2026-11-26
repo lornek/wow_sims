@@ -1,3 +1,4 @@
+import {mountFrameNameFades} from './frame-name-fades.mjs';
 import {combatantVitals} from './raid-vitals.mjs';
 import {combatNumbers,classShades,specIcon} from './combat-appearance.mjs';
 import {raidDpsIcons} from './raid-dps-icons.mjs';
@@ -353,6 +354,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   }
 
   find('.heal-party').replaceChildren(...(raid?encounter.party.map((_,i)=>i).sort((a,b)=>encounter.party[a].group-encounter.party[b].group):[0,1,4,2,3]).map(index=>frames[index].frame));
+  const stopFrameNameFades=raid?mountFrameNameFades(frames.map(frame=>frame.label)):()=>{};
   if(raid)for(const[index,unit]of encounter.party.entries()){frames[index].frame.dataset.raidGroup=unit.group+1;if(index===encounter.party.length-1)frames[index].frame.dataset.isPlayer='true';frames[index].frame.title=unit.name+' · Group '+(unit.group+1)+' · '+(unit.className??className);}
 
   function attempt(event, index, right) {
@@ -1503,6 +1505,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   let animation = requestAnimationFrame(frame);
   return () => {
     cancelAnimationFrame(animation);
+    stopFrameNameFades();
     combatHealing?.destroy();
     raidSetup?.destroy();raidHud?.destroy();root.classList.remove('raid-mode');
     stopScoreLayout();

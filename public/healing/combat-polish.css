@@ -176,3 +176,15 @@
 @media(max-width:760px){.healing.raid-mode .heal-frame{padding-inline:0}.healing .heal-frame .raid-auras{column-gap:1px;row-gap:2px}}
 @media(max-width:350px){.healing.raid-mode:not([data-raid-layout=columns]) .heal-party{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .healing .raid-aura small{paint-order:stroke fill;-webkit-text-stroke:1px #14100b}
+/* Raid text is 25% larger; overflowing names fade without resizing or wrapping. */
+.healing.raid-mode .heal-frame>strong{font-size:1.0375rem;line-height:1.35;flex-wrap:nowrap;white-space:nowrap}
+.healing.raid-mode .heal-frame>small{font-size:.8125rem}
+.healing.raid-mode .heal-frame::before{font-size:.6875rem}
+.healing.raid-mode .raid-aura small{font-size:12.5px}
+.healing.raid-mode .heal-frame .unit-name{white-space:nowrap;text-overflow:clip;overflow:hidden}
+.healing.raid-mode .heal-frame .unit-name-fade{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 14px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 14px),transparent)}
+@media(max-width:760px){
+ .healing.raid-mode .heal-frame>strong{font-size:.95rem}
+ .healing.raid-mode .heal-frame>small{font-size:.6875rem}
+ .healing.raid-mode .unit-you{font-size:.725rem}
+}
