@@ -93,22 +93,6 @@
 .healing .heal-frame .unit-fill{border-radius:2px;background:linear-gradient(var(--class-light) 0 2px,var(--unit) 2px, color-mix(in srgb,var(--unit) 92%,var(--class-dark)) calc(100% - 3px),var(--class-dark) calc(100% - 3px));box-shadow:inset 1px 0 0 var(--class-light),inset -1px 0 0 var(--class-dark)}
 .healing .heal-frame>strong,.healing .heal-frame>small{overflow:visible;text-shadow:0 2px 3px #000b,0 3px 5px #0007}
 .healing .heal-frame>strong{line-height:1.6;min-height:26px;padding-inline:2px}
-/* Keep the player shadow behind both bars and inside the grid gutters. */
-.healing .party-tile:has(> .heal-frame[data-is-player]) {
-  position:relative;
-  isolation:isolate;
-  --frame-shadow:transparent;
-}
-.healing .party-tile:has(> .heal-frame[data-is-player])::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  border-radius:3px;
-  box-shadow:0 1px 4px #0007;
-  clip-path:inset(-2px);
-}
 .healing .heal-party{padding:3px 3px 6px;margin-inline:-3px;box-sizing:border-box;overflow:visible}
 .healing .combat-damage summary{box-shadow:inset 0 1px 0 var(--class-light),inset 0 -1px 0 var(--class-dark);background:linear-gradient(90deg,transparent var(--share),#211a12 var(--share)),linear-gradient(var(--class-light) 0 1px,var(--damage-class) 1px calc(100% - 2px),var(--class-dark) calc(100% - 2px));padding-inline:0 3px}
 .healing .combat-damage summary::marker{content:''}
@@ -252,3 +236,11 @@
 .healing .heal-frame{box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 4px 12px #000d}
 
 .healing.raid-mode .heal-frame[data-is-player]{box-shadow:inset 0 0 0 2px #ffe19a,0 4px 12px #000d}
+
+/* Paint all tile shadows first, then all frame faces above them. */
+.healing .heal-party{isolation:isolate}
+.healing .party-tile{position:relative;isolation:auto}
+.healing .party-tile::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:3px;box-shadow:0 4px 12px #000d}
+.healing .heal-frame{z-index:2;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark)}
+.healing.raid-mode .heal-frame[data-is-player]{box-shadow:inset 0 0 0 2px #ffe19a}
+.healing .heal-bar.party-resource{z-index:2;box-shadow:none}
