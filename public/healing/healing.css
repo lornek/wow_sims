@@ -243,7 +243,7 @@ body:has(#healing) { font-family:var(--ui); }
 .combat-buffs label:not(:has(input:checked)) img, .combat-buffs .water-buff:not(.buff-live) img { filter:grayscale(1) brightness(.55); }
 .combat-buffs small { position:absolute; right:1px; bottom:0; color:#fff; font-weight:bold; text-shadow:0 1px 2px #000, 0 0 3px #000; }
 .party-tile { display:grid; grid-template-rows:1fr auto; min-width:0; }
-.heal-bar.party-resource { box-sizing:border-box; height:10px; margin-top:-4px; z-index:1; border:1px solid #d6a84955; box-shadow:none; }
+.heal-bar.party-resource { box-sizing:border-box; height:20px; margin-top:-4px; z-index:1; border:1px solid #d6a84955; box-shadow:none; }
 .heal-bar.resource-bar.party-resource > span { box-shadow:none; }
 .party-resource.rage { --resource-light:#ec7769; --resource-mid:#a32926; --resource-dark:#661b19; --resource-highlight:#ffc3b7; }
 .party-resource.energy { --resource-light:#f7d96d; --resource-mid:#ad7a15; --resource-dark:#68460e; --resource-highlight:#fff0a8; }

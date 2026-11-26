@@ -552,6 +552,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           while (breakdown.children.length > damaging.length) breakdown.lastElementChild.remove();
         }
       }
+      const supportActor = s.raidActors?.find(actor => actor.unit === unit);
+      if (frame.resource.classList.contains('raid-support-mana') && supportActor) {
+        setGameTooltip(frame.resource.parentElement, 'Mana', [whole(supportActor.pull.state.mana) + ' / ' + whole(supportActor.profile.mana)]);
+      }
       if (frame.resource.hasAttribute('data-mana-fill')) {
         setGameTooltip(frame.resource.parentElement, 'Mana', [whole(s.mana) + ' / ' + whole(profile.mana)]);
       }
