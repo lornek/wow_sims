@@ -88,7 +88,8 @@
  .healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-damage:not(.combat-healing){grid-row:3;width:calc(50% - 5px);max-width:330px;align-self:start}
 }
 /* Flat enamel faces with a narrow, directional bevel at the edges. */
-.healing .heal-frame{border-radius:3px;border-color:#9c8250;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 3px 5px -2px #0008;background:#1b1713;overflow:hidden}
+.healing :is(.heal-frame,.party-resource){border-radius:3px;border:1px solid #9c8250;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 3px 5px -2px #0008}
+.healing .heal-frame{background:#1b1713;overflow:hidden}
 .healing .heal-frame .unit-fill{border-radius:2px;background:linear-gradient(var(--class-light) 0 2px,var(--unit) 2px, color-mix(in srgb,var(--unit) 92%,var(--class-dark)) calc(100% - 3px),var(--class-dark) calc(100% - 3px));box-shadow:inset 1px 0 0 var(--class-light),inset -1px 0 0 var(--class-dark)}
 .healing .heal-frame>strong,.healing .heal-frame>small{overflow:visible;text-shadow:0 2px 3px #000b,0 3px 5px #0007}
 .healing .heal-frame>strong{line-height:1.6;min-height:26px;padding-inline:2px}
@@ -115,7 +116,7 @@
  .healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{height:240px;max-height:240px}
 }
 .healing .heal-frame .unit-name{padding:2px 5px;margin:-2px -5px}
-.healing .heal-frame::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:3px;box-shadow:inset 2px 2px 0 color-mix(in srgb,var(--class-light) 75%,transparent),inset -2px -3px 0 color-mix(in srgb,var(--class-dark) 80%,transparent)}
+.healing :is(.heal-frame,.party-resource)::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:3px;box-shadow:inset 2px 2px 0 color-mix(in srgb,var(--class-light) 75%,transparent),inset -2px -3px 0 color-mix(in srgb,var(--class-dark) 80%,transparent)}
 .healing .combat-damage .damage-breakdown>div{font-weight:600;text-shadow:0 1px 2px #000,0 2px 3px #0009}
 .healing .co-healer-button{font-size:.85rem;white-space:nowrap;padding-inline:4px}
 /* Palette and shallow depth from the user-authored Warcraft frame CSS showcase. */
