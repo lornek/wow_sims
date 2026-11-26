@@ -1,0 +1,1781 @@
+{
+  "repository": "https://github.com/wowsims/forever",
+  "revision": "e2b55ab20e8a21291d35dd7ba4c05500c1effbe2",
+  "reviewed": 248,
+  "additions": [
+    {
+      "id": "931:13928",
+      "name": "Enchant Gloves - Minor Haste"
+    },
+    {
+      "id": "2621:25070",
+      "name": "Enchant Cloak - Subtlety"
+    },
+    {
+      "id": "7664:1220596",
+      "name": "Enchant Shield - Critical Strike"
+    },
+    {
+      "id": "7941:1231152",
+      "name": "Enchant 2H Weapon - Grand Arcanist"
+    },
+    {
+      "id": "7942:1231163",
+      "name": "Enchant Weapon - Grand Sorcerer"
+    },
+    {
+      "id": "8216:1248758",
+      "name": "Enchant Weapon - Insight"
+    },
+    {
+      "id": "8217:1248806",
+      "name": "Enchant Weapon - Revelation"
+    },
+    {
+      "id": "8220:1249072",
+      "name": "Enchant Chest - Absorption"
+    },
+    {
+      "id": "8737:1328947",
+      "name": "Enchant Boots - Speed"
+    }
+  ],
+  "entries": [
+    {
+      "id": "15:2831",
+      "name": "Light Armor Kit",
+      "level": 5,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "24:7442",
+      "name": "Enchant Chest - Minor Intellect",
+      "level": 12,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "30:3974",
+      "name": "Crude Scope",
+      "level": 12,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "32:3975",
+      "name": "Standard Scope",
+      "level": 22,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "33:3976",
+      "name": "Accurate Scope",
+      "level": 36,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "34:7217",
+      "name": "Weapon Counterweight",
+      "level": 33,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "36:6297",
+      "name": "Enchant: Fiery Blaze",
+      "level": 45,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "37:7219",
+      "name": "Weapon Chain",
+      "level": 38,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "41:7419",
+      "name": "Enchant Chest - Inferior Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "41:7419",
+      "name": "Enchant Bracer - Inferior Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "43:9784",
+      "name": "Iron Shield Spike",
+      "level": 30,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "44:7445",
+      "name": "Enchant Chest - Minor Absorption",
+      "level": null,
+      "procKind": 2,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "63:7446",
+      "name": "Enchant Chest - Lesser Absorption",
+      "level": null,
+      "procKind": 2,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "65:7452",
+      "name": "Enchant Cloak - Minor Resistance",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "66:7455",
+      "name": "Enchant Bracer - Minor Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "66:7455",
+      "name": "Enchant Boots - Minor Stamina",
+      "level": 25,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "66:7455",
+      "name": "Enchant Shield - Minor Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "241:13503",
+      "name": "Enchant Weapon - Lesser Striking",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "242:7747",
+      "name": "Enchant Chest - Lesser Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "243:7456",
+      "name": "Enchant Bracer - Minor Spirit",
+      "level": 17,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "246:7773",
+      "name": "Enchant Chest - Lesser Intellect",
+      "level": 19,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "246:7773",
+      "name": "Enchant Bracer - Minor Intellect",
+      "level": 14,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "247:7778",
+      "name": "Enchant Cloak - Minor Agility",
+      "level": 22,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "247:7778",
+      "name": "Enchant Bracer - Minor Agility",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "247:7778",
+      "name": "Enchant Boots - Minor Agility",
+      "level": 25,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "248:7780",
+      "name": "Enchant Bracer - Minor Strength",
+      "level": 19,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "249:7784",
+      "name": "Enchant Weapon - Minor Beastslayer",
+      "level": 20,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "250:7788",
+      "name": "Enchant Weapon - Minor Striking",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "254:7850",
+      "name": "Enchant Chest - Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "254:7850",
+      "name": "Enchant Bracer - Lesser Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "254:7850",
+      "name": "Enchant Boots - Lesser Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "255:7851",
+      "name": "Enchant Shield - Lesser Spirit",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "256:1248239",
+      "name": "Enchant Cloak - Lesser Fire Resistance",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "463:9782",
+      "name": "Mithril Shield Spike",
+      "level": 43,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "464:7215",
+      "name": "Mithril Spurs",
+      "level": 43,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "663:12459",
+      "name": "Deadly Scope",
+      "level": 42,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "664:12460",
+      "name": "Sniper Scope",
+      "level": 48,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "723:7793",
+      "name": "Enchant 2H Weapon - Lesser Intellect",
+      "level": 20,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "744:13421",
+      "name": "Enchant Cloak - Lesser Protection",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "783:7771",
+      "name": "Enchant Cloak - Minor Protection",
+      "level": 18,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "803:13897",
+      "name": "Enchant Weapon - Fiery Weapon",
+      "level": 53,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "804:13523",
+      "name": "Enchant Cloak - Lesser Shadow Resistance",
+      "level": 27,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "805:7745",
+      "name": "Enchant 2H Weapon - Minor Impact",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "805:13943",
+      "name": "Enchant Weapon - Greater Striking",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "823:13536",
+      "name": "Enchant Bracer - Lesser Strength",
+      "level": 28,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "843:13606",
+      "name": "Enchant Chest - Intellect",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "844:13611",
+      "name": "Enchant Gloves - Mining",
+      "level": 29,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "845:13614",
+      "name": "Enchant Gloves - Herbalism",
+      "level": 29,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "846:13615",
+      "name": "Enchant Gloves - Fishing",
+      "level": 29,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "847:13624",
+      "name": "Enchant Chest - Minor Stats",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "848:13635",
+      "name": "Enchant Cloak - Defense",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "848:13464",
+      "name": "Enchant Shield - Lesser Protection",
+      "level": 22,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "849:13364",
+      "name": "Enchant Cloak - Lesser Agility",
+      "level": 45,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "850:13639",
+      "name": "Enchant Chest - Greater Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "851:13368",
+      "name": "Enchant Bracer - Spirit",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "851:13368",
+      "name": "Enchant Boots - Spirit",
+      "level": 55,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "851:13368",
+      "name": "Enchant 2H Weapon - Lesser Spirit",
+      "level": 22,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "851:13368",
+      "name": "Enchant Shield - Spirit",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "852:13370",
+      "name": "Enchant Bracer - Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "852:13370",
+      "name": "Enchant Boots - Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "852:13370",
+      "name": "Enchant Shield - Lesser Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "853:13650",
+      "name": "Enchant Weapon - Lesser Beastslayer",
+      "level": 35,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "854:13651",
+      "name": "Enchant Weapon - Lesser Elemental Slayer",
+      "level": 35,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "856:13372",
+      "name": "Enchant Necklace - Strength",
+      "level": 42,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "856:13372",
+      "name": "Enchant Bracer - Strength",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "857:13664",
+      "name": "Enchant Chest - Greater Intellect",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "863:13690",
+      "name": "Enchant Shield - Lesser Block",
+      "level": 39,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "865:13697",
+      "name": "Enchant Gloves - Skinning",
+      "level": 40,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "866:13625",
+      "name": "Enchant Chest - Lesser Stats",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "884:13746",
+      "name": "Enchant Cloak - Greater Defense",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "903:13796",
+      "name": "Enchant Cloak - Resistance",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "904:13365",
+      "name": "Enchant Necklace - Agility",
+      "level": 42,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "904:13365",
+      "name": "Enchant Bracer - Agility",
+      "level": 38,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "904:13365",
+      "name": "Enchant Boots - Agility",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "905:13366",
+      "name": "Enchant Bracer - Intellect",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "906:13838",
+      "name": "Enchant Gloves - Advanced Mining",
+      "level": 43,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "907:13826",
+      "name": "Enchant Bracer - Greater Spirit",
+      "level": 44,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "907:13826",
+      "name": "Enchant Shield - Greater Spirit",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "908:13862",
+      "name": "Enchant Chest - Superior Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "909:13839",
+      "name": "Enchant Gloves - Advanced Herbalism",
+      "level": 45,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "910:13840",
+      "name": "Enchant Cloak - Stealth",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "911:13889",
+      "name": "Enchant Boots - Minor Speed",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "912:13907",
+      "name": "Enchant Weapon - Demonslaying",
+      "level": 46,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "913:13918",
+      "name": "Enchant Chest - Superior Intellect",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "923:13922",
+      "name": "Enchant Bracer - Deflection",
+      "level": 47,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "924:7427",
+      "name": "Enchant Bracer - Minor Deflect",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "925:13930",
+      "name": "Enchant Necklace - Deflection",
+      "level": 42,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "925:13930",
+      "name": "Enchant Bracer - Lesser Deflection",
+      "level": 34,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "926:13923",
+      "name": "Enchant Shield - Frost Resistance",
+      "level": 47,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "927:13828",
+      "name": "Enchant Bracer - Greater Strength",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "927:13828",
+      "name": "Enchant Gloves - Strength",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "928:13824",
+      "name": "Enchant Chest - Stats",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "929:13827",
+      "name": "Enchant Bracer - Greater Stamina",
+      "level": 49,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "929:13827",
+      "name": "Enchant Boots - Greater Stamina",
+      "level": 52,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "929:13827",
+      "name": "Enchant Shield - Stamina",
+      "level": 42,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "930:13927",
+      "name": "Enchant Gloves - Riding Skill",
+      "level": 50,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "931:13928",
+      "name": "Enchant Gloves - Minor Haste",
+      "level": null,
+      "procKind": null,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "943:13693",
+      "name": "Enchant Weapon - Striking",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "963:13937",
+      "name": "Enchant 2H Weapon - Greater Impact",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1483:15345",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1503:15388",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1504:15390",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1505:15393",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1506:15396",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1507:15399",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1508:15401",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1509:15403",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1510:15405",
+      "name": "Lesser Arcane Amalgamation",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1704:16624",
+      "name": "Thorium Shield Spike",
+      "level": 55,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1883:13825",
+      "name": "Enchant Bracer - Greater Intellect",
+      "level": 51,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1884:19986",
+      "name": "Enchant Bracer - Superior Spirit",
+      "level": 54,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1885:19984",
+      "name": "Enchant Bracer - Superior Strength",
+      "level": 59,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1886:19985",
+      "name": "Enchant Bracer - Superior Stamina",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1886:19985",
+      "name": "Enchant Shield - Greater Stamina",
+      "level": 53,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1887:13823",
+      "name": "Enchant Bracer - Greater Agility",
+      "level": 48,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1887:13823",
+      "name": "Enchant Gloves - Agility",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1887:13823",
+      "name": "Enchant Boots - Greater Agility",
+      "level": 59,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1888:19992",
+      "name": "Enchant Cloak - Greater Resistance",
+      "level": 53,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1889:20015",
+      "name": "Enchant Cloak - Superior Defense",
+      "level": 57,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1890:19986",
+      "name": "Enchant Shield - Superior Spirit",
+      "level": 56,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1891:19988",
+      "name": "Enchant Chest - Greater Stats",
+      "level": 62,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1892:20026",
+      "name": "Enchant Chest - Major Stamina",
+      "level": 55,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1893:19991",
+      "name": "Enchant Chest - Major Intellect",
+      "level": 58,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1894:20005",
+      "name": "Enchant Weapon - Icy Chill",
+      "level": 57,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1896:20030",
+      "name": "Enchant 2H Weapon - Superior Impact",
+      "level": 59,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1897:13529",
+      "name": "Enchant 2H Weapon - Lesser Impact",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1897:20031",
+      "name": "Enchant Weapon - Superior Striking",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1898:20004",
+      "name": "Enchant Weapon - Lifestealing",
+      "level": 62,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1899:20006",
+      "name": "Enchant Weapon - Unholy Weapon",
+      "level": 59,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1900:20007",
+      "name": "Enchant Weapon - Crusader",
+      "level": 61,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "1901:19987",
+      "name": "Enchant Bracer - Superior Intellect",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1903:19986",
+      "name": "Enchant 2H Weapon - Major Spirit",
+      "level": 62,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "1904:19987",
+      "name": "Enchant 2H Weapon - Major Intellect",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2443:21930",
+      "name": "Enchant Weapon - Winter's Might",
+      "level": 38,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2463:13657",
+      "name": "Enchant Cloak - Fire Resistance",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2483:14585",
+      "name": "Flame Mantle of the Dawn",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2484:14546",
+      "name": "Frost Mantle of the Dawn",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2485:14707",
+      "name": "Arcane Mantle of the Dawn",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2486:14626",
+      "name": "Nature Mantle of the Dawn",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2487:14668",
+      "name": "Shadow Mantle of the Dawn",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2488:18676",
+      "name": "Chromatic Mantle of the Dawn",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2503:22725",
+      "name": "Core Armor Kit",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2504:22747",
+      "name": "Enchant Weapon - Spell Power",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2505:22748",
+      "name": "Enchant Weapon - Healing Power",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2523:22780",
+      "name": "Biznicks 247x128 Accurascope",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2543:22841",
+      "name": "Arcanum of Rapidity",
+      "level": 50,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2544:22843",
+      "name": "Arcanum of Focus",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2545:22847",
+      "name": "Arcanum of Protection",
+      "level": 50,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2563:23793",
+      "name": "Enchant Gloves - Superior Strength",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2563:23793",
+      "name": "Enchant Weapon - Strength",
+      "level": 58,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2563:23793",
+      "name": "Enchant 2H Weapon - Lesser Strength",
+      "level": 44,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2564:23794",
+      "name": "Enchant Gloves - Superior Agility",
+      "level": 70,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2564:23794",
+      "name": "Enchant Weapon - Agility",
+      "level": 58,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2565:23795",
+      "name": "Enchant Bracer - Mana Regeneration",
+      "level": 58,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2566:23796",
+      "name": "Enchant Bracer - Healing Power",
+      "level": 64,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2567:23797",
+      "name": "Enchant Weapon - Mighty Spirit",
+      "level": 66,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2568:23798",
+      "name": "Enchant Weapon - Mighty Intellect",
+      "level": 70,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2583:24148",
+      "name": "Presence of Might",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2584:24151",
+      "name": "Syncretist's Sigil",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2585:24153",
+      "name": "Death's Embrace",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2586:24154",
+      "name": "Falcon's Call",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2587:24155",
+      "name": "Vodouisant's Vigilant Embrace",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2588:24156",
+      "name": "Presence of Sight",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2589:24157",
+      "name": "Hoodoo Hex",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2590:24158",
+      "name": "Prophetic Aura",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2591:24159",
+      "name": "Animist's Caress",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2603:24303",
+      "name": "Eternium Fishing Line",
+      "level": 45,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2604:9318",
+      "name": "Zandalar Signet of Serenity",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2605:9346",
+      "name": "Zandalar Signet of Mojo",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2606:9336",
+      "name": "Zandalar Signet of Might",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2613:25063",
+      "name": "Enchant Gloves - Threat",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2614:25064",
+      "name": "Enchant Gloves - Shadow Power",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2615:25066",
+      "name": "Enchant Gloves - Frost Power",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2616:25065",
+      "name": "Enchant Gloves - Fire Power",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2617:25067",
+      "name": "Enchant Gloves - Healing Power",
+      "level": 70,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2618:19989",
+      "name": "Enchant 2H Weapon - Lesser Agility",
+      "level": 42,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2619:25068",
+      "name": "Enchant Cloak - Greater Fire Resistance",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2620:25069",
+      "name": "Enchant Cloak - Greater Nature Resistance",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2621:25070",
+      "name": "Enchant Cloak - Subtlety",
+      "level": 70,
+      "procKind": null,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "2622:25071",
+      "name": "Enchant Cloak - Dodge",
+      "level": 70,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2646:27836",
+      "name": "Enchant 2H Weapon - Agility",
+      "level": 58,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2681:28162",
+      "name": "Savage Guard",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2682:28164",
+      "name": "Ice Guard",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2683:28166",
+      "name": "Shadow Guard",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2715:29474",
+      "name": "Resilience of the Scourge",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2716:29481",
+      "name": "Fortitude of the Scourge",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "2717:29482",
+      "name": "Might of the Scourge",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "2721:29468",
+      "name": "Power of the Scourge",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7210:435467",
+      "name": "Enchant Weapon - Dismantle",
+      "level": null,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "7223:435901",
+      "name": "Enchant Chest - Retricutioner",
+      "level": null,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "7603:463873",
+      "name": "Enchant Shield - Law of Nature",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7645:1213613",
+      "name": "Enchant Chest - Living Stats",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7646:1213622",
+      "name": "Enchant Gloves - Holy Power",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "7647:1213626",
+      "name": "Enchant Gloves - Arcane Power",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "7655:1217189",
+      "name": "Enchant Bracer - Spell Power",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7656:1217203",
+      "name": "Enchant Bracer - Agility",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7656:1248599",
+      "name": "Enchant Bracer - Superior Agility",
+      "level": 59,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7659:1219577",
+      "name": "Enchant Off-Hand - Superior Intellect",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7660:1219578",
+      "name": "Enchant Off-Hand - Excellent Spirit",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7661:1219579",
+      "name": "Enchant Off-Hand - Wisdom",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7662:1219580",
+      "name": "Enchant 2H Weapon - Spellblasting",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7663:1219581",
+      "name": "Enchant Shield - Excellent Stamina",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7664:1220596",
+      "name": "Enchant Shield - Critical Strike",
+      "level": null,
+      "procKind": null,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "7665:1220624",
+      "name": "Enchant Bracer - Greater Spellpower",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7667:1219587",
+      "name": "Enchant Cloak - Agility",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "7940:1231124",
+      "name": "Enchant Weapon - Grand Crusader",
+      "level": null,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "7941:1231152",
+      "name": "Enchant 2H Weapon - Grand Arcanist",
+      "level": null,
+      "procKind": 1,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "7942:1231163",
+      "name": "Enchant Weapon - Grand Sorcerer",
+      "level": null,
+      "procKind": 1,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "7943:1232169",
+      "name": "Enchant 2H Weapon - Grand Inquisitor",
+      "level": null,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8203:7859",
+      "name": "Enchant Bracer - Lesser Spirit",
+      "level": 24,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8203:13687",
+      "name": "Enchant Boots - Lesser Spirit",
+      "level": 38,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8204:1248460",
+      "name": "Enchant Bracer - Lesser Agility",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8204:13637",
+      "name": "Enchant Boots - Lesser Agility",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8205:13695",
+      "name": "Enchant 2H Weapon - Impact",
+      "level": null,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8206:20012",
+      "name": "Enchant Gloves - Greater Agility",
+      "level": 54,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8207:20013",
+      "name": "Enchant Gloves - Greater Strength",
+      "level": 59,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8208:1248459",
+      "name": "Enchant Bracer - Minor Healing Power",
+      "level": 18,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8209:1248498",
+      "name": "Enchant Bracer - Lesser Healing Power",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8210:1248528",
+      "name": "Enchant Gloves - Advanced Skinning",
+      "level": 50,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8211:1248607",
+      "name": "Enchant 2H Weapon - Mighty Spell Power",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8212:1248636",
+      "name": "Enchant 2H Weapon - Mighty Healing Power",
+      "level": 60,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8213:1248645",
+      "name": "Enchant Gloves - Natural Power",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8214:1248665",
+      "name": "Enchant Bracer - Superior Deflection",
+      "level": 60,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8215:1248668",
+      "name": "Enchant 2H Weapon - Strength",
+      "level": 58,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8216:1248758",
+      "name": "Enchant Weapon - Insight",
+      "level": 28,
+      "procKind": 1,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "8217:1248806",
+      "name": "Enchant Weapon - Revelation",
+      "level": 28,
+      "procKind": 1,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "8218:1249057",
+      "name": "Enchant Necklace - Spell Power",
+      "level": 42,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8219:1249058",
+      "name": "Enchant Necklace - Healing Power",
+      "level": 42,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8220:1249072",
+      "name": "Enchant Chest - Absorption",
+      "level": 44,
+      "procKind": 2,
+      "decision": "Modeled and available to healer picker"
+    },
+    {
+      "id": "8481:2832",
+      "name": "Medium Armor Kit",
+      "level": 15,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8482:1254742",
+      "name": "Mystic Medium Armor Kit",
+      "level": 15,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8483:1254740",
+      "name": "Forceful Medium Armor Kit",
+      "level": 15,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8484:2833",
+      "name": "Heavy Armor Kit",
+      "level": 30,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8485:1254750",
+      "name": "Mystic Heavy Armor Kit",
+      "level": 30,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8486:1254748",
+      "name": "Forceful Heavy Armor Kit",
+      "level": 30,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8487:10344",
+      "name": "Thick Armor Kit",
+      "level": 40,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8488:1254768",
+      "name": "Forceful Thick Armor Kit",
+      "level": 40,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8489:1254767",
+      "name": "Mystic Thick Armor Kit",
+      "level": 40,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8490:19057",
+      "name": "Rugged Armor Kit",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8491:1254772",
+      "name": "Forceful Rugged Armor Kit",
+      "level": 50,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8492:1254770",
+      "name": "Mystic Rugged Armor Kit",
+      "level": 50,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8695:1294053",
+      "name": "Enchant Gloves - Lotus Claw",
+      "level": 55,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8719:1306907",
+      "name": "Wild Leather Armor Kit",
+      "level": 65,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8720:1310308",
+      "name": "SAF-T Ultra Precision Scope",
+      "level": 65,
+      "procKind": null,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8721:1248761",
+      "name": "Enchant Weapon - Recovery",
+      "level": 28,
+      "procKind": 2,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8726:1314330",
+      "name": "Arcanum of Binding",
+      "level": 50,
+      "procKind": 1,
+      "decision": "Outside the healer picker (melee, leveling, gathering, resistance, or unmodeled effect)"
+    },
+    {
+      "id": "8734:13622",
+      "name": "Enchant Bracer - Lesser Intellect",
+      "level": null,
+      "procKind": null,
+      "decision": "Already in stat catalog"
+    },
+    {
+      "id": "8737:1328947",
+      "name": "Enchant Boots - Speed",
+      "level": 50,
+      "procKind": null,
+      "decision": "Modeled and available to healer picker"
+    }
+  ]
+}

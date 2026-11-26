@@ -15774,12 +15774,30 @@
       "tags": []
     },
     {
+      "id": "ability:ability_rogue_deadlybrew",
+      "name": "ability rogue deadlybrew",
+      "path": "icons/ability_rogue_deadlybrew.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "ability_rogue_deadlybrew.jpg",
+      "tags": []
+    },
+    {
       "id": "ability:ability_rogue_eviscerate",
       "name": "ability rogue eviscerate",
       "path": "icons/ability_rogue_eviscerate.jpg",
       "category": "wow",
       "family": "WoW icons",
       "filename": "ability_rogue_eviscerate.jpg",
+      "tags": []
+    },
+    {
+      "id": "ability:ability_rogue_rupture",
+      "name": "ability rogue rupture",
+      "path": "icons/ability_rogue_rupture.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "ability_rogue_rupture.jpg",
       "tags": []
     },
     {
@@ -15816,6 +15834,15 @@
       "category": "wow",
       "family": "WoW icons",
       "filename": "ability_shaman_watershield.jpg",
+      "tags": []
+    },
+    {
+      "id": "ability:ability_theblackarrow",
+      "name": "ability theblackarrow",
+      "path": "icons/ability_theblackarrow.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "ability_theblackarrow.jpg",
       "tags": []
     },
     {
@@ -15879,6 +15906,15 @@
       "category": "wow",
       "family": "WoW icons",
       "filename": "ability_warrior_revenge.jpg",
+      "tags": []
+    },
+    {
+      "id": "ability:ability_whirlwind",
+      "name": "ability whirlwind",
+      "path": "icons/ability_whirlwind.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "ability_whirlwind.jpg",
       "tags": []
     },
     {
@@ -17502,6 +17538,15 @@
       "tags": []
     },
     {
+      "id": "ability:inv_potion_168",
+      "name": "inv potion 168",
+      "path": "icons/inv_potion_168.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "inv_potion_168.jpg",
+      "tags": []
+    },
+    {
       "id": "ability:inv_potion_19",
       "name": "inv potion 19",
       "path": "icons/inv_potion_19.jpg",
@@ -17934,6 +17979,15 @@
       "tags": []
     },
     {
+      "id": "ability:inv_sword_48",
+      "name": "inv sword 48",
+      "path": "icons/inv_sword_48.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "inv_sword_48.jpg",
+      "tags": []
+    },
+    {
       "id": "ability:inv_torch_lit",
       "name": "inv torch lit",
       "path": "icons/inv_torch_lit.jpg",
@@ -18102,6 +18156,15 @@
       "category": "wow",
       "family": "WoW icons",
       "filename": "spell_druid_savagery.jpg",
+      "tags": []
+    },
+    {
+      "id": "ability:spell_fire_burnout",
+      "name": "spell fire burnout",
+      "path": "icons/spell_fire_burnout.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "spell_fire_burnout.jpg",
       "tags": []
     },
     {
@@ -19815,6 +19878,15 @@
       "tags": []
     },
     {
+      "id": "ability:spell_shadow_abominationexplosion",
+      "name": "spell shadow abominationexplosion",
+      "path": "icons/spell_shadow_abominationexplosion.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "spell_shadow_abominationexplosion.jpg",
+      "tags": []
+    },
+    {
       "id": "ability:spell_shadow_antishadow",
       "name": "spell shadow antishadow",
       "path": "icons/spell_shadow_antishadow.jpg",
@@ -19848,6 +19920,15 @@
       "category": "wow",
       "family": "WoW icons",
       "filename": "spell_shadow_chilltouch.jpg",
+      "tags": []
+    },
+    {
+      "id": "ability:spell_shadow_curseofsargeras",
+      "name": "spell shadow curseofsargeras",
+      "path": "icons/spell_shadow_curseofsargeras.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "spell_shadow_curseofsargeras.jpg",
       "tags": []
     },
     {
@@ -19977,12 +20058,30 @@
       "tags": []
     },
     {
+      "id": "ability:spell_shadow_scourgebuild",
+      "name": "spell shadow scourgebuild",
+      "path": "icons/spell_shadow_scourgebuild.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "spell_shadow_scourgebuild.jpg",
+      "tags": []
+    },
+    {
       "id": "ability:spell_shadow_sealofkings",
       "name": "spell shadow sealofkings",
       "path": "icons/spell_shadow_sealofkings.jpg",
       "category": "wow",
       "family": "WoW icons",
       "filename": "spell_shadow_sealofkings.jpg",
+      "tags": []
+    },
+    {
+      "id": "ability:spell_shadow_shadowbolt",
+      "name": "spell shadow shadowbolt",
+      "path": "icons/spell_shadow_shadowbolt.jpg",
+      "category": "wow",
+      "family": "WoW icons",
+      "filename": "spell_shadow_shadowbolt.jpg",
       "tags": []
     },
     {
@@ -20208,6 +20307,87 @@
       "category": "legacy",
       "family": "Legacy report icons",
       "filename": "remaining.jpg",
+      "tags": []
+    },
+    {
+      "id": "report:role-dps-native",
+      "name": "role-dps-native",
+      "path": "report-icons/role-dps-native.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-dps-native.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-dps-portrait",
+      "name": "role-dps-portrait",
+      "path": "report-icons/role-dps-portrait.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-dps-portrait.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-dps",
+      "name": "role-dps",
+      "path": "report-icons/role-dps.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-dps.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-healer-native",
+      "name": "role-healer-native",
+      "path": "report-icons/role-healer-native.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-healer-native.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-healer-portrait",
+      "name": "role-healer-portrait",
+      "path": "report-icons/role-healer-portrait.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-healer-portrait.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-healer",
+      "name": "role-healer",
+      "path": "report-icons/role-healer.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-healer.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-tank-native",
+      "name": "role-tank-native",
+      "path": "report-icons/role-tank-native.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-tank-native.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-tank-portrait",
+      "name": "role-tank-portrait",
+      "path": "report-icons/role-tank-portrait.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-tank-portrait.png",
+      "tags": []
+    },
+    {
+      "id": "report:role-tank",
+      "name": "role-tank",
+      "path": "report-icons/role-tank.png",
+      "category": "legacy",
+      "family": "Legacy report icons",
+      "filename": "role-tank.png",
       "tags": []
     },
     {

@@ -1,3 +1,5 @@
+import {greaterMageblood} from './consumable-buffs.mjs';
+import {equippedEnchantEffects,enchantPassiveModifiers} from './enchant-effects.mjs';
 import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {loadouts} from './druid-gear.mjs';
@@ -27,18 +29,20 @@ export function buildProfile(loadout, buffs, bonus, talents = {}) {
   const intellect = stat('intellect', 100 + (buffs.has('intellect') ? 31 : 0), 1 + .02 * (talents['Heart of the Wild'] ?? 0));
   const livingSpirit = 1 + .05 * (talents['Living Spirit'] ?? 0);
   const spirit = stat('spirit', 110 + (buffs.has('spirit') ? 40 : 0), livingSpirit);
-  const stamina = stat('stamina', 69);
+  const stamina = stat('stamina', 69+(buffs.has('fortitude')?70:0));
   const gearPower = gear.power ?? 0;
-  return {...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
+  return {className:'druid', enchantEffects:equippedEnchantEffects(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...enchantPassiveModifiers(typeof loadout === 'object' ? loadout : loadouts[loadout]), ...manaSourceProfile(110, gear, buffs, spirit, {talent: livingSpirit, talentName: 'Living Spirit'}), strength: stat('strength', 62), agility: stat('agility', 65), intellect, spirit, stamina,
     spiritPerRawPoint: livingSpirit * (buffs.has('kings') ? 1.1 : 1),
     health: (gear.health ?? 0) + 1483 + 10 * stamina, baseMana: 1244, mana: (gear.mana ?? 0) + 1244 + 15 * intellect - 280 + (buffs.has('flask') ? 2000 : 0),
+    omen: buffs.has('omen'),
     haste: (gear.haste ?? 0) / 100,
-    crit: (1.8 + intellect * spellCritPercentPerIntellect.druid + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0)) / 100,
+    crit: (1.8 + intellect * spellCritPercentPerIntellect.druid + (gear.crit ?? 0) + 2 * (talents["Nature's Majesty"] ?? 0) + (buffs.has('moonkin') ? 3 : 0)) / 100,
     castingRegen: [0, .17, .33, .50][talents.Reflection ?? 0],
     regen: 6.25 + spirit / 8, gearPower, power: gearPower,
     pushbackResist: .14 * (talents["Nature's Focus"] ?? 0), grace: !!talents["Nature's Grace"],
+    bloomPerSpirit:talents.Bloom ? 1 + .02 * (talents['Gift of Nature'] ?? 0) : 0,
     bloom: talents.Bloom ? spirit * (1 + .02 * (talents['Gift of Nature'] ?? 0)) : 0,
-    mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? 12 : 0)};
+    mp5: (gear.mp5 ?? 0) + (buffs.has('wisdom') ? 40 : 0) + (buffs.has('mageblood') ? greaterMageblood.mp5 : 0)};
 }
 
 export function applyTalents(spell, talents) {
@@ -49,6 +53,7 @@ export function applyTalents(spell, talents) {
   const periodicMultiplier = (1 + .02 * rank('Genesis')) *
     (spell.key === 'rejuvenation' ? 1 + .05 * rank('Improved Rejuvenation') : 1);
   return {...spell,
+    omenEligible: ['touch','regrowth','rejuvenation','poison','swiftmend','growth','tranquility'].includes(spell.key),
     cast: touchOrWild ? spell.cast - .1 * rank('Naturalist') : spell.cast,
     cost: touchOrTranquility ? Math.round(spell.cost * (1 - .02 * rank('Tranquil Spirit'))) : spell.cost,
     cooldown: spell.key === 'tranquility' ? spell.cooldown * (1 - .3 * rank('Improved Tranquility')) : spell.cooldown,

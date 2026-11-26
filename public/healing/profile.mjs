@@ -1,3 +1,5 @@
+import {greaterMageblood} from './consumable-buffs.mjs';
+import {equippedEnchantEffects,enchantPassiveModifiers} from './enchant-effects.mjs';
 import {addAdditionalStats, spellCritPercentPerIntellect} from './additional-stats.mjs';
 import {manaSourceProfile} from './mana-sources.mjs';
 import {equipmentSets} from './gear.mjs';
@@ -5,14 +7,16 @@ import {equipmentSets} from './gear.mjs';
 export const naked = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99, baseMana: 1520};
 export const loadouts = equipmentSets;
 export const buffs = [
+  ['windfury','Windfury Totem','Main-hand attacks: 20% chance of an extra attack with +246 attack power','spell_nature_windfury'],
+  ['fortitude','Power Word: Fortitude','+70 Stamina','spell_holy_wordfortitude'],
+  ['moonkin', 'Moonkin Aura', '+3 percentage points of spell crit', 'spell_nature_moonglow'],
   ['mark', 'Mark of the Wild', '+16 to all attributes', 'spell_nature_regeneration'],
   ['wisdom', 'Blessing of Wisdom', '+40 mana / 5 sec', 'spell_holy_sealofwisdom'],
   ['spirit', 'Divine Spirit', '+40 Spirit', 'spell_holy_divinespirit'],
   ['kings', 'Blessing of Kings', '+10% attributes', 'spell_magic_magearmor'],
   ['intellect', 'Arcane Intellect', '+31 Intellect', 'spell_holy_magicalsentry'],
   ['flask', 'Flask of Distilled Wisdom', '+2,000 mana', 'inv_potion_97'],
-  ['mageblood', 'Mageblood Elixir', '+12 mana / 5 sec', 'inv_potion_45'],
-  ['potion', 'Major Mana Potion', '1,350–2,250 mana on use', 'inv_potion_76']
+  ['mageblood', greaterMageblood.name, `+${greaterMageblood.mp5} mana / 5 sec`, greaterMageblood.icon]
 ];
 
 export const talents = [
@@ -50,15 +54,15 @@ export function buildProfile(loadout, enabled, bonusHealing, points = {}) {
   const stat = (key, extra = 0, multiplier = 1) => Math.floor((naked[key] + (gear[key] ?? 0) + extra + (enabled.has('mark') ? 16 : 0)) * multiplier * (enabled.has('kings') ? 1.1 : 1));
   const intellect = stat('intellect', enabled.has('intellect') ? 31 : 0, 1 + .02 * (points.ancestral ?? 0));
   const spirit = stat('spirit', enabled.has('spirit') ? 40 : 0);
-  const stamina = stat('stamina');
-  return {...manaSourceProfile(naked.spirit, gear, enabled, spirit), strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
+  const stamina = stat('stamina',enabled.has('fortitude')?70:0);
+  return {className:'shaman', enchantEffects:equippedEnchantEffects(typeof loadout === 'object' ? loadout : equipmentSets[loadout]), ...enchantPassiveModifiers(typeof loadout === 'object' ? loadout : equipmentSets[loadout]), ...manaSourceProfile(naked.spirit, gear, enabled, spirit), strength: stat('strength'), agility: stat('agility'), stamina, intellect, spirit,
     spiritPerRawPoint: enabled.has('kings') ? 1.1 : 1,
     baseMana: naked.baseMana, health: (gear.health ?? 0) + 1280 + 10 * stamina,
     mana: (gear.mana ?? 0) + naked.baseMana + 15 * intellect - 280 + (enabled.has('flask') ? 2000 : 0),
     haste: (gear.haste ?? 0) / 100,
-    crit: (2.3 + intellect * spellCritPercentPerIntellect.shaman + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0)) / 100,
+    crit: (2.3 + intellect * spellCritPercentPerIntellect.shaman + (gear.crit ?? 0) + (points.crit ?? 0) + (points.thundering ?? 0) + (enabled.has('moonkin') ? 3 : 0)) / 100,
     castingRegen: [0, .17, .33, .50][points.mindfulness ?? 0],
     pushbackResist: [0, .23, .46, .70][points.pushback ?? 0],
     regen: 6.25 + spirit / 8, gearPower: gear.power ?? 0, power: gear.power ?? 0,
-    mp5: (gear.mp5 ?? 0) + (enabled.has('wisdom') ? 40 : 0) + (enabled.has('mageblood') ? 12 : 0)};
+    mp5: (gear.mp5 ?? 0) + (enabled.has('wisdom') ? 40 : 0) + (enabled.has('mageblood') ? greaterMageblood.mp5 : 0)};
 }

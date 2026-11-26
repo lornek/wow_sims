@@ -69,7 +69,7 @@ export function effectiveEquipment(kit,catalog) {
   return Object.fromEntries(Object.entries(kit).map(([slot,item])=>{
     const stats={...item.stats};const enchant=catalog?.enchants.find(e=>e.id===item.enchantId&&enchantFitsItem(e,item));
     if(enchant)for(const [key,value] of Object.entries(enchant.stats))stats[key]=(stats[key]??0)+value;
-    return [slot,{...item,stats}];
+    return [slot,{...item,stats,...(enchant?.effect?{enchantEffects:[enchant.effect]}:{})}];
   }));
 }
 export function equipItem(kit,slot,item) {

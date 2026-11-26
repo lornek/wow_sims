@@ -1,0 +1,231 @@
+/* Shared frame and meter treatment; spell bars retain the five-player layout. */
+.healing .heal-frame{box-sizing:border-box;min-width:0;isolation:isolate;border-radius:5px;border:1px solid #a88a4d;box-shadow:inset 0 1px 0 #fff9,inset 1px 0 0 #fff3,inset 0 -3px 4px #0009,0 2px 4px #0006;background:linear-gradient(#ffffff29,transparent 35%,#0004 95%),#171414}
+.healing .heal-frame .unit-fill{background:linear-gradient(#ffffff55 0%,#ffffff18 16%,transparent 46%,#0004 95%),var(--unit);box-shadow:inset 0 1px 0 #fff7,inset 0 -3px 4px #0005;border-radius:4px 4px 2px 2px}
+.healing .heal-frame>strong{font-weight:800;line-height:1.35;text-shadow:0 2px 2px #000,0 0 6px #000c,0 3px 8px #000c;white-space:nowrap;min-height:22px}
+.healing .heal-frame .unit-role{width:22px;height:22px;object-fit:contain;vertical-align:middle;flex:none;filter:drop-shadow(0 2px 2px #0009)}
+.healing .heal-frame>small{white-space:nowrap;min-height:16px;line-height:16px;text-shadow:0 1px 3px #000,0 2px 6px #000b}
+.healing .heal-frame .unit-status{height:25px;min-height:25px;overflow:hidden}
+.healing .heal-frame .raid-auras{height:18px;min-height:18px;overflow:hidden}
+.healing .combat-damage{box-sizing:border-box;height:260px;max-height:260px;overflow:auto;scrollbar-gutter:stable;border-color:#ae8d45;box-shadow:inset 0 1px 0 #fff3,inset 0 -1px 4px #0008,0 3px 9px #0006;background:linear-gradient(#3d2f1d66,#100d09dd 20%),#100d09}
+.healing .combat-damage h3{min-height:20px;line-height:20px;text-shadow:0 2px 4px #000}
+.healing .combat-damage summary{min-height:22px;box-sizing:border-box;font-weight:700;line-height:1.4;border-radius:2px;box-shadow:inset 0 1px 0 #fff3,inset 0 -1px 1px #0008;background:linear-gradient(#ffffff26,transparent 50%,#0003),linear-gradient(90deg,var(--damage-class) var(--share),#241b13 var(--share));text-shadow:0 1px 2px #000,0 2px 5px #000b}
+.healing .combat-damage .damage-breakdown>div{min-height:22px;box-shadow:inset 0 1px 0 #fff1,inset 0 -1px 0 #0005}
+.healing .combat-damage [data-damage-meter]{max-height:none;overflow:visible}
+.healing:not(.raid-mode) .combat-healing{margin-top:7px;padding-top:5px;border-top:1px solid #9e7d3b}
+.healing.raid-mode .heal-stage>.combat-healing{grid-column:1;grid-row:2;justify-self:start;align-self:center;z-index:2;width:23ch;height:280px;max-height:280px}
+.healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing){height:280px;max-height:280px;width:23ch}
+.healing.raid-mode .heal-stage>.heal-boss{min-height:360px}
+.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{grid-column:2;grid-row:2}
+.healing.raid-mode .heal-frame{height:100px;min-height:100px}
+.healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-rows:repeat(2,100px)}
+@media(max-width:760px){
+ .healing .heal-frame .unit-role{width:17px;height:17px}
+ .healing .heal-frame>strong{font-size:.78rem;text-shadow:0 1px 2px #000,0 2px 5px #000,0 4px 7px #000b}
+ .healing .combat-damage{height:260px;width:clamp(140px,38vw,180px)}
+ .healing.raid-mode .heal-stage,.healing.raid-mode[data-raid-layout=left] .heal-stage{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .healing.raid-mode .heal-stage>.heal-boss,.healing.raid-mode[data-raid-layout=left] .heal-stage>.heal-boss{grid-column:1 / -1;grid-row:2;min-height:355px}
+ .healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{grid-column:1;grid-row:3;width:100%;height:240px;max-height:240px;justify-self:stretch}
+ .healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing),.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-damage:not(.combat-healing){grid-column:2;grid-row:3;width:100%;height:240px;max-height:240px;justify-self:stretch}
+ .healing.raid-mode .heal-stage>.heal-party,.healing.raid-mode[data-raid-layout=left] .heal-stage>.heal-party{grid-column:1 / -1;grid-row:4}
+ .healing.raid-mode .heal-stage>.combat-sidebar,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-sidebar{grid-column:2;grid-row:1}
+ .healing.raid-mode .heal-frame{height:104px;min-height:104px}
+ .healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-rows:repeat(2,104px)}
+ .healing .combat-damage .meter-numbers{grid-template-columns:6ch .5ch 6ch;column-gap:1px;font-size:.66rem}
+}
+.healing .heal-spells .spell-label>small:last-child{display:block;min-height:1.25em;line-height:1.25}
+.healing .heal-stage .cast-bar{height:28px;min-height:28px;box-sizing:border-box}
+.healing .heal-stage .cast-bar strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Saturated bevels follow each class hue instead of washing it out. */
+.healing .heal-frame{box-shadow:inset 0 1px 0 var(--class-light),inset 0 -2px 3px var(--class-dark),0 2px 4px #0009}
+.healing .heal-frame .unit-fill{background:linear-gradient(var(--class-light),var(--unit) 27%,var(--class-dark));box-shadow:inset 0 1px 0 var(--class-light),inset 0 -2px 3px var(--class-dark)}
+.healing .heal-frame .unit-role{border-radius:50%;border:1px solid #ad935b;box-shadow:0 1px 3px #000c;filter:none}
+.healing .combat-damage summary{background:linear-gradient(90deg,transparent var(--share),#211a12 var(--share)),linear-gradient(var(--class-light),var(--damage-class) 35%,var(--class-dark));box-shadow:inset 0 1px 0 var(--class-light),inset 0 -1px 0 var(--class-dark)}
+.healing .combat-damage summary>span:first-child{display:flex;align-items:center;gap:4px;min-width:0;overflow:hidden;white-space:nowrap}
+.healing .meter-spec-icon{width:19px;height:19px;object-fit:cover;border-radius:2px;flex:none}
+.healing .combat-damage .combat-numbers{display:block;margin-left:auto;white-space:nowrap;flex:none;font-variant-numeric:tabular-nums;font-size:.76rem}
+.healing .combat-damage .damage-breakdown{background:#17110b}
+.healing .combat-damage .damage-breakdown>div{background:linear-gradient(90deg,var(--damage-class) var(--ability-share),#211a12 var(--ability-share));filter:none;padding-left:3px}
+.healing .combat-damage,.healing.raid-mode .heal-stage>.combat-damage{width:clamp(260px,24vw,330px)}
+.healing .combat-healing [data-healing-meter]{height:96px;max-height:96px;overflow-y:auto;scrollbar-gutter:stable}
+.healing .combat-healing .meter-row summary{height:24px}
+.healing .combat-healing .co-healer-button{display:block;width:100%;margin-top:6px;min-height:30px}
+.healing.raid-mode .heal-stage>.combat-healing{height:166px;max-height:166px;overflow:hidden}
+.healing:not(.raid-mode) .combat-damage{height:390px;max-height:390px}
+.healing:not(.raid-mode) [data-damage-meter]{height:220px;overflow-y:auto}
+.healing [data-boss-name]{font-family:var(--display);font-size:clamp(1.6rem,2.7vw,2.6rem);line-height:1.35;position:relative;z-index:1;text-shadow:0 3px 4px #000,0 6px 14px #000,0 10px 26px #000;margin-bottom:-6px;overflow:visible}
+.healing .heal-stage .cast-bar strong{left:0;right:0;width:100%;text-align:center}
+.healing .battlefield-controls{display:grid;grid-template-columns:34px 34px;gap:6px;align-items:start;justify-items:start}
+.healing .battlefield-controls [data-start]{grid-row:1;grid-column:1 / -1}
+.healing .battlefield-controls .sound-toggle{grid-row:2;grid-column:1}
+.healing .battlefield-controls .hotkey-settings{grid-row:2;grid-column:2}
+.healing .co-healer-dialog{position:fixed;inset:0;width:min(480px,calc(100vw - 24px));box-sizing:border-box;max-height:calc(100dvh - 32px);overflow:auto;background:linear-gradient(#302313,#130e08);border:1px solid #a68b42;border-radius:5px;color:var(--text);padding:18px;box-shadow:0 12px 45px #000c}
+.healing .co-healer-dialog::backdrop{background:#0009}
+.healing .co-healer-dialog h2{font:1.35rem var(--display);color:var(--gold);margin:0 0 8px}
+.healing .co-healer-choice{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #6c532b}
+.healing .co-healer-choice img{width:36px;height:36px;border:1px solid #b8944c}
+.healing .co-healer-choice select{margin-left:auto;max-width:120px}
+.healing .co-healer-warning{min-height:2.8em;color:#ffd580}
+.healing .co-healer-actions{display:flex;justify-content:flex-end;gap:8px}
+@media(max-width:760px){
+ .healing .combat-damage,.healing.raid-mode .heal-stage>.combat-damage{width:100%}
+ .healing:not(.raid-mode) .combat-damage{width:clamp(175px,45vw,230px)}
+ .healing .combat-damage .combat-numbers{font-size:.62rem;letter-spacing:-.02em}
+ .healing .combat-damage summary>span:first-child{gap:2px;font-size:.66rem}
+ .healing .meter-spec-icon{width:14px;height:14px}
+ .healing .combat-damage .damage-breakdown>div{padding:1px 2px}
+ .healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{height:166px;max-height:166px}
+ .healing [data-boss-name]{font-size:1.55rem}
+}
+.healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing){width:clamp(260px,24vw,330px)}
+.healing .battlefield-controls{min-width:124px}
+.healing .combat-healing [data-healing-meter]{height:108px;max-height:108px}
+.healing.raid-mode .heal-stage>.combat-healing{height:178px;max-height:178px}
+@media(max-width:760px){.healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing){width:100%}.healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{height:178px;max-height:178px}}
+.healing .co-healer-choice{display:grid;grid-template-columns:16px 36px minmax(0,1fr) 110px;gap:10px}
+.healing .co-healer-choice select{width:110px;min-width:0;margin:0}
+@media(min-width:761px){
+ .healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{grid-row:3;width:calc(50% - 5px);max-width:330px;align-self:start}
+ .healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-damage:not(.combat-healing){grid-row:3;width:calc(50% - 5px);max-width:330px;align-self:start}
+}
+/* Flat enamel faces with a narrow, directional bevel at the edges. */
+.healing .heal-frame{border-radius:3px;border-color:#9c8250;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 3px 5px -2px #0008;background:#1b1713;overflow:hidden}
+.healing .heal-frame .unit-fill{border-radius:2px;background:linear-gradient(var(--class-light) 0 2px,var(--unit) 2px, color-mix(in srgb,var(--unit) 92%,var(--class-dark)) calc(100% - 3px),var(--class-dark) calc(100% - 3px));box-shadow:inset 1px 0 0 var(--class-light),inset -1px 0 0 var(--class-dark)}
+.healing .heal-frame>strong,.healing .heal-frame>small{overflow:visible;text-shadow:0 2px 3px #000b,0 3px 5px #0007}
+.healing .heal-frame>strong{line-height:1.6;min-height:26px;padding-inline:2px}
+.healing .heal-party{padding:3px 3px 6px;margin-inline:-3px;box-sizing:border-box;overflow:visible}
+.healing .combat-damage summary{box-shadow:inset 0 1px 0 var(--class-light),inset 0 -1px 0 var(--class-dark);background:linear-gradient(90deg,transparent var(--share),#211a12 var(--share)),linear-gradient(var(--class-light) 0 1px,var(--damage-class) 1px calc(100% - 2px),var(--class-dark) calc(100% - 2px));padding-inline:0 3px}
+.healing .combat-damage summary::marker{content:''}
+.healing .combat-damage summary::-webkit-details-marker{display:none}
+.healing .combat-damage .damage-breakdown>div{display:grid;grid-template-columns:19px minmax(0,1fr) auto;gap:4px;padding-inline:0 3px;min-height:24px}
+.healing .combat-damage .damage-breakdown>div::before{display:none}
+.healing .combat-damage .meter-ability-name{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.healing .combat-damage [data-damage-meter],.healing .combat-healing [data-healing-meter]{width:100%;box-sizing:border-box;scrollbar-gutter:auto;scrollbar-width:thin;scrollbar-color:#897044 #1a140d}
+.healing .combat-damage *::-webkit-scrollbar,.healing .combat-damage::-webkit-scrollbar{width:5px;height:5px}
+.healing .combat-damage *::-webkit-scrollbar-button,.healing .combat-damage::-webkit-scrollbar-button{display:none;width:0;height:0}
+.healing .combat-damage *::-webkit-scrollbar-track,.healing .combat-damage::-webkit-scrollbar-track{background:#1a140d}
+.healing .combat-damage *::-webkit-scrollbar-thumb,.healing .combat-damage::-webkit-scrollbar-thumb{background:#897044;border-radius:3px}
+.healing.raid-mode .heal-stage>.combat-healing{height:280px;max-height:280px;align-self:start;display:flex;flex-direction:column}
+.healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing){align-self:start}
+.healing.raid-mode .combat-healing [data-healing-meter]{height:auto;max-height:none;min-height:0;flex:1;overflow:auto}
+.healing.raid-mode .combat-healing .co-healer-button{flex:none}
+@media(max-width:760px){
+ .healing .heal-frame>strong{font-size:.76rem;line-height:1.6;padding-top:2px}
+ .healing .combat-damage .damage-breakdown>div{grid-template-columns:14px minmax(0,1fr);gap:3px;font-size:.62rem}
+ .healing .combat-damage .damage-breakdown .combat-numbers{grid-column:2;font-size:.6rem}
+ .healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing{height:240px;max-height:240px}
+}
+.healing .heal-frame .unit-name{padding:2px 5px;margin:-2px -5px}
+.healing .heal-frame::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:3px;box-shadow:inset 2px 2px 0 color-mix(in srgb,var(--class-light) 75%,transparent),inset -2px -3px 0 color-mix(in srgb,var(--class-dark) 80%,transparent)}
+.healing .combat-damage .damage-breakdown>div{font-weight:600;text-shadow:0 1px 2px #000,0 2px 3px #0009}
+.healing .co-healer-button{font-size:.85rem;white-space:nowrap;padding-inline:4px}
+/* Palette and shallow depth from the user-authored Warcraft frame CSS showcase. */
+.healing .heal-frame{--frame-top:var(--class-light);--frame-bottom:var(--class-dark)}
+.healing .heal-frame[data-frame-class=warrior]{--frame-top:#b78148;--frame-bottom:#684729}
+.healing .heal-frame[data-frame-class=paladin]{--frame-top:#f684b6;--frame-bottom:#b14777}
+.healing .heal-frame[data-frame-class=mage]{--frame-top:#58c4f6;--frame-bottom:#1c75bc}
+.healing .heal-frame[data-frame-class=druid]{--frame-top:#ff800d;--frame-bottom:#a94400}
+.healing .heal-frame[data-frame-class=priest]{--frame-top:#e8dfcb;--frame-bottom:#b8ab8c}
+.healing .heal-frame[data-frame-class=hunter]{--frame-top:#95d660;--frame-bottom:#51882e}
+.healing .heal-frame[data-frame-class=warlock]{--frame-top:#8a6fcf;--frame-bottom:#4f3888}
+.healing .heal-frame[data-frame-class=shaman]{--frame-top:#0071e4;--frame-bottom:#003a91}
+.healing .heal-frame[data-frame-class=rogue]{--frame-top:#ddca5e;--frame-bottom:#8e7b24}
+.healing .heal-frame .unit-fill{background:linear-gradient(165deg,var(--frame-top) 0%,var(--unit) 52%,var(--frame-bottom) 100%)}
+.healing .heal-frame>strong,.healing .heal-frame>small{paint-order:stroke fill;-webkit-text-stroke:1px #211a16;text-shadow:0 2px 4px #000c,0 3px 6px #000a}
+.healing .combat-damage .damage-breakdown>div{font-weight:400;background:linear-gradient(90deg,color-mix(in srgb,var(--damage-class) 32%,#1b1714) var(--ability-share),#211a12 var(--ability-share));paint-order:stroke fill;-webkit-text-stroke:1px #17120e;text-shadow:0 1px 2px #0009}
+.healing .combat-damage{overflow:hidden;display:flex;flex-direction:column;scrollbar-gutter:auto}
+.healing .combat-damage>h3,.healing .combat-healing>h3{flex:none;margin:0 0 3px}
+.healing .combat-damage [data-damage-meter]{min-height:0;overflow:auto;flex:1;max-height:none;height:auto}
+.healing:not(.raid-mode) .combat-damage>[data-damage-meter]{flex:1}
+.healing:not(.raid-mode) .combat-damage>.combat-healing{flex:none}
+.healing .co-healer-choice{grid-template-columns:28px 36px minmax(0,1fr) 110px}
+.healing .co-healer-choice input[type=checkbox]{appearance:none;box-sizing:border-box;width:28px;height:28px;margin:0;border:2px solid #a8863b;border-radius:3px;background:linear-gradient(#312818,#100c07);box-shadow:inset 0 1px 2px #000b,0 1px 1px #000;display:grid;place-content:center;cursor:pointer}
+.healing .co-healer-choice input:checked{background:linear-gradient(#775f27,#2f2610);box-shadow:inset 0 0 5px #e8bd4766}
+.healing .co-healer-choice input:checked::after{content:'✓';color:#ffe19a;font-size:25px;line-height:1;text-shadow:0 1px 2px #000}
+.healing .co-healer-choice input:focus-visible{outline:2px solid #ffe19a;outline-offset:3px}
+.healing .raid-auras{height:34px;min-height:34px;gap:2px;justify-content:flex-start}
+.healing .raid-aura{position:relative;display:inline-block;flex:none;width:30px;height:30px;border:1px solid #ad914b;box-sizing:border-box;border-radius:2px;overflow:hidden}
+.healing .raid-aura img{width:100%;height:100%;border:0;display:block}
+.healing .raid-aura::after{content:'';position:absolute;inset:0;background:conic-gradient(from 0deg,#0009 0 var(--aura-sweep),transparent var(--aura-sweep) 100%);pointer-events:none}
+.healing .raid-aura small{position:absolute;bottom:0;right:1px;color:#fff;z-index:1;font-size:10px;font-weight:700;text-shadow:0 1px 2px #000}
+.healing .raid-low-mana .party-resource{box-shadow:0 0 4px 2px #b51111;animation:raid-low-mana 1s ease-in-out infinite}
+@keyframes raid-low-mana{50%{box-shadow:0 0 9px 4px #fa2424;background:#691010}}
+@media(prefers-reduced-motion:reduce){.healing .raid-low-mana .party-resource{animation:none;box-shadow:0 0 7px 3px #dc2525}}
+.healing .hotkey-panel.keybindings-open{height:234px}
+@media(max-width:400px){.healing .co-healer-choice{grid-template-columns:28px 30px minmax(0,1fr) 95px;gap:6px}.healing .co-healer-choice select{width:95px}}
+.healing.raid-mode .heal-frame{height:124px;min-height:124px}
+.healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-rows:repeat(2,124px)}
+@media(max-width:760px){.healing.raid-mode .heal-frame{height:128px;min-height:128px}.healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-rows:repeat(2,128px)}}
+.healing .heal-frame[data-is-player]>strong{display:flex;align-items:center;justify-content:center;gap:3px;white-space:nowrap}
+.healing .heal-frame[data-is-player] .unit-name{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.healing .unit-you{font-size:.8em;flex:none}
+@media(max-width:760px){.healing .heal-frame[data-is-player]>strong{gap:1px}.healing .unit-you{font-size:.58rem}}
+.healing.raid-mode .combat-damage [data-damage-meter]{max-height:none;height:auto;min-height:0;overflow:auto;flex:1}
+/* Narrow five-column frames reserve two rows for the larger companion buffs. */
+.healing.raid-mode[data-raid-layout=left] .heal-frame{height:156px;min-height:156px}
+.healing.raid-mode[data-raid-layout=left] .raid-auras{height:64px;min-height:64px;flex-wrap:wrap;align-content:flex-start}
+@media(max-width:760px){
+ .healing.raid-mode .heal-frame{height:156px;min-height:156px}
+ .healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-rows:repeat(2,156px)}
+ .healing .raid-auras{height:64px;min-height:64px;flex-wrap:wrap;align-content:flex-start}
+}
+.healing .heal-frame .raid-auras{height:34px;min-height:34px;overflow:hidden}
+.healing.raid-mode[data-raid-layout=left] .heal-frame .raid-auras{height:64px;min-height:64px}
+@media(max-width:760px){.healing.raid-mode .heal-frame .raid-auras{height:64px;min-height:64px}}
+.healing .heal-frame>strong{flex-wrap:nowrap;height:26px;gap:3px}
+.healing .heal-frame .unit-name{min-width:0;flex:0 1 auto;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:760px){.healing.raid-mode .heal-frame{padding-inline:0}.healing .heal-frame .raid-auras{column-gap:1px;row-gap:2px}}
+@media(max-width:350px){.healing.raid-mode:not([data-raid-layout=columns]) .heal-party{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.healing .raid-aura small{paint-order:stroke fill;-webkit-text-stroke:1px #14100b}
+/* Raid text is 25% larger; overflowing names fade without resizing or wrapping. */
+.healing.raid-mode .heal-frame>strong{font-size:1.0375rem;line-height:1.35;flex-wrap:nowrap;white-space:nowrap}
+.healing.raid-mode .heal-frame>small{font-size:.8125rem}
+.healing.raid-mode .heal-frame::before{font-size:.6875rem}
+.healing.raid-mode .raid-aura small{font-size:12.5px}
+.healing.raid-mode .heal-frame .unit-name{white-space:nowrap;text-overflow:clip;overflow:hidden}
+.healing.raid-mode .heal-frame .unit-name-fade{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 14px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 14px),transparent)}
+@media(max-width:760px){
+ .healing.raid-mode .heal-frame>strong{font-size:.95rem}
+ .healing.raid-mode .heal-frame>small{font-size:.6875rem}
+ .healing.raid-mode .unit-you{font-size:.725rem}
+}
+
+/* Companion buffs sit left of center; player-applied buffs sit right of center. */
+.healing.raid-mode .heal-frame .raid-auras{position:absolute;left:2px;right:auto;top:50%;transform:translateY(-50%);width:calc(50% - 3px);height:44px;min-height:44px;display:flex;align-content:center;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:2px;overflow:hidden}
+.healing.raid-mode .raid-aura{width:20px;height:20px}
+.healing.raid-mode .raid-aura small{font-size:9px}
+.healing.raid-mode .heal-frame .unit-status{position:absolute;right:2px;left:auto;top:50%;transform:translateY(-50%);width:calc(50% - 3px);height:25px;min-height:25px;overflow:visible}
+.healing.raid-mode .unit-status .unit-aura{left:auto;right:calc(var(--aura-index,0) * clamp(0px,(100% - 23px) / var(--aura-gaps,1),26px));top:0}
+@media(max-width:760px){.healing.raid-mode .raid-aura{width:clamp(14px,4vw,20px);height:clamp(14px,4vw,20px)}.healing.raid-mode .heal-frame .raid-auras{left:1px;width:calc(50% - 1px);gap:1px;height:42px;min-height:42px}}
+.healing.raid-mode[data-raid-layout=left] .raid-aura{width:clamp(14px,calc((100% - 2px)/2),20px);height:auto;aspect-ratio:1}
+/* Spell cards wrap before their labels become tall, keeping the text inside the icon height. */
+@media(min-width:761px){
+ .healing .heal-spells{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+ .healing .heal-spells button{box-sizing:border-box;min-width:0;height:74px;min-height:74px;padding:8px;gap:10px;align-items:flex-start;overflow-wrap:normal}
+ .healing .heal-spells .spell-art{width:56px;height:56px;max-width:none;flex:none}
+ .healing .heal-spells .spell-art img{width:56px;height:56px;box-sizing:border-box;display:block}
+ .healing .heal-spells .spell-label{display:flex;flex-direction:column;justify-content:flex-start;min-width:0;flex:1;height:56px;font-size:.95rem;line-height:1.2}
+ .healing .heal-spells .spell-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;line-height:1.2;flex:none}
+ .healing .heal-spells .spell-details{display:flex;align-items:baseline;gap:5px;min-width:0;margin-top:2px;line-height:1.2}
+ .healing .heal-spells .spell-details small{display:block;font-size:.74rem;line-height:1.2;margin:0;min-height:0}
+ .healing .heal-spells .spell-shortcut{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .healing .heal-spells .spell-cooldown{flex:none;white-space:nowrap}
+}
+@media(max-width:760px){.healing .heal-spells{grid-template-columns:repeat(auto-fit,minmax(56px,1fr));gap:5px}}
+.healing .heal-frame .unit-you{font:inherit}
+.healing .heal-frame>strong,.healing .heal-frame>small,.healing .combat-damage .damage-breakdown>div,.healing .raid-aura small{paint-order:stroke fill;-webkit-text-stroke:1.1px #18110d;text-shadow:-.5px 1px 0 #18110d,.5px 1px 0 #18110d,0 1.5px 0 #18110d,0 3px 5px #000b}
+
+/* The wide bottom layout is two rows, filling ten columns in a twenty-player raid. */
+.healing.raid-mode[data-raid-layout=columns] .heal-party{grid-template-columns:repeat(var(--raid-bottom-columns,10),minmax(88px,1fr));grid-auto-flow:row;grid-template-rows:repeat(2,auto);min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:12px}
+
+/* Phone frames follow their column width instead of reserving desktop-height cards. */
+@media(max-width:760px){
+ .healing .heal-party{align-items:start;grid-auto-rows:auto}
+ .healing .heal-frame,
+ .healing.raid-mode .heal-frame,
+ .healing.raid-mode[data-raid-layout=left] .heal-frame{box-sizing:border-box;width:100%;height:auto;min-height:0;aspect-ratio:1 / 1;align-self:start}
+}
+@media(max-width:760px){
+ .healing.raid-mode .heal-frame>strong{position:absolute;top:4px;left:0;right:0;height:22px;padding-top:0}
+ .healing.raid-mode .heal-frame>small{position:absolute;bottom:10px;left:0;right:0;white-space:nowrap}
+ .healing.raid-mode .heal-frame .raid-auras{height:20px;min-height:20px;align-content:center}
+}

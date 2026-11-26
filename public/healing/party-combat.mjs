@@ -1,13 +1,22 @@
+import {raidDpsStats,advanceRaidDps} from './raid-dps.mjs';
 import {warriorGear} from './warrior-gear.mjs';
 
 export const encounters = {
-  rend: {name:'Rend Blackhand', health:28000, limit:85, swing:225, firstFlurry:17, flurry:265, poisonTick:100,
+  rend: {name:'Rend Blackhand', health:42000, limit:85, swing:225, firstFlurry:17, flurry:265, poisonTick:100,
     description:'Tank damage, Blade Flurry, and a dispellable debuff. Enrages at 35%.'},
-  patchwerk: {name:'Patchwerk', health:30000, limit:90, swing:360, strike:680,
+  patchwerk: {name:'Patchwerk', health:45000, limit:90, swing:360, strike:680,
     description:'Cairne takes melee swings. Illidan serves as the off-tank for Hateful Strike.'},
-  sapphiron: {name:'Sapphiron', health:30000, limit:95, swing:200, frost:105,
+  sapphiron: {name:'Sapphiron', health:45000, limit:95, swing:200, frost:105,
     description:'Frost Aura steadily damages the entire party.'}
 };
+
+// Shared tuning for the browser and deterministic replay tools. HP never scales with difficulty.
+export function encounterTuning(boss,level=0,size=5){
+ const health=1.3**level,damage=1.1*(1.15*1.1)**level,raid=size===20?12:size===10?4:1,melee=size===20?2.5:size===10?1.5:1;
+ const result={...boss,health:Math.round(boss.health*health*raid),limit:boss.limit*health*(size===20?4:size===10?2:1)};
+ for(const key of ['swing','flurry','poisonTick','strike','frost'])if(boss[key])result[key]=Math.round(boss[key]*damage*(['swing','strike'].includes(key)?melee:1));
+ return result;
+}
 
 // Level 60 Tauren Warrior base stats and Forever combat rating conversions.
 const gearStat = key => warriorGear.reduce((sum, item) => sum + (item[key] ?? 0), 0);
@@ -24,7 +33,7 @@ export function bossArmor(state) {
   return Math.max(0, 3731 - stacks * sunderArmor);
 }
 
-export const combatants = {
+export const combatants = {...raidDpsStats,
   Cairne: {resource:'Rage', max:100, regen:0, ap:160 + 2 * warriorStrength + gearStat('ap'),
     crit:(warriorAgility * .05 + gearStat('critRating') / 14) / 100,
     hit:.94 + gearStat('hitRating') / 1000, expertise:gearStat('expertiseRating') / 1000,
@@ -48,7 +57,7 @@ function gain(unit, amount) {
 
 export function setupPartyCombat(party) {
   for (const unit of party) {
-    const stats = combatants[unit.name];
+    const stats = unit.combatStats ?? combatants[unit.combatantKey ?? unit.name];
     if (!stats) continue;
     unit.resource = {type:stats.resource, max:stats.max, value:stats.resource === 'Rage' ? 0 : stats.max};
     unit.rotation = {action:0, swing:stats.swingInterval ?? stats.speed ?? Infinity, offSwing:stats.offSpeed ?? Infinity, cooldowns:{}, combo:0};
@@ -56,12 +65,13 @@ export function setupPartyCombat(party) {
   }
 }
 
-export function advancePartyCombat(state, dt, random) {
+export function advancePartyCombat(state, dt, random, onDamage = () => {},onSelfDamage = () => {}) {
   const now = state.time;
   if (!(state.sunderUntil > now)) state.sunderStacks = 0;
   for (const unit of state.party) {
     if (!unit.hp || !unit.rotation || !state.boss) continue;
-    const stats = combatants[unit.name];
+    const stats = unit.combatStats ?? combatants[unit.combatantKey ?? unit.name];
+    if(raidDpsStats[unit.spec]){advanceRaidDps(state,unit,dt,random,onDamage,bossArmor(state),onSelfDamage);continue;}
     const rotation = unit.rotation;
     gain(unit, stats.regen * dt * (rotation.adrenalineUntil > now ? 2 : 1));
     if (rotation.evocationUntil > now) gain(unit, unit.resource.max * .075 * dt);
@@ -74,6 +84,7 @@ export function advancePartyCombat(state, dt, random) {
       meter.crits += Number(crit);
       meter.total += damage;
       state.boss -= damage;
+      if (damage > 0) onDamage({source:unit.name,sourceIndex:state.party.indexOf(unit),color:unit.color,spell,amount:damage,crit,time:state.time});
     }
     function hit(spell, base, {ignite = false, bonusCrit = 0, magic = false, auto = false, critMultiplier = 2, spread = .05, grantsRage = false} = {}) {
       const meter = unit.damage[spell] ??= {attempts:0, hits:0, crits:0, total:0};
@@ -82,13 +93,13 @@ export function advancePartyCombat(state, dt, random) {
       const miss = 1 - stats.hit + (auto && stats.offHand ? .19 : 0) +
         (stats.expertise === undefined ? 0 : Math.max(0, .065 - stats.expertise));
       if (roll < miss) return false;
-      const crit = roll < miss + stats.crit + bonusCrit;
+      const crit = roll < miss + stats.crit + bonusCrit + (magic?(stats.spellCritBonus??0):0);
       const glance = !crit && auto && stats.resource !== 'Mana' && roll < miss + stats.crit + .4;
       const infused = magic && unit.powerInfusion?.expires > now;
       const damage = base * (1 - spread + 2 * spread * random()) *
         (magic ? 1 : 5500 / (5500 + bossArmor(state))) * (crit ? critMultiplier : glance ? .7 : 1) * (infused ? 1.2 : 1);
       recordDamage(spell, damage, crit);
-      if (unit.name === 'Jaina' && random() < .1) rotation.clearcasting = true;
+      if ((unit.combatantKey ?? unit.name) === 'Jaina' && random() < .1) rotation.clearcasting = true;
       if (ignite && crit) {
         gain(unit, (rotation.mageCastCost ?? 0) * .3);
         rotation.ignitePool = (rotation.ignitePool ?? 0) + damage * .4;
@@ -100,6 +111,11 @@ export function advancePartyCombat(state, dt, random) {
         gain(unit, 3.46 * stats.speed * (crit ? 2 : 1));
         rotation.swingRage += unit.resource.value - before;
       }
+      if(damage>0&&(unit.windfuryTotem||stats.windfuryTotem)&&['Cairne','Illidan'].includes(unit.combatantKey??unit.name)&&['Melee','Heroic Strike','Main-hand swing'].includes(spell)&&random()<.2){
+        const extra=(stats.weapon??((stats.weaponMin+stats.weaponMax)/2))+(stats.ap+246)*stats.speed/14;
+        hit('Windfury Totem',extra,{spread:.05});
+      }
+      if(damage>0&&(unit.combatantKey??unit.name)==='Illidan'&&['Main-hand swing','Off-hand swing','Sinister Strike'].includes(spell)&&random()<.2)hit('Instant Poison',88+.01*stats.ap,{magic:true});
       return damage;
     }
     function spend(spell, cost, cooldown = 0, gcd = 1.5) {
@@ -107,7 +123,7 @@ export function advancePartyCombat(state, dt, random) {
       rotation.cooldowns[spell] = now + cooldown;
       rotation.action = now + gcd;
     }
-    if (unit.name === 'Cairne') {
+    if ((unit.combatantKey ?? unit.name) === 'Cairne') {
       if (rotation.opened === undefined) {
         rotation.opened = true;
         rotation.swingRage = 0;
@@ -153,7 +169,7 @@ export function advancePartyCombat(state, dt, random) {
         const revenge = 152.5 + .25 * stats.ap;
         hit('Revenge', revenge * .9, {spread:15.5 / revenge});
       }
-    } else if (unit.name === 'Illidan') {
+    } else if ((unit.combatantKey ?? unit.name) === 'Illidan') {
       if ((rotation.cooldowns['Adrenaline Rush'] ?? 0) <= now && unit.resource.value <= 40) {
         rotation.adrenalineUntil = now + 15;
         rotation.cooldowns['Adrenaline Rush'] = now + 300;
@@ -182,7 +198,7 @@ export function advancePartyCombat(state, dt, random) {
         spend('Sinister Strike', 40, 0, 1);
         if (hit('Sinister Strike', weapon(2.4) + 68, {critMultiplier:2.3})) rotation.combo++;
       }
-    } else if (unit.name === 'Sylvanas') {
+    } else if ((unit.combatantKey ?? unit.name) === 'Sylvanas') {
       // ForeverDB's ranged priority assumes Hunter's Mark, Hawk and Improved Tracking.
       const ranged = (speed, bonus = 0) => (weapon(speed) + 263 * speed / 14 + bonus) * 1.05;
       if (now >= (rotation.petSwing ?? 2)) {
@@ -223,8 +239,8 @@ export function advancePartyCombat(state, dt, random) {
         spend('Aimed Shot', 310, 6, 2);
         rotation.aimedUntil = now + 2;
       }
-    } else if (unit.name === 'Jaina') {
-      const fire = state.encounterId === 'sapphiron';
+    } else if ((unit.combatantKey ?? unit.name) === 'Jaina') {
+      const fire = unit.spec!=='frost';
       if (rotation.igniteTicks && now >= rotation.igniteTick) {
         const tick = rotation.ignitePool / rotation.igniteTicks;
         recordDamage('Ignite', tick);

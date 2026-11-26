@@ -870,7 +870,367 @@
         "path": "icons/spell_nature_bloodlust.jpg"
       },
       "implemented": true
+    },
+    {
+      "key": "enchant-grand-arcanist",
+      "purpose": "Enchant · Grand Arcanist",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-002",
+          "name": "Golden lotus offering",
+          "path": "custom-icons/arcane-vitality/002-golden-lotus-offering.png"
+        },
+        {
+          "id": "arcane-vitality-003",
+          "name": "Golden healing flower",
+          "path": "custom-icons/arcane-vitality/003-golden-healing-flower.png"
+        },
+        {
+          "id": "arcane-vitality-004",
+          "name": "Nature reaching hands",
+          "path": "custom-icons/arcane-vitality/004-nature-reaching-hands.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-040",
+        "name": "Arcane lightning sigil",
+        "path": "custom-icons/arcane-vitality/040-arcane-lightning-sigil.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-grand-sorcerer",
+      "purpose": "Enchant · Grand Sorcerer",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-006",
+          "name": "Golden winged guardian",
+          "path": "custom-icons/arcane-vitality/006-golden-winged-guardian.png"
+        },
+        {
+          "id": "arcane-vitality-007",
+          "name": "Radiant winged healer",
+          "path": "custom-icons/arcane-vitality/007-radiant-winged-healer.png"
+        },
+        {
+          "id": "arcane-vitality-011",
+          "name": "Hands of renewal",
+          "path": "custom-icons/arcane-vitality/011-hands-of-renewal.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-060",
+        "name": "Radiant violet rune",
+        "path": "custom-icons/arcane-vitality/060-radiant-violet-rune.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-insight",
+      "purpose": "Enchant · Insight",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-012",
+          "name": "Golden lotus bloom",
+          "path": "custom-icons/arcane-vitality/012-golden-lotus-bloom.png"
+        },
+        {
+          "id": "arcane-vitality-013",
+          "name": "Turquoise healing flower",
+          "path": "custom-icons/arcane-vitality/013-turquoise-healing-flower.png"
+        },
+        {
+          "id": "arcane-vitality-014",
+          "name": "Nature healing breath",
+          "path": "custom-icons/arcane-vitality/014-nature-healing-breath.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-076",
+        "name": "Spirit halo meditation",
+        "path": "custom-icons/arcane-vitality/076-spirit-halo-meditation.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-revelation",
+      "purpose": "Enchant · Revelation",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-015",
+          "name": "Azure winged guardian",
+          "path": "custom-icons/arcane-vitality/015-azure-winged-guardian.png"
+        },
+        {
+          "id": "arcane-vitality-016",
+          "name": "Turquoise leaf aura",
+          "path": "custom-icons/arcane-vitality/016-turquoise-leaf-aura.png"
+        },
+        {
+          "id": "arcane-vitality-017",
+          "name": "Azure mana diamond",
+          "path": "custom-icons/arcane-vitality/017-azure-mana-diamond.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-063",
+        "name": "Celestial crystal star",
+        "path": "custom-icons/arcane-vitality/063-celestial-crystal-star.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-absorption",
+      "purpose": "Enchant · Absorption",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-018",
+          "name": "Violet mana spiral",
+          "path": "custom-icons/arcane-vitality/018-violet-mana-spiral.png"
+        },
+        {
+          "id": "arcane-vitality-019",
+          "name": "Violet crystal pedestal",
+          "path": "custom-icons/arcane-vitality/019-violet-crystal-pedestal.png"
+        },
+        {
+          "id": "arcane-vitality-020",
+          "name": "Azure crystal fountain",
+          "path": "custom-icons/arcane-vitality/020-azure-crystal-fountain.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-064",
+        "name": "Leaf renewal shield",
+        "path": "custom-icons/arcane-vitality/064-leaf-renewal-shield.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-critical-strike",
+      "purpose": "Enchant · Shield Critical Strike",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-023",
+          "name": "Lotus sanctuary",
+          "path": "custom-icons/arcane-vitality/023-lotus-sanctuary.png"
+        },
+        {
+          "id": "arcane-vitality-024",
+          "name": "Green renewal vine",
+          "path": "custom-icons/arcane-vitality/024-green-renewal-vine.png"
+        },
+        {
+          "id": "arcane-vitality-025",
+          "name": "Verdant healing beam",
+          "path": "custom-icons/arcane-vitality/025-verdant-healing-beam.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-071",
+        "name": "Radiant arcane diamond",
+        "path": "custom-icons/arcane-vitality/071-radiant-arcane-diamond.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-casting-haste",
+      "purpose": "Enchant · Gloves casting haste",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-026",
+          "name": "Blue spirit hand",
+          "path": "custom-icons/arcane-vitality/026-blue-spirit-hand.png"
+        },
+        {
+          "id": "arcane-vitality-028",
+          "name": "Radiant mana vortex",
+          "path": "custom-icons/arcane-vitality/028-radiant-mana-vortex.png"
+        },
+        {
+          "id": "arcane-vitality-029",
+          "name": "Azure light well",
+          "path": "custom-icons/arcane-vitality/029-azure-light-well.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-055",
+        "name": "Spiraling arcane leaf",
+        "path": "custom-icons/arcane-vitality/055-spiraling-arcane-leaf.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-speed",
+      "purpose": "Enchant · Boots Speed",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-030",
+          "name": "Violet leaf sigil",
+          "path": "custom-icons/arcane-vitality/030-violet-leaf-sigil.png"
+        },
+        {
+          "id": "arcane-vitality-031",
+          "name": "Palm of golden light",
+          "path": "custom-icons/arcane-vitality/031-palm-of-golden-light.png"
+        },
+        {
+          "id": "arcane-vitality-032",
+          "name": "Palm of green light",
+          "path": "custom-icons/arcane-vitality/032-palm-of-green-light.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-100",
+        "name": "Winged spirit renewal",
+        "path": "custom-icons/arcane-vitality/100-winged-spirit-renewal.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "enchant-subtlety",
+      "purpose": "Enchant · Cloak Subtlety",
+      "where": "Enchant picker; active enchant buff and healing/mana report wherever this effect appears.",
+      "status": "current",
+      "note": "Unique spell-library icon; unused by any existing purpose at assignment.",
+      "options": [
+        {
+          "id": "arcane-vitality-035",
+          "name": "Blue violet vortex",
+          "path": "custom-icons/arcane-vitality/035-blue-violet-vortex.png"
+        },
+        {
+          "id": "arcane-vitality-038",
+          "name": "Azure flame fountain",
+          "path": "custom-icons/arcane-vitality/038-azure-flame-fountain.png"
+        },
+        {
+          "id": "arcane-vitality-041",
+          "name": "Violet cosmic spiral",
+          "path": "custom-icons/arcane-vitality/041-violet-cosmic-spiral.png"
+        }
+      ],
+      "current": {
+        "id": "arcane-vitality-077",
+        "name": "Crystalline arcane lock",
+        "path": "custom-icons/arcane-vitality/077-crystalline-arcane-lock.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "role-tank",
+      "purpose": "Tank role emblem",
+      "where": "Party and raid frames; all DPS use crossed swords.",
+      "status": "current",
+      "note": "Cropped from reference/ui/healbot_ui_ref_001.png, supplied by the user. Original screenshot and Blizzard UI artwork retain their original ownership.",
+      "options": [
+        {
+          "id": "report:role-tank-native",
+          "name": "Tank · native",
+          "path": "report-icons/role-tank-native.png"
+        },
+        {
+          "id": "report:role-tank-portrait",
+          "name": "Tank · portrait",
+          "path": "report-icons/role-tank-portrait.png"
+        },
+        {
+          "id": "ability:spell_holy_powerwordshield",
+          "name": "Tank · classic ability",
+          "path": "icons/spell_holy_powerwordshield.jpg"
+        }
+      ],
+      "current": {
+        "id": "report:role-tank",
+        "name": "Tank role emblem",
+        "path": "report-icons/role-tank.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "role-healer",
+      "purpose": "Healer role emblem",
+      "where": "Party and raid frames; all DPS use crossed swords.",
+      "status": "current",
+      "note": "Cropped from reference/ui/healbot_ui_ref_001.png, supplied by the user. Original screenshot and Blizzard UI artwork retain their original ownership.",
+      "options": [
+        {
+          "id": "report:role-healer-native",
+          "name": "Healer · native",
+          "path": "report-icons/role-healer-native.png"
+        },
+        {
+          "id": "report:role-healer-portrait",
+          "name": "Healer · portrait",
+          "path": "report-icons/role-healer-portrait.png"
+        },
+        {
+          "id": "ability:spell_holy_flashheal",
+          "name": "Healer · classic ability",
+          "path": "icons/spell_holy_flashheal.jpg"
+        }
+      ],
+      "current": {
+        "id": "report:role-healer",
+        "name": "Healer role emblem",
+        "path": "report-icons/role-healer.png"
+      },
+      "implemented": true
+    },
+    {
+      "key": "role-dps",
+      "purpose": "Dps role emblem",
+      "where": "Party and raid frames; all DPS use crossed swords.",
+      "status": "current",
+      "note": "Cropped from reference/ui/healbot_ui_ref_001.png, supplied by the user. Original screenshot and Blizzard UI artwork retain their original ownership.",
+      "options": [
+        {
+          "id": "report:role-dps-native",
+          "name": "Dps · native",
+          "path": "report-icons/role-dps-native.png"
+        },
+        {
+          "id": "report:role-dps-portrait",
+          "name": "Dps · portrait",
+          "path": "report-icons/role-dps-portrait.png"
+        },
+        {
+          "id": "ability:ability_meleedamage",
+          "name": "Dps · classic ability",
+          "path": "icons/ability_meleedamage.jpg"
+        }
+      ],
+      "current": {
+        "id": "report:role-dps",
+        "name": "Dps role emblem",
+        "path": "report-icons/role-dps.png"
+      },
+      "implemented": true
     }
   ],
-  "registryVersion": "34195f64ba87"
+  "registryVersion": "ce1945945b36"
 }

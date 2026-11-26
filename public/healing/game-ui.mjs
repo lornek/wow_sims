@@ -1,26 +1,5 @@
 import {tooltipPosition} from './tooltip-layout.mjs';
-export function mountTabs(root) {
-  const tabs = [...root.querySelectorAll('[role=tab]')];
-  const select = index => {
-    tabs.forEach((tab, i) => {
-      tab.setAttribute('aria-selected', i === index);
-      tab.tabIndex = i === index ? 0 : -1;
-      root.querySelector('#' + tab.getAttribute('aria-controls')).hidden = i !== index;
-    });
-  };
-  tabs.forEach((tab, index) => {
-    tab.onclick = () => select(index);
-    tab.onkeydown = event => {
-      const next = {ArrowRight: (index + 1) % tabs.length, ArrowLeft: (index + tabs.length - 1) % tabs.length,
-        Home: 0, End: tabs.length - 1}[event.key];
-      if (next === undefined) return;
-      event.preventDefault();
-      select(next);
-      tabs[next].focus();
-    };
-  });
-  select(0);
-}
+export {mountTabs} from './tabs.mjs';
 
 let activeTooltip;
 let tooltipId = 0;
@@ -102,23 +81,24 @@ export function attachGameTooltip(button, render, {immediateLeave = false, follo
   return handle;
 }
 
-export function setGameTooltip(element, title, lines = []) {
+export function setGameTooltip(element, title, lines = [], options = {}) {
   element.removeAttribute('title');
   element.setAttribute('data-tooltip-trigger', '');
   if (element.tabIndex < 0 && !element.matches('button,input,select,textarea,a[href],summary,label') && !element.querySelector('button,input,select,textarea,a[href],summary')) element.tabIndex = 0;
   let entry = textTooltips.get(element);
-  const signature = JSON.stringify([title, lines]);
+  const signature = JSON.stringify([title, lines, options]);
   if (entry?.signature === signature) return entry.handle;
   if (!entry) {
     entry = {title,lines};
     entry.handle = attachGameTooltip(element, tip => {
       tooltipLine(tip, entry.title, 'game-tooltip-title');
+      if (entry.options?.quality != null) tip.lastElementChild.dataset.quality = entry.options.quality;
       for (const line of entry.lines) tooltipLine(tip, typeof line === 'string' ? line : line.text,
         typeof line === 'string' ? 'game-tooltip-description' : line.style);
     }, {followPointer:!!element.closest('.healing-breakdown, .healing-event-bars')});
     textTooltips.set(element, entry);
   }
-  Object.assign(entry,{title,lines,signature});
+  Object.assign(entry,{title,lines,options,signature});
   entry.handle.refresh();
   return entry.handle;
 }

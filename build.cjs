@@ -4,11 +4,13 @@ require('./scripts/sync-icon-purposes.cjs');
 require('./scripts/package-icon-library.cjs');
 const iconPurposes = require('./public/healing/custom-icons/icon-purposes.json');
 
+const classColors=JSON.parse(fs.readFileSync(path.join(__dirname,'public/healing/class-colors.json'),'utf8'));
+fs.writeFileSync(path.join(__dirname,'public/healing/class-colors.mjs'),'// Generated from class-colors.json by build.cjs.\nexport const classColors=Object.freeze('+JSON.stringify(classColors)+');\n');
 const classes = [
   ['Warrior', '#C79C6E'], ['Paladin', '#F58CBA'], ['Hunter', '#ABD473'],
   ['Rogue', '#FFF569'], ['Priest', '#FFFFFF'], ['Shaman', '#0070DE'],
   ['Mage', '#69CCF0'], ['Warlock', '#9482C9'], ['Druid', '#FF7D0A']
-];
+].map(([name,color])=>[name,classColors[name.toLowerCase()]??color]);
 
 const output = path.join(__dirname, 'dist');
 fs.cpSync(path.join(__dirname, 'public'), output, {recursive: true});
@@ -39,13 +41,13 @@ function page(title, depth, current, content) {
 <body>
 <header class="site-header"><div class="container">
 <a class="brand" href="${depth}"><span class="sigil" aria-hidden="true">∞</span><span>WoW Forever Sims<small>Class tools for World of Warcraft: Forever</small></span></a>
-<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}icons/">Icon library</a></nav>
+<nav aria-label="Main navigation"><a class="nav-link" href="${depth}">Class sims</a> <a class="nav-link" href="${depth}healbot/">Healbot</a> <a class="nav-link" href="${depth}healbot-raid/">Healbot Raid</a> <a class="nav-link" href="${depth}icons/">Icon library</a> <a class="nav-link" href="${depth}sounds/">Sound library</a></nav>
 </div></header>
 <main class="container">
 <section class="hero">
 <img class="hero-art" src="${depth}assets/horde.webp" alt="">
 <img class="hero-logo" src="${depth}assets/forever.webp" alt="World of Warcraft: Forever" width="190" height="155">
-<div><h1>${title}</h1><p>${title === 'Icon library' ? 'Browse original artwork and your custom spell and equipment collections.' : current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
+<div><h1>${title}</h1><p>${title === 'Icon library' ? 'Browse original artwork and your custom spell and equipment collections.' : title === 'Sound library' ? 'Preview healing sounds and choose your casting, hit, crit, and tick cues.' : current ? 'Calculators and simulations for World of Warcraft: Forever.' : 'Pick a class to explore its calculators and simulations. Compare weapons, test ability tradeoffs, and see how your choices change the numbers.'}</p></div>
 </section>
 <nav class="class-picker" aria-label="Choose a class">${links}</nav>
 ${content}
@@ -103,7 +105,15 @@ for (const slug of healers) {
   fs.writeFileSync(path.join(directory, 'index.html'), healbotPage(slug, healing, slug === 'shaman' ? '../' : '../../'));
 }
 
-fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./healbot/">Shaman · Healing practice</a></p><p><a href="./healbot/druid/">Druid · Healing practice</a></p><p><a href="./healbot/paladin/">Paladin · Healing practice</a></p><p><a href="./healbot/priest/">Priest · Healing practice</a></p></section>'));
+for (const slug of healers) {
+ const directory=path.join(output,slug==='shaman'?'healbot-raid':`healbot-raid/${slug}`);
+ fs.mkdirSync(directory,{recursive:true});
+ const depth=slug==='shaman'?'../':'../../';
+ const html=healbotPage(slug,healing.replace('Keep the party alive','Keep the raid alive'),depth).replaceAll('Healbot ·','Healbot Raid ·').replace('<h1>Healbot</h1>','<h1>Healbot Raid</h1>').replace('data-healer="'+slug+'"','data-raid="true" data-healer="'+slug+'"').replaceAll('href="'+depth+'healbot/','href="'+depth+'healbot-raid/').replace('</head>','<link rel="stylesheet" href="'+depth+'healing/raid.css"></head>');
+ fs.writeFileSync(path.join(directory,'index.html'),html);
+}
+
+fs.writeFileSync(path.join(output, 'index.html'), page('WoW Forever Sims', './', '', '<section class="panel"><h2>Available now</h2><p><a href="./healbot-raid/">Healbot Raid · 10 &amp; 20 players</a></p><p><a href="./warrior/#cleave-efficiency">Warrior · Cleave rage efficiency</a></p><p><a href="./healbot/">Shaman · Healing practice</a></p><p><a href="./healbot/druid/">Druid · Healing practice</a></p><p><a href="./healbot/paladin/">Paladin · Healing practice</a></p><p><a href="./healbot/priest/">Priest · Healing practice</a></p></section>'));
 for (const [name] of classes) {
   const slug = name.toLowerCase();
   const directory = path.join(output, slug);
@@ -145,6 +155,9 @@ const iconTemplate = fs.readFileSync(path.join(__dirname, 'sims/icons.html'), 'u
 fs.mkdirSync(path.join(output, 'icons'), {recursive:true});
 fs.writeFileSync(path.join(output, 'icons/index.html'), page('Icon library', '../', '',
   iconTemplate.replace('<!-- ICONS -->', iconGroups).replaceAll('{{COUNT}}', String(iconCount))));
+
+fs.mkdirSync(path.join(output, 'sounds'), {recursive:true});
+fs.writeFileSync(path.join(output, 'sounds/index.html'), page('Sound library', '../', '', fs.readFileSync(path.join(__dirname, 'sims/sounds.html'), 'utf8')));
 
 // Pages opts in through its build environment; ordinary/Sites builds stay untagged.
 require('./scripts/google-tag-manager.cjs').installGoogleTagManager(output, process.env.GOOGLE_TAG_MANAGER_ID || '');

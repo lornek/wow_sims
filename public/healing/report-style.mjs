@@ -1,3 +1,4 @@
+import {greaterMageblood} from './consumable-buffs.mjs';
 import {purposeIconPath} from './purpose-icons.mjs';
 // Stable semantic identities: never assign report visuals by rank or render order.
 export const manaVisuals = {
@@ -6,12 +7,18 @@ export const manaVisuals = {
   'Innervate': ['icons/spell_nature_lightning.jpg', '#193b86'],
   'Inner Focus · spell cost': ['icons/spell_frost_windwalkon.jpg', '#51458f'],
   'Inner Focus · Spirit regeneration': ['icons/spell_frost_windwalkon.jpg', '#4265a4'],
+  'Omen of Clarity · spell cost': ['icons/inv_misc_orb_01.jpg', '#347a73'],
+  'Omen of Clarity · Spirit regeneration': ['icons/inv_misc_orb_01.jpg', '#398f80'],
   'Water Shield': ['icons/ability_shaman_watershield.jpg', '#258dba'],
   'Illumination': ['icons/spell_holy_greaterheal.jpg', '#4b58a3'],
   'Litany': ['icons/inv_scroll_07.jpg', '#397caf'],
   'Lay on Hands': ['icons/spell_holy_layonhands.jpg', '#3d4695'],
   'Mana Spring Totem': ['icons/spell_nature_manaregentotem.jpg', '#197c99'],
   'Mana Tide Totem': ['icons/spell_frost_summonwaterelemental.jpg', '#3155a0'],
+  'Enchant Weapon - Insight': [purposeIconPath('enchant-insight'),'#4e83a2'],
+  'Enchant Weapon - Grand Sorcerer': [purposeIconPath('enchant-grand-sorcerer'),'#6f63ad'],
+  'Enchant 2H Weapon - Grand Arcanist': [purposeIconPath('enchant-grand-arcanist'),'#8370b8'],
+  'Dark Rune': ['icons/spell_shadow_sealofkings.jpg', '#71529c'],
   'Major Mana Potion': ['icons/inv_potion_76.jpg', '#59479b']
 };
 export const contributionIcons = {
@@ -25,13 +32,13 @@ export const contributionIcons = {
   'Divine Spirit': 'icons/spell_holy_divinespirit.jpg',
   'Blessing of Kings': 'icons/spell_magic_magearmor.jpg',
   'Blessing of Wisdom': 'icons/spell_holy_sealofwisdom.jpg',
-  'Mageblood Elixir': 'icons/inv_potion_45.jpg'
+  [greaterMageblood.name]: `icons/${greaterMageblood.icon}.jpg`
 };
 const contributionOffsets = {
   'Base Spirit': [0, 0, 0], 'Base regeneration': [-4, -8, -5], Gear: [4, -6, 3],
   'Human racial': [-6, 3, -3], 'Spirit talents': [5, -4, -2], 'Living Spirit': [5, 3, -3],
   'Mark of the Wild': [-5, -3, 4], 'Divine Spirit': [3, 5, -1],
-  'Blessing of Kings': [-3, 2, 2], 'Blessing of Wisdom': [4, 3, 2], 'Mageblood Elixir': [-5, -4, 4]
+  'Blessing of Kings': [-3, 2, 2], 'Blessing of Wisdom': [4, 3, 2], [greaterMageblood.name]: [-5, -4, 4]
 };
 export function contributionColor(parent, name) {
   const [h, s, l] = parent === 'Spirit regeneration' ? [181, 73, 33] : [211, 64, 37];
@@ -47,5 +54,7 @@ export const healingColors = {
   mending: '#285c42', bloom: '#3b7948', vigil: '#316c4c'
 };
 export function reportManaVisual(name) {
+  if(name.startsWith('Mana Tide'))return manaVisuals['Mana Tide Totem'];
+  if(name.startsWith('Mana Spring'))return manaVisuals['Mana Spring Totem'];
   return manaVisuals[name] ?? [purposeIconPath('gained'), '#3d669e'];
 }

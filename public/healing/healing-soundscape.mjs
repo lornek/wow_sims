@@ -1,0 +1,30 @@
+import {spellCastingSound} from './spell-sounds.mjs';
+import {createSoundLayer,readSoundSettings,healingSoundEvent,soundStorageKey} from './sound-library.mjs';
+export function createHealingSoundscape({className,enabled,context,storage,events=globalThis,createAudio,onStatus}) {
+ let settings=readSoundSettings(storage),cast=null,buffState=null,omenProcs=0,focusLoop=false;
+ const options={enabled,context,createAudio,onStatus};
+ const casting=createSoundLayer(options),healing=createSoundLayer(options),buffs=createSoundLayer(options),procs=createSoundLayer(options);
+ function stop(){cast=null;focusLoop=false;casting.stop();healing.stop();buffs.stop();procs.stop();}
+ function reload(event){if(event?.key&&event.key!==soundStorageKey)return;settings=readSoundSettings(storage);stop();}
+ events.addEventListener('storage',reload);
+ function syncCast(value){
+  const next=enabled()&&value?value:null;
+  if(next===cast)return;
+  if(cast&&enabled())casting.fadeOut(220);else casting.stop();
+  cast=next;if(!cast)return;
+  let choice=settings.casting;
+  if(choice==='auto')choice=String(spellCastingSound(cast.spell,!!cast.channel) ?? 'none');
+  casting.play(choice,{loop:true,fallback:null});
+ }
+ function syncBuffs(state){
+  if(buffState!==state){buffState=state;omenProcs=0;focusLoop=false;buffs.stop();procs.stop();}
+  const count=state.omenProcs??0;
+  const proc=count>omenProcs;omenProcs=count;
+  const active=enabled()&&state.phase==='active';
+  if(active&&className==='druid'&&proc)procs.play('569649',{fallback:'tone-crit'});
+  const focus=active&&className==='priest'&&state.innerFocus>state.time;
+  if(focus!==focusLoop){focusLoop=focus;buffs.stop();if(focus)buffs.play('568938',{loop:true,fallback:null});}
+ }
+ return {syncCast,syncBuffs,cancelCast(){cast=null;casting.stop();},heal(event){healing.play(settings[healingSoundEvent(event)]);},stop,
+ destroy(){stop();events.removeEventListener('storage',reload);}};
+}

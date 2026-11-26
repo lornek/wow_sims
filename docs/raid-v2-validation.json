@@ -1,0 +1,59 @@
+{
+  "normal": {
+    "runs": 72,
+    "wins": 72,
+    "elapsedMs": 1550,
+    "maxDeaths": 0,
+    "selectedBuffs": [
+      "fortitude",
+      "moonkin",
+      "mark",
+      "wisdom",
+      "spirit",
+      "kings",
+      "intellect",
+      "flask",
+      "mageblood"
+    ]
+  },
+  "higherPressure": {
+    "runs": 72,
+    "wins": 72,
+    "elapsedMs": 1703,
+    "maxDeaths": 0,
+    "selectedBuffs": [
+      "fortitude",
+      "moonkin",
+      "mark",
+      "wisdom",
+      "spirit",
+      "kings",
+      "intellect",
+      "flask",
+      "mageblood"
+    ]
+  },
+  "date": "2026-11-25",
+  "tests": 225,
+  "sourceRevision": "6fdf2180b86b67b2589b43294308e90194240f5c",
+  "referenceImage": "reference/ui/healbot_ui_ref_001.png",
+  "referenceSha256": "5c35033c965f811c3f26cd15a671e439be118d32278363d9cc26be7a28a4dcd9",
+  "browser": {
+    "widths": [
+      1440,
+      390
+    ],
+    "layouts": [
+      "groups",
+      "columns",
+      "left"
+    ],
+    "maxObservedFrameShiftOnMeterExpansionPx": 0,
+    "horizontalOverflow": false,
+    "allRaidBuffsDefaultActive": true,
+    "magebloodDeselectionPersists": true,
+    "actionBarGridAndLabelStylesMatchFivePlayer": true,
+    "pageErrors": 0
+  },
+  "scope": "Seeded, scripted policy runs and headless browser interaction checks; not proof of optimal DPS or human win rates."
+}

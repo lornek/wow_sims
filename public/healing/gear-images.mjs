@@ -1,3 +1,4 @@
+import {enchantIconPath} from './enchant-icons.mjs';
 import {bundledIconFiles} from './bundled-icon-files.mjs';
 // Restored from the pre-normalization curated presets (fb3a9f8^). The upstream
 // catalog omits these icon fields; preserve their verified project metadata.
@@ -14,6 +15,8 @@ export function equipmentIconName(item) {
 }
 const placeholder='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="4" fill="#21180f"/><path d="M14 10h20v9l5 7-8 14H17L9 26l5-7z" fill="#64583e" stroke="#b49a57" stroke-width="2"/></svg>');
 export function equipmentImageSources(item,slot='empty') {
+  const assigned = enchantIconPath(item);
+  if (assigned) return [new URL('./'+assigned,import.meta.url).href];
   const name=equipmentIconName(item),sources=[];
   if(name&&bundledIconFiles[name])sources.push(new URL('./'+bundledIconFiles[name],import.meta.url).href);
   if(name)sources.push('https://wow.zamimg.com/images/wow/icons/medium/'+name+'.jpg');
@@ -27,7 +30,7 @@ export function setEquipmentImage(image,item,slot='empty') {
   const sources=equipmentImageSources(item,slot),request={};let index=0;
   requests.set(image,request);
   const show=()=>{
-    image.dataset.iconFallback=String(index>=(sources.length-2));
+    image.dataset.iconFallback=String(sources[index].startsWith('data:')||sources[index].includes('/slots/'));
     image.src=sources[index];
   };
   image.onerror=()=>{

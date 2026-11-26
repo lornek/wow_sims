@@ -1,3 +1,4 @@
+import {raidSettings,raidStorageKey} from './raid.mjs';
 import {mountHealing} from './healing-ui.mjs';
 
 const loaders = {
@@ -12,6 +13,9 @@ const labels = {
   paladin: ['Human Paladin', 'Reverence'],
   priest: ['Human Priest', 'Meditation']
 };
+const isRaid=document.body.dataset.raid==='true';
+let raidConfig;try{raidConfig=raidSettings(JSON.parse(localStorage.getItem(raidStorageKey)??'{}'));}catch{raidConfig=raidSettings();}
+const raidAdapters=isRaid?Object.fromEntries(await Promise.all(Object.keys(loaders).map(async name=>[name,(await loaders[name]()).default]))):null;
 const modules = new Map();
 function load(healer) {
   if (!modules.has(healer)) {
@@ -54,8 +58,8 @@ function mount(healer, config) {
     if (active) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   }
-  document.title = 'Healbot · ' + (healer === 'priest' ? (spec === 'holy' ? 'Holy Priest' : 'Discipline Priest') : title.split(' ').at(-1));
-  unmount = mountHealing(config);
+  document.title = (isRaid?'Healbot Raid · ':'Healbot · ') + (healer === 'priest' ? (spec === 'holy' ? 'Holy Priest' : 'Discipline Priest') : title.split(' ').at(-1));
+  unmount = mountHealing({...config,...(isRaid?{raid:raidConfig,raidAdapters,onRaidChange:next=>{raidConfig=raidSettings(next);queueMicrotask(()=>mount(healer,config));}}:{})});
 }
 
 async function navigate(healer, destination) {
@@ -79,6 +83,7 @@ async function navigate(healer, destination) {
 
 header.addEventListener('click', event => {
   const link = event.target.closest('[data-healbot-class]');
+  if(isRaid)return;
   if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
   if (link.hasAttribute('aria-current')) {
