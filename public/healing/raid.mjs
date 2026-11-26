@@ -75,7 +75,9 @@ export function chooseHeal(actor,party,incoming){
  if(can('swiftmend')&&target.unit.hp/target.unit.max<.5&&s.effects.some(e=>['regrowth','rejuvenation'].includes(e.key)&&e.target===target.unit))return cast('swiftmend',target.unit);
  if(can('shock')&&target.deficit>estimate('shock')*.85)return cast('shock',target.unit);
  if(can('penance')&&(emergency||target.deficit>estimate('penance')*3*(.5+.2*conservation)))return cast('penance',target.unit);
- if(can('tranquility')&&ownGroupHurt>=3)return cast('tranquility',unit);
+ const tranquilityGroup=alive.filter(ally=>ally.group===unit.group);
+ const tranquilityEmergency=tranquilityGroup.length>=3&&tranquilityGroup.every(ally=>ally.hp+(incoming[party.indexOf(ally)]??0)<=ally.max*.55);
+ if(can('tranquility')&&tranquilityEmergency)return cast('tranquility',unit);
  if(can('favor')&&target.deficit>1400&&!(s.divineFavor>s.time))return cast('favor');
  if(can('shield')&&target.unit.hp/target.unit.max<(.55-.15*conservation)&&!(target.unit.weakened>s.time))return cast('shield',target.unit);
  const groupDeficit=party.filter(u=>u.hp&&u.group===target.unit.group).reduce((n,u)=>n+need(u),0);
