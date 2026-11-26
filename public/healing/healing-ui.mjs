@@ -296,13 +296,14 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     frame.dataset.partyIndex = String(index);
     frame.type = 'button';
     frame.className = 'heal-frame';
-    frame.dataset.frameClass=unit.className??({Cairne:'warrior',Illidan:'rogue',Sylvanas:'hunter',Jaina:'mage'})[unit.name]??className;frame.style.setProperty('--unit', unit.color);classShades(frame,unit.color);
+    frame.dataset.frameClass=unit.className??({Cairne:'warrior',Illidan:'rogue',Sylvanas:'hunter',Jaina:'mage'})[unit.name]??className;frame.style.setProperty('--unit', unit.color);
     if (!frame.firstElementChild) frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
       '<strong><img class="unit-role" src="'+new URL('./'+purposeIconPath('role-'+(unit.role==='Tank'?'tank':unit.role==='Healer'?'healer':'dps')),import.meta.url)+'" alt="'+unit.role+'" width="22" height="22"><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
     if(index===encounter.party.length-1){frame.dataset.isPlayer='true';if(!frame.querySelector('.unit-you')){const tag=document.createElement('span');tag.className='unit-you';tag.textContent='(You)';frame.querySelector('strong').append(tag);}}
     const combatant = combatants[unit.combatantKey ?? unit.name];
     const tile = document.createElement('div');
     tile.className = 'party-tile';
+    classShades(tile, unit.color);
     const track = document.createElement('div');
     track.className = 'heal-bar resource-bar party-resource ' + (combatant?.resource ?? 'Mana').toLowerCase();
     const resource = document.createElement('span');
