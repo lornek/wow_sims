@@ -30,3 +30,7 @@ Limitations: representative AP/SP/weapon/resource baselines, fixed proc assumpti
 - The full suite has 225 tests. The original party-combat/class tests remain included.
 - Seeded raid replay and stress batches cover 72 scenarios each; these are scripted policy runs, not human win-rate evidence.
 - Browser checks at 1440px and 390px cover all three Raid layouts, expandable spell breakdowns, default buffs, exact role images, healing-left/DPS-right placement, and five-player compatibility. Frame position remained unchanged when expanding the meters.
+
+## Subsequent shared audit
+
+See [raid-combat-audit.md](raid-combat-audit.md) for the newer role crops, saturated bevels, meter/companion UI, rotation corrections, tank mitigation and 230-test verification. Its descriptions supersede the initial simplified combat behavior above.

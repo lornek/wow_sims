@@ -7,6 +7,7 @@ import {equipmentSets} from './gear.mjs';
 export const naked = {strength: 87, agility: 51, stamina: 98, intellect: 89, spirit: 99, baseMana: 1520};
 export const loadouts = equipmentSets;
 export const buffs = [
+  ['windfury','Windfury Totem','Main-hand attacks: 20% chance of an extra attack with +246 attack power','spell_nature_windfury'],
   ['fortitude','Power Word: Fortitude','+70 Stamina','spell_holy_wordfortitude'],
   ['moonkin', 'Moonkin Aura', '+3 percentage points of spell crit', 'spell_nature_moonglow'],
   ['mark', 'Mark of the Wild', '+16 to all attributes', 'spell_nature_regeneration'],

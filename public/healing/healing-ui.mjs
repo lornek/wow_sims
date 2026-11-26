@@ -1,3 +1,4 @@
+import {combatNumbers,classShades,specIcon} from './combat-appearance.mjs';
 import {raidDpsIcons} from './raid-dps-icons.mjs';
 import {mountCombatHealingMeter} from './combat-healing-meter.mjs';
 import {classColors} from './class-colors.mjs';
@@ -31,6 +32,7 @@ import {createPull} from './engine.mjs';
 import {mountTalentTree} from './talent-tree.mjs';
 
 const damageIcons = {...raidDpsIcons,
+  'Windfury Totem':'spell_nature_windfury','Windfury Attack':'spell_nature_cyclone','Seal of Command':'spell_holy_auraoflight','Seal of Righteousness':'spell_holy_righteousnessaura',
   'Melee': 'ability_meleedamage',
   'Heroic Strike': 'ability_rogue_ambush',
   'Shield Slam': 'inv_shield_05',
@@ -113,7 +115,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       {name: 'Illidan', role: 'Damage', max: 2450, dps: 92, color:classColors.rogue},
       {name: 'Sylvanas', role: 'Damage', max: 2350, dps: 86, color:classColors.hunter},
       {name: 'Jaina', role: 'Damage', max: 2200, dps: 86, color:classColors.mage},
-      {name: healer, role: 'Healer', max: profile.health, dps: 0, color: healerColor}
+      {name: healer, className,spec:className==='priest'?priestSpec:className, role: 'Healer', max: profile.health, dps: 0, color: healerColor}
     ]};
   if(raid){encounter.party=raidRoster(raid,encounter.party.at(-1));raidSetup=mountRaidSetup(root,raid,encounter.party.at(-1));}
   let currentEncounter = encounter;
@@ -289,7 +291,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     frame.dataset.partyIndex = String(index);
     frame.type = 'button';
     frame.className = 'heal-frame';
-    frame.style.setProperty('--unit', unit.color);
+    frame.style.setProperty('--unit', unit.color);classShades(frame,unit.color);
     if (!frame.firstElementChild) frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
       '<strong><img class="unit-role" src="'+new URL('./'+purposeIconPath('role-'+(unit.role==='Tank'?'tank':unit.role==='Healer'?'healer':'dps')),import.meta.url)+'" alt="'+unit.role+'" width="22" height="22"><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
     let resource;
@@ -304,7 +306,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       const row = document.createElement('details');
       row.className = 'meter-row';
       row.name = 'healbot-damage-breakdown';
-      row.style.setProperty('--damage-class', unit.color);
+      row.style.setProperty('--damage-class', unit.color);classShades(row,unit.color);
       const summary = document.createElement('summary');
       const breakdown = document.createElement('div');
       breakdown.className = 'damage-breakdown';
@@ -313,7 +315,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       summary.append(label, value);
       row.append(summary, breakdown);
       damageMeter.append(row);
-      label.textContent = unit.name;
+      const specImage=document.createElement('img');specImage.className='meter-spec-icon';specImage.src=specIcon(unit);specImage.alt='';label.append(specImage,document.createTextNode(unit.name));row.addEventListener('toggle',()=>{if(row.open)render();});
       damageRows[index] = {row, value, breakdown, lines: new Map()};
     } else if (!frame.querySelector('.party-resource')) {
       frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana"><span data-mana-fill></span></span>');
@@ -406,7 +408,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       ...unit,
       max: Math.round(index === encounter.party.length - 1 ? profile.health : (raid?raidMemberMax(unit,enabled):unit.max) * (unit.role === 'Tank' || id === 'patchwerk' && index === 1 ? tankHealth : allyHealth) * (id === 'patchwerk' && index === 1 ? 1.3 : 1))
     }));
-    currentEncounter = {...boss, id, party, hazard, startWaterShield: enabled.has('waterShield'),
+    currentEncounter = {...boss, id, party, hazard, mitigation:true, windfuryTotem:enabled.has('windfury'), startWaterShield: enabled.has('waterShield'),
       health: Math.round(boss.health * health * (raid?(raid.size===20?12:4):1)), limit: boss.limit * health * (raid?(raid.size===20?4:2):1)};
     for (const key of ['swing', 'flurry', 'poisonTick', 'strike', 'frost']) {
       if (boss[key]) currentEncounter[key] = Math.round(boss[key] * damage);
@@ -517,7 +519,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         const abilities = Object.entries(unit.damage);
         const total = abilities.reduce((sum, [, ability]) => sum + ability.total, 0);
         entry.dps = total / (s.endedAt || s.time || 1);
-        setBarNumbers(value, whole(total), whole(entry.dps) + ' DPS');
+        combatNumbers(value,total,entry.dps,100*total/Math.max(1,s.party.reduce((n,u)=>n+Object.values(u.damage??{}).reduce((t,a)=>t+a.total,0),0)));
         if (row.open) {
           const damageByAbility = new Map();
           for (const [name, data] of abilities) {
@@ -542,7 +544,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
             line.element.style.setProperty('--damage-hue', (index % 5 * (unit.name === 'Jaina' ? -10 : 7)) + 'deg');
             line.element.style.setProperty('--ability-share', (100 * damage / damaging[0][1]) + '%');
             line.element.style.setProperty('--damage-tint', (28 + index % 5 * 7) + '%');
-            setBarNumbers(line.numbers, whole(damage), whole(damage / (s.endedAt || s.time || 1)) + ' DPS');
+            combatNumbers(line.numbers,damage,damage/(s.endedAt||s.time||1),100*damage/Math.max(1,total));
             const current = breakdown.children[index];
             if (current !== line.element) breakdown.insertBefore(line.element, current ?? null);
           });
@@ -712,7 +714,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     input.type = 'checkbox';
     input.value = key;
     input.dataset.buff = '';
-    input.checked = raid&&saved.raidBuffVersion!==1 ? true : key === 'omen' && !saved.omenConfigured ? true : Array.isArray(saved.buffs) && (key !== defaultBuff || saved.buffDefaults) ? saved.buffs.includes(key) : key === defaultBuff;
+    input.checked = raid&&key==='windfury'&&!saved.windfuryConfigured ? true : raid&&saved.raidBuffVersion!==1 ? true : key === 'omen' && !saved.omenConfigured ? true : Array.isArray(saved.buffs) && (key !== defaultBuff || saved.buffDefaults) ? saved.buffs.includes(key) : key === defaultBuff;
     const image = document.createElement('img');
     image.src = new URL('./icons/' + iconFile + '.jpg', import.meta.url);
     image.alt = '';
@@ -781,7 +783,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         buffDefaults: true,
         ...(className === 'druid' ? {omenConfigured:true} : {}),
         additionalStats: readAdditionalStats(),
-        ...(raid?{raidBuffVersion:1}:{}),
+        ...(raid?{raidBuffVersion:1,windfuryConfigured:true}:{}),
         sound: soundEnabled,
         selected: slots[selected][0],
         talents: talentTree.build,
@@ -1411,12 +1413,13 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     audio ??= new AudioContext();
     audio.resume().catch(() => {});
   }
+  setGameTooltip(find('[data-hotkey-settings]'),'Edit Keybindings',[]);
   function renderSoundToggle() {
     const button = find('[data-sound]');
-    const label = soundEnabled ? 'Mute healing sounds' : 'Unmute healing sounds';
+    const label = soundEnabled ? 'Mute Sounds' : 'Unmute Sounds';
     button.setAttribute('aria-pressed', String(soundEnabled));
     button.setAttribute('aria-label', label);
-    setGameTooltip(button, label, [soundEnabled ? (clientSoundStatus === 'fallback' ? 'Spell audio could not load. Using fallback tones.' : clientSoundStatus === 'playing' ? 'Client spell audio is playing.' : 'Healing sounds are on.') : 'Healing sounds are muted.']);
+    setGameTooltip(button,label,[]);
     button.querySelector('[data-sound-on]').toggleAttribute('hidden', !soundEnabled);
     button.querySelector('[data-sound-off]').toggleAttribute('hidden', soundEnabled);
   }
@@ -1490,7 +1493,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     cast:(key,index) => { pendingTargetSpell = null; pull.cast(key,index); render(); }});
   damageText = mountDamageText(find('.boss-crest'), damageIcons);
   if(raid)raidHud=mountRaidHud(root);
-  combatHealing=mountCombatHealingMeter(root,{raid:!!raid,spellInfo:(key,actor)=>{const name=actor.spells?.[key]?.name??currentSpells[key]?.name??slots.find(([k])=>k===key)?.[1]??({aegis:'Divine Aegis',bloom:'Bloom',enchantAbsorb:'Enchant: Absorption'})[key]??key;const data=(actor.kit?raidAdapters[actor.unit.className]?.catalog:catalog)?.[name];return{name,path:data?.iconPath??(data?.icon?'icons/'+data.icon:undefined)};}});
+  combatHealing=mountCombatHealingMeter(root,{raid:!!raid,className,spec:className==='priest'?priestSpec:className,onSetup:()=>raidSetup?.openHealers(),spellInfo:(key,actor)=>{const name=actor.spells?.[key]?.name??currentSpells[key]?.name??slots.find(([k])=>k===key)?.[1]??({aegis:'Divine Aegis',bloom:'Bloom',enchantAbsorb:'Enchant: Absorption'})[key]??key;const data=(actor.kit?raidAdapters[actor.unit.className]?.catalog:catalog)?.[name];return{name,path:data?.iconPath??(data?.icon?'icons/'+data.icon:undefined)};}});
   reset(false, false);
   function frame(now) {
     const delta = Math.min(.1, (now - last) / 1000);

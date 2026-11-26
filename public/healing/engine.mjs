@@ -1,3 +1,4 @@
+import {resolveMelee} from './defenses.mjs';
 import {revelationSpells} from './enchant-effects.mjs';
 import {omenModel, omenChance} from './omen-of-clarity.mjs';
 import {recordHealingEvent} from './healing-events.mjs';
@@ -5,6 +6,7 @@ import {setupPartyCombat, advancePartyCombat, gainDamageRage} from './party-comb
 
 export function createPull(profile, spells, encounter, random = Math.random, onHeal = () => {}, onDamage = () => {}, onSpell = () => {}) {
   const party = encounter.sharedParty ?? encounter.party.map(unit => ({...unit, hp: unit.max, poison: 0}));
+  if(encounter.windfuryTotem)for(const unit of party)unit.windfuryTotem=true;
   const caster = party[encounter.healerIndex ?? party.length - 1];
   let damageBatch=false;
   const groupMembers = (target=caster) => encounter.raid ? party.filter(unit=>unit.group===target.group) : party;
@@ -334,18 +336,29 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (!caster.hp) checkFightEnd();
   }
 
-  function damage(unit, amount, physical = true, procMending = true, canPushback = true) {
+  function damage(unit, amount, physical = true, procMending = true, canPushback = true, melee = false) {
     const incomingAmount = amount;
-    if(physical&&unit.spec==='protectionPaladin'&&unit.rotation?.holyShieldUntil>state.time&&unit.rotation.holyShieldCharges>0&&random()<.3){
+    if(melee&&encounter.mitigation){
+      const holyShield=unit.spec==='protectionPaladin'&&unit.rotation?.holyShieldUntil>state.time&&unit.rotation.holyShieldCharges>0;
+      const result=resolveMelee(unit,amount,random,{offTank:!encounter.raid&&encounter.id==='patchwerk'&&unit===party[1],armorBonus:unit.inspiration?.expires>state.time?profile.inspiration??0:0,holyShield});
+      amount=result.amount;unit.defenseEvents??={};unit.defenseEvents[result.outcome]=(unit.defenseEvents[result.outcome]??0)+1;
+      if(['dodge','parry','block'].includes(result.outcome)&&unit.rotation)unit.rotation.revengeUntil=state.time+5;
+      if(amount===0)return 0;
+      if(holyShield&&result.outcome==='block'){
+        unit.rotation.holyShieldCharges--;const reflected=Math.min(state.boss,Math.round(221+.08*(unit.combatStats?.power??0))),m=unit.damage['Holy Shield']??={attempts:0,hits:0,crits:0,total:0};m.attempts++;m.hits++;m.total+=reflected;state.boss-=reflected;
+        if(reflected)onDamage({source:unit.name,sourceIndex:party.indexOf(unit),color:unit.color,spell:'Holy Shield',amount:reflected,crit:false,time:state.time});
+      }
+    }
+    if(!(melee&&encounter.mitigation)&&physical&&unit.spec==='protectionPaladin'&&unit.rotation?.holyShieldUntil>state.time&&unit.rotation.holyShieldCharges>0&&random()<.3){
       amount=Math.max(0,amount-120);unit.rotation.holyShieldCharges--;
       const reflected=Math.min(state.boss,Math.round(221+.08*(unit.combatStats?.power??0))),m=unit.damage['Holy Shield']??={attempts:0,hits:0,crits:0,total:0};m.attempts++;m.hits++;m.total+=reflected;state.boss-=reflected;
       if(reflected)onDamage({source:unit.name,sourceIndex:party.indexOf(unit),color:unit.color,spell:'Holy Shield',amount:reflected,crit:false,time:state.time});
     }
-    if (physical && unit.inspiration?.expires > state.time) {
+    if (!(melee&&encounter.mitigation) && physical && unit.inspiration?.expires > state.time) {
       const armor = unit.role === 'Tank' ? 4500 : 1500;
       amount *= (5500 + armor) / (5500 + armor * (1 + profile.inspiration));
     }
-    if (physical && unit.resource?.type === 'Rage' && random() < .25) {
+    if (!(melee&&encounter.mitigation) && physical && unit.resource?.type === 'Rage' && random() < .25) {
       amount = Math.max(0, amount - 45);
       unit.rotation.revengeUntil = state.time + 5;
     }
@@ -476,7 +489,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (state.time >= state.nextSwing) {
       state.nextSwing += 2 / bossSpeed;
       const living = party.filter(unit => unit.hp);
-      if (living.length) damage(living[0], encounter.swing);
+      if (living.length) damage(living[0], encounter.swing,true,true,true,true);
       for (const unit of living) if (unit.poison > state.time) damage(unit, encounter.poisonTick, false);
     }
     if (state.time >= state.nextPoison) {
@@ -493,7 +506,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (state.time >= state.nextSpecial && encounter.id === 'patchwerk') {
       state.nextSpecial += 3;
       const target = party[1].hp ? party[1] : party.find(unit => unit.hp);
-      if (target) damage(target, encounter.strike);
+      if (target) damage(target, encounter.strike,true,true,true,true);
       state.message = 'Hateful Strike hits ' + (target?.name ?? 'the party') + '!';
     }
     if (state.time >= state.nextSpecial && encounter.id === 'sapphiron') {

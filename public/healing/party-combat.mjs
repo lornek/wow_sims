@@ -103,6 +103,10 @@ export function advancePartyCombat(state, dt, random, onDamage = () => {},onSelf
         gain(unit, 3.46 * stats.speed * (crit ? 2 : 1));
         rotation.swingRage += unit.resource.value - before;
       }
+      if(damage>0&&(unit.windfuryTotem||stats.windfuryTotem)&&['Cairne','Illidan'].includes(unit.combatantKey??unit.name)&&['Melee','Heroic Strike','Main-hand swing'].includes(spell)&&random()<.2){
+        const extra=(stats.weapon??((stats.weaponMin+stats.weaponMax)/2))+(stats.ap+246)*stats.speed/14;
+        hit('Windfury Totem',extra,{spread:.05});
+      }
       return damage;
     }
     function spend(spell, cost, cooldown = 0, gcd = 1.5) {

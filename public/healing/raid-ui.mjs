@@ -1,3 +1,4 @@
+import {specIcon} from './combat-appearance.mjs';
 import {raidSettings,raidRoster,raidStorageKey,raidSpecLabels} from './raid.mjs';
 export function mountRaidSetup(root,config,hero){
  config=raidSettings(JSON.parse(JSON.stringify(config)));
@@ -10,9 +11,26 @@ export function mountRaidSetup(root,config,hero){
  function draw(){panel.querySelector('.raid-companions').replaceChildren();config.healers.forEach((healer,i)=>{const row=document.createElement('div');row.className='raid-companion';select(row,'Healer '+(i+1),[['none','No companion'],['paladin','Paladin'],['priest','Priest'],['druid','Druid'],['shaman','Shaman']],healer.className,value=>{healer.className=value;drawGroups();});select(row,'Healer '+(i+1)+' focus',[['tanks','Tanks'],['raid','Raid triage'],['group','Own group']],healer.focus,value=>healer.focus=value);panel.querySelector('.raid-companions').append(row);});drawGroups();}
  function drawGroups(){const groups=panel.querySelector('.raid-groups');groups.replaceChildren();const roster=raidRoster(config,hero);roster.forEach((unit,i)=>select(groups,unit.name+(i===roster.length-1?' · You':' · '+(raidSpecLabels[unit.spec]??unit.className)),Array.from({length:config.size/5},(_,g)=>[g,'Group '+(g+1)]),config.groups[i],value=>{const previous=config.groups[i],next=Number(value);const partner=config.groups.findIndex((g,j)=>g===next&&j!==i);if(partner>=0){config.groups[partner]=previous;config.groups[i]=next;}drawGroups();}));}
  panel.querySelector('[data-apply-raid]').onclick=()=>{localStorage.setItem(raidStorageKey,JSON.stringify(raidSettings(config)));location.reload();};draw();root.prepend(panel);
- return {destroy(){panel.remove();}};
+ const dialog=document.createElement('dialog');dialog.className='co-healer-dialog';dialog.setAttribute('aria-label','Co-healer Setup');root.append(dialog);
+ const choices=[['paladin','paladin','Holy Paladin'],['priest','discipline','Discipline Priest'],['priest','holy','Holy Priest'],['druid','druid','Restoration Druid'],['shaman','shaman','Restoration Shaman']];
+ function openHealers(){
+  const saved=JSON.parse(localStorage.getItem(raidStorageKey)??'null');const current=raidSettings(saved??config),limit=current.size===20?3:1;
+  let selected=current.healers.filter(h=>h.className!=='none').map(h=>({...h}));
+  dialog.innerHTML='<h2>Co-healer Setup</h2><p>Bring up to '+limit+' co-healer'+(limit===1?'':'s')+'. Gear follows your average item level.</p><div data-choices></div><p class="co-healer-warning" role="status"></p><div class="co-healer-actions"><button type="button" data-cancel>Close</button><button type="button" data-save>Apply &amp; reset</button></div>';
+  const warning=dialog.querySelector('[role=status]');
+  for(const[className,spec,name]of choices){
+   const row=document.createElement('label');row.className='co-healer-choice';const check=document.createElement('input');check.type='checkbox';check.setAttribute('aria-label',name);
+   const match=h=>h.className===className&&(className!=='priest'||h.spec===spec);
+   check.checked=selected.some(match);const image=document.createElement('img');image.src=document.querySelector('.class-pick[data-healbot-class="'+className+'"]'+(className==='priest'?'[data-healbot-spec="'+spec+'"]':'')+' .class-art>img')?.src??specIcon({className,spec});image.alt='';
+   const focus=document.createElement('select');focus.setAttribute('aria-label',name+' focus');for(const [v,label]of [['tanks','Tanks'],['raid','Raid triage'],['group','Own group']])focus.add(new Option(label,v));focus.value=selected.find(match)?.focus??(className==='paladin'?'tanks':'raid');focus.disabled=!check.checked;
+   check.onchange=()=>{if(check.checked&&selected.length>=limit){check.checked=false;warning.textContent='You can bring at most '+limit+' co-healers. Uncheck a healer first.';return;}warning.textContent='';selected=selected.filter(h=>!match(h));if(check.checked)selected.push({className,spec,focus:focus.value});focus.disabled=!check.checked;};
+   focus.onchange=()=>{const healer=selected.find(match);if(healer)healer.focus=focus.value;};row.append(check,image,document.createTextNode(name),focus);dialog.querySelector('[data-choices]').append(row);
+  }
+  dialog.querySelector('[data-cancel]').onclick=()=>dialog.close();dialog.querySelector('[data-save]').onclick=()=>{current.healers=Array.from({length:limit},(_,i)=>selected[i]??{className:'none'});localStorage.setItem(raidStorageKey,JSON.stringify(raidSettings(current)));location.reload();};dialog.showModal();
+ }
+ return {openHealers,destroy(){panel.remove();dialog.remove();}};
 }
-const auraIcons={regrowth:'spell_nature_resistnature',rejuvenation:'spell_nature_rejuvenation',renew:'spell_holy_renew',growth:'ability_druid_flourish',stream:'inv_spear_04',spring:'spell_nature_manaregentotem',tide:'spell_frost_summonwaterelemental',shield:'spell_holy_powerwordshield',mending:'spell_holy_prayerofmendingtga',oath:'spell_holy_sealofwisdom',vigil:'spell_holy_healingaura',innervate:'spell_nature_lightning',tranquility:'spell_nature_tranquility',waterShield:'ability_shaman_watershield',clearcasting:'inv_misc_orb_01',riptide:'spell_nature_riptide'};
+const auraIcons={regrowth:'spell_nature_resistnature',rejuvenation:'spell_nature_rejuvenation',renew:'spell_holy_renew',growth:'ability_druid_flourish',stream:'inv_spear_04',spring:'spell_nature_manaregentotem',tide:'spell_frost_summonwaterelemental',shield:'spell_holy_powerwordshield',mending:'spell_holy_prayerofmendingtga',oath:'spell_holy_sealofwisdom',vigil:'spell_holy_healingaura',innervate:'spell_nature_lightning',tranquility:'spell_nature_tranquility',powerInfusion:'spell_holy_powerinfusion',waterShield:'ability_shaman_watershield',clearcasting:'inv_misc_orb_01',riptide:'spell_nature_riptide'};
 export function mountRaidHud(root){
  const badges=new Map();let last=-1;
  return {render(state){if(state.time>=last&&state.time-last<.1)return;last=state.time;const actors=state.raidActors??[];
@@ -20,6 +38,7 @@ export function mountRaidHud(root){
  for(const actor of actors){const manaBar=root.querySelector('[data-party-index="'+state.party.indexOf(actor.unit)+'"] .raid-support-mana');if(manaBar)manaBar.style.width=Math.max(0,actor.pull.state.mana/actor.profile.mana)*100+'%';}
  state.party.forEach((unit,i)=>{let holder=badges.get(i);if(!holder){holder=document.createElement('span');holder.className='raid-auras';root.querySelector('[data-party-index="'+i+'"]').append(holder);badges.set(i,holder);}
  const list=[];for(const actor of actors){if(actor===actors[0])continue;const s=actor.pull.state;for(const e of s.effects)if(e.expires>state.time&&(e.target===unit||!e.target&&(e.members??state.party).includes(unit)))list.push([e.key,actor.unit.name,e.expires-state.time]);if(actor.unit===unit&&s.waterShield?.charges&&s.waterShield.expires>state.time)list.push(['waterShield',actor.unit.name,s.waterShield.expires-state.time]);if(actor.unit===unit&&s.clearcastingUntil>state.time)list.push(['clearcasting',actor.unit.name,s.clearcastingUntil-state.time]);if(s.mending?.target===unit)list.push(['mending',actor.unit.name,s.mending.expires-state.time]);}
+ if(unit.powerInfusion?.expires>state.time)list.push(['powerInfusion','Power Infusion',unit.powerInfusion.expires-state.time]);
  if(unit.shield?.amount>0&&unit.shield.expires>state.time)list.push(['shield','Absorb',unit.shield.expires-state.time]);
  const signature=JSON.stringify(list.map(([key,name,time])=>[key,name,Math.ceil(time)]));if(holder.dataset.key===signature)return;holder.dataset.key=signature;holder.replaceChildren();for(const[key,name,time]of list.slice(0,4)){const image=document.createElement('img');image.src=new URL('./icons/'+(auraIcons[key]??auraIcons.renew)+'.jpg',import.meta.url);image.alt=key+' · '+name;image.title=key+' · '+name+' · '+Math.ceil(time)+' sec';holder.append(image);}
  });},destroy(){for(const h of badges.values())h.remove();}};

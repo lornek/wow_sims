@@ -63,7 +63,7 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast, targe
   }
   toggle.onclick = () => {
     if (!panel.hidden) return close();
-    panel.hidden = false;toggle.setAttribute('aria-expanded','true');update();find('[data-configure]').focus();
+    panel.hidden = false;editing=true;toggle.setAttribute('aria-expanded','true');update();find('[data-close]').focus();
   };
   find('[data-configure]').onclick = () => { editing = true;update(); };
   find('[data-close]').onclick = close;
