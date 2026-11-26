@@ -88,11 +88,27 @@
  .healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-damage:not(.combat-healing){grid-row:3;width:calc(50% - 5px);max-width:330px;align-self:start}
 }
 /* Flat enamel faces with a narrow, directional bevel at the edges. */
-.healing .heal-frame{border-radius:3px;border:1px solid #9c8250;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 3px 5px -2px #0008}
+.healing .heal-frame{border-radius:3px;border:1px solid #9c8250;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark),0 3px 5px -2px var(--frame-shadow,#0008)}
 .healing .heal-frame{background:#1b1713;overflow:hidden}
 .healing .heal-frame .unit-fill{border-radius:2px;background:linear-gradient(var(--class-light) 0 2px,var(--unit) 2px, color-mix(in srgb,var(--unit) 92%,var(--class-dark)) calc(100% - 3px),var(--class-dark) calc(100% - 3px));box-shadow:inset 1px 0 0 var(--class-light),inset -1px 0 0 var(--class-dark)}
 .healing .heal-frame>strong,.healing .heal-frame>small{overflow:visible;text-shadow:0 2px 3px #000b,0 3px 5px #0007}
 .healing .heal-frame>strong{line-height:1.6;min-height:26px;padding-inline:2px}
+/* Keep the player shadow behind both bars and inside the grid gutters. */
+.healing .party-tile:has(> .heal-frame[data-is-player]) {
+  position:relative;
+  isolation:isolate;
+  --frame-shadow:transparent;
+}
+.healing .party-tile:has(> .heal-frame[data-is-player])::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:3px;
+  box-shadow:0 1px 4px #0007;
+  clip-path:inset(-2px);
+}
 .healing .heal-party{padding:3px 3px 6px;margin-inline:-3px;box-sizing:border-box;overflow:visible}
 .healing .combat-damage summary{box-shadow:inset 0 1px 0 var(--class-light),inset 0 -1px 0 var(--class-dark);background:linear-gradient(90deg,transparent var(--share),#211a12 var(--share)),linear-gradient(var(--class-light) 0 1px,var(--damage-class) 1px calc(100% - 2px),var(--class-dark) calc(100% - 2px));padding-inline:0 3px}
 .healing .combat-damage summary::marker{content:''}
