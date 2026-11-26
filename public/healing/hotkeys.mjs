@@ -18,16 +18,27 @@ export function assignHotkey(bindings, key, binding) {
   return {...Object.fromEntries(Object.entries(bindings).filter(([other,value]) => other !== key && value !== binding)),[key]:binding};
 }
 
+// Keybindings are shared by each spec across five-player and raid modes.
+// Preserve existing raid-only preferences when no shared preference exists yet.
+export function readHotkeyPreference(storage, storageKey, suffix) {
+  const key = storageKey + suffix;
+  const shared = storage.getItem(key);
+  if (shared !== null) return shared;
+  const legacy = storage.getItem(storageKey + '.raid' + suffix);
+  if (legacy !== null) storage.setItem(key, legacy);
+  return legacy;
+}
+
 export function mountHotkeys({root, storageKey, spells, isAvailable, cast,cancelCast=()=>{}, targetFor = (_key,index)=>index}) {
   const toggle = root.querySelector('[data-hotkey-settings]');
   const panel = root.querySelector('[data-hotkey-panel]');
   let bindings = {};
   try {
-    const saved = JSON.parse(localStorage.getItem(storageKey + '.hotkeys'));
+    const saved = JSON.parse(readHotkeyPreference(localStorage,storageKey,'.hotkeys'));
     for (const [key,value] of Object.entries(saved ?? {}))
       if (spells.some(spell => spell.key === key) && validBinding(value)) bindings[key] = value;
   } catch {}
-  let cancelBinding=null;try{const saved=localStorage.getItem(storageKey+'.cancelHotkey');if(saved==='Escape'||validBinding(saved))cancelBinding=saved;}catch{}
+  let cancelBinding=null;try{const saved=readHotkeyPreference(localStorage,storageKey,'.cancelHotkey');if(saved==='Escape'||validBinding(saved))cancelBinding=saved;}catch{}
   let editing = false, selected = null;
   panel.innerHTML = '<div data-settings-menu><button type="button" data-configure>Keybindings</button></div><div data-config hidden><h3>Keybindings</h3><p>Click on a spell, press a key, or Shift/Ctrl/Alt + key</p><p>Spells cast on mouseover targets</p><button type="button" data-cancel-binding>Cancel cast: Esc / Space</button><span class="keybinding-status" data-binding-status role="status"></span><button type="button" data-defaults>Restore defaults</button><button type="button" data-close>Close</button></div>';
   const find = selector => panel.querySelector(selector);
@@ -59,7 +70,7 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast,cancel
   function capture(binding) {
     if (!selected || !binding) return;
     if(selected==='__cancel'){cancelBinding=binding;bindings=Object.fromEntries(Object.entries(bindings).filter(([,value])=>value!==binding));localStorage.setItem(storageKey+'.cancelHotkey',binding);save();selected=null;status.textContent='Cancel cast: '+hotkeyLabel(binding);update();return;}
-    if(binding===cancelBinding){cancelBinding=null;localStorage.removeItem(storageKey+'.cancelHotkey');}
+    if(binding===cancelBinding){cancelBinding=null;localStorage.setItem(storageKey+'.cancelHotkey','');}
     const name = spells.find(spell => spell.key === selected).name;
     bindings = assignHotkey(bindings,selected,binding);save();
     status.textContent = name + ': ' + hotkeyLabel(binding);
@@ -72,7 +83,7 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast,cancel
   find('[data-configure]').onclick = () => { editing = true;update(); };
   find('[data-close]').onclick = close;
   find('[data-cancel-binding]').onclick=()=>{selected='__cancel';status.textContent='Press a key or combination to cancel casts.';};
-  find('[data-defaults]').onclick = () => { bindings = {};cancelBinding=null;localStorage.removeItem(storageKey+'.cancelHotkey');save();selected = null;status.textContent = 'Defaults restored.';update(); };
+  find('[data-defaults]').onclick = () => { bindings = {};cancelBinding=null;localStorage.setItem(storageKey+'.cancelHotkey','');save();selected = null;status.textContent = 'Defaults restored.';update(); };
   function hoveredTarget() {
     const frames = [...root.querySelectorAll('.heal-party > button')];
     const frame = frames.find(frame=>frame.matches(':hover'));

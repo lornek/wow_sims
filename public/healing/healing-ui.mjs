@@ -1485,7 +1485,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     else draw();
   }
 
-  hotkeys = mountHotkeys({root, storageKey:settingsKey, spells:spellButtons,
+  hotkeys = mountHotkeys({root, storageKey:settingsKey.replace(/\.raid$/,''), spells:spellButtons,
     isAvailable:key => !!currentSpells?.[key],
     cancelCast:()=>{pendingTargetSpell=null;if(pull.cancelCast()){soundscape.cancelCast();spellAudio.play(['priest','paladin'].includes(className)?'Cancel holy cast':'Cancel cast');}render();},
     targetFor:(key,index) => utility[key] ? encounter.party.length - 1 : index,
