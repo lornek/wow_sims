@@ -25,6 +25,6 @@ export function createHealingSoundscape({className,enabled,context,storage,event
   const focus=active&&className==='priest'&&state.innerFocus>state.time;
   if(focus!==focusLoop){focusLoop=focus;buffs.stop();if(focus)buffs.play('568938',{loop:true,fallback:null});}
  }
- return {syncCast,syncBuffs,heal(event){healing.play(settings[healingSoundEvent(event)]);},stop,
+ return {syncCast,syncBuffs,cancelCast(){cast=null;casting.stop();},heal(event){healing.play(settings[healingSoundEvent(event)]);},stop,
  destroy(){stop();events.removeEventListener('storage',reload);}};
 }

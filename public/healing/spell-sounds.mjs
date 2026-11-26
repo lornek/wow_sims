@@ -1,6 +1,8 @@
 // Stock 3.3.5 visual/sound references; custom Forever choices are explicitly marked.
 const nature=568291, holy=568915;
 export const spellSounds = Object.freeze({
+ 'Cancel holy cast':{landing:[569772],custom:true,reference:'Holy spell fizzle'},
+ 'Cancel cast':{landing:[569774],custom:true,reference:'Nature spell fizzle'},
  'Healing Wave':{casting:nature,landing:[568917]},
  'Lesser Healing Wave':{casting:nature,landing:[568917]},
  'Chain Heal':{casting:568440,landing:[567124,569767]},

@@ -8,7 +8,7 @@ const profile={mana:1e5,regen:0,mp5:0,power:0,crit:0};
 const party=()=>Array.from({length:20},(_,i)=>({name:'P'+i,group:Math.floor(i/5),max:10000,dps:0,role:'Damage'}));
 const encounter=()=>({party:party(),health:1e8,swing:0,limit:200,raid:true});
 const basic={low:100,high:100,cost:0,cast:0,gcd:0,cooldown:0,coefficient:0,multiplier:1};
-for(const key of ['growth','prayer','stream'])test(`${key}: selected target's group controls healing and incoming previews`,()=>{
+for(const key of ['growth','prayer'])test(`${key}: selected target's group controls healing and incoming previews`,()=>{
  const spell={...basic,key,name:key,party:true,...(key!=='prayer'?{period:1,duration:3}:{}),cast:1};
  const p=createPull(profile,{[key]:spell},encounter(),()=>.5);p.state.party.forEach(u=>u.hp=5000);p.start();p.cast(key,2);
  assert.deepEqual(p.incomingHealing().map((n,i)=>n>0?i:null).filter(i=>i!==null),[0,1,2,3,4]);p.step(1);p.step(1);

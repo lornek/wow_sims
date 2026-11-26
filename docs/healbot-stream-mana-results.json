@@ -1,0 +1,19 @@
+{
+  "standard": {
+    "runs": 90,
+    "outcomes": {
+      "won": 90
+    },
+    "meanOverhealPct": 15.3,
+    "meanPlayerPolicyManaRemaining": 8218
+  },
+  "legendary": {
+    "runs": 90,
+    "outcomes": {
+      "won": 57,
+      "lost": 33
+    },
+    "meanOverhealPct": 6.4,
+    "meanPlayerPolicyManaRemaining": 4629
+  }
+}

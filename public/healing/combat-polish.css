@@ -120,14 +120,14 @@
 .healing .co-healer-button{font-size:.85rem;white-space:nowrap;padding-inline:4px}
 /* Palette and shallow depth from the user-authored Warcraft frame CSS showcase. */
 .healing .heal-frame{--frame-top:var(--class-light);--frame-bottom:var(--class-dark)}
-.healing .heal-frame[data-frame-class=warrior]{--frame-top:#c19362;--frame-bottom:#77512f}
-.healing .heal-frame[data-frame-class=paladin]{--frame-top:#f796c1;--frame-bottom:#b84d7e}
+.healing .heal-frame[data-frame-class=warrior]{--frame-top:#bd8c58;--frame-bottom:#714d2d}
+.healing .heal-frame[data-frame-class=paladin]{--frame-top:#f684b6;--frame-bottom:#b14777}
 .healing .heal-frame[data-frame-class=mage]{--frame-top:#58c4f6;--frame-bottom:#1c75bc}
 .healing .heal-frame[data-frame-class=druid]{--frame-top:#ff8c24;--frame-bottom:#b84a00}
 .healing .heal-frame[data-frame-class=priest]{--frame-top:#e8dfcb;--frame-bottom:#b8ab8c}
-.healing .heal-frame[data-frame-class=hunter]{--frame-top:#b4dc76;--frame-bottom:#689432}
-.healing .heal-frame[data-frame-class=warlock]{--frame-top:#9b84d6;--frame-bottom:#563d94}
-.healing .heal-frame[data-frame-class=shaman]{--frame-top:#1a8cff;--frame-bottom:#0047b3}
+.healing .heal-frame[data-frame-class=hunter]{--frame-top:#95d660;--frame-bottom:#51882e}
+.healing .heal-frame[data-frame-class=warlock]{--frame-top:#8a6fcf;--frame-bottom:#4f3888}
+.healing .heal-frame[data-frame-class=shaman]{--frame-top:#007efd;--frame-bottom:#0040a1}
 .healing .heal-frame[data-frame-class=rogue]{--frame-top:#ddca5e;--frame-bottom:#8e7b24}
 .healing .heal-frame .unit-fill{background:linear-gradient(165deg,var(--frame-top) 0%,var(--unit) 52%,var(--frame-bottom) 100%)}
 .healing .heal-frame>strong,.healing .heal-frame>small{paint-order:stroke fill;-webkit-text-stroke:1px #211a16;text-shadow:0 2px 4px #000c,0 3px 6px #000a}
@@ -188,3 +188,12 @@
  .healing.raid-mode .heal-frame>small{font-size:.6875rem}
  .healing.raid-mode .unit-you{font-size:.725rem}
 }
+
+/* Companion buffs sit left of center; player-applied buffs sit right of center. */
+.healing.raid-mode .heal-frame .raid-auras{position:absolute;left:2px;right:auto;top:50%;transform:translateY(-50%);width:calc(50% - 3px);height:44px;min-height:44px;display:flex;align-content:center;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:2px;overflow:hidden}
+.healing.raid-mode .raid-aura{width:20px;height:20px}
+.healing.raid-mode .raid-aura small{font-size:9px}
+.healing.raid-mode .heal-frame .unit-status{position:absolute;right:2px;left:auto;top:50%;transform:translateY(-50%);width:calc(50% - 3px);height:25px;min-height:25px;overflow:visible}
+.healing.raid-mode .unit-status .unit-aura{left:auto;right:calc(var(--aura-index,0) * clamp(0px,(100% - 23px) / var(--aura-gaps,1),26px));top:0}
+@media(max-width:760px){.healing.raid-mode .raid-aura{width:clamp(14px,4vw,20px);height:clamp(14px,4vw,20px)}.healing.raid-mode .heal-frame .raid-auras{left:1px;width:calc(50% - 1px);gap:1px;height:42px;min-height:42px}}
+.healing.raid-mode[data-raid-layout=left] .raid-aura{width:clamp(14px,calc((100% - 2px)/2),20px);height:auto;aspect-ratio:1}

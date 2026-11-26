@@ -253,7 +253,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
 
   function cast(key, index) {
     const spell = spells[key];
-    const unit = spell?.self ? caster : party[index];
+    const unit = spell?.self || key==='stream' ? caster : party[index];
     if (!spell || !unit) return;
     if (state.phase !== 'active' || !unit.hp) {
       state.message = 'Choose a living ally during the pull.';
@@ -286,6 +286,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.gcdDuration = spell.gcd === 0 ? 0 : Math.max(1.5, spell.gcd ?? 1.5);
       state.gcd = state.time + state.gcdDuration;
     }
+    state.castCancelledAt=null;
     const originalFocus=state.innerFocus,originalClearcasting=state.clearcastingUntil,originalInfusion=state.infusion;
     const infused = key === 'holyLight' && state.infusion > state.time;
     if (infused) state.infusion = 0;
@@ -539,5 +540,5 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
       state.manaAtEnd = state.mana;
     }
   }
-  return {state, cast, cancelCast(){const pending=state.cast;if(!pending)return false;if(pending.channel)state.effects=state.effects.filter(e=>e.key!==pending.spell.key);else for(const[key,expires]of Object.entries(pending.spell.cancelRestore??{}))state[key]=Math.max(state[key]??0,expires??0);state.cast=null;state.message='Cast cancelled';return true;}, step, incomingHealing, manaRegenRate, healingPower, grantMana:restoreMana, reactToDamage(unit){if(unit===caster)triggerWaterShield();triggerMending(unit);}, start() { if (state.phase === 'ready') state.phase = 'active'; }};
+  return {state, cast, cancelCast(){const pending=state.cast;if(!pending){if(state.gcd>state.time)state.castCancelledAt=state.time;return false;}if(pending.channel)state.effects=state.effects.filter(e=>e.key!==pending.spell.key);else for(const[key,expires]of Object.entries(pending.spell.cancelRestore??{}))state[key]=Math.max(state[key]??0,expires??0);state.cast=null;state.castCancelledAt=state.time;state.message='Cast cancelled';return true;}, step, incomingHealing, manaRegenRate, healingPower, grantMana:restoreMana, reactToDamage(unit){if(unit===caster)triggerWaterShield();triggerMending(unit);}, start() { if (state.phase === 'ready') state.phase = 'active'; }};
 }

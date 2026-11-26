@@ -1,5 +1,7 @@
 // Stock archive filenames; see docs/shaman-audio.md for source provenance.
 export const clientSounds = [
+  {"id": "569772", "name": "Spell cancellation · Holy fizzle", "group": "Casting", "file": "fizzleholya.ogg", "sourcePath": "sound/spells/fizzle/fizzleholya.ogg"},
+  {"id": "569774", "name": "Spell cancellation · Nature fizzle", "group": "Casting", "file": "fizzlenaturea.ogg", "sourcePath": "sound/spells/fizzle/fizzlenaturea.ogg"},
   {
     "id": "568091",
     "name": "Nature casting \u00b7 soft",

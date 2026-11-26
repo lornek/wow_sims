@@ -62,7 +62,7 @@ const damageIcons = {...raidDpsIcons,
 export function mountHealing({className, healer, healerColor, catalog, ranks, spellGroups, loadouts, buffs, talents,
   applyTalents, buildProfile, trees, slots, utility, defaultTalents, schools, schoolIcons, unlocks, auras, healingKeys,
   configureSpell = spell => spell, extraMeters = [], presets, hazard = 'poison', raid=null, raidAdapters=null,onRaidChange}) {
-  utility={...utility};if(raid)for(const key of ['growth','prayer','stream'])delete utility[key];
+  utility={...utility};if(raid)for(const key of ['growth','prayer'])delete utility[key];
   healerColor=classColors[className]??healerColor;
   slots = [...slots, ['darkRune', 'Dark Rune', 'Activate']];
   extraMeters = [...extraMeters, ['enchantAbsorb','Enchant: Absorption']];
@@ -200,7 +200,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       tooltipLine(tip, whole(spell.cost) + ' mana · ' + (spell.channel ? spell.duration + ' sec channel' : spell.cast ? Number((spell.cast / (1 + (profile.haste ?? 0))).toFixed(2)) + ' sec cast' : 'Instant'));
       if (profile.omen && spell.omenEligible && pull?.state.clearcastingUntil > pull?.state.time) tooltipLine(tip, 'Clearcasting · this cast costs no mana.', 'game-tooltip-mana');
       if (spell.cooldown) tooltipLine(tip, spell.cooldown + ' sec cooldown');
-      if(raid&&['growth','prayer','chain','stream','vigil'].includes(key))tooltipLine(tip,'Targets the selected ally’s five-player group.','game-tooltip-reference');
+      if(raid&&['growth','prayer','chain','vigil'].includes(key))tooltipLine(tip,'Targets the selected ally’s five-player group.','game-tooltip-reference');
+      if(key==='waterShield')tooltipLine(tip,'One globe at most every 3.5 sec, shared by incoming hits and eligible spell crits.','game-tooltip-reference');
+      if(raid&&key==='stream')tooltipLine(tip,'Heals only your own five-player group.','game-tooltip-reference');
       const description = catalog[name]?.ranks?.find(entry => entry.rank === row.rank)?.description;
       const healing = renderHealingBreakdown(tip, name, row);
       if (description && !healing) tooltipLine(tip, description, 'game-tooltip-description');
@@ -591,9 +593,10 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     for (const field of root.querySelectorAll('[data-mana-max]')) field.textContent = whole(profile.mana);
     find('[data-mana-rate]').textContent = '+' + pull.manaRegenRate().toFixed(1) + ' mana/sec';
     fill(find('[data-regen]'), (s.time - s.lastSpend) / 5);
-    const gcdRemaining = active ? Math.max(0, s.gcd - s.time) : 0;
+    const cancelled=s.castCancelledAt!=null&&s.time<s.gcd;
+    const gcdRemaining = active&&!cancelled ? Math.max(0, s.gcd - s.time) : 0;
     fill(find('[data-cast-fill]'), s.cast ? 1 - (s.cast.end - s.time) / s.cast.duration : gcdRemaining ? 1 - gcdRemaining / s.gcdDuration : 0);
-    find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : gcdRemaining ? 'Global cooldown · ' + gcdRemaining.toFixed(2) + ' sec' : active ? 'Ready to cast' : 'Cast bar';
+    find('[data-cast]').textContent = s.cast ? s.cast.spell.name + ' → ' + s.cast.unit.name : gcdRemaining ? 'Global cooldown · ' + gcdRemaining.toFixed(2) + ' sec' : cancelled ? 'Cast cancelled' : active ? 'Ready to cast' : 'Cast bar';
     spellButtons.forEach(({button, art, timer, cooldown, key, tooltip, chargesLabel}, index) => {
       const {row} = spellEntries[index];
       const base = currentSpells[key]?.cooldown ?? row.cooldown;
@@ -1485,7 +1488,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
 
   hotkeys = mountHotkeys({root, storageKey:settingsKey, spells:spellButtons,
     isAvailable:key => !!currentSpells?.[key],
-    cancelCast:()=>{pendingTargetSpell=null;pull.cancelCast();soundscape.syncCast(null);render();},
+    cancelCast:()=>{pendingTargetSpell=null;if(pull.cancelCast()){soundscape.cancelCast();spellAudio.play(['priest','paladin'].includes(className)?'Cancel holy cast':'Cancel cast');}render();},
     targetFor:(key,index) => utility[key] ? encounter.party.length - 1 : index,
     cast:(key,index) => { pendingTargetSpell = null; pull.cast(key,index); render(); }});
   damageText = mountDamageText(find('.boss-crest'), damageIcons);
