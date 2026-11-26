@@ -12,6 +12,22 @@ test('conservation responds to boss health and mana, while preferring efficient 
  const early=healerConservation(actor);assert.equal(chooseHeal(actor,units,Array(20).fill(0)),null);state.boss=10;assert.ok(healerConservation(actor)<early);assert.equal(chooseHeal(actor,units,Array(20).fill(0)).key,'lesser');state.mana=1000;assert.ok(healerConservation(actor)>early);assert.equal(chooseHeal(actor,units,Array(20).fill(0)),null);
  units[0].hp=2000;assert.equal(chooseHeal(actor,units,Array(20).fill(0)).key,'wave');units[0].hp=200;assert.ok(chooseHeal(actor,units,Array(20).fill(0)));
 });
+test('Holy Binding makes Flash Heal worthwhile when the raid priest also needs healing',()=>{
+ const units=party();
+ const unit=units[19];
+ const state={time:1,mana:10000,boss:100,bossMax:100,cooldowns:{},gcd:0,effects:[]};
+ const flash={...basic,key:'flash',cost:380,low:1000,high:1000,selfCopy:.5};
+ const heal={...basic,key:'heal',cost:275,low:700,high:700};
+ const actor={pull:{state},unit,profile:{mana:10000,power:0,crit:0},focus:'raid',spells:{flash,heal}};
+ units.forEach(ally=>ally.hp=ally.max);
+ units[0].hp=3300;
+ const incoming=Array(20).fill(0);
+ assert.deepEqual(chooseHeal(actor,units,incoming),{key:'heal',index:0});
+ unit.hp=3500;
+ assert.deepEqual(chooseHeal(actor,units,incoming),{key:'flash',index:0});
+ incoming[19]=500;
+ assert.deepEqual(chooseHeal(actor,units,incoming),{key:'heal',index:0});
+});
 test('Water Shield shares a 3.5-second ICD across crit and damage triggers and refresh does not reset it',()=>{
  const waterShield={...basic,key:'waterShield',name:'Water Shield',waterShield:true,self:true,duration:600};const heal={...basic,key:'heal',name:'Heal'};const p=createPull({mana:10000,power:0,crit:1,regen:0,mp5:0},{waterShield,heal},{party:party(),health:1e8,swing:0,limit:100,startWaterShield:true},()=>0);p.start();p.state.mana=0;p.cast('heal',0);assert.equal(p.state.waterShield.charges,2);p.reactToDamage(p.state.party[19]);assert.equal(p.state.waterShield.charges,2);p.cast('waterShield',19);p.reactToDamage(p.state.party[19]);assert.equal(p.state.waterShield.charges,3);p.step(3.4);p.reactToDamage(p.state.party[19]);assert.equal(p.state.waterShield.charges,3);p.step(.11);p.reactToDamage(p.state.party[19]);assert.equal(p.state.waterShield.charges,2);
 });

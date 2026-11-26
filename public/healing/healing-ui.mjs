@@ -363,21 +363,21 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   if(raid)for(const[index,unit]of encounter.party.entries()){frames[index].frame.dataset.raidGroup=unit.group+1;if(index===encounter.party.length-1)frames[index].frame.dataset.isPlayer='true';frames[index].frame.title=unit.name+' · Group '+(unit.group+1)+' · '+(unit.className??className);}
 
   function attempt(event, index, right) {
-    if (hotkeys?.mouse(event, index)) return;
-    if (!right && pendingTargetSpell && currentSpells[pendingTargetSpell]) {
+    const plainLeft = !right && !event.altKey && !event.ctrlKey && !event.shiftKey && !event.metaKey;
+    if (plainLeft && pendingTargetSpell && currentSpells[pendingTargetSpell] && !root.classList.contains('hotkey-configuring')) {
       const key = pendingTargetSpell;
       pendingTargetSpell = null;
       pull.cast(key, index);
       render();
       return;
     }
+    if (hotkeys?.mouse(event, index)) return;
     pendingTargetSpell = null;
     const button = right ? 'Right' : 'Left';
     const binding = event.altKey && !right ? 'Alt + Left' : event.ctrlKey ? 'Ctrl + ' + button :
-      event.shiftKey ? 'Shift + ' + button : right ? 'Right click' : '';
+      event.shiftKey ? 'Shift + ' + button : right ? 'Right click' : 'Left click';
     const active = slots[selected];
-    const key = !binding || (active[2] === binding && currentSpells[active[0]]) ?
-      (hotkeys?.has(active[0]) ? null : active[0]) :
+    const key = active[2] === binding && currentSpells[active[0]] && !hotkeys?.has(active[0]) ? active[0] :
       slots.find(([key, , shortcut]) => shortcut === binding && currentSpells[key] && !hotkeys?.has(key))?.[0];
     if (key) pull.cast(key, index);
     render();

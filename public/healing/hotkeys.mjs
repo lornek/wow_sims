@@ -85,7 +85,7 @@ export function mountHotkeys({root, storageKey, spells, isAvailable, cast,cancel
   find('[data-cancel-binding]').onclick=()=>{selected='__cancel';status.textContent='Press a key or combination to cancel casts.';};
   find('[data-defaults]').onclick = () => { bindings = {};cancelBinding=null;localStorage.setItem(storageKey+'.cancelHotkey','');save();selected = null;status.textContent = 'Defaults restored.';update(); };
   function hoveredTarget() {
-    const frames = [...root.querySelectorAll('.heal-party > button')];
+    const frames = [...root.querySelectorAll('.heal-party button[data-party-index]')];
     const frame = frames.find(frame=>frame.matches(':hover'));
     return frame ? Number(frame.dataset.partyIndex ?? frames.indexOf(frame)) : -1;
   }
