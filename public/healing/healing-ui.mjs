@@ -290,8 +290,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
   const damageMeter = find('[data-damage-meter]');
   damageMeter.replaceChildren();
   const damageRows = [];
+  const party = find('.heal-party');
   for (const [index, unit] of encounter.party.entries()) {
-    const frame = find('.heal-party').querySelector('[data-party-index="'+index+'"]') ?? document.createElement('button');
+    const frame = party.querySelector('[data-party-index="'+index+'"]') ?? document.createElement('button');
     frame.dataset.partyIndex = String(index);
     frame.type = 'button';
     frame.className = 'heal-frame';
@@ -299,15 +300,21 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     if (!frame.firstElementChild) frame.innerHTML = '<span class="unit-fill"></span><span class="unit-incoming" aria-hidden="true"></span>' +
       '<strong><img class="unit-role" src="'+new URL('./'+purposeIconPath('role-'+(unit.role==='Tank'?'tank':unit.role==='Healer'?'healer':'dps')),import.meta.url)+'" alt="'+unit.role+'" width="22" height="22"><span class="unit-name"></span></strong><small></small><span class="unit-status"></span>';
     if(index===encounter.party.length-1){frame.dataset.isPlayer='true';if(!frame.querySelector('.unit-you')){const tag=document.createElement('span');tag.className='unit-you';tag.textContent='(You)';frame.querySelector('strong').append(tag);}}
-    let resource;
-    if (combatants[unit.combatantKey ?? unit.name]) {
-      const track = document.createElement('span');
-      track.className = 'party-resource ' + combatants[unit.combatantKey ?? unit.name].resource.toLowerCase();
-      resource = frame.querySelector('.party-resource > span') ?? document.createElement('span');
-      if (!resource.parentElement) {
-        track.append(resource);
-        frame.append(track);
-      }
+    const combatant = combatants[unit.combatantKey ?? unit.name];
+    const tile = document.createElement('div');
+    tile.className = 'party-tile';
+    const track = document.createElement('div');
+    track.className = 'heal-bar resource-bar party-resource ' + (combatant?.resource ?? 'Mana').toLowerCase();
+    const resource = document.createElement('span');
+    if (raid && unit.support !== undefined) {
+      resource.classList.add('raid-support-mana');
+    } else if (!combatant) {
+      resource.setAttribute('data-mana-fill', '');
+    }
+    track.append(resource);
+    tile.append(frame, track);
+
+    if (combatant) {
       const row = document.createElement('details');
       row.className = 'meter-row';
       row.name = 'healbot-damage-breakdown';
@@ -322,8 +329,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       damageMeter.append(row);
       const specImage=document.createElement('img');specImage.className='meter-spec-icon';specImage.src=specIcon(unit);specImage.alt='';label.append(specImage,document.createTextNode(unit.name));row.addEventListener('toggle',()=>{if(row.open)render();});
       damageRows[index] = {row, value, breakdown, lines: new Map()};
-    } else if (!frame.querySelector('.party-resource')) {
-      frame.insertAdjacentHTML('beforeend', '<span class="party-resource mana"><span data-mana-fill></span></span>');
     }
     frame.onclick = event => {
       if (!touchInput(event)) return attempt(event, index, false);
@@ -336,8 +341,6 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       event.preventDefault();
       attempt(event, index, true);
     };
-    if(raid&&unit.support!==undefined){const mana=frame.querySelector('[data-mana-fill]');if(mana){mana.removeAttribute('data-mana-fill');mana.classList.add('raid-support-mana');}}
-    if (!frame.parentElement) find('.heal-party').append(frame);
     const status = frame.querySelector('.unit-status');
     status.replaceChildren();
     let auraOrder = 0;
@@ -351,11 +354,11 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
         status.append(badge);
         return {key, name, badge, timer};
       });
-    frames.push({frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('.unit-name'),
+    frames.push({tile, frame, fill: frame.firstElementChild, incoming: frame.querySelector('.unit-incoming'), label: frame.querySelector('.unit-name'),
       health: frame.querySelector(':scope > small'), resource, status, nextAuraOrder: () => ++auraOrder, auras: badges});
   }
 
-  find('.heal-party').replaceChildren(...(raid?encounter.party.map((_,i)=>i).sort((a,b)=>encounter.party[a].group-encounter.party[b].group):[0,1,4,2,3]).map(index=>frames[index].frame));
+  party.replaceChildren(...(raid?encounter.party.map((_,i)=>i).sort((a,b)=>encounter.party[a].group-encounter.party[b].group):[0,1,4,2,3]).map(index=>frames[index].tile));
   const stopFrameNameFades=raid?mountFrameNameFades(frames.map(frame=>frame.label)):()=>{};
   if(raid)for(const[index,unit]of encounter.party.entries()){frames[index].frame.dataset.raidGroup=unit.group+1;if(index===encounter.party.length-1)frames[index].frame.dataset.isPlayer='true';frames[index].frame.title=unit.name+' · Group '+(unit.group+1)+' · '+(unit.className??className);}
 
@@ -509,7 +512,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
       frame.incoming.style.left = (100 * unit.hp / unit.max) + '%';
       fill(frame.incoming, incoming[i] / unit.max);
       frame.label.textContent = unit.name.replace(/ \(You\)$/,'') + (currentEncounter.id === 'patchwerk' && i === 1 ? ' · Off-tank' : '');
-      if (frame.resource && unit.resource) {
+      if (unit.resource) {
         fill(frame.resource, unit.resource.value / unit.resource.max);
         setGameTooltip(frame.resource.parentElement, unit.resource.type, [whole(unit.resource.value) + ' / ' + unit.resource.max]);
         const entry = damageRows[i];
@@ -548,6 +551,9 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
           });
           while (breakdown.children.length > damaging.length) breakdown.lastElementChild.remove();
         }
+      }
+      if (frame.resource.hasAttribute('data-mana-fill')) {
+        setGameTooltip(frame.resource.parentElement, 'Mana', [whole(s.mana) + ' / ' + whole(profile.mana)]);
       }
       frame.frame.classList.toggle('touch-target', i === touchTarget && !!unit.hp);
       frame.health.textContent = unit.hp ? whole(unit.hp) + ' / ' + whole(unit.max) : 'Dead';
