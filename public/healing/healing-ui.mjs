@@ -1501,7 +1501,7 @@ export function mountHealing({className, healer, healerColor, catalog, ranks, sp
     targetFor:(key,index) => utility[key] ? encounter.party.length - 1 : index,
     cast:(key,index) => { pendingTargetSpell = null; pull.cast(key,index); render(); }});
   damageText = mountDamageText(find('.boss-crest'), damageIcons);
-  if(raid)raidHud=mountRaidHud(root);
+  if(raid)raidHud=mountRaidHud(root,raidAdapters);
   combatHealing=mountCombatHealingMeter(root,{raid:!!raid,className,spec:className==='priest'?priestSpec:className,onSetup:()=>raidSetup?.openHealers(),spellInfo:(key,actor)=>{const name=actor.spells?.[key]?.name??currentSpells[key]?.name??slots.find(([k])=>k===key)?.[1]??({aegis:'Divine Aegis',bloom:'Bloom',enchantAbsorb:'Enchant: Absorption'})[key]??key;const data=(actor.kit?raidAdapters[actor.unit.className]?.catalog:catalog)?.[name];return{name,path:data?.iconPath??(data?.icon?'icons/'+data.icon:undefined)};}});
   reset(false, false);
   function frame(now) {

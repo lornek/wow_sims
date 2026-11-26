@@ -1,3 +1,4 @@
+import {mountRaidCastCues} from './raid-cast-cues.mjs';
 import {specIcon} from './combat-appearance.mjs';
 import {raidSettings,raidRoster,raidStorageKey,raidSpecLabels} from './raid.mjs';
 export function mountRaidSetup(root,config,hero,{onApply=()=>{}}={}){
@@ -31,9 +32,10 @@ export function mountRaidSetup(root,config,hero,{onApply=()=>{}}={}){
  return {openHealers,destroy(){panel.remove();dialog.remove();}};
 }
 const auraIcons={regrowth:'spell_nature_resistnature',rejuvenation:'spell_nature_rejuvenation',renew:'spell_holy_renew',growth:'ability_druid_flourish',stream:'inv_spear_04',spring:'spell_nature_manaregentotem',tide:'spell_frost_summonwaterelemental',shield:'spell_holy_powerwordshield',mending:'spell_holy_prayerofmendingtga',oath:'spell_holy_greaterblessingoflight',vigil:'spell_holy_healingaura',innervate:'spell_nature_lightning',tranquility:'spell_nature_tranquility',powerInfusion:'spell_holy_powerinfusion',waterShield:'ability_shaman_watershield',clearcasting:'inv_misc_orb_01',riptide:'spell_nature_riptide'};
-export function mountRaidHud(root){
+export function mountRaidHud(root,adapters){
+ const castCues=mountRaidCastCues(root,adapters);
  const badges=new Map();let last=-1;
- return {render(state){if(state.time>=last&&state.time-last<.1)return;last=state.time;const actors=state.raidActors??[];
+ return {render(state){if(state.time>=last&&state.time-last<.1)return;last=state.time;castCues.render(state);const actors=state.raidActors??[];
  const gearNote=root.querySelector('[data-raid-gear]');if(gearNote)gearNote.textContent='Auto gear: '+actors.filter(a=>a.kit).map(a=>a.unit.name+' · '+a.kit.name+' (ilvl '+a.kit.average.toFixed(0)+')').join('; ');
  for(const actor of actors){const manaBar=root.querySelector('[data-party-index="'+state.party.indexOf(actor.unit)+'"] + .party-resource .raid-support-mana');if(manaBar){manaBar.style.width=Math.max(0,actor.pull.state.mana/actor.profile.mana)*100+'%';manaBar.closest('.party-tile').classList.toggle('raid-low-mana',actor.unit.hp>0&&actor.pull.state.mana/actor.profile.mana<.2);}}
  state.party.forEach((unit,i)=>{let holder=badges.get(i);if(!holder){holder=document.createElement('span');holder.className='raid-auras';root.querySelector('[data-party-index="'+i+'"]').append(holder);badges.set(i,holder);}
@@ -43,5 +45,5 @@ export function mountRaidHud(root){
  const priority={oath:100,vigil:90,shield:80,mending:70};const shown=list.sort((a,b)=>(priority[b[0]]??0)-(priority[a[0]]??0)).slice(0,4),signature=JSON.stringify(shown.map(([key,name,time])=>[key,name,Math.round((state.time+time)*1000)]));
  if(holder.dataset.key!==signature){holder.dataset.key=signature;holder.replaceChildren();for(const[key,name]of shown){const badge=document.createElement('span');badge.className='raid-aura';const image=document.createElement('img'),timer=document.createElement('small');image.src=new URL('./icons/'+(auraIcons[key]??auraIcons.renew)+'.jpg',import.meta.url);image.alt=key+' · '+name;badge.append(image,timer);holder.append(badge);}}
  shown.forEach(([key,name,time,duration],index)=>{const badge=holder.children[index];duration=Number.isFinite(duration)&&duration>0?duration:({shield:30,powerInfusion:15,mending:30,waterShield:600,clearcasting:15})[key]??15;badge.style.setProperty('--aura-sweep',Math.max(0,Math.min(100,(1-time/duration)*100))+'%');badge.title=key+' · '+name+' · '+Math.ceil(time)+' sec';badge.querySelector('small').textContent=time>=60?Math.ceil(time/60)+'m':Math.ceil(time)+'s';});
- });},destroy(){for(const h of badges.values())h.remove();}};
+ });},destroy(){castCues.destroy();for(const h of badges.values())h.remove();}};
 }

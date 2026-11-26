@@ -293,6 +293,7 @@ export function createPull(profile, spells, encounter, random = Math.random, onH
     if (focus) state.innerFocus = 0;
     else if (clearcasting) state.clearcastingUntil = 0;
     const castTime = instant ? 0 : (spell.cast - (infused ? spell.infusionReduction : 0)) / speed;
+    state.lastAbility = {id:(state.lastAbility?.id ?? 0)+1,key,name:spell.name,start:state.time,end:state.time+(spell.channel?spell.duration:castTime || Math.max(1.5,state.gcd-state.time)),casting:castTime>0||!!spell.channel};
     const prepared = clearcasting && !focus ? {...spell, clearcastingCost:spell.cost, cost:0} : focus ? {...spell, focusCost: spell.cost, cost: 0, bonusCrit: (spell.bonusCrit ?? 0) + (spell.period ? 0 : .25)} : spell;
     state.cast = {spell: {...prepared,cancelRestore:{innerFocus:focus?originalFocus:0,clearcastingUntil:clearcasting&&!focus?originalClearcasting:0,infusion:infused?originalInfusion:0}}, unit, end: state.time + castTime, duration: castTime, pushbacks: 0, usesVigil};
     state.message = spell.name + ' → ' + unit.name;

@@ -244,3 +244,16 @@
 .healing .heal-frame{z-index:2;box-shadow:inset 1px 1px 0 var(--class-light),inset -1px -1px 0 var(--class-dark)}
 .healing.raid-mode .heal-frame[data-is-player]{box-shadow:inset 0 0 0 2px #ffe19a}
 .healing .heal-bar.party-resource{z-index:2;box-shadow:none}
+
+.healing .raid-cast-cue{position:absolute;left:12%;right:12%;bottom:7px;height:22px;pointer-events:none;z-index:4;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 2px 3px #0008)}
+.healing .raid-cast-cue[hidden]{display:none}
+.healing .raid-cast-cue img{position:relative;width:22px;height:22px;box-sizing:border-box;border:1px solid #e4ba5b;border-radius:3px}
+.healing .raid-cast-progress{display:none;position:absolute;inset:5px 0;border:1px solid #b99a59;border-radius:3px;background:linear-gradient(90deg,#e9bf5f var(--cast-progress),#21180e var(--cast-progress));box-shadow:inset 0 1px 2px #fff5}
+.healing .cue-casting .raid-cast-progress{display:block}
+.healing .raid-cast-cue.cue-pop{animation:raid-cue-pop .18s ease-out both}
+.healing .raid-cast-cue.cue-fall{animation:raid-cue-fall .2s ease-in both}
+@keyframes raid-cue-pop{0%{transform:translateY(5px) scale(.65);opacity:0}55%{transform:translateY(-2px) scale(1.15);opacity:1}100%{transform:none;opacity:1}}
+@keyframes raid-cue-fall{to{transform:translateY(9px) scale(.85);opacity:0}}
+@media(prefers-reduced-motion:reduce){.healing .raid-cast-cue.cue-pop{animation:none}.healing .raid-cast-cue.cue-fall{animation:raid-cue-fade .2s linear both}}
+@keyframes raid-cue-fade{to{opacity:0}}
+@media(max-width:760px){.healing .raid-cast-cue{bottom:24px;height:18px}.healing .raid-cast-cue img{width:18px;height:18px}}
