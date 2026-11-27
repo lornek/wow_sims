@@ -17,4 +17,8 @@ Tests cover exact-ID selection, rejection of another run's artifact, and propaga
 
 ## Verification
 
-Pending the first live run of this fix; record its run URL and successful source SHA below after completion.
+Confirmed successful live deployment: https://github.com/lornek/wow_sims/actions/runs/45914224816 (25 seconds).
+
+Published source SHA: `f95d0c6` (the exact-ID deployment fix). GitHub reports the deployment URL as https://lornek.github.io/wow_sims/. Direct retrieval of the Pages hostname was blocked by this workspace network policy, so this confirmation is based on the successful GitHub deployment status, not a fetched live version.json.
+
+Full suite after the fix: 251 passing tests.
