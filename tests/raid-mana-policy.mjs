@@ -45,3 +45,21 @@ test('Tranquility is reserved for a whole-group emergency after incoming heals',
  incoming[15]=2000;
  assert.equal(chooseHeal(actor,units,incoming),null);
 });
+test('Druid preserves an active Regrowth HoT except for emergency direct healing',()=>{
+ const units=party();units.forEach(u=>u.hp=u.max);units[0].hp=2200;
+ const state={time:1,mana:10000,boss:100,bossMax:100,cooldowns:{},gcd:0,effects:[{key:'regrowth',target:units[0],expires:20,left:6}]};
+ const spell=(key,cost)=>({...basic,key,cost,low:1400,high:1400});
+ const actor={pull:{state},unit:units[19],profile:{mana:10000,power:0,crit:0},focus:'raid',spells:{regrowth:spell('regrowth',100),touch:spell('touch',300)}};
+ assert.equal(chooseHeal(actor,units,Array(20).fill(0)).key,'touch');
+ units[0].hp=900;assert.equal(chooseHeal(actor,units,Array(20).fill(0)).key,'regrowth');
+ units[0].hp=2200;state.effects[0].expires=0;assert.equal(chooseHeal(actor,units,Array(20).fill(0)).key,'regrowth');
+});
+test('Shaman spreads Riptide before routine Chain Heal without clipping existing HoTs',()=>{
+ const units=party();units.forEach(u=>u.hp=u.max);units.slice(0,3).forEach(u=>u.hp=2200);
+ const state={time:1,mana:10000,boss:100,bossMax:100,cooldowns:{},gcd:0,effects:[]};
+ const actor={pull:{state},unit:units[19],profile:{mana:10000,power:0,crit:0},focus:'raid',spells:{riptide:{...basic,key:'riptide',low:600,high:600,cost:100,duration:15,period:3},chain:{...basic,key:'chain',low:1000,high:1000,cost:200,falloff:.5}}};
+ const incoming=Array(20).fill(0);
+ assert.deepEqual(chooseHeal(actor,units,incoming),{key:'riptide',index:0});
+ state.effects.push({key:'riptide',target:units[0],expires:15,left:4});assert.deepEqual(chooseHeal(actor,units,incoming),{key:'riptide',index:1});
+ state.effects.push(...units.slice(1,3).map(target=>({key:'riptide',target,expires:15,left:4})));assert.equal(chooseHeal(actor,units,incoming).key,'chain');
+});

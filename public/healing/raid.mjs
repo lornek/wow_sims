@@ -80,10 +80,13 @@ export function chooseHeal(actor,party,incoming){
  if(can('tranquility')&&tranquilityEmergency)return cast('tranquility',unit);
  if(can('favor')&&target.deficit>1400&&!(s.divineFavor>s.time))return cast('favor');
  if(can('shield')&&target.unit.hp/target.unit.max<(.55-.15*conservation)&&!(target.unit.weakened>s.time))return cast('shield',target.unit);
+ const hasHot=(key,ally)=>s.effects.some(effect=>effect.key===key&&effect.target===ally&&(effect.expires??Infinity)>s.time&&effect.left!==0);
+ // Maintain Riptide before routine Chain Heal, spreading it to injured allies.
+ if(can('riptide')){const recipient=targets.find(t=>(!emergency||t.unit===target.unit)&&t.deficit>=Math.max(250,estimate('riptide')*.5)&&!hasHot('riptide',t.unit));if(recipient)return cast('riptide',recipient.unit);}
  const groupDeficit=party.filter(u=>u.hp&&u.group===target.unit.group).reduce((n,u)=>n+need(u),0);
  if(can('prayer')&&groupHurt>=3&&groupDeficit>estimate('prayer')*3){if(s.innerFocus>s.time)return cast('prayer',target.unit);if(can('focus'))return cast('focus');}
  if(injured.length>=3){for(const key of ['chain','growth']){const sp=spells[key];if(!sp)continue;const total=estimate(key)*(key==='chain'?1+(sp.falloff??.5)+(sp.falloff??.5)**2:5*Math.floor(sp.duration/sp.period));if(!emergency&&groupDeficit<total*(.65+.2*conservation))continue;if(injured.filter(t=>t.unit.group===target.unit.group).length<3)continue;const choice=cast(key,target.unit);if(choice)return choice;}}
- for(const key of ['riptide','rejuvenation','renew'])if(can(key)&&target.deficit>Math.max(key==='rejuvenation'?650:500,estimate(key)*Math.floor(spells[key].duration/(spells[key].period||spells[key].duration))*(.35+.35*conservation))&&!s.effects.some(e=>e.key===key&&e.target===target.unit))return cast(key,target.unit);
+ for(const key of ['rejuvenation','renew'])if(can(key)&&target.deficit>Math.max(key==='rejuvenation'?650:500,estimate(key)*Math.floor(spells[key].duration/(spells[key].period||spells[key].duration))*(.35+.35*conservation))&&!s.effects.some(e=>e.key===key&&e.target===target.unit))return cast(key,target.unit);
  const keys=emergency?['shock','flash','lesser','regrowth','greater','holyLight','wave','touch','heal']:['holyLight','greater','wave','touch','heal','lesser','flash','regrowth'];
  // Include Holy Binding only when the caster can use the copied healing.
  const usefulHealing=(key,expected)=>{
@@ -100,7 +103,7 @@ export function chooseHeal(actor,party,incoming){
   };
   keys.sort((a,b)=>score(b)-score(a));
  }
- for(const key of keys)if(can(key)&&(emergency||fits(key,estimate(key))))return cast(key,target.unit);
+ for(const key of keys)if(can(key)&&(key!=='regrowth'||!hasHot('regrowth',target.unit)||emergency)&&(emergency||fits(key,estimate(key))))return cast(key,target.unit);
  return null;
 }
 export function createRaidPull(profile,spells,encounter,random,onHeal,onDamage,onSpell,adapters,average,enabledBuffs=new Set(['mageblood'])){
