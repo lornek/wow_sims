@@ -260,3 +260,17 @@
 /* Let the compositor interpolate cast progress between HUD updates. */
 .healing .raid-cast-progress{background:#21180e;overflow:hidden}
 .healing .raid-cast-fill{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left center;background:linear-gradient(#f3d88b,#d8ad47);box-shadow:inset 0 1px 2px #fff5}
+
+/* Compact frame faces by 20%; resource tracks retain their independent 20px height. */
+@media(min-width:761px){
+ .healing .heal-frame{height:80px;min-height:80px}
+ .healing.raid-mode .heal-frame{height:99.2px;min-height:99.2px}
+ .healing.raid-mode[data-raid-layout=left] .heal-frame{height:124.8px;min-height:124.8px}
+}
+@media(max-width:760px){
+ .healing .heal-frame,.healing.raid-mode .heal-frame,.healing.raid-mode[data-raid-layout=left] .heal-frame{aspect-ratio:5 / 4}
+ .healing.raid-mode .heal-frame>strong{top:2px;height:20px;min-height:20px}
+ .healing.raid-mode .heal-frame>small{bottom:14px}
+ .healing .raid-cast-cue{bottom:0;height:14px}
+ .healing .raid-cast-cue img{width:14px;height:14px}
+}
