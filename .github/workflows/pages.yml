@@ -37,24 +37,16 @@ jobs:
           node -e 'require("node:fs").writeFileSync("dist/version.json", JSON.stringify({commit:process.env.GITHUB_SHA,branch:"main"},null,2))'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
+        id: upload
         with:
           path: dist
           name: ${{ env.PAGES_ARTIFACT }}
-      - name: Wait for Pages artifact metadata
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          for attempt in {1..15}; do
-            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=$PAGES_ARTIFACT" \
-                --jq '[.artifacts[] | select(.expired == false)] | length' | grep -qx 1; then
-              exit 0
-            fi
-            sleep 2
-          done
-          echo "::error::Pages artifact metadata did not become available"
-          exit 1
-      - name: Deploy
+      - name: Deploy exact Pages artifact and verify completion
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/github-script@v8
+        env:
+          PAGES_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
         with:
-          artifact_name: ${{ env.PAGES_ARTIFACT }}
+          script: |
+            const deploy = require('./scripts/deploy-pages.cjs');
+            await deploy({github, context, core});
