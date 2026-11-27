@@ -315,10 +315,10 @@
 @media(max-width:760px){.healing .heal-spells .spell-label{display:none}}
 
 @media(max-width:760px){
- .healbot-header .class-pick{padding:4px 3px 5px;gap:5px;align-content:start;justify-items:center}
- .healbot-header .class-art{position:relative;width:100%;height:auto;aspect-ratio:1;max-width:72px;box-sizing:border-box}
+ .healbot-header .class-pick{padding:10px 3px 8px;gap:7px;align-content:start;justify-items:center}
+ .healbot-header .class-art{position:relative;width:40px;height:40px;aspect-ratio:1;max-width:100%;box-sizing:border-box}
  .healbot-header .class-art>img:first-child{display:block;box-sizing:border-box;width:100%;height:100%;object-fit:cover}
- .healbot-header .class-art .class-spec-icon{position:absolute;box-sizing:border-box;width:43%;height:43%;right:-2px;bottom:-2px;object-fit:cover;z-index:1}
+ .healbot-header .class-art .class-spec-icon{position:absolute;box-sizing:border-box;width:18px;height:18px;right:-3px;bottom:-3px;object-fit:cover;z-index:1}
  .healbot-header .class-pick>span:last-child{font-size:clamp(.62rem,2.55vw,.82rem);line-height:1.2;letter-spacing:0;text-align:center;max-width:100%;overflow:hidden}
  .healing .heal-stage>.combat-damage,.healing.raid-mode .heal-stage>.combat-healing,.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-healing,
  .healing.raid-mode .heal-stage>.combat-damage:not(.combat-healing),.healing.raid-mode[data-raid-layout=left] .heal-stage>.combat-damage:not(.combat-healing){width:clamp(108px,32vw,144px)}
