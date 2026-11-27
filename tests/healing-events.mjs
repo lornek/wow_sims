@@ -71,3 +71,9 @@ for (const key of ['regrowth', 'chain']) test(key + ' split preserves healing, o
   assert.equal(healingMeterEntries(pull.state.meters,false).length,1);
   assert.equal(healingMeterEntries({[key]:{hits:1,effective:10}},true).length,1);
 });
+
+test('healing meters exclude utility casts while retaining absorbs and fully overhealed spells',()=>{
+ const meters={potion:{casts:1,effective:0,overheal:0},innervate:{casts:1},shield:{casts:1,effective:120,overheal:0},heal:{casts:1,hits:1,effective:0,overheal:500}};
+ assert.deepEqual(healingMeterEntries(meters).map(e=>e.key).sort(),['heal','shield']);
+ assert.deepEqual(healingMeterEntries(meters,true).map(e=>e.key).sort(),['heal','shield']);
+});
