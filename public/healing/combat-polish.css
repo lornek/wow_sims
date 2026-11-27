@@ -332,3 +332,12 @@
  .healing .combat-healing .meter-row summary{height:24px;min-height:24px}
 }
 @media(max-width:760px){.healing .combat-healing .meter-row{margin:0;padding:0}}
+
+/* Keep the player's resource/cast bars after the explicitly positioned mobile raid. */
+@media(max-width:760px){
+ .healing.raid-mode .heal-stage>.heal-party,.healing.raid-mode[data-raid-layout=left] .heal-stage>.heal-party{grid-column:1 / -1;grid-row:3}
+ .healing.raid-mode .heal-stage>.main-mana{grid-column:1 / -1;grid-row:4}
+ .healing.raid-mode .heal-stage>.regen-track{grid-column:1 / -1;grid-row:5}
+ .healing.raid-mode .heal-stage>.player-cast{grid-column:1 / -1;grid-row:6}
+ .healing.raid-mode .heal-stage>.heal-spells{grid-column:1 / -1;grid-row:7}
+}
